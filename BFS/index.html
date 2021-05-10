@@ -133,18 +133,18 @@
 
 <span class="va">meta_en</span></pre></div>
 <div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">## # A tibble: 162 x 6</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="co">##    title        observation_period  published  source  url_bfs       url_px     </span></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="co">##    &lt;chr&gt;        &lt;chr&gt;               &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;         &lt;chr&gt;      </span></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="co">##  1 Foreign cro~ 1.1.1999-31.3.2021  04.05.2021 Federa~ https://www.~ https://ww~</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="co">##  2 Retail Trad~ 1.1.2000-31.3.2021  30.04.2021 Federa~ https://www.~ https://ww~</span></span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="co">##  3 Retail Trad~ 1.1.2000-31.3.2021  30.04.2021 Federa~ https://www.~ https://ww~</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a><span class="co">##  4 Retail Trad~ 2000-2020           30.04.2021 Federa~ https://www.~ https://ww~</span></span>
-<span id="cb5-8"><a href="#cb5-8"></a><span class="co">##  5 New registr~ 1.1.2020-31.3.2020~ 13.04.2021 Federa~ https://www.~ https://ww~</span></span>
-<span id="cb5-9"><a href="#cb5-9"></a><span class="co">##  6 Deaths per ~ 1803-2019           06.04.2021 Federa~ https://www.~ https://ww~</span></span>
-<span id="cb5-10"><a href="#cb5-10"></a><span class="co">##  7 Hotel accom~ 1.1.2005-28.2.2021  06.04.2021 Federa~ https://www.~ https://ww~</span></span>
-<span id="cb5-11"><a href="#cb5-11"></a><span class="co">##  8 Hotel accom~ 1.1.2005-28.2.2021  06.04.2021 Federa~ https://www.~ https://ww~</span></span>
-<span id="cb5-12"><a href="#cb5-12"></a><span class="co">##  9 Hotel accom~ 1.1.2013-28.2.2021  06.04.2021 Federa~ https://www.~ https://ww~</span></span>
-<span id="cb5-13"><a href="#cb5-13"></a><span class="co">## 10 Hotel secto~ 1.1.2005-28.2.2021  06.04.2021 Federa~ https://www.~ https://ww~</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="co">##    title         observation_peri~ published source   url_bfs        url_px     </span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="co">##    &lt;chr&gt;         &lt;chr&gt;             &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;          &lt;chr&gt;      </span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co">##  1 Hotel accomm~ 1.1.2005-31.3.20~ 07.05.20~ Federal~ https://www.b~ https://ww~</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="co">##  2 Hotel accomm~ 1.1.2005-31.3.20~ 07.05.20~ Federal~ https://www.b~ https://ww~</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="co">##  3 Hotel accomm~ 1.1.2013-31.3.20~ 07.05.20~ Federal~ https://www.b~ https://ww~</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="co">##  4 Hotel sector~ 1.1.2005-31.3.20~ 07.05.20~ Federal~ https://www.b~ https://ww~</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="co">##  5 Hotel sector~ 1.1.2005-31.3.20~ 07.05.20~ Federal~ https://www.b~ https://ww~</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a><span class="co">##  6 Hotel sector~ 1.1.2013-31.3.20~ 07.05.20~ Federal~ https://www.b~ https://ww~</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="co">##  7 Foreign cros~ 1.1.1999-31.3.20~ 04.05.20~ Federal~ https://www.b~ https://ww~</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a><span class="co">##  8 Retail Trade~ 1.1.2000-31.3.20~ 30.04.20~ Federal~ https://www.b~ https://ww~</span></span>
+<span id="cb5-12"><a href="#cb5-12"></a><span class="co">##  9 Retail Trade~ 1.1.2000-31.3.20~ 30.04.20~ Federal~ https://www.b~ https://ww~</span></span>
+<span id="cb5-13"><a href="#cb5-13"></a><span class="co">## 10 Retail Trade~ 2000-2020         30.04.20~ Federal~ https://www.b~ https://ww~</span></span>
 <span id="cb5-14"><a href="#cb5-14"></a><span class="co">## # ... with 152 more rows</span></span></code></pre></div>
 <p>You can also get the catalog data by language based on the new RSS feed provided by the Swiss Federal Statistical Office. Note that the number of datasets available with <code><a href="reference/bfs_get_catalog.html">bfs_get_catalog()</a></code> may differ from the output of the <code><a href="reference/bfs_get_metadata.html">bfs_get_metadata()</a></code>.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit">
@@ -154,16 +154,16 @@
 <div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">## # A tibble: 162 x 5</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a><span class="co">##    title            language published           url_bfs           url_px       </span></span>
 <span id="cb7-3"><a href="#cb7-3"></a><span class="co">##    &lt;chr&gt;            &lt;chr&gt;    &lt;dttm&gt;              &lt;chr&gt;             &lt;chr&gt;        </span></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="co">##  1 Foreign cross-b~ en       2021-05-04 08:30:00 https://www.bfs.~ https://www.~</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a><span class="co">##  2 Retail Trade Tu~ en       2021-04-30 08:30:00 https://www.bfs.~ https://www.~</span></span>
-<span id="cb7-6"><a href="#cb7-6"></a><span class="co">##  3 Retail Trade Tu~ en       2021-04-30 08:30:00 https://www.bfs.~ https://www.~</span></span>
-<span id="cb7-7"><a href="#cb7-7"></a><span class="co">##  4 Retail Trade Tu~ en       2021-04-30 08:30:00 https://www.bfs.~ https://www.~</span></span>
-<span id="cb7-8"><a href="#cb7-8"></a><span class="co">##  5 New registratio~ en       2021-04-13 08:30:00 https://www.bfs.~ https://www.~</span></span>
-<span id="cb7-9"><a href="#cb7-9"></a><span class="co">##  6 Deaths per mont~ en       2021-04-06 08:30:00 https://www.bfs.~ https://www.~</span></span>
-<span id="cb7-10"><a href="#cb7-10"></a><span class="co">##  7 Hotel accommoda~ en       2021-04-06 08:30:00 https://www.bfs.~ https://www.~</span></span>
-<span id="cb7-11"><a href="#cb7-11"></a><span class="co">##  8 Hotel accommoda~ en       2021-04-06 08:30:00 https://www.bfs.~ https://www.~</span></span>
-<span id="cb7-12"><a href="#cb7-12"></a><span class="co">##  9 Hotel accommoda~ en       2021-04-06 08:30:00 https://www.bfs.~ https://www.~</span></span>
-<span id="cb7-13"><a href="#cb7-13"></a><span class="co">## 10 Hotel sector: S~ en       2021-04-06 08:30:00 https://www.bfs.~ https://www.~</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co">##  1 Hotel accommoda~ en       2021-05-07 08:30:00 https://www.bfs.~ https://www.~</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="co">##  2 Hotel accommoda~ en       2021-05-07 08:30:00 https://www.bfs.~ https://www.~</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="co">##  3 Hotel accommoda~ en       2021-05-07 08:30:00 https://www.bfs.~ https://www.~</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="co">##  4 Hotel sector: S~ en       2021-05-07 08:30:00 https://www.bfs.~ https://www.~</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="co">##  5 Hotel sector: S~ en       2021-05-07 08:30:00 https://www.bfs.~ https://www.~</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="co">##  6 Hotel sector: s~ en       2021-05-07 08:30:00 https://www.bfs.~ https://www.~</span></span>
+<span id="cb7-10"><a href="#cb7-10"></a><span class="co">##  7 Foreign cross-b~ en       2021-05-04 08:30:00 https://www.bfs.~ https://www.~</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a><span class="co">##  8 Retail Trade Tu~ en       2021-04-30 08:30:00 https://www.bfs.~ https://www.~</span></span>
+<span id="cb7-12"><a href="#cb7-12"></a><span class="co">##  9 Retail Trade Tu~ en       2021-04-30 08:30:00 https://www.bfs.~ https://www.~</span></span>
+<span id="cb7-13"><a href="#cb7-13"></a><span class="co">## 10 Retail Trade Tu~ en       2021-04-30 08:30:00 https://www.bfs.~ https://www.~</span></span>
 <span id="cb7-14"><a href="#cb7-14"></a><span class="co">## # ... with 152 more rows</span></span></code></pre></div>
 </div>
 <div id="search-for-data" class="section level3">
@@ -213,7 +213,7 @@
 <span id="cb13-2"><a href="#cb13-2"></a><span class="co">##  $ names        : chr [1:5] "studienstufe" "geschlecht" "isced_fach" "jahr" ...</span></span>
 <span id="cb13-3"><a href="#cb13-3"></a><span class="co">##  $ row.names    : int [1:17220] 1 2 3 4 5 6 7 8 9 10 ...</span></span>
 <span id="cb13-4"><a href="#cb13-4"></a><span class="co">##  $ last_update  : chr "20210326 08:30"</span></span>
-<span id="cb13-5"><a href="#cb13-5"></a><span class="co">##  $ download_date: Date[1:1], format: "2021-05-04"</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a><span class="co">##  $ download_date: Date[1:1], format: "2021-05-10"</span></span>
 <span id="cb13-6"><a href="#cb13-6"></a><span class="co">##  $ contact      : chr "Sektion Bildungsprozesse, E-Mail: sius@bfs.admin.ch"</span></span>
 <span id="cb13-7"><a href="#cb13-7"></a><span class="co">##  $ description  : chr "Studierende an den universitären Hochschulen nach Jahr, ISCED Fach, Geschlecht und Studienstufe"</span></span>
 <span id="cb13-8"><a href="#cb13-8"></a><span class="co">##  $ link         : chr "https://www.bfs.admin.ch/asset/de/px-x-1502040100_131"</span></span>
@@ -270,7 +270,7 @@
 <div class="developers">
 <h2>Developers</h2>
 <ul class="list-unstyled">
-<li>Félix Luginbuhl <br><small class="roles"> Author, maintainer </small>  </li>
+<li>Felix Luginbuhl <br><small class="roles"> Author, maintainer </small>  </li>
 </ul>
 </div>
 
@@ -279,7 +279,6 @@
 <ul class="list-unstyled">
 <li><a href="https://CRAN.R-project.org/package=BFS"><img src="https://www.r-pkg.org/badges/version/BFS" alt="CRAN status"></a></li>
 <li><a href="https://cran.r-project.org/package=BFS"><img src="https://cranlogs.r-pkg.org/badges/grand-total/BFS" alt="Grand total"></a></li>
-<li><a href="https://gitlab.com/lgnbhl/BFS/pipelines"><img src="https://gitlab.com/lgnbhl/BFS/badges/master/pipeline.svg" alt="pipeline status"></a></li>
 <li><a href="https://github.com/lgnbhl/BFS/actions"><img src="https://github.com/lgnbhl/BFS/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
 </ul>
 </div>
@@ -288,7 +287,7 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Félix Luginbuhl.</p>
+  <p>Developed by Felix Luginbuhl.</p>
 </div>
 
 <div class="pkgdown">
