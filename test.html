@@ -14,19 +14,47 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+<!-- Fonts -->
+<link href="inst/assets/css/fonts.css" rel="stylesheet">
+
   <!-- Font Awesome -->
   <!-- <script src="https://kit.fontawesome.com/599c50fc73.js"></script> -->
+<style>
+body
+{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+    text-align: left;
+    color: #525f7f;
+    background-color: #fff;
+}
+/* fix navbar above text, https://stackoverflow.com/q/45354807 */
+.container:nth-child(2){
+  margin-top: 100px;
+}
+.navbar-custom {
+    background-color: #172b4d;
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+    color: #ffffff;
+}
+</style>
 
 </head>
 
 <body>
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-custom">
     <div class="container">
-      <span class="navbar-brand">
-        Shiny Apps &middot; <a href="https://felixluginbuhl.com">Felix Luginbuhl</a>
-      </span>
+    <a class="navbar-brand" href="">
+          <img src="inst/assets/img/brand/banner-logo-white.png" width="150" alt="Felix Luginbuhl | Data Analytics">
+        </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse"
         data-target="#navbarResponsive" aria-controls="navbarResponsive"
         aria-expanded="false" aria-label="Toggle navigation">
@@ -45,7 +73,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link"
-              href="https://felixluginbuhl.com/about/">About</a>
+              href="https://felixluginbuhl.com/about">About</a>
           </li>
         </ul>
       </div>
@@ -56,12 +84,11 @@
   <div class="container">
 
     <!-- Page Heading -->
-    <!-- <h1 class="my-4">Page Heading
-      </h1> -->
+    <h2 class="my-4">Shiny Apps</h2>
 
     <section id="shiny-apps">
 
-      <h1 class="text-center mb-4">Shiny Apps</h1>
+      <!-- <h2 class="text-center mb-4">Shiny Apps</h2> -->
 
       <div class="row">
         <div class="col-md-7">
@@ -71,9 +98,9 @@
           </a>
         </div>
         <div class="col-md-5">
-          <h3 id="tweet-conf-dash"><code>gotop demo app</code></h3>
+          <h2>gotop</h2>
           <p class="lead">Scroll to top icon in Shiny and Rmarkdown</p>
-          <p>Add a scroll back to top Font Awesome icon in your Shiny apps and Rmarkdown documents.</p>
+          <p>Demonstration app to add  a 'scroll back to top' Font Awesome icon in Shiny and Rmarkdown.</p>
           <a class="btn btn-outline-primary"
             href="https://gotop.felixluginbuhl.com/">Demo
             App</a>
@@ -92,9 +119,9 @@
           </a>
         </div>
         <div class="col-md-5">
-          <h3 id="tweet-conf-dash"><code>aniview demo app</code></h3>
+          <h2>aniview</h2>
           <p class="lead">Animate Shiny content when it comes into view</p>
-          <p>You can use aniview to animate content in Shiny, Rmarkdown and even xaringan presentations.</p>
+          <p>Demonstration app to animate content in Shiny, Rmarkdown and even xaringan presentations.</p>
           <a class="btn btn-outline-primary"
             href="https://aniview.felixluginbuhl.com/">Demo App</a>
           <a class="btn btn-outline-success"
@@ -106,7 +133,7 @@
   <!-- /.container -->
 
   <!-- Footer -->
-  <footer class="py-5 bg-dark">
+  <footer class="py-5" style="background-color:#172b4d;">
     <div class="container">
       <p class="m-0 text-center text-white">Copyright &copy; 2021 Félix Luginbühl. All rights reserved.</p>
     </div>
