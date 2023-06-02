@@ -11,6 +11,38 @@
 <description>R Shiny web applications demonstrating the use of my R packages.
 </description>
 <generator>quarto-1.2.269</generator>
-<lastBuildDate>Fri, 02 Jun 2023 13:35:28 GMT</lastBuildDate>
+<lastBuildDate>Tue, 28 Feb 2023 23:00:00 GMT</lastBuildDate>
+<item>
+  <title>Beautiful Tables using R</title>
+  <link>https://www.felixluginbuhl.com/apps/beautiful-tables/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<section id="video" class="level2">
+<h2 class="anchored" data-anchor-id="video">Video</h2>
+<div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/tmLoa_zL010" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
+<section id="visualisations" class="level2">
+<h2 class="anchored" data-anchor-id="visualisations">Visualisations</h2>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="https://www.felixluginbuhl.com/apps/beautiful-tables/spotify-table-1.png" class="img-fluid"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="https://www.felixluginbuhl.com/apps/beautiful-tables/spotify-table-2.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://www.felixluginbuhl.com/apps/beautiful-tables/index.html</guid>
+  <pubDate>Tue, 28 Feb 2023 23:00:00 GMT</pubDate>
+  <media:content url="https://www.felixluginbuhl.com/apps/beautiful-tables/beautiful-tables.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
 </channel>
 </rss>
