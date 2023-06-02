@@ -11,7 +11,10 @@
       "/projects/scroller/index.html",
       "/projects/aniview/index.html",
       "/projects/polyglot/index.html",
-      "/apps/beautiful-tables/index.html",
+      "/applications/citystatistics-app/index.html",
+      "/applications/gotop-app/index.html",
+      "/applications/aniview-app/index.html",
+      "/applications/scroller-app/index.html",
       "/talks/adminr-zurich/index.html",
       "/talks/geneva-r-users/index.html"
     ]
@@ -25,6 +28,15 @@
     ]
   },
   {
+    "listing": "/applications/index.html",
+    "items": [
+      "/applications/citystatistics-app/index.html",
+      "/applications/gotop-app/index.html",
+      "/applications/aniview-app/index.html",
+      "/applications/scroller-app/index.html"
+    ]
+  },
+  {
     "listing": "/projects/index.html",
     "items": [
       "/projects/BFS/index.html",
@@ -33,12 +45,6 @@
       "/projects/scroller/index.html",
       "/projects/aniview/index.html",
       "/projects/polyglot/index.html"
-    ]
-  },
-  {
-    "listing": "/apps/index.html",
-    "items": [
-      "/apps/beautiful-tables/index.html"
     ]
   },
   {
