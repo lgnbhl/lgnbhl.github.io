@@ -2,70 +2,78 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.felixluginbuhl.com/index.html</loc>
-    <lastmod>2023-06-02T13:25:49.184Z</lastmod>
+    <lastmod>2023-06-02T13:35:33.800Z</lastmod>
   </url>
   <url>
-    <loc>https://www.felixluginbuhl.com/about/index.html</loc>
-    <lastmod>2023-06-02T13:24:20.655Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.felixluginbuhl.com/apps/index.html</loc>
-    <lastmod>2023-06-02T13:25:42.252Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.felixluginbuhl.com/posts/beautiful-tables/index.html</loc>
-    <lastmod>2023-06-02T13:24:21.540Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.felixluginbuhl.com/posts/geocode-locations/index.html</loc>
-    <lastmod>2023-06-02T13:24:21.961Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.felixluginbuhl.com/posts/index.html</loc>
-    <lastmod>2023-06-02T13:24:22.488Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.felixluginbuhl.com/posts/interactive-country-maps/index.html</loc>
-    <lastmod>2023-06-02T13:24:22.906Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.felixluginbuhl.com/projects/BFS/index.html</loc>
-    <lastmod>2023-06-02T13:24:23.358Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.felixluginbuhl.com/projects/aniview/index.html</loc>
-    <lastmod>2023-06-02T13:24:23.807Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.felixluginbuhl.com/projects/aos/index.html</loc>
-    <lastmod>2023-06-02T13:24:24.260Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.felixluginbuhl.com/projects/gotop/index.html</loc>
-    <lastmod>2023-06-02T13:24:24.684Z</lastmod>
+    <loc>https://www.felixluginbuhl.com/applications/index.html</loc>
+    <lastmod>2023-06-02T13:35:37.453Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/projects/index.html</loc>
-    <lastmod>2023-06-02T13:25:45.169Z</lastmod>
+    <lastmod>2023-06-02T13:35:34.321Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/posts/index.html</loc>
+    <lastmod>2023-06-02T13:35:34.788Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/about/index.html</loc>
+    <lastmod>2023-06-02T13:35:27.283Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/applications/beautiful-tables/index.html</loc>
+    <lastmod>2023-06-02T13:35:27.684Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/apps/index.html</loc>
+    <lastmod>2023-06-02T13:35:28.124Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/posts/beautiful-tables/index.html</loc>
+    <lastmod>2023-06-02T13:35:28.529Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/posts/geocode-locations/index.html</loc>
+    <lastmod>2023-06-02T13:35:28.935Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/posts/interactive-country-maps/index.html</loc>
+    <lastmod>2023-06-02T13:35:29.330Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/projects/BFS/index.html</loc>
+    <lastmod>2023-06-02T13:35:29.730Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/projects/aniview/index.html</loc>
+    <lastmod>2023-06-02T13:35:30.118Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/projects/aos/index.html</loc>
+    <lastmod>2023-06-02T13:35:30.515Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/projects/gotop/index.html</loc>
+    <lastmod>2023-06-02T13:35:30.912Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/projects/polyglot/index.html</loc>
-    <lastmod>2023-06-02T13:24:25.724Z</lastmod>
+    <lastmod>2023-06-02T13:35:31.333Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/projects/scroller/index.html</loc>
-    <lastmod>2023-06-02T13:24:26.155Z</lastmod>
+    <lastmod>2023-06-02T13:35:31.729Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/talks/adminr-zurich/index.html</loc>
-    <lastmod>2023-06-02T13:24:26.619Z</lastmod>
+    <lastmod>2023-06-02T13:35:32.156Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/talks/geneva-r-users/index.html</loc>
-    <lastmod>2023-06-02T13:24:27.052Z</lastmod>
+    <lastmod>2023-06-02T13:35:32.580Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/talks/index.html</loc>
-    <lastmod>2023-06-02T13:25:47.947Z</lastmod>
+    <lastmod>2023-06-02T13:35:33.070Z</lastmod>
   </url>
 </urlset>

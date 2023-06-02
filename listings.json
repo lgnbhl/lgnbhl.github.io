@@ -11,20 +11,15 @@
       "/projects/scroller/index.html",
       "/projects/aniview/index.html",
       "/projects/polyglot/index.html",
+      "/applications/beautiful-tables/index.html",
       "/talks/adminr-zurich/index.html",
       "/talks/geneva-r-users/index.html"
     ]
   },
   {
-    "listing": "/apps/index.html",
-    "items": []
-  },
-  {
-    "listing": "/posts/index.html",
+    "listing": "/applications/index.html",
     "items": [
-      "/posts/interactive-country-maps/index.html",
-      "/posts/geocode-locations/index.html",
-      "/posts/beautiful-tables/index.html"
+      "/applications/beautiful-tables/index.html"
     ]
   },
   {
@@ -37,6 +32,18 @@
       "/projects/aniview/index.html",
       "/projects/polyglot/index.html"
     ]
+  },
+  {
+    "listing": "/posts/index.html",
+    "items": [
+      "/posts/interactive-country-maps/index.html",
+      "/posts/geocode-locations/index.html",
+      "/posts/beautiful-tables/index.html"
+    ]
+  },
+  {
+    "listing": "/apps/index.html",
+    "items": []
   },
   {
     "listing": "/talks/index.html",

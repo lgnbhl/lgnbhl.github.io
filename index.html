@@ -133,7 +133,7 @@ ul.task-list li input[type="checkbox"] {
     const options = {
       valueNames: ['listing-title','listing-image','listing-description','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: [],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -223,7 +223,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./apps/index.html">
+    <a class="nav-link" href="./applications/index.html">
  <span class="menu-text">apps</span></a>
   </li>  
   <li class="nav-item">
@@ -388,7 +388,28 @@ No matching items
 <h2 class="anchored" data-anchor-id="latest-applications"><a class="link-dark no-text-decoration" href="./apps/index.html">Latest Applications</a></h2>
 <div id="listing-recent-apps-listing" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
-
+<div class="g-col-1" data-index="0" data-listing-date-sort="1677625200000" data-listing-file-modified-sort="1685692821378" data-listing-reading-time-sort="0.03">
+<a href="./applications/beautiful-tables/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./applications/beautiful-tables/beautiful-tables.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Beautiful Tables using R
+</h5>
+<div class="card-text listing-description">
+How to Make Beautiful Tables using R programming. Spotify Top 10 Global Track example using gt.
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Mar 1, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
 </div>
 <div class="listing-no-matching d-none">
 No matching items

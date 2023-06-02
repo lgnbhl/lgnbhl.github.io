@@ -11,7 +11,7 @@
     "href": "index.html#latest-applications",
     "title": "Félix Luginbühl",
     "section": "Latest Applications",
-    "text": "Latest Applications\n\n\n\n\n\nNo matching items"
+    "text": "Latest Applications\n\n\n\n\n\n\n\n\n\n\nBeautiful Tables using R\n\n\nHow to Make Beautiful Tables using R programming. Spotify Top 10 Global Track example using gt.\n\n\n\nMar 1, 2023\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#latest-projects",
@@ -28,6 +28,27 @@
     "text": "Latest Talks\n\n\n\n\n\n\n\n\n\n\nBFS R package - Search and download data from the Swiss Federal Statistical Office\n\n\nMeetup organized by adminR, Digital Society Initiative DSI and the Statistical Office of Zürich.\n\n\n\nMay 25, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR Blogging - Sharing my year-long experience using the tidyverse ecosystem\n\n\nMeetup organized by Geneva R Users at with the support of the EPFL Extension School at Campus Biotech.\n\n\n\nJun 5, 2018\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
+    "objectID": "applications/index.html",
+    "href": "applications/index.html",
+    "title": "Posts and Videos",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nBeautiful Tables using R\n\n\n\n\n\nHow to Make Beautiful Tables using R programming. Spotify Top 10 Global Track example using gt.\n\n\n\n\n\n\nMar 1, 2023\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "projects/index.html",
+    "href": "projects/index.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nBFS R package\n\n\nSearch and download data from the Swiss Federal Statistical Office\n\n\n\nMay 31, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngotop R package\n\n\nAdd a scroll back to top icon to R Markdown and Shiny apps\n\n\n\nSep 20, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\n\naos R package\n\n\nAnimate on Scroll Library for Shiny\n\n\n\nFeb 27, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nscroller R package\n\n\nScroll to any element in your Shiny apps\n\n\n\nFeb 24, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\n\naniview R package\n\n\nAnimate Shiny content when it comes into view\n\n\n\nDec 10, 2020\n\n\n\n\n\n\n\n\n\n\n\n\n\n\npolyglot R package\n\n\nUse the R console as an interactive learning environment\n\n\n\nMay 17, 2020\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/index.html",
+    "href": "posts/index.html",
+    "title": "Posts and Videos",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nInteractive country maps\n\n\n\n\n\nHow to Create Interactive Maps for any Country using R.\n\n\n\n\n\n\nMay 23, 2023\n\n\n\n\n\n\n  \n\n\n\n\nGeocode any location using R\n\n\n\n\n\nHow to use geocoding APIs services and compare them using R.\n\n\n\n\n\n\nApr 18, 2023\n\n\n\n\n\n\n  \n\n\n\n\nBeautiful Tables using R\n\n\n\n\n\nHow to Make Beautiful Tables using R programming. Spotify Top 10 Global Track example using gt.\n\n\n\n\n\n\nMar 1, 2023\n\n\n\n\n\n\nNo matching items"
+  },
+  {
     "objectID": "about/index.html",
     "href": "about/index.html",
     "title": "Félix Luginbühl",
@@ -40,6 +61,13 @@
     "title": "Félix Luginbühl",
     "section": "Get the code",
     "text": "Get the code\nJoin my newsletter to download all the R scripts of my blog posts and YouTube videos.\n\n\nOnce you subscribed you will receive an automatic email with the URL of my GitHub repository, where you can download all the code.\n\nLet’s build something together!\nIf you’re interested in working with me, please drop me a line at felixanalytix@gmail.com."
+  },
+  {
+    "objectID": "applications/beautiful-tables/index.html#visualisations",
+    "href": "applications/beautiful-tables/index.html#visualisations",
+    "title": "Beautiful Tables using R",
+    "section": "Visualisations",
+    "text": "Visualisations"
   },
   {
     "objectID": "apps/index.html",
@@ -61,13 +89,6 @@
     "title": "Geocode any location using R",
     "section": "Visualisation",
     "text": "Visualisation"
-  },
-  {
-    "objectID": "posts/index.html",
-    "href": "posts/index.html",
-    "title": "Posts and Videos",
-    "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nInteractive country maps\n\n\n\n\n\nHow to Create Interactive Maps for any Country using R.\n\n\n\n\n\n\nMay 23, 2023\n\n\n\n\n\n\n  \n\n\n\n\nGeocode any location using R\n\n\n\n\n\nHow to use geocoding APIs services and compare them using R.\n\n\n\n\n\n\nApr 18, 2023\n\n\n\n\n\n\n  \n\n\n\n\nBeautiful Tables using R\n\n\n\n\n\nHow to Make Beautiful Tables using R programming. Spotify Top 10 Global Track example using gt.\n\n\n\n\n\n\nMar 1, 2023\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/interactive-country-maps/index.html#visualisation",
@@ -103,13 +124,6 @@
     "title": "gotop R package",
     "section": "",
     "text": "Redirecting to https://felixluginbuhl.com/gotop…"
-  },
-  {
-    "objectID": "projects/index.html",
-    "href": "projects/index.html",
-    "title": "Projects",
-    "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nBFS R package\n\n\nSearch and download data from the Swiss Federal Statistical Office\n\n\n\nMay 31, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngotop R package\n\n\nAdd a scroll back to top icon to R Markdown and Shiny apps\n\n\n\nSep 20, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\n\naos R package\n\n\nAnimate on Scroll Library for Shiny\n\n\n\nFeb 27, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nscroller R package\n\n\nScroll to any element in your Shiny apps\n\n\n\nFeb 24, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\n\naniview R package\n\n\nAnimate Shiny content when it comes into view\n\n\n\nDec 10, 2020\n\n\n\n\n\n\n\n\n\n\n\n\n\n\npolyglot R package\n\n\nUse the R console as an interactive learning environment\n\n\n\nMay 17, 2020\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "projects/polyglot/index.html",
