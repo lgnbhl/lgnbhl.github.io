@@ -1,14 +1,5 @@
 [
   {
-    "listing": "/apps/index.html",
-    "items": [
-      "/apps/citystatistics/index.html",
-      "/apps/gotop-app/index.html",
-      "/apps/aniview-app/index.html",
-      "/apps/scroller-app/index.html"
-    ]
-  },
-  {
     "listing": "/index.html",
     "items": [
       "/posts/interactive-country-maps/index.html",
@@ -45,6 +36,15 @@
       "/projects/scroller/index.html",
       "/projects/aniview/index.html",
       "/projects/polyglot/index.html"
+    ]
+  },
+  {
+    "listing": "/apps/index.html",
+    "items": [
+      "/apps/citystatistics/index.html",
+      "/apps/gotop-app/index.html",
+      "/apps/aniview-app/index.html",
+      "/apps/scroller-app/index.html"
     ]
   },
   {
