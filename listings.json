@@ -1,0 +1,57 @@
+[
+  {
+    "listing": "/index.html",
+    "items": [
+      "/posts/interactive-country-maps/index.html",
+      "/posts/geocode-locations/index.html",
+      "/posts/beautiful-tables/index.html",
+      "/projects/BFS/index.html",
+      "/projects/gotop/index.html",
+      "/projects/aos/index.html",
+      "/projects/scroller/index.html",
+      "/projects/aniview/index.html",
+      "/projects/polyglot/index.html",
+      "/apps/citystatistics/index.html",
+      "/apps/gotop-app/index.html",
+      "/apps/aniview-app/index.html",
+      "/apps/scroller-app/index.html",
+      "/talks/adminr-zurich/index.html",
+      "/talks/geneva-r-users/index.html"
+    ]
+  },
+  {
+    "listing": "/apps/index.html",
+    "items": [
+      "/apps/citystatistics/index.html",
+      "/apps/gotop-app/index.html",
+      "/apps/aniview-app/index.html",
+      "/apps/scroller-app/index.html"
+    ]
+  },
+  {
+    "listing": "/posts/index.html",
+    "items": [
+      "/posts/interactive-country-maps/index.html",
+      "/posts/geocode-locations/index.html",
+      "/posts/beautiful-tables/index.html"
+    ]
+  },
+  {
+    "listing": "/projects/index.html",
+    "items": [
+      "/projects/BFS/index.html",
+      "/projects/gotop/index.html",
+      "/projects/aos/index.html",
+      "/projects/scroller/index.html",
+      "/projects/aniview/index.html",
+      "/projects/polyglot/index.html"
+    ]
+  },
+  {
+    "listing": "/talks/index.html",
+    "items": [
+      "/talks/adminr-zurich/index.html",
+      "/talks/geneva-r-users/index.html"
+    ]
+  }
+]
