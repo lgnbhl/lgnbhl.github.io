@@ -1,3 +1,13 @@
+#js_particles {
+  width: 100%;
+  height: 300px;
+}
+
+.no-text-decoration {
+  text-decoration: none;
+  color: var(--primary);
+}
+
 .social-icon-links [class^="link"],
 .social-icon-links [class^="link"]:hover,
 .social-icon-links [class^="link"]:focus {
@@ -40,8 +50,4 @@
   .site-logo {
     width: 150px;
   }
-}
-
-.no-text-decoration {
-  text-decoration: none;
 }
