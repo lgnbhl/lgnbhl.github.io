@@ -20,20 +20,20 @@
     ]
   },
   {
-    "listing": "/posts/index.html",
-    "items": [
-      "/posts/interactive-country-maps/index.html",
-      "/posts/geocode-locations/index.html",
-      "/posts/beautiful-tables/index.html"
-    ]
-  },
-  {
     "listing": "/applications/index.html",
     "items": [
       "/applications/citystatistics-app/index.html",
       "/applications/gotop-app/index.html",
       "/applications/aniview-app/index.html",
       "/applications/scroller-app/index.html"
+    ]
+  },
+  {
+    "listing": "/posts/index.html",
+    "items": [
+      "/posts/interactive-country-maps/index.html",
+      "/posts/geocode-locations/index.html",
+      "/posts/beautiful-tables/index.html"
     ]
   },
   {

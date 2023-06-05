@@ -1,12 +1,5 @@
 [
   {
-    "objectID": "posts/interactive-country-maps/index.html#visualisation",
-    "href": "posts/interactive-country-maps/index.html#visualisation",
-    "title": "Interactive country maps",
-    "section": "Visualisation",
-    "text": "Visualisation"
-  },
-  {
     "objectID": "index.html#latest-posts-and-videos",
     "href": "index.html#latest-posts-and-videos",
     "title": "Félix Luginbühl",
@@ -35,13 +28,6 @@
     "text": "Latest Talks\n\n\n\n\n\n\n\n\n\n\nBFS R package - Search and download data from the Swiss Federal Statistical Office\n\n\nMeetup organized by adminR, Digital Society Initiative DSI and the Statistical Office of Zürich.\n\n\n\nMay 25, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR Blogging - Sharing my year-long experience using the tidyverse ecosystem\n\n\nMeetup organized by Geneva R Users with the support of the EPFL Extension School at Campus Biotech.\n\n\n\nJun 5, 2018\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "posts/index.html",
-    "href": "posts/index.html",
-    "title": "Posts and Videos",
-    "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nInteractive country maps\n\n\n\n\n\nHow to Create Interactive Maps for any Country using R.\n\n\n\n\n\n\nMay 23, 2023\n\n\n\n\n\n\n  \n\n\n\n\nGeocode any location using R\n\n\n\n\n\nHow to use geocoding APIs services and compare them using R.\n\n\n\n\n\n\nApr 18, 2023\n\n\n\n\n\n\n  \n\n\n\n\nBeautiful Tables using R\n\n\n\n\n\nHow to Make Beautiful Tables using R programming. Spotify Top 10 Global Track example using gt.\n\n\n\n\n\n\nMar 1, 2023\n\n\n\n\n\n\nNo matching items"
-  },
-  {
     "objectID": "about/index.html",
     "href": "about/index.html",
     "title": "Félix Luginbühl",
@@ -56,11 +42,46 @@
     "text": "Get the code\nJoin my newsletter to download all the R scripts of my blog posts and YouTube videos.\n\n\nOnce you subscribed you will receive an automatic email with the URL of my GitHub repository, where you can download all the code."
   },
   {
+    "objectID": "about/index.html#lets-do-something-together",
+    "href": "about/index.html#lets-do-something-together",
+    "title": "Félix Luginbühl",
+    "section": "Let’s do something together!",
+    "text": "Let’s do something together!\n\n  \n    Web apps\n  \n  \n    Automated reports\n  \n  \n    R Training\n  \n\n\n  \n    Get insightful and fully customized web applications. I build engaging and interactive dashboards, which centralize your insights and data with zero software licensing costs attached.\n    Examples →\n  \n  \n    Increase productivity, save time and reduce human error. From data importing to report generation, data analysis are generated in seconds rather than days. It can be a game changer for your decision-making process.\n    Examples →\n  \n  \n    Learn R programming and make the most of your data. Liberate you from Excel and expensive softwares. Learn R, the most used statistical programming language in the world.\n    Examples →\n  \n\nIf you’re interested in working with me, please drop me a line at felixanalytix@gmail.com"
+  },
+  {
+    "objectID": "applications/aniview-app/index.html",
+    "href": "applications/aniview-app/index.html",
+    "title": "aniview app",
+    "section": "",
+    "text": "Application"
+  },
+  {
+    "objectID": "applications/citystatistics-app/index.html",
+    "href": "applications/citystatistics-app/index.html",
+    "title": "Swiss City Statistics",
+    "section": "",
+    "text": "Application"
+  },
+  {
+    "objectID": "applications/gotop-app/index.html",
+    "href": "applications/gotop-app/index.html",
+    "title": "gotop app",
+    "section": "",
+    "text": "Application"
+  },
+  {
     "objectID": "applications/index.html",
     "href": "applications/index.html",
     "title": "Applications",
     "section": "",
     "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nSwiss City Statistics\n\n\nA use case example for the BFS R package\n\n\n\nJun 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngotop app\n\n\nDemo app of the R package gotop\n\n\n\nApr 20, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\naniview app\n\n\nDemo app of the R package aniview\n\n\n\nFeb 8, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nscroller app\n\n\nDemo app of the R package scroller\n\n\n\nJan 28, 2022\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "applications/scroller-app/index.html",
+    "href": "applications/scroller-app/index.html",
+    "title": "scroller app",
+    "section": "",
+    "text": "Application"
   },
   {
     "objectID": "posts/beautiful-tables/index.html#visualisations",
@@ -73,6 +94,20 @@
     "objectID": "posts/geocode-locations/index.html#visualisation",
     "href": "posts/geocode-locations/index.html#visualisation",
     "title": "Geocode any location using R",
+    "section": "Visualisation",
+    "text": "Visualisation"
+  },
+  {
+    "objectID": "posts/index.html",
+    "href": "posts/index.html",
+    "title": "Posts and Videos",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nInteractive country maps\n\n\n\n\n\nHow to Create Interactive Maps for any Country using R.\n\n\n\n\n\n\nMay 23, 2023\n\n\n\n\n\n\n  \n\n\n\n\nGeocode any location using R\n\n\n\n\n\nHow to use geocoding APIs services and compare them using R.\n\n\n\n\n\n\nApr 18, 2023\n\n\n\n\n\n\n  \n\n\n\n\nBeautiful Tables using R\n\n\n\n\n\nHow to Make Beautiful Tables using R programming. Spotify Top 10 Global Track example using gt.\n\n\n\n\n\n\nMar 1, 2023\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/interactive-country-maps/index.html#visualisation",
+    "href": "posts/interactive-country-maps/index.html#visualisation",
+    "title": "Interactive country maps",
     "section": "Visualisation",
     "text": "Visualisation"
   },
@@ -138,47 +173,5 @@
     "title": "Talks",
     "section": "",
     "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nBFS R package - Search and download data from the Swiss Federal Statistical Office\n\n\n\n\n\n\n\ntalk\n\n\n\n\nMeetup organized by adminR, Digital Society Initiative DSI and the Statistical Office of Zürich.\n\n\n\n\n\n\nMay 25, 2023\n\n\n\n\n\n\n  \n\n\n\n\nR Blogging - Sharing my year-long experience using the tidyverse ecosystem\n\n\n\n\n\n\n\ntalk\n\n\n\n\nMeetup organized by Geneva R Users with the support of the EPFL Extension School at Campus Biotech.\n\n\n\n\n\n\nJun 5, 2018\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "applications/citystatistics-app/index.html",
-    "href": "applications/citystatistics-app/index.html",
-    "title": "Swiss City Statistics",
-    "section": "",
-    "text": "Application"
-  },
-  {
-    "objectID": "applications/aniview-app/index.html",
-    "href": "applications/aniview-app/index.html",
-    "title": "aniview app",
-    "section": "",
-    "text": "Application"
-  },
-  {
-    "objectID": "applications/gotop-app/index.html",
-    "href": "applications/gotop-app/index.html",
-    "title": "gotop app",
-    "section": "",
-    "text": "Application"
-  },
-  {
-    "objectID": "applications/scroller-app/index.html",
-    "href": "applications/scroller-app/index.html",
-    "title": "scroller app",
-    "section": "",
-    "text": "Application"
-  },
-  {
-    "objectID": "about/index.html#lets-do-something-together",
-    "href": "about/index.html#lets-do-something-together",
-    "title": "Félix Luginbühl",
-    "section": "Let’s do something together!",
-    "text": "Let’s do something together!\n\n  \n    Web apps\n  \n  \n    Automated reports\n  \n  \n    R Training\n  \n\n\n  \n    Get insightful and fully customized web applications. I build engaging and interactive dashboards, which centralize your insights and data with zero software licensing costs attached.\n    Examples →\n  \n  \n    Increase productivity, save time and reduce human error. From data importing to report generation, data analysis are generated in seconds rather than days. It can be a game changer for your decision-making process.\n    Examples →\n  \n  \n    Learn R programming and make the most of your data. Liberate you from Excel and expensive softwares. Learn R, the most used statistical programming language in the world.\n    Examples →\n  \n\nIf you’re interested in working with me, please drop me a line at felixanalytix@gmail.com"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Félix Luginbühl",
-    "section": "",
-    "text": "I’m a Data Scientist and R Developer. \n      I build tools and apps to automate data analysis, \n      share insights and improve decision making. \n    \n    About Me →"
   }
 ]

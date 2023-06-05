@@ -32,17 +32,18 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../static/favicon.ico" rel="icon">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -76,7 +77,7 @@ ul.task-list li input[type="checkbox"] {
 <meta property="og:image:width" content="1280">
 <meta name="twitter:title" content="Félix Luginbühl - Interactive country maps">
 <meta name="twitter:description" content="How to Create Interactive Maps for any Country using R.">
-<meta name="twitter:image" content="https://www.felixluginbuhl.com/posts\interactive-country-maps\social-default.png">
+<meta name="twitter:image" content="https://www.felixluginbuhl.com/posts\interactive-country-maps\static\social-default.png">
 <meta name="twitter:creator" content="@FelixLuginbuhl">
 <meta name="twitter:site" content="@FelixLuginbuhl">
 <meta name="twitter:card" content="summary_large_image">
@@ -129,6 +130,11 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://youtube.com/felixanalytix"><i class="bi bi-youtube" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://felixanalytix.substack.com/"><i class="bi bi-rss" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -305,7 +311,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'alternate';
+  let localAlternateSentinel = 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
