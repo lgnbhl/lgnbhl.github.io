@@ -95,7 +95,7 @@
     "href": "applications/citystatistics-app/index.html",
     "title": "Swiss City Statistics",
     "section": "",
-    "text": "Application"
+    "text": "What is it about?\nChoose an indicator, two cities, and have fun trying to guess which city has the highest indicator value.\n\n\nData Info\nThe Swiss City Statistics dataset contains +400 indicators about 9 Swiss cities and their agglomerations.\nThe data is queried using the BFS R package.\n\n\nThe Application"
   },
   {
     "objectID": "applications/gotop-app/index.html",
@@ -214,7 +214,7 @@
     "href": "posts/interactive-network/index.html",
     "title": "Interactive Network of the Marvel Universe",
     "section": "",
-    "text": "Let’s have some fun creating an interactive network of the Marvel Cinematic Universe using the R programming language.\nFirst we will scrape the data from Wikipedia, tidying the data, and build an interactive network of the main Marvel characters.\nYou can play with the final interactive network here: https://felixanalytix.com/vis/marvel-network.html\nLearn how to make it yourself by watching my YouTube video"
+    "text": "Let’s have some fun creating an interactive network of the Marvel Cinematic Universe using R programming.\nFirst we will scrape the data from Wikipedia, structure the data in a tidy way, and build an interactive network of the main Marvel characters.\nYou can play with the final interactive network here.\nLearn how to make it by yourself watching the video:"
   },
   {
     "objectID": "posts/interactive-network/index.html#visualisation",
