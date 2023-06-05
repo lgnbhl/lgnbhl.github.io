@@ -20,20 +20,27 @@
     ]
   },
   {
+    "listing": "/posts/index.html",
+    "items": [
+      "/posts/interactive-country-maps/index.html",
+      "/posts/geocode-locations/index.html",
+      "/posts/beautiful-tables/index.html"
+    ]
+  },
+  {
+    "listing": "/talks/index.html",
+    "items": [
+      "/talks/adminr-zurich/index.html",
+      "/talks/geneva-r-users/index.html"
+    ]
+  },
+  {
     "listing": "/applications/index.html",
     "items": [
       "/applications/citystatistics-app/index.html",
       "/applications/gotop-app/index.html",
       "/applications/aniview-app/index.html",
       "/applications/scroller-app/index.html"
-    ]
-  },
-  {
-    "listing": "/posts/index.html",
-    "items": [
-      "/posts/interactive-country-maps/index.html",
-      "/posts/geocode-locations/index.html",
-      "/posts/beautiful-tables/index.html"
     ]
   },
   {
@@ -45,13 +52,6 @@
       "/projects/scroller/index.html",
       "/projects/aniview/index.html",
       "/projects/polyglot/index.html"
-    ]
-  },
-  {
-    "listing": "/talks/index.html",
-    "items": [
-      "/talks/adminr-zurich/index.html",
-      "/talks/geneva-r-users/index.html"
     ]
   }
 ]

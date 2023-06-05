@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "posts/beautiful-tables/index.html#visualisations",
+    "href": "posts/beautiful-tables/index.html#visualisations",
+    "title": "Beautiful Tables using R",
+    "section": "Visualisations",
+    "text": "Visualisations"
+  },
+  {
     "objectID": "index.html#latest-posts-and-videos",
     "href": "index.html#latest-posts-and-videos",
     "title": "Félix Luginbühl",
@@ -26,6 +33,34 @@
     "title": "Félix Luginbühl",
     "section": "Latest Talks",
     "text": "Latest Talks\n\n\n\n\n\n\n\n\n\n\nBFS R package - Search and download data from the Swiss Federal Statistical Office\n\n\nMeetup organized by adminR, Digital Society Initiative DSI and the Statistical Office of Zürich.\n\n\n\nMay 25, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR Blogging - Sharing my year-long experience using the tidyverse ecosystem\n\n\nMeetup organized by Geneva R Users with the support of the EPFL Extension School at Campus Biotech.\n\n\n\nJun 5, 2018\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/index.html",
+    "href": "posts/index.html",
+    "title": "Posts and Videos",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nInteractive country maps\n\n\n\n\n\nHow to Create Interactive Maps for any Country using R.\n\n\n\n\n\n\nMay 23, 2023\n\n\n\n\n\n\n  \n\n\n\n\nGeocode any location using R\n\n\n\n\n\nHow to use geocoding APIs services and compare them using R.\n\n\n\n\n\n\nApr 18, 2023\n\n\n\n\n\n\n  \n\n\n\n\nBeautiful Tables using R\n\n\n\n\n\nHow to Make Beautiful Tables using R programming. Spotify Top 10 Global Track example using gt.\n\n\n\n\n\n\nMar 1, 2023\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "talks/adminr-zurich/index.html",
+    "href": "talks/adminr-zurich/index.html",
+    "title": "BFS R package - Search and download data from the Swiss Federal Statistical Office",
+    "section": "",
+    "text": "The BFS R package allows to explore and access Swiss public data in a dynamic and reproducible way. Users can discover the latest BFS datasets available, extract their metadata and download them in any language (German, French, Italian or English) directly from the R console."
+  },
+  {
+    "objectID": "talks/index.html",
+    "href": "talks/index.html",
+    "title": "Talks",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nBFS R package - Search and download data from the Swiss Federal Statistical Office\n\n\n\n\n\n\n\ntalk\n\n\n\n\nMeetup organized by adminR, Digital Society Initiative DSI and the Statistical Office of Zürich.\n\n\n\n\n\n\nMay 25, 2023\n\n\n\n\n\n\n  \n\n\n\n\nR Blogging - Sharing my year-long experience using the tidyverse ecosystem\n\n\n\n\n\n\n\ntalk\n\n\n\n\nMeetup organized by Geneva R Users with the support of the EPFL Extension School at Campus Biotech.\n\n\n\n\n\n\nJun 5, 2018\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "applications/index.html",
+    "href": "applications/index.html",
+    "title": "Applications",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nSwiss City Statistics\n\n\nA use case example for the BFS R package\n\n\n\nJun 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngotop app\n\n\nDemo app of the R package gotop\n\n\n\nApr 20, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\naniview app\n\n\nDemo app of the R package aniview\n\n\n\nFeb 8, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nscroller app\n\n\nDemo app of the R package scroller\n\n\n\nJan 28, 2022\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about/index.html",
@@ -70,13 +105,6 @@
     "text": "Application"
   },
   {
-    "objectID": "applications/index.html",
-    "href": "applications/index.html",
-    "title": "Applications",
-    "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nSwiss City Statistics\n\n\nA use case example for the BFS R package\n\n\n\nJun 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngotop app\n\n\nDemo app of the R package gotop\n\n\n\nApr 20, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\naniview app\n\n\nDemo app of the R package aniview\n\n\n\nFeb 8, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nscroller app\n\n\nDemo app of the R package scroller\n\n\n\nJan 28, 2022\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
     "objectID": "applications/scroller-app/index.html",
     "href": "applications/scroller-app/index.html",
     "title": "scroller app",
@@ -84,25 +112,11 @@
     "text": "Application"
   },
   {
-    "objectID": "posts/beautiful-tables/index.html#visualisations",
-    "href": "posts/beautiful-tables/index.html#visualisations",
-    "title": "Beautiful Tables using R",
-    "section": "Visualisations",
-    "text": "Visualisations"
-  },
-  {
     "objectID": "posts/geocode-locations/index.html#visualisation",
     "href": "posts/geocode-locations/index.html#visualisation",
     "title": "Geocode any location using R",
     "section": "Visualisation",
     "text": "Visualisation"
-  },
-  {
-    "objectID": "posts/index.html",
-    "href": "posts/index.html",
-    "title": "Posts and Videos",
-    "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nInteractive country maps\n\n\n\n\n\nHow to Create Interactive Maps for any Country using R.\n\n\n\n\n\n\nMay 23, 2023\n\n\n\n\n\n\n  \n\n\n\n\nGeocode any location using R\n\n\n\n\n\nHow to use geocoding APIs services and compare them using R.\n\n\n\n\n\n\nApr 18, 2023\n\n\n\n\n\n\n  \n\n\n\n\nBeautiful Tables using R\n\n\n\n\n\nHow to Make Beautiful Tables using R programming. Spotify Top 10 Global Track example using gt.\n\n\n\n\n\n\nMar 1, 2023\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/interactive-country-maps/index.html#visualisation",
@@ -159,19 +173,5 @@
     "title": "scroller R package",
     "section": "",
     "text": "Redirecting to https://felixluginbuhl.com/scroller…"
-  },
-  {
-    "objectID": "talks/adminr-zurich/index.html",
-    "href": "talks/adminr-zurich/index.html",
-    "title": "BFS R package - Search and download data from the Swiss Federal Statistical Office",
-    "section": "",
-    "text": "The BFS R package allows to explore and access Swiss public data in a dynamic and reproducible way. Users can discover the latest BFS datasets available, extract their metadata and download them in any language (German, French, Italian or English) directly from the R console."
-  },
-  {
-    "objectID": "talks/index.html",
-    "href": "talks/index.html",
-    "title": "Talks",
-    "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nBFS R package - Search and download data from the Swiss Federal Statistical Office\n\n\n\n\n\n\n\ntalk\n\n\n\n\nMeetup organized by adminR, Digital Society Initiative DSI and the Statistical Office of Zürich.\n\n\n\n\n\n\nMay 25, 2023\n\n\n\n\n\n\n  \n\n\n\n\nR Blogging - Sharing my year-long experience using the tidyverse ecosystem\n\n\n\n\n\n\n\ntalk\n\n\n\n\nMeetup organized by Geneva R Users with the support of the EPFL Extension School at Campus Biotech.\n\n\n\n\n\n\nJun 5, 2018\n\n\n\n\n\n\nNo matching items"
   }
 ]
