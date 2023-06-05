@@ -13,16 +13,24 @@
 <generator>quarto-1.2.269</generator>
 <lastBuildDate>Mon, 22 May 2023 22:00:00 GMT</lastBuildDate>
 <item>
-  <title>Interactive country maps</title>
+  <title>Interactive Country Maps with R</title>
   <link>https://www.felixluginbuhl.com/posts/interactive-country-maps/index.html</link>
   <description><![CDATA[ 
 
 
 
-<section id="video" class="level2">
-<h2 class="anchored" data-anchor-id="video">Video</h2>
+<p><strong>Would you like to learn how to create interactive maps of any European country at a district level using R?</strong></p>
+<p>In this <a href="https://youtu.be/f-Vnfe7WmJM">new YouTube video</a> I show you how to map Switzerland at a regional level using Eurostat geodata. But these steps can be used for any European country.</p>
+<p>You will learn how to:</p>
+<ul>
+<li>Get counties/provinces/districts level data from any country in Europe.</li>
+<li>Join your own dataset to the geographic dataset.</li>
+<li>Build an interactive map with just 1 line of code.</li>
+<li>Create an interactive slider to compare two maps.</li>
+<li>Synchronize multiple interactive maps together.</li>
+</ul>
+<p>Check out the video now:</p>
 <div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/f-Vnfe7WmJM" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-</section>
 <section id="visualisation" class="level2">
 <h2 class="anchored" data-anchor-id="visualisation">Visualisation</h2>
 <iframe src="swiss-student-map.html" height="405" width="100%" style="border: 1px solid #464646;" data-external="1">
@@ -37,16 +45,15 @@
   <media:content url="https://www.felixluginbuhl.com/posts/interactive-country-maps/interactive-country-maps.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
-  <title>Geocode any location using R</title>
+  <title>Geocode ANY location using R</title>
   <link>https://www.felixluginbuhl.com/posts/geocode-locations/index.html</link>
   <description><![CDATA[ 
 
 
 
-<section id="youtube" class="level2">
-<h2 class="anchored" data-anchor-id="youtube">Youtube</h2>
+<p><strong>Do you have a list of places/locations and you would like to visualize them on an interactive map?</strong></p>
+<p>In my new YouTube video, I show you how to use geocoding services such as Google Maps, Bing, Mapbox or OpenStreetMap to get the latitude and longitude of any location and plot them on an interactive map.</p>
 <div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/7C49i6JMZTc" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-</section>
 <section id="visualisation" class="level2">
 <h2 class="anchored" data-anchor-id="visualisation">Visualisation</h2>
 <iframe src="james-bond-map.html" height="405" width="100%" style="border: 1px solid #464646;" data-external="1">
@@ -61,16 +68,22 @@
   <media:content url="https://www.felixluginbuhl.com/posts/geocode-locations/geocode-locations.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
-  <title>Beautiful Tables using R</title>
+  <title>Make Beautiful Tables using R</title>
   <link>https://www.felixluginbuhl.com/posts/beautiful-tables/index.html</link>
   <description><![CDATA[ 
 
 
 
-<section id="video" class="level2">
-<h2 class="anchored" data-anchor-id="video">Video</h2>
+<p><strong>Would you like to learn how to create more engaging and better looking tables using the R programming language?</strong></p>
+<p>I just release a <a href="https://youtu.be/tmLoa_zL010">new YouTube video</a> showing you how to access Spotify data to get the top 10 most listen songs and visualize them on a table.</p>
+<p>You will learn how to:</p>
+<ul>
+<li>fully customize any element of a table and use pre-built themes.</li>
+<li>add any images programmatically from the Web.</li>
+<li>insert graphics such as bar plots, sparklines, etc.</li>
+<li>merge columns to better synthesis information.</li>
+</ul>
 <div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/tmLoa_zL010" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-</section>
 <section id="visualisations" class="level2">
 <h2 class="anchored" data-anchor-id="visualisations">Visualisations</h2>
 <div class="quarto-layout-panel">
@@ -91,6 +104,78 @@
   <guid>https://www.felixluginbuhl.com/posts/beautiful-tables/index.html</guid>
   <pubDate>Tue, 28 Feb 2023 23:00:00 GMT</pubDate>
   <media:content url="https://www.felixluginbuhl.com/posts/beautiful-tables/beautiful-tables.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>Map ANY region of the world using R</title>
+  <link>https://www.felixluginbuhl.com/posts/map-regions/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<p><strong>Would you like to learn how to create beautiful maps of any region of the world using the R programming language?</strong></p>
+<p>I just published a new YouTube video showing you how to create a choropleth world map using World Bank unemployment data, and how to zoom on any specific region. As an example, we will visualize the European region only.</p>
+<p>But of course, you can reuse the R code showed in the video with your own dataset on any region of your choice.</p>
+<p>At the end of the video I discuss some important points regarding the use of the scale and the color palette when creating a map, so be sure to watch the video until the end.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/KZcKv3HgzII" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+
+
+
+ ]]></description>
+  <guid>https://www.felixluginbuhl.com/posts/map-regions/index.html</guid>
+  <pubDate>Sat, 28 Jan 2023 23:00:00 GMT</pubDate>
+  <media:content url="https://www.felixluginbuhl.com/posts/map-regions/map-regions.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>Google Sheet Automation using R</title>
+  <link>https://www.felixluginbuhl.com/posts/google-sheet-automation/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<p><strong>Would you like to learn how to connect R to your Google Drive and automate the data processing of your Google Sheets?</strong></p>
+<p>I just published a new YouTube video showing the basics of working with Google Sheets data using R programming.</p>
+<p>You will learn how to:</p>
+<ul>
+<li>Connect R to Google Drive and list your existing Sheets.</li>
+<li>Write and read Google Sheets from R.</li>
+<li>Append data to a Google Sheet.</li>
+<li>Rename a worksheet.</li>
+<li>Change file access permission (from private to public).</li>
+</ul>
+<p>Check it out:</p>
+<div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/daEq5Yj6uZw" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+
+
+
+ ]]></description>
+  <guid>https://www.felixluginbuhl.com/posts/google-sheet-automation/index.html</guid>
+  <pubDate>Sun, 25 Dec 2022 23:00:00 GMT</pubDate>
+  <media:content url="https://www.felixluginbuhl.com/posts/google-sheet-automation/google-sheet-automation.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>Interactive Network of the Marvel Universe</title>
+  <link>https://www.felixluginbuhl.com/posts/interactive-network/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<p><strong>Let’s have some fun creating an interactive network of the Marvel Cinematic Universe using the R programming language.</strong></p>
+<p>First we will scrape the data from Wikipedia, tidying the data, and build an interactive network of the main Marvel characters.</p>
+<p>You can play with the final interactive network here: https://felixanalytix.com/vis/marvel-network.html</p>
+<p>Learn how to make it yourself by watching my YouTube video</p>
+<div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/hgUJ-UFv4YY" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<section id="visualisation" class="level2">
+<h2 class="anchored" data-anchor-id="visualisation">Visualisation</h2>
+<iframe src="interactive-network.html" height="750" width="100%" style="border: 1px solid #464646;" data-external="1">
+</iframe>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://www.felixluginbuhl.com/posts/interactive-network/index.html</guid>
+  <pubDate>Mon, 07 Nov 2022 23:00:00 GMT</pubDate>
+  <media:content url="https://www.felixluginbuhl.com/posts/interactive-network/interactive-network.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 </channel>
 </rss>

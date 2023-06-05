@@ -2,15 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.felixluginbuhl.com/posts/beautiful-tables/index.html</loc>
-    <lastmod>2023-06-05T13:29:29.795Z</lastmod>
+    <lastmod>2023-06-05T18:39:08.086Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/index.html</loc>
-    <lastmod>2023-06-05T13:31:56.503Z</lastmod>
+    <lastmod>2023-06-05T19:04:37.318Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/posts/index.html</loc>
-    <lastmod>2023-06-05T13:31:09.651Z</lastmod>
+    <lastmod>2023-06-05T19:03:43.997Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/talks/adminr-zurich/index.html</loc>
@@ -46,11 +46,11 @@
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/posts/geocode-locations/index.html</loc>
-    <lastmod>2023-06-05T13:31:03.212Z</lastmod>
+    <lastmod>2023-06-05T18:33:20.317Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/posts/interactive-country-maps/index.html</loc>
-    <lastmod>2023-06-05T13:31:03.767Z</lastmod>
+    <lastmod>2023-06-05T18:30:17.904Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/projects/BFS/index.html</loc>
@@ -83,5 +83,17 @@
   <url>
     <loc>https://www.felixluginbuhl.com/talks/geneva-r-users/index.html</loc>
     <lastmod>2023-06-05T13:31:07.665Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/posts/google-sheet-automation/index.html</loc>
+    <lastmod>2023-06-05T18:45:36.639Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/posts/map-regions/index.html</loc>
+    <lastmod>2023-06-05T18:52:30.587Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/posts/interactive-network/index.html</loc>
+    <lastmod>2023-06-05T19:03:45.234Z</lastmod>
   </url>
 </urlset>

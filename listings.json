@@ -5,6 +5,9 @@
       "/posts/interactive-country-maps/index.html",
       "/posts/geocode-locations/index.html",
       "/posts/beautiful-tables/index.html",
+      "/posts/map-regions/index.html",
+      "/posts/google-sheet-automation/index.html",
+      "/posts/interactive-network/index.html",
       "/projects/BFS/index.html",
       "/projects/gotop/index.html",
       "/projects/aos/index.html",
@@ -24,7 +27,10 @@
     "items": [
       "/posts/interactive-country-maps/index.html",
       "/posts/geocode-locations/index.html",
-      "/posts/beautiful-tables/index.html"
+      "/posts/beautiful-tables/index.html",
+      "/posts/map-regions/index.html",
+      "/posts/google-sheet-automation/index.html",
+      "/posts/interactive-network/index.html"
     ]
   },
   {

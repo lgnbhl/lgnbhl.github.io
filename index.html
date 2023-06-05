@@ -76,7 +76,8 @@ ul.task-list li input[type="checkbox"] {
 
     const options = {
       valueNames: ['listing-title','listing-image','listing-description','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
+      page: 3,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
       searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
     };
 
@@ -324,7 +325,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="latest-posts-and-videos"><a class="no-text-decoration" href="./posts">Latest Posts and Videos</a></h2>
 <div id="listing-recent-posts-listing" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1684792800000" data-listing-file-modified-sort="1685703789492" data-listing-reading-time-sort="0.07">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1684792800000" data-listing-file-modified-sort="1685989789644" data-listing-reading-time-sort="0.54">
 <a href="./posts/interactive-country-maps/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -332,10 +333,10 @@ ul.task-list li input[type="checkbox"] {
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
-Interactive country maps
+Interactive Country Maps with R
 </h5>
 <div class="card-text listing-description">
-How to Create Interactive Maps for any Country using R.
+Learn how to create Interactive Maps of any European Country using R programming
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
@@ -346,7 +347,7 @@ May 23, 2023
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-listing-date-sort="1681768800000" data-listing-file-modified-sort="1685703797080" data-listing-reading-time-sort="0.07">
+<div class="g-col-1" data-index="1" data-listing-date-sort="1681768800000" data-listing-file-modified-sort="1685991603392" data-listing-reading-time-sort="0.33">
 <a href="./posts/geocode-locations/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -354,10 +355,10 @@ May 23, 2023
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
-Geocode any location using R
+Geocode ANY location using R
 </h5>
 <div class="card-text listing-description">
-How to use geocoding APIs services and compare them using R.
+Get the latitude and longitude of any place using Google Maps, Bing or Mapbox
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
@@ -368,7 +369,7 @@ Apr 18, 2023
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="2" data-listing-date-sort="1677625200000" data-listing-file-modified-sort="1685692821378" data-listing-reading-time-sort="0.03">
+<div class="g-col-1" data-index="2" data-listing-date-sort="1677625200000" data-listing-file-modified-sort="1685990323330" data-listing-reading-time-sort="0.43">
 <a href="./posts/beautiful-tables/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -376,10 +377,10 @@ Apr 18, 2023
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
-Beautiful Tables using R
+Make Beautiful Tables using R
 </h5>
 <div class="card-text listing-description">
-How to Make Beautiful Tables using R programming. Spotify Top 10 Global Track example using gt.
+Fully customize your tables with colors, images and graphics with gt
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
@@ -390,10 +391,79 @@ Mar 1, 2023
 </div>
 </a>
 </div>
+<div class="g-col-1" data-index="3" data-listing-date-sort="1674946800000" data-listing-file-modified-sort="1685991003311" data-listing-reading-time-sort="0.59">
+<a href="./posts/map-regions/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img data-src="./posts/map-regions/map-regions.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Map ANY region of the world using R
+</h5>
+<div class="card-text listing-description">
+Using R programming to Map Europe, Asia, Africa, America, etc.
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 29, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="4" data-listing-date-sort="1672009200000" data-listing-file-modified-sort="1685990731685" data-listing-reading-time-sort="0.415">
+<a href="./posts/google-sheet-automation/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img data-src="./posts/google-sheet-automation/google-sheet-automation.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Google Sheet Automation using R
+</h5>
+<div class="card-text listing-description">
+How to read, write, append data, and change Google Sheet user permissions from R
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Dec 26, 2022
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="5" data-listing-date-sort="1667862000000" data-listing-file-modified-sort="1685991820784" data-listing-reading-time-sort="0.345">
+<a href="./posts/interactive-network/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img data-src="./posts/interactive-network/interactive-network.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Interactive Network of the Marvel Universe
+</h5>
+<div class="card-text listing-description">
+Learn how to use R programming to create interactive networks
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Nov 8, 2022
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
 </div>
 <div class="listing-no-matching d-none">
 No matching items
 </div>
+<nav id="recent-posts-listing-pagination" class="listing-pagination" aria-label="Page Navigation">
+  <ul class="pagination"></ul>
+</nav>
 </div>
 </section>
 <section id="latest-applications" class="level2">
