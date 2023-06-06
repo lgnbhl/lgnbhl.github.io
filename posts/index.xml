@@ -177,5 +177,65 @@
   <pubDate>Mon, 07 Nov 2022 23:00:00 GMT</pubDate>
   <media:content url="https://www.felixluginbuhl.com/posts/interactive-network/interactive-network.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
+<item>
+  <title>How to Detect Emotions 😍😭😱 from Texts</title>
+  <link>https://www.felixluginbuhl.com/posts/sentiment-analysis/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<p><strong>Would you like to know how to extract the main emotions from any text and visualize its emotional trajectory using the R programming language?</strong></p>
+<p>And learn this in a fun way?</p>
+<p>In this new YouTube video, we will implement a simple-but-efficient method (a lexicon-based sentiment analysis) generally used to analyse consumer feedbacks, social medias or texts in surveys. But, to make it more fun, we will instead analyse the book Nineteen Eighty-Four from George Orwell.</p>
+<p>Be sure to check out the video:</p>
+<div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/6el_C3PxSSw" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<section id="visualisations" class="level2">
+<h2 class="anchored" data-anchor-id="visualisations">Visualisations</h2>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="https://www.felixluginbuhl.com/posts/sentiment-analysis/sentiment-analyis-1.png" class="img-fluid"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="https://www.felixluginbuhl.com/posts/sentiment-analysis/sentiment-analyis-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="https://www.felixluginbuhl.com/posts/sentiment-analysis/sentiment-analyis-3.png" class="img-fluid"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="https://www.felixluginbuhl.com/posts/sentiment-analysis/sentiment-analyis-4.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://www.felixluginbuhl.com/posts/sentiment-analysis/index.html</guid>
+  <pubDate>Mon, 15 Aug 2022 22:00:00 GMT</pubDate>
+  <media:content url="https://www.felixluginbuhl.com/posts/sentiment-analysis/sentiment-analysis.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>Read, Clean and Merge Excel files using R</title>
+  <link>https://www.felixluginbuhl.com/posts/excel-files/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<p><strong>Do you want to know how to create R loops that read hundreds of Excel files into R?</strong></p>
+<p>And that your R loops clean, validate and even merge your Excel files data into a single and consolidated dataset?</p>
+<p>Well, you are lucky… My new video just teaches you how to do that 😉. And in only 5 minutes. So be sure to check it out:</p>
+<div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/BHdWYonrPAs" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+
+
+
+ ]]></description>
+  <guid>https://www.felixluginbuhl.com/posts/excel-files/index.html</guid>
+  <pubDate>Mon, 04 Jul 2022 22:00:00 GMT</pubDate>
+  <media:content url="https://www.felixluginbuhl.com/posts/excel-files/excel-files.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
 </channel>
 </rss>

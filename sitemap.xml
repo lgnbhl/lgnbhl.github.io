@@ -2,98 +2,106 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.felixluginbuhl.com/posts/beautiful-tables/index.html</loc>
-    <lastmod>2023-06-06T10:51:11.664Z</lastmod>
+    <lastmod>2023-06-06T13:41:56.315Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/index.html</loc>
-    <lastmod>2023-06-06T10:50:59.542Z</lastmod>
+    <lastmod>2023-06-06T13:41:52.773Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/posts/index.html</loc>
-    <lastmod>2023-06-06T10:51:00.093Z</lastmod>
+    <lastmod>2023-06-06T13:41:53.410Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/about/index.html</loc>
-    <lastmod>2023-06-06T10:50:50.359Z</lastmod>
+    <lastmod>2023-06-06T13:41:42.023Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/applications/aniview-app/index.html</loc>
-    <lastmod>2023-06-06T10:50:50.742Z</lastmod>
+    <lastmod>2023-06-06T13:41:42.444Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/applications/citystatistics-app/index.html</loc>
-    <lastmod>2023-06-06T10:50:51.146Z</lastmod>
+    <lastmod>2023-06-06T13:41:42.887Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/applications/gotop-app/index.html</loc>
-    <lastmod>2023-06-06T10:50:51.535Z</lastmod>
+    <lastmod>2023-06-06T13:41:43.316Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/applications/index.html</loc>
-    <lastmod>2023-06-06T10:50:52.037Z</lastmod>
+    <lastmod>2023-06-06T13:41:43.809Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/applications/scroller-app/index.html</loc>
-    <lastmod>2023-06-06T10:50:52.450Z</lastmod>
+    <lastmod>2023-06-06T13:41:44.244Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/posts/excel-files/index.html</loc>
+    <lastmod>2023-06-06T13:41:44.692Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/posts/geocode-locations/index.html</loc>
-    <lastmod>2023-06-06T10:50:52.869Z</lastmod>
+    <lastmod>2023-06-06T13:41:45.106Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/posts/google-sheet-automation/index.html</loc>
-    <lastmod>2023-06-06T10:50:53.277Z</lastmod>
+    <lastmod>2023-06-06T13:41:45.557Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/posts/interactive-country-maps/index.html</loc>
-    <lastmod>2023-06-06T10:50:53.702Z</lastmod>
+    <lastmod>2023-06-06T13:41:46.016Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/posts/interactive-network/index.html</loc>
-    <lastmod>2023-06-06T10:50:54.113Z</lastmod>
+    <lastmod>2023-06-06T13:41:46.471Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/posts/map-regions/index.html</loc>
-    <lastmod>2023-06-06T10:50:54.537Z</lastmod>
+    <lastmod>2023-06-06T13:41:46.906Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/posts/sentiment-analysis/index.html</loc>
+    <lastmod>2023-06-06T13:41:47.387Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/projects/BFS/index.html</loc>
-    <lastmod>2023-06-06T10:50:54.938Z</lastmod>
+    <lastmod>2023-06-06T13:41:47.810Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/projects/aniview/index.html</loc>
-    <lastmod>2023-06-06T10:50:55.326Z</lastmod>
+    <lastmod>2023-06-06T13:41:48.252Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/projects/aos/index.html</loc>
-    <lastmod>2023-06-06T10:50:55.707Z</lastmod>
+    <lastmod>2023-06-06T13:41:48.654Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/projects/gotop/index.html</loc>
-    <lastmod>2023-06-06T10:50:56.090Z</lastmod>
+    <lastmod>2023-06-06T13:41:49.050Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/projects/index.html</loc>
-    <lastmod>2023-06-06T10:50:56.585Z</lastmod>
+    <lastmod>2023-06-06T13:41:49.594Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/projects/polyglot/index.html</loc>
-    <lastmod>2023-06-06T10:50:56.984Z</lastmod>
+    <lastmod>2023-06-06T13:41:50.028Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/projects/scroller/index.html</loc>
-    <lastmod>2023-06-06T10:50:57.363Z</lastmod>
+    <lastmod>2023-06-06T13:41:50.440Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/talks/adminr-zurich/index.html</loc>
-    <lastmod>2023-06-06T10:50:57.793Z</lastmod>
+    <lastmod>2023-06-06T13:41:50.885Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/talks/geneva-r-users/index.html</loc>
-    <lastmod>2023-06-06T10:50:58.212Z</lastmod>
+    <lastmod>2023-06-06T13:41:51.352Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/talks/index.html</loc>
-    <lastmod>2023-06-06T10:50:58.686Z</lastmod>
+    <lastmod>2023-06-06T13:41:51.830Z</lastmod>
   </url>
 </urlset>

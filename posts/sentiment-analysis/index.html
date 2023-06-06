@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-01-29">
-<meta name="description" content="Using R programming to Map Europe, Asia, Africa, America, etc.">
+<meta name="dcterms.date" content="2022-08-16">
+<meta name="description" content="A sentiment analysis of George Orwell’s 1984 novel using tidytext">
 
-<title>Félix Luginbühl - Map ANY region of the world using R</title>
+<title>Félix Luginbühl - How to Detect Emotions 😍😭😱 from Texts</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -83,15 +83,15 @@ ga('send', {
 
 
 <link rel="stylesheet" href="../../_assets/panelset-extras.css">
-<meta property="og:title" content="Félix Luginbühl - Map ANY region of the world using R">
-<meta property="og:description" content="Using R programming to Map Europe, Asia, Africa, America, etc.">
-<meta property="og:image" content="https://www.felixluginbuhl.com/posts\map-regions\map-regions.png">
+<meta property="og:title" content="Félix Luginbühl - How to Detect Emotions 😍😭😱 from Texts">
+<meta property="og:description" content="A sentiment analysis of George Orwell's 1984 novel using tidytext">
+<meta property="og:image" content="https://www.felixluginbuhl.com/posts\sentiment-analysis\sentiment-analysis.png">
 <meta property="og:site-name" content="Félix Luginbühl">
 <meta property="og:image:height" content="720">
 <meta property="og:image:width" content="1280">
-<meta name="twitter:title" content="Félix Luginbühl - Map ANY region of the world using R">
-<meta name="twitter:description" content="Using R programming to Map Europe, Asia, Africa, America, etc.">
-<meta name="twitter:image" content="https://www.felixluginbuhl.com/posts\map-regions\map-regions.png">
+<meta name="twitter:title" content="Félix Luginbühl - How to Detect Emotions 😍😭😱 from Texts">
+<meta name="twitter:description" content="A sentiment analysis of George Orwell's 1984 novel using tidytext">
+<meta name="twitter:image" content="https://www.felixluginbuhl.com/posts\sentiment-analysis\sentiment-analysis.png">
 <meta name="twitter:creator" content="@FelixLuginbuhl">
 <meta name="twitter:site" content="@FelixLuginbuhl">
 <meta name="twitter:image-height" content="720">
@@ -173,12 +173,12 @@ ga('send', {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Map ANY region of the world using R</h1>
+<h1 class="title">How to Detect Emotions 😍😭😱 from Texts</h1>
 </div>
 
 <div>
   <div class="description">
-    Using R programming to Map Europe, Asia, Africa, America, etc.
+    A sentiment analysis of George Orwell’s 1984 novel using tidytext
   </div>
 </div>
 
@@ -189,7 +189,7 @@ ga('send', {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 29, 2023</p>
+      <p class="date">August 16, 2022</p>
     </div>
   </div>
   
@@ -198,20 +198,42 @@ ga('send', {
   
 
 <div class="mt-4 d-flex flex-row flex-wrap gap-1 justify-content-center justify-content-sm-start" role="group" aria-label="Talk Links">
-<a href="https://youtu.be/KZcKv3HgzII" class="btn btn-secondary"><i class="bi bi-youtube me-1"></i> YouTube</a>
-<a href="https://felixanalytix.medium.com/how-to-map-any-region-of-the-world-using-r-programming-bb3c4146f97f" class="btn btn-secondary"><i class="bi bi-card-text me-1"></i> Blog post</a>
+<a href="https://youtu.be/6el_C3PxSSw" class="btn btn-secondary"><i class="bi bi-youtube me-1"></i> YouTube</a>
+<a href="https://felixanalytix.medium.com/how-to-detect-emotions-from-texts-using-r-9fb89e980035" class="btn btn-secondary"><i class="bi bi-card-text me-1"></i> Blog post</a>
+<a href="#visualisations" class="btn btn-secondary"><i class="bi bi-bar-chart me-1"></i> Visualizations</a>
 <a href="../../about/#get-the-code" class="btn btn-secondary"><i class="bi bi-github me-1"></i> Code</a>
 </div>
 
 </header>
 
-<p><strong>Would you like to learn how to create beautiful maps of any region of the world using the R programming language?</strong></p>
-<p>I just published a new YouTube video showing you how to create a choropleth world map using World Bank unemployment data, and how to zoom on any specific region. As an example, we will visualize the European region only.</p>
-<p>But of course, you can reuse the R code showed in the video with your own dataset on any region of your choice.</p>
-<p>At the end of the video I discuss some important points regarding the use of the scale and the color palette when creating a map, so be sure to watch the video until the end.</p>
-<div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/KZcKv3HgzII" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p><strong>Would you like to know how to extract the main emotions from any text and visualize its emotional trajectory using the R programming language?</strong></p>
+<p>And learn this in a fun way?</p>
+<p>In this new YouTube video, we will implement a simple-but-efficient method (a lexicon-based sentiment analysis) generally used to analyse consumer feedbacks, social medias or texts in surveys. But, to make it more fun, we will instead analyse the book Nineteen Eighty-Four from George Orwell.</p>
+<p>Be sure to check out the video:</p>
+<div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/6el_C3PxSSw" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<section id="visualisations" class="level2">
+<h2 class="anchored" data-anchor-id="visualisations">Visualisations</h2>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="sentiment-analyis-1.png" class="img-fluid"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="sentiment-analyis-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="sentiment-analyis-3.png" class="img-fluid"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="sentiment-analyis-4.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
