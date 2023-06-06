@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "posts/beautiful-tables/index.html",
+    "href": "posts/beautiful-tables/index.html",
+    "title": "Make Beautiful Tables using R",
+    "section": "",
+    "text": "Would you like to learn how to create more engaging and better looking tables using the R programming language?\nI just release a new YouTube video showing you how to access Spotify data to get the top 10 most listen songs and visualize them on a table.\nYou will learn how to:"
+  },
+  {
     "objectID": "posts/beautiful-tables/index.html#visualisations",
     "href": "posts/beautiful-tables/index.html#visualisations",
     "title": "Make Beautiful Tables using R",
@@ -40,27 +47,6 @@
     "title": "Posts and Videos",
     "section": "",
     "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nInteractive Country Maps with R\n\n\n\n\n\nLearn how to create Interactive Maps of any European Country using R programming.\n\n\n\n\n\n\nMay 23, 2023\n\n\n\n\n\n\n  \n\n\n\n\nGeocode ANY location using R\n\n\n\n\n\nGet the latitude and longitude of any place using Google Maps, Bing or Mapbox.\n\n\n\n\n\n\nApr 18, 2023\n\n\n\n\n\n\n  \n\n\n\n\nMake Beautiful Tables using R\n\n\n\n\n\nFully customize your tables with colors, images and graphics with gt.\n\n\n\n\n\n\nMar 1, 2023\n\n\n\n\n\n\n  \n\n\n\n\nMap ANY region of the world using R\n\n\n\n\n\nUsing R programming to Map Europe, Asia, Africa, America, etc.\n\n\n\n\n\n\nJan 29, 2023\n\n\n\n\n\n\n  \n\n\n\n\nGoogle Sheet Automation using R\n\n\n\n\n\nHow to read, write, append data, and change Google Sheet user permissions from R.\n\n\n\n\n\n\nDec 26, 2022\n\n\n\n\n\n\n  \n\n\n\n\nInteractive Network of the Marvel Universe\n\n\n\n\n\nLearn how to use R programming to create interactive networks.\n\n\n\n\n\n\nNov 8, 2022\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "talks/adminr-zurich/index.html",
-    "href": "talks/adminr-zurich/index.html",
-    "title": "BFS R package - Search and download data from the Swiss Federal Statistical Office",
-    "section": "",
-    "text": "The BFS R package allows to explore and access Swiss public data in a dynamic and reproducible way. Users can discover the latest BFS datasets available, extract their metadata and download them in any language (German, French, Italian or English) directly from the R console."
-  },
-  {
-    "objectID": "talks/index.html",
-    "href": "talks/index.html",
-    "title": "Talks",
-    "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nBFS R package - Search and download data from the Swiss Federal Statistical Office\n\n\n\n\n\n\n\ntalk\n\n\n\n\nMeetup organized by adminR, Digital Society Initiative DSI and the Statistical Office of Zürich.\n\n\n\n\n\n\nMay 25, 2023\n\n\n\n\n\n\n  \n\n\n\n\nR Blogging - Sharing my year-long experience using the tidyverse ecosystem\n\n\n\n\n\n\n\ntalk\n\n\n\n\nMeetup organized by Geneva R Users with the support of the EPFL Extension School at Campus Biotech.\n\n\n\n\n\n\nJun 5, 2018\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "applications/index.html",
-    "href": "applications/index.html",
-    "title": "Applications",
-    "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nSwiss City Statistics\n\n\nA use case example for the BFS R package\n\n\n\nJun 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngotop app\n\n\nDemo app of the R package gotop\n\n\n\nApr 20, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\naniview app\n\n\nDemo app of the R package aniview\n\n\n\nFeb 8, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nscroller app\n\n\nDemo app of the R package scroller\n\n\n\nJan 28, 2022\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about/index.html",
@@ -105,11 +91,25 @@
     "text": "Application"
   },
   {
+    "objectID": "applications/index.html",
+    "href": "applications/index.html",
+    "title": "Applications",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nSwiss City Statistics\n\n\nA use case example for the BFS R package\n\n\n\nJun 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngotop app\n\n\nDemo app of the R package gotop\n\n\n\nApr 20, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\naniview app\n\n\nDemo app of the R package aniview\n\n\n\nFeb 8, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nscroller app\n\n\nDemo app of the R package scroller\n\n\n\nJan 28, 2022\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
     "objectID": "applications/scroller-app/index.html",
     "href": "applications/scroller-app/index.html",
     "title": "scroller app",
     "section": "",
     "text": "Application"
+  },
+  {
+    "objectID": "posts/geocode-locations/index.html",
+    "href": "posts/geocode-locations/index.html",
+    "title": "Geocode ANY location using R",
+    "section": "",
+    "text": "Do you have a list of places/locations and you would like to visualize them on an interactive map?\nIn my new YouTube video, I show you how to use geocoding services such as Google Maps, Bing, Mapbox or OpenStreetMap to get the latitude and longitude of any location and plot them on an interactive map."
   },
   {
     "objectID": "posts/geocode-locations/index.html#visualisation",
@@ -119,11 +119,46 @@
     "text": "Visualisation"
   },
   {
+    "objectID": "posts/google-sheet-automation/index.html",
+    "href": "posts/google-sheet-automation/index.html",
+    "title": "Google Sheet Automation using R",
+    "section": "",
+    "text": "Would you like to learn how to connect R to your Google Drive and automate the data processing of your Google Sheets?\nI just published a new YouTube video showing the basics of working with Google Sheets data using R programming.\nYou will learn how to:\n\nConnect R to Google Drive and list your existing Sheets.\nWrite and read Google Sheets from R.\nAppend data to a Google Sheet.\nRename a worksheet.\nChange file access permission (from private to public).\n\nCheck it out:"
+  },
+  {
+    "objectID": "posts/interactive-country-maps/index.html",
+    "href": "posts/interactive-country-maps/index.html",
+    "title": "Interactive Country Maps with R",
+    "section": "",
+    "text": "Would you like to learn how to create interactive maps of any European country at a district level using R?\nIn this new YouTube video I show you how to map Switzerland at a regional level using Eurostat geodata. But these steps can be used for any European country.\nYou will learn how to:\nCheck out the video now:"
+  },
+  {
     "objectID": "posts/interactive-country-maps/index.html#visualisation",
     "href": "posts/interactive-country-maps/index.html#visualisation",
     "title": "Interactive Country Maps with R",
     "section": "Visualisation",
     "text": "Visualisation"
+  },
+  {
+    "objectID": "posts/interactive-network/index.html",
+    "href": "posts/interactive-network/index.html",
+    "title": "Interactive Network of the Marvel Universe",
+    "section": "",
+    "text": "Let’s have some fun creating an interactive network of the Marvel Cinematic Universe using R programming.\nFirst we will scrape the data from Wikipedia, structure the data in a tidy way, and build an interactive network of the main Marvel characters.\nYou can play with the final interactive network here.\nLearn how to make it by yourself watching the video:"
+  },
+  {
+    "objectID": "posts/interactive-network/index.html#visualisation",
+    "href": "posts/interactive-network/index.html#visualisation",
+    "title": "Interactive Network of the Marvel Universe",
+    "section": "Visualisation",
+    "text": "Visualisation"
+  },
+  {
+    "objectID": "posts/map-regions/index.html",
+    "href": "posts/map-regions/index.html",
+    "title": "Map ANY region of the world using R",
+    "section": "",
+    "text": "Would you like to learn how to create beautiful maps of any region of the world using the R programming language?\nI just published a new YouTube video showing you how to create a choropleth world map using World Bank unemployment data, and how to zoom on any specific region. As an example, we will visualize the European region only.\nBut of course, you can reuse the R code showed in the video with your own dataset on any region of your choice.\nAt the end of the video I discuss some important points regarding the use of the scale and the color palette when creating a map, so be sure to watch the video until the end."
   },
   {
     "objectID": "projects/BFS/index.html",
@@ -175,52 +210,17 @@
     "text": "Redirecting to https://felixluginbuhl.com/scroller…"
   },
   {
-    "objectID": "posts/interactive-country-maps/index.html",
-    "href": "posts/interactive-country-maps/index.html",
-    "title": "Interactive Country Maps with R",
+    "objectID": "talks/adminr-zurich/index.html",
+    "href": "talks/adminr-zurich/index.html",
+    "title": "BFS R package - Search and download data from the Swiss Federal Statistical Office",
     "section": "",
-    "text": "Would you like to learn how to create interactive maps of any European country at a district level using R?\nIn this new YouTube video I show you how to map Switzerland at a regional level using Eurostat geodata. But these steps can be used for any European country.\nYou will learn how to:\nCheck out the video now:"
+    "text": "The BFS R package allows to explore and access Swiss public data in a dynamic and reproducible way. Users can discover the latest BFS datasets available, extract their metadata and download them in any language (German, French, Italian or English) directly from the R console."
   },
   {
-    "objectID": "posts/geocode-locations/index.html",
-    "href": "posts/geocode-locations/index.html",
-    "title": "Geocode ANY location using R",
+    "objectID": "talks/index.html",
+    "href": "talks/index.html",
+    "title": "Talks",
     "section": "",
-    "text": "Do you have a list of places/locations and you would like to visualize them on an interactive map?\nIn my new YouTube video, I show you how to use geocoding services such as Google Maps, Bing, Mapbox or OpenStreetMap to get the latitude and longitude of any location and plot them on an interactive map."
-  },
-  {
-    "objectID": "posts/beautiful-tables/index.html",
-    "href": "posts/beautiful-tables/index.html",
-    "title": "Make Beautiful Tables using R",
-    "section": "",
-    "text": "Would you like to learn how to create more engaging and better looking tables using the R programming language?\nI just release a new YouTube video showing you how to access Spotify data to get the top 10 most listen songs and visualize them on a table.\nYou will learn how to:"
-  },
-  {
-    "objectID": "posts/google-sheet-automation/index.html",
-    "href": "posts/google-sheet-automation/index.html",
-    "title": "Google Sheet Automation using R",
-    "section": "",
-    "text": "Would you like to learn how to connect R to your Google Drive and automate the data processing of your Google Sheets?\nI just published a new YouTube video showing the basics of working with Google Sheets data using R programming.\nYou will learn how to:\n\nConnect R to Google Drive and list your existing Sheets.\nWrite and read Google Sheets from R.\nAppend data to a Google Sheet.\nRename a worksheet.\nChange file access permission (from private to public).\n\nCheck it out:"
-  },
-  {
-    "objectID": "posts/map-regions/index.html",
-    "href": "posts/map-regions/index.html",
-    "title": "Map ANY region of the world using R",
-    "section": "",
-    "text": "Would you like to learn how to create beautiful maps of any region of the world using the R programming language?\nI just published a new YouTube video showing you how to create a choropleth world map using World Bank unemployment data, and how to zoom on any specific region. As an example, we will visualize the European region only.\nBut of course, you can reuse the R code showed in the video with your own dataset on any region of your choice.\nAt the end of the video I discuss some important points regarding the use of the scale and the color palette when creating a map, so be sure to watch the video until the end."
-  },
-  {
-    "objectID": "posts/interactive-network/index.html",
-    "href": "posts/interactive-network/index.html",
-    "title": "Interactive Network of the Marvel Universe",
-    "section": "",
-    "text": "Let’s have some fun creating an interactive network of the Marvel Cinematic Universe using R programming.\nFirst we will scrape the data from Wikipedia, structure the data in a tidy way, and build an interactive network of the main Marvel characters.\nYou can play with the final interactive network here.\nLearn how to make it by yourself watching the video:"
-  },
-  {
-    "objectID": "posts/interactive-network/index.html#visualisation",
-    "href": "posts/interactive-network/index.html#visualisation",
-    "title": "Interactive Network of the Marvel Universe",
-    "section": "Visualisation",
-    "text": "Visualisation"
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nBFS R package - Search and download data from the Swiss Federal Statistical Office\n\n\n\n\n\n\n\ntalk\n\n\n\n\nMeetup organized by adminR, Digital Society Initiative DSI and the Statistical Office of Zürich.\n\n\n\n\n\n\nMay 25, 2023\n\n\n\n\n\n\n  \n\n\n\n\nR Blogging - Sharing my year-long experience using the tidyverse ecosystem\n\n\n\n\n\n\n\ntalk\n\n\n\n\nMeetup organized by Geneva R Users with the support of the EPFL Extension School at Campus Biotech.\n\n\n\n\n\n\nJun 5, 2018\n\n\n\n\n\n\nNo matching items"
   }
 ]

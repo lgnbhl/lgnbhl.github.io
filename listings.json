@@ -34,13 +34,6 @@
     ]
   },
   {
-    "listing": "/talks/index.html",
-    "items": [
-      "/talks/adminr-zurich/index.html",
-      "/talks/geneva-r-users/index.html"
-    ]
-  },
-  {
     "listing": "/applications/index.html",
     "items": [
       "/applications/citystatistics-app/index.html",
@@ -58,6 +51,13 @@
       "/projects/scroller/index.html",
       "/projects/aniview/index.html",
       "/projects/polyglot/index.html"
+    ]
+  },
+  {
+    "listing": "/talks/index.html",
+    "items": [
+      "/talks/adminr-zurich/index.html",
+      "/talks/geneva-r-users/index.html"
     ]
   }
 ]
