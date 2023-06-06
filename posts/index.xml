@@ -237,5 +237,63 @@
   <pubDate>Mon, 04 Jul 2022 22:00:00 GMT</pubDate>
   <media:content url="https://www.felixluginbuhl.com/posts/excel-files/excel-files.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
+<item>
+  <title>Advanced Data Filtering in R using dplyr</title>
+  <link>https://www.felixluginbuhl.com/posts/advanced-filtering/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<p><strong>In this video I show you advanced uses of the filter() function from the dplyr R package.</strong></p>
+<p>We will see different ways of keeping or removing specific rows of a dataset using 5 simple examples. Then we will explore more advanced filtering methods, such as filtering data using logical conditions on multiple columns, how to remove missing values or how to use specific words or strings to filter rows of character variables.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/PUJXa5zc-dY" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+
+
+
+ ]]></description>
+  <guid>https://www.felixluginbuhl.com/posts/advanced-filtering/index.html</guid>
+  <pubDate>Tue, 15 Mar 2022 23:00:00 GMT</pubDate>
+  <media:content url="https://www.felixluginbuhl.com/posts/advanced-filtering/advanced-filtering.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>Beautiful World Maps using R</title>
+  <link>https://www.felixluginbuhl.com/posts/world-maps/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<p><strong>Do you want to learn how to create beautiful world maps using R programming?</strong></p>
+<p>In this video I show you how to download world map data, plot it, add texts and colors, and even change the map projection using the R packages {ggplot2} and {sf}.</p>
+<p>Be sure to check it out:</p>
+<div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/FoqiFR5ZCic" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<section id="visualisations" class="level2">
+<h2 class="anchored" data-anchor-id="visualisations">Visualisations</h2>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="https://www.felixluginbuhl.com/posts/world-maps/world-maps-1.png" class="img-fluid"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="https://www.felixluginbuhl.com/posts/world-maps/world-maps-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="https://www.felixluginbuhl.com/posts/world-maps/world-maps-3.png" class="img-fluid"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="https://www.felixluginbuhl.com/posts/world-maps/world-maps-4.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://www.felixluginbuhl.com/posts/world-maps/index.html</guid>
+  <pubDate>Tue, 15 Mar 2022 23:00:00 GMT</pubDate>
+  <media:content url="https://www.felixluginbuhl.com/posts/world-maps/world-maps.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
 </channel>
 </rss>
