@@ -6,9 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="R Shiny web applications demonstrating the use of my R packages.">
+<meta name="dcterms.date" content="2022-02-08">
+<meta name="description" content="Demo app of the R package aniview">
 
-<title>Félix Luginbühl - Applications</title>
+<title>Félix Luginbühl - aniview app</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,29 +25,27 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../static/favicon.ico" rel="icon">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../static/favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -66,35 +65,6 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-description','listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 
 <script type="text/javascript">
 
@@ -111,33 +81,32 @@ ga('send', {
 </script>
 <script src="https://cdn.counter.dev/script.js" data-id="a716cbfd-cc3f-4318-82e4-82a949a69789" data-utcoffset="2"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="../_assets/panelset-extras.css">
-<link rel="alternate" type="application/rss+xml" title="Félix Luginbühl" href="index.xml"><meta property="og:title" content="Félix Luginbühl - Applications">
-<meta property="og:description" content="R Shiny web applications demonstrating the use of my R packages.">
-<meta property="og:image" content="https://www.felixluginbuhl.com/applications\gotop-app\gotop-app-thumbnail.png">
+<link rel="stylesheet" href="../../_assets/panelset-extras.css">
+<meta property="og:title" content="Félix Luginbühl - aniview app">
+<meta property="og:description" content="Demo app of the R package aniview">
+<meta property="og:image" content="https://www.felixluginbuhl.com/apps\aniview-app\aniview-app-thumbnail.png">
 <meta property="og:site-name" content="Félix Luginbühl">
-<meta property="og:image:height" content="893">
-<meta property="og:image:width" content="1870">
-<meta name="twitter:title" content="Félix Luginbühl - Applications">
-<meta name="twitter:description" content="R Shiny web applications demonstrating the use of my R packages.">
-<meta name="twitter:image" content="https://www.felixluginbuhl.com/applications\gotop-app\gotop-app-thumbnail.png">
+<meta property="og:image:height" content="597">
+<meta property="og:image:width" content="1195">
+<meta name="twitter:title" content="Félix Luginbühl - aniview app">
+<meta name="twitter:description" content="Demo app of the R package aniview">
+<meta name="twitter:image" content="https://www.felixluginbuhl.com/apps\aniview-app\aniview-app-thumbnail.png">
 <meta name="twitter:creator" content="@FelixLuginbuhl">
 <meta name="twitter:site" content="@FelixLuginbuhl">
-<meta name="twitter:image-height" content="893">
-<meta name="twitter:image-width" content="1870">
+<meta name="twitter:image-height" content="597">
+<meta name="twitter:image-width" content="1195">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">felix luginbuhl</span>
     </a>
   </div>
@@ -147,27 +116,27 @@ ga('send', {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html">
+    <a class="nav-link" href="../../index.html">
  <span class="menu-text">home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../posts/index.html">
+    <a class="nav-link" href="../../posts/index.html">
  <span class="menu-text">posts</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../projects/index.html">
+    <a class="nav-link" href="../../projects/index.html">
  <span class="menu-text">projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../applications/index.html" aria-current="page">
+    <a class="nav-link" href="../../apps/index.html">
  <span class="menu-text">apps</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../talks/index.html">
+    <a class="nav-link" href="../../talks/index.html">
  <span class="menu-text">talks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../about/index.html">
+    <a class="nav-link" href="../../about/index.html">
  <span class="menu-text">about</span></a>
   </li>  
   <li class="nav-item compact">
@@ -195,21 +164,21 @@ ga('send', {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Applications</h1>
+<h1 class="title">aniview app</h1>
 </div>
 
 <div>
   <div class="description">
-    <p>R Shiny web applications demonstrating the use of my R packages.</p>
+    Demo app of the R package aniview
   </div>
 </div>
 
@@ -217,135 +186,32 @@ ga('send', {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 8, 2022</p>
+    </div>
+  </div>
   
     
   </div>
   
 
+<div class="mt-4 d-flex flex-row flex-wrap gap-1 justify-content-center justify-content-sm-start" role="group" aria-label="Talk Links">
+<a href="https://shinyapp-aniview-sk6zmgmo5q-uw.a.run.app/" class="btn btn-secondary"><i class="bi bi-arrow-right-circle-fill me-1"></i> Try the app</a>
+<a href="https://felixluginbuhl.com/aniview" class="btn btn-secondary"><i class="bi bi-book me-1"></i> pkg docs</a>
+</div>
 
 </header>
 
+<section id="application" class="level3">
+<h3 class="anchored" data-anchor-id="application">Application</h3>
+<p><a href="https://shinyapp-aniview-sk6zmgmo5q-uw.a.run.app/"><img src="./aniview-app-thumbnail.png"></a></p>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-title" data-direction="asc">
-          Title
-        </option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-     </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
-</div>
-<div class="list grid quarto-listing-cols-2">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1686866400000" data-listing-file-modified-sort="1686313750142" data-listing-reading-time-sort="0.24">
-<a href="../applications/city-statistics/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="../applications/city-statistics/city-statistics.png" class="thumbnail-image card-img" style="height: 33vmin;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Swiss City Statistics
-</h5>
-<div class="card-text listing-description">
-A use case example for the BFS R package
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Jun 16, 2023
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="1" data-listing-date-sort="1650405600000" data-listing-file-modified-sort="1685715583073" data-listing-reading-time-sort="0.015">
-<a href="../applications/gotop-app/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="../applications/gotop-app/gotop-app-thumbnail.png" class="thumbnail-image card-img" style="height: 33vmin;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-gotop app
-</h5>
-<div class="card-text listing-description">
-Demo app of the R package gotop
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Apr 20, 2022
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="2" data-listing-date-sort="1644274800000" data-listing-file-modified-sort="1685715517208" data-listing-reading-time-sort="0.015">
-<a href="../applications/aniview-app/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="../applications/aniview-app/aniview-app-thumbnail.png" class="thumbnail-image card-img" style="height: 33vmin;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-aniview app
-</h5>
-<div class="card-text listing-description">
-Demo app of the R package aniview
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Feb 8, 2022
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="3" data-listing-date-sort="1643324400000" data-listing-file-modified-sort="1685715587646" data-listing-reading-time-sort="0.015">
-<a href="../applications/scroller-app/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="../applications/scroller-app/scroller-app-thumbnail.png" class="thumbnail-image card-img" style="height: 33vmin;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-scroller app
-</h5>
-<div class="card-text listing-description">
-Demo app of the R package scroller
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Jan 28, 2022
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

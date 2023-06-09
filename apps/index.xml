@@ -6,15 +6,15 @@
       version="2.0">
 <channel>
 <title>Félix Luginbühl</title>
-<link>https://www.felixluginbuhl.com/applications/index.html</link>
-<atom:link href="https://www.felixluginbuhl.com/applications/index.xml" rel="self" type="application/rss+xml"/>
+<link>https://www.felixluginbuhl.com/apps/index.html</link>
+<atom:link href="https://www.felixluginbuhl.com/apps/index.xml" rel="self" type="application/rss+xml"/>
 <description>R Shiny web applications demonstrating the use of my R packages.
 </description>
 <generator>quarto-1.2.269</generator>
 <lastBuildDate>Thu, 15 Jun 2023 22:00:00 GMT</lastBuildDate>
 <item>
   <title>Swiss City Statistics</title>
-  <link>https://www.felixluginbuhl.com/applications/city-statistics/index.html</link>
+  <link>https://www.felixluginbuhl.com/apps/city-statistics/index.html</link>
   <description><![CDATA[ 
 
 
@@ -30,72 +30,72 @@
 </section>
 <section id="the-application" class="level3">
 <h3 class="anchored" data-anchor-id="the-application">The Application</h3>
-<p><a href="https://city.felixluginbuhl.com/"><img src="https://www.felixluginbuhl.com/applications/city-statistics/city-statistics.png"></a></p>
+<p><a href="https://city.felixluginbuhl.com/"><img src="https://www.felixluginbuhl.com/apps/city-statistics/city-statistics.png"></a></p>
 
 
 </section>
 
  ]]></description>
-  <guid>https://www.felixluginbuhl.com/applications/city-statistics/index.html</guid>
+  <guid>https://www.felixluginbuhl.com/apps/city-statistics/index.html</guid>
   <pubDate>Thu, 15 Jun 2023 22:00:00 GMT</pubDate>
-  <media:content url="https://www.felixluginbuhl.com/applications/city-statistics/city-statistics.png" medium="image" type="image/png" height="69" width="144"/>
+  <media:content url="https://www.felixluginbuhl.com/apps/city-statistics/city-statistics.png" medium="image" type="image/png" height="69" width="144"/>
 </item>
 <item>
   <title>gotop app</title>
-  <link>https://www.felixluginbuhl.com/applications/gotop-app/index.html</link>
+  <link>https://www.felixluginbuhl.com/apps/gotop-app/index.html</link>
   <description><![CDATA[ 
 
 
 
 <section id="application" class="level3">
 <h3 class="anchored" data-anchor-id="application">Application</h3>
-<p><a href="https://gotop.felixluginbuhl.com/"><img src="https://www.felixluginbuhl.com/applications/gotop-app/gotop-app-thumbnail.png"></a></p>
+<p><a href="https://gotop.felixluginbuhl.com/"><img src="https://www.felixluginbuhl.com/apps/gotop-app/gotop-app-thumbnail.png"></a></p>
 
 
 </section>
 
  ]]></description>
-  <guid>https://www.felixluginbuhl.com/applications/gotop-app/index.html</guid>
+  <guid>https://www.felixluginbuhl.com/apps/gotop-app/index.html</guid>
   <pubDate>Tue, 19 Apr 2022 22:00:00 GMT</pubDate>
-  <media:content url="https://www.felixluginbuhl.com/applications/gotop-app/gotop-app-thumbnail.png" medium="image" type="image/png" height="69" width="144"/>
+  <media:content url="https://www.felixluginbuhl.com/apps/gotop-app/gotop-app-thumbnail.png" medium="image" type="image/png" height="69" width="144"/>
 </item>
 <item>
   <title>aniview app</title>
-  <link>https://www.felixluginbuhl.com/applications/aniview-app/index.html</link>
+  <link>https://www.felixluginbuhl.com/apps/aniview-app/index.html</link>
   <description><![CDATA[ 
 
 
 
 <section id="application" class="level3">
 <h3 class="anchored" data-anchor-id="application">Application</h3>
-<p><a href="https://shinyapp-aniview-sk6zmgmo5q-uw.a.run.app/"><img src="https://www.felixluginbuhl.com/applications/aniview-app/aniview-app-thumbnail.png"></a></p>
+<p><a href="https://shinyapp-aniview-sk6zmgmo5q-uw.a.run.app/"><img src="https://www.felixluginbuhl.com/apps/aniview-app/aniview-app-thumbnail.png"></a></p>
 
 
 </section>
 
  ]]></description>
-  <guid>https://www.felixluginbuhl.com/applications/aniview-app/index.html</guid>
+  <guid>https://www.felixluginbuhl.com/apps/aniview-app/index.html</guid>
   <pubDate>Mon, 07 Feb 2022 23:00:00 GMT</pubDate>
-  <media:content url="https://www.felixluginbuhl.com/applications/aniview-app/aniview-app-thumbnail.png" medium="image" type="image/png" height="72" width="144"/>
+  <media:content url="https://www.felixluginbuhl.com/apps/aniview-app/aniview-app-thumbnail.png" medium="image" type="image/png" height="72" width="144"/>
 </item>
 <item>
   <title>scroller app</title>
-  <link>https://www.felixluginbuhl.com/applications/scroller-app/index.html</link>
+  <link>https://www.felixluginbuhl.com/apps/scroller-app/index.html</link>
   <description><![CDATA[ 
 
 
 
 <section id="application" class="level3">
 <h3 class="anchored" data-anchor-id="application">Application</h3>
-<p><a href="https://shinyapp-scroller-sk6zmgmo5q-uk.a.run.app/"><img src="https://www.felixluginbuhl.com/applications/scroller-app/scroller-app-thumbnail.png"></a></p>
+<p><a href="https://shinyapp-scroller-sk6zmgmo5q-uk.a.run.app/"><img src="https://www.felixluginbuhl.com/apps/scroller-app/scroller-app-thumbnail.png"></a></p>
 
 
 </section>
 
  ]]></description>
-  <guid>https://www.felixluginbuhl.com/applications/scroller-app/index.html</guid>
+  <guid>https://www.felixluginbuhl.com/apps/scroller-app/index.html</guid>
   <pubDate>Thu, 27 Jan 2022 23:00:00 GMT</pubDate>
-  <media:content url="https://www.felixluginbuhl.com/applications/scroller-app/scroller-app-thumbnail.png" medium="image" type="image/png" height="89" width="144"/>
+  <media:content url="https://www.felixluginbuhl.com/apps/scroller-app/scroller-app-thumbnail.png" medium="image" type="image/png" height="89" width="144"/>
 </item>
 </channel>
 </rss>
