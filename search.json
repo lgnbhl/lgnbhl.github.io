@@ -1,17 +1,10 @@
 [
   {
-    "objectID": "posts/beautiful-tables/index.html",
-    "href": "posts/beautiful-tables/index.html",
-    "title": "Make Beautiful Tables using R",
+    "objectID": "posts/advanced-filtering/index.html",
+    "href": "posts/advanced-filtering/index.html",
+    "title": "Advanced Data Filtering in R using dplyr",
     "section": "",
-    "text": "Would you like to learn how to create more engaging and better looking tables using the R programming language?\nI just release a new YouTube video showing you how to access Spotify data to get the top 10 most listen songs and visualize them on a table.\nYou will learn how to:"
-  },
-  {
-    "objectID": "posts/beautiful-tables/index.html#visualisations",
-    "href": "posts/beautiful-tables/index.html#visualisations",
-    "title": "Make Beautiful Tables using R",
-    "section": "Visualisations",
-    "text": "Visualisations"
+    "text": "In this video I show you advanced uses of the filter() function from the dplyr R package.\nWe will see different ways of keeping or removing specific rows of a dataset using 5 simple examples. Then we will explore more advanced filtering methods, such as filtering data using logical conditions on multiple columns, how to remove missing values or how to use specific words or strings to filter rows of character variables."
   },
   {
     "objectID": "index.html#posts-and-videos",
@@ -77,8 +70,8 @@
     "text": "Application"
   },
   {
-    "objectID": "applications/citystatistics-app/index.html",
-    "href": "applications/citystatistics-app/index.html",
+    "objectID": "applications/city-statistics/index.html",
+    "href": "applications/city-statistics/index.html",
     "title": "Swiss City Statistics",
     "section": "",
     "text": "What is it about?\nChoose an indicator, two cities, and have fun trying to guess which city has the highest indicator value.\n\n\nData Info\nThe Swiss City Statistics dataset contains +400 indicators about 9 Swiss cities and their agglomerations.\nThe data is queried using the BFS R package.\n\n\nThe Application"
@@ -105,11 +98,18 @@
     "text": "Application"
   },
   {
-    "objectID": "posts/advanced-filtering/index.html",
-    "href": "posts/advanced-filtering/index.html",
-    "title": "Advanced Data Filtering in R using dplyr",
+    "objectID": "posts/beautiful-tables/index.html",
+    "href": "posts/beautiful-tables/index.html",
+    "title": "Make Beautiful Tables using R",
     "section": "",
-    "text": "In this video I show you advanced uses of the filter() function from the dplyr R package.\nWe will see different ways of keeping or removing specific rows of a dataset using 5 simple examples. Then we will explore more advanced filtering methods, such as filtering data using logical conditions on multiple columns, how to remove missing values or how to use specific words or strings to filter rows of character variables."
+    "text": "Would you like to learn how to create more engaging and better looking tables using the R programming language?\nI just release a new YouTube video showing you how to access Spotify data to get the top 10 most listen songs and visualize them on a table.\nYou will learn how to:"
+  },
+  {
+    "objectID": "posts/beautiful-tables/index.html#visualisations",
+    "href": "posts/beautiful-tables/index.html#visualisations",
+    "title": "Make Beautiful Tables using R",
+    "section": "Visualisations",
+    "text": "Visualisations"
   },
   {
     "objectID": "posts/excel-files/index.html",
