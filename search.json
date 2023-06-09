@@ -1,52 +1,45 @@
 [
   {
-    "objectID": "posts/beautiful-tables/index.html",
-    "href": "posts/beautiful-tables/index.html",
-    "title": "Make Beautiful Tables using R",
+    "objectID": "posts/advanced-filtering/index.html",
+    "href": "posts/advanced-filtering/index.html",
+    "title": "Advanced Data Filtering in R using dplyr",
     "section": "",
-    "text": "Would you like to learn how to create more engaging and better looking tables using the R programming language?\nI just release a new YouTube video showing you how to access Spotify data to get the top 10 most listen songs and visualize them on a table.\nYou will learn how to:"
+    "text": "In this video I show you advanced uses of the filter() function from the dplyr R package.\nWe will see different ways of keeping or removing specific rows of a dataset using 5 simple examples. Then we will explore more advanced filtering methods, such as filtering data using logical conditions on multiple columns, how to remove missing values or how to use specific words or strings to filter rows of character variables."
   },
   {
-    "objectID": "posts/beautiful-tables/index.html#visualisations",
-    "href": "posts/beautiful-tables/index.html#visualisations",
-    "title": "Make Beautiful Tables using R",
-    "section": "Visualisations",
-    "text": "Visualisations"
-  },
-  {
-    "objectID": "index.html#latest-posts-and-videos",
-    "href": "index.html#latest-posts-and-videos",
+    "objectID": "index.html#posts-and-videos",
+    "href": "index.html#posts-and-videos",
     "title": "Félix Luginbühl",
-    "section": "Latest Posts and Videos",
-    "text": "Latest Posts and Videos\n\n\n\n\n\n\n\n\n\n\nInteractive Country Maps with R\n\n\nLearn how to create Interactive Maps of any European Country using R programming.\n\n\n\nMay 23, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGeocode ANY location using R\n\n\nGet the latitude and longitude of any place using Google Maps, Bing or Mapbox.\n\n\n\nApr 18, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMake Beautiful Tables using R\n\n\nFully customize your tables with colors, images and graphics with gt.\n\n\n\nMar 1, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMap ANY region of the world using R\n\n\nUsing R programming to Map Europe, Asia, Africa, America, etc.\n\n\n\nJan 29, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGoogle Sheet Automation using R\n\n\nHow to read, write, append data, and change Google Sheet user permissions from R.\n\n\n\nDec 26, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInteractive Network of the Marvel Universe\n\n\nLearn how to use R programming to create interactive networks.\n\n\n\nNov 8, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHow to Detect Emotions 😍😭😱 from Texts\n\n\nA sentiment analysis of George Orwell’s 1984 novel using tidytext\n\n\n\nAug 16, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRead, Clean and Merge Excel files using R\n\n\nClean, validate and join Excel files in a single and consolidated dataset\n\n\n\nJul 5, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdvanced Data Filtering in R using dplyr\n\n\n5 advanced examples using the filter() function from dplyr\n\n\n\nMar 16, 2022\n\n\n\n\n\n\n\n\nNo matching items"
+    "section": "Posts and Videos",
+    "text": "Posts and Videos\n\n\n\n\n\n\n\n\n\n\nInteractive Country Maps with R\n\n\nLearn how to create Interactive Maps of any European Country using R programming.\n\n\n\nMay 23, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGeocode ANY location using R\n\n\nGet the latitude and longitude of any place using Google Maps, Bing or Mapbox.\n\n\n\nApr 18, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMake Beautiful Tables using R\n\n\nFully customize your tables with colors, images and graphics with gt.\n\n\n\nMar 1, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMap ANY region of the world using R\n\n\nUsing R programming to Map Europe, Asia, Africa, America, etc.\n\n\n\nJan 29, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGoogle Sheet Automation using R\n\n\nHow to read, write, append data, and change Google Sheet user permissions from R.\n\n\n\nDec 26, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInteractive Network of the Marvel Universe\n\n\nLearn how to use R programming to create interactive networks.\n\n\n\nNov 8, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHow to Detect Emotions 😍😭😱 from Texts\n\n\nA sentiment analysis of George Orwell’s 1984 novel using tidytext\n\n\n\nAug 16, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRead, Clean and Merge Excel files using R\n\n\nClean, validate and join Excel files in a single and consolidated dataset\n\n\n\nJul 5, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdvanced Data Filtering in R using dplyr\n\n\n5 advanced examples using the filter() function from dplyr\n\n\n\nMar 3, 2022\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "index.html#latest-applications",
-    "href": "index.html#latest-applications",
+    "objectID": "index.html#applications",
+    "href": "index.html#applications",
     "title": "Félix Luginbühl",
-    "section": "Latest Applications",
-    "text": "Latest Applications\n\n\n\n\n\n\n\n\n\n\nSwiss City Statistics\n\n\nA use case example for the BFS R package\n\n\n\nJun 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngotop app\n\n\nDemo app of the R package gotop\n\n\n\nApr 20, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\naniview app\n\n\nDemo app of the R package aniview\n\n\n\nFeb 8, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nscroller app\n\n\nDemo app of the R package scroller\n\n\n\nJan 28, 2022\n\n\n\n\n\n\n\n\nNo matching items"
+    "section": "Applications",
+    "text": "Applications\n\n\n\n\n\n\n\n\n\n\nSwiss City Statistics\n\n\nA use case example for the BFS R package\n\n\n\nJun 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngotop app\n\n\nDemo app of the R package gotop\n\n\n\nApr 20, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\naniview app\n\n\nDemo app of the R package aniview\n\n\n\nFeb 8, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nscroller app\n\n\nDemo app of the R package scroller\n\n\n\nJan 28, 2022\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "index.html#latest-projects",
-    "href": "index.html#latest-projects",
+    "objectID": "index.html#projects",
+    "href": "index.html#projects",
     "title": "Félix Luginbühl",
-    "section": "Latest Projects",
-    "text": "Latest Projects\n\n\n\n\n\n\n\n\n\n\nBFS R package\n\n\nSearch and download data from the Swiss Federal Statistical Office\n\n\n\nMay 31, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngotop R package\n\n\nAdd a scroll back to top icon to R Markdown and Shiny apps\n\n\n\nSep 20, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\n\naos R package\n\n\nAnimate on Scroll Library for Shiny\n\n\n\nFeb 27, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nscroller R package\n\n\nScroll to any element in your Shiny apps\n\n\n\nFeb 24, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\n\naniview R package\n\n\nAnimate Shiny content when it comes into view\n\n\n\nDec 10, 2020\n\n\n\n\n\n\n\n\n\n\n\n\n\n\npolyglot R package\n\n\nUse the R console as an interactive learning environment\n\n\n\nMay 17, 2020\n\n\n\n\n\n\n\n\nNo matching items"
+    "section": "Projects",
+    "text": "Projects\n\n\n\n\n\n\n\n\n\n\nBFS R package\n\n\nSearch and download data from the Swiss Federal Statistical Office\n\n\n\nMay 31, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngotop R package\n\n\nAdd a scroll back to top icon to R Markdown and Shiny apps\n\n\n\nSep 20, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\n\naos R package\n\n\nAnimate on Scroll Library for Shiny\n\n\n\nFeb 27, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nscroller R package\n\n\nScroll to any element in your Shiny apps\n\n\n\nFeb 24, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\n\naniview R package\n\n\nAnimate Shiny content when it comes into view\n\n\n\nDec 10, 2020\n\n\n\n\n\n\n\n\n\n\n\n\n\n\npolyglot R package\n\n\nUse the R console as an interactive learning environment\n\n\n\nMay 17, 2020\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "index.html#latest-talks",
-    "href": "index.html#latest-talks",
+    "objectID": "index.html#talks",
+    "href": "index.html#talks",
     "title": "Félix Luginbühl",
-    "section": "Latest Talks",
-    "text": "Latest Talks\n\n\n\n\n\n\n\n\n\n\nBFS R package - Search and download data from the Swiss Federal Statistical Office\n\n\nMeetup organized by adminR, Digital Society Initiative DSI and the Statistical Office of Zürich.\n\n\n\nMay 25, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR Blogging - Sharing my year-long experience using the tidyverse ecosystem\n\n\nMeetup organized by Geneva R Users with the support of the EPFL Extension School at Campus Biotech.\n\n\n\nJun 5, 2018\n\n\n\n\n\n\n\n\nNo matching items"
+    "section": "Talks",
+    "text": "Talks\n\n\n\n\n\n\n\n\n\n\nBFS R package - Search and download data from the Swiss Federal Statistical Office\n\n\nMeetup organized by adminR, Digital Society Initiative DSI and the Statistical Office of Zürich.\n\n\n\nMay 25, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR Blogging - Sharing my year-long experience using the tidyverse ecosystem\n\n\nMeetup organized by Geneva R Users with the support of the EPFL Extension School at Campus Biotech.\n\n\n\nJun 5, 2018\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/index.html",
     "href": "posts/index.html",
     "title": "Posts and Videos",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nInteractive Country Maps with R\n\n\n\n\n\nLearn how to create Interactive Maps of any European Country using R programming.\n\n\n\n\n\n\nMay 23, 2023\n\n\n\n\n\n\n  \n\n\n\n\nGeocode ANY location using R\n\n\n\n\n\nGet the latitude and longitude of any place using Google Maps, Bing or Mapbox.\n\n\n\n\n\n\nApr 18, 2023\n\n\n\n\n\n\n  \n\n\n\n\nMake Beautiful Tables using R\n\n\n\n\n\nFully customize your tables with colors, images and graphics with gt.\n\n\n\n\n\n\nMar 1, 2023\n\n\n\n\n\n\n  \n\n\n\n\nMap ANY region of the world using R\n\n\n\n\n\nUsing R programming to Map Europe, Asia, Africa, America, etc.\n\n\n\n\n\n\nJan 29, 2023\n\n\n\n\n\n\n  \n\n\n\n\nGoogle Sheet Automation using R\n\n\n\n\n\nHow to read, write, append data, and change Google Sheet user permissions from R.\n\n\n\n\n\n\nDec 26, 2022\n\n\n\n\n\n\n  \n\n\n\n\nInteractive Network of the Marvel Universe\n\n\n\n\n\nLearn how to use R programming to create interactive networks.\n\n\n\n\n\n\nNov 8, 2022\n\n\n\n\n\n\n  \n\n\n\n\nHow to Detect Emotions 😍😭😱 from Texts\n\n\n\n\n\nA sentiment analysis of George Orwell’s 1984 novel using tidytext\n\n\n\n\n\n\nAug 16, 2022\n\n\n\n\n\n\n  \n\n\n\n\nRead, Clean and Merge Excel files using R\n\n\n\n\n\nClean, validate and join Excel files in a single and consolidated dataset\n\n\n\n\n\n\nJul 5, 2022\n\n\n\n\n\n\n  \n\n\n\n\nAdvanced Data Filtering in R using dplyr\n\n\n\n\n\n5 advanced examples using the filter() function from dplyr\n\n\n\n\n\n\nMar 16, 2022\n\n\n\n\n\n\n  \n\n\n\n\nBeautiful World Maps using R\n\n\n\n\n\nMapping James Bond country locations by movie and actor with ggplot2 and sf\n\n\n\n\n\n\nMar 16, 2022\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nInteractive Country Maps with R\n\n\n\n\n\nLearn how to create Interactive Maps of any European Country using R programming.\n\n\n\n\n\n\nMay 23, 2023\n\n\n\n\n\n\n  \n\n\n\n\nGeocode ANY location using R\n\n\n\n\n\nGet the latitude and longitude of any place using Google Maps, Bing or Mapbox.\n\n\n\n\n\n\nApr 18, 2023\n\n\n\n\n\n\n  \n\n\n\n\nMake Beautiful Tables using R\n\n\n\n\n\nFully customize your tables with colors, images and graphics with gt.\n\n\n\n\n\n\nMar 1, 2023\n\n\n\n\n\n\n  \n\n\n\n\nMap ANY region of the world using R\n\n\n\n\n\nUsing R programming to Map Europe, Asia, Africa, America, etc.\n\n\n\n\n\n\nJan 29, 2023\n\n\n\n\n\n\n  \n\n\n\n\nGoogle Sheet Automation using R\n\n\n\n\n\nHow to read, write, append data, and change Google Sheet user permissions from R.\n\n\n\n\n\n\nDec 26, 2022\n\n\n\n\n\n\n  \n\n\n\n\nInteractive Network of the Marvel Universe\n\n\n\n\n\nLearn how to use R programming to create interactive networks.\n\n\n\n\n\n\nNov 8, 2022\n\n\n\n\n\n\n  \n\n\n\n\nHow to Detect Emotions 😍😭😱 from Texts\n\n\n\n\n\nA sentiment analysis of George Orwell’s 1984 novel using tidytext\n\n\n\n\n\n\nAug 16, 2022\n\n\n\n\n\n\n  \n\n\n\n\nRead, Clean and Merge Excel files using R\n\n\n\n\n\nClean, validate and join Excel files in a single and consolidated dataset\n\n\n\n\n\n\nJul 5, 2022\n\n\n\n\n\n\n  \n\n\n\n\nAdvanced Data Filtering in R using dplyr\n\n\n\n\n\n5 advanced examples using the filter() function from dplyr\n\n\n\n\n\n\nMar 3, 2022\n\n\n\n\n\n\n  \n\n\n\n\nBeautiful World Maps using R\n\n\n\n\n\nMapping James Bond country locations by movie and actor with ggplot2 and sf\n\n\n\n\n\n\nFeb 11, 2022\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about/index.html",
@@ -103,6 +96,20 @@
     "title": "scroller app",
     "section": "",
     "text": "Application"
+  },
+  {
+    "objectID": "posts/beautiful-tables/index.html",
+    "href": "posts/beautiful-tables/index.html",
+    "title": "Make Beautiful Tables using R",
+    "section": "",
+    "text": "Would you like to learn how to create more engaging and better looking tables using the R programming language?\nI just release a new YouTube video showing you how to access Spotify data to get the top 10 most listen songs and visualize them on a table.\nYou will learn how to:"
+  },
+  {
+    "objectID": "posts/beautiful-tables/index.html#visualisations",
+    "href": "posts/beautiful-tables/index.html#visualisations",
+    "title": "Make Beautiful Tables using R",
+    "section": "Visualisations",
+    "text": "Visualisations"
   },
   {
     "objectID": "posts/excel-files/index.html",
@@ -182,6 +189,20 @@
     "text": "Visualisations"
   },
   {
+    "objectID": "posts/world-maps/index.html",
+    "href": "posts/world-maps/index.html",
+    "title": "Beautiful World Maps using R",
+    "section": "",
+    "text": "Do you want to learn how to create beautiful world maps using R programming?\nIn this video I show you how to download world map data, plot it, add texts and colors, and even change the map projection using the R packages {ggplot2} and {sf}.\nBe sure to check it out:"
+  },
+  {
+    "objectID": "posts/world-maps/index.html#visualisations",
+    "href": "posts/world-maps/index.html#visualisations",
+    "title": "Beautiful World Maps using R",
+    "section": "Visualisations",
+    "text": "Visualisations"
+  },
+  {
     "objectID": "projects/BFS/index.html",
     "href": "projects/BFS/index.html",
     "title": "BFS R package",
@@ -243,26 +264,5 @@
     "title": "Talks",
     "section": "",
     "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nBFS R package - Search and download data from the Swiss Federal Statistical Office\n\n\n\n\n\n\n\ntalk\n\n\n\n\nMeetup organized by adminR, Digital Society Initiative DSI and the Statistical Office of Zürich.\n\n\n\n\n\n\nMay 25, 2023\n\n\n\n\n\n\n  \n\n\n\n\nR Blogging - Sharing my year-long experience using the tidyverse ecosystem\n\n\n\n\n\n\n\ntalk\n\n\n\n\nMeetup organized by Geneva R Users with the support of the EPFL Extension School at Campus Biotech.\n\n\n\n\n\n\nJun 5, 2018\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "posts/advanced-filtering/index.html",
-    "href": "posts/advanced-filtering/index.html",
-    "title": "Advanced Data Filtering in R using dplyr",
-    "section": "",
-    "text": "In this video I show you advanced uses of the filter() function from the dplyr R package.\nWe will see different ways of keeping or removing specific rows of a dataset using 5 simple examples. Then we will explore more advanced filtering methods, such as filtering data using logical conditions on multiple columns, how to remove missing values or how to use specific words or strings to filter rows of character variables."
-  },
-  {
-    "objectID": "posts/world-maps/index.html",
-    "href": "posts/world-maps/index.html",
-    "title": "Beautiful World Maps using R",
-    "section": "",
-    "text": "Do you want to learn how to create beautiful world maps using R programming?\nIn this video I show you how to download world map data, plot it, add texts and colors, and even change the map projection using the R packages {ggplot2} and {sf}.\nBe sure to check it out:"
-  },
-  {
-    "objectID": "posts/world-maps/index.html#visualisations",
-    "href": "posts/world-maps/index.html#visualisations",
-    "title": "Beautiful World Maps using R",
-    "section": "Visualisations",
-    "text": "Visualisations"
   }
 ]
