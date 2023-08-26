@@ -11,7 +11,28 @@
 <description>R packages and other data tools.
 </description>
 <generator>quarto-1.2.269</generator>
-<lastBuildDate>Tue, 30 May 2023 22:00:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 25 Aug 2023 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>colornames R package</title>
+  <link>https://www.felixluginbuhl.com/projects/colornames/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<p>Redirecting to <a href="https://felixluginbuhl.com/colornames" class="uri">https://felixluginbuhl.com/colornames</a>…</p>
+<meta http-equiv="refresh" content="0; url=https://felixluginbuhl.com/colornames">
+<script type="text/javascript">
+    window.location.href = "https://felixluginbuhl.com/colornames";
+</script>
+
+
+
+ ]]></description>
+  <category>Project</category>
+  <guid>https://www.felixluginbuhl.com/projects/colornames/index.html</guid>
+  <pubDate>Fri, 25 Aug 2023 22:00:00 GMT</pubDate>
+  <media:content url="https://www.felixluginbuhl.com/projects/colornames/colornames-logo.png" medium="image" type="image/png" height="167" width="144"/>
+</item>
 <item>
   <title>BFS R package</title>
   <link>https://www.felixluginbuhl.com/projects/BFS/index.html</link>
@@ -30,7 +51,7 @@
  ]]></description>
   <category>Project</category>
   <guid>https://www.felixluginbuhl.com/projects/BFS/index.html</guid>
-  <pubDate>Tue, 30 May 2023 22:00:00 GMT</pubDate>
+  <pubDate>Fri, 18 Aug 2023 22:00:00 GMT</pubDate>
   <media:content url="https://www.felixluginbuhl.com/projects/BFS/BFS-logo.png" medium="image" type="image/png" height="167" width="144"/>
 </item>
 <item>

@@ -1,5 +1,14 @@
 [
   {
+    "listing": "/applications/index.html",
+    "items": [
+      "/applications/city-statistics/index.html",
+      "/applications/gotop-app/index.html",
+      "/applications/aniview-app/index.html",
+      "/applications/scroller-app/index.html"
+    ]
+  },
+  {
     "listing": "/index.html",
     "items": [
       "/posts/interactive-country-maps/index.html",
@@ -12,6 +21,7 @@
       "/posts/excel-files/index.html",
       "/posts/advanced-filtering/index.html",
       "/posts/world-maps/index.html",
+      "/projects/colornames/index.html",
       "/projects/BFS/index.html",
       "/projects/gotop/index.html",
       "/projects/aos/index.html",
@@ -42,17 +52,9 @@
     ]
   },
   {
-    "listing": "/applications/index.html",
-    "items": [
-      "/applications/city-statistics/index.html",
-      "/applications/gotop-app/index.html",
-      "/applications/aniview-app/index.html",
-      "/applications/scroller-app/index.html"
-    ]
-  },
-  {
     "listing": "/projects/index.html",
     "items": [
+      "/projects/colornames/index.html",
       "/projects/BFS/index.html",
       "/projects/gotop/index.html",
       "/projects/aos/index.html",
