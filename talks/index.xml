@@ -11,7 +11,24 @@
 <description>Presentations and talks.
 </description>
 <generator>quarto-1.2.269</generator>
-<lastBuildDate>Wed, 24 May 2023 22:00:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 01 Sep 2023 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>Swiss Statistics Meeting - BFS R package Poster</title>
+  <dc:creator>Félix Luginbühl</dc:creator>
+  <link>https://www.felixluginbuhl.com/talks/swiss-statistics/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+ ]]></description>
+  <category>talk</category>
+  <guid>https://www.felixluginbuhl.com/talks/swiss-statistics/index.html</guid>
+  <pubDate>Fri, 01 Sep 2023 22:00:00 GMT</pubDate>
+  <media:content url="https://www.felixluginbuhl.com/talks/swiss-statistics/swiss-statistics.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>BFS R package - Search and download data from the Swiss Federal Statistical Office</title>
   <dc:creator>Félix Luginbühl</dc:creator>
