@@ -61,7 +61,6 @@ library(fontawesome)
 <h3>Let's get in touch:</h3>
 
 <h4>
-- `r fa("envelope", fill = "white")` &ensp;&ensp; felix.luginbuhl@outlook.com
 - `r fa("linkedin", fill = "white")` &ensp;&ensp; linkedin.com/in/felixluginbuhl
 - `r fa("globe", fill = "white")` &ensp;&ensp; www.felixluginbuhl.com
 </h4>
