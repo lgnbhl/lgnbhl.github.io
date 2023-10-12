@@ -11,7 +11,45 @@
 <description>Blog post, &lt;a href=&quot;https://youtube.com/felixanalytix&quot; title=&quot;youtube&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;YouTube Videos&lt;/a&gt;, and Data Visualisations.
 </description>
 <generator>quarto-1.2.269</generator>
-<lastBuildDate>Mon, 22 May 2023 22:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sat, 30 Sep 2023 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>Customized Leaflet map using R</title>
+  <link>https://www.felixluginbuhl.com/posts/swiss-map-names/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<p><strong>Would you like to know how to customize interactive maps using leaflet with R programming?</strong></p>
+<p>In this <a href="https://youtu.be/f-Vnfe7WmJM">new YouTube video</a> I show you how to fully customize your leaflet maps. As an example I reproduce an Swiss official choropleth map of Switzerland showing the top 5 most common surnames by commune.</p>
+<p>You will learn how to:</p>
+<ul>
+<li>Search and download official Swiss data.</li>
+<li>Access official Swiss geographic data.</li>
+<li>FULLY customize Leaflet, such as:
+<ul>
+<li>adding anything in tooltips.</li>
+<li>customizing the legend.</li>
+<li>controlling zooming and map limits.</li>
+<li>creating an empty background.</li>
+</ul></li>
+</ul>
+<p>Sounds interesting? Check out the video now:</p>
+<div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/U0aJeaCnMeE" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<section id="visualisations" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="visualisations">Visualisations</h2>
+<div class="column-body-outset">
+<iframe src="map.html" height="605" width="100%" style="border: 1px solid #464646;" data-external="1">
+</iframe>
+</div>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://www.felixluginbuhl.com/posts/swiss-map-names/index.html</guid>
+  <pubDate>Sat, 30 Sep 2023 22:00:00 GMT</pubDate>
+  <media:content url="https://www.felixluginbuhl.com/posts/swiss-map-names/thumbnail-2.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
 <item>
   <title>Interactive Country Maps with R</title>
   <link>https://www.felixluginbuhl.com/posts/interactive-country-maps/index.html</link>
