@@ -68,35 +68,6 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-recent-posts-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-image','listing-description','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      page: 3,
-    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-recent-posts-listing'] = new List('listing-recent-posts-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
     const listingTargetEl = window.document.querySelector('#listing-recent-projects-listing .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
@@ -202,17 +173,17 @@ ga('send', {
 
 <link rel="stylesheet" href="_assets/panelset-extras.css">
 <meta property="og:title" content="Félix Luginbühl">
-<meta property="og:image" content="https://www.felixluginbuhl.com/posts\swiss-map-names\thumbnail-2.png">
+<meta property="og:image" content="https://www.felixluginbuhl.com/applications\gotop-app\gotop-app-thumbnail.png">
 <meta property="og:site-name" content="Félix Luginbühl">
-<meta property="og:image:height" content="720">
-<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="893">
+<meta property="og:image:width" content="1870">
 <meta name="twitter:title" content="Félix Luginbühl">
 <meta name="twitter:description" content="Data Scientist building data tools and apps using R.">
-<meta name="twitter:image" content="https://www.felixluginbuhl.com/posts\swiss-map-names\thumbnail-2.png">
+<meta name="twitter:image" content="https://www.felixluginbuhl.com/applications\gotop-app\gotop-app-thumbnail.png">
 <meta name="twitter:creator" content="@FelixLuginbuhl">
 <meta name="twitter:site" content="@FelixLuginbuhl">
-<meta name="twitter:image-height" content="720">
-<meta name="twitter:image-width" content="1280">
+<meta name="twitter:image-height" content="893">
+<meta name="twitter:image-width" content="1870">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -237,7 +208,7 @@ ga('send', {
  <span class="menu-text">home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./posts/index.html">
+    <a class="nav-link" href="https://felixanalytix.substack.com">
  <span class="menu-text">posts</span></a>
   </li>  
   <li class="nav-item">
@@ -335,216 +306,19 @@ ga('send', {
   <div class="site-logo order-first order-sm-last text-primary">
   </div>
 </div>
-<section id="posts-and-videos" class="level2">
-<h2 class="anchored" data-anchor-id="posts-and-videos"><a class="no-text-decoration" href="./posts">Posts and Videos</a></h2>
-<div id="listing-recent-posts-listing" class="quarto-listing quarto-listing-container-grid">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1696111200000" data-listing-file-modified-sort="1696161117559" data-listing-reading-time-sort="0.56">
-<a href="./posts/swiss-map-names/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/swiss-map-names/thumbnail-2.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Customized Leaflet map using R
-</h5>
-<div class="card-text listing-description">
-Reproducing an official Swiss map of the top surnames by commune with leaflet
+<section id="posts" class="level2">
+<h2 class="anchored" data-anchor-id="posts"><a class="no-text-decoration" href="https://felixanalytix.substack.com/">Posts</a></h2>
+<div id="substack-feed-embed">
+
 </div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Oct 1, 2023
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="1" data-listing-date-sort="1684792800000" data-listing-file-modified-sort="1685993562000" data-listing-reading-time-sort="0.54">
-<a href="./posts/interactive-country-maps/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/interactive-country-maps/interactive-country-maps.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Interactive Country Maps with R
-</h5>
-<div class="card-text listing-description">
-Learn how to create Interactive Maps of any European Country using R programming.
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-May 23, 2023
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="2" data-listing-date-sort="1681768800000" data-listing-file-modified-sort="1685993548000" data-listing-reading-time-sort="0.33">
-<a href="./posts/geocode-locations/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/geocode-locations/geocode-locations.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Geocode ANY location using R
-</h5>
-<div class="card-text listing-description">
-Get the latitude and longitude of any place using Google Maps, Bing or Mapbox.
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Apr 18, 2023
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="3" data-listing-date-sort="1677625200000" data-listing-file-modified-sort="1685993542000" data-listing-reading-time-sort="0.43">
-<a href="./posts/beautiful-tables/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img data-src="./posts/beautiful-tables/beautiful-tables.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Make Beautiful Tables using R
-</h5>
-<div class="card-text listing-description">
-Fully customize your tables with colors, images and graphics with gt.
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Mar 1, 2023
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="4" data-listing-date-sort="1674946800000" data-listing-file-modified-sort="1686051337000" data-listing-reading-time-sort="0.59">
-<a href="./posts/map-regions/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img data-src="./posts/map-regions/map-regions.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Map ANY region of the world using R
-</h5>
-<div class="card-text listing-description">
-Using R programming to Map Europe, Asia, Africa, America, etc.
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Jan 29, 2023
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="5" data-listing-date-sort="1672009200000" data-listing-file-modified-sort="1686051387000" data-listing-reading-time-sort="0.415">
-<a href="./posts/google-sheet-automation/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img data-src="./posts/google-sheet-automation/google-sheet-automation.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Google Sheet Automation using R
-</h5>
-<div class="card-text listing-description">
-How to read, write, append data, and change Google Sheet user permissions from R.
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Dec 26, 2022
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="6" data-listing-date-sort="1667862000000" data-listing-file-modified-sort="1686051420000" data-listing-reading-time-sort="0.345">
-<a href="./posts/interactive-network/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img data-src="./posts/interactive-network/interactive-network.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Interactive Network of the Marvel Universe
-</h5>
-<div class="card-text listing-description">
-Learn how to use R programming to create interactive networks.
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Nov 8, 2022
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="7" data-listing-date-sort="1660600800000" data-listing-file-modified-sort="1686051217000" data-listing-reading-time-sort="0.415">
-<a href="./posts/sentiment-analysis/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img data-src="./posts/sentiment-analysis/sentiment-analysis.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-How to Detect Emotions 😍😭😱 from Texts
-</h5>
-<div class="card-text listing-description">
-A sentiment analysis of George Orwell’s 1984 novel using tidytext
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Aug 16, 2022
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="8" data-listing-date-sort="1656972000000" data-listing-file-modified-sort="1686058722000" data-listing-reading-time-sort="0.335">
-<a href="./posts/excel-files/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img data-src="./posts/excel-files/excel-files.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Read, Clean and Merge Excel files using R
-</h5>
-<div class="card-text listing-description">
-Clean, validate and join Excel files in a single and consolidated dataset
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Jul 5, 2022
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-<nav id="recent-posts-listing-pagination" class="listing-pagination" aria-label="Page Navigation">
-  <ul class="pagination"></ul>
-</nav>
-</div>
+<script>
+  window.SubstackFeedWidget = {
+    substackUrl: "felixanalytix.substack.com",
+    posts: 3,
+    layout: "center"
+  };
+</script>
+<script src="https://substackapi.com/embeds/feed.js" async=""></script>
 </section>
 <section id="applications" class="level2">
 <h2 class="anchored" data-anchor-id="applications"><a class="no-text-decoration" href="./applications/index.html">Applications</a></h2>

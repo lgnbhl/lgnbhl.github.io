@@ -56,11 +56,11 @@
     "text": "Application"
   },
   {
-    "objectID": "index.html#posts-and-videos",
-    "href": "index.html#posts-and-videos",
+    "objectID": "index.html#posts",
+    "href": "index.html#posts",
     "title": "Félix Luginbühl",
-    "section": "Posts and Videos",
-    "text": "Posts and Videos\n\n\n\n\n\n\n\n\n\n\nCustomized Leaflet map using R\n\n\nReproducing an official Swiss map of the top surnames by commune with leaflet\n\n\n\nOct 1, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInteractive Country Maps with R\n\n\nLearn how to create Interactive Maps of any European Country using R programming.\n\n\n\nMay 23, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGeocode ANY location using R\n\n\nGet the latitude and longitude of any place using Google Maps, Bing or Mapbox.\n\n\n\nApr 18, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMake Beautiful Tables using R\n\n\nFully customize your tables with colors, images and graphics with gt.\n\n\n\nMar 1, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMap ANY region of the world using R\n\n\nUsing R programming to Map Europe, Asia, Africa, America, etc.\n\n\n\nJan 29, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGoogle Sheet Automation using R\n\n\nHow to read, write, append data, and change Google Sheet user permissions from R.\n\n\n\nDec 26, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInteractive Network of the Marvel Universe\n\n\nLearn how to use R programming to create interactive networks.\n\n\n\nNov 8, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHow to Detect Emotions 😍😭😱 from Texts\n\n\nA sentiment analysis of George Orwell’s 1984 novel using tidytext\n\n\n\nAug 16, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRead, Clean and Merge Excel files using R\n\n\nClean, validate and join Excel files in a single and consolidated dataset\n\n\n\nJul 5, 2022\n\n\n\n\n\n\n\n\nNo matching items"
+    "section": "Posts",
+    "text": "Posts"
   },
   {
     "objectID": "index.html#applications",
@@ -189,6 +189,20 @@
     "text": "Visualisations"
   },
   {
+    "objectID": "posts/swiss-map-names/index.html",
+    "href": "posts/swiss-map-names/index.html",
+    "title": "Customized Leaflet map using R",
+    "section": "",
+    "text": "Would you like to know how to customize interactive maps using leaflet with R programming?\nIn this new YouTube video I show you how to fully customize your leaflet maps. As an example I reproduce an Swiss official choropleth map of Switzerland showing the top 5 most common surnames by commune.\nYou will learn how to:\nSounds interesting? Check out the video now:"
+  },
+  {
+    "objectID": "posts/swiss-map-names/index.html#visualisations",
+    "href": "posts/swiss-map-names/index.html#visualisations",
+    "title": "Customized Leaflet map using R",
+    "section": "Visualisations",
+    "text": "Visualisations"
+  },
+  {
     "objectID": "posts/world-maps/index.html",
     "href": "posts/world-maps/index.html",
     "title": "Beautiful World Maps using R",
@@ -271,19 +285,5 @@
     "title": "Talks",
     "section": "",
     "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nSwiss Statistics Meeting - BFS R package Poster\n\n\n\n\n\n\n\ntalk\n\n\n\n\nThe Swiss Statistical Days 2023 took place at the University of Basel and is organised by the Federal Statistical Office (BFS).\n\n\n\n\n\n\nSep 2, 2023\n\n\n\n\n\n\n  \n\n\n\n\nBFS R package - Search and download data from the Swiss Federal Statistical Office\n\n\n\n\n\n\n\ntalk\n\n\n\n\nMeetup organized by adminR, Digital Society Initiative DSI and the Statistical Office of Zürich.\n\n\n\n\n\n\nMay 25, 2023\n\n\n\n\n\n\n  \n\n\n\n\nR Blogging - Sharing my year-long experience using the tidyverse ecosystem\n\n\n\n\n\n\n\ntalk\n\n\n\n\nMeetup organized by Geneva R Users with the support of the EPFL Extension School at Campus Biotech.\n\n\n\n\n\n\nJun 5, 2018\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "posts/swiss-map-names/index.html",
-    "href": "posts/swiss-map-names/index.html",
-    "title": "Customized Leaflet map using R",
-    "section": "",
-    "text": "Would you like to know how to customize interactive maps using leaflet with R programming?\nIn this new YouTube video I show you how to fully customize your leaflet maps. As an example I reproduce an Swiss official choropleth map of Switzerland showing the top 5 most common surnames by commune.\nYou will learn how to:\nSounds interesting? Check out the video now:"
-  },
-  {
-    "objectID": "posts/swiss-map-names/index.html#visualisations",
-    "href": "posts/swiss-map-names/index.html#visualisations",
-    "title": "Customized Leaflet map using R",
-    "section": "Visualisations",
-    "text": "Visualisations"
   }
 ]

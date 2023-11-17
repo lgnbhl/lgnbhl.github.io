@@ -11,17 +11,6 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/swiss-map-names/index.html",
-      "/posts/interactive-country-maps/index.html",
-      "/posts/geocode-locations/index.html",
-      "/posts/beautiful-tables/index.html",
-      "/posts/map-regions/index.html",
-      "/posts/google-sheet-automation/index.html",
-      "/posts/interactive-network/index.html",
-      "/posts/sentiment-analysis/index.html",
-      "/posts/excel-files/index.html",
-      "/posts/advanced-filtering/index.html",
-      "/posts/world-maps/index.html",
       "/projects/colornames/index.html",
       "/projects/BFS/index.html",
       "/projects/gotop/index.html",
