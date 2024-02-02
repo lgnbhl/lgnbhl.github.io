@@ -6,16 +6,17 @@
       version="2.0">
 <channel>
 <title>Félix Luginbühl</title>
-<link>https://www.felixluginbuhl.com/posts/index.html</link>
+<link>https://www.felixluginbuhl.com/posts/</link>
 <atom:link href="https://www.felixluginbuhl.com/posts/index.xml" rel="self" type="application/rss+xml"/>
 <description>Blog post, &lt;a href=&quot;https://youtube.com/felixanalytix&quot; title=&quot;youtube&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;YouTube Videos&lt;/a&gt;, and Data Visualisations.
 </description>
-<generator>quarto-1.2.269</generator>
+<generator>quarto-1.4.545</generator>
 <lastBuildDate>Sat, 30 Sep 2023 22:00:00 GMT</lastBuildDate>
 <item>
   <title>Customized Leaflet map using R</title>
-  <link>https://www.felixluginbuhl.com/posts/swiss-map-names/index.html</link>
+  <link>https://www.felixluginbuhl.com/posts/swiss-map-names/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -34,7 +35,7 @@
 </ul></li>
 </ul>
 <p>Sounds interesting? Check out the video now:</p>
-<div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/U0aJeaCnMeE" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/U0aJeaCnMeE" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <section id="visualisations" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="visualisations">Visualisations</h2>
 <div class="column-body-outset">
@@ -46,14 +47,15 @@
 </section>
 
  ]]></description>
-  <guid>https://www.felixluginbuhl.com/posts/swiss-map-names/index.html</guid>
+  <guid>https://www.felixluginbuhl.com/posts/swiss-map-names/</guid>
   <pubDate>Sat, 30 Sep 2023 22:00:00 GMT</pubDate>
   <media:content url="https://www.felixluginbuhl.com/posts/swiss-map-names/thumbnail-2.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
   <title>Interactive Country Maps with R</title>
-  <link>https://www.felixluginbuhl.com/posts/interactive-country-maps/index.html</link>
+  <link>https://www.felixluginbuhl.com/posts/interactive-country-maps/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -68,7 +70,7 @@
 <li>Synchronize multiple interactive maps together.</li>
 </ul>
 <p>Check out the video now:</p>
-<div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/f-Vnfe7WmJM" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/f-Vnfe7WmJM" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <section id="visualisation" class="level2">
 <h2 class="anchored" data-anchor-id="visualisation">Visualisation</h2>
 <iframe src="swiss-student-map.html" height="405" width="100%" style="border: 1px solid #464646;" data-external="1">
@@ -78,20 +80,21 @@
 </section>
 
  ]]></description>
-  <guid>https://www.felixluginbuhl.com/posts/interactive-country-maps/index.html</guid>
+  <guid>https://www.felixluginbuhl.com/posts/interactive-country-maps/</guid>
   <pubDate>Mon, 22 May 2023 22:00:00 GMT</pubDate>
   <media:content url="https://www.felixluginbuhl.com/posts/interactive-country-maps/interactive-country-maps.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
   <title>Geocode ANY location using R</title>
-  <link>https://www.felixluginbuhl.com/posts/geocode-locations/index.html</link>
+  <link>https://www.felixluginbuhl.com/posts/geocode-locations/</link>
   <description><![CDATA[ 
+
 
 
 
 <p><strong>Do you have a list of places/locations and you would like to visualize them on an interactive map?</strong></p>
 <p>In my new YouTube video, I show you how to use geocoding services such as Google Maps, Bing, Mapbox or OpenStreetMap to get the latitude and longitude of any location and plot them on an interactive map.</p>
-<div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/7C49i6JMZTc" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/7C49i6JMZTc" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <section id="visualisation" class="level2">
 <h2 class="anchored" data-anchor-id="visualisation">Visualisation</h2>
 <iframe src="james-bond-map.html" height="405" width="100%" style="border: 1px solid #464646;" data-external="1">
@@ -101,14 +104,15 @@
 </section>
 
  ]]></description>
-  <guid>https://www.felixluginbuhl.com/posts/geocode-locations/index.html</guid>
+  <guid>https://www.felixluginbuhl.com/posts/geocode-locations/</guid>
   <pubDate>Mon, 17 Apr 2023 22:00:00 GMT</pubDate>
   <media:content url="https://www.felixluginbuhl.com/posts/geocode-locations/geocode-locations.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
   <title>Make Beautiful Tables using R</title>
-  <link>https://www.felixluginbuhl.com/posts/beautiful-tables/index.html</link>
+  <link>https://www.felixluginbuhl.com/posts/beautiful-tables/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -121,11 +125,14 @@
 <li>insert graphics such as bar plots, sparklines, etc.</li>
 <li>merge columns to better synthesis information.</li>
 </ul>
-<div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/tmLoa_zL010" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/tmLoa_zL010" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <section id="visualisations" class="level2">
 <h2 class="anchored" data-anchor-id="visualisations">Visualisations</h2>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="https://www.felixluginbuhl.com/posts/beautiful-tables/spotify-table-1.png" class="img-fluid"></p>
 </div>
@@ -139,14 +146,15 @@
 </section>
 
  ]]></description>
-  <guid>https://www.felixluginbuhl.com/posts/beautiful-tables/index.html</guid>
+  <guid>https://www.felixluginbuhl.com/posts/beautiful-tables/</guid>
   <pubDate>Tue, 28 Feb 2023 23:00:00 GMT</pubDate>
   <media:content url="https://www.felixluginbuhl.com/posts/beautiful-tables/beautiful-tables.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
   <title>Map ANY region of the world using R</title>
-  <link>https://www.felixluginbuhl.com/posts/map-regions/index.html</link>
+  <link>https://www.felixluginbuhl.com/posts/map-regions/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -154,19 +162,20 @@
 <p>I just published a new YouTube video showing you how to create a choropleth world map using World Bank unemployment data, and how to zoom on any specific region. As an example, we will visualize the European region only.</p>
 <p>But of course, you can reuse the R code showed in the video with your own dataset on any region of your choice.</p>
 <p>At the end of the video I discuss some important points regarding the use of the scale and the color palette when creating a map, so be sure to watch the video until the end.</p>
-<div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/KZcKv3HgzII" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/KZcKv3HgzII" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 
 
 
  ]]></description>
-  <guid>https://www.felixluginbuhl.com/posts/map-regions/index.html</guid>
+  <guid>https://www.felixluginbuhl.com/posts/map-regions/</guid>
   <pubDate>Sat, 28 Jan 2023 23:00:00 GMT</pubDate>
   <media:content url="https://www.felixluginbuhl.com/posts/map-regions/map-regions.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
   <title>Google Sheet Automation using R</title>
-  <link>https://www.felixluginbuhl.com/posts/google-sheet-automation/index.html</link>
+  <link>https://www.felixluginbuhl.com/posts/google-sheet-automation/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -181,19 +190,20 @@
 <li>Change file access permission (from private to public).</li>
 </ul>
 <p>Check it out:</p>
-<div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/daEq5Yj6uZw" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/daEq5Yj6uZw" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 
 
 
  ]]></description>
-  <guid>https://www.felixluginbuhl.com/posts/google-sheet-automation/index.html</guid>
+  <guid>https://www.felixluginbuhl.com/posts/google-sheet-automation/</guid>
   <pubDate>Sun, 25 Dec 2022 23:00:00 GMT</pubDate>
   <media:content url="https://www.felixluginbuhl.com/posts/google-sheet-automation/google-sheet-automation.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
   <title>Interactive Network of the Marvel Universe</title>
-  <link>https://www.felixluginbuhl.com/posts/interactive-network/index.html</link>
+  <link>https://www.felixluginbuhl.com/posts/interactive-network/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -201,7 +211,7 @@
 <p>First we will scrape the data from Wikipedia, structure the data in a tidy way, and build an interactive network of the main Marvel characters.</p>
 <p>You can play with the final interactive network here.</p>
 <p>Learn how to make it by yourself watching the video:</p>
-<div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/hgUJ-UFv4YY" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/hgUJ-UFv4YY" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <section id="visualisation" class="level2">
 <h2 class="anchored" data-anchor-id="visualisation">Visualisation</h2>
 <iframe src="interactive-network.html" height="750" width="100%" style="border: 1px solid #464646;" data-external="1">
@@ -211,14 +221,15 @@
 </section>
 
  ]]></description>
-  <guid>https://www.felixluginbuhl.com/posts/interactive-network/index.html</guid>
+  <guid>https://www.felixluginbuhl.com/posts/interactive-network/</guid>
   <pubDate>Mon, 07 Nov 2022 23:00:00 GMT</pubDate>
   <media:content url="https://www.felixluginbuhl.com/posts/interactive-network/interactive-network.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
   <title>How to Detect Emotions 😍😭😱 from Texts</title>
-  <link>https://www.felixluginbuhl.com/posts/sentiment-analysis/index.html</link>
+  <link>https://www.felixluginbuhl.com/posts/sentiment-analysis/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -226,11 +237,14 @@
 <p>And learn this in a fun way?</p>
 <p>In this new YouTube video, we will implement a simple-but-efficient method (a lexicon-based sentiment analysis) generally used to analyse consumer feedbacks, social medias or texts in surveys. But, to make it more fun, we will instead analyse the book Nineteen Eighty-Four from George Orwell.</p>
 <p>Be sure to check out the video:</p>
-<div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/6el_C3PxSSw" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/6el_C3PxSSw" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <section id="visualisations" class="level2">
 <h2 class="anchored" data-anchor-id="visualisations">Visualisations</h2>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="https://www.felixluginbuhl.com/posts/sentiment-analysis/sentiment-analyis-1.png" class="img-fluid"></p>
 </div>
@@ -238,7 +252,7 @@
 <p><img src="https://www.felixluginbuhl.com/posts/sentiment-analysis/sentiment-analyis-2.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="https://www.felixluginbuhl.com/posts/sentiment-analysis/sentiment-analyis-3.png" class="img-fluid"></p>
 </div>
@@ -252,62 +266,68 @@
 </section>
 
  ]]></description>
-  <guid>https://www.felixluginbuhl.com/posts/sentiment-analysis/index.html</guid>
+  <guid>https://www.felixluginbuhl.com/posts/sentiment-analysis/</guid>
   <pubDate>Mon, 15 Aug 2022 22:00:00 GMT</pubDate>
   <media:content url="https://www.felixluginbuhl.com/posts/sentiment-analysis/sentiment-analysis.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
   <title>Read, Clean and Merge Excel files using R</title>
-  <link>https://www.felixluginbuhl.com/posts/excel-files/index.html</link>
+  <link>https://www.felixluginbuhl.com/posts/excel-files/</link>
   <description><![CDATA[ 
+
 
 
 
 <p><strong>Do you want to know how to create R loops that read hundreds of Excel files into R?</strong></p>
 <p>And that your R loops clean, validate and even merge your Excel files data into a single and consolidated dataset?</p>
 <p>Well, you are lucky… My new video just teaches you how to do that 😉. And in only 5 minutes. So be sure to check it out:</p>
-<div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/BHdWYonrPAs" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/BHdWYonrPAs" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 
 
 
  ]]></description>
-  <guid>https://www.felixluginbuhl.com/posts/excel-files/index.html</guid>
+  <guid>https://www.felixluginbuhl.com/posts/excel-files/</guid>
   <pubDate>Mon, 04 Jul 2022 22:00:00 GMT</pubDate>
   <media:content url="https://www.felixluginbuhl.com/posts/excel-files/excel-files.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
   <title>Advanced Data Filtering in R using dplyr</title>
-  <link>https://www.felixluginbuhl.com/posts/advanced-filtering/index.html</link>
+  <link>https://www.felixluginbuhl.com/posts/advanced-filtering/</link>
   <description><![CDATA[ 
+
 
 
 
 <p><strong>In this video I show you advanced uses of the filter() function from the dplyr R package.</strong></p>
 <p>We will see different ways of keeping or removing specific rows of a dataset using 5 simple examples. Then we will explore more advanced filtering methods, such as filtering data using logical conditions on multiple columns, how to remove missing values or how to use specific words or strings to filter rows of character variables.</p>
-<div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/PUJXa5zc-dY" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/PUJXa5zc-dY" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 
 
 
  ]]></description>
-  <guid>https://www.felixluginbuhl.com/posts/advanced-filtering/index.html</guid>
+  <guid>https://www.felixluginbuhl.com/posts/advanced-filtering/</guid>
   <pubDate>Wed, 02 Mar 2022 23:00:00 GMT</pubDate>
   <media:content url="https://www.felixluginbuhl.com/posts/advanced-filtering/advanced-filtering.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
   <title>Beautiful World Maps using R</title>
-  <link>https://www.felixluginbuhl.com/posts/world-maps/index.html</link>
+  <link>https://www.felixluginbuhl.com/posts/world-maps/</link>
   <description><![CDATA[ 
+
 
 
 
 <p><strong>Do you want to learn how to create beautiful world maps using R programming?</strong></p>
 <p>In this video I show you how to download world map data, plot it, add texts and colors, and even change the map projection using the R packages {ggplot2} and {sf}.</p>
 <p>Be sure to check it out:</p>
-<div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/FoqiFR5ZCic" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/FoqiFR5ZCic" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <section id="visualisations" class="level2">
 <h2 class="anchored" data-anchor-id="visualisations">Visualisations</h2>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="https://www.felixluginbuhl.com/posts/world-maps/world-maps-1.png" class="img-fluid"></p>
 </div>
@@ -315,7 +335,7 @@
 <p><img src="https://www.felixluginbuhl.com/posts/world-maps/world-maps-2.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="https://www.felixluginbuhl.com/posts/world-maps/world-maps-3.png" class="img-fluid"></p>
 </div>
@@ -329,7 +349,7 @@
 </section>
 
  ]]></description>
-  <guid>https://www.felixluginbuhl.com/posts/world-maps/index.html</guid>
+  <guid>https://www.felixluginbuhl.com/posts/world-maps/</guid>
   <pubDate>Thu, 10 Feb 2022 23:00:00 GMT</pubDate>
   <media:content url="https://www.felixluginbuhl.com/posts/world-maps/world-maps.png" medium="image" type="image/png" height="81" width="144"/>
 </item>

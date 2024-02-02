@@ -6,37 +6,17 @@
       version="2.0">
 <channel>
 <title>Félix Luginbühl</title>
-<link>https://www.felixluginbuhl.com/projects/index.html</link>
+<link>https://www.felixluginbuhl.com/projects/</link>
 <atom:link href="https://www.felixluginbuhl.com/projects/index.xml" rel="self" type="application/rss+xml"/>
 <description>R packages and other data tools.
 </description>
-<generator>quarto-1.2.269</generator>
-<lastBuildDate>Fri, 25 Aug 2023 22:00:00 GMT</lastBuildDate>
-<item>
-  <title>colornames R package</title>
-  <link>https://www.felixluginbuhl.com/projects/colornames/index.html</link>
-  <description><![CDATA[ 
-
-
-
-<p>Redirecting to <a href="https://felixluginbuhl.com/colornames" class="uri">https://felixluginbuhl.com/colornames</a>…</p>
-<meta http-equiv="refresh" content="0; url=https://felixluginbuhl.com/colornames">
-<script type="text/javascript">
-    window.location.href = "https://felixluginbuhl.com/colornames";
-</script>
-
-
-
- ]]></description>
-  <category>Project</category>
-  <guid>https://www.felixluginbuhl.com/projects/colornames/index.html</guid>
-  <pubDate>Fri, 25 Aug 2023 22:00:00 GMT</pubDate>
-  <media:content url="https://www.felixluginbuhl.com/projects/colornames/colornames-logo.png" medium="image" type="image/png" height="167" width="144"/>
-</item>
+<generator>quarto-1.4.545</generator>
+<lastBuildDate>Sun, 31 Dec 2023 23:00:00 GMT</lastBuildDate>
 <item>
   <title>BFS R package</title>
-  <link>https://www.felixluginbuhl.com/projects/BFS/index.html</link>
+  <link>https://www.felixluginbuhl.com/projects/BFS/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -50,14 +30,37 @@
 
  ]]></description>
   <category>Project</category>
-  <guid>https://www.felixluginbuhl.com/projects/BFS/index.html</guid>
-  <pubDate>Fri, 18 Aug 2023 22:00:00 GMT</pubDate>
+  <guid>https://www.felixluginbuhl.com/projects/BFS/</guid>
+  <pubDate>Sun, 31 Dec 2023 23:00:00 GMT</pubDate>
   <media:content url="https://www.felixluginbuhl.com/projects/BFS/BFS-logo.png" medium="image" type="image/png" height="167" width="144"/>
 </item>
 <item>
-  <title>gotop R package</title>
-  <link>https://www.felixluginbuhl.com/projects/gotop/index.html</link>
+  <title>colornames R package</title>
+  <link>https://www.felixluginbuhl.com/projects/colornames/</link>
   <description><![CDATA[ 
+
+
+
+
+<p>Redirecting to <a href="https://felixluginbuhl.com/colornames" class="uri">https://felixluginbuhl.com/colornames</a>…</p>
+<meta http-equiv="refresh" content="0; url=https://felixluginbuhl.com/colornames">
+<script type="text/javascript">
+    window.location.href = "https://felixluginbuhl.com/colornames";
+</script>
+
+
+
+ ]]></description>
+  <category>Project</category>
+  <guid>https://www.felixluginbuhl.com/projects/colornames/</guid>
+  <pubDate>Fri, 25 Aug 2023 22:00:00 GMT</pubDate>
+  <media:content url="https://www.felixluginbuhl.com/projects/colornames/colornames-logo.png" medium="image" type="image/png" height="167" width="144"/>
+</item>
+<item>
+  <title>gotop R package</title>
+  <link>https://www.felixluginbuhl.com/projects/gotop/</link>
+  <description><![CDATA[ 
+
 
 
 
@@ -71,14 +74,15 @@
 
  ]]></description>
   <category>Project</category>
-  <guid>https://www.felixluginbuhl.com/projects/gotop/index.html</guid>
+  <guid>https://www.felixluginbuhl.com/projects/gotop/</guid>
   <pubDate>Sun, 19 Sep 2021 22:00:00 GMT</pubDate>
   <media:content url="https://www.felixluginbuhl.com/projects/gotop/gotop-logo.png" medium="image" type="image/png" height="151" width="130"/>
 </item>
 <item>
   <title>aos R package</title>
-  <link>https://www.felixluginbuhl.com/projects/aos/index.html</link>
+  <link>https://www.felixluginbuhl.com/projects/aos/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -92,14 +96,15 @@
 
  ]]></description>
   <category>Project</category>
-  <guid>https://www.felixluginbuhl.com/projects/aos/index.html</guid>
+  <guid>https://www.felixluginbuhl.com/projects/aos/</guid>
   <pubDate>Fri, 26 Feb 2021 23:00:00 GMT</pubDate>
   <media:content url="https://www.felixluginbuhl.com/projects/aos/aos-logo.png" medium="image" type="image/png" height="151" width="130"/>
 </item>
 <item>
   <title>scroller R package</title>
-  <link>https://www.felixluginbuhl.com/projects/scroller/index.html</link>
+  <link>https://www.felixluginbuhl.com/projects/scroller/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -113,14 +118,15 @@
 
  ]]></description>
   <category>Project</category>
-  <guid>https://www.felixluginbuhl.com/projects/scroller/index.html</guid>
+  <guid>https://www.felixluginbuhl.com/projects/scroller/</guid>
   <pubDate>Tue, 23 Feb 2021 23:00:00 GMT</pubDate>
   <media:content url="https://www.felixluginbuhl.com/projects/scroller/scroller-logo.png" medium="image" type="image/png" height="151" width="130"/>
 </item>
 <item>
   <title>aniview R package</title>
-  <link>https://www.felixluginbuhl.com/projects/aniview/index.html</link>
+  <link>https://www.felixluginbuhl.com/projects/aniview/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -134,14 +140,15 @@
 
  ]]></description>
   <category>Project</category>
-  <guid>https://www.felixluginbuhl.com/projects/aniview/index.html</guid>
+  <guid>https://www.felixluginbuhl.com/projects/aniview/</guid>
   <pubDate>Wed, 09 Dec 2020 23:00:00 GMT</pubDate>
   <media:content url="https://www.felixluginbuhl.com/projects/aniview/aniview-logo.png" medium="image" type="image/png" height="167" width="144"/>
 </item>
 <item>
   <title>polyglot R package</title>
-  <link>https://www.felixluginbuhl.com/projects/polyglot/index.html</link>
+  <link>https://www.felixluginbuhl.com/projects/polyglot/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -155,7 +162,7 @@
 
  ]]></description>
   <category>Project</category>
-  <guid>https://www.felixluginbuhl.com/projects/polyglot/index.html</guid>
+  <guid>https://www.felixluginbuhl.com/projects/polyglot/</guid>
   <pubDate>Sat, 16 May 2020 22:00:00 GMT</pubDate>
   <media:content url="https://www.felixluginbuhl.com/projects/polyglot/polyglot-logo.png" medium="image" type="image/png" height="151" width="130"/>
 </item>
