@@ -784,6 +784,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../charts/gauge/" class="md-nav__link">
+        Advanced charts
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -897,20 +911,6 @@
     <li class="md-nav__item">
       <a href="../graphical_properties/" class="md-nav__link">
         Graphical Properties
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../gauge/" class="md-nav__link">
-        Advanced charts
       </a>
     </li>
   
@@ -1157,17 +1157,15 @@
 </span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="n">wsprops</span><span class="o">$</span><span class="n">pageSetUpPr</span><span class="o">$</span><span class="n">autoPageBreaks</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kc">TRUE</span>
 </span></code></pre></div>
 <h2 id="worksheet-views">Worksheet Views</h2>
-<p>There are also several convenient properties defined as worksheet views. You can use ws.sheet_view to set sheet attributes such as zoom, show formulas or if the tab is selected.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">openpyxl.workbook</span> <span class="kn">import</span> <span class="n">Workbook</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="o">&gt;&gt;&gt;</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">wb</span> <span class="o">=</span> <span class="n">Workbook</span><span class="p">()</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">ws</span> <span class="o">=</span> <span class="n">wb</span><span class="o">.</span><span class="n">active</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="o">&gt;&gt;&gt;</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">ws</span><span class="o">.</span><span class="n">sheet_view</span><span class="o">.</span><span class="n">zoom</span> <span class="o">=</span> <span class="mi">85</span> <span class="c1"># Sets 85% zoom</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">ws</span><span class="o">.</span><span class="n">sheet_view</span><span class="o">.</span><span class="n">showFormulas</span> <span class="o">=</span> <span class="kc">True</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">ws</span><span class="o">.</span><span class="n">sheet_view</span><span class="o">.</span><span class="n">tabSelected</span> <span class="o">=</span> <span class="kc">True</span>
+<p>There are also several convenient properties defined as worksheet views. You can use ws$sheet_view to set sheet attributes such as zoom, show formulas or if the tab is selected.</p>
+<div class="language-r highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">wb</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">Workbook</span><span class="p">()</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">ws</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">wb.active</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">ws</span><span class="o">$</span><span class="n">sheet_view</span><span class="o">$</span><span class="n">zoomScale</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">85</span><span class="w"> </span><span class="c1"># Sets 85% zoom</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">ws</span><span class="o">$</span><span class="n">sheet_view</span><span class="o">$</span><span class="n">showFormulas</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kc">TRUE</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">ws</span><span class="o">$</span><span class="n">sheet_view</span><span class="o">$</span><span class="n">tabSelected</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kc">TRUE</span>
 </span></code></pre></div>
-<p>TODO: translate into R. Any contribution welcomed!</p>
+<p>For some reason <code>zoomScale</code> returns an error while the zoom indeed set to 85%.</p>
 <h2 id="fold-outline">Fold (outline)</h2>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">openpyxl</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">wb</span> <span class="o">=</span> <span class="n">openpyxl</span><span class="o">.</span><span class="n">Workbook</span><span class="p">()</span>
@@ -1177,6 +1175,7 @@
 </span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">wb</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;group.xlsx&#39;</span><span class="p">)</span>
 </span></code></pre></div>
 <p>TODO: translate into R. Any contribution welcomed!</p>
+<p><small>This page is an R replica of the related <a href="https://openpyxl.readthedocs.io/en/stable/worksheet_properties.html">OpenPyXL documentation page</a>.</small></p>
 
 
 

@@ -12,7 +12,7 @@
         <link rel="prev" href="../anchor/">
       
       
-        <link rel="next" href="../gauge/">
+        <link rel="next" href="../chartsheet/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.16">
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#using-graphical-properties" class="md-skip">
+        <a href="#advanced-options-with-graphical-properties" class="md-skip">
           Skip to content
         </a>
       
@@ -713,6 +713,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../charts/gauge/" class="md-nav__link">
+        Advanced charts
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -877,20 +891,6 @@
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../gauge/" class="md-nav__link">
-        Advanced charts
-      </a>
     </li>
   
 
@@ -1069,8 +1069,8 @@
                   
 
 
-<h1 id="using-graphical-properties">Using Graphical Properties</h1>
-<p>To make things easier to read, openpyxl includes some aliases for some of the more obscure element or attribute names, eg. 'graphical_properties' for 'spPr' or 'line' for 'ln'.</p>
+<h1 id="advanced-options-with-graphical-properties">Advanced Options with Graphical Properties</h1>
+<p>Many advanced options require using the Graphical Properties of OOXML. This is a much more abstract API than the chart API itself and may require considerable studying of the OOXML specification to get right. It is often unavoidable to look at the XML source of some charts you’ve made. However, as openpyxl tries very hard to implement the OOXML specification correctly, you should be able to do most things quite easily. To things easier to read, openpyxl includes some aliases for some of the more obscure element or attribute names, eg. GraphicalProperties for `spPr or line for line.</p>
 <h2 id="make-the-chart-background-transparent">Make the chart background transparent</h2>
 <div class="language-r highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">library</span><span class="p">(</span><span class="n">xlcharts</span><span class="p">)</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
@@ -1085,6 +1085,7 @@
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="p">)</span>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">)</span>
 </span></code></pre></div>
+<p><small>This page is an R replica of the related <a href="https://openpyxl.readthedocs.io/en/stable/charts/graphical.html">OpenPyXL documentation page</a>.</small></p>
 
 
 
@@ -1122,13 +1123,13 @@
         
         
           
-          <a href="../gauge/" class="md-footer__link md-footer__link--next" aria-label="Next: Advanced charts" rel="next">
+          <a href="../chartsheet/" class="md-footer__link md-footer__link--next" aria-label="Next: Using chartsheets" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Advanced charts
+                Using chartsheets
               </div>
             </div>
             <div class="md-footer__button md-icon">
