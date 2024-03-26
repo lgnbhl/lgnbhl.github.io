@@ -11,7 +11,27 @@
 <description>Presentations and talks.
 </description>
 <generator>quarto-1.4.545</generator>
-<lastBuildDate>Fri, 01 Sep 2023 22:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 25 Mar 2024 23:00:00 GMT</lastBuildDate>
+<item>
+  <title>How to Create Interactive Maps with R. Use Case: Swiss maps</title>
+  <dc:creator>Félix Luginbühl</dc:creator>
+  <link>https://www.felixluginbuhl.com/talks/geneva-r-lunches/</link>
+  <description><![CDATA[ 
+
+
+
+
+<iframe src="presentation.html" height="405" width="100%" style="border: 1px solid #464646;" data-external="1">
+</iframe>
+
+
+
+ ]]></description>
+  <category>talk</category>
+  <guid>https://www.felixluginbuhl.com/talks/geneva-r-lunches/</guid>
+  <pubDate>Mon, 25 Mar 2024 23:00:00 GMT</pubDate>
+  <media:content url="https://www.felixluginbuhl.com/talks/geneva-r-lunches/geneva-r-lunches.png" medium="image" type="image/png" height="65" width="144"/>
+</item>
 <item>
   <title>Swiss Statistics Meeting - BFS R package Poster</title>
   <dc:creator>Félix Luginbühl</dc:creator>
