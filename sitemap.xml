@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.felixluginbuhl.com/about/index.html</loc>
-    <lastmod>2024-02-02T09:30:42.733Z</lastmod>
-  </url>
-  <url>
     <loc>https://www.felixluginbuhl.com/talks/swiss-statistics/index.html</loc>
     <lastmod>2023-09-06T10:01:27.069Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/talks/geneva-r-users/index.html</loc>
     <lastmod>2023-06-07T10:24:32.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/talks/geneva-r-lunches/index.html</loc>
+    <lastmod>2024-03-26T09:28:20.046Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/projects/scroller/index.html</loc>
@@ -25,44 +25,96 @@
     <lastmod>2023-08-26T09:28:26.178Z</lastmod>
   </url>
   <url>
-    <loc>https://www.felixluginbuhl.com/projects/aniview/index.html</loc>
-    <lastmod>2023-05-31T22:15:07.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.felixluginbuhl.com/posts/world-maps/index.html</loc>
-    <lastmod>2023-06-06T14:23:55.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.felixluginbuhl.com/posts/sentiment-analysis/index.html</loc>
-    <lastmod>2023-06-06T11:33:37.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.felixluginbuhl.com/posts/interactive-network/index.html</loc>
-    <lastmod>2023-06-06T11:37:00.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.felixluginbuhl.com/posts/index.html</loc>
-    <lastmod>2023-06-05T14:08:31.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.felixluginbuhl.com/posts/interactive-country-maps/index.html</loc>
-    <lastmod>2023-06-05T19:32:42.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.felixluginbuhl.com/posts/map-regions/index.html</loc>
-    <lastmod>2023-06-06T11:35:37.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.felixluginbuhl.com/posts/swiss-map-names/index.html</loc>
-    <lastmod>2023-10-01T11:51:57.559Z</lastmod>
+    <loc>https://www.felixluginbuhl.com/projects/aos/index.html</loc>
+    <lastmod>2023-05-31T22:12:53.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/projects/BFS/index.html</loc>
     <lastmod>2024-02-02T09:19:37.887Z</lastmod>
   </url>
   <url>
-    <loc>https://www.felixluginbuhl.com/projects/aos/index.html</loc>
-    <lastmod>2023-05-31T22:12:53.000Z</lastmod>
+    <loc>https://www.felixluginbuhl.com/posts/swiss-map-names/index.html</loc>
+    <lastmod>2023-10-01T11:51:57.559Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/posts/map-regions/index.html</loc>
+    <lastmod>2023-06-06T11:35:37.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/posts/interactive-country-maps/index.html</loc>
+    <lastmod>2023-06-05T19:32:42.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/posts/google-sheet-automation/index.html</loc>
+    <lastmod>2023-06-06T11:36:27.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/posts/excel-files/index.html</loc>
+    <lastmod>2023-06-06T13:38:42.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/posts/advanced-filtering/index.html</loc>
+    <lastmod>2023-06-06T14:23:40.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/applications/scroller-app/index.html</loc>
+    <lastmod>2023-06-02T14:19:47.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/applications/gotop-app/index.html</loc>
+    <lastmod>2023-06-02T14:19:43.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/applications/aniview-app/index.html</loc>
+    <lastmod>2023-06-02T14:18:37.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/about/index.html</loc>
+    <lastmod>2024-02-02T09:30:42.733Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/applications/city-statistics/index.html</loc>
+    <lastmod>2023-07-24T09:07:40.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/applications/index.html</loc>
+    <lastmod>2023-06-02T14:07:39.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/index.html</loc>
+    <lastmod>2024-02-02T09:29:08.821Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/posts/beautiful-tables/index.html</loc>
+    <lastmod>2023-06-05T19:32:22.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/posts/geocode-locations/index.html</loc>
+    <lastmod>2023-06-05T19:32:28.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/posts/index.html</loc>
+    <lastmod>2023-06-05T14:08:31.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/posts/interactive-network/index.html</loc>
+    <lastmod>2023-06-06T11:37:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/posts/sentiment-analysis/index.html</loc>
+    <lastmod>2023-06-06T11:33:37.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/posts/world-maps/index.html</loc>
+    <lastmod>2023-06-06T14:23:55.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/projects/aniview/index.html</loc>
+    <lastmod>2023-05-31T22:15:07.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.felixluginbuhl.com/projects/chat-with-hadley/index.html</loc>
+    <lastmod>2024-04-16T21:03:24.006Z</lastmod>
   </url>
   <url>
     <loc>https://www.felixluginbuhl.com/projects/gotop/index.html</loc>
@@ -77,11 +129,11 @@
     <lastmod>2023-06-02T11:02:24.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.felixluginbuhl.com/talks/index.html</loc>
-    <lastmod>2023-05-31T17:13:12.000Z</lastmod>
+    <loc>https://www.felixluginbuhl.com/talks/geneva-r-lunches/presentation.html</loc>
+    <lastmod>2024-04-16T20:13:45.193Z</lastmod>
   </url>
   <url>
-    <loc>https://www.felixluginbuhl.com/index.html</loc>
-    <lastmod>2024-02-02T09:29:08.821Z</lastmod>
+    <loc>https://www.felixluginbuhl.com/talks/index.html</loc>
+    <lastmod>2023-05-31T17:13:12.000Z</lastmod>
   </url>
 </urlset>
