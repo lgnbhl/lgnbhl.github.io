@@ -11,28 +11,7 @@
 <description>R packages and other data tools.
 </description>
 <generator>quarto-1.4.545</generator>
-<lastBuildDate>Mon, 15 Apr 2024 22:00:00 GMT</lastBuildDate>
-<item>
-  <title>Chat with Hadley</title>
-  <link>https://www.felixluginbuhl.com/projects/chat-with-hadley/</link>
-  <description><![CDATA[ 
-
-
-
-
-<div class="column-screen-inset">
-<iframe src="https://lgnbhl-chat-with-hadley.hf.space" frameborder="0" width="100%" height="900">
-</iframe>
-</div>
-
-
-
- ]]></description>
-  <category>Project</category>
-  <guid>https://www.felixluginbuhl.com/projects/chat-with-hadley/</guid>
-  <pubDate>Mon, 15 Apr 2024 22:00:00 GMT</pubDate>
-  <media:content url="https://www.felixluginbuhl.com/projects/chat-with-hadley/chat-with-hadley.png" medium="image" type="image/png" height="128" width="144"/>
-</item>
+<lastBuildDate>Sun, 31 Dec 2023 23:00:00 GMT</lastBuildDate>
 <item>
   <title>BFS R package</title>
   <link>https://www.felixluginbuhl.com/projects/BFS/</link>

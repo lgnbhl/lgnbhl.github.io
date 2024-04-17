@@ -11,7 +11,27 @@
 <description>R Shiny web applications demonstrating the use of my R packages.
 </description>
 <generator>quarto-1.4.545</generator>
-<lastBuildDate>Thu, 15 Jun 2023 22:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 15 Apr 2024 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>Chat with Hadley</title>
+  <link>https://www.felixluginbuhl.com/applications/chat-with-hadley/</link>
+  <description><![CDATA[ 
+
+
+
+
+<div class="column-screen-inset">
+<iframe src="https://lgnbhl-chat-with-hadley.hf.space" frameborder="0" width="100%" height="900">
+</iframe>
+</div>
+
+
+
+ ]]></description>
+  <guid>https://www.felixluginbuhl.com/applications/chat-with-hadley/</guid>
+  <pubDate>Mon, 15 Apr 2024 22:00:00 GMT</pubDate>
+  <media:content url="https://www.felixluginbuhl.com/applications/chat-with-hadley/chat-with-hadley.png" medium="image" type="image/png" height="128" width="144"/>
+</item>
 <item>
   <title>Swiss City Statistics</title>
   <link>https://www.felixluginbuhl.com/applications/city-statistics/</link>
