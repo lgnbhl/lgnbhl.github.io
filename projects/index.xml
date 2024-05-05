@@ -11,7 +11,29 @@
 <description>R packages and other data tools.
 </description>
 <generator>quarto-1.4.545</generator>
-<lastBuildDate>Sun, 31 Dec 2023 23:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 21 Apr 2024 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>xlcharts R package</title>
+  <link>https://www.felixluginbuhl.com/projects/xlcharts/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Redirecting to <a href="https://felixluginbuhl.com/xlcharts" class="uri">https://felixluginbuhl.com/xlcharts</a>…</p>
+<meta http-equiv="refresh" content="0; url=https://felixluginbuhl.com/xlcharts">
+<script type="text/javascript">
+    window.location.href = "https://felixluginbuhl.com/xlcharts";
+</script>
+
+
+
+ ]]></description>
+  <category>Project</category>
+  <guid>https://www.felixluginbuhl.com/projects/xlcharts/</guid>
+  <pubDate>Sun, 21 Apr 2024 22:00:00 GMT</pubDate>
+  <media:content url="https://www.felixluginbuhl.com/projects/xlcharts/xlcharts-logo.png" medium="image" type="image/png" height="167" width="144"/>
+</item>
 <item>
   <title>BFS R package</title>
   <link>https://www.felixluginbuhl.com/projects/BFS/</link>

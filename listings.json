@@ -1,35 +1,18 @@
 [
   {
-    "listing": "/projects/index.html",
+    "listing": "/applications/index.html",
     "items": [
-      "/projects/BFS/index.html",
-      "/projects/colornames/index.html",
-      "/projects/gotop/index.html",
-      "/projects/aos/index.html",
-      "/projects/scroller/index.html",
-      "/projects/aniview/index.html",
-      "/projects/polyglot/index.html"
-    ]
-  },
-  {
-    "listing": "/posts/index.html",
-    "items": [
-      "/posts/swiss-map-names/index.html",
-      "/posts/interactive-country-maps/index.html",
-      "/posts/geocode-locations/index.html",
-      "/posts/beautiful-tables/index.html",
-      "/posts/map-regions/index.html",
-      "/posts/google-sheet-automation/index.html",
-      "/posts/interactive-network/index.html",
-      "/posts/sentiment-analysis/index.html",
-      "/posts/excel-files/index.html",
-      "/posts/advanced-filtering/index.html",
-      "/posts/world-maps/index.html"
+      "/applications/chat-with-hadley/index.html",
+      "/applications/city-statistics/index.html",
+      "/applications/gotop-app/index.html",
+      "/applications/aniview-app/index.html",
+      "/applications/scroller-app/index.html"
     ]
   },
   {
     "listing": "/index.html",
     "items": [
+      "/projects/xlcharts/index.html",
       "/projects/BFS/index.html",
       "/projects/colornames/index.html",
       "/projects/gotop/index.html",
@@ -50,20 +33,38 @@
     ]
   },
   {
-    "listing": "/applications/index.html",
+    "listing": "/posts/index.html",
     "items": [
-      "/applications/chat-with-hadley/index.html",
-      "/applications/city-statistics/index.html",
-      "/applications/gotop-app/index.html",
-      "/applications/aniview-app/index.html",
-      "/applications/scroller-app/index.html"
+      "/posts/swiss-map-names/index.html",
+      "/posts/interactive-country-maps/index.html",
+      "/posts/geocode-locations/index.html",
+      "/posts/beautiful-tables/index.html",
+      "/posts/map-regions/index.html",
+      "/posts/google-sheet-automation/index.html",
+      "/posts/interactive-network/index.html",
+      "/posts/sentiment-analysis/index.html",
+      "/posts/excel-files/index.html",
+      "/posts/advanced-filtering/index.html",
+      "/posts/world-maps/index.html"
+    ]
+  },
+  {
+    "listing": "/projects/index.html",
+    "items": [
+      "/projects/xlcharts/index.html",
+      "/projects/BFS/index.html",
+      "/projects/colornames/index.html",
+      "/projects/gotop/index.html",
+      "/projects/aos/index.html",
+      "/projects/scroller/index.html",
+      "/projects/aniview/index.html",
+      "/projects/polyglot/index.html"
     ]
   },
   {
     "listing": "/talks/index.html",
     "items": [
       "/talks/geneva-r-lunches/index.html",
-      "/talks/geneva-r-lunches/presentation.html",
       "/talks/swiss-statistics/index.html",
       "/talks/adminr-zurich/index.html",
       "/talks/geneva-r-users/index.html"
