@@ -10,7 +10,7 @@
 <atom:link href="https://www.felixluginbuhl.com/applications/index.xml" rel="self" type="application/rss+xml"/>
 <description>R Shiny web applications demonstrating the use of my R packages.
 </description>
-<generator>quarto-1.4.545</generator>
+<generator>quarto-1.4.553</generator>
 <lastBuildDate>Thu, 18 Apr 2024 22:00:00 GMT</lastBuildDate>
 <item>
   <title>Chat with Hadley</title>

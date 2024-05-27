@@ -10,7 +10,7 @@
 <atom:link href="https://www.felixluginbuhl.com/posts/index.xml" rel="self" type="application/rss+xml"/>
 <description>Blog post, &lt;a href=&quot;https://youtube.com/felixanalytix&quot; title=&quot;youtube&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;YouTube Videos&lt;/a&gt;, and Data Visualisations.
 </description>
-<generator>quarto-1.4.545</generator>
+<generator>quarto-1.4.553</generator>
 <lastBuildDate>Sat, 30 Sep 2023 22:00:00 GMT</lastBuildDate>
 <item>
   <title>Customized Leaflet map using R</title>

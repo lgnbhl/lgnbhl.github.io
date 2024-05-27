@@ -1,16 +1,6 @@
 [
   {
-    "listing": "/applications/index.html",
-    "items": [
-      "/applications/chat-with-hadley/index.html",
-      "/applications/city-statistics/index.html",
-      "/applications/gotop-app/index.html",
-      "/applications/aniview-app/index.html",
-      "/applications/scroller-app/index.html"
-    ]
-  },
-  {
-    "listing": "/index.html",
+    "listing": "/projects/index.html",
     "items": [
       "/projects/xlcharts/index.html",
       "/projects/BFS/index.html",
@@ -19,17 +9,7 @@
       "/projects/aos/index.html",
       "/projects/scroller/index.html",
       "/projects/aniview/index.html",
-      "/projects/polyglot/index.html",
-      "/applications/chat-with-hadley/index.html",
-      "/applications/city-statistics/index.html",
-      "/applications/gotop-app/index.html",
-      "/applications/aniview-app/index.html",
-      "/applications/scroller-app/index.html",
-      "/talks/geneva-r-lunches/index.html",
-      "/talks/geneva-r-lunches/presentation.html",
-      "/talks/swiss-statistics/index.html",
-      "/talks/adminr-zurich/index.html",
-      "/talks/geneva-r-users/index.html"
+      "/projects/polyglot/index.html"
     ]
   },
   {
@@ -49,16 +29,27 @@
     ]
   },
   {
-    "listing": "/projects/index.html",
+    "listing": "/index.html",
     "items": [
-      "/projects/xlcharts/index.html",
-      "/projects/BFS/index.html",
-      "/projects/colornames/index.html",
-      "/projects/gotop/index.html",
-      "/projects/aos/index.html",
-      "/projects/scroller/index.html",
-      "/projects/aniview/index.html",
-      "/projects/polyglot/index.html"
+      "/applications/chat-with-hadley/index.html",
+      "/applications/city-statistics/index.html",
+      "/applications/gotop-app/index.html",
+      "/applications/aniview-app/index.html",
+      "/applications/scroller-app/index.html",
+      "/talks/geneva-r-lunches/index.html",
+      "/talks/swiss-statistics/index.html",
+      "/talks/adminr-zurich/index.html",
+      "/talks/geneva-r-users/index.html"
+    ]
+  },
+  {
+    "listing": "/applications/index.html",
+    "items": [
+      "/applications/chat-with-hadley/index.html",
+      "/applications/city-statistics/index.html",
+      "/applications/gotop-app/index.html",
+      "/applications/aniview-app/index.html",
+      "/applications/scroller-app/index.html"
     ]
   },
   {
