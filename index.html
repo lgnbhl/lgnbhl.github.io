@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.545">
+<meta name="generator" content="quarto-1.4.553">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -74,35 +74,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-recent-projects-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-image','listing-description','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      page: 3,
-    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-recent-projects-listing'] = new List('listing-recent-projects-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
     const listingTargetEl = window.document.querySelector('#listing-recent-applications-listing .list');
@@ -365,7 +336,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="applications"><a class="no-text-decoration" href="./applications/index.html">Applications</a></h2>
 <div id="listing-recent-applications-listing" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1713477600000" data-listing-file-modified-sort="1713546007833" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="2">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1713477600000" data-listing-file-modified-sort="1713546007000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="2">
 <a href="./applications/chat-with-hadley/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -486,198 +457,57 @@ No matching items
 </section>
 <section id="projects" class="level2">
 <h2 class="anchored" data-anchor-id="projects"><a class="no-text-decoration" href="./projects">Projects</a></h2>
-<div id="listing-recent-projects-listing" class="quarto-listing quarto-listing-container-grid">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="Project" data-listing-date-sort="1713736800000" data-listing-file-modified-sort="1714898076814" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="14">
-<a href="./projects/xlcharts/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./projects/xlcharts/xlcharts-logo.png" class="thumbnail-image card-img" style="height: 33vmin;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-xlcharts R package
-</h5>
-<div class="card-text listing-description">
-Create Native Excel Charts and Work with Microsoft Excel Files
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true"><img src="https://raw.githubusercontent.com/lgnbhl/xlcharts/master/man/figures/logo.png" height="100"></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false"><img src="https://raw.githubusercontent.com/lgnbhl/BFS/master/man/figures/logo.png" height="100"></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false"><img src="https://raw.githubusercontent.com/lgnbhl/aos/master/man/figures/logo.png" height="100"></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false"><img src="https://raw.githubusercontent.com/lgnbhl/gotop/master/man/figures/logo.png" height="100"></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false"><img src="https://raw.githubusercontent.com/lgnbhl/scroller/master/man/figures/logo.png" height="100"></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-6" role="tab" aria-controls="tabset-1-6" aria-selected="false"><img src="https://raw.githubusercontent.com/lgnbhl/colornames/master/man/figures/logo.png" height="100"></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-7-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-7" role="tab" aria-controls="tabset-1-7" aria-selected="false"><img src="https://raw.githubusercontent.com/lgnbhl/aniview/master/man/figures/logo.png" height="100"></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-8-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-8" role="tab" aria-controls="tabset-1-8" aria-selected="false"><img src="https://raw.githubusercontent.com/lgnbhl/polyglot/master/man/figures/logo.png" height="100"></a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p><strong>Create native Microsoft Excel charts directly from R.</strong></p>
+<p>The <strong>xlcharts</strong> package was born from the lack of existing R packages to create native Excel charts and make advanced customization on Microsoft Excel files. It is an R wrapper for the OpenPyXL Python library using the reticulate R package under the hood.</p>
+<p><a href="https://felixluginbuhl.com/xlcharts/" class="btn btn-outline-primary" role="button">Docs</a> <a href="https://github.com/lgnbhl/xlcharts" class="btn btn-outline-dark" role="button">Github</a></p>
 </div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Apr 22, 2024
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p><strong>Search and download data from the Swiss Federal Statistical Office</strong></p>
+<p>The <strong>BFS</strong> package allows to search and download public data from the Swiss Federal Statistical Office (BFS stands for <em>Bundesamt für Statistik</em> in German) APIs in a dynamic and reproducible way. It also provides functions to access geodata and ease Swiss mapping.</p>
+<p><a href="https://felixluginbuhl.com/BFS/" class="btn btn-outline-primary" role="button">Docs</a> <a href="https://github.com/lgnbhl/BFS" class="btn btn-outline-dark" role="button">Github</a></p>
 </div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p><strong>Animate on scroll any element in R Shiny and R Markdown</strong></p>
+<p>With the <strong>aos</strong> package you can trigger animation effects on scroll on any element of R Shiny and RMarkdown, such as any text or plot, thanks to the ‘AOS’ Animate On Scroll jQuery library.</p>
+<p><a href="https://felixluginbuhl.com/aos/" class="btn btn-outline-primary" role="button">Docs</a> <a href="https://github.com/lgnbhl/aos" class="btn btn-outline-dark" role="button">Github</a></p>
 </div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<p><strong>Add a scroll back to top in R Shiny and R Markdown</strong></p>
+<p>With the <strong>GoTop</strong> R package you can add a scroll back to top <em>Font Awesome</em> icon in R Mmarkdown documents and R Shiny web apps thanks to jQuery library GoTop.</p>
+<p><a href="https://felixluginbuhl.com/gotop/" class="btn btn-outline-primary" role="button">Docs</a> <a href="https://github.com/lgnbhl/gotop" class="btn btn-outline-dark" role="button">Github</a></p>
 </div>
+<div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
+<p><strong>Scroll to any object in your Shiny apps</strong></p>
+<p>The <strong>scroller</strong> R package allows to scroll to any element on the page in Shiny thanks to Arbitrary anchor Javascript library. You can change the animation length, the easing function effect and the scroll off set.</p>
+<p><a href="https://felixluginbuhl.com/scroller/" class="btn btn-outline-primary" role="button">Docs</a> <a href="https://github.com/lgnbhl/scroller" class="btn btn-outline-dark" role="button">Github</a></p>
 </div>
-</a>
+<div id="tabset-1-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-6-tab">
+<p><strong>Convert Color Values into Color Names</strong></p>
+<p>The colornames R package aims to convert color values into color names using various APIs. You can pass in any valid color and get conversion into any other format, the name of the color, placeholder images and a multitude of schemes.</p>
+<p><a href="https://felixluginbuhl.com/colornames/" class="btn btn-outline-primary" role="button">Docs</a> <a href="https://github.com/lgnbhl/colornames" class="btn btn-outline-dark" role="button">Github</a></p>
 </div>
-<div class="g-col-1" data-index="1" data-categories="Project" data-listing-date-sort="1704063600000" data-listing-file-modified-sort="1706865577887" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="14">
-<a href="./projects/BFS/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./projects/BFS/BFS-logo.png" class="thumbnail-image card-img" style="height: 33vmin;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-BFS R package
-</h5>
-<div class="card-text listing-description">
-Search and download data from the Swiss Federal Statistical Office
+<div id="tabset-1-7" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-7-tab">
+<p><strong>Animate Shiny and R Markdown content when it comes into view</strong></p>
+<p>The package <strong>aniview</strong> allows to animate Shiny and R Markdown content when it comes into view with the popular <em>animate-css</em> library using <em>jQuery AniView</em>.</p>
+<p><a href="https://felixluginbuhl.com/aniview/" class="btn btn-outline-primary" role="button">Docs</a> <a href="https://github.com/lgnbhl/aniview" class="btn btn-outline-dark" role="button">Github</a></p>
 </div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Jan 1, 2024
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="2" data-categories="Project" data-listing-date-sort="1693000800000" data-listing-file-modified-sort="1693042106178" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="14">
-<a href="./projects/colornames/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./projects/colornames/colornames-logo.png" class="thumbnail-image card-img" style="height: 33vmin;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-colornames R package
-</h5>
-<div class="card-text listing-description">
-Convert Color Values into Color Names
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Aug 26, 2023
+<div id="tabset-1-8" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-8-tab">
+<p><strong>Use the R console as an interactive learning environment</strong></p>
+<p>The package <strong>polyglot</strong> helps you to learn foreign language vocabulary or any flashcards using R as an interactive learning environment. It implements a simplified version of the <em>SuperMemo-2</em> algorithm.</p>
+<p><a href="https://felixluginbuhl.com/polyglot/" class="btn btn-outline-primary" role="button">Docs</a> <a href="https://github.com/lgnbhl/polyglot" class="btn btn-outline-dark" role="button">Github</a></p>
 </div>
 </div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="3" data-categories="Project" data-listing-date-sort="1632088800000" data-listing-file-modified-sort="1685615247000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="14">
-<a href="./projects/gotop/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img data-src="./projects/gotop/gotop-logo.png" class="thumbnail-image card-img" style="height: 33vmin;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-gotop R package
-</h5>
-<div class="card-text listing-description">
-<p>Add a scroll back to top icon to R Markdown and Shiny apps</p>
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Sep 20, 2021
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="4" data-categories="Project" data-listing-date-sort="1614380400000" data-listing-file-modified-sort="1685571173000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="14">
-<a href="./projects/aos/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img data-src="./projects/aos/aos-logo.png" class="thumbnail-image card-img" style="height: 33vmin;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-aos R package
-</h5>
-<div class="card-text listing-description">
-Animate on Scroll Library for Shiny
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Feb 27, 2021
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="5" data-categories="Project" data-listing-date-sort="1614121200000" data-listing-file-modified-sort="1685571011000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="14">
-<a href="./projects/scroller/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img data-src="./projects/scroller/scroller-logo.png" class="thumbnail-image card-img" style="height: 33vmin;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-scroller R package
-</h5>
-<div class="card-text listing-description">
-Scroll to any element in your Shiny apps
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Feb 24, 2021
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="6" data-categories="Project" data-listing-date-sort="1607554800000" data-listing-file-modified-sort="1685571307000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="14">
-<a href="./projects/aniview/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img data-src="./projects/aniview/aniview-logo.png" class="thumbnail-image card-img" style="height: 33vmin;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-aniview R package
-</h5>
-<div class="card-text listing-description">
-Animate Shiny content when it comes into view
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Dec 10, 2020
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="7" data-categories="Project" data-listing-date-sort="1589666400000" data-listing-file-modified-sort="1685614290000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="14">
-<a href="./projects/polyglot/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img data-src="./projects/polyglot/polyglot-logo.png" class="thumbnail-image card-img" style="height: 33vmin;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-polyglot R package
-</h5>
-<div class="card-text listing-description">
-Use the R console as an interactive learning environment
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-May 17, 2020
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-<nav id="recent-projects-listing-pagination" class="listing-pagination" aria-label="Page Navigation">
-  <ul class="pagination"></ul>
-</nav>
 </div>
 </section>
 <section id="talks" class="level2">
 <h2 class="anchored" data-anchor-id="talks"><a class="no-text-decoration" href="./talks">Talks</a></h2>
 <div id="listing-recent-talks-listing" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="talk" data-listing-date-sort="1711407600000" data-listing-file-modified-sort="1711445300046" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="10">
+<div class="g-col-1" data-index="0" data-categories="talk" data-listing-date-sort="1711407600000" data-listing-file-modified-sort="1711445300000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="10">
 <a href="./talks/geneva-r-lunches/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -699,7 +529,7 @@ Mar 26, 2024
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-listing-date-sort="1711321200000" data-listing-file-modified-sort="1714900301986" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1875">
+<div class="g-col-1" data-index="1" data-listing-date-sort="1711321200000" data-listing-file-modified-sort="1714900301000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1875">
 <a href="./talks/geneva-r-lunches/presentation.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
@@ -719,7 +549,7 @@ Mar 25, 2024
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="talk" data-listing-date-sort="1693605600000" data-listing-file-modified-sort="1693994487069" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="g-col-1" data-index="2" data-categories="talk" data-listing-date-sort="1693605600000" data-listing-file-modified-sort="1693994487000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
 <a href="./talks/swiss-statistics/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -1022,6 +852,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/www\.felixluginbuhl\.com");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -1056,7 +904,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
