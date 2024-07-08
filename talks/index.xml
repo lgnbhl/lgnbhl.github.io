@@ -10,8 +10,32 @@
 <atom:link href="https://www.felixluginbuhl.com/talks/index.xml" rel="self" type="application/rss+xml"/>
 <description>Presentations and talks.
 </description>
-<generator>quarto-1.4.553</generator>
-<lastBuildDate>Mon, 25 Mar 2024 23:00:00 GMT</lastBuildDate>
+<generator>quarto-1.4.555</generator>
+<lastBuildDate>Wed, 05 Jun 2024 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>From St. Gallen into the R-Universe — towards a national collaboration platform for official statistics</title>
+  <dc:creator>Félix Luginbühl, Jan Wunder</dc:creator>
+  <link>https://www.felixluginbuhl.com/talks/adminr-bern/</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="abstract" class="level2">
+<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
+<blockquote class="blockquote">
+<p>In this talk, we will present the new R infrastructure at the Statistical Office of Canton St.&nbsp;Gallen, the current stage of the ongoing R transformation and our vision for the future of official statistics. We will focus on the new R working group within CORSTAT, the conference of the of regional statistical offices in Switzerland — and its role within adminR. The R working group was initiated by the Statistical Offices of Canton St.&nbsp;Gallen and Canton Zürich to further foster collaboration among the 17 participating cantons and cites to better coordinate their nationwide R-transformation. We present the new collaboration platform swissstatsr.org and its corresponding R-Universe infrastructure for package monitoring and development. Finally, we highlight several ways to join our initiative and to contribute to the open code development for the greater good.</p>
+</blockquote>
+
+
+</section>
+
+ ]]></description>
+  <category>talk</category>
+  <guid>https://www.felixluginbuhl.com/talks/adminr-bern/</guid>
+  <pubDate>Wed, 05 Jun 2024 22:00:00 GMT</pubDate>
+  <media:content url="https://www.felixluginbuhl.com/talks/adminr-bern/adminr-bern-photo.png" medium="image" type="image/png" height="74" width="144"/>
+</item>
 <item>
   <title>How to Create Interactive Maps with R. Use Case: Swiss maps</title>
   <dc:creator>Félix Luginbühl</dc:creator>
