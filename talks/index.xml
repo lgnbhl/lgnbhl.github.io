@@ -11,7 +11,31 @@
 <description>Presentations and talks.
 </description>
 <generator>quarto-1.4.555</generator>
-<lastBuildDate>Wed, 05 Jun 2024 22:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 04 Sep 2024 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>R Shiny in Production - Swiss Statistics Meeting 2024</title>
+  <dc:creator>Félix Luginbühl</dc:creator>
+  <link>https://www.felixluginbuhl.com/talks/swiss-statistics-aarau/</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="abstract" class="level2">
+<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
+<blockquote class="blockquote">
+<p>The Statistical Office of Canton St.Gallen is producing cantonal tourism statistics on a monthly basis since 2005. In 2023, we decided to transition data reporting from static Excel sheets to an interactive R Shiny Dashboard, which we successfully launched in early 2024. At the same time, we made the underlying code publicly available on swissstatsr.org and GitHub1). In this talk, we will share our experience developing an R Shiny Web application using Posit (formerly RStudio) infrastructure and the golem framework and demonstrate how these powerful tools facilitate the release of R Shiny into production.</p>
+</blockquote>
+
+
+</section>
+
+ ]]></description>
+  <category>talk</category>
+  <guid>https://www.felixluginbuhl.com/talks/swiss-statistics-aarau/</guid>
+  <pubDate>Wed, 04 Sep 2024 22:00:00 GMT</pubDate>
+  <media:content url="https://www.felixluginbuhl.com/talks/swiss-statistics-aarau/sgtourism-logo.png" medium="image" type="image/png" height="167" width="144"/>
+</item>
 <item>
   <title>From St. Gallen into the R-Universe — towards a national collaboration platform for official statistics</title>
   <dc:creator>Félix Luginbühl, Jan Wunder</dc:creator>
