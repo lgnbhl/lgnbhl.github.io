@@ -33,7 +33,7 @@
     
     <a class="navbar-brand me-2" href="index.html">BFS</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.11</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.12</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -513,7 +513,7 @@
 <div class="section level3">
 <h3 id="cartographic-base-maps">Cartographic base maps<a class="anchor" aria-label="anchor" href="#cartographic-base-maps"></a>
 </h3>
-<p>You can get <a href="https://www.bfs.admin.ch/bfs/en/home/statistics/regional-statistics/base-maps/cartographic-bases.assetdetail.24025646.html" class="external-link">cartographic base maps</a> from the ThemaKart project using <code><a href="reference/bfs_get_base_maps.html">bfs_get_base_maps()</a></code>. The list of available geometries in the <a href="https://www.bfs.admin.ch/bfs/en/home/statistics/regional-statistics/base-maps/cartographic-bases.html" class="external-link">official documentation</a>.</p>
+<p>You can get <a href="https://www.bfs.admin.ch/bfs/en/home/statistics/regional-statistics/base-maps/cartographic-bases.assetdetail.30566934.html" class="external-link">cartographic base maps</a> from the ThemaKart project using <code><a href="reference/bfs_get_base_maps.html">bfs_get_base_maps()</a></code>. The list of available geometries in the <a href="https://www.bfs.admin.ch/bfs/en/home/statistics/regional-statistics/base-maps/cartographic-bases.html" class="external-link">official documentation</a>.</p>
 <p>The default arguments of <code><a href="reference/bfs_get_base_maps.html">bfs_get_base_maps()</a></code> can be change to access specific files:</p>
 <div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># default arguments</span></span>
@@ -528,13 +528,41 @@
 <span><span class="op">)</span></span></code></pre></div>
 <p>A typical base maps ThemaKart file looks like this:</p>
 <p><img style="border:0px solid black;" src="https://raw.githubusercontent.com/lgnbhl/BFS/master/man/figures/base_maps_file.png" align="center"></p>
+<p>All available geometry files in ThemaKart asset can be listed using <code>return_sf = FALSE</code>:</p>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">all_themakart_files</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/bfs_get_base_maps.html">bfs_get_base_maps</a></span><span class="op">(</span></span>
+<span>  return_sf <span class="op">=</span> <span class="cn">FALSE</span>, <span class="co"># do NOT return sf object</span></span>
+<span>  asset_number <span class="op">=</span> <span class="st">"30566934"</span>, <span class="co"># ThemaKart asset of 2024</span></span>
+<span>  geom <span class="op">=</span> <span class="st">""</span>, </span>
+<span>  category <span class="op">=</span> <span class="st">""</span>, </span>
+<span>  type <span class="op">=</span> <span class="st">""</span>, </span>
+<span>  format <span class="op">=</span> <span class="st">""</span>,</span>
+<span>  date <span class="op">=</span> <span class="st">""</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">all_themakart_files</span><span class="op">)</span> <span class="co"># number of files available</span></span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" tabindex="-1"></a><span class="do">## [1] 701</span></span></code></pre></div>
+<p>For example, all available river files can be found with:</p>
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">all_river_files</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/bfs_get_base_maps.html">bfs_get_base_maps</a></span><span class="op">(</span></span>
+<span>    return_sf <span class="op">=</span> <span class="cn">FALSE</span>, <span class="co"># do NOT return sf object</span></span>
+<span>    asset_number <span class="op">=</span> <span class="st">"30566934"</span>, <span class="co"># ThemaKart asset of 2024</span></span>
+<span>    geom <span class="op">=</span> <span class="st">"flus"</span>, <span class="co"># "flus" for river related files</span></span>
+<span>    category <span class="op">=</span> <span class="st">""</span>, </span>
+<span>    type <span class="op">=</span> <span class="st">""</span>, </span>
+<span>    format <span class="op">=</span> <span class="st">"shp"</span>,</span>
+<span>    date <span class="op">=</span> <span class="st">""</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<p>The function <code><a href="reference/bfs_get_base_maps.html">bfs_get_base_maps()</a></code> eases file selection with arguments and returns an sf object by default.</p>
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">switzerland_sf</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/bfs_get_base_maps.html">bfs_get_base_maps</a></span><span class="op">(</span>geom <span class="op">=</span> <span class="st">"suis"</span><span class="op">)</span></span>
 <span><span class="va">communes_sf</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/bfs_get_base_maps.html">bfs_get_base_maps</a></span><span class="op">(</span>geom <span class="op">=</span> <span class="st">"polg"</span><span class="op">)</span></span>
 <span><span class="va">districts_sf</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/bfs_get_base_maps.html">bfs_get_base_maps</a></span><span class="op">(</span>geom <span class="op">=</span> <span class="st">"bezk"</span><span class="op">)</span></span>
 <span><span class="va">cantons_sf</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/bfs_get_base_maps.html">bfs_get_base_maps</a></span><span class="op">(</span>geom <span class="op">=</span> <span class="st">"kant"</span><span class="op">)</span></span>
 <span><span class="va">cantons_capitals_sf</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/bfs_get_base_maps.html">bfs_get_base_maps</a></span><span class="op">(</span>geom <span class="op">=</span> <span class="st">"stkt"</span>, type <span class="op">=</span> <span class="st">"Pnts"</span>, category <span class="op">=</span> <span class="st">"kk"</span><span class="op">)</span></span>
 <span><span class="va">lakes_sf</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/bfs_get_base_maps.html">bfs_get_base_maps</a></span><span class="op">(</span>geom <span class="op">=</span> <span class="st">"seen"</span>, category <span class="op">=</span> <span class="st">"11"</span><span class="op">)</span></span>
+<span><span class="co"># for some reason rivers don't have a "type" in their file names, so add type = ""</span></span>
+<span><span class="va">rivers_sf</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/bfs_get_base_maps.html">bfs_get_base_maps</a></span><span class="op">(</span>geom <span class="op">=</span> <span class="st">"flus"</span>, type <span class="op">=</span> <span class="st">""</span>, category <span class="op">=</span> <span class="st">"22"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span></span>
@@ -543,13 +571,15 @@
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">lakes_sf</span>, fill <span class="op">=</span> <span class="st">"lightblue2"</span>, color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">districts_sf</span>, fill <span class="op">=</span> <span class="st">"transparent"</span>, color <span class="op">=</span> <span class="st">"grey65"</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">cantons_sf</span>, fill <span class="op">=</span> <span class="st">"transparent"</span>, color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">rivers_sf</span>, color <span class="op">=</span> <span class="st">"lightblue2"</span>, lwd <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">cantons_capitals_sf</span>, shape <span class="op">=</span> <span class="fl">18</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>axis.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>caption <span class="op">=</span> <span class="st">"Source: ThemaKart, © BFS"</span><span class="op">)</span></span></code></pre></div>
 <p><img style="border:1px solid black;" src="https://raw.githubusercontent.com/lgnbhl/BFS/master/man/figures/base_maps.png" align="center"></p>
+<p>Note that the geometries are available for different date of data release. By default, <code><a href="reference/bfs_get_base_maps.html">bfs_get_base_maps()</a></code> tries to get the most recent date. You can specify the date using the “date” argument.</p>
 <p>You can create an interactive map easily with the mapview R package.</p>
-<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/r-spatial/mapview" class="external-link">mapview</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">BFS</span><span class="fu">::</span><span class="fu"><a href="reference/bfs_get_base_maps.html">bfs_get_base_maps</a></span><span class="op">(</span>geom <span class="op">=</span> <span class="st">"bezk"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -560,7 +590,7 @@
 <h3 id="get-official-list-of-swiss-municipalities">Get official list of Swiss municipalities<a class="anchor" aria-label="anchor" href="#get-official-list-of-swiss-municipalities"></a>
 </h3>
 <p>You can also get the historicized list of Swiss municipalities from the official BFS API using the new <strong>swissMunicipalities</strong> R package. The documentation is <a href="https://github.com/SwissStatsR/swissMunicipalities" class="external-link">here</a>.</p>
-<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># remotes::install_github("SwissStatsR/swissMunicipalities")</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://swissstatsr.org/swissMunicipalities/" class="external-link">swissMunicipalities</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span> <span class="co"># just for data wrangling</span></span>
@@ -592,29 +622,29 @@
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">Identifier_municipality</span>, <span class="va">Identifier_district</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">municipalities_consolidated</span></span></code></pre></div>
-<div class="sourceCode" id="cb41"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" tabindex="-1"></a><span class="co"># A tibble: 2,131 × 82</span></span>
-<span id="cb41-2"><a href="#cb41-2" tabindex="-1"></a>   Identifier_municipality Identifier_district Identifier_canton Name_en_municipality Name_fr_municipality</span>
-<span id="cb41-3"><a href="#cb41-3" tabindex="-1"></a>                     <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span>               <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>             <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>chr<span class="sc">&gt;</span>                <span class="er">&lt;</span>chr<span class="sc">&gt;</span>               </span>
-<span id="cb41-4"><a href="#cb41-4" tabindex="-1"></a> <span class="dv">1</span>                       <span class="dv">1</span>                 <span class="dv">101</span>                 <span class="dv">1</span> Aeugst am Albis      Aeugst am Albis     </span>
-<span id="cb41-5"><a href="#cb41-5" tabindex="-1"></a> <span class="dv">2</span>                       <span class="dv">2</span>                 <span class="dv">101</span>                 <span class="dv">1</span> Affoltern am Albis   Affoltern am Albis  </span>
-<span id="cb41-6"><a href="#cb41-6" tabindex="-1"></a> <span class="dv">3</span>                       <span class="dv">3</span>                 <span class="dv">101</span>                 <span class="dv">1</span> Bonstetten           Bonstetten          </span>
-<span id="cb41-7"><a href="#cb41-7" tabindex="-1"></a> <span class="dv">4</span>                       <span class="dv">4</span>                 <span class="dv">101</span>                 <span class="dv">1</span> Hausen am Albis      Hausen am Albis     </span>
-<span id="cb41-8"><a href="#cb41-8" tabindex="-1"></a> <span class="dv">5</span>                       <span class="dv">5</span>                 <span class="dv">101</span>                 <span class="dv">1</span> Hedingen             Hedingen            </span>
-<span id="cb41-9"><a href="#cb41-9" tabindex="-1"></a> <span class="dv">6</span>                       <span class="dv">6</span>                 <span class="dv">101</span>                 <span class="dv">1</span> Kappel am Albis      Kappel am Albis     </span>
-<span id="cb41-10"><a href="#cb41-10" tabindex="-1"></a> <span class="dv">7</span>                       <span class="dv">7</span>                 <span class="dv">101</span>                 <span class="dv">1</span> Knonau               Knonau              </span>
-<span id="cb41-11"><a href="#cb41-11" tabindex="-1"></a> <span class="dv">8</span>                       <span class="dv">8</span>                 <span class="dv">101</span>                 <span class="dv">1</span> Maschwanden          Maschwanden         </span>
-<span id="cb41-12"><a href="#cb41-12" tabindex="-1"></a> <span class="dv">9</span>                       <span class="dv">9</span>                 <span class="dv">101</span>                 <span class="dv">1</span> Mettmenstetten       Mettmenstetten      </span>
-<span id="cb41-13"><a href="#cb41-13" tabindex="-1"></a><span class="dv">10</span>                      <span class="dv">10</span>                 <span class="dv">101</span>                 <span class="dv">1</span> Obfelden             Obfelden            </span>
-<span id="cb41-14"><a href="#cb41-14" tabindex="-1"></a><span class="co"># ℹ 2,121 more rows</span></span>
-<span id="cb41-15"><a href="#cb41-15" tabindex="-1"></a><span class="co"># ℹ 77 more variables: Name_de_municipality &lt;chr&gt;, Name_it_municipality &lt;chr&gt;, Name_en_district &lt;chr&gt;,</span></span>
-<span id="cb41-16"><a href="#cb41-16" tabindex="-1"></a><span class="co">#   Name_fr_district &lt;chr&gt;, Name_de_district &lt;chr&gt;, Name_it_district &lt;chr&gt;, Name_en_canton &lt;chr&gt;,</span></span>
-<span id="cb41-17"><a href="#cb41-17" tabindex="-1"></a><span class="co">#   Name_fr_canton &lt;chr&gt;, Name_de_canton &lt;chr&gt;, Name_it_canton &lt;chr&gt;, ABBREV_1_Text_en_municipality &lt;chr&gt;,</span></span>
-<span id="cb41-18"><a href="#cb41-18" tabindex="-1"></a><span class="co">#   ABBREV_1_Text_fr_municipality &lt;chr&gt;, ABBREV_1_Text_de_municipality &lt;chr&gt;, ABBREV_1_Text_it_municipality &lt;chr&gt;,</span></span>
-<span id="cb41-19"><a href="#cb41-19" tabindex="-1"></a><span class="co">#   ABBREV_1_Text_municipality &lt;chr&gt;, ABBREV_1_Text_en_district &lt;chr&gt;, ABBREV_1_Text_fr_district &lt;chr&gt;,</span></span>
-<span id="cb41-20"><a href="#cb41-20" tabindex="-1"></a><span class="co">#   ABBREV_1_Text_de_district &lt;chr&gt;, ABBREV_1_Text_it_district &lt;chr&gt;, ABBREV_1_Text_district &lt;chr&gt;, …</span></span>
-<span id="cb41-21"><a href="#cb41-21" tabindex="-1"></a><span class="co"># ℹ Use `print(n = ...)` to see more rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" tabindex="-1"></a><span class="co"># A tibble: 2,131 × 82</span></span>
+<span id="cb44-2"><a href="#cb44-2" tabindex="-1"></a>   Identifier_municipality Identifier_district Identifier_canton Name_en_municipality Name_fr_municipality</span>
+<span id="cb44-3"><a href="#cb44-3" tabindex="-1"></a>                     <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span>               <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>             <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>chr<span class="sc">&gt;</span>                <span class="er">&lt;</span>chr<span class="sc">&gt;</span>               </span>
+<span id="cb44-4"><a href="#cb44-4" tabindex="-1"></a> <span class="dv">1</span>                       <span class="dv">1</span>                 <span class="dv">101</span>                 <span class="dv">1</span> Aeugst am Albis      Aeugst am Albis     </span>
+<span id="cb44-5"><a href="#cb44-5" tabindex="-1"></a> <span class="dv">2</span>                       <span class="dv">2</span>                 <span class="dv">101</span>                 <span class="dv">1</span> Affoltern am Albis   Affoltern am Albis  </span>
+<span id="cb44-6"><a href="#cb44-6" tabindex="-1"></a> <span class="dv">3</span>                       <span class="dv">3</span>                 <span class="dv">101</span>                 <span class="dv">1</span> Bonstetten           Bonstetten          </span>
+<span id="cb44-7"><a href="#cb44-7" tabindex="-1"></a> <span class="dv">4</span>                       <span class="dv">4</span>                 <span class="dv">101</span>                 <span class="dv">1</span> Hausen am Albis      Hausen am Albis     </span>
+<span id="cb44-8"><a href="#cb44-8" tabindex="-1"></a> <span class="dv">5</span>                       <span class="dv">5</span>                 <span class="dv">101</span>                 <span class="dv">1</span> Hedingen             Hedingen            </span>
+<span id="cb44-9"><a href="#cb44-9" tabindex="-1"></a> <span class="dv">6</span>                       <span class="dv">6</span>                 <span class="dv">101</span>                 <span class="dv">1</span> Kappel am Albis      Kappel am Albis     </span>
+<span id="cb44-10"><a href="#cb44-10" tabindex="-1"></a> <span class="dv">7</span>                       <span class="dv">7</span>                 <span class="dv">101</span>                 <span class="dv">1</span> Knonau               Knonau              </span>
+<span id="cb44-11"><a href="#cb44-11" tabindex="-1"></a> <span class="dv">8</span>                       <span class="dv">8</span>                 <span class="dv">101</span>                 <span class="dv">1</span> Maschwanden          Maschwanden         </span>
+<span id="cb44-12"><a href="#cb44-12" tabindex="-1"></a> <span class="dv">9</span>                       <span class="dv">9</span>                 <span class="dv">101</span>                 <span class="dv">1</span> Mettmenstetten       Mettmenstetten      </span>
+<span id="cb44-13"><a href="#cb44-13" tabindex="-1"></a><span class="dv">10</span>                      <span class="dv">10</span>                 <span class="dv">101</span>                 <span class="dv">1</span> Obfelden             Obfelden            </span>
+<span id="cb44-14"><a href="#cb44-14" tabindex="-1"></a><span class="co"># ℹ 2,121 more rows</span></span>
+<span id="cb44-15"><a href="#cb44-15" tabindex="-1"></a><span class="co"># ℹ 77 more variables: Name_de_municipality &lt;chr&gt;, Name_it_municipality &lt;chr&gt;, Name_en_district &lt;chr&gt;,</span></span>
+<span id="cb44-16"><a href="#cb44-16" tabindex="-1"></a><span class="co">#   Name_fr_district &lt;chr&gt;, Name_de_district &lt;chr&gt;, Name_it_district &lt;chr&gt;, Name_en_canton &lt;chr&gt;,</span></span>
+<span id="cb44-17"><a href="#cb44-17" tabindex="-1"></a><span class="co">#   Name_fr_canton &lt;chr&gt;, Name_de_canton &lt;chr&gt;, Name_it_canton &lt;chr&gt;, ABBREV_1_Text_en_municipality &lt;chr&gt;,</span></span>
+<span id="cb44-18"><a href="#cb44-18" tabindex="-1"></a><span class="co">#   ABBREV_1_Text_fr_municipality &lt;chr&gt;, ABBREV_1_Text_de_municipality &lt;chr&gt;, ABBREV_1_Text_it_municipality &lt;chr&gt;,</span></span>
+<span id="cb44-19"><a href="#cb44-19" tabindex="-1"></a><span class="co">#   ABBREV_1_Text_municipality &lt;chr&gt;, ABBREV_1_Text_en_district &lt;chr&gt;, ABBREV_1_Text_fr_district &lt;chr&gt;,</span></span>
+<span id="cb44-20"><a href="#cb44-20" tabindex="-1"></a><span class="co">#   ABBREV_1_Text_de_district &lt;chr&gt;, ABBREV_1_Text_it_district &lt;chr&gt;, ABBREV_1_Text_district &lt;chr&gt;, …</span></span>
+<span id="cb44-21"><a href="#cb44-21" tabindex="-1"></a><span class="co"># ℹ Use `print(n = ...)` to see more rows</span></span></code></pre></div>
 <p>You can now use the consolidated list of Swiss municipalities to ease geodata analysis.</p>
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/" class="external-link">sf</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span></span>
