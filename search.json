@@ -158,7 +158,7 @@
     "href": "applications/index.html",
     "title": "Applications",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nChat with Hadley\n\n\nOpenAI Chatbot based on Hadley Wickham’s books\n\n\n\nApr 19, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSwiss City Statistics\n\n\nA use case example for the BFS R package\n\n\n\nJun 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngotop app\n\n\nDemo app of the R package gotop\n\n\n\nApr 20, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\naniview app\n\n\nDemo app of the R package aniview\n\n\n\nFeb 8, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nscroller app\n\n\nDemo app of the R package scroller\n\n\n\nJan 28, 2022\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nSt.Gallen Tourism App\n\n\nThe official St.Gallen Tourism Dashboard R Shiny app.\n\n\n\nFeb 18, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nChat with Hadley\n\n\nOpenAI Chatbot based on Hadley Wickham’s books\n\n\n\nApr 19, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSwiss City Statistics\n\n\nA use case example for the BFS R package\n\n\n\nJun 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngotop app\n\n\nDemo app of the R package gotop\n\n\n\nApr 20, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\naniview app\n\n\nDemo app of the R package aniview\n\n\n\nFeb 8, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nscroller app\n\n\nDemo app of the R package scroller\n\n\n\nJan 28, 2022\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#posts",
@@ -172,7 +172,7 @@
     "href": "index.html#applications",
     "title": "\n      Félix\n      Luginbühl\n    ",
     "section": "Applications",
-    "text": "Applications\n\n\n\n\n\n\n\n\n\n\nChat with Hadley\n\n\nOpenAI Chatbot based on Hadley Wickham’s books\n\n\n\nApr 19, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSwiss City Statistics\n\n\nA use case example for the BFS R package\n\n\n\nJun 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngotop app\n\n\nDemo app of the R package gotop\n\n\n\nApr 20, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\naniview app\n\n\nDemo app of the R package aniview\n\n\n\nFeb 8, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nscroller app\n\n\nDemo app of the R package scroller\n\n\n\nJan 28, 2022\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Applications\n\n\n\n\n\n\n\n\n\n\nSt.Gallen Tourism App\n\n\nThe official St.Gallen Tourism Dashboard R Shiny app.\n\n\n\nFeb 18, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nChat with Hadley\n\n\nOpenAI Chatbot based on Hadley Wickham’s books\n\n\n\nApr 19, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSwiss City Statistics\n\n\nA use case example for the BFS R package\n\n\n\nJun 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngotop app\n\n\nDemo app of the R package gotop\n\n\n\nApr 20, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\naniview app\n\n\nDemo app of the R package aniview\n\n\n\nFeb 8, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nscroller app\n\n\nDemo app of the R package scroller\n\n\n\nJan 28, 2022\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#projects",
@@ -327,5 +327,12 @@
     "title": "R Shiny in Production - Swiss Statistics Meeting 2024",
     "section": "",
     "text": "The Statistical Office of Canton St.Gallen is producing cantonal tourism statistics on a monthly basis since 2005. In 2023, we decided to transition data reporting from static Excel sheets to an interactive R Shiny Dashboard, which we successfully launched in early 2024. At the same time, we made the underlying code publicly available on swissstatsr.org and GitHub1). In this talk, we will share our experience developing an R Shiny Web application using Posit (formerly RStudio) infrastructure and the golem framework and demonstrate how these powerful tools facilitate the release of R Shiny into production."
+  },
+  {
+    "objectID": "applications/sgtourism/index.html",
+    "href": "applications/sgtourism/index.html",
+    "title": "St.Gallen Tourism App",
+    "section": "",
+    "text": "The Application\nThis R Shiny app produces the official tourism dashboard of the St.Gallen canton of Switzerland.\nThe app: https://ffssg.shinyapps.io/sgtourismus/"
   }
 ]

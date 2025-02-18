@@ -10,8 +10,29 @@
 <atom:link href="https://www.felixluginbuhl.com/applications/index.xml" rel="self" type="application/rss+xml"/>
 <description>R Shiny web applications demonstrating the use of my R packages.
 </description>
-<generator>quarto-1.4.553</generator>
-<lastBuildDate>Thu, 18 Apr 2024 22:00:00 GMT</lastBuildDate>
+<generator>quarto-1.5.57</generator>
+<lastBuildDate>Mon, 17 Feb 2025 23:00:00 GMT</lastBuildDate>
+<item>
+  <title>St.Gallen Tourism App</title>
+  <link>https://www.felixluginbuhl.com/applications/sgtourism/</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="the-application" class="level3">
+<h3 class="anchored" data-anchor-id="the-application">The Application</h3>
+<p>This R Shiny app produces the official tourism dashboard of the St.Gallen canton of Switzerland.</p>
+<p>The app: <a href="https://ffssg.shinyapps.io/sgtourismus/">https://ffssg.shinyapps.io/sgtourismus/</a></p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://www.felixluginbuhl.com/applications/sgtourism/</guid>
+  <pubDate>Mon, 17 Feb 2025 23:00:00 GMT</pubDate>
+  <media:content url="https://www.felixluginbuhl.com/applications/sgtourism/logo-sgtourism.png" medium="image" type="image/png" height="167" width="144"/>
+</item>
 <item>
   <title>Chat with Hadley</title>
   <link>https://www.felixluginbuhl.com/applications/chat-with-hadley/</link>

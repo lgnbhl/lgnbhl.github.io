@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-06-16">
-<meta name="description" content="A use case example for the BFS R package">
+<meta name="dcterms.date" content="2025-02-18">
+<meta name="description" content="The official St.Gallen Tourism Dashboard R Shiny app.">
 
-<title>Félix Luginbühl - Swiss City Statistics</title>
+<title>St.Gallen Tourism App – Félix Luginbühl</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -91,19 +91,19 @@ ga('send', {
 
 
 <link rel="stylesheet" href="../../_assets/panelset-extras.css">
-<meta property="og:title" content="Félix Luginbühl - Swiss City Statistics">
-<meta property="og:description" content="A use case example for the BFS R package">
-<meta property="og:image" content="https://www.felixluginbuhl.com/applications/city-statistics/city-statistics.png">
+<meta property="og:title" content="St.Gallen Tourism App – Félix Luginbühl">
+<meta property="og:description" content="The official St.Gallen Tourism Dashboard R Shiny app.">
+<meta property="og:image" content="https://www.felixluginbuhl.com/applications/sgtourism/logo-sgtourism.png">
 <meta property="og:site_name" content="Félix Luginbühl">
-<meta property="og:image:height" content="915">
-<meta property="og:image:width" content="1920">
-<meta name="twitter:title" content="Félix Luginbühl - Swiss City Statistics">
-<meta name="twitter:description" content="A use case example for the BFS R package">
-<meta name="twitter:image" content="https://www.felixluginbuhl.com/applications/city-statistics/city-statistics.png">
+<meta property="og:image:height" content="463">
+<meta property="og:image:width" content="400">
+<meta name="twitter:title" content="St.Gallen Tourism App – Félix Luginbühl">
+<meta name="twitter:description" content="The official St.Gallen Tourism Dashboard R Shiny app.">
+<meta name="twitter:image" content="https://www.felixluginbuhl.com/applications/sgtourism/logo-sgtourism.png">
 <meta name="twitter:creator" content="@FelixLuginbuhl">
 <meta name="twitter:site" content="@FelixLuginbuhl">
-<meta name="twitter:image-height" content="915">
-<meta name="twitter:image-width" content="1920">
+<meta name="twitter:image-height" content="463">
+<meta name="twitter:image-width" content="400">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -119,7 +119,7 @@ ga('send', {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -165,7 +165,7 @@ ga('send', {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
@@ -181,12 +181,12 @@ ga('send', {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Swiss City Statistics</h1>
+<h1 class="title">St.Gallen Tourism App</h1>
 </div>
 
 <div>
   <div class="description">
-    A use case example for the BFS R package
+    The official St.Gallen Tourism Dashboard R Shiny app.
   </div>
 </div>
 
@@ -197,7 +197,7 @@ ga('send', {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">June 16, 2023</p>
+      <p class="date">February 18, 2025</p>
     </div>
   </div>
   
@@ -207,8 +207,9 @@ ga('send', {
 
 
 <div class="mt-4 d-flex flex-row flex-wrap gap-1 justify-content-center justify-content-sm-start" role="group" aria-label="Talk Links">
-<a href="https://city.felixluginbuhl.com/" class="btn btn-secondary"><i class="bi bi-arrow-right-circle-fill me-1"></i> Try the app</a>
-<a href="https://felixluginbuhl.com/BFS" class="btn btn-secondary"><i class="bi bi-book me-1"></i> pkg docs</a>
+<a href="https://ffssg.shinyapps.io/sgtourismus/" class="btn btn-secondary"><i class="bi bi-arrow-right-circle-fill me-1"></i> The app</a>
+<a href="https://statistiksg.github.io/sgtourism/" class="btn btn-secondary"><i class="bi bi-book me-1"></i> The docs</a>
+<a href="https://github.com/statistikSG/sgtourism" class="btn btn-secondary"><i class="bi bi-github me-1"></i> The code</a>
 </div>
 
 </header>
@@ -216,13 +217,8 @@ ga('send', {
 
 <section id="the-application" class="level3">
 <h3 class="anchored" data-anchor-id="the-application">The Application</h3>
-<p>Choose an indicator, two cities, and have fun trying to guess which city has the highest indicator value.</p>
-<p><a href="https://city.felixluginbuhl.com/"><img src="./city-statistics.gif"></a></p>
-</section>
-<section id="data-info" class="level3">
-<h3 class="anchored" data-anchor-id="data-info">Data Info</h3>
-<p>The <a href="https://www.bfs.admin.ch/bfs/en/home/statistics/cross-sectional-topics/city-statistics.html">Swiss City Statistics</a> dataset contains +400 indicators about 9 Swiss cities and their agglomerations.</p>
-<p>The data is queried using the <a href="https://felixluginbuhl.com/BFS">BFS R package</a>.</p>
+<p>This R Shiny app produces the official tourism dashboard of the St.Gallen canton of Switzerland.</p>
+<p>The app: <a href="https://ffssg.shinyapps.io/sgtourismus/">https://ffssg.shinyapps.io/sgtourismus/</a></p>
 
 
 </section>
@@ -407,18 +403,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -450,7 +435,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/www\.felixluginbuhl\.com");
@@ -458,7 +465,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

@@ -2,6 +2,7 @@
   {
     "listing": "/applications/index.html",
     "items": [
+      "/applications/sgtourism/index.html",
       "/applications/chat-with-hadley/index.html",
       "/applications/city-statistics/index.html",
       "/applications/gotop-app/index.html",
@@ -12,6 +13,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/applications/sgtourism/index.html",
       "/applications/chat-with-hadley/index.html",
       "/applications/city-statistics/index.html",
       "/applications/gotop-app/index.html",
