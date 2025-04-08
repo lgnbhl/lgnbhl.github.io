@@ -31,20 +31,21 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
+<li class="active nav-item"><a class="nav-link" href="index.html">Home</a></li>
 <li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="articles/dashboard-basic.html">Basic Dashboarding</a></li>
+<li><a class="dropdown-item" href="articles/dashboard-basic.html">Basic dashboarding</a></li>
     <li><a class="dropdown-item" href="articles/routing.html">Using a router</a></li>
   </ul>
 </li>
       </ul>
 <ul class="navbar-nav">
-<li class="nav-item"><form class="form-inline" role="search">
- <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="search.json">
-</form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/lgnbhl/shinyMaterialUI/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://www.linkedin.com/in/felixluginbuhl"><span class="fa fa-linkedin"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://twitter.com/FelixLuginbuhl"><span class="fa fa-twitter"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/lgnbhl/BFS"><span class="fa fa-github"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="http://felixluginbuhl.com"><span class="fa fa-home"></span></a></li>
       </ul>
 </div>
 
@@ -68,15 +69,13 @@
 </h3>
 <p>To quickly get started with any example:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/lgnbhl/shinyMaterialUI" class="external-link">shinyMaterialUI</a></span><span class="op">)</span></span>
-<span><span class="co"># Get all examples</span></span>
-<span><span class="fu"><a href="reference/getExamples.html">getExamples</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co"># Run the app for an example</span></span>
-<span><span class="fu"><a href="reference/runExample.html">runExample</a></span><span class="op">(</span><span class="st">"Autocomplete"</span><span class="op">)</span></span></code></pre></div>
-<p>You can run the showcase Shiny app with:</p>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/shinyMaterialUI">shinyMaterialUI</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># all examples available: shinyMaterialUI::runExample()</span></span>
+<span><span class="fu">shinyMaterialUI</span><span class="fu">::</span><span class="fu"><a href="reference/runExample.html">runExample</a></span><span class="op">(</span><span class="st">"showcase"</span><span class="op">)</span></span></code></pre></div>
+<p>You can also run the dashboard Shiny app example:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">shinyMaterialUI</span><span class="fu">::</span><span class="fu"><a href="reference/runShowcase.html">runShowcase</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p>A dashboard example is also available <a href="https://github.com/lgnbhl/shinyMaterialUI/tree/main/inst/dashboard" class="external-link">here</a>.</p>
+<code class="sourceCode R"><span><span class="fu">shinyMaterialUI</span><span class="fu">::</span><span class="fu"><a href="reference/runExample.html">runExample</a></span><span class="op">(</span><span class="st">"dashboard"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="shiny-inputs-wrappers">Shiny inputs wrappers<a class="anchor" aria-label="anchor" href="#shiny-inputs-wrappers"></a>
@@ -136,11 +135,11 @@
 <div class="dev-status">
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
+<li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
 <li><a href="https://CRAN.R-project.org/package=shinyMaterialUI" class="external-link"><img src="https://www.r-pkg.org/badges/version/shinyMaterialUI" alt="CRAN status"></a></li>
 <li><a href="https://github.com/lgnbhl/shinyMaterialUI/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/lgnbhl/shinyMaterialUI/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://www.linkedin.com/in/FelixLuginbuhl" class="external-link"><img src="https://img.shields.io/badge/LinkedIn-Follow-E4405F?style=social&amp;logo=linkedin" alt="LinkedIn"></a></li>
 <li><a href="https://mui.com/material-ui/getting-started/" class="external-link"><img src="https://img.shields.io/badge/@mui/material-%5E7.0.1-blue.svg"></a></li>
-<li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
+<li><a href="https://www.linkedin.com/in/FelixLuginbuhl" class="external-link"><img src="https://img.shields.io/badge/LinkedIn-Follow-E4405F?style=social&amp;logo=linkedin" alt="LinkedIn"></a></li>
 </ul>
 </div>
 
