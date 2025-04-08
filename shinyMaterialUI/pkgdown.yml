@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   dashboard-basic: dashboard-basic.html
   routing: routing.html
-last_built: 2025-04-08T13:29Z
+last_built: 2025-04-08T13:39Z
 urls:
   reference: https://felixluginbuhl.com/shinyMaterialUI/reference
   article: https://felixluginbuhl.com/shinyMaterialUI/articles
