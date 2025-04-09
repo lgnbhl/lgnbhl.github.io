@@ -186,7 +186,7 @@
     "href": "index.html#talks",
     "title": "\n      Félix\n      Luginbühl\n    ",
     "section": "Talks",
-    "text": "Talks\n\n\n\n\n\n\n\n\n\n\nR Shiny in Production - Swiss Statistics Meeting 2024\n\n\nGave the talk “R Shiny in Production: The St.Gallen Tourism Dashboard” at the Swiss Statistics Meeting 2024 in Aarau.\n\n\n\nSep 5, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFrom St. Gallen into the R-Universe — towards a national collaboration platform for official statistics\n\n\nMeetup organized by adminR and hosted by the Federal Office of Public Health.\n\n\n\nJun 6, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHow to Create Interactive Maps with R. Use Case: Swiss maps\n\n\nMeetup organized by R-Lunches at the University of Geneva.\n\n\n\nMar 26, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSwiss Statistics Meeting - BFS R package Poster\n\n\nThe Swiss Statistical Days 2023 took place at the University of Basel and is organised by the Federal Statistical Office (BFS).\n\n\n\nSep 2, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBFS R package - Search and download data from the Swiss Federal Statistical Office\n\n\nMeetup organized by adminR, Digital Society Initiative DSI and the Statistical Office of Zürich.\n\n\n\nMay 25, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR Blogging - Sharing my year-long experience using the tidyverse ecosystem\n\n\nMeetup organized by Geneva R Users with the support of the EPFL Extension School at Campus Biotech.\n\n\n\nJun 5, 2018\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Talks\n\n\n\n\n\n\n\n\n\n\nHow to use Material UI with R shiny\n\n\nMeetup organized by R-Lunches at the University of Geneva.\n\n\n\nApr 9, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR Shiny in Production - Swiss Statistics Meeting 2024\n\n\nGave the talk “R Shiny in Production: The St.Gallen Tourism Dashboard” at the Swiss Statistics Meeting 2024 in Aarau.\n\n\n\nSep 5, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFrom St. Gallen into the R-Universe — towards a national collaboration platform for official statistics\n\n\nMeetup organized by adminR and hosted by the Federal Office of Public Health.\n\n\n\nJun 6, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHow to Create Interactive Maps with R. Use Case: Swiss maps\n\n\nMeetup organized by R-Lunches at the University of Geneva.\n\n\n\nMar 26, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSwiss Statistics Meeting - BFS R package Poster\n\n\nThe Swiss Statistical Days 2023 took place at the University of Basel and is organised by the Federal Statistical Office (BFS).\n\n\n\nSep 2, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBFS R package - Search and download data from the Swiss Federal Statistical Office\n\n\nMeetup organized by adminR, Digital Society Initiative DSI and the Statistical Office of Zürich.\n\n\n\nMay 25, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR Blogging - Sharing my year-long experience using the tidyverse ecosystem\n\n\nMeetup organized by Geneva R Users with the support of the EPFL Extension School at Campus Biotech.\n\n\n\nJun 5, 2018\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/beautiful-tables/index.html",
@@ -312,7 +312,7 @@
     "href": "talks/index.html",
     "title": "Talks",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nR Shiny in Production - Swiss Statistics Meeting 2024\n\n\n\n\n\n\ntalk\n\n\n\nGave the talk “R Shiny in Production: The St.Gallen Tourism Dashboard” at the Swiss Statistics Meeting 2024 in Aarau. \n\n\n\n\n\nSep 5, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nFrom St. Gallen into the R-Universe — towards a national collaboration platform for official statistics\n\n\n\n\n\n\ntalk\n\n\n\nMeetup organized by adminR and hosted by the Federal Office of Public Health. \n\n\n\n\n\nJun 6, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nHow to Create Interactive Maps with R. Use Case: Swiss maps\n\n\n\n\n\n\ntalk\n\n\n\nMeetup organized by R-Lunches at the University of Geneva. \n\n\n\n\n\nMar 26, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nSwiss Statistics Meeting - BFS R package Poster\n\n\n\n\n\n\ntalk\n\n\n\nThe Swiss Statistical Days 2023 took place at the University of Basel and is organised by the Federal Statistical Office (BFS). \n\n\n\n\n\nSep 2, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nBFS R package - Search and download data from the Swiss Federal Statistical Office\n\n\n\n\n\n\ntalk\n\n\n\nMeetup organized by adminR, Digital Society Initiative DSI and the Statistical Office of Zürich. \n\n\n\n\n\nMay 25, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nR Blogging - Sharing my year-long experience using the tidyverse ecosystem\n\n\n\n\n\n\ntalk\n\n\n\nMeetup organized by Geneva R Users with the support of the EPFL Extension School at Campus Biotech. \n\n\n\n\n\nJun 5, 2018\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nHow to use Material UI with R shiny\n\n\n\n\n\n\ntalk\n\n\n\nMeetup organized by R-Lunches at the University of Geneva. \n\n\n\n\n\nApr 9, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nR Shiny in Production - Swiss Statistics Meeting 2024\n\n\n\n\n\n\ntalk\n\n\n\nGave the talk “R Shiny in Production: The St.Gallen Tourism Dashboard” at the Swiss Statistics Meeting 2024 in Aarau. \n\n\n\n\n\nSep 5, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nFrom St. Gallen into the R-Universe — towards a national collaboration platform for official statistics\n\n\n\n\n\n\ntalk\n\n\n\nMeetup organized by adminR and hosted by the Federal Office of Public Health. \n\n\n\n\n\nJun 6, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nHow to Create Interactive Maps with R. Use Case: Swiss maps\n\n\n\n\n\n\ntalk\n\n\n\nMeetup organized by R-Lunches at the University of Geneva. \n\n\n\n\n\nMar 26, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nSwiss Statistics Meeting - BFS R package Poster\n\n\n\n\n\n\ntalk\n\n\n\nThe Swiss Statistical Days 2023 took place at the University of Basel and is organised by the Federal Statistical Office (BFS). \n\n\n\n\n\nSep 2, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nBFS R package - Search and download data from the Swiss Federal Statistical Office\n\n\n\n\n\n\ntalk\n\n\n\nMeetup organized by adminR, Digital Society Initiative DSI and the Statistical Office of Zürich. \n\n\n\n\n\nMay 25, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nR Blogging - Sharing my year-long experience using the tidyverse ecosystem\n\n\n\n\n\n\ntalk\n\n\n\nMeetup organized by Geneva R Users with the support of the EPFL Extension School at Campus Biotech. \n\n\n\n\n\nJun 5, 2018\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "talks/swiss-statistics-aarau/index.html",
@@ -341,5 +341,33 @@
     "title": "I14Y R package",
     "section": "",
     "text": "Redirecting to https://felixluginbuhl.com/I14Y…"
+  },
+  {
+    "objectID": "talks/geneva-r-lunches-shinyMaterialUI/geneva-r-lunches-shinyMaterialUI.html#plan",
+    "href": "talks/geneva-r-lunches-shinyMaterialUI/geneva-r-lunches-shinyMaterialUI.html#plan",
+    "title": "How to use Material UI with R Shiny",
+    "section": "Plan",
+    "text": "Plan\n\nQuick recap: how shiny works\nExtending Shiny with existing frameworks\n\nbslib and bs4Dash\ncustomization limits: custom components\n\nShiny with React JS: shiny.react\n\nshiny.fluent, shiny.blueprint, and shinyNextUI\n\nIntroducing shinyMaterialUI\nIntroducing shinyReactRouter"
+  },
+  {
+    "objectID": "talks/geneva-r-lunches-shinyMaterialUI/geneva-r-lunches-shinyMaterialUI.html#questions",
+    "href": "talks/geneva-r-lunches-shinyMaterialUI/geneva-r-lunches-shinyMaterialUI.html#questions",
+    "title": "How to use Material UI with R Shiny",
+    "section": "Questions?",
+    "text": "Questions?\nThanks you for your attention!"
+  },
+  {
+    "objectID": "talks/geneva-r-lunches-shinyMaterialUI/geneva-r-lunches-shinyMaterialUI.html",
+    "href": "talks/geneva-r-lunches-shinyMaterialUI/geneva-r-lunches-shinyMaterialUI.html",
+    "title": "How to use Material UI with R Shiny",
+    "section": "",
+    "text": "Quicky recap: how shiny works\nExtending Shiny with existing frameworks\n\nbslib and bs4Dash\ncustomization limits: custom components.\n\nShiny with React JS: shiny.react\n\nshiny.fluent, shiny.blueprint, and shinyNextUI\n\nintroducing shinyMaterialUI\nintroducing shinyReactRouter"
+  },
+  {
+    "objectID": "talks/geneva-r-lunches-shinyMaterialUI/geneva-r-lunches-shinyMaterialUI.html#any-questions",
+    "href": "talks/geneva-r-lunches-shinyMaterialUI/geneva-r-lunches-shinyMaterialUI.html#any-questions",
+    "title": "How to use Material UI with R Shiny",
+    "section": "Any questions?",
+    "text": "Any questions?\nIf you have any issue, question or want to contribute to shinyMaterialUI or shinyReactRouter, don’t hesitate to write me on GitHub or LinkedIn.\n\nGitHub: https://github.com/lgnbhl/\nLinkedIn: https://www.linkedin.com/in/felixluginbuhl\nWebsite: https://felixluginbuhl.com/"
   }
 ]

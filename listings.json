@@ -19,6 +19,7 @@
       "/applications/gotop-app/index.html",
       "/applications/aniview-app/index.html",
       "/applications/scroller-app/index.html",
+      "/talks/geneva-r-lunches-shinyMaterialUI/index.html",
       "/talks/swiss-statistics-aarau/index.html",
       "/talks/adminr-bern/index.html",
       "/talks/geneva-r-lunches/index.html",
@@ -60,6 +61,7 @@
   {
     "listing": "/talks/index.html",
     "items": [
+      "/talks/geneva-r-lunches-shinyMaterialUI/index.html",
       "/talks/swiss-statistics-aarau/index.html",
       "/talks/adminr-bern/index.html",
       "/talks/geneva-r-lunches/index.html",
