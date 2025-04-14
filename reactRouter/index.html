@@ -56,7 +56,7 @@
 <div class="section level3">
 <h3 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
 </h3>
-<p>You can now add URL pages like so:</p>
+<p>You can now add URL pages in Quarto document or R shiny like so:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/reactRouter">reactRouter</a></span><span class="op">)</span></span>
 <span></span>
@@ -72,15 +72,100 @@
 <div class="section level3">
 <h3 id="install">Install<a class="anchor" aria-label="anchor" href="#install"></a>
 </h3>
-<p>Install <strong>reactRouter</strong> like so:</p>
+<p>Install <strong>reactRouter</strong> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"lgnbhl/reactRouter"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="usage-with-quarto">Usage with Quarto<a class="anchor" aria-label="anchor" href="#usage-with-quarto"></a>
+</h3>
+<p>As React Router provides client routing, you can easily create multiple routes in a Quarto and R markdown documents:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># to run an a Quarto document</span></span>
+<span><span class="co"># example from: https://github.com/remix-run/react-router/tree/dev/examples/basic</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/htmltools" class="external-link">htmltools</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/reactRouter">reactRouter</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">Layout</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
+<span>  <span class="co"># A "layout route" is a good place to put markup you want to</span></span>
+<span>  <span class="co"># share across all the pages on your site, like navigation.</span></span>
+<span>  <span class="va">tags</span><span class="op">$</span><span class="fu">nav</span><span class="op">(</span></span>
+<span>    <span class="va">tags</span><span class="op">$</span><span class="fu">ul</span><span class="op">(</span></span>
+<span>      <span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span></span>
+<span>        <span class="fu">reactRouter</span><span class="fu">::</span><span class="fu"><a href="reference/Link.html">Link</a></span><span class="op">(</span>to <span class="op">=</span> <span class="st">"/"</span>, <span class="st">"Home"</span><span class="op">)</span></span>
+<span>      <span class="op">)</span>,</span>
+<span>      <span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span></span>
+<span>        <span class="fu">reactRouter</span><span class="fu">::</span><span class="fu"><a href="reference/Link.html">Link</a></span><span class="op">(</span>to <span class="op">=</span> <span class="st">"/about"</span>, <span class="st">"About"</span><span class="op">)</span></span>
+<span>      <span class="op">)</span>,</span>
+<span>      <span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span></span>
+<span>        <span class="fu">reactRouter</span><span class="fu">::</span><span class="fu"><a href="reference/Link.html">Link</a></span><span class="op">(</span>to <span class="op">=</span> <span class="st">"/dashboard"</span>, <span class="st">"Dashboard"</span><span class="op">)</span></span>
+<span>      <span class="op">)</span>,</span>
+<span>      <span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span></span>
+<span>        <span class="fu">reactRouter</span><span class="fu">::</span><span class="fu"><a href="reference/Link.html">Link</a></span><span class="op">(</span>to <span class="op">=</span> <span class="st">"/nothing-here"</span>, <span class="st">"Nothing Here"</span><span class="op">)</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  <span class="va">tags</span><span class="op">$</span><span class="fu">hr</span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  <span class="co"># An &lt;Outlet&gt; renders whatever child route is currently active,</span></span>
+<span>  <span class="co"># so you can think about this &lt;Outlet&gt; as a placeholder for</span></span>
+<span>  <span class="co"># the child routes we defined above.</span></span>
+<span>  <span class="fu">reactRouter</span><span class="fu">::</span><span class="fu"><a href="reference/Outlet.html">Outlet</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">reactRouter</span><span class="fu">::</span><span class="fu"><a href="reference/HashRouter.html">HashRouter</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">h1</a></span><span class="op">(</span><span class="st">"Basic Example"</span><span class="op">)</span>,</span>
+<span>    <span class="va">tags</span><span class="op">$</span><span class="fu">p</span><span class="op">(</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">'This example demonstrates some of the core features of React Router</span></span>
+<span><span class="st">          including nested reactRouter::Route(), reactRouter::Outlet(), </span></span>
+<span><span class="st">          reactRouter::Link(), and using a "*" route (aka "splat route") </span></span>
+<span><span class="st">          to render a "not found" page when someone visits an unrecognized URL.'</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    <span class="fu">reactRouter</span><span class="fu">::</span><span class="fu"><a href="reference/Routes.html">Routes</a></span><span class="op">(</span></span>
+<span>      <span class="fu"><a href="reference/Route.html">Route</a></span><span class="op">(</span></span>
+<span>        path <span class="op">=</span> <span class="st">"/"</span>,</span>
+<span>        element <span class="op">=</span> <span class="va">Layout</span>,</span>
+<span>        <span class="fu"><a href="reference/Route.html">Route</a></span><span class="op">(</span></span>
+<span>          index <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>          element <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
+<span>            <span class="va">tags</span><span class="op">$</span><span class="fu">h2</span><span class="op">(</span><span class="st">"Home"</span><span class="op">)</span></span>
+<span>          <span class="op">)</span></span>
+<span>        <span class="op">)</span>,</span>
+<span>        <span class="fu"><a href="reference/Route.html">Route</a></span><span class="op">(</span></span>
+<span>          path <span class="op">=</span> <span class="st">"about"</span>,</span>
+<span>          element <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
+<span>            <span class="va">tags</span><span class="op">$</span><span class="fu">h2</span><span class="op">(</span><span class="st">"About"</span><span class="op">)</span></span>
+<span>          <span class="op">)</span></span>
+<span>        <span class="op">)</span>,</span>
+<span>        <span class="fu"><a href="reference/Route.html">Route</a></span><span class="op">(</span></span>
+<span>          path <span class="op">=</span> <span class="st">"dashboard"</span>,</span>
+<span>          element <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
+<span>            <span class="va">tags</span><span class="op">$</span><span class="fu">h2</span><span class="op">(</span><span class="st">"Dashboard"</span><span class="op">)</span></span>
+<span>          <span class="op">)</span></span>
+<span>        <span class="op">)</span>,</span>
+<span>        <span class="co"># Using path="*"" means "match anything", so this route</span></span>
+<span>        <span class="co"># acts like a catch-all for URLs that we don't have explicit</span></span>
+<span>        <span class="co"># routes for.</span></span>
+<span>        <span class="fu"><a href="reference/Route.html">Route</a></span><span class="op">(</span></span>
+<span>          path <span class="op">=</span> <span class="st">"*"</span>,</span>
+<span>          element <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
+<span>            <span class="va">tags</span><span class="op">$</span><span class="fu">h2</span><span class="op">(</span><span class="st">"Nothing to see here!"</span><span class="op">)</span>,</span>
+<span>            <span class="va">tags</span><span class="op">$</span><span class="fu">p</span><span class="op">(</span></span>
+<span>              <span class="fu"><a href="reference/Link.html">Link</a></span><span class="op">(</span>to <span class="op">=</span> <span class="st">"/"</span>, <span class="st">"Go to the home page"</span><span class="op">)</span></span>
+<span>            <span class="op">)</span></span>
+<span>          <span class="op">)</span></span>
+<span>        <span class="op">)</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="usage-with-r-shiny">Usage with R Shiny<a class="anchor" aria-label="anchor" href="#usage-with-r-shiny"></a>
 </h3>
 <p>Below a simple example using R Shiny:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/reactRouter">reactRouter</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/DT" class="external-link">DT</a></span><span class="op">)</span></span>
@@ -158,7 +243,7 @@
 <h3 id="usage-with-mui-material-ui">Usage with MUI Material UI<a class="anchor" aria-label="anchor" href="#usage-with-mui-material-ui"></a>
 </h3>
 <p>Below an example using MUI Material UI components from the <strong>shinyMaterialUI</strong> R package:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># remotes::install_github("lgnbhl/shinyMaterialUI")</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/shinyMaterialUI" class="external-link">shinyMaterialUI</a></span><span class="op">)</span></span>
@@ -233,10 +318,7 @@
 <span>    <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="st">"Content analysis"</span><span class="op">)</span></span>
 <span>  <span class="op">}</span><span class="op">)</span></span>
 <span>  <span class="va">output</span><span class="op">$</span><span class="va">contentAbout</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderUI.html" class="external-link">renderUI</a></span><span class="op">(</span><span class="op">{</span></span>
-<span>    <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
-<span>      <span class="va">tags</span><span class="op">$</span><span class="fu">h1</span><span class="op">(</span><span class="st">"About"</span><span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="st">"Content about"</span><span class="op">)</span></span>
-<span>    <span class="op">)</span></span>
+<span>    <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="st">"Content about"</span><span class="op">)</span></span>
 <span>  <span class="op">}</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span></span>
@@ -245,8 +327,8 @@
 <div class="section level3">
 <h3 id="propagation-issue">Propagation issue<a class="anchor" aria-label="anchor" href="#propagation-issue"></a>
 </h3>
-<p>It seems that {shiny} doesn’t show the content of a different route if the structure of the <code>element</code> argument is identical in both routes. In case the <code>element</code> structure is similar, you can refresh the session each time the user click on a router link by observing the <code><a href="reference/NavLink.html">NavLink.shinyInput()</a></code> input in the session.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<p>It seems that {shiny} doesn’t update the content of a different route if the structure of the <code>element</code> argument is identical in both routes. In case the <code>element</code> structure is similar, you can refresh the session each time the user click on a router link by observing the <code><a href="reference/NavLink.html">NavLink.shinyInput()</a></code> input in the session.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/reactRouter">reactRouter</a></span><span class="op">)</span></span>
 <span></span>
@@ -272,9 +354,9 @@
 <span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="co"># NOTE: please contact me if you know a way to refresh output content without reloading the session :)</span></span>
 <span>  <span class="co"># reload session when user clicks on new page to refresh output content</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">linkMain</span>, <span class="va">input</span><span class="op">$</span><span class="va">linkOther</span><span class="op">)</span>, <span class="op">{</span></span>
-<span>    <span class="va">session</span><span class="op">$</span><span class="fu">reload</span><span class="op">(</span><span class="op">)</span></span>
-<span>  <span class="op">}</span><span class="op">)</span></span>
+<span>  <span class="co"># observeEvent(c(input$linkMain, input$linkOther), {</span></span>
+<span>  <span class="co">#   session$reload()</span></span>
+<span>  <span class="co"># })</span></span>
 <span>  <span class="va">output</span><span class="op">$</span><span class="va">contentMain</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderUI.html" class="external-link">renderUI</a></span><span class="op">(</span> <span class="op">{</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="st">"Content home"</span><span class="op">)</span> <span class="op">}</span> <span class="op">)</span></span>
 <span>  <span class="va">output</span><span class="op">$</span><span class="va">contentOther</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderUI.html" class="external-link">renderUI</a></span><span class="op">(</span> <span class="op">{</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="st">"New content"</span><span class="op">)</span> <span class="op">}</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
@@ -284,26 +366,74 @@
 <span><span class="op">}</span></span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="usage-with-quarto">Usage with Quarto<a class="anchor" aria-label="anchor" href="#usage-with-quarto"></a>
-</h3>
-<p>Thanks to the client side routing provided by React Router, you can also create multiple pages in your Quarto and Rmarkdown documents (as no server is required).</p>
-<p>TODO: create Quarto example.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/reactRouter">reactRouter</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="reference/HashRouter.html">HashRouter</a></span><span class="op">(</span></span>
-<span>  <span class="fu"><a href="reference/NavLink.html">NavLink</a></span><span class="op">(</span>to <span class="op">=</span> <span class="st">"/"</span>, <span class="st">"Main"</span><span class="op">)</span>,</span>
-<span>  <span class="fu"><a href="reference/NavLink.html">NavLink</a></span><span class="op">(</span>to <span class="op">=</span> <span class="st">"/analysis"</span>, <span class="st">"Analysis"</span><span class="op">)</span>,</span>
-<span>  <span class="fu"><a href="reference/Routes.html">Routes</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="reference/Route.html">Route</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"/"</span>, element <span class="op">=</span> <span class="st">"Main content"</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="reference/Route.html">Route</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"/analysis"</span>, element <span class="op">=</span> <span class="st">"Analysis content"</span><span class="op">)</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
 <h3 id="usage-with-shiny-modules">Usage with Shiny modules<a class="anchor" aria-label="anchor" href="#usage-with-shiny-modules"></a>
 </h3>
-<p>reactRouter usage with shiny modules is not tested yet.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># adapted from example of shiny.router</span></span>
+<span><span class="co"># https://github.com/Appsilon/shiny.router/tree/main/examples/shiny_modules</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/reactRouter">reactRouter</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># This creates UI for each page.</span></span>
+<span><span class="va">page</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">title</span>, <span class="va">content</span>, <span class="va">id</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">ns</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/NS.html" class="external-link">NS</a></span><span class="op">(</span><span class="va">id</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/titlePanel.html" class="external-link">titlePanel</a></span><span class="op">(</span><span class="va">title</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="va">content</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textOutput.html" class="external-link">textOutput</a></span><span class="op">(</span><span class="fu">ns</span><span class="op">(</span><span class="st">"click_me"</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="co"># Both sample pages.</span></span>
+<span><span class="va">root_page</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/page.html" class="external-link">page</a></span><span class="op">(</span><span class="st">"Home page"</span>, <span class="st">"Home page clicks"</span>, <span class="st">"root"</span><span class="op">)</span></span>
+<span><span class="va">second_page</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/page.html" class="external-link">page</a></span><span class="op">(</span><span class="st">"Second page"</span>, <span class="st">"2nd page clicks"</span>, <span class="st">"second"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">server_module</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">id</span>, <span class="va">clicks</span>, <span class="va">power</span> <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/moduleServer.html" class="external-link">moduleServer</a></span><span class="op">(</span><span class="va">id</span>, <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">output</span><span class="op">$</span><span class="va">click_me</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html" class="external-link">renderText</a></span><span class="op">(</span><span class="op">{</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="fu">clicks</span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">^</span><span class="va">power</span></span>
+<span>    <span class="op">}</span><span class="op">)</span></span>
+<span>  <span class="op">}</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="co"># Create output for our router in main UI of Shiny app.</span></span>
+<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu">reactRouter</span><span class="fu">::</span><span class="fu"><a href="reference/HashRouter.html">HashRouter</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="reference/NavLink.html">NavLink.shinyInput</a></span><span class="op">(</span>inputId <span class="op">=</span> <span class="st">"linkMain"</span>, to <span class="op">=</span> <span class="st">"/"</span>, <span class="st">"Main"</span><span class="op">)</span>, <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">br</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="reference/NavLink.html">NavLink.shinyInput</a></span><span class="op">(</span>inputId <span class="op">=</span> <span class="st">"linkOther"</span>, to <span class="op">=</span> <span class="st">"/other"</span>, <span class="st">"Other"</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html" class="external-link">actionButton</a></span><span class="op">(</span><span class="st">"clicks"</span>, <span class="st">"Click me!"</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="reference/Routes.html">Routes</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="reference/Route.html">Route</a></span><span class="op">(</span></span>
+<span>      path <span class="op">=</span> <span class="st">"/"</span>, </span>
+<span>      element <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
+<span>        <span class="va">root_page</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="reference/Route.html">Route</a></span><span class="op">(</span></span>
+<span>      path <span class="op">=</span> <span class="st">"/other"</span>, </span>
+<span>      element <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
+<span>        <span class="va">second_page</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Plug router into Shiny server.</span></span>
+<span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="co"># reload the session to make the modules work</span></span>
+<span>  <span class="co"># Not desired behavior as clicks object lost</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">linkMain</span>, <span class="va">input</span><span class="op">$</span><span class="va">linkOther</span><span class="op">)</span>, <span class="op">{</span></span>
+<span>    <span class="va">session</span><span class="op">$</span><span class="fu">reload</span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="op">}</span><span class="op">)</span></span>
+<span>  <span class="va">clicks</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactive.html" class="external-link">reactive</a></span><span class="op">(</span><span class="op">{</span></span>
+<span>    <span class="va">input</span><span class="op">$</span><span class="va">clicks</span></span>
+<span>  <span class="op">}</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="fu">server_module</span><span class="op">(</span><span class="st">"root"</span>, clicks <span class="op">=</span> <span class="va">clicks</span>, power <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span>  <span class="fu">server_module</span><span class="op">(</span><span class="st">"second"</span>, clicks <span class="op">=</span> <span class="va">clicks</span>, power <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="co"># Run server in a standard way.</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="alternatives">Alternatives<a class="anchor" aria-label="anchor" href="#alternatives"></a>
