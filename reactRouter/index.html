@@ -327,7 +327,8 @@
 <div class="section level3">
 <h3 id="propagation-issue">Propagation issue<a class="anchor" aria-label="anchor" href="#propagation-issue"></a>
 </h3>
-<p>It seems that {shiny} doesn’t update the content of a different route if the structure of the <code>element</code> argument is identical in both routes. In case the <code>element</code> structure is similar, you can refresh the session each time the user click on a router link by observing the <code><a href="reference/NavLink.html">NavLink.shinyInput()</a></code> input in the session.</p>
+<p>It seems that {shiny} doesn’t show the content of a different route if the structure of the <code>element</code> argument is identical in both routes. This is an issue if multiple pages share the same HTML structure. More examples of this issue are given <a href="https://github.com/lgnbhl/reactRouter/issues/1" class="external-link">here</a>.</p>
+<p>A possible workaround, in case the element argument structure is similar, is to refresh the session each time the user click on a router link by observing the <code><a href="reference/NavLink.html">NavLink.shinyInput()</a></code> input in the session.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/reactRouter">reactRouter</a></span><span class="op">)</span></span>
@@ -351,8 +352,8 @@
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
+<span><span class="co"># NOTE: please contact me if you know a way to refresh output content without reloading the session.</span></span>
 <span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="co"># NOTE: please contact me if you know a way to refresh output content without reloading the session :)</span></span>
 <span>  <span class="co"># reload session when user clicks on new page to refresh output content</span></span>
 <span>  <span class="co"># observeEvent(c(input$linkMain, input$linkOther), {</span></span>
 <span>  <span class="co">#   session$reload()</span></span>
@@ -364,11 +365,45 @@
 <span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span>ui <span class="op">=</span> <span class="va">ui</span>, server <span class="op">=</span> <span class="va">server</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
+<p>Another solution is to render all the UI from the server.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/reactRouter">reactRouter</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/htmlOutput.html" class="external-link">uiOutput</a></span><span class="op">(</span>outputId <span class="op">=</span> <span class="st">"main"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># NOTE: please contact me if you know a way to refresh output content without reloading the session.</span></span>
+<span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">output</span><span class="op">$</span><span class="va">main</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderUI.html" class="external-link">renderUI</a></span><span class="op">(</span><span class="op">{</span></span>
+<span>    <span class="fu"><a href="reference/HashRouter.html">HashRouter</a></span><span class="op">(</span></span>
+<span>      <span class="fu"><a href="reference/NavLink.html">NavLink.shinyInput</a></span><span class="op">(</span>inputId <span class="op">=</span> <span class="st">"linkMain"</span>, to <span class="op">=</span> <span class="st">"/"</span>, <span class="st">"Main"</span><span class="op">)</span>, <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">br</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>      <span class="fu"><a href="reference/NavLink.html">NavLink.shinyInput</a></span><span class="op">(</span>inputId <span class="op">=</span> <span class="st">"linkOther"</span>, to <span class="op">=</span> <span class="st">"/other"</span>, <span class="st">"Other"</span><span class="op">)</span>,</span>
+<span>      <span class="fu"><a href="reference/Routes.html">Routes</a></span><span class="op">(</span></span>
+<span>        <span class="fu"><a href="reference/Route.html">Route</a></span><span class="op">(</span></span>
+<span>          path <span class="op">=</span> <span class="st">"/"</span>, </span>
+<span>          element <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="st">"Content home"</span><span class="op">)</span></span>
+<span>        <span class="op">)</span>,</span>
+<span>        <span class="fu"><a href="reference/Route.html">Route</a></span><span class="op">(</span></span>
+<span>          path <span class="op">=</span> <span class="st">"/other"</span>, </span>
+<span>          element <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
+<span>            <span class="co"># A different HTML structure will make this route visible on user click</span></span>
+<span>            <span class="co">#h1("Other"), # only a different structure makes Shiny execute / render this route</span></span>
+<span>            <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="st">"New content"</span><span class="op">)</span></span>
+<span>          <span class="op">)</span></span>
+<span>        <span class="op">)</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">}</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span>ui <span class="op">=</span> <span class="va">ui</span>, server <span class="op">=</span> <span class="va">server</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="usage-with-shiny-modules">Usage with Shiny modules<a class="anchor" aria-label="anchor" href="#usage-with-shiny-modules"></a>
 </h3>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># adapted from example of shiny.router</span></span>
 <span><span class="co"># https://github.com/Appsilon/shiny.router/tree/main/examples/shiny_modules</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
