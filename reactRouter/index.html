@@ -372,7 +372,6 @@
 <span></span>
 <span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/htmlOutput.html" class="external-link">uiOutput</a></span><span class="op">(</span>outputId <span class="op">=</span> <span class="st">"main"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># NOTE: please contact me if you know a way to refresh output content without reloading the session.</span></span>
 <span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">output</span><span class="op">$</span><span class="va">main</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderUI.html" class="external-link">renderUI</a></span><span class="op">(</span><span class="op">{</span></span>
 <span>    <span class="fu"><a href="reference/HashRouter.html">HashRouter</a></span><span class="op">(</span></span>
@@ -386,8 +385,6 @@
 <span>        <span class="fu"><a href="reference/Route.html">Route</a></span><span class="op">(</span></span>
 <span>          path <span class="op">=</span> <span class="st">"/other"</span>, </span>
 <span>          element <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
-<span>            <span class="co"># A different HTML structure will make this route visible on user click</span></span>
-<span>            <span class="co">#h1("Other"), # only a different structure makes Shiny execute / render this route</span></span>
 <span>            <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="st">"New content"</span><span class="op">)</span></span>
 <span>          <span class="op">)</span></span>
 <span>        <span class="op">)</span></span>
