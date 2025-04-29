@@ -64,7 +64,13 @@
 <h3 id="install">Install<a class="anchor" aria-label="anchor" href="#install"></a>
 </h3>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"lgnbhl/reactRouter"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#remotes::install_github("lgnbhl/reactRouter") # development version</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"reactRouter"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="minimal-example">Minimal example<a class="anchor" aria-label="anchor" href="#minimal-example"></a>
+</h2>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/reactRouter/">reactRouter</a></span><span class="op">)</span></span></code></pre></div>
 <p>You can add URL pages in Quarto document or R shiny like so:</p>
@@ -81,7 +87,6 @@
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="uvkfkrnrnvswaxznjupq">
 <script class="react-data" type="application/json">{"type":"element","module":"react-router-dom","name":"HashRouter","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","module":"react-router-dom","name":"NavLink","props":{"type":"raw","value":{"to":"/","children":"Main"}}},{"type":"element","module":"react-router-dom","name":"NavLink","props":{"type":"raw","value":{"to":"/analysis","children":"Analysis"}}},{"type":"element","module":"react-router-dom","name":"Routes","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","module":"react-router-dom","name":"Route","props":{"type":"raw","value":{"path":"/","element":"Main content"}}},{"type":"element","module":"react-router-dom","name":"Route","props":{"type":"raw","value":{"path":"/analysis","element":"Analysis content"}}}]}}}}]}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('uvkfkrnrnvswaxznjupq')</script>
-</div>
 </div>
 <div class="section level3">
 <h3 id="usage-with-quarto">Usage with Quarto<a class="anchor" aria-label="anchor" href="#usage-with-quarto"></a>
@@ -256,7 +261,7 @@ multiple routes in a Quarto and R markdown documents:</p>
 <span></span>
 <span></span>
 <span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu">reactRouter</span><span class="fu">::</span><span class="fu"><a href="../reference/HashRouter.html">HashRouter</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="https://felixluginbuhl.com/shinyMaterialUI/reference/CssBaseline.html" class="external-link">CssBaseline</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://felixluginbuhl.com/shinyMaterialUI/reference/CssBaseline.html" class="external-link">CssBaseline</a></span><span class="op">(</span></span>
 <span>    <span class="fu"><a href="https://felixluginbuhl.com/shinyMaterialUI/reference/Typography.html" class="external-link">Typography</a></span><span class="op">(</span><span class="st">"reactRouter with shinyMaterialUI"</span>, variant <span class="op">=</span> <span class="st">"h5"</span>, m <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
 <span>    <span class="fu"><a href="https://felixluginbuhl.com/shinyMaterialUI/reference/Stack.html" class="external-link">Stack</a></span><span class="op">(</span></span>
 <span>      direction <span class="op">=</span> <span class="st">"row"</span>, spacing <span class="op">=</span> <span class="fl">2</span>, p <span class="op">=</span> <span class="fl">2</span>,</span>
@@ -558,6 +563,7 @@ still WIP).</li>
 </h3>
 <p>reactRouter implements React Router <a href="https://reactrouter.com/6.30.0" class="external-link">v.6.30.0</a>.</p>
 <p>More info about how to use React Router can be found in the <a href="https://reactrouter.com/6.30.0" class="external-link">official website</a>.</p>
+</div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
