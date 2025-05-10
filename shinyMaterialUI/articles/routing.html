@@ -54,8 +54,7 @@
 
 
 
-
-<div class="row">
+<script src="routing_files/react-18.3.1/react.production.min.js"></script><script src="routing_files/react-18.3.1/react-dom.production.min.js"></script><script src="routing_files/shiny.react-0.1.0/shiny-react.js"></script><script src="routing_files/shinyMaterialUI-0.0.1/mui-material.js"></script><script src="routing_files/reactRouter-0.0.1/react-router-dom.js"></script><div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Using a router</h1>
@@ -68,83 +67,81 @@
     
     
 <div class="section level3">
-<h3 id="with-shiny-router">with shiny.router<a class="anchor" aria-label="anchor" href="#with-shiny-router"></a>
+<h3 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h3>
-<p>Below an example using Mui material with the <a href="https://appsilon.github.io/shiny.router/" class="external-link">shiny.router</a> R
-package.</p>
-<p>Note that using <code><a href="../reference/CssBaseline.html">CssBaseline()</a></code> at top level doesn’t work
-with shiny.router. <code><a href="../reference/CssBaseline.html">CssBaseline()</a></code> should be used only at the
-lower level, as showed below.</p>
+<p>To use pages with <strong>shinyMaterialUI</strong>, you might need to
+use a router service. This document shows examples using the <a href="https://github.com/lgnbhl/reactRouter" class="external-link">reactRouter</a> and <a href="https://appsilon.github.io/shiny.router/" class="external-link">shiny.router</a> R
+packages.</p>
+</div>
+<div class="section level3">
+<h3 id="examples-using-reactrouter">Examples using {reactRouter}<a class="anchor" aria-label="anchor" href="#examples-using-reactrouter"></a>
+</h3>
+<p>An example using <a href="https://github.com/lgnbhl/reactRouter" class="external-link">reactRouter</a> client
+routing (no server):</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="co"># install.packages("reactRouter")</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/reactRouter/" class="external-link">reactRouter</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/shinyMaterialUI">shinyMaterialUI</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://appsilon.github.io/shiny.router/" class="external-link">shiny.router</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">Header</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/CssBaseline.html">CssBaseline</a></span><span class="op">(</span></span>
-<span>  <span class="fu"><a href="../reference/Box.html">Box</a></span><span class="op">(</span></span>
-<span>    sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>flexGrow <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="../reference/AppBar.html">AppBar</a></span><span class="op">(</span></span>
-<span>      position <span class="op">=</span> <span class="st">"static"</span>,</span>
-<span>      <span class="fu"><a href="../reference/Toolbar.html">Toolbar</a></span><span class="op">(</span></span>
-<span>        <span class="fu"><a href="../reference/IconButton.html">IconButton</a></span><span class="op">(</span></span>
-<span>          <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"home"</span><span class="op">)</span>,</span>
-<span>          href <span class="op">=</span> <span class="fu"><a href="https://appsilon.github.io/shiny.router/reference/route_link.html" class="external-link">route_link</a></span><span class="op">(</span><span class="st">"#!/"</span><span class="op">)</span>,</span>
-<span>          size <span class="op">=</span> <span class="st">"large"</span>,</span>
-<span>          edge <span class="op">=</span> <span class="st">"start"</span>,</span>
+<span><span class="fu">reactRouter</span><span class="fu">::</span><span class="fu"><a href="https://felixluginbuhl.com/reactRouter/reference/HashRouter.html" class="external-link">HashRouter</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="../reference/AppBar.html">AppBar</a></span><span class="op">(</span></span>
+<span>    position <span class="op">=</span> <span class="st">"static"</span>,</span>
+<span>    <span class="fu"><a href="../reference/Toolbar.html">Toolbar</a></span><span class="op">(</span></span>
+<span>      <span class="fu"><a href="../reference/Typography.html">Typography</a></span><span class="op">(</span></span>
+<span>        variant <span class="op">=</span> <span class="st">"h6"</span>,</span>
+<span>        component <span class="op">=</span> <span class="st">"div"</span>,</span>
+<span>        <span class="st">"shinyMaterialUI"</span></span>
+<span>      <span class="op">)</span>,</span>
+<span>      <span class="fu">reactRouter</span><span class="fu">::</span><span class="fu"><a href="https://felixluginbuhl.com/reactRouter/reference/NavLink.html" class="external-link">NavLink</a></span><span class="op">(</span></span>
+<span>        to <span class="op">=</span> <span class="st">"/"</span>,</span>
+<span>        style <span class="op">=</span> <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/JS.html" class="external-link">JS</a></span><span class="op">(</span><span class="st">'({isActive}) =&gt; { return isActive ? {color: "white"} : {color: "white"}; }'</span><span class="op">)</span>,</span>
+<span>        <span class="fu"><a href="../reference/Button.html">Button</a></span><span class="op">(</span></span>
 <span>          color <span class="op">=</span> <span class="st">"inherit"</span>,</span>
-<span>          <span class="st">'aria-label'</span> <span class="op">=</span> <span class="st">"home"</span>,</span>
-<span>          sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>mr <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
-<span>        <span class="op">)</span>,</span>
-<span>        <span class="fu"><a href="../reference/Link.html">Link</a></span><span class="op">(</span></span>
-<span>          <span class="st">"Other"</span>,</span>
-<span>          href <span class="op">=</span> <span class="fu"><a href="https://appsilon.github.io/shiny.router/reference/route_link.html" class="external-link">route_link</a></span><span class="op">(</span><span class="st">"#!/other"</span><span class="op">)</span>,</span>
-<span>          underline <span class="op">=</span> <span class="st">"none"</span>,</span>
-<span>          edge <span class="op">=</span> <span class="st">"start"</span>,</span>
+<span>          <span class="st">"Home"</span></span>
+<span>        <span class="op">)</span></span>
+<span>      <span class="op">)</span>,</span>
+<span>      <span class="fu">reactRouter</span><span class="fu">::</span><span class="fu"><a href="https://felixluginbuhl.com/reactRouter/reference/NavLink.html" class="external-link">NavLink</a></span><span class="op">(</span></span>
+<span>        to <span class="op">=</span> <span class="st">"/analysis"</span>,</span>
+<span>        style <span class="op">=</span> <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/JS.html" class="external-link">JS</a></span><span class="op">(</span><span class="st">'({isActive}) =&gt; { return isActive ? {color: "white"} : {color: "white"}; }'</span><span class="op">)</span>,</span>
+<span>        <span class="fu"><a href="../reference/Button.html">Button</a></span><span class="op">(</span></span>
 <span>          color <span class="op">=</span> <span class="st">"inherit"</span>,</span>
-<span>          <span class="st">'aria-label'</span> <span class="op">=</span> <span class="st">"other"</span>,</span>
-<span>          sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>mr <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span>          <span class="st">"Analysis"</span></span>
 <span>        <span class="op">)</span></span>
 <span>      <span class="op">)</span></span>
 <span>    <span class="op">)</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">Main</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/CssBaseline.html">CssBaseline</a></span><span class="op">(</span></span>
+<span>  <span class="op">)</span>,</span>
 <span>  <span class="fu"><a href="../reference/Box.html">Box</a></span><span class="op">(</span></span>
-<span>    sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>display <span class="op">=</span> <span class="st">"flex"</span>, alignItems <span class="op">=</span> <span class="st">"center"</span>, p <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="../reference/Typography.html">Typography</a></span><span class="op">(</span><span class="st">"Main content."</span><span class="op">)</span></span>
+<span>    sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>,</span>
+<span>    <span class="fu">reactRouter</span><span class="fu">::</span><span class="fu"><a href="https://felixluginbuhl.com/reactRouter/reference/Routes.html" class="external-link">Routes</a></span><span class="op">(</span></span>
+<span>      <span class="fu">reactRouter</span><span class="fu">::</span><span class="fu"><a href="https://felixluginbuhl.com/reactRouter/reference/Route.html" class="external-link">Route</a></span><span class="op">(</span></span>
+<span>        path <span class="op">=</span> <span class="st">"/"</span>,</span>
+<span>        element <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
+<span>          <span class="va">tags</span><span class="op">$</span><span class="fu">h3</span><span class="op">(</span><span class="st">"Home page"</span><span class="op">)</span>,</span>
+<span>          <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="st">"A basic example of reactRouter with shinyMaterialUI."</span><span class="op">)</span>,</span>
+<span>          <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="st">"Content home"</span><span class="op">)</span></span>
+<span>        <span class="op">)</span></span>
+<span>      <span class="op">)</span>,</span>
+<span>      <span class="fu">reactRouter</span><span class="fu">::</span><span class="fu"><a href="https://felixluginbuhl.com/reactRouter/reference/Route.html" class="external-link">Route</a></span><span class="op">(</span></span>
+<span>        path <span class="op">=</span> <span class="st">"/analysis"</span>,</span>
+<span>        element <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
+<span>          <span class="va">tags</span><span class="op">$</span><span class="fu">h3</span><span class="op">(</span><span class="st">"Analysis"</span><span class="op">)</span>,</span>
+<span>          <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="st">"Content analysis"</span><span class="op">)</span></span>
+<span>          <span class="op">)</span></span>
+<span>      <span class="op">)</span>,</span>
+<span>      <span class="fu">reactRouter</span><span class="fu">::</span><span class="fu"><a href="https://felixluginbuhl.com/reactRouter/reference/Route.html" class="external-link">Route</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"*"</span>, element <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span><span class="va">tags</span><span class="op">$</span><span class="fu">p</span><span class="op">(</span><span class="st">"Error 404"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">otherPage</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/CssBaseline.html">CssBaseline</a></span><span class="op">(</span></span>
-<span>  <span class="fu"><a href="../reference/Box.html">Box</a></span><span class="op">(</span></span>
-<span>    sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>display <span class="op">=</span> <span class="st">"flex"</span>, alignItems <span class="op">=</span> <span class="st">"center"</span>, p <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="../reference/Typography.html">Typography</a></span><span class="op">(</span><span class="st">"Other content."</span><span class="op">)</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/shinyMaterialUIPage.html">shinyMaterialUIPage</a></span><span class="op">(</span> <span class="co"># using CssBaseline() here doesn't work with shiny.router</span></span>
-<span>  <span class="va">Header</span>,</span>
-<span>  <span class="fu"><a href="https://appsilon.github.io/shiny.router/reference/router_ui.html" class="external-link">router_ui</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="https://appsilon.github.io/shiny.router/reference/route.html" class="external-link">route</a></span><span class="op">(</span><span class="st">"/"</span>, <span class="va">Main</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="https://appsilon.github.io/shiny.router/reference/route.html" class="external-link">route</a></span><span class="op">(</span><span class="st">"other"</span>, <span class="va">otherPage</span><span class="op">)</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu"><a href="https://appsilon.github.io/shiny.router/reference/router_server.html" class="external-link">router_server</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="op">}</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre></div>
+<span><span class="op">)</span></span></code></pre></div>
+<div class="react-container" data-react-id="zarjxrrtognksqkyhbof">
+<script class="react-data" type="application/json">{"type":"element","module":"react-router-dom","name":"HashRouter","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"AppBar","props":{"type":"object","value":{"position":{"type":"raw","value":"static"},"children":{"type":"element","module":"@mui/material","name":"Toolbar","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"Typography","props":{"type":"raw","value":{"variant":"h6","component":"div","children":"shinyMaterialUI"}}},{"type":"element","module":"react-router-dom","name":"NavLink","props":{"type":"object","value":{"to":{"type":"raw","value":"/"},"style":{"type":"expr","value":"({isActive}) => { return isActive ? {color: \"white\"} : {color: \"white\"}; }"},"children":{"type":"element","module":"@mui/material","name":"Button","props":{"type":"raw","value":{"color":"inherit","children":"Home"}}}}}},{"type":"element","module":"react-router-dom","name":"NavLink","props":{"type":"object","value":{"to":{"type":"raw","value":"/analysis"},"style":{"type":"expr","value":"({isActive}) => { return isActive ? {color: \"white\"} : {color: \"white\"}; }"},"children":{"type":"element","module":"@mui/material","name":"Button","props":{"type":"raw","value":{"color":"inherit","children":"Analysis"}}}}}}]}}}}}}},{"type":"element","module":"@mui/material","name":"Box","props":{"type":"object","value":{"sx":{"type":"raw","value":{"p":3}},"children":{"type":"element","module":"react-router-dom","name":"Routes","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","module":"react-router-dom","name":"Route","props":{"type":"object","value":{"path":{"type":"raw","value":"/"},"element":{"type":"element","name":"div","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","name":"h3","props":{"type":"raw","value":{"children":"Home page"}}},{"type":"element","name":"p","props":{"type":"raw","value":{"children":"A basic example of reactRouter with shinyMaterialUI."}}},{"type":"element","name":"p","props":{"type":"raw","value":{"children":"Content home"}}}]}}}}}}},{"type":"element","module":"react-router-dom","name":"Route","props":{"type":"object","value":{"path":{"type":"raw","value":"/analysis"},"element":{"type":"element","name":"div","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","name":"h3","props":{"type":"raw","value":{"children":"Analysis"}}},{"type":"element","name":"p","props":{"type":"raw","value":{"children":"Content analysis"}}}]}}}}}}},{"type":"element","module":"react-router-dom","name":"Route","props":{"type":"object","value":{"path":{"type":"raw","value":"*"},"element":{"type":"element","name":"div","props":{"type":"object","value":{"children":{"type":"element","name":"p","props":{"type":"raw","value":{"children":"Error 404"}}}}}}}}}]}}}}}}}]}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('zarjxrrtognksqkyhbof')</script>
 </div>
-<div class="section level3">
-<h3 id="with-reactrouter">with reactRouter<a class="anchor" aria-label="anchor" href="#with-reactrouter"></a>
-</h3>
-<p>More info about reactRouter <a href="https://github.com/lgnbhl/reactRouter" class="external-link">here</a>.</p>
+<p>An example with <a href="https://github.com/lgnbhl/reactRouter" class="external-link">reactRouter</a> in an R
+Shiny app (with server):</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># remotes::install_github("lgnbhl/reactRouter")</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/shinyMaterialUI">shinyMaterialUI</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="co"># install.packages("reactRouter")</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/reactRouter/" class="external-link">reactRouter</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/shinyMaterialUI">shinyMaterialUI</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/shinyMaterialUIPage.html">shinyMaterialUIPage</a></span><span class="op">(</span></span>
@@ -235,6 +232,76 @@ lower level, as showed below.</p>
 <span>  <span class="op">}</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>    <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/bindEvent.html" class="external-link">bindEvent</a></span><span class="op">(</span><span class="st">"page_about"</span><span class="op">)</span></span>
 <span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="example-using-shiny-router">Example using {shiny.router}<a class="anchor" aria-label="anchor" href="#example-using-shiny-router"></a>
+</h3>
+<p>Below an example using the <a href="https://appsilon.github.io/shiny.router/" class="external-link">shiny.router</a> R
+package.</p>
+<p>Note that using <code><a href="../reference/CssBaseline.html">CssBaseline()</a></code> at top level doesn’t work
+with shiny.router. <code><a href="../reference/CssBaseline.html">CssBaseline()</a></code> should be used only at the
+lower level, as showed below.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/shinyMaterialUI">shinyMaterialUI</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://appsilon.github.io/shiny.router/" class="external-link">shiny.router</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">Header</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/CssBaseline.html">CssBaseline</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="../reference/Box.html">Box</a></span><span class="op">(</span></span>
+<span>    sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>flexGrow <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="../reference/AppBar.html">AppBar</a></span><span class="op">(</span></span>
+<span>      position <span class="op">=</span> <span class="st">"static"</span>,</span>
+<span>      <span class="fu"><a href="../reference/Toolbar.html">Toolbar</a></span><span class="op">(</span></span>
+<span>        <span class="fu"><a href="../reference/IconButton.html">IconButton</a></span><span class="op">(</span></span>
+<span>          <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html" class="external-link">icon</a></span><span class="op">(</span><span class="st">"home"</span><span class="op">)</span>,</span>
+<span>          href <span class="op">=</span> <span class="fu"><a href="https://appsilon.github.io/shiny.router/reference/route_link.html" class="external-link">route_link</a></span><span class="op">(</span><span class="st">"#!/"</span><span class="op">)</span>,</span>
+<span>          size <span class="op">=</span> <span class="st">"large"</span>,</span>
+<span>          edge <span class="op">=</span> <span class="st">"start"</span>,</span>
+<span>          color <span class="op">=</span> <span class="st">"inherit"</span>,</span>
+<span>          <span class="st">'aria-label'</span> <span class="op">=</span> <span class="st">"home"</span>,</span>
+<span>          sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>mr <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span>        <span class="op">)</span>,</span>
+<span>        <span class="fu"><a href="../reference/Link.html">Link</a></span><span class="op">(</span></span>
+<span>          <span class="st">"Other"</span>,</span>
+<span>          href <span class="op">=</span> <span class="fu"><a href="https://appsilon.github.io/shiny.router/reference/route_link.html" class="external-link">route_link</a></span><span class="op">(</span><span class="st">"#!/other"</span><span class="op">)</span>,</span>
+<span>          underline <span class="op">=</span> <span class="st">"none"</span>,</span>
+<span>          edge <span class="op">=</span> <span class="st">"start"</span>,</span>
+<span>          color <span class="op">=</span> <span class="st">"inherit"</span>,</span>
+<span>          <span class="st">'aria-label'</span> <span class="op">=</span> <span class="st">"other"</span>,</span>
+<span>          sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>mr <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span>        <span class="op">)</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">Main</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/CssBaseline.html">CssBaseline</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="../reference/Box.html">Box</a></span><span class="op">(</span></span>
+<span>    sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>display <span class="op">=</span> <span class="st">"flex"</span>, alignItems <span class="op">=</span> <span class="st">"center"</span>, p <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="../reference/Typography.html">Typography</a></span><span class="op">(</span><span class="st">"Main content."</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">otherPage</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/CssBaseline.html">CssBaseline</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="../reference/Box.html">Box</a></span><span class="op">(</span></span>
+<span>    sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>display <span class="op">=</span> <span class="st">"flex"</span>, alignItems <span class="op">=</span> <span class="st">"center"</span>, p <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="../reference/Typography.html">Typography</a></span><span class="op">(</span><span class="st">"Other content."</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/shinyMaterialUIPage.html">shinyMaterialUIPage</a></span><span class="op">(</span> <span class="co"># using CssBaseline() here doesn't work with shiny.router</span></span>
+<span>  <span class="va">Header</span>,</span>
+<span>  <span class="fu"><a href="https://appsilon.github.io/shiny.router/reference/router_ui.html" class="external-link">router_ui</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://appsilon.github.io/shiny.router/reference/route.html" class="external-link">route</a></span><span class="op">(</span><span class="st">"/"</span>, <span class="va">Main</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="https://appsilon.github.io/shiny.router/reference/route.html" class="external-link">route</a></span><span class="op">(</span><span class="st">"other"</span>, <span class="va">otherPage</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://appsilon.github.io/shiny.router/reference/router_server.html" class="external-link">router_server</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre></div>
