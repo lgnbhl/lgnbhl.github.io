@@ -1,0 +1,60 @@
+---
+format:
+  md:
+    prefer-html: true
+---
+
+
+
+## AbsoluteAnchor {.unnumbered}
+
+
+### Description
+
+<a href="https://openpyxl.readthedocs.io/en/stable/api/openpyxl.drawing.spreadsheet_drawing.html">https://openpyxl.readthedocs.io/en/stable/api/openpyxl.drawing.spreadsheet_drawing.html</a>
+
+
+
+### Usage
+
+<pre><code class='language-R'>AbsoluteAnchor(pos = NULL, ext = NULL, ...)
+</code></pre>
+
+
+### Arguments
+
+<table>
+<tr><td style = "white-space: nowrap; font-family: monospace; vertical-align: top"><code id="pos">pos</code></td>
+<td>
+pos
+</td></tr>
+<tr><td style = "white-space: nowrap; font-family: monospace; vertical-align: top"><code id="ext">ext</code></td>
+<td>
+ext
+</td></tr>
+<tr><td style = "white-space: nowrap; font-family: monospace; vertical-align: top"><code id="...">...</code></td>
+<td>
+Additional arguments, i.e. kwargs.
+</td></tr>
+</table>
+
+
+### Value
+
+An openpyxl Python object.
+
+
+
+### Examples
+
+
+```{r, warning=FALSE, message=FALSE, eval=FALSE}
+library("xlcharts")
+
+AbsoluteAnchor()
+
+
+
+
+```
+

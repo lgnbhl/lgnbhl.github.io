@@ -1,0 +1,10454 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../area/">
+      
+      
+        <link rel="next" href="../stock/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+    
+    
+      
+        <title>Surface - xlcharts</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.2afb09e1.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#surface-charts" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  <p>For updates follow <strong>
+    <span>
+      <a target="_blank" title="linkedin.com" href="https://linkedin.com/in/FelixLuginbuhl">Felix Luginbuhl</a>
+    </span>
+  </strong> on LinkedIn</p>
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="xlcharts" class="md-header__button md-logo" aria-label="xlcharts" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            xlcharts
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Surface
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/lgnbhl/xlcharts" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    xlcharts
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="xlcharts" class="md-nav__button md-logo" aria-label="xlcharts" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    xlcharts
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/lgnbhl/xlcharts" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    xlcharts
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Introduction
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Get started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Styles
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Styles
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../styles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Working with styles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../formatting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Conditional formating
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Worksheet
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Worksheet
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../editing_worksheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Insert, Delete, Merge
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../worksheet_properties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Additional Properties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Validatign cells
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../worksheet_tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Worksheet Tables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print_settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Print Settings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pivot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pivot Tables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Comments
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../datetime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dates and Times
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../simple_formulae/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Simple Formulae
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Workbook
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Workbook
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../protection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Protection
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chart types
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Chart types
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Bar
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bubble/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Bubble
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../line/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Line
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scatter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scatter
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pie
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doughnut/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Doughnut
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../radar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Radar
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../area/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Area
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Surface
+    
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stock/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Stock
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gauge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gauge
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pareto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pareto
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Working with charts
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Working with charts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../limits_and_scaling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Working with axes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../secondary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Adding a second axis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chart_layout/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Changing chart layout
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Styling charts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anchor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Positioning charts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graphical_properties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Graphical Properties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chartsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using chartsheets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/absolute_coordinate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    absolute_coordinate
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/AbsoluteAnchor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AbsoluteAnchor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/active/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    active
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/add_chart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    add_chart
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/add_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    add_data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/add_table/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    add_table
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/AdjPoint2D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AdjPoint2D
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/AdjustHandleList/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AdjustHandleList
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Alignment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Alignment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/AlphaBiLevelEffect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AlphaBiLevelEffect
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/AlphaCeilingEffect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AlphaCeilingEffect
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/AlphaFloorEffect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AlphaFloorEffect
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/AlphaInverseEffect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AlphaInverseEffect
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/AlphaModulateEffect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AlphaModulateEffect
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/AlphaModulateFixedEffect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AlphaModulateFixedEffect
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/AlphaReplaceEffect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AlphaReplaceEffect
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/AnchorClientData/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AnchorClientData
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/AnchorMarker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AnchorMarker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/angle_to_degrees/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    angle_to_degrees
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/AreaChart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AreaChart
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/AreaChart3D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AreaChart3D
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ArrayDescriptor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ArrayDescriptor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ArrayFormula/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ArrayFormula
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/AuthorList/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AuthorList
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/AutoFilter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AutoFilter
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/AutonumberBullet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AutonumberBullet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/avoid_duplicate_name/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    avoid_duplicate_name
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/AxDataSource/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AxDataSource
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Backdrop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Backdrop
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/BandFormat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BandFormat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/BandFormatList/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BandFormatList
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/BarChart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BarChart
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/BarChart3D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BarChart3D
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Bevel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Bevel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/BiLevelEffect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BiLevelEffect
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Blip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Blip
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/BlipFillProperties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BlipFillProperties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/BlurEffect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BlurEffect
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/BookView/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BookView
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Border/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Border
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Break/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Break
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/BubbleChart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BubbleChart
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/builtin_format_code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    builtin_format_code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/builtin_format_id/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    builtin_format_id
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/CalcProperties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CalcProperties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Camera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/cast_numeric/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    cast_numeric
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/cast_percentage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    cast_percentage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/cast_time/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    cast_time
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Cell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cell
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/CellIsRule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CellIsRule
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/CellRange/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CellRange
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/CellSmartTag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CellSmartTag
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/CellSmartTagPr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CellSmartTagPr
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/CellSmartTags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CellSmartTags
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/CellStyle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CellStyle
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/CellStyleList/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CellStyleList
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/CellWatch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CellWatch
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/CellWatches/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CellWatches
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/CharacterProperties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CharacterProperties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ChartContainer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ChartContainer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ChartLines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ChartLines
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ChartRelation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ChartRelation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Chartsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chartsheet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ChartsheetProperties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ChartsheetProperties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ChartsheetProtection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ChartsheetProtection
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ChartsheetView/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ChartsheetView
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ChartsheetViewList/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ChartsheetViewList
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ChartSpace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ChartSpace
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/cm_to_dxa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    cm_to_dxa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/cm_to_EMU/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    cm_to_EMU
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ColBreak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ColBreak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Color/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Color
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ColorChangeEffect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ColorChangeEffect
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ColorChoice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ColorChoice
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ColorFilter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ColorFilter
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ColorList/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ColorList
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ColorMapping/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ColorMapping
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ColorReplaceEffect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ColorReplaceEffect
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ColorScale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ColorScale
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ColorScaleRule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ColorScaleRule
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ColRange/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ColRange
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/column_index_from_string/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    column_index_from_string
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ColumnDimension/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ColumnDimension
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Comment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Comment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/CommentRecord/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CommentRecord
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/CommentSheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CommentSheet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ConditionalFormatting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ConditionalFormatting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ConditionalFormattingList/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ConditionalFormattingList
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Connection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Connection
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ConnectionSite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ConnectionSite
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ConnectionSiteList/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ConnectionSiteList
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ConnectorLocking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ConnectorLocking
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Control
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ControlProperty/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ControlProperty
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Controls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Controls
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/coordinate_from_string/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    coordinate_from_string
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/coordinate_to_tuple/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    coordinate_to_tuple
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/CustomFilter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CustomFilter
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/CustomFilters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CustomFilters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/CustomGeometry2D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CustomGeometry2D
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/CustomProperties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CustomProperties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/CustomProperty/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CustomProperty
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/CustomSplit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CustomSplit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/DashStop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DashStop
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/DashStopList/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DashStopList
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/DataBar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DataBar
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/DataBarRule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DataBarRule
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/DataLabel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DataLabel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/DataLabelList/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DataLabelList
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/DataPoint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DataPoint
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/DataTable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DataTable
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/DataTableFormula/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DataTableFormula
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/DataValidation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DataValidation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/DataValidationList/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DataValidationList
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/DateAxis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DateAxis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/DateGroupItem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DateGroupItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/deepcopy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    deepcopy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/DefinedName/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DefinedName
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/DefinedNameList/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DefinedNameList
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/degrees_to_angle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    degrees_to_angle
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/DifferentialStyle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DifferentialStyle
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/DifferentialStyleList/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DifferentialStyleList
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Dimension/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dimension
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/DimensionHolder/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DimensionHolder
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/DisplayUnitsLabel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DisplayUnitsLabel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/DisplayUnitsLabelList/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DisplayUnitsLabelList
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/DocumentProperties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DocumentProperties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/DocumentSecurity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DocumentSecurity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/DoughnutChart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DoughnutChart
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Drawing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Drawing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/DrawingHF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DrawingHF
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/DummyWorksheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DummyWorksheet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/DuotoneEffect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DuotoneEffect
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/dxa_to_cm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    dxa_to_cm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/DynamicFilter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DynamicFilter
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/EffectContainer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EffectContainer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/EffectList/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EffectList
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/EmbeddedWAVAudioFile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EmbeddedWAVAudioFile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/EmptyCell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EmptyCell
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/EMU_to_cm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EMU_to_cm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/EMU_to_inch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EMU_to_inch
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/EMU_to_pixels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EMU_to_pixels
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ErrorBars/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ErrorBars
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ExcelReader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ExcelReader
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ExcelWriter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ExcelWriter
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/expand_cell_ranges/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    expand_cell_ranges
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Extension/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Extension
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ExtensionList/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ExtensionList
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ExternalBook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ExternalBook
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ExternalCell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ExternalCell
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ExternalData/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ExternalData
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ExternalDefinedName/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ExternalDefinedName
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ExternalLink/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ExternalLink
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ExternalReference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ExternalReference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ExternalSheetDataSet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ExternalSheetDataSet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ExternalSheetNames/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ExternalSheetNames
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/FileSharing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FileSharing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/FileVersion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FileVersion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Fill/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fill
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/FillOverlayEffect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FillOverlayEffect
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/FilterColumn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FilterColumn
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Filters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Filters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Font/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Font
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/FontReference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FontReference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/FormatObject/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FormatObject
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/FormulaRule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FormulaRule
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/FunctionGroup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FunctionGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/FunctionGroupList/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FunctionGroupList
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/GeomGuide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GeomGuide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/GeomGuideList/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GeomGuideList
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/GeomRect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GeomRect
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/get_column_interval/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    get_column_interval
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/get_column_letter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    get_column_letter
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/get_type/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    get_type
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/GlowEffect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GlowEffect
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/GradientFill/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GradientFill
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/GradientFillProperties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GradientFillProperties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/GradientStop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GradientStop
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/GraphicalProperties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GraphicalProperties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/GraphicData/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GraphicData
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/GraphicFrameLocking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GraphicFrameLocking
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/GraphicObject/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GraphicObject
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/GrayscaleEffect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GrayscaleEffect
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/GroupLocking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GroupLocking
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/GroupShapeProperties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GroupShapeProperties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/GroupTransform2D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GroupTransform2D
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/hash_password/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    hash_password
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/HeaderFooter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HeaderFooter
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/HeaderFooterItem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HeaderFooterItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/HSLColor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HSLColor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/HSLEffect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HSLEffect
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Hyperlink/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hyperlink
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/HyperlinkList/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HyperlinkList
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/iadd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    iadd
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/IconFilter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IconFilter
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/IconSet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IconSet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/IconSetRule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IconSetRule
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/IgnoredError/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoredError
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/IgnoredErrors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IgnoredErrors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Image/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Image
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/inch_to_dxa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    inch_to_dxa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/inch_to_EMU/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    inch_to_EMU
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/InlineFont/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    InlineFont
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/InnerShadowEffect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    InnerShadowEffect
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/InputCells/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    InputCells
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/install_openpyxl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    install_openpyxl
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/install_pillow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    install_pillow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Layout/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Layout
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Legend/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Legend
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/LegendEntry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LegendEntry
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Level/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Level
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/LightRig/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LightRig
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/LinearShadeProperties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LinearShadeProperties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/LineBreak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LineBreak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/LineChart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LineChart
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/LineChart3D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LineChart3D
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/LineEndProperties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LineEndProperties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/LineProperties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LineProperties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ListStyle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ListStyle
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/load_workbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    load_workbook
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/LuminanceEffect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LuminanceEffect
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ManualLayout/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ManualLayout
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Marker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Marker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/MergeCell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MergeCell
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/MergeCells/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MergeCells
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/MergedCell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MergedCell
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/MergedCellRange/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MergedCellRange
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/MultiCellRange/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MultiCellRange
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/MultiLevelStrData/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MultiLevelStrData
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/MultiLevelStrRef/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MultiLevelStrRef
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/NamedStyle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    NamedStyle
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/NamedStyleList/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    NamedStyleList
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/NestedGapAmount/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    NestedGapAmount
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/NestedOverlap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    NestedOverlap
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/NonVisualConnectorProperties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    NonVisualConnectorProperties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/NonVisualDrawingShapeProps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    NonVisualDrawingShapeProps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/NonVisualGraphicFrameProperties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    NonVisualGraphicFrameProperties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/NonVisualPictureProperties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    NonVisualPictureProperties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/NumData/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    NumData
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/NumDataSource/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    NumDataSource
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/NumericAxis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    NumericAxis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/NumFmt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    NumFmt
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/NumRef/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    NumRef
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/NumVal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    NumVal
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ObjectAnchor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ObjectAnchor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/OneCellAnchor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OneCellAnchor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Outline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Outline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/PageBreak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PageBreak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/PageMargins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PageMargins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/PageSetupProperties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PageSetupProperties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Pane/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pane
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Paragraph/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Paragraph
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ParagraphProperties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ParagraphProperties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Path2D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Path2D
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Path2DList/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Path2DList
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/PathShadeProperties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PathShadeProperties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/PatternFill/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PatternFill
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/PatternFillProperties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PatternFillProperties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/PhoneticProperties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PhoneticProperties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/PhoneticText/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PhoneticText
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/PieChart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PieChart
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/PieChart3D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PieChart3D
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/PivotFormat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PivotFormat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/PivotSource/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PivotSource
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/pixels_to_EMU/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    pixels_to_EMU
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/pixels_to_points/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    pixels_to_points
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/PlotArea/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PlotArea
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Point2D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Point2D
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Point3D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Point3D
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/points_to_pixels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    points_to_pixels
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/PositiveSize2D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PositiveSize2D
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/PresetGeometry2D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PresetGeometry2D
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/PresetShadowEffect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PresetShadowEffect
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/PrintArea/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PrintArea
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/PrintOptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PrintOptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/PrintPageSetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PrintPageSetup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/PrintSettings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PrintSettings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/PrintTitles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PrintTitles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ProjectedPieChart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ProjectedPieChart
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Protection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Protection
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/quote_sheetname/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    quote_sheetname
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/RadarChart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RadarChart
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/range_boundaries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    range_boundaries
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/range_to_tuple/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    range_to_tuple
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ReadOnlyCell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ReadOnlyCell
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/RegularTextRun/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RegularTextRun
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Related/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Related
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/RelativeRect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RelativeRect
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/RichTextProperties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RichTextProperties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/RowBreak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RowBreak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/RowDimension/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RowDimension
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/RowRange/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RowRange
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/rows_from_range/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    rows_from_range
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Rule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rule
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/RuleType/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RuleType
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/save_workbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    save_workbook
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Scaling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scaling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ScatterChart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ScatterChart
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Scenario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scenario
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ScenarioList/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ScenarioList
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Scene3D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scene3D
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/SchemeColor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SchemeColor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Selection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Selection
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Series/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Series
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/SeriesAxis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SeriesAxis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/SeriesFactory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SeriesFactory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/SeriesLabel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SeriesLabel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/set_categories/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    set_categories
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Shape/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Shape
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Shape3D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Shape3D
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ShapeStyle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShapeStyle
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/SheetBackgroundPicture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SheetBackgroundPicture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/SheetDimension/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SheetDimension
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/SheetFormatProperties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SheetFormatProperties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/SheetProtection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SheetProtection
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/SheetView/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SheetView
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/SheetViewList/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SheetViewList
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/short_color/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    short_color
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Side/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Side
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/SmartTag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SmartTag
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/SmartTagList/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SmartTagList
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/SmartTagProperties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SmartTagProperties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/SmartTags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SmartTags
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/SoftEdgesEffect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SoftEdgesEffect
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/SolidColorFillProperties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SolidColorFillProperties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/SortCondition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SortCondition
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/SortState/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SortState
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Spacing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spacing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/SphereCoords/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SphereCoords
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/SpreadsheetDrawing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SpreadsheetDrawing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/StockChart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    StockChart
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Stop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Stop
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/StopList/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    StopList
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/StrData/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    StrData
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/StretchInfoProperties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    StretchInfoProperties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/StrRef/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    StrRef
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/StrVal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    StrVal
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/StyleArray/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    StyleArray
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/StyleMatrixReference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    StyleMatrixReference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Stylesheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Stylesheet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/SurfaceChart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceChart
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/SurfaceChart3D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SurfaceChart3D
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/SystemColor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SystemColor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Table/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Table
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/TableColumn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TableColumn
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/TableFormula/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TableFormula
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/TableNameDescriptor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TableNameDescriptor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/TablePartList/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TablePartList
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/TableStyle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TableStyle
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/TableStyleElement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TableStyleElement
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/TableStyleInfo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TableStyleInfo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/TableStyleList/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TableStyleList
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/TextAxis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TextAxis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/TextBlock/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TextBlock
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/TextField/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TextField
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/TextNormalAutofit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TextNormalAutofit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/TintEffect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TintEffect
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Title/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Title
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/title_maker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    title_maker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/TitleDescriptor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TitleDescriptor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Transform2D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Transform2D
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Trendline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Trendline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/TrendlineLabel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TrendlineLabel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/TwoCellAnchor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TwoCellAnchor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/UpDownBars/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UpDownBars
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/ValueDescriptor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ValueDescriptor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Vector3D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vector3D
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/WebPublishing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebPublishing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/WebPublishItem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebPublishItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/WebPublishObject/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebPublishObject
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/WebPublishObjectList/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebPublishObjectList
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/Workbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Workbook
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/WorkbookParser/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WorkbookParser
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/WorkbookProperties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WorkbookProperties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/WorkbookProtection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WorkbookProtection
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/WorksheetCopy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WorksheetCopy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/WorksheetProperties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WorksheetProperties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/write_stylesheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    write_stylesheet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/WriteOnlyCell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WriteOnlyCell
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/x_axis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    x_axis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/XDRPoint2D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    XDRPoint2D
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/XDRPositiveSize2D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    XDRPositiveSize2D
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/XDRTransform2D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    XDRTransform2D
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/XMLColumnProps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    XMLColumnProps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/XYSeries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    XYSeries
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../man/y_axis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    y_axis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../NEWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    News
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LICENSE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    License
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CITATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Citation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="surface-charts">Surface charts</h1>
+<p>Data that is arranged in columns or rows on a worksheet can be plotted in a
+surface chart. A surface chart is useful when you want to find optimum
+combinations between two sets of data. As in a topographic map, colors and
+patterns indicate areas that are in the same range of values.</p>
+<p>By default all surface charts are 3D. 2D wireframe and contour charts are
+created by setting the rotation and perspective.</p>
+<pre><code class="language-r">library(xlcharts)
+
+set.seed(123)
+
+surface &lt;- data.frame(
+  a = c(NA,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9),
+  b = sample(10,100, size = 10),
+  c = sample(10:300, size = 10),
+  d = sample(10:300, size = 10),
+  e = sample(10:200, size = 10),
+  f = sample(10:100, size = 10)
+)
+
+write_xlsx(surface, path = &quot;surface.xlsx&quot;)
+
+wb &lt;- load_workbook(filename = &quot;surface.xlsx&quot;)
+ws &lt;- wb |&gt; active()
+
+c1 &lt;- SurfaceChart(
+  title = &quot;Contour&quot;
+)
+ref &lt;- Reference(ws, min_col=2, max_col=6, min_row=2, max_row=11)
+labels &lt;- Reference(ws, min_col=1, min_row=3, max_row=11)
+
+c1 |&gt; 
+  add_data(ref, titles_from_data = TRUE) |&gt; 
+  set_categories(labels)
+
+ws |&gt; add_chart(c1, &quot;A12&quot;)
+
+# wireframe
+c2 &lt;- SurfaceChart(
+  wireframe = TRUE,
+  title = &quot;2D Wireframe&quot;
+)
+
+c2 |&gt; 
+  add_data(ref, titles_from_data = TRUE) |&gt; 
+  set_categories(labels)
+
+ws |&gt; add_chart(c2, &quot;G12&quot;)
+
+# 3D Surface
+c3 &lt;- SurfaceChart3D(
+  title = &quot;Surface&quot;
+)
+
+c3 |&gt; 
+  add_data(ref, titles_from_data = TRUE) |&gt; 
+  set_categories(labels)
+
+ws |&gt; add_chart(c3, &quot;A29&quot;)
+
+c4 &lt;- SurfaceChart3D(
+  wireframe = TRUE,
+  title = &quot;3D Wireframe&quot;
+)
+
+c4 |&gt; 
+  add_data(ref, titles_from_data = TRUE) |&gt; 
+  set_categories(labels)
+
+ws |&gt; add_chart(c4, &quot;G29&quot;)
+
+wb |&gt; save_workbook(&quot;surface.xlsx&quot;)
+</code></pre>
+<p><img alt="" src="../surface.png" /></p>
+<p><small>This page is an R replica of the related <a href="https://openpyxl.readthedocs.io/en/stable/charts/surface.html">OpenPyXL documentation page</a>.</small></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "toc.follow"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
