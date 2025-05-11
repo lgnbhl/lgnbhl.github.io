@@ -11,7 +11,29 @@
 <description>R packages and other data tools.
 </description>
 <generator>quarto-1.5.57</generator>
-<lastBuildDate>Tue, 04 Mar 2025 23:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 28 Apr 2025 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>reactRouter R package</title>
+  <link>https://www.felixluginbuhl.com/projects/reactRouter/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Redirecting to <a href="https://felixluginbuhl.com/reactRouter" class="uri">https://felixluginbuhl.com/reactRouter</a>…</p>
+<meta http-equiv="refresh" content="0; url=https://felixluginbuhl.com/reactRouter">
+<script type="text/javascript">
+    window.location.href = "https://felixluginbuhl.com/reactRouter";
+</script>
+
+
+
+ ]]></description>
+  <category>Project</category>
+  <guid>https://www.felixluginbuhl.com/projects/reactRouter/</guid>
+  <pubDate>Mon, 28 Apr 2025 22:00:00 GMT</pubDate>
+  <media:content url="https://www.felixluginbuhl.com/projects/reactRouter/reactRouter-logo.png" medium="image" type="image/png" height="167" width="144"/>
+</item>
 <item>
   <title>I14Y R package</title>
   <link>https://www.felixluginbuhl.com/projects/I14Y/</link>

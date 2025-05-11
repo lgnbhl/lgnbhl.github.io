@@ -1,85 +1,71 @@
 [
   {
-    "objectID": "talks/adminr-zurich/index.html",
-    "href": "talks/adminr-zurich/index.html",
-    "title": "BFS R package - Search and download data from the Swiss Federal Statistical Office",
-    "section": "",
-    "text": "The BFS R package allows to explore and access Swiss public data in a dynamic and reproducible way. Users can discover the latest BFS datasets available, extract their metadata and download them in any language (German, French, Italian or English) directly from the R console."
+    "objectID": "index.html#posts",
+    "href": "index.html#posts",
+    "title": "\n      Félix\n      Luginbühl\n    ",
+    "section": "Posts",
+    "text": "Posts\n\n\n\n\n\n\n all posts"
   },
   {
-    "objectID": "talks/adminr-zurich/index.html#abstract",
-    "href": "talks/adminr-zurich/index.html#abstract",
-    "title": "BFS R package - Search and download data from the Swiss Federal Statistical Office",
-    "section": "",
-    "text": "The BFS R package allows to explore and access Swiss public data in a dynamic and reproducible way. Users can discover the latest BFS datasets available, extract their metadata and download them in any language (German, French, Italian or English) directly from the R console."
+    "objectID": "index.html#applications",
+    "href": "index.html#applications",
+    "title": "\n      Félix\n      Luginbühl\n    ",
+    "section": "Applications",
+    "text": "Applications\n\n\n\n\n\n\n\n\n\n\nSt.Gallen Tourism App\n\n\nThe official St.Gallen Tourism Dashboard R Shiny app.\n\n\n\nFeb 18, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nChat with Hadley\n\n\nOpenAI Chatbot based on Hadley Wickham’s books\n\n\n\nApr 19, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSwiss City Statistics\n\n\nA use case example for the BFS R package\n\n\n\nJun 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngotop app\n\n\nDemo app of the R package gotop\n\n\n\nApr 20, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\naniview app\n\n\nDemo app of the R package aniview\n\n\n\nFeb 8, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nscroller app\n\n\nDemo app of the R package scroller\n\n\n\nJan 28, 2022\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "projects/xlcharts/index.html",
-    "href": "projects/xlcharts/index.html",
-    "title": "xlcharts R package",
-    "section": "",
-    "text": "Redirecting to https://felixluginbuhl.com/xlcharts…"
+    "objectID": "index.html#projects",
+    "href": "index.html#projects",
+    "title": "\n      Félix\n      Luginbühl\n    ",
+    "section": "Projects",
+    "text": "Projects\n\n\n\n\nUse a Router in Shiny and Quarto documents\nThe reactRouter allows to create navigation URL pages using the ‘React Router’ library in R Shiny applications and Quarto or R Markdown documents.\nDocs Github\n\n\nGet Data from the I14Y Interoperability Platform of Switzerland.\nThe I14Y allows to search and download official Swiss metadata from the I14Y interoperability plateform of Switzerland using its public IOP API and Console API in any language (“en”, “de”, “fr” or “it”).\nDocs Github\n\n\nCreate native Microsoft Excel charts directly from R.\nThe xlcharts package was born from the lack of existing R packages to create native Excel charts and make advanced customization on Microsoft Excel files. It is an R wrapper for the OpenPyXL Python library using the reticulate R package under the hood.\nDocs Github\n\n\nSearch and download data from the Swiss Federal Statistical Office\nThe BFS package allows to search and download public data from the Swiss Federal Statistical Office (BFS stands for Bundesamt für Statistik in German) APIs in a dynamic and reproducible way. It also provides functions to access geodata and ease Swiss mapping.\nDocs Github\n\n\nAnimate on scroll any element in R Shiny and R Markdown\nWith the aos package you can trigger animation effects on scroll on any element of R Shiny and RMarkdown, such as any text or plot, thanks to the ‘AOS’ Animate On Scroll jQuery library.\nDocs Github\n\n\nAdd a scroll back to top in R Shiny and R Markdown\nWith the GoTop R package you can add a scroll back to top Font Awesome icon in R Mmarkdown documents and R Shiny web apps thanks to jQuery library GoTop.\nDocs Github\n\n\nScroll to any object in your Shiny apps\nThe scroller R package allows to scroll to any element on the page in Shiny thanks to Arbitrary anchor Javascript library. You can change the animation length, the easing function effect and the scroll off set.\nDocs Github\n\n\nConvert Color Values into Color Names\nThe colornames R package aims to convert color values into color names using various APIs. You can pass in any valid color and get conversion into any other format, the name of the color, placeholder images and a multitude of schemes.\nDocs Github\n\n\nAnimate Shiny and R Markdown content when it comes into view\nThe package aniview allows to animate Shiny and R Markdown content when it comes into view with the popular animate-css library using jQuery AniView.\nDocs Github\n\n\nUse the R console as an interactive learning environment\nThe package polyglot helps you to learn foreign language vocabulary or any flashcards using R as an interactive learning environment. It implements a simplified version of the SuperMemo-2 algorithm.\nDocs Github"
   },
   {
-    "objectID": "projects/polyglot/index.html",
-    "href": "projects/polyglot/index.html",
-    "title": "polyglot R package",
-    "section": "",
-    "text": "Redirecting to https://felixluginbuhl.com/polyglot…"
+    "objectID": "index.html#talks",
+    "href": "index.html#talks",
+    "title": "\n      Félix\n      Luginbühl\n    ",
+    "section": "Talks",
+    "text": "Talks\n\n\n\n\n\n\n\n\n\n\nHow to use Material UI with R shiny\n\n\nMeetup organized by R-Lunches at the University of Geneva.\n\n\n\nApr 9, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR Shiny in Production - Swiss Statistics Meeting 2024\n\n\nGave the talk “R Shiny in Production: The St.Gallen Tourism Dashboard” at the Swiss Statistics Meeting 2024 in Aarau.\n\n\n\nSep 5, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFrom St. Gallen into the R-Universe — towards a national collaboration platform for official statistics\n\n\nMeetup organized by adminR and hosted by the Federal Office of Public Health.\n\n\n\nJun 6, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHow to Create Interactive Maps with R. Use Case: Swiss maps\n\n\nMeetup organized by R-Lunches at the University of Geneva.\n\n\n\nMar 26, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSwiss Statistics Meeting - BFS R package Poster\n\n\nThe Swiss Statistical Days 2023 took place at the University of Basel and is organised by the Federal Statistical Office (BFS).\n\n\n\nSep 2, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBFS R package - Search and download data from the Swiss Federal Statistical Office\n\n\nMeetup organized by adminR, Digital Society Initiative DSI and the Statistical Office of Zürich.\n\n\n\nMay 25, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR Blogging - Sharing my year-long experience using the tidyverse ecosystem\n\n\nMeetup organized by Geneva R Users with the support of the EPFL Extension School at Campus Biotech.\n\n\n\nJun 5, 2018\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "projects/gotop/index.html",
-    "href": "projects/gotop/index.html",
-    "title": "gotop R package",
+    "objectID": "posts/world-maps/index.html",
+    "href": "posts/world-maps/index.html",
+    "title": "Beautiful World Maps using R",
     "section": "",
-    "text": "Redirecting to https://felixluginbuhl.com/gotop…"
+    "text": "Do you want to learn how to create beautiful world maps using R programming?\nIn this video I show you how to download world map data, plot it, add texts and colors, and even change the map projection using the R packages {ggplot2} and {sf}.\nBe sure to check it out:"
   },
   {
-    "objectID": "projects/aos/index.html",
-    "href": "projects/aos/index.html",
-    "title": "aos R package",
-    "section": "",
-    "text": "Redirecting to https://felixluginbuhl.com/aos…"
-  },
-  {
-    "objectID": "projects/BFS/index.html",
-    "href": "projects/BFS/index.html",
-    "title": "BFS R package",
-    "section": "",
-    "text": "Redirecting to https://felixluginbuhl.com/BFS…"
-  },
-  {
-    "objectID": "posts/swiss-map-names/index.html",
-    "href": "posts/swiss-map-names/index.html",
-    "title": "Customized Leaflet map using R",
-    "section": "",
-    "text": "Would you like to know how to customize interactive maps using leaflet with R programming?\nIn this new YouTube video I show you how to fully customize your leaflet maps. As an example I reproduce an Swiss official choropleth map of Switzerland showing the top 5 most common surnames by commune.\nYou will learn how to:\nSounds interesting? Check out the video now:"
-  },
-  {
-    "objectID": "posts/swiss-map-names/index.html#visualisations",
-    "href": "posts/swiss-map-names/index.html#visualisations",
-    "title": "Customized Leaflet map using R",
+    "objectID": "posts/world-maps/index.html#visualisations",
+    "href": "posts/world-maps/index.html#visualisations",
+    "title": "Beautiful World Maps using R",
     "section": "Visualisations",
     "text": "Visualisations"
   },
   {
-    "objectID": "posts/map-regions/index.html",
-    "href": "posts/map-regions/index.html",
-    "title": "Map ANY region of the world using R",
+    "objectID": "posts/sentiment-analysis/index.html",
+    "href": "posts/sentiment-analysis/index.html",
+    "title": "How to Detect Emotions 😍😭😱 from Texts",
     "section": "",
-    "text": "Would you like to learn how to create beautiful maps of any region of the world using the R programming language?\nI just published a new YouTube video showing you how to create a choropleth world map using World Bank unemployment data, and how to zoom on any specific region. As an example, we will visualize the European region only.\nBut of course, you can reuse the R code showed in the video with your own dataset on any region of your choice.\nAt the end of the video I discuss some important points regarding the use of the scale and the color palette when creating a map, so be sure to watch the video until the end."
+    "text": "Would you like to know how to extract the main emotions from any text and visualize its emotional trajectory using the R programming language?\nAnd learn this in a fun way?\nIn this new YouTube video, we will implement a simple-but-efficient method (a lexicon-based sentiment analysis) generally used to analyse consumer feedbacks, social medias or texts in surveys. But, to make it more fun, we will instead analyse the book Nineteen Eighty-Four from George Orwell.\nBe sure to check out the video:"
   },
   {
-    "objectID": "posts/interactive-country-maps/index.html",
-    "href": "posts/interactive-country-maps/index.html",
-    "title": "Interactive Country Maps with R",
-    "section": "",
-    "text": "Would you like to learn how to create interactive maps of any European country at a district level using R?\nIn this new YouTube video I show you how to map Switzerland at a regional level using Eurostat geodata. But these steps can be used for any European country.\nYou will learn how to:\nCheck out the video now:"
+    "objectID": "posts/sentiment-analysis/index.html#visualisations",
+    "href": "posts/sentiment-analysis/index.html#visualisations",
+    "title": "How to Detect Emotions 😍😭😱 from Texts",
+    "section": "Visualisations",
+    "text": "Visualisations"
   },
   {
-    "objectID": "posts/interactive-country-maps/index.html#visualisation",
-    "href": "posts/interactive-country-maps/index.html#visualisation",
-    "title": "Interactive Country Maps with R",
+    "objectID": "posts/interactive-network/index.html",
+    "href": "posts/interactive-network/index.html",
+    "title": "Interactive Network of the Marvel Universe",
+    "section": "",
+    "text": "Let’s have some fun creating an interactive network of the Marvel Cinematic Universe using R programming.\nFirst we will scrape the data from Wikipedia, structure the data in a tidy way, and build an interactive network of the main Marvel characters.\nYou can play with the final interactive network here.\nLearn how to make it by yourself watching the video:"
+  },
+  {
+    "objectID": "posts/interactive-network/index.html#visualisation",
+    "href": "posts/interactive-network/index.html#visualisation",
+    "title": "Interactive Network of the Marvel Universe",
     "section": "Visualisation",
     "text": "Visualisation"
   },
@@ -105,6 +91,76 @@
     "text": "In this video I show you advanced uses of the filter() function from the dplyr R package.\nWe will see different ways of keeping or removing specific rows of a dataset using 5 simple examples. Then we will explore more advanced filtering methods, such as filtering data using logical conditions on multiple columns, how to remove missing values or how to use specific words or strings to filter rows of character variables."
   },
   {
+    "objectID": "talks/swiss-statistics-aarau/index.html",
+    "href": "talks/swiss-statistics-aarau/index.html",
+    "title": "R Shiny in Production - Swiss Statistics Meeting 2024",
+    "section": "",
+    "text": "The Statistical Office of Canton St.Gallen is producing cantonal tourism statistics on a monthly basis since 2005. In 2023, we decided to transition data reporting from static Excel sheets to an interactive R Shiny Dashboard, which we successfully launched in early 2024. At the same time, we made the underlying code publicly available on swissstatsr.org and GitHub1). In this talk, we will share our experience developing an R Shiny Web application using Posit (formerly RStudio) infrastructure and the golem framework and demonstrate how these powerful tools facilitate the release of R Shiny into production."
+  },
+  {
+    "objectID": "talks/swiss-statistics-aarau/index.html#abstract",
+    "href": "talks/swiss-statistics-aarau/index.html#abstract",
+    "title": "R Shiny in Production - Swiss Statistics Meeting 2024",
+    "section": "",
+    "text": "The Statistical Office of Canton St.Gallen is producing cantonal tourism statistics on a monthly basis since 2005. In 2023, we decided to transition data reporting from static Excel sheets to an interactive R Shiny Dashboard, which we successfully launched in early 2024. At the same time, we made the underlying code publicly available on swissstatsr.org and GitHub1). In this talk, we will share our experience developing an R Shiny Web application using Posit (formerly RStudio) infrastructure and the golem framework and demonstrate how these powerful tools facilitate the release of R Shiny into production."
+  },
+  {
+    "objectID": "talks/adminr-bern/index.html",
+    "href": "talks/adminr-bern/index.html",
+    "title": "From St. Gallen into the R-Universe — towards a national collaboration platform for official statistics",
+    "section": "",
+    "text": "In this talk, we will present the new R infrastructure at the Statistical Office of Canton St. Gallen, the current stage of the ongoing R transformation and our vision for the future of official statistics. We will focus on the new R working group within CORSTAT, the conference of the of regional statistical offices in Switzerland — and its role within adminR. The R working group was initiated by the Statistical Offices of Canton St. Gallen and Canton Zürich to further foster collaboration among the 17 participating cantons and cites to better coordinate their nationwide R-transformation. We present the new collaboration platform swissstatsr.org and its corresponding R-Universe infrastructure for package monitoring and development. Finally, we highlight several ways to join our initiative and to contribute to the open code development for the greater good."
+  },
+  {
+    "objectID": "talks/adminr-bern/index.html#abstract",
+    "href": "talks/adminr-bern/index.html#abstract",
+    "title": "From St. Gallen into the R-Universe — towards a national collaboration platform for official statistics",
+    "section": "",
+    "text": "In this talk, we will present the new R infrastructure at the Statistical Office of Canton St. Gallen, the current stage of the ongoing R transformation and our vision for the future of official statistics. We will focus on the new R working group within CORSTAT, the conference of the of regional statistical offices in Switzerland — and its role within adminR. The R working group was initiated by the Statistical Offices of Canton St. Gallen and Canton Zürich to further foster collaboration among the 17 participating cantons and cites to better coordinate their nationwide R-transformation. We present the new collaboration platform swissstatsr.org and its corresponding R-Universe infrastructure for package monitoring and development. Finally, we highlight several ways to join our initiative and to contribute to the open code development for the greater good."
+  },
+  {
+    "objectID": "projects/scroller/index.html",
+    "href": "projects/scroller/index.html",
+    "title": "scroller R package",
+    "section": "",
+    "text": "Redirecting to https://felixluginbuhl.com/scroller…"
+  },
+  {
+    "objectID": "projects/polyglot/index.html",
+    "href": "projects/polyglot/index.html",
+    "title": "polyglot R package",
+    "section": "",
+    "text": "Redirecting to https://felixluginbuhl.com/polyglot…"
+  },
+  {
+    "objectID": "projects/gotop/index.html",
+    "href": "projects/gotop/index.html",
+    "title": "gotop R package",
+    "section": "",
+    "text": "Redirecting to https://felixluginbuhl.com/gotop…"
+  },
+  {
+    "objectID": "projects/aos/index.html",
+    "href": "projects/aos/index.html",
+    "title": "aos R package",
+    "section": "",
+    "text": "Redirecting to https://felixluginbuhl.com/aos…"
+  },
+  {
+    "objectID": "projects/I14Y/index.html",
+    "href": "projects/I14Y/index.html",
+    "title": "I14Y R package",
+    "section": "",
+    "text": "Redirecting to https://felixluginbuhl.com/I14Y…"
+  },
+  {
+    "objectID": "posts/index.html",
+    "href": "posts/index.html",
+    "title": "Posts and Videos",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nCustomized Leaflet map using R\n\n\n\n\n\nReproducing an official Swiss map of the top surnames by commune with leaflet\n\n\n\n\n\nOct 1, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nInteractive Country Maps with R\n\n\n\n\n\nLearn how to create Interactive Maps of any European Country using R programming.\n\n\n\n\n\nMay 23, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nGeocode ANY location using R\n\n\n\n\n\nGet the latitude and longitude of any place using Google Maps, Bing or Mapbox.\n\n\n\n\n\nApr 18, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nMake Beautiful Tables using R\n\n\n\n\n\nFully customize your tables with colors, images and graphics with gt.\n\n\n\n\n\nMar 1, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nMap ANY region of the world using R\n\n\n\n\n\nUsing R programming to Map Europe, Asia, Africa, America, etc.\n\n\n\n\n\nJan 29, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nGoogle Sheet Automation using R\n\n\n\n\n\nHow to read, write, append data, and change Google Sheet user permissions from R.\n\n\n\n\n\nDec 26, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nInteractive Network of the Marvel Universe\n\n\n\n\n\nLearn how to use R programming to create interactive networks.\n\n\n\n\n\nNov 8, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nHow to Detect Emotions 😍😭😱 from Texts\n\n\n\n\n\nA sentiment analysis of George Orwell’s 1984 novel using tidytext\n\n\n\n\n\nAug 16, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nRead, Clean and Merge Excel files using R\n\n\n\n\n\nClean, validate and join Excel files in a single and consolidated dataset\n\n\n\n\n\nJul 5, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nAdvanced Data Filtering in R using dplyr\n\n\n\n\n\n5 advanced examples using the filter() function from dplyr\n\n\n\n\n\nMar 3, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nBeautiful World Maps using R\n\n\n\n\n\nMapping James Bond country locations by movie and actor with ggplot2 and sf\n\n\n\n\n\nFeb 11, 2022\n\n\n\n\n\n\nNo matching items"
+  },
+  {
     "objectID": "applications/scroller-app/index.html",
     "href": "applications/scroller-app/index.html",
     "title": "scroller app",
@@ -117,27 +173,6 @@
     "title": "gotop app",
     "section": "",
     "text": "Application"
-  },
-  {
-    "objectID": "about/index.html",
-    "href": "about/index.html",
-    "title": "Félix Luginbühl",
-    "section": "",
-    "text": "LinkedIn\n  \n  \n    \n     Youtube\n  \n  \n    \n     GitHub\n  \n  \n    \n     Substack\n  \n  \n    \n     Mastodon\n  \n\n  \n  \n\n👋 Hi there!\n\n\nMy name is Félix Luginbühl. I’m a Data Scientist and R Developer. I build tools and apps (mostly with R) to automate data analysis, share insights and improve decision making."
-  },
-  {
-    "objectID": "about/index.html#get-the-code",
-    "href": "about/index.html#get-the-code",
-    "title": "Félix Luginbühl",
-    "section": "Get the code",
-    "text": "Get the code\nJoin my newsletter to download all the R scripts of my blog posts and YouTube videos.\n\n\nOnce you subscribed you will receive an automatic email with the URL of my GitHub repository, where you can download all the code."
-  },
-  {
-    "objectID": "about/index.html#lets-do-something-together",
-    "href": "about/index.html#lets-do-something-together",
-    "title": "Félix Luginbühl",
-    "section": "Let’s do something together!",
-    "text": "Let’s do something together!\n\n  \n    Web apps\n  \n  \n    Automated reports\n  \n  \n    R Training\n  \n\n\n  \n    Get insightful and fully customized web applications. I build engaging and interactive dashboards, which centralize your insights and data with zero software licensing costs attached.\n    Examples →\n  \n  \n    Automate documents and data workflows. From data extraction to report generation, data analysis are generated in seconds rather than days. It can be a game changer for your decision-making process.\n    Examples →\n  \n  \n    Learn R programming and make the most of your data. I regularly publish YouTube videos and blog posts to teach you data analytics with R. Learn R to liberate you from Excel and expensive softwares.\n    Examples →\n  \n\nIf you’re interested in working with me, please contact me on LinkedIn."
   },
   {
     "objectID": "applications/aniview-app/index.html",
@@ -161,32 +196,74 @@
     "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nSt.Gallen Tourism App\n\n\nThe official St.Gallen Tourism Dashboard R Shiny app.\n\n\n\nFeb 18, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nChat with Hadley\n\n\nOpenAI Chatbot based on Hadley Wickham’s books\n\n\n\nApr 19, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSwiss City Statistics\n\n\nA use case example for the BFS R package\n\n\n\nJun 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngotop app\n\n\nDemo app of the R package gotop\n\n\n\nApr 20, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\naniview app\n\n\nDemo app of the R package aniview\n\n\n\nFeb 8, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nscroller app\n\n\nDemo app of the R package scroller\n\n\n\nJan 28, 2022\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "index.html#posts",
-    "href": "index.html#posts",
-    "title": "\n      Félix\n      Luginbühl\n    ",
-    "section": "Posts",
-    "text": "Posts\n\n\n\n\n\n\n all posts"
+    "objectID": "applications/sgtourism/index.html",
+    "href": "applications/sgtourism/index.html",
+    "title": "St.Gallen Tourism App",
+    "section": "",
+    "text": "The Application\nThis R Shiny app produces the official tourism dashboard of the St.Gallen canton of Switzerland.\nThe app: https://ffssg.shinyapps.io/sgtourismus/"
   },
   {
-    "objectID": "index.html#applications",
-    "href": "index.html#applications",
-    "title": "\n      Félix\n      Luginbühl\n    ",
-    "section": "Applications",
-    "text": "Applications\n\n\n\n\n\n\n\n\n\n\nSt.Gallen Tourism App\n\n\nThe official St.Gallen Tourism Dashboard R Shiny app.\n\n\n\nFeb 18, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nChat with Hadley\n\n\nOpenAI Chatbot based on Hadley Wickham’s books\n\n\n\nApr 19, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSwiss City Statistics\n\n\nA use case example for the BFS R package\n\n\n\nJun 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngotop app\n\n\nDemo app of the R package gotop\n\n\n\nApr 20, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\naniview app\n\n\nDemo app of the R package aniview\n\n\n\nFeb 8, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nscroller app\n\n\nDemo app of the R package scroller\n\n\n\nJan 28, 2022\n\n\n\n\n\n\n\n\nNo matching items"
+    "objectID": "projects/BFS/index.html",
+    "href": "projects/BFS/index.html",
+    "title": "BFS R package",
+    "section": "",
+    "text": "Redirecting to https://felixluginbuhl.com/BFS…"
   },
   {
-    "objectID": "index.html#projects",
-    "href": "index.html#projects",
-    "title": "\n      Félix\n      Luginbühl\n    ",
-    "section": "Projects",
-    "text": "Projects\n\n\n\n\nGet Data from the I14Y Interoperability Platform of Switzerland.\nThe I14Y allows to search and download official Swiss metadata from the I14Y interoperability plateform of Switzerland using its public IOP API and Console API in any language (“en”, “de”, “fr” or “it”).\nDocs Github\n\n\nCreate native Microsoft Excel charts directly from R.\nThe xlcharts package was born from the lack of existing R packages to create native Excel charts and make advanced customization on Microsoft Excel files. It is an R wrapper for the OpenPyXL Python library using the reticulate R package under the hood.\nDocs Github\n\n\nSearch and download data from the Swiss Federal Statistical Office\nThe BFS package allows to search and download public data from the Swiss Federal Statistical Office (BFS stands for Bundesamt für Statistik in German) APIs in a dynamic and reproducible way. It also provides functions to access geodata and ease Swiss mapping.\nDocs Github\n\n\nAnimate on scroll any element in R Shiny and R Markdown\nWith the aos package you can trigger animation effects on scroll on any element of R Shiny and RMarkdown, such as any text or plot, thanks to the ‘AOS’ Animate On Scroll jQuery library.\nDocs Github\n\n\nAdd a scroll back to top in R Shiny and R Markdown\nWith the GoTop R package you can add a scroll back to top Font Awesome icon in R Mmarkdown documents and R Shiny web apps thanks to jQuery library GoTop.\nDocs Github\n\n\nScroll to any object in your Shiny apps\nThe scroller R package allows to scroll to any element on the page in Shiny thanks to Arbitrary anchor Javascript library. You can change the animation length, the easing function effect and the scroll off set.\nDocs Github\n\n\nConvert Color Values into Color Names\nThe colornames R package aims to convert color values into color names using various APIs. You can pass in any valid color and get conversion into any other format, the name of the color, placeholder images and a multitude of schemes.\nDocs Github\n\n\nAnimate Shiny and R Markdown content when it comes into view\nThe package aniview allows to animate Shiny and R Markdown content when it comes into view with the popular animate-css library using jQuery AniView.\nDocs Github\n\n\nUse the R console as an interactive learning environment\nThe package polyglot helps you to learn foreign language vocabulary or any flashcards using R as an interactive learning environment. It implements a simplified version of the SuperMemo-2 algorithm.\nDocs Github"
+    "objectID": "projects/aniview/index.html",
+    "href": "projects/aniview/index.html",
+    "title": "aniview R package",
+    "section": "",
+    "text": "Redirecting to https://felixluginbuhl.com/aniview…"
   },
   {
-    "objectID": "index.html#talks",
-    "href": "index.html#talks",
-    "title": "\n      Félix\n      Luginbühl\n    ",
-    "section": "Talks",
-    "text": "Talks\n\n\n\n\n\n\n\n\n\n\nHow to use Material UI with R shiny\n\n\nMeetup organized by R-Lunches at the University of Geneva.\n\n\n\nApr 9, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR Shiny in Production - Swiss Statistics Meeting 2024\n\n\nGave the talk “R Shiny in Production: The St.Gallen Tourism Dashboard” at the Swiss Statistics Meeting 2024 in Aarau.\n\n\n\nSep 5, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFrom St. Gallen into the R-Universe — towards a national collaboration platform for official statistics\n\n\nMeetup organized by adminR and hosted by the Federal Office of Public Health.\n\n\n\nJun 6, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHow to Create Interactive Maps with R. Use Case: Swiss maps\n\n\nMeetup organized by R-Lunches at the University of Geneva.\n\n\n\nMar 26, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSwiss Statistics Meeting - BFS R package Poster\n\n\nThe Swiss Statistical Days 2023 took place at the University of Basel and is organised by the Federal Statistical Office (BFS).\n\n\n\nSep 2, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBFS R package - Search and download data from the Swiss Federal Statistical Office\n\n\nMeetup organized by adminR, Digital Society Initiative DSI and the Statistical Office of Zürich.\n\n\n\nMay 25, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR Blogging - Sharing my year-long experience using the tidyverse ecosystem\n\n\nMeetup organized by Geneva R Users with the support of the EPFL Extension School at Campus Biotech.\n\n\n\nJun 5, 2018\n\n\n\n\n\n\n\n\nNo matching items"
+    "objectID": "projects/colornames/index.html",
+    "href": "projects/colornames/index.html",
+    "title": "colornames R package",
+    "section": "",
+    "text": "Redirecting to https://felixluginbuhl.com/colornames…"
+  },
+  {
+    "objectID": "projects/index.html",
+    "href": "projects/index.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nreactRouter R package\n\n\nShare url pages using ‘React Router’ in ‘shiny’ and ‘Quarto’\n\n\n\nApr 29, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nI14Y R package\n\n\nSearch and Get Data from the I14Y Interoperability Platform of Switzerland\n\n\n\nMar 5, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nxlcharts R package\n\n\nCreate Native Excel Charts and Work with Microsoft Excel Files\n\n\n\nApr 22, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBFS R package\n\n\nSearch and download data from the Swiss Federal Statistical Office\n\n\n\nJan 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncolornames R package\n\n\nConvert Color Values into Color Names\n\n\n\nAug 26, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngotop R package\n\n\nAdd a scroll back to top icon to R Markdown and Shiny apps\n\n\n\nSep 20, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\n\naos R package\n\n\nAnimate on Scroll Library for Shiny\n\n\n\nFeb 27, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nscroller R package\n\n\nScroll to any element in your Shiny apps\n\n\n\nFeb 24, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\n\naniview R package\n\n\nAnimate Shiny content when it comes into view\n\n\n\nDec 10, 2020\n\n\n\n\n\n\n\n\n\n\n\n\n\n\npolyglot R package\n\n\nUse the R console as an interactive learning environment\n\n\n\nMay 17, 2020\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "projects/reactRouter/index.html",
+    "href": "projects/reactRouter/index.html",
+    "title": "reactRouter R package",
+    "section": "",
+    "text": "Redirecting to https://felixluginbuhl.com/reactRouter…"
+  },
+  {
+    "objectID": "projects/xlcharts/index.html",
+    "href": "projects/xlcharts/index.html",
+    "title": "xlcharts R package",
+    "section": "",
+    "text": "Redirecting to https://felixluginbuhl.com/xlcharts…"
+  },
+  {
+    "objectID": "talks/adminr-zurich/index.html",
+    "href": "talks/adminr-zurich/index.html",
+    "title": "BFS R package - Search and download data from the Swiss Federal Statistical Office",
+    "section": "",
+    "text": "The BFS R package allows to explore and access Swiss public data in a dynamic and reproducible way. Users can discover the latest BFS datasets available, extract their metadata and download them in any language (German, French, Italian or English) directly from the R console."
+  },
+  {
+    "objectID": "talks/adminr-zurich/index.html#abstract",
+    "href": "talks/adminr-zurich/index.html#abstract",
+    "title": "BFS R package - Search and download data from the Swiss Federal Statistical Office",
+    "section": "",
+    "text": "The BFS R package allows to explore and access Swiss public data in a dynamic and reproducible way. Users can discover the latest BFS datasets available, extract their metadata and download them in any language (German, French, Italian or English) directly from the R console."
+  },
+  {
+    "objectID": "talks/index.html",
+    "href": "talks/index.html",
+    "title": "Talks",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nHow to use Material UI with R shiny\n\n\n\n\n\n\ntalk\n\n\n\nMeetup organized by R-Lunches at the University of Geneva. \n\n\n\n\n\nApr 9, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nR Shiny in Production - Swiss Statistics Meeting 2024\n\n\n\n\n\n\ntalk\n\n\n\nGave the talk “R Shiny in Production: The St.Gallen Tourism Dashboard” at the Swiss Statistics Meeting 2024 in Aarau. \n\n\n\n\n\nSep 5, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nFrom St. Gallen into the R-Universe — towards a national collaboration platform for official statistics\n\n\n\n\n\n\ntalk\n\n\n\nMeetup organized by adminR and hosted by the Federal Office of Public Health. \n\n\n\n\n\nJun 6, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nHow to Create Interactive Maps with R. Use Case: Swiss maps\n\n\n\n\n\n\ntalk\n\n\n\nMeetup organized by R-Lunches at the University of Geneva. \n\n\n\n\n\nMar 26, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nSwiss Statistics Meeting - BFS R package Poster\n\n\n\n\n\n\ntalk\n\n\n\nThe Swiss Statistical Days 2023 took place at the University of Basel and is organised by the Federal Statistical Office (BFS). \n\n\n\n\n\nSep 2, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nBFS R package - Search and download data from the Swiss Federal Statistical Office\n\n\n\n\n\n\ntalk\n\n\n\nMeetup organized by adminR, Digital Society Initiative DSI and the Statistical Office of Zürich. \n\n\n\n\n\nMay 25, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nR Blogging - Sharing my year-long experience using the tidyverse ecosystem\n\n\n\n\n\n\ntalk\n\n\n\nMeetup organized by Geneva R Users with the support of the EPFL Extension School at Campus Biotech. \n\n\n\n\n\nJun 5, 2018\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/beautiful-tables/index.html",
@@ -217,157 +294,59 @@
     "text": "Visualisation"
   },
   {
-    "objectID": "posts/index.html",
-    "href": "posts/index.html",
-    "title": "Posts and Videos",
+    "objectID": "posts/interactive-country-maps/index.html",
+    "href": "posts/interactive-country-maps/index.html",
+    "title": "Interactive Country Maps with R",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nCustomized Leaflet map using R\n\n\n\n\n\nReproducing an official Swiss map of the top surnames by commune with leaflet\n\n\n\n\n\nOct 1, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nInteractive Country Maps with R\n\n\n\n\n\nLearn how to create Interactive Maps of any European Country using R programming.\n\n\n\n\n\nMay 23, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nGeocode ANY location using R\n\n\n\n\n\nGet the latitude and longitude of any place using Google Maps, Bing or Mapbox.\n\n\n\n\n\nApr 18, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nMake Beautiful Tables using R\n\n\n\n\n\nFully customize your tables with colors, images and graphics with gt.\n\n\n\n\n\nMar 1, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nMap ANY region of the world using R\n\n\n\n\n\nUsing R programming to Map Europe, Asia, Africa, America, etc.\n\n\n\n\n\nJan 29, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nGoogle Sheet Automation using R\n\n\n\n\n\nHow to read, write, append data, and change Google Sheet user permissions from R.\n\n\n\n\n\nDec 26, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nInteractive Network of the Marvel Universe\n\n\n\n\n\nLearn how to use R programming to create interactive networks.\n\n\n\n\n\nNov 8, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nHow to Detect Emotions 😍😭😱 from Texts\n\n\n\n\n\nA sentiment analysis of George Orwell’s 1984 novel using tidytext\n\n\n\n\n\nAug 16, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nRead, Clean and Merge Excel files using R\n\n\n\n\n\nClean, validate and join Excel files in a single and consolidated dataset\n\n\n\n\n\nJul 5, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nAdvanced Data Filtering in R using dplyr\n\n\n\n\n\n5 advanced examples using the filter() function from dplyr\n\n\n\n\n\nMar 3, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nBeautiful World Maps using R\n\n\n\n\n\nMapping James Bond country locations by movie and actor with ggplot2 and sf\n\n\n\n\n\nFeb 11, 2022\n\n\n\n\n\n\nNo matching items"
+    "text": "Would you like to learn how to create interactive maps of any European country at a district level using R?\nIn this new YouTube video I show you how to map Switzerland at a regional level using Eurostat geodata. But these steps can be used for any European country.\nYou will learn how to:\nCheck out the video now:"
   },
   {
-    "objectID": "posts/interactive-network/index.html",
-    "href": "posts/interactive-network/index.html",
-    "title": "Interactive Network of the Marvel Universe",
-    "section": "",
-    "text": "Let’s have some fun creating an interactive network of the Marvel Cinematic Universe using R programming.\nFirst we will scrape the data from Wikipedia, structure the data in a tidy way, and build an interactive network of the main Marvel characters.\nYou can play with the final interactive network here.\nLearn how to make it by yourself watching the video:"
-  },
-  {
-    "objectID": "posts/interactive-network/index.html#visualisation",
-    "href": "posts/interactive-network/index.html#visualisation",
-    "title": "Interactive Network of the Marvel Universe",
+    "objectID": "posts/interactive-country-maps/index.html#visualisation",
+    "href": "posts/interactive-country-maps/index.html#visualisation",
+    "title": "Interactive Country Maps with R",
     "section": "Visualisation",
     "text": "Visualisation"
   },
   {
-    "objectID": "posts/sentiment-analysis/index.html",
-    "href": "posts/sentiment-analysis/index.html",
-    "title": "How to Detect Emotions 😍😭😱 from Texts",
+    "objectID": "posts/map-regions/index.html",
+    "href": "posts/map-regions/index.html",
+    "title": "Map ANY region of the world using R",
     "section": "",
-    "text": "Would you like to know how to extract the main emotions from any text and visualize its emotional trajectory using the R programming language?\nAnd learn this in a fun way?\nIn this new YouTube video, we will implement a simple-but-efficient method (a lexicon-based sentiment analysis) generally used to analyse consumer feedbacks, social medias or texts in surveys. But, to make it more fun, we will instead analyse the book Nineteen Eighty-Four from George Orwell.\nBe sure to check out the video:"
+    "text": "Would you like to learn how to create beautiful maps of any region of the world using the R programming language?\nI just published a new YouTube video showing you how to create a choropleth world map using World Bank unemployment data, and how to zoom on any specific region. As an example, we will visualize the European region only.\nBut of course, you can reuse the R code showed in the video with your own dataset on any region of your choice.\nAt the end of the video I discuss some important points regarding the use of the scale and the color palette when creating a map, so be sure to watch the video until the end."
   },
   {
-    "objectID": "posts/sentiment-analysis/index.html#visualisations",
-    "href": "posts/sentiment-analysis/index.html#visualisations",
-    "title": "How to Detect Emotions 😍😭😱 from Texts",
+    "objectID": "posts/swiss-map-names/index.html",
+    "href": "posts/swiss-map-names/index.html",
+    "title": "Customized Leaflet map using R",
+    "section": "",
+    "text": "Would you like to know how to customize interactive maps using leaflet with R programming?\nIn this new YouTube video I show you how to fully customize your leaflet maps. As an example I reproduce an Swiss official choropleth map of Switzerland showing the top 5 most common surnames by commune.\nYou will learn how to:\nSounds interesting? Check out the video now:"
+  },
+  {
+    "objectID": "posts/swiss-map-names/index.html#visualisations",
+    "href": "posts/swiss-map-names/index.html#visualisations",
+    "title": "Customized Leaflet map using R",
     "section": "Visualisations",
     "text": "Visualisations"
   },
   {
-    "objectID": "posts/world-maps/index.html",
-    "href": "posts/world-maps/index.html",
-    "title": "Beautiful World Maps using R",
+    "objectID": "about/index.html",
+    "href": "about/index.html",
+    "title": "Félix Luginbühl",
     "section": "",
-    "text": "Do you want to learn how to create beautiful world maps using R programming?\nIn this video I show you how to download world map data, plot it, add texts and colors, and even change the map projection using the R packages {ggplot2} and {sf}.\nBe sure to check it out:"
+    "text": "LinkedIn\n  \n  \n    \n     Youtube\n  \n  \n    \n     GitHub\n  \n  \n    \n     Substack\n  \n  \n    \n     Mastodon\n  \n\n  \n  \n\n👋 Hi there!\n\n\nMy name is Félix Luginbühl. I’m a Data Scientist and R Developer. I build tools and apps (mostly with R) to automate data analysis, share insights and improve decision making."
   },
   {
-    "objectID": "posts/world-maps/index.html#visualisations",
-    "href": "posts/world-maps/index.html#visualisations",
-    "title": "Beautiful World Maps using R",
-    "section": "Visualisations",
-    "text": "Visualisations"
+    "objectID": "about/index.html#get-the-code",
+    "href": "about/index.html#get-the-code",
+    "title": "Félix Luginbühl",
+    "section": "Get the code",
+    "text": "Get the code\nJoin my newsletter to download all the R scripts of my blog posts and YouTube videos.\n\n\nOnce you subscribed you will receive an automatic email with the URL of my GitHub repository, where you can download all the code."
   },
   {
-    "objectID": "projects/aniview/index.html",
-    "href": "projects/aniview/index.html",
-    "title": "aniview R package",
-    "section": "",
-    "text": "Redirecting to https://felixluginbuhl.com/aniview…"
-  },
-  {
-    "objectID": "projects/colornames/index.html",
-    "href": "projects/colornames/index.html",
-    "title": "colornames R package",
-    "section": "",
-    "text": "Redirecting to https://felixluginbuhl.com/colornames…"
-  },
-  {
-    "objectID": "projects/index.html",
-    "href": "projects/index.html",
-    "title": "Projects",
-    "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nI14Y R package\n\n\nSearch and Get Data from the I14Y Interoperability Platform of Switzerland\n\n\n\nMar 5, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nxlcharts R package\n\n\nCreate Native Excel Charts and Work with Microsoft Excel Files\n\n\n\nApr 22, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBFS R package\n\n\nSearch and download data from the Swiss Federal Statistical Office\n\n\n\nJan 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncolornames R package\n\n\nConvert Color Values into Color Names\n\n\n\nAug 26, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngotop R package\n\n\nAdd a scroll back to top icon to R Markdown and Shiny apps\n\n\n\nSep 20, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\n\naos R package\n\n\nAnimate on Scroll Library for Shiny\n\n\n\nFeb 27, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nscroller R package\n\n\nScroll to any element in your Shiny apps\n\n\n\nFeb 24, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\n\naniview R package\n\n\nAnimate Shiny content when it comes into view\n\n\n\nDec 10, 2020\n\n\n\n\n\n\n\n\n\n\n\n\n\n\npolyglot R package\n\n\nUse the R console as an interactive learning environment\n\n\n\nMay 17, 2020\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "projects/scroller/index.html",
-    "href": "projects/scroller/index.html",
-    "title": "scroller R package",
-    "section": "",
-    "text": "Redirecting to https://felixluginbuhl.com/scroller…"
-  },
-  {
-    "objectID": "talks/adminr-bern/index.html",
-    "href": "talks/adminr-bern/index.html",
-    "title": "From St. Gallen into the R-Universe — towards a national collaboration platform for official statistics",
-    "section": "",
-    "text": "In this talk, we will present the new R infrastructure at the Statistical Office of Canton St. Gallen, the current stage of the ongoing R transformation and our vision for the future of official statistics. We will focus on the new R working group within CORSTAT, the conference of the of regional statistical offices in Switzerland — and its role within adminR. The R working group was initiated by the Statistical Offices of Canton St. Gallen and Canton Zürich to further foster collaboration among the 17 participating cantons and cites to better coordinate their nationwide R-transformation. We present the new collaboration platform swissstatsr.org and its corresponding R-Universe infrastructure for package monitoring and development. Finally, we highlight several ways to join our initiative and to contribute to the open code development for the greater good."
-  },
-  {
-    "objectID": "talks/adminr-bern/index.html#abstract",
-    "href": "talks/adminr-bern/index.html#abstract",
-    "title": "From St. Gallen into the R-Universe — towards a national collaboration platform for official statistics",
-    "section": "",
-    "text": "In this talk, we will present the new R infrastructure at the Statistical Office of Canton St. Gallen, the current stage of the ongoing R transformation and our vision for the future of official statistics. We will focus on the new R working group within CORSTAT, the conference of the of regional statistical offices in Switzerland — and its role within adminR. The R working group was initiated by the Statistical Offices of Canton St. Gallen and Canton Zürich to further foster collaboration among the 17 participating cantons and cites to better coordinate their nationwide R-transformation. We present the new collaboration platform swissstatsr.org and its corresponding R-Universe infrastructure for package monitoring and development. Finally, we highlight several ways to join our initiative and to contribute to the open code development for the greater good."
-  },
-  {
-    "objectID": "talks/index.html",
-    "href": "talks/index.html",
-    "title": "Talks",
-    "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nHow to use Material UI with R shiny\n\n\n\n\n\n\ntalk\n\n\n\nMeetup organized by R-Lunches at the University of Geneva. \n\n\n\n\n\nApr 9, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nR Shiny in Production - Swiss Statistics Meeting 2024\n\n\n\n\n\n\ntalk\n\n\n\nGave the talk “R Shiny in Production: The St.Gallen Tourism Dashboard” at the Swiss Statistics Meeting 2024 in Aarau. \n\n\n\n\n\nSep 5, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nFrom St. Gallen into the R-Universe — towards a national collaboration platform for official statistics\n\n\n\n\n\n\ntalk\n\n\n\nMeetup organized by adminR and hosted by the Federal Office of Public Health. \n\n\n\n\n\nJun 6, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nHow to Create Interactive Maps with R. Use Case: Swiss maps\n\n\n\n\n\n\ntalk\n\n\n\nMeetup organized by R-Lunches at the University of Geneva. \n\n\n\n\n\nMar 26, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nSwiss Statistics Meeting - BFS R package Poster\n\n\n\n\n\n\ntalk\n\n\n\nThe Swiss Statistical Days 2023 took place at the University of Basel and is organised by the Federal Statistical Office (BFS). \n\n\n\n\n\nSep 2, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nBFS R package - Search and download data from the Swiss Federal Statistical Office\n\n\n\n\n\n\ntalk\n\n\n\nMeetup organized by adminR, Digital Society Initiative DSI and the Statistical Office of Zürich. \n\n\n\n\n\nMay 25, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nR Blogging - Sharing my year-long experience using the tidyverse ecosystem\n\n\n\n\n\n\ntalk\n\n\n\nMeetup organized by Geneva R Users with the support of the EPFL Extension School at Campus Biotech. \n\n\n\n\n\nJun 5, 2018\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "talks/swiss-statistics-aarau/index.html",
-    "href": "talks/swiss-statistics-aarau/index.html",
-    "title": "R Shiny in Production - Swiss Statistics Meeting 2024",
-    "section": "",
-    "text": "The Statistical Office of Canton St.Gallen is producing cantonal tourism statistics on a monthly basis since 2005. In 2023, we decided to transition data reporting from static Excel sheets to an interactive R Shiny Dashboard, which we successfully launched in early 2024. At the same time, we made the underlying code publicly available on swissstatsr.org and GitHub1). In this talk, we will share our experience developing an R Shiny Web application using Posit (formerly RStudio) infrastructure and the golem framework and demonstrate how these powerful tools facilitate the release of R Shiny into production."
-  },
-  {
-    "objectID": "talks/swiss-statistics-aarau/index.html#abstract",
-    "href": "talks/swiss-statistics-aarau/index.html#abstract",
-    "title": "R Shiny in Production - Swiss Statistics Meeting 2024",
-    "section": "",
-    "text": "The Statistical Office of Canton St.Gallen is producing cantonal tourism statistics on a monthly basis since 2005. In 2023, we decided to transition data reporting from static Excel sheets to an interactive R Shiny Dashboard, which we successfully launched in early 2024. At the same time, we made the underlying code publicly available on swissstatsr.org and GitHub1). In this talk, we will share our experience developing an R Shiny Web application using Posit (formerly RStudio) infrastructure and the golem framework and demonstrate how these powerful tools facilitate the release of R Shiny into production."
-  },
-  {
-    "objectID": "applications/sgtourism/index.html",
-    "href": "applications/sgtourism/index.html",
-    "title": "St.Gallen Tourism App",
-    "section": "",
-    "text": "The Application\nThis R Shiny app produces the official tourism dashboard of the St.Gallen canton of Switzerland.\nThe app: https://ffssg.shinyapps.io/sgtourismus/"
-  },
-  {
-    "objectID": "projects/I14Y/index.html",
-    "href": "projects/I14Y/index.html",
-    "title": "I14Y R package",
-    "section": "",
-    "text": "Redirecting to https://felixluginbuhl.com/I14Y…"
-  },
-  {
-    "objectID": "talks/geneva-r-lunches-shinyMaterialUI/geneva-r-lunches-shinyMaterialUI.html#plan",
-    "href": "talks/geneva-r-lunches-shinyMaterialUI/geneva-r-lunches-shinyMaterialUI.html#plan",
-    "title": "How to use Material UI with R Shiny",
-    "section": "Plan",
-    "text": "Plan\n\nQuick recap: how shiny works\nExtending Shiny with existing frameworks\n\nbslib and bs4Dash\ncustomization limits: custom components\n\nShiny with React JS: shiny.react\n\nshiny.fluent, shiny.blueprint, and shinyNextUI\n\nIntroducing shinyMaterialUI\nIntroducing shinyReactRouter"
-  },
-  {
-    "objectID": "talks/geneva-r-lunches-shinyMaterialUI/geneva-r-lunches-shinyMaterialUI.html#questions",
-    "href": "talks/geneva-r-lunches-shinyMaterialUI/geneva-r-lunches-shinyMaterialUI.html#questions",
-    "title": "How to use Material UI with R Shiny",
-    "section": "Questions?",
-    "text": "Questions?\nThanks you for your attention!"
-  },
-  {
-    "objectID": "talks/geneva-r-lunches-shinyMaterialUI/geneva-r-lunches-shinyMaterialUI.html",
-    "href": "talks/geneva-r-lunches-shinyMaterialUI/geneva-r-lunches-shinyMaterialUI.html",
-    "title": "How to use Material UI with R Shiny",
-    "section": "",
-    "text": "Quicky recap: how shiny works\nExtending Shiny with existing frameworks\n\nbslib and bs4Dash\ncustomization limits: custom components.\n\nShiny with React JS: shiny.react\n\nshiny.fluent, shiny.blueprint, and shinyNextUI\n\nintroducing shinyMaterialUI\nintroducing shinyReactRouter"
-  },
-  {
-    "objectID": "talks/geneva-r-lunches-shinyMaterialUI/geneva-r-lunches-shinyMaterialUI.html#any-questions",
-    "href": "talks/geneva-r-lunches-shinyMaterialUI/geneva-r-lunches-shinyMaterialUI.html#any-questions",
-    "title": "How to use Material UI with R Shiny",
-    "section": "Any questions?",
-    "text": "Any questions?\nIf you have any issue, question or want to contribute to shinyMaterialUI or shinyReactRouter, don’t hesitate to write me on GitHub or LinkedIn.\n\nGitHub: https://github.com/lgnbhl/\nLinkedIn: https://www.linkedin.com/in/felixluginbuhl\nWebsite: https://felixluginbuhl.com/"
+    "objectID": "about/index.html#lets-do-something-together",
+    "href": "about/index.html#lets-do-something-together",
+    "title": "Félix Luginbühl",
+    "section": "Let’s do something together!",
+    "text": "Let’s do something together!\n\n  \n    Web apps\n  \n  \n    Automated reports\n  \n  \n    R Training\n  \n\n\n  \n    Get insightful and fully customized web applications. I build engaging and interactive dashboards, which centralize your insights and data with zero software licensing costs attached.\n    Examples →\n  \n  \n    Automate documents and data workflows. From data extraction to report generation, data analysis are generated in seconds rather than days. It can be a game changer for your decision-making process.\n    Examples →\n  \n  \n    Learn R programming and make the most of your data. I regularly publish YouTube videos and blog posts to teach you data analytics with R. Learn R to liberate you from Excel and expensive softwares.\n    Examples →\n  \n\nIf you’re interested in working with me, please contact me on LinkedIn."
   }
 ]

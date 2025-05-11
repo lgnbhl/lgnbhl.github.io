@@ -1,16 +1,5 @@
 [
   {
-    "listing": "/applications/index.html",
-    "items": [
-      "/applications/sgtourism/index.html",
-      "/applications/chat-with-hadley/index.html",
-      "/applications/city-statistics/index.html",
-      "/applications/gotop-app/index.html",
-      "/applications/aniview-app/index.html",
-      "/applications/scroller-app/index.html"
-    ]
-  },
-  {
     "listing": "/index.html",
     "items": [
       "/applications/sgtourism/index.html",
@@ -45,8 +34,20 @@
     ]
   },
   {
+    "listing": "/applications/index.html",
+    "items": [
+      "/applications/sgtourism/index.html",
+      "/applications/chat-with-hadley/index.html",
+      "/applications/city-statistics/index.html",
+      "/applications/gotop-app/index.html",
+      "/applications/aniview-app/index.html",
+      "/applications/scroller-app/index.html"
+    ]
+  },
+  {
     "listing": "/projects/index.html",
     "items": [
+      "/projects/reactRouter/index.html",
       "/projects/I14Y/index.html",
       "/projects/xlcharts/index.html",
       "/projects/BFS/index.html",
