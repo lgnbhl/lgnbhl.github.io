@@ -60,8 +60,8 @@
 
 
 
-<script src="button_files/react-18.3.1/react.production.min.js"></script><script src="button_files/react-18.3.1/react-dom.production.min.js"></script><script src="button_files/shiny.react-0.1.0/shiny-react.js"></script><script src="button_files/shinyMaterialUI-0.0.1/mui-material.js"></script><link href="button_files/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
-<link href="button_files/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="Button_files/react-18.3.1/react.production.min.js"></script><script src="Button_files/react-18.3.1/react-dom.production.min.js"></script><script src="Button_files/shiny.react-0.1.0/shiny-react.js"></script><script src="Button_files/shinyMaterialUI-0.0.1/mui-material.js"></script><link href="Button_files/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="Button_files/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
@@ -100,18 +100,12 @@ placed throughout your UI, in places like:</p>
 </h2>
 <p>The Button comes with three variants: text (default), contained, and
 outlined.</p>
-<div class="section level3 tabset">
-<h3 class="tabset" id="code">Code<a class="anchor" aria-label="anchor" href="#code"></a>
+<div class="section level3">
+<h3 id="code">Code<a class="anchor" aria-label="anchor" href="#code"></a>
 </h3>
-
-
-<ul class="nav nav-tabs" id="code" role="tablist">
-<li role="presentation" class="nav-item"><button data-bs-toggle="tab" data-bs-target="#r" id="r-tab" type="button" role="tab" aria-controls="r" aria-selected="true" class="active nav-link">R</button></li>
-<li role="presentation" class="nav-item"><button data-bs-toggle="tab" data-bs-target="#jsx" id="jsx-tab" type="button" role="tab" aria-controls="jsx" aria-selected="false" class="nav-link">JSX</button></li>
-</ul>
-<div class="tab-content">
-<div class="active  tab-pane" id="r" role="tabpanel" aria-labelledby="r-tab">
-
+<div class="section level4">
+<h4 id="r">R<a class="anchor" aria-label="anchor" href="#r"></a>
+</h4>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/Stack.html">Stack</a></span><span class="op">(</span></span>
 <span>  spacing <span class="op">=</span> <span class="fl">2</span>, </span>
@@ -124,8 +118,9 @@ outlined.</p>
 <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"Stack","props":{"type":"object","value":{"spacing":{"type":"raw","value":2},"direction":{"type":"raw","value":"row"},"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"Button","props":{"type":"raw","value":{"variant":"text","children":"Text"}}},{"type":"element","module":"@mui/material","name":"Button","props":{"type":"raw","value":{"variant":"contained","children":"Contained"}}},{"type":"element","module":"@mui/material","name":"Button","props":{"type":"raw","value":{"variant":"outlined","children":"Outlined"}}}]}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('vhoipeyoohljamkajowk')</script>
 </div>
 </div>
-<div class="tab-pane" id="jsx" role="tabpanel" aria-labelledby="jsx-tab">
-
+<div class="section level4">
+<h4 id="jsx">JSX<a class="anchor" aria-label="anchor" href="#jsx"></a>
+</h4>
 <div class="sourceCode" id="cb3"><pre class="sourceCode jsx"><code class="sourceCode javascriptreact"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="im">import</span> <span class="op">*</span> <span class="im">as</span> React <span class="im">from</span> <span class="st">'react'</span><span class="op">;</span></span>
 <span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="im">import</span> Stack <span class="im">from</span> <span class="st">'@mui/material/Stack'</span><span class="op">;</span></span>
 <span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="im">import</span> Button <span class="im">from</span> <span class="st">'@mui/material/Button'</span><span class="op">;</span></span>
@@ -139,7 +134,6 @@ outlined.</p>
 <span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a>    <span class="fu">&lt;/Stack&gt;</span></span>
 <span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a>  )<span class="op">;</span></span>
 <span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a>}</span></code></pre></div>
-</div>
 </div>
 </div>
 </div>
