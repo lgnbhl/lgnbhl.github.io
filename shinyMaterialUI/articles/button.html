@@ -38,6 +38,8 @@
     <li><a class="dropdown-item" href="../articles/checkbox.html">Checkbox</a></li>
     <li><a class="dropdown-item" href="../articles/rating.html">Rating</a></li>
     <li><a class="dropdown-item" href="../articles/slider.html">Slider</a></li>
+    <li><a class="dropdown-item" href="../articles/textfield.html">TextField</a></li>
+    <li><a class="dropdown-item" href="../articles/switch.html">Switch</a></li>
   </ul>
 </li>
 <li class="nav-item dropdown">
@@ -1159,8 +1161,398 @@ is not recommended as it can cause the Google Translation crash:</p>
 </h3>
 <p>Here are some examples of customizing the component. You can learn
 more about this in the overrides documentation page.</p>
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># TODO</span></span></code></pre></div>
+<details><summary>
+JS code
+</summary><div class="sourceCode" id="cb37"><pre class="sourceCode jsx"><code class="sourceCode javascriptreact"><span id="cb37-1"><a href="#cb37-1" tabindex="-1"></a><span class="im">import</span> <span class="op">*</span> <span class="im">as</span> React <span class="im">from</span> <span class="st">'react'</span><span class="op">;</span></span>
+<span id="cb37-2"><a href="#cb37-2" tabindex="-1"></a><span class="im">import</span> { styled } <span class="im">from</span> <span class="st">'@mui/material/styles'</span><span class="op">;</span></span>
+<span id="cb37-3"><a href="#cb37-3" tabindex="-1"></a><span class="im">import</span> Button <span class="im">from</span> <span class="st">'@mui/material/Button'</span><span class="op">;</span></span>
+<span id="cb37-4"><a href="#cb37-4" tabindex="-1"></a><span class="im">import</span> Stack <span class="im">from</span> <span class="st">'@mui/material/Stack'</span><span class="op">;</span></span>
+<span id="cb37-5"><a href="#cb37-5" tabindex="-1"></a><span class="im">import</span> { purple } <span class="im">from</span> <span class="st">'@mui/material/colors'</span><span class="op">;</span></span>
+<span id="cb37-6"><a href="#cb37-6" tabindex="-1"></a></span>
+<span id="cb37-7"><a href="#cb37-7" tabindex="-1"></a><span class="kw">const</span> BootstrapButton <span class="op">=</span> <span class="fu">styled</span>(Button)({</span>
+<span id="cb37-8"><a href="#cb37-8" tabindex="-1"></a>  <span class="dt">boxShadow</span><span class="op">:</span> <span class="st">'none'</span><span class="op">,</span></span>
+<span id="cb37-9"><a href="#cb37-9" tabindex="-1"></a>  <span class="dt">textTransform</span><span class="op">:</span> <span class="st">'none'</span><span class="op">,</span></span>
+<span id="cb37-10"><a href="#cb37-10" tabindex="-1"></a>  <span class="dt">fontSize</span><span class="op">:</span> <span class="dv">16</span><span class="op">,</span></span>
+<span id="cb37-11"><a href="#cb37-11" tabindex="-1"></a>  <span class="dt">padding</span><span class="op">:</span> <span class="st">'6px 12px'</span><span class="op">,</span></span>
+<span id="cb37-12"><a href="#cb37-12" tabindex="-1"></a>  <span class="dt">border</span><span class="op">:</span> <span class="st">'1px solid'</span><span class="op">,</span></span>
+<span id="cb37-13"><a href="#cb37-13" tabindex="-1"></a>  <span class="dt">lineHeight</span><span class="op">:</span> <span class="fl">1.5</span><span class="op">,</span></span>
+<span id="cb37-14"><a href="#cb37-14" tabindex="-1"></a>  <span class="dt">backgroundColor</span><span class="op">:</span> <span class="st">'#0063cc'</span><span class="op">,</span></span>
+<span id="cb37-15"><a href="#cb37-15" tabindex="-1"></a>  <span class="dt">borderColor</span><span class="op">:</span> <span class="st">'#0063cc'</span><span class="op">,</span></span>
+<span id="cb37-16"><a href="#cb37-16" tabindex="-1"></a>  <span class="dt">fontFamily</span><span class="op">:</span> [</span>
+<span id="cb37-17"><a href="#cb37-17" tabindex="-1"></a>    <span class="st">'-apple-system'</span><span class="op">,</span></span>
+<span id="cb37-18"><a href="#cb37-18" tabindex="-1"></a>    <span class="st">'BlinkMacSystemFont'</span><span class="op">,</span></span>
+<span id="cb37-19"><a href="#cb37-19" tabindex="-1"></a>    <span class="st">'"Segoe UI"'</span><span class="op">,</span></span>
+<span id="cb37-20"><a href="#cb37-20" tabindex="-1"></a>    <span class="st">'Roboto'</span><span class="op">,</span></span>
+<span id="cb37-21"><a href="#cb37-21" tabindex="-1"></a>    <span class="st">'"Helvetica Neue"'</span><span class="op">,</span></span>
+<span id="cb37-22"><a href="#cb37-22" tabindex="-1"></a>    <span class="st">'Arial'</span><span class="op">,</span></span>
+<span id="cb37-23"><a href="#cb37-23" tabindex="-1"></a>    <span class="st">'sans-serif'</span><span class="op">,</span></span>
+<span id="cb37-24"><a href="#cb37-24" tabindex="-1"></a>    <span class="st">'"Apple Color Emoji"'</span><span class="op">,</span></span>
+<span id="cb37-25"><a href="#cb37-25" tabindex="-1"></a>    <span class="st">'"Segoe UI Emoji"'</span><span class="op">,</span></span>
+<span id="cb37-26"><a href="#cb37-26" tabindex="-1"></a>    <span class="st">'"Segoe UI Symbol"'</span><span class="op">,</span></span>
+<span id="cb37-27"><a href="#cb37-27" tabindex="-1"></a>  ]<span class="op">.</span><span class="fu">join</span>(<span class="st">','</span>)<span class="op">,</span></span>
+<span id="cb37-28"><a href="#cb37-28" tabindex="-1"></a>  <span class="st">'&amp;:hover'</span><span class="op">:</span> {</span>
+<span id="cb37-29"><a href="#cb37-29" tabindex="-1"></a>    <span class="dt">backgroundColor</span><span class="op">:</span> <span class="st">'#0069d9'</span><span class="op">,</span></span>
+<span id="cb37-30"><a href="#cb37-30" tabindex="-1"></a>    <span class="dt">borderColor</span><span class="op">:</span> <span class="st">'#0062cc'</span><span class="op">,</span></span>
+<span id="cb37-31"><a href="#cb37-31" tabindex="-1"></a>    <span class="dt">boxShadow</span><span class="op">:</span> <span class="st">'none'</span><span class="op">,</span></span>
+<span id="cb37-32"><a href="#cb37-32" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb37-33"><a href="#cb37-33" tabindex="-1"></a>  <span class="st">'&amp;:active'</span><span class="op">:</span> {</span>
+<span id="cb37-34"><a href="#cb37-34" tabindex="-1"></a>    <span class="dt">boxShadow</span><span class="op">:</span> <span class="st">'none'</span><span class="op">,</span></span>
+<span id="cb37-35"><a href="#cb37-35" tabindex="-1"></a>    <span class="dt">backgroundColor</span><span class="op">:</span> <span class="st">'#0062cc'</span><span class="op">,</span></span>
+<span id="cb37-36"><a href="#cb37-36" tabindex="-1"></a>    <span class="dt">borderColor</span><span class="op">:</span> <span class="st">'#005cbf'</span><span class="op">,</span></span>
+<span id="cb37-37"><a href="#cb37-37" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb37-38"><a href="#cb37-38" tabindex="-1"></a>  <span class="st">'&amp;:focus'</span><span class="op">:</span> {</span>
+<span id="cb37-39"><a href="#cb37-39" tabindex="-1"></a>    <span class="dt">boxShadow</span><span class="op">:</span> <span class="st">'0 0 0 0.2rem rgba(0,123,255,.5)'</span><span class="op">,</span></span>
+<span id="cb37-40"><a href="#cb37-40" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb37-41"><a href="#cb37-41" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb37-42"><a href="#cb37-42" tabindex="-1"></a></span>
+<span id="cb37-43"><a href="#cb37-43" tabindex="-1"></a><span class="kw">const</span> ColorButton <span class="op">=</span> <span class="fu">styled</span>(Button)(({ theme }) <span class="kw">=&gt;</span> ({</span>
+<span id="cb37-44"><a href="#cb37-44" tabindex="-1"></a>  <span class="dt">color</span><span class="op">:</span> theme<span class="op">.</span><span class="at">palette</span><span class="op">.</span><span class="fu">getContrastText</span>(purple[<span class="dv">500</span>])<span class="op">,</span></span>
+<span id="cb37-45"><a href="#cb37-45" tabindex="-1"></a>  <span class="dt">backgroundColor</span><span class="op">:</span> purple[<span class="dv">500</span>]<span class="op">,</span></span>
+<span id="cb37-46"><a href="#cb37-46" tabindex="-1"></a>  <span class="st">'&amp;:hover'</span><span class="op">:</span> {</span>
+<span id="cb37-47"><a href="#cb37-47" tabindex="-1"></a>    <span class="dt">backgroundColor</span><span class="op">:</span> purple[<span class="dv">700</span>]<span class="op">,</span></span>
+<span id="cb37-48"><a href="#cb37-48" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb37-49"><a href="#cb37-49" tabindex="-1"></a>}))<span class="op">;</span></span>
+<span id="cb37-50"><a href="#cb37-50" tabindex="-1"></a></span>
+<span id="cb37-51"><a href="#cb37-51" tabindex="-1"></a><span class="im">export</span> <span class="im">default</span> <span class="kw">function</span> <span class="fu">CustomizedButtons</span>() {</span>
+<span id="cb37-52"><a href="#cb37-52" tabindex="-1"></a>  <span class="cf">return</span> (</span>
+<span id="cb37-53"><a href="#cb37-53" tabindex="-1"></a>    <span class="fu">&lt;Stack</span> <span class="ot">spacing</span><span class="op">=</span><span class="va">{</span><span class="dv">2</span><span class="va">}</span> <span class="ot">direction</span><span class="op">=</span><span class="st">"row"</span><span class="fu">&gt;</span></span>
+<span id="cb37-54"><a href="#cb37-54" tabindex="-1"></a>      <span class="fu">&lt;ColorButton</span> <span class="ot">variant</span><span class="op">=</span><span class="st">"contained"</span><span class="fu">&gt;</span>Custom CSS<span class="fu">&lt;/ColorButton&gt;</span></span>
+<span id="cb37-55"><a href="#cb37-55" tabindex="-1"></a>      <span class="fu">&lt;BootstrapButton</span> <span class="ot">variant</span><span class="op">=</span><span class="st">"contained"</span> <span class="ot">disableRipple</span><span class="fu">&gt;</span></span>
+<span id="cb37-56"><a href="#cb37-56" tabindex="-1"></a>        Bootstrap</span>
+<span id="cb37-57"><a href="#cb37-57" tabindex="-1"></a>      <span class="fu">&lt;/BootstrapButton&gt;</span></span>
+<span id="cb37-58"><a href="#cb37-58" tabindex="-1"></a>    <span class="fu">&lt;/Stack&gt;</span></span>
+<span id="cb37-59"><a href="#cb37-59" tabindex="-1"></a>  )<span class="op">;</span></span>
+<span id="cb37-60"><a href="#cb37-60" tabindex="-1"></a>}</span></code></pre></div>
+</details><div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">CustomizedButtons</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="../reference/CssBaseline.html">CssBaseline</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="../reference/ThemeProvider.html">ThemeProvider</a></span><span class="op">(</span></span>
+<span>      theme <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>        components <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>          MuiButton <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>            styleOverrides <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>              root <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>                <span class="st">"&amp;.bootstrap-button"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>                  boxShadow <span class="op">=</span> <span class="st">"none"</span>,</span>
+<span>                  textTransform <span class="op">=</span> <span class="st">"none"</span>,</span>
+<span>                  fontSize <span class="op">=</span> <span class="fl">16</span>,</span>
+<span>                  padding <span class="op">=</span> <span class="st">"6px 12px"</span>,</span>
+<span>                  border <span class="op">=</span> <span class="st">"1px solid"</span>,</span>
+<span>                  lineHeight <span class="op">=</span> <span class="fl">1.5</span>,</span>
+<span>                  backgroundColor <span class="op">=</span> <span class="st">"#0063cc"</span>,</span>
+<span>                  borderColor <span class="op">=</span> <span class="st">"#0063cc"</span>,</span>
+<span>                  fontFamily <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span></span>
+<span>                    <span class="st">"-apple-system"</span>,</span>
+<span>                    <span class="st">"BlinkMacSystemFont"</span>,</span>
+<span>                    <span class="st">'"Segoe UI"'</span>,</span>
+<span>                    <span class="st">"Roboto"</span>,</span>
+<span>                    <span class="st">'"Helvetica Neue"'</span>,</span>
+<span>                    <span class="st">"Arial"</span>,</span>
+<span>                    <span class="st">"sans-serif"</span>,</span>
+<span>                    <span class="st">'"Apple Color Emoji"'</span>,</span>
+<span>                    <span class="st">'"Segoe UI Emoji"'</span>,</span>
+<span>                    <span class="st">'"Segoe UI Symbol"'</span>,</span>
+<span>                    sep <span class="op">=</span> <span class="st">","</span></span>
+<span>                  <span class="op">)</span>,</span>
+<span>                  <span class="st">"&amp;:hover"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>                    backgroundColor <span class="op">=</span> <span class="st">"#0069d9"</span>,</span>
+<span>                    borderColor <span class="op">=</span> <span class="st">"#0062cc"</span>,</span>
+<span>                    boxShadow <span class="op">=</span> <span class="st">"none"</span></span>
+<span>                  <span class="op">)</span>,</span>
+<span>                  <span class="st">"&amp;:active"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>                    boxShadow <span class="op">=</span> <span class="st">"none"</span>,</span>
+<span>                    backgroundColor <span class="op">=</span> <span class="st">"#0062cc"</span>,</span>
+<span>                    borderColor <span class="op">=</span> <span class="st">"#005cbf"</span></span>
+<span>                  <span class="op">)</span>,</span>
+<span>                  <span class="st">"&amp;:focus"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>                    boxShadow <span class="op">=</span> <span class="st">"0 0 0 0.2rem rgba(0,123,255,.5)"</span></span>
+<span>                  <span class="op">)</span></span>
+<span>                <span class="op">)</span>,</span>
+<span>                <span class="st">"&amp;.color-button"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>                  color <span class="op">=</span> <span class="st">"#fff"</span>,</span>
+<span>                  backgroundColor <span class="op">=</span> <span class="st">"#9c27b0"</span>,</span>
+<span>                  <span class="st">"&amp;:hover"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>                    backgroundColor <span class="op">=</span> <span class="st">"#7b1fa2"</span></span>
+<span>                  <span class="op">)</span></span>
+<span>                <span class="op">)</span></span>
+<span>              <span class="op">)</span></span>
+<span>            <span class="op">)</span></span>
+<span>          <span class="op">)</span></span>
+<span>        <span class="op">)</span></span>
+<span>      <span class="op">)</span>,</span>
+<span>      <span class="fu"><a href="../reference/Stack.html">Stack</a></span><span class="op">(</span></span>
+<span>        spacing <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>        direction <span class="op">=</span> <span class="st">"row"</span>,</span>
+<span>        <span class="fu"><a href="../reference/Button.html">Button</a></span><span class="op">(</span></span>
+<span>          variant <span class="op">=</span> <span class="st">"contained"</span>,</span>
+<span>          className <span class="op">=</span> <span class="st">"color-button"</span>,</span>
+<span>          <span class="st">"Custom CSS"</span></span>
+<span>        <span class="op">)</span>,</span>
+<span>        <span class="fu"><a href="../reference/Button.html">Button</a></span><span class="op">(</span></span>
+<span>          variant <span class="op">=</span> <span class="st">"contained"</span>,</span>
+<span>          className <span class="op">=</span> <span class="st">"bootstrap-button"</span>,</span>
+<span>          disableRipple <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>          <span class="st">"Bootstrap"</span></span>
+<span>        <span class="op">)</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span><span class="fu">CustomizedButtons</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="react-container" data-react-id="asdoussbluvfezpdhlvz">
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"CssBaseline","props":{"type":"object","value":{"children":{"type":"element","module":"@/shinyMaterialUI","name":"ThemeProvider","props":{"type":"object","value":{"theme":{"type":"raw","value":{"components":{"MuiButton":{"styleOverrides":{"root":{"&.bootstrap-button":{"boxShadow":"none","textTransform":"none","fontSize":16,"padding":"6px 12px","border":"1px solid","lineHeight":1.5,"backgroundColor":"#0063cc","borderColor":"#0063cc","fontFamily":"-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,\"Helvetica Neue\",Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\"","&:hover":{"backgroundColor":"#0069d9","borderColor":"#0062cc","boxShadow":"none"},"&:active":{"boxShadow":"none","backgroundColor":"#0062cc","borderColor":"#005cbf"},"&:focus":{"boxShadow":"0 0 0 0.2rem rgba(0,123,255,.5)"}},"&.color-button":{"color":"#fff","backgroundColor":"#9c27b0","&:hover":{"backgroundColor":"#7b1fa2"}}}}}}}},"children":{"type":"element","module":"@mui/material","name":"Stack","props":{"type":"object","value":{"spacing":{"type":"raw","value":2},"direction":{"type":"raw","value":"row"},"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"Button","props":{"type":"raw","value":{"variant":"contained","className":"color-button","children":"Custom CSS"}}},{"type":"element","module":"@mui/material","name":"Button","props":{"type":"raw","value":{"variant":"contained","className":"bootstrap-button","disableRipple":true,"children":"Bootstrap"}}}]}}}}}}}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('asdoussbluvfezpdhlvz')</script>
+</div>
+</div>
+<div class="section level3">
+<h3 id="complex-button">Complex button<a class="anchor" aria-label="anchor" href="#complex-button"></a>
+</h3>
+<p>The Text Buttons, Contained Buttons, Floating Action Buttons and Icon
+Buttons are built on top of the same component: the ButtonBase. You can
+take advantage of this lower-level component to build custom
+interactions.</p>
+<details><summary>
+JS code
+</summary><div class="sourceCode" id="cb39"><pre class="sourceCode jsx"><code class="sourceCode javascriptreact"><span id="cb39-1"><a href="#cb39-1" tabindex="-1"></a><span class="im">import</span> <span class="op">*</span> <span class="im">as</span> React <span class="im">from</span> <span class="st">'react'</span><span class="op">;</span></span>
+<span id="cb39-2"><a href="#cb39-2" tabindex="-1"></a><span class="im">import</span> Box <span class="im">from</span> <span class="st">'@mui/material/Box'</span><span class="op">;</span></span>
+<span id="cb39-3"><a href="#cb39-3" tabindex="-1"></a><span class="im">import</span> ButtonBase <span class="im">from</span> <span class="st">'@mui/material/ButtonBase'</span><span class="op">;</span></span>
+<span id="cb39-4"><a href="#cb39-4" tabindex="-1"></a><span class="im">import</span> Typography <span class="im">from</span> <span class="st">'@mui/material/Typography'</span><span class="op">;</span></span>
+<span id="cb39-5"><a href="#cb39-5" tabindex="-1"></a></span>
+<span id="cb39-6"><a href="#cb39-6" tabindex="-1"></a><span class="kw">const</span> images <span class="op">=</span> [</span>
+<span id="cb39-7"><a href="#cb39-7" tabindex="-1"></a>  {</span>
+<span id="cb39-8"><a href="#cb39-8" tabindex="-1"></a>    <span class="dt">url</span><span class="op">:</span> <span class="st">'/static/images/buttons/breakfast.jpg'</span><span class="op">,</span></span>
+<span id="cb39-9"><a href="#cb39-9" tabindex="-1"></a>    <span class="dt">title</span><span class="op">:</span> <span class="st">'Breakfast'</span><span class="op">,</span></span>
+<span id="cb39-10"><a href="#cb39-10" tabindex="-1"></a>    <span class="dt">width</span><span class="op">:</span> <span class="st">'40%'</span><span class="op">,</span></span>
+<span id="cb39-11"><a href="#cb39-11" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb39-12"><a href="#cb39-12" tabindex="-1"></a>  {</span>
+<span id="cb39-13"><a href="#cb39-13" tabindex="-1"></a>    <span class="dt">url</span><span class="op">:</span> <span class="st">'/static/images/buttons/burgers.jpg'</span><span class="op">,</span></span>
+<span id="cb39-14"><a href="#cb39-14" tabindex="-1"></a>    <span class="dt">title</span><span class="op">:</span> <span class="st">'Burgers'</span><span class="op">,</span></span>
+<span id="cb39-15"><a href="#cb39-15" tabindex="-1"></a>    <span class="dt">width</span><span class="op">:</span> <span class="st">'30%'</span><span class="op">,</span></span>
+<span id="cb39-16"><a href="#cb39-16" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb39-17"><a href="#cb39-17" tabindex="-1"></a>  {</span>
+<span id="cb39-18"><a href="#cb39-18" tabindex="-1"></a>    <span class="dt">url</span><span class="op">:</span> <span class="st">'/static/images/buttons/camera.jpg'</span><span class="op">,</span></span>
+<span id="cb39-19"><a href="#cb39-19" tabindex="-1"></a>    <span class="dt">title</span><span class="op">:</span> <span class="st">'Camera'</span><span class="op">,</span></span>
+<span id="cb39-20"><a href="#cb39-20" tabindex="-1"></a>    <span class="dt">width</span><span class="op">:</span> <span class="st">'30%'</span><span class="op">,</span></span>
+<span id="cb39-21"><a href="#cb39-21" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb39-22"><a href="#cb39-22" tabindex="-1"></a>]<span class="op">;</span></span>
+<span id="cb39-23"><a href="#cb39-23" tabindex="-1"></a></span>
+<span id="cb39-24"><a href="#cb39-24" tabindex="-1"></a><span class="im">export</span> <span class="im">default</span> <span class="kw">function</span> <span class="fu">ButtonBaseDemo</span>() {</span>
+<span id="cb39-25"><a href="#cb39-25" tabindex="-1"></a>  <span class="cf">return</span> (</span>
+<span id="cb39-26"><a href="#cb39-26" tabindex="-1"></a>    <span class="fu">&lt;Box</span> <span class="ot">sx</span><span class="op">=</span><span class="va">{</span>{ <span class="dt">display</span><span class="op">:</span> <span class="st">'flex'</span><span class="op">,</span> <span class="dt">flexWrap</span><span class="op">:</span> <span class="st">'wrap'</span><span class="op">,</span> <span class="dt">minWidth</span><span class="op">:</span> <span class="dv">300</span><span class="op">,</span> <span class="dt">width</span><span class="op">:</span> <span class="st">'100%'</span> }<span class="va">}</span><span class="fu">&gt;</span></span>
+<span id="cb39-27"><a href="#cb39-27" tabindex="-1"></a>      <span class="va">{</span>images<span class="op">.</span><span class="fu">map</span>((image) <span class="kw">=&gt;</span> (</span>
+<span id="cb39-28"><a href="#cb39-28" tabindex="-1"></a>        <span class="fu">&lt;ButtonBase</span></span>
+<span id="cb39-29"><a href="#cb39-29" tabindex="-1"></a>          <span class="ot">focusRipple</span></span>
+<span id="cb39-30"><a href="#cb39-30" tabindex="-1"></a>          <span class="ot">key</span><span class="op">=</span><span class="va">{</span>image<span class="op">.</span><span class="at">title</span><span class="va">}</span></span>
+<span id="cb39-31"><a href="#cb39-31" tabindex="-1"></a>          <span class="ot">sx</span><span class="op">=</span><span class="va">{</span>{</span>
+<span id="cb39-32"><a href="#cb39-32" tabindex="-1"></a>            <span class="dt">position</span><span class="op">:</span> <span class="st">'relative'</span><span class="op">,</span></span>
+<span id="cb39-33"><a href="#cb39-33" tabindex="-1"></a>            <span class="dt">width</span><span class="op">:</span> image<span class="op">.</span><span class="at">width</span><span class="op">,</span></span>
+<span id="cb39-34"><a href="#cb39-34" tabindex="-1"></a>            <span class="dt">height</span><span class="op">:</span> <span class="dv">200</span><span class="op">,</span></span>
+<span id="cb39-35"><a href="#cb39-35" tabindex="-1"></a>            <span class="st">'&amp;:hover, &amp;.Mui-focusVisible'</span><span class="op">:</span> {</span>
+<span id="cb39-36"><a href="#cb39-36" tabindex="-1"></a>              <span class="dt">zIndex</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></span>
+<span id="cb39-37"><a href="#cb39-37" tabindex="-1"></a>              <span class="st">'&amp; .MuiImageBackdrop-root'</span><span class="op">:</span> {</span>
+<span id="cb39-38"><a href="#cb39-38" tabindex="-1"></a>                <span class="dt">opacity</span><span class="op">:</span> <span class="fl">0.15</span><span class="op">,</span></span>
+<span id="cb39-39"><a href="#cb39-39" tabindex="-1"></a>              }<span class="op">,</span></span>
+<span id="cb39-40"><a href="#cb39-40" tabindex="-1"></a>              <span class="st">'&amp; .MuiImageMarked-root'</span><span class="op">:</span> {</span>
+<span id="cb39-41"><a href="#cb39-41" tabindex="-1"></a>                <span class="dt">opacity</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span></span>
+<span id="cb39-42"><a href="#cb39-42" tabindex="-1"></a>              }<span class="op">,</span></span>
+<span id="cb39-43"><a href="#cb39-43" tabindex="-1"></a>              <span class="st">'&amp; .MuiTypography-root'</span><span class="op">:</span> {</span>
+<span id="cb39-44"><a href="#cb39-44" tabindex="-1"></a>                <span class="dt">border</span><span class="op">:</span> <span class="st">'4px solid currentColor'</span><span class="op">,</span></span>
+<span id="cb39-45"><a href="#cb39-45" tabindex="-1"></a>              }<span class="op">,</span></span>
+<span id="cb39-46"><a href="#cb39-46" tabindex="-1"></a>            }<span class="op">,</span></span>
+<span id="cb39-47"><a href="#cb39-47" tabindex="-1"></a>          }<span class="va">}</span></span>
+<span id="cb39-48"><a href="#cb39-48" tabindex="-1"></a>        <span class="fu">&gt;</span></span>
+<span id="cb39-49"><a href="#cb39-49" tabindex="-1"></a>          <span class="fu">&lt;Box</span></span>
+<span id="cb39-50"><a href="#cb39-50" tabindex="-1"></a>            <span class="ot">sx</span><span class="op">=</span><span class="va">{</span>{</span>
+<span id="cb39-51"><a href="#cb39-51" tabindex="-1"></a>              <span class="dt">position</span><span class="op">:</span> <span class="st">'absolute'</span><span class="op">,</span></span>
+<span id="cb39-52"><a href="#cb39-52" tabindex="-1"></a>              <span class="dt">left</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span></span>
+<span id="cb39-53"><a href="#cb39-53" tabindex="-1"></a>              <span class="dt">right</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span></span>
+<span id="cb39-54"><a href="#cb39-54" tabindex="-1"></a>              <span class="dt">top</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span></span>
+<span id="cb39-55"><a href="#cb39-55" tabindex="-1"></a>              <span class="dt">bottom</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span></span>
+<span id="cb39-56"><a href="#cb39-56" tabindex="-1"></a>              <span class="dt">backgroundSize</span><span class="op">:</span> <span class="st">'cover'</span><span class="op">,</span></span>
+<span id="cb39-57"><a href="#cb39-57" tabindex="-1"></a>              <span class="dt">backgroundPosition</span><span class="op">:</span> <span class="st">'center 40%'</span><span class="op">,</span></span>
+<span id="cb39-58"><a href="#cb39-58" tabindex="-1"></a>              <span class="dt">backgroundImage</span><span class="op">:</span> <span class="vs">`url(</span><span class="sc">${</span>image<span class="op">.</span><span class="at">url</span><span class="sc">}</span><span class="vs">)`</span><span class="op">,</span></span>
+<span id="cb39-59"><a href="#cb39-59" tabindex="-1"></a>            }<span class="va">}</span></span>
+<span id="cb39-60"><a href="#cb39-60" tabindex="-1"></a>          <span class="fu">/&gt;</span></span>
+<span id="cb39-61"><a href="#cb39-61" tabindex="-1"></a>          <span class="fu">&lt;Box</span></span>
+<span id="cb39-62"><a href="#cb39-62" tabindex="-1"></a>            <span class="ot">className</span><span class="op">=</span><span class="st">"MuiImageBackdrop-root"</span></span>
+<span id="cb39-63"><a href="#cb39-63" tabindex="-1"></a>            <span class="ot">sx</span><span class="op">=</span><span class="va">{</span>{</span>
+<span id="cb39-64"><a href="#cb39-64" tabindex="-1"></a>              <span class="dt">position</span><span class="op">:</span> <span class="st">'absolute'</span><span class="op">,</span></span>
+<span id="cb39-65"><a href="#cb39-65" tabindex="-1"></a>              <span class="dt">left</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span></span>
+<span id="cb39-66"><a href="#cb39-66" tabindex="-1"></a>              <span class="dt">right</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span></span>
+<span id="cb39-67"><a href="#cb39-67" tabindex="-1"></a>              <span class="dt">top</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span></span>
+<span id="cb39-68"><a href="#cb39-68" tabindex="-1"></a>              <span class="dt">bottom</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span></span>
+<span id="cb39-69"><a href="#cb39-69" tabindex="-1"></a>              <span class="dt">backgroundColor</span><span class="op">:</span> <span class="st">'common.black'</span><span class="op">,</span></span>
+<span id="cb39-70"><a href="#cb39-70" tabindex="-1"></a>              <span class="dt">opacity</span><span class="op">:</span> <span class="fl">0.4</span><span class="op">,</span></span>
+<span id="cb39-71"><a href="#cb39-71" tabindex="-1"></a>              <span class="dt">transition</span><span class="op">:</span> <span class="st">'opacity 0.3s'</span><span class="op">,</span></span>
+<span id="cb39-72"><a href="#cb39-72" tabindex="-1"></a>            }<span class="va">}</span></span>
+<span id="cb39-73"><a href="#cb39-73" tabindex="-1"></a>          <span class="fu">/&gt;</span></span>
+<span id="cb39-74"><a href="#cb39-74" tabindex="-1"></a>          <span class="fu">&lt;Box</span></span>
+<span id="cb39-75"><a href="#cb39-75" tabindex="-1"></a>            <span class="ot">sx</span><span class="op">=</span><span class="va">{</span>{</span>
+<span id="cb39-76"><a href="#cb39-76" tabindex="-1"></a>              <span class="dt">position</span><span class="op">:</span> <span class="st">'absolute'</span><span class="op">,</span></span>
+<span id="cb39-77"><a href="#cb39-77" tabindex="-1"></a>              <span class="dt">left</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span></span>
+<span id="cb39-78"><a href="#cb39-78" tabindex="-1"></a>              <span class="dt">right</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span></span>
+<span id="cb39-79"><a href="#cb39-79" tabindex="-1"></a>              <span class="dt">top</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span></span>
+<span id="cb39-80"><a href="#cb39-80" tabindex="-1"></a>              <span class="dt">bottom</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span></span>
+<span id="cb39-81"><a href="#cb39-81" tabindex="-1"></a>              <span class="dt">display</span><span class="op">:</span> <span class="st">'flex'</span><span class="op">,</span></span>
+<span id="cb39-82"><a href="#cb39-82" tabindex="-1"></a>              <span class="dt">alignItems</span><span class="op">:</span> <span class="st">'center'</span><span class="op">,</span></span>
+<span id="cb39-83"><a href="#cb39-83" tabindex="-1"></a>              <span class="dt">justifyContent</span><span class="op">:</span> <span class="st">'center'</span><span class="op">,</span></span>
+<span id="cb39-84"><a href="#cb39-84" tabindex="-1"></a>              <span class="dt">color</span><span class="op">:</span> <span class="st">'common.white'</span><span class="op">,</span></span>
+<span id="cb39-85"><a href="#cb39-85" tabindex="-1"></a>            }<span class="va">}</span></span>
+<span id="cb39-86"><a href="#cb39-86" tabindex="-1"></a>          <span class="fu">&gt;</span></span>
+<span id="cb39-87"><a href="#cb39-87" tabindex="-1"></a>            <span class="fu">&lt;Typography</span></span>
+<span id="cb39-88"><a href="#cb39-88" tabindex="-1"></a>              <span class="ot">component</span><span class="op">=</span><span class="st">"span"</span></span>
+<span id="cb39-89"><a href="#cb39-89" tabindex="-1"></a>              <span class="ot">variant</span><span class="op">=</span><span class="st">"subtitle1"</span></span>
+<span id="cb39-90"><a href="#cb39-90" tabindex="-1"></a>              <span class="ot">color</span><span class="op">=</span><span class="st">"inherit"</span></span>
+<span id="cb39-91"><a href="#cb39-91" tabindex="-1"></a>              <span class="ot">sx</span><span class="op">=</span><span class="va">{</span>{</span>
+<span id="cb39-92"><a href="#cb39-92" tabindex="-1"></a>                <span class="dt">position</span><span class="op">:</span> <span class="st">'relative'</span><span class="op">,</span></span>
+<span id="cb39-93"><a href="#cb39-93" tabindex="-1"></a>                <span class="dt">p</span><span class="op">:</span> <span class="dv">4</span><span class="op">,</span></span>
+<span id="cb39-94"><a href="#cb39-94" tabindex="-1"></a>                <span class="dt">pt</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span></span>
+<span id="cb39-95"><a href="#cb39-95" tabindex="-1"></a>                <span class="dt">pb</span><span class="op">:</span> (theme) <span class="kw">=&gt;</span> <span class="vs">`calc(</span><span class="sc">${</span>theme<span class="op">.</span><span class="fu">spacing</span>(<span class="dv">1</span>)<span class="sc">}</span><span class="vs"> + 6px)`</span><span class="op">,</span></span>
+<span id="cb39-96"><a href="#cb39-96" tabindex="-1"></a>              }<span class="va">}</span></span>
+<span id="cb39-97"><a href="#cb39-97" tabindex="-1"></a>            <span class="fu">&gt;</span></span>
+<span id="cb39-98"><a href="#cb39-98" tabindex="-1"></a>              <span class="va">{</span>image<span class="op">.</span><span class="at">title</span><span class="va">}</span></span>
+<span id="cb39-99"><a href="#cb39-99" tabindex="-1"></a>              <span class="fu">&lt;Box</span></span>
+<span id="cb39-100"><a href="#cb39-100" tabindex="-1"></a>                <span class="ot">className</span><span class="op">=</span><span class="st">"MuiImageMarked-root"</span></span>
+<span id="cb39-101"><a href="#cb39-101" tabindex="-1"></a>                <span class="ot">sx</span><span class="op">=</span><span class="va">{</span>{</span>
+<span id="cb39-102"><a href="#cb39-102" tabindex="-1"></a>                  <span class="dt">height</span><span class="op">:</span> <span class="dv">3</span><span class="op">,</span></span>
+<span id="cb39-103"><a href="#cb39-103" tabindex="-1"></a>                  <span class="dt">width</span><span class="op">:</span> <span class="dv">18</span><span class="op">,</span></span>
+<span id="cb39-104"><a href="#cb39-104" tabindex="-1"></a>                  <span class="dt">backgroundColor</span><span class="op">:</span> <span class="st">'common.white'</span><span class="op">,</span></span>
+<span id="cb39-105"><a href="#cb39-105" tabindex="-1"></a>                  <span class="dt">position</span><span class="op">:</span> <span class="st">'absolute'</span><span class="op">,</span></span>
+<span id="cb39-106"><a href="#cb39-106" tabindex="-1"></a>                  <span class="dt">bottom</span><span class="op">:</span> <span class="op">-</span><span class="dv">2</span><span class="op">,</span></span>
+<span id="cb39-107"><a href="#cb39-107" tabindex="-1"></a>                  <span class="dt">left</span><span class="op">:</span> <span class="st">'calc(50% - 9px)'</span><span class="op">,</span></span>
+<span id="cb39-108"><a href="#cb39-108" tabindex="-1"></a>                  <span class="dt">transition</span><span class="op">:</span> <span class="st">'opacity 0.3s'</span><span class="op">,</span></span>
+<span id="cb39-109"><a href="#cb39-109" tabindex="-1"></a>                }<span class="va">}</span></span>
+<span id="cb39-110"><a href="#cb39-110" tabindex="-1"></a>              <span class="fu">/&gt;</span></span>
+<span id="cb39-111"><a href="#cb39-111" tabindex="-1"></a>            <span class="fu">&lt;/Typography&gt;</span></span>
+<span id="cb39-112"><a href="#cb39-112" tabindex="-1"></a>          <span class="fu">&lt;/Box&gt;</span></span>
+<span id="cb39-113"><a href="#cb39-113" tabindex="-1"></a>        <span class="fu">&lt;/ButtonBase&gt;</span></span>
+<span id="cb39-114"><a href="#cb39-114" tabindex="-1"></a>      ))<span class="va">}</span></span>
+<span id="cb39-115"><a href="#cb39-115" tabindex="-1"></a>    <span class="fu">&lt;/Box&gt;</span></span>
+<span id="cb39-116"><a href="#cb39-116" tabindex="-1"></a>  )<span class="op">;</span></span>
+<span id="cb39-117"><a href="#cb39-117" tabindex="-1"></a>}</span></code></pre></div>
+</details><div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">ButtonBaseDemo</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">images</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>      url <span class="op">=</span> <span class="st">"https://mui.com/static/images/buttons/breakfast.jpg"</span>,</span>
+<span>      title <span class="op">=</span> <span class="st">"Breakfast"</span>,</span>
+<span>      width <span class="op">=</span> <span class="st">"40%"</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>      url <span class="op">=</span> <span class="st">"https://mui.com/static/images/buttons/burgers.jpg"</span>,</span>
+<span>      title <span class="op">=</span> <span class="st">"Burgers"</span>,</span>
+<span>      width <span class="op">=</span> <span class="st">"30%"</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>      url <span class="op">=</span> <span class="st">"https://mui.com/static/images/buttons/camera.jpg"</span>,</span>
+<span>      title <span class="op">=</span> <span class="st">"Camera"</span>,</span>
+<span>      width <span class="op">=</span> <span class="st">"30%"</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="fu"><a href="../reference/CssBaseline.html">CssBaseline</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="../reference/Box.html">Box</a></span><span class="op">(</span></span>
+<span>      sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>        display <span class="op">=</span> <span class="st">"flex"</span>,</span>
+<span>        flexWrap <span class="op">=</span> <span class="st">"wrap"</span>,</span>
+<span>        minWidth <span class="op">=</span> <span class="fl">300</span>,</span>
+<span>        width <span class="op">=</span> <span class="st">"100%"</span></span>
+<span>      <span class="op">)</span>,</span>
+<span>      <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">images</span>, <span class="kw">function</span><span class="op">(</span><span class="va">image</span><span class="op">)</span> <span class="op">{</span></span>
+<span>        <span class="fu"><a href="../reference/ButtonBase.html">ButtonBase</a></span><span class="op">(</span></span>
+<span>          focusRipple <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>          key <span class="op">=</span> <span class="va">image</span><span class="op">$</span><span class="va">title</span>,</span>
+<span>          sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>            position <span class="op">=</span> <span class="st">"relative"</span>,</span>
+<span>            width <span class="op">=</span> <span class="va">image</span><span class="op">$</span><span class="va">width</span>,</span>
+<span>            height <span class="op">=</span> <span class="fl">200</span>,</span>
+<span>            <span class="st">"&amp;:hover, &amp;.Mui-focusVisible"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>              zIndex <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>              <span class="st">"&amp; .MuiImageBackdrop-root"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>                opacity <span class="op">=</span> <span class="fl">0.15</span></span>
+<span>              <span class="op">)</span>,</span>
+<span>              <span class="st">"&amp; .MuiImageMarked-root"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>                opacity <span class="op">=</span> <span class="fl">0</span></span>
+<span>              <span class="op">)</span>,</span>
+<span>              <span class="st">"&amp; .MuiTypography-root"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>                border <span class="op">=</span> <span class="st">"4px solid currentColor"</span></span>
+<span>              <span class="op">)</span></span>
+<span>            <span class="op">)</span></span>
+<span>          <span class="op">)</span>,</span>
+<span>          <span class="fu"><a href="../reference/Box.html">Box</a></span><span class="op">(</span></span>
+<span>            sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>              position <span class="op">=</span> <span class="st">"absolute"</span>,</span>
+<span>              left <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>              right <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>              top <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>              bottom <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>              backgroundSize <span class="op">=</span> <span class="st">"cover"</span>,</span>
+<span>              backgroundPosition <span class="op">=</span> <span class="st">"center 40%"</span>,</span>
+<span>              backgroundImage <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"url("</span>, <span class="va">image</span><span class="op">$</span><span class="va">url</span>, <span class="st">")"</span><span class="op">)</span></span>
+<span>            <span class="op">)</span></span>
+<span>          <span class="op">)</span>,</span>
+<span>          <span class="fu"><a href="../reference/Box.html">Box</a></span><span class="op">(</span></span>
+<span>            className <span class="op">=</span> <span class="st">"MuiImageBackdrop-root"</span>,</span>
+<span>            sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>              position <span class="op">=</span> <span class="st">"absolute"</span>,</span>
+<span>              left <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>              right <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>              top <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>              bottom <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>              backgroundColor <span class="op">=</span> <span class="st">"common.black"</span>,</span>
+<span>              opacity <span class="op">=</span> <span class="fl">0.4</span>,</span>
+<span>              transition <span class="op">=</span> <span class="st">"opacity 0.3s"</span></span>
+<span>            <span class="op">)</span></span>
+<span>          <span class="op">)</span>,</span>
+<span>          <span class="fu"><a href="../reference/Box.html">Box</a></span><span class="op">(</span></span>
+<span>            sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>              position <span class="op">=</span> <span class="st">"absolute"</span>,</span>
+<span>              left <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>              right <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>              top <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>              bottom <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>              display <span class="op">=</span> <span class="st">"flex"</span>,</span>
+<span>              alignItems <span class="op">=</span> <span class="st">"center"</span>,</span>
+<span>              justifyContent <span class="op">=</span> <span class="st">"center"</span>,</span>
+<span>              color <span class="op">=</span> <span class="st">"common.white"</span></span>
+<span>            <span class="op">)</span>,</span>
+<span>            <span class="fu"><a href="../reference/Typography.html">Typography</a></span><span class="op">(</span></span>
+<span>              component <span class="op">=</span> <span class="st">"span"</span>,</span>
+<span>              variant <span class="op">=</span> <span class="st">"subtitle1"</span>,</span>
+<span>              color <span class="op">=</span> <span class="st">"inherit"</span>,</span>
+<span>              sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>                position <span class="op">=</span> <span class="st">"relative"</span>,</span>
+<span>                p <span class="op">=</span> <span class="fl">4</span>,</span>
+<span>                pt <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>                pb <span class="op">=</span> <span class="st">"calc(8px + 6px)"</span></span>
+<span>              <span class="op">)</span>,</span>
+<span>              <span class="va">image</span><span class="op">$</span><span class="va">title</span>,</span>
+<span>              <span class="fu"><a href="../reference/Box.html">Box</a></span><span class="op">(</span></span>
+<span>                className <span class="op">=</span> <span class="st">"MuiImageMarked-root"</span>,</span>
+<span>                sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>                  height <span class="op">=</span> <span class="fl">3</span>,</span>
+<span>                  width <span class="op">=</span> <span class="fl">18</span>,</span>
+<span>                  backgroundColor <span class="op">=</span> <span class="st">"common.white"</span>,</span>
+<span>                  position <span class="op">=</span> <span class="st">"absolute"</span>,</span>
+<span>                  bottom <span class="op">=</span> <span class="op">-</span><span class="fl">2</span>,</span>
+<span>                  left <span class="op">=</span> <span class="st">"calc(50% - 9px)"</span>,</span>
+<span>                  transition <span class="op">=</span> <span class="st">"opacity 0.3s"</span></span>
+<span>                <span class="op">)</span></span>
+<span>              <span class="op">)</span></span>
+<span>            <span class="op">)</span></span>
+<span>          <span class="op">)</span></span>
+<span>        <span class="op">)</span></span>
+<span>      <span class="op">}</span><span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span><span class="fu">ButtonBaseDemo</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="react-container" data-react-id="dvtrfzrtqcboaeqvxvur">
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"CssBaseline","props":{"type":"object","value":{"children":{"type":"element","module":"@mui/material","name":"Box","props":{"type":"object","value":{"sx":{"type":"raw","value":{"display":"flex","flexWrap":"wrap","minWidth":300,"width":"100%"}},"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"ButtonBase","props":{"type":"object","value":{"focusRipple":{"type":"raw","value":true},"key":{"type":"raw","value":"Breakfast"},"sx":{"type":"raw","value":{"position":"relative","width":"40%","height":200,"&:hover, &.Mui-focusVisible":{"zIndex":1,"& .MuiImageBackdrop-root":{"opacity":0.15},"& .MuiImageMarked-root":{"opacity":0},"& .MuiTypography-root":{"border":"4px solid currentColor"}}}},"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"Box","props":{"type":"raw","value":{"sx":{"position":"absolute","left":0,"right":0,"top":0,"bottom":0,"backgroundSize":"cover","backgroundPosition":"center 40%","backgroundImage":"url(https://mui.com/static/images/buttons/breakfast.jpg)"}}}},{"type":"element","module":"@mui/material","name":"Box","props":{"type":"raw","value":{"className":"MuiImageBackdrop-root","sx":{"position":"absolute","left":0,"right":0,"top":0,"bottom":0,"backgroundColor":"common.black","opacity":0.4,"transition":"opacity 0.3s"}}}},{"type":"element","module":"@mui/material","name":"Box","props":{"type":"object","value":{"sx":{"type":"raw","value":{"position":"absolute","left":0,"right":0,"top":0,"bottom":0,"display":"flex","alignItems":"center","justifyContent":"center","color":"common.white"}},"children":{"type":"element","module":"@mui/material","name":"Typography","props":{"type":"object","value":{"component":{"type":"raw","value":"span"},"variant":{"type":"raw","value":"subtitle1"},"color":{"type":"raw","value":"inherit"},"sx":{"type":"raw","value":{"position":"relative","p":4,"pt":2,"pb":"calc(8px + 6px)"}},"children":{"type":"array","value":[{"type":"raw","value":"Breakfast"},{"type":"element","module":"@mui/material","name":"Box","props":{"type":"raw","value":{"className":"MuiImageMarked-root","sx":{"height":3,"width":18,"backgroundColor":"common.white","position":"absolute","bottom":-2,"left":"calc(50% - 9px)","transition":"opacity 0.3s"}}}}]}}}}}}}]}}}},{"type":"element","module":"@mui/material","name":"ButtonBase","props":{"type":"object","value":{"focusRipple":{"type":"raw","value":true},"key":{"type":"raw","value":"Burgers"},"sx":{"type":"raw","value":{"position":"relative","width":"30%","height":200,"&:hover, &.Mui-focusVisible":{"zIndex":1,"& .MuiImageBackdrop-root":{"opacity":0.15},"& .MuiImageMarked-root":{"opacity":0},"& .MuiTypography-root":{"border":"4px solid currentColor"}}}},"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"Box","props":{"type":"raw","value":{"sx":{"position":"absolute","left":0,"right":0,"top":0,"bottom":0,"backgroundSize":"cover","backgroundPosition":"center 40%","backgroundImage":"url(https://mui.com/static/images/buttons/burgers.jpg)"}}}},{"type":"element","module":"@mui/material","name":"Box","props":{"type":"raw","value":{"className":"MuiImageBackdrop-root","sx":{"position":"absolute","left":0,"right":0,"top":0,"bottom":0,"backgroundColor":"common.black","opacity":0.4,"transition":"opacity 0.3s"}}}},{"type":"element","module":"@mui/material","name":"Box","props":{"type":"object","value":{"sx":{"type":"raw","value":{"position":"absolute","left":0,"right":0,"top":0,"bottom":0,"display":"flex","alignItems":"center","justifyContent":"center","color":"common.white"}},"children":{"type":"element","module":"@mui/material","name":"Typography","props":{"type":"object","value":{"component":{"type":"raw","value":"span"},"variant":{"type":"raw","value":"subtitle1"},"color":{"type":"raw","value":"inherit"},"sx":{"type":"raw","value":{"position":"relative","p":4,"pt":2,"pb":"calc(8px + 6px)"}},"children":{"type":"array","value":[{"type":"raw","value":"Burgers"},{"type":"element","module":"@mui/material","name":"Box","props":{"type":"raw","value":{"className":"MuiImageMarked-root","sx":{"height":3,"width":18,"backgroundColor":"common.white","position":"absolute","bottom":-2,"left":"calc(50% - 9px)","transition":"opacity 0.3s"}}}}]}}}}}}}]}}}},{"type":"element","module":"@mui/material","name":"ButtonBase","props":{"type":"object","value":{"focusRipple":{"type":"raw","value":true},"key":{"type":"raw","value":"Camera"},"sx":{"type":"raw","value":{"position":"relative","width":"30%","height":200,"&:hover, &.Mui-focusVisible":{"zIndex":1,"& .MuiImageBackdrop-root":{"opacity":0.15},"& .MuiImageMarked-root":{"opacity":0},"& .MuiTypography-root":{"border":"4px solid currentColor"}}}},"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"Box","props":{"type":"raw","value":{"sx":{"position":"absolute","left":0,"right":0,"top":0,"bottom":0,"backgroundSize":"cover","backgroundPosition":"center 40%","backgroundImage":"url(https://mui.com/static/images/buttons/camera.jpg)"}}}},{"type":"element","module":"@mui/material","name":"Box","props":{"type":"raw","value":{"className":"MuiImageBackdrop-root","sx":{"position":"absolute","left":0,"right":0,"top":0,"bottom":0,"backgroundColor":"common.black","opacity":0.4,"transition":"opacity 0.3s"}}}},{"type":"element","module":"@mui/material","name":"Box","props":{"type":"object","value":{"sx":{"type":"raw","value":{"position":"absolute","left":0,"right":0,"top":0,"bottom":0,"display":"flex","alignItems":"center","justifyContent":"center","color":"common.white"}},"children":{"type":"element","module":"@mui/material","name":"Typography","props":{"type":"object","value":{"component":{"type":"raw","value":"span"},"variant":{"type":"raw","value":"subtitle1"},"color":{"type":"raw","value":"inherit"},"sx":{"type":"raw","value":{"position":"relative","p":4,"pt":2,"pb":"calc(8px + 6px)"}},"children":{"type":"array","value":[{"type":"raw","value":"Camera"},{"type":"element","module":"@mui/material","name":"Box","props":{"type":"raw","value":{"className":"MuiImageMarked-root","sx":{"height":3,"width":18,"backgroundColor":"common.white","position":"absolute","bottom":-2,"left":"calc(50% - 9px)","transition":"opacity 0.3s"}}}}]}}}}}}}]}}}}]}}}}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('dvtrfzrtqcboaeqvxvur')</script>
+</div>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
@@ -1174,7 +1566,7 @@ more about this in the overrides documentation page.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.2.</p>
 </div>
 
     </footer>
