@@ -386,6 +386,11 @@ multiple routes in a Quarto or R markdown documents:</p>
 <div class="section level3">
 <h3 id="server-side-rendering-issue">Server side rendering issue<a class="anchor" aria-label="anchor" href="#server-side-rendering-issue"></a>
 </h3>
+<p>This issue has been fixed in the development version of the R package. You can get the development version on <a href="https://github.com/lgnbhl/reactRouter" class="external-link">Github</a>:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">remotes::install_github("lgnbhl/reactRouter") # development version</span></span>
+<span></span>
+</code></pre></div>
 <p>If some pages have the same HTML structure, shiny will not update the
 content rendered in the server when clicking on a new page.</p>
 <p>Here an minimal example of the issue:</p>
