@@ -114,12 +114,12 @@
 <span><span class="co">#&gt; List of 2</span></span>
 <span><span class="co">#&gt;  $ :List of 3</span></span>
 <span><span class="co">#&gt;   ..$ label   : chr "SimpleTreeView"</span></span>
-<span><span class="co">#&gt;   ..$ id      : chr "SimpleTreeView-4185118"</span></span>
+<span><span class="co">#&gt;   ..$ id      : chr "SimpleTreeView-8560913"</span></span>
 <span><span class="co">#&gt;   ..$ children:List of 1</span></span>
 <span><span class="co">#&gt;   .. ..$ :List of 2</span></span>
 <span><span class="co">#&gt;  $ :List of 3</span></span>
 <span><span class="co">#&gt;   ..$ label   : chr "RichTreeView"</span></span>
-<span><span class="co">#&gt;   ..$ id      : chr "RichTreeView-7923291"</span></span>
+<span><span class="co">#&gt;   ..$ id      : chr "RichTreeView-5995978"</span></span>
 <span><span class="co">#&gt;   ..$ children:List of 1</span></span>
 <span><span class="co">#&gt;   .. ..$ :List of 2</span></span></code></pre></div>
 <p><code><a href="reference/createTree.html">createTree()</a></code> creates also unique IDs for each node by joining the name of the label with an random integer between a dash.</p>
@@ -158,9 +158,10 @@
 <p>As <code><a href="reference/createTree.html">createTree()</a></code> is adapted from <a href="https://dreamrs.github.io/shinyWidgets/reference/create_tree.html" class="external-link"><code>shinyWidgets::create_tree()</code></a>, I want to thank the authors of shinyWidgets for their amazing work!</p>
 </div>
 <div class="section level3">
-<h3 id="rich-tree-view-node-expanded">Rich Tree View node expanded<a class="anchor" aria-label="anchor" href="#rich-tree-view-node-expanded"></a>
+<h3 id="rich-tree-view-default-selection-and-expand">Rich Tree View default selection and expand<a class="anchor" aria-label="anchor" href="#rich-tree-view-default-selection-and-expand"></a>
 </h3>
-<p>You can expand by default one or multiple nodes with the <code>defaultExpandedItems</code> argument by providing its related IDs.</p>
+<p>Select by default one or multiple items with the <code>defaultSelectedItems</code> argument by providing its related IDs.</p>
+<p>You can also expand by default one or multiple nodes with the <code>defaultExpandedItems</code> argument by providing its related IDs.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
 <span>  pkg <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"muiTreeView"</span>, <span class="st">"muiTreeView"</span>, <span class="st">"muiTreeView"</span><span class="op">)</span>,</span>
@@ -170,9 +171,13 @@
 <span></span>
 <span><span class="va">treeItems</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/createTree.html">createTree</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span>
 <span></span>
+<span><span class="va">defaultSelectedId</span> <span class="op">&lt;-</span> <span class="va">treeItems</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">children</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">id</span></span>
+<span><span class="va">defaultExpandedId</span> <span class="op">&lt;-</span> <span class="va">treeItems</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">id</span></span>
+<span></span>
 <span><span class="fu"><a href="reference/RichTreeView.html">RichTreeView</a></span><span class="op">(</span></span>
 <span>  items <span class="op">=</span> <span class="va">treeItems</span>,</span>
-<span>  defaultExpandedItems <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">treeItems</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">id</span><span class="op">)</span> <span class="co"># always in list()</span></span>
+<span>  defaultSelectedItems <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">defaultSelectedId</span><span class="op">)</span>, <span class="co"># always in list()</span></span>
+<span>  defaultExpandedItems <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">defaultExpandedId</span><span class="op">)</span> <span class="co"># always in list()</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
@@ -194,6 +199,8 @@
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">treeItems</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/createTree.html">createTree</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span>
+<span><span class="va">defaultExpanded</span> <span class="op">&lt;-</span> <span class="va">treeItems</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">id</span></span>
+<span><span class="va">defaultSelectedId</span> <span class="op">&lt;-</span> <span class="va">treeItems</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">children</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">id</span></span>
 <span></span>
 <span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span>
 <span>  <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/reactOutput.html" class="external-link">reactOutput</a></span><span class="op">(</span><span class="st">"tree"</span><span class="op">)</span>,</span>
@@ -205,16 +212,37 @@
 <span>    <span class="fu"><a href="reference/RichTreeView.html">RichTreeView</a></span><span class="op">(</span></span>
 <span>      items <span class="op">=</span> <span class="va">treeItems</span>,</span>
 <span>      <span class="co"># expand by default a node with its id</span></span>
-<span>      defaultExpandedItems <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">treeItems</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">id</span><span class="op">)</span>, <span class="co"># always in list()</span></span>
+<span>      defaultSelectedItems <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">defaultSelectedId</span><span class="op">)</span>, <span class="co"># always in list()</span></span>
+<span>      defaultExpandedItems <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">defaultExpanded</span><span class="op">)</span>, <span class="co"># always in list()</span></span>
 <span>      onItemSelectionToggle <span class="op">=</span> <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/setInput.html" class="external-link">setInput</a></span><span class="op">(</span></span>
 <span>        inputId <span class="op">=</span> <span class="st">"itemSelection"</span>, </span>
 <span>        jsAccessor <span class="op">=</span> <span class="st">"[1]"</span></span>
 <span>      <span class="op">)</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">}</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="co"># Reproduce logic from official MUI's documentation</span></span>
+<span>  <span class="va">selectedItems</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactiveValues.html" class="external-link">reactiveValues</a></span><span class="op">(</span></span>
+<span>    selected <span class="op">=</span> <span class="va">defaultSelectedId</span></span>
+<span>  <span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">itemSelection</span>, <span class="op">{</span></span>
+<span>    <span class="va">current_selection</span> <span class="op">&lt;-</span> <span class="va">input</span><span class="op">$</span><span class="va">itemSelection</span></span>
+<span>    </span>
+<span>    <span class="kw">if</span><span class="op">(</span><span class="va">current_selection</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="va">selectedItems</span><span class="op">$</span><span class="va">selected</span><span class="op">)</span> <span class="op">{</span></span>
+<span>      <span class="co"># Remove if already selected</span></span>
+<span>      <span class="va">new_selection</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sets.html" class="external-link">setdiff</a></span><span class="op">(</span><span class="va">selectedItems</span><span class="op">$</span><span class="va">selected</span>, <span class="va">current_selection</span><span class="op">)</span></span>
+<span>    <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
+<span>      <span class="co"># Add if not selected</span></span>
+<span>      <span class="va">new_selection</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">selectedItems</span><span class="op">$</span><span class="va">selected</span>, <span class="va">current_selection</span><span class="op">)</span></span>
+<span>    <span class="op">}</span></span>
+<span>    </span>
+<span>    <span class="va">selectedItems</span><span class="op">$</span><span class="va">selected</span> <span class="op">&lt;-</span> <span class="va">new_selection</span></span>
+<span>  <span class="op">}</span><span class="op">)</span></span>
+<span>  </span>
 <span>  <span class="va">output</span><span class="op">$</span><span class="va">info</span> <span class="op">&lt;-</span> <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html" class="external-link">renderPrint</a></span><span class="op">(</span></span>
 <span>    <span class="co"># remove random ID to return only item label name</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"\\-.*$"</span>, replacement <span class="op">=</span> <span class="st">""</span>, x <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">itemSelection</span><span class="op">)</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"\\-.*$"</span>, replacement <span class="op">=</span> <span class="st">""</span>, x <span class="op">=</span> <span class="va">selectedItems</span><span class="op">$</span><span class="va">selected</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span></span>
@@ -236,6 +264,9 @@
 <span></span>
 <span><span class="va">treeItems</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/createTree.html">createTree</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span>
 <span></span>
+<span><span class="va">defaultExpandedId</span> <span class="op">&lt;-</span> <span class="va">treeItems</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">id</span></span>
+<span><span class="va">defaultSelectedId</span> <span class="op">&lt;-</span> <span class="va">treeItems</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">children</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">children</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">id</span></span>
+<span></span>
 <span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span>
 <span>  <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/reactOutput.html" class="external-link">reactOutput</a></span><span class="op">(</span><span class="st">"tree"</span><span class="op">)</span>,</span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textOutput.html" class="external-link">verbatimTextOutput</a></span><span class="op">(</span><span class="st">"info"</span><span class="op">)</span></span>
@@ -248,10 +279,10 @@
 <span>      multiSelect <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>      items <span class="op">=</span> <span class="va">treeItems</span>,</span>
 <span>      <span class="co"># expand by default a node with its id</span></span>
-<span>      defaultExpandedItems <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">treeItems</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">id</span><span class="op">)</span>, <span class="co"># always in list()</span></span>
-<span>      <span class="co"># By default, selecting a parent item does not select its children.</span></span>
+<span>      defaultExpandedItems <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">defaultExpandedId</span><span class="op">)</span>, <span class="co"># always in list()</span></span>
+<span>      defaultSelectedItems <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">defaultSelectedId</span><span class="op">)</span>, <span class="co"># always in list()</span></span>
+<span>      <span class="co"># By default, selecting a item does not select its children.</span></span>
 <span>      selectionPropagation <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>        parents <span class="op">=</span> <span class="cn">TRUE</span>, </span>
 <span>        descendants <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span>      <span class="op">)</span>,</span>
 <span>      onItemSelectionToggle <span class="op">=</span> <span class="fu">shiny.react</span><span class="fu">::</span><span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/setInput.html" class="external-link">setInput</a></span><span class="op">(</span></span>
@@ -262,8 +293,9 @@
 <span>  <span class="op">}</span><span class="op">)</span></span>
 <span>  </span>
 <span>  <span class="co"># Reproduce logic from official MUI's documentation</span></span>
-<span>  <span class="va">selectedItems</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactiveValues.html" class="external-link">reactiveValues</a></span><span class="op">(</span><span class="op">)</span></span>
-<span>  <span class="va">selectedItems</span><span class="op">$</span><span class="va">selected</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span>
+<span>  <span class="va">selectedItems</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactiveValues.html" class="external-link">reactiveValues</a></span><span class="op">(</span></span>
+<span>    selected <span class="op">=</span> <span class="va">defaultSelectedId</span></span>
+<span>  <span class="op">)</span></span>
 <span>  </span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">itemSelection</span>, <span class="op">{</span></span>
 <span>    <span class="va">current_selection</span> <span class="op">&lt;-</span> <span class="va">input</span><span class="op">$</span><span class="va">itemSelection</span></span>
