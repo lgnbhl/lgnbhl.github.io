@@ -114,12 +114,12 @@
 <span><span class="co">#&gt; List of 2</span></span>
 <span><span class="co">#&gt;  $ :List of 3</span></span>
 <span><span class="co">#&gt;   ..$ label   : chr "SimpleTreeView"</span></span>
-<span><span class="co">#&gt;   ..$ id      : chr "SimpleTreeView-3435518"</span></span>
+<span><span class="co">#&gt;   ..$ id      : chr "SimpleTreeView-3700051"</span></span>
 <span><span class="co">#&gt;   ..$ children:List of 1</span></span>
 <span><span class="co">#&gt;   .. ..$ :List of 2</span></span>
 <span><span class="co">#&gt;  $ :List of 3</span></span>
 <span><span class="co">#&gt;   ..$ label   : chr "RichTreeView"</span></span>
-<span><span class="co">#&gt;   ..$ id      : chr "RichTreeView-7881784"</span></span>
+<span><span class="co">#&gt;   ..$ id      : chr "RichTreeView-1247819"</span></span>
 <span><span class="co">#&gt;   ..$ children:List of 1</span></span>
 <span><span class="co">#&gt;   .. ..$ :List of 2</span></span></code></pre></div>
 <p><code><a href="reference/createTree.html">createTree()</a></code> creates also unique IDs for each node by joining the name of the label with an random integer between a dash.</p>
@@ -181,10 +181,29 @@
 <span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
+<h3 id="custom-styling">Custom styling<a class="anchor" aria-label="anchor" href="#custom-styling"></a>
+</h3>
+<p>As <strong>muiTreeView</strong> is using the Material UI library under the hood, you can customize component styles using CSS classes with the “sx” argument:</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/RichTreeView.html">RichTreeView</a></span><span class="op">(</span></span>
+<span>  items <span class="op">=</span> <span class="va">treeItems</span>,</span>
+<span>  sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    <span class="st">".MuiTreeItem-root"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>      <span class="st">".Mui-selected, .Mui-selected:hover, .Mui-focused.Mui-selected"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>        background <span class="op">=</span> <span class="st">"red"</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<p><img src="reference/figures/richTreeView-custom.png" alt="customized clicked" style="padding:1px;border:thin solid black;"></p>
+<p>Note that even if the <a href="https://mui.com/x/api/tree-view/tree-item/#classes" class="external-link">CSS classes</a> are deprecated they are still working.</p>
+<p>You can access all Material UI components using the <a href="https://felixluginbuhl.com/shinyMaterialUI/" class="external-link">shinyMaterialUI</a> R package.</p>
+</div>
+<div class="section level3">
 <h3 id="simple-tree-view">Simple Tree View<a class="anchor" aria-label="anchor" href="#simple-tree-view"></a>
 </h3>
 <p>Using <code><a href="reference/SimpleTreeView.html">SimpleTreeView()</a></code> with <code><a href="reference/TreeItem.html">TreeItem()</a></code>, you can easily customize items with icons for example:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/SimpleTreeView.html">SimpleTreeView</a></span><span class="op">(</span></span>
 <span>  defaultExpandedItems <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">"documents"</span><span class="op">)</span>, <span class="co"># always in list()</span></span>
 <span>  defaultSelectedItems <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">"notes"</span><span class="op">)</span>, <span class="co"># always in list()</span></span>
@@ -224,7 +243,7 @@
 <div class="section level3">
 <h3 id="track-latest-item-clicked">Track latest item clicked<a class="anchor" aria-label="anchor" href="#track-latest-item-clicked"></a>
 </h3>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
@@ -288,7 +307,7 @@
 <h3 id="track-multiple-items-with-checkbox-selection">Track multiple items with checkbox selection<a class="anchor" aria-label="anchor" href="#track-multiple-items-with-checkbox-selection"></a>
 </h3>
 <p>You can use reactive values to get multiple items selection by implementing the logic as showed in the <a href="https://mui.com/x/react-tree-view/rich-tree-view/selection/#track-item-selection-change" class="external-link">official MUI documentation</a>.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
