@@ -1,8 +1,9 @@
 pandoc: 3.6.3
 pkgdown: 2.1.2
 pkgdown_sha: ~
-articles: {}
-last_built: 2025-11-12T19:21Z
+articles:
+  introduction: introduction.html
+last_built: 2025-11-17T13:30Z
 urls:
   reference: https://felixluginbuhl.com/muiTreeView/reference
   article: https://felixluginbuhl.com/muiTreeView/articles
