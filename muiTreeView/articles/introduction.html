@@ -201,16 +201,17 @@ IDs.</p>
 <span></span>
 <span><span class="va">treeItems</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/asMuiTree.html">asMuiTree</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">defaultSelectedId</span> <span class="op">&lt;-</span> <span class="va">treeItems</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">children</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">id</span></span>
-<span><span class="va">defaultExpandedId</span> <span class="op">&lt;-</span> <span class="va">treeItems</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">id</span></span>
+<span><span class="va">defaultSelectedId</span> <span class="op">&lt;-</span> <span class="va">treeItems</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">children</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">children</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">id</span></span>
+<span><span class="va">defaultExpandedId_1</span> <span class="op">&lt;-</span> <span class="va">treeItems</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">children</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">id</span></span>
+<span><span class="va">defaultExpandedId_2</span> <span class="op">&lt;-</span> <span class="va">treeItems</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">id</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/RichTreeView.html">RichTreeView</a></span><span class="op">(</span></span>
 <span>  items <span class="op">=</span> <span class="va">treeItems</span>,</span>
 <span>  defaultSelectedItems <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">defaultSelectedId</span><span class="op">)</span>, <span class="co"># always in list()</span></span>
-<span>  defaultExpandedItems <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">defaultExpandedId</span><span class="op">)</span> <span class="co"># always in list()</span></span>
+<span>  defaultExpandedItems <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">defaultExpandedId_1</span>, <span class="va">defaultExpandedId_2</span><span class="op">)</span> <span class="co"># always in list()</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="oprgbxbzpexapgxvsfsf">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-tree-view","name":"RichTreeView","props":{"type":"raw","value":{"items":[{"label":"muiTreeView","id":"muiTreeView-1081357","children":[{"label":"SimpleTreeView","id":"SimpleTreeView-671649","children":[{"label":"items","id":"items-2344199"}]},{"label":"RichTreeView","id":"RichTreeView-9843160","children":[{"label":"items","id":"items-2206152"},{"label":"onItemSelectionToggle","id":"onItemSelectionToggle-4779315"}]}]}],"defaultSelectedItems":["SimpleTreeView-671649"],"defaultExpandedItems":["muiTreeView-1081357"]}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('oprgbxbzpexapgxvsfsf')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-tree-view","name":"RichTreeView","props":{"type":"raw","value":{"items":[{"label":"muiTreeView","id":"muiTreeView-1081357","children":[{"label":"SimpleTreeView","id":"SimpleTreeView-671649","children":[{"label":"items","id":"items-2344199"}]},{"label":"RichTreeView","id":"RichTreeView-9843160","children":[{"label":"items","id":"items-2206152"},{"label":"onItemSelectionToggle","id":"onItemSelectionToggle-4779315"}]}]}],"defaultSelectedItems":["items-2344199"],"defaultExpandedItems":["SimpleTreeView-671649","muiTreeView-1081357"]}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('oprgbxbzpexapgxvsfsf')</script>
 </div>
 </div>
 <div class="section level3">
@@ -321,7 +322,8 @@ i.e. <code>gsub(pattern = "\\-.*$", replacement = "", x = input$itemSelection)<
 <span></span>
 <span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span>
 <span>  <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/reactOutput.html" class="external-link">reactOutput</a></span><span class="op">(</span><span class="st">"tree"</span><span class="op">)</span>,</span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textOutput.html" class="external-link">verbatimTextOutput</a></span><span class="op">(</span><span class="st">"info"</span><span class="op">)</span></span>
+<span>  <span class="co">#verbatimTextOutput("treeId"),</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textOutput.html" class="external-link">verbatimTextOutput</a></span><span class="op">(</span><span class="st">"treeLabel"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
@@ -356,10 +358,13 @@ i.e. <code>gsub(pattern = "\\-.*$", replacement = "", x = input$itemSelection)<
 <span>    </span>
 <span>    <span class="va">selectedItems</span><span class="op">$</span><span class="va">selected</span> <span class="op">&lt;-</span> <span class="va">new_selection</span></span>
 <span>  <span class="op">}</span><span class="op">)</span></span>
-<span>  </span>
-<span>  <span class="va">output</span><span class="op">$</span><span class="va">info</span> <span class="op">&lt;-</span> <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html" class="external-link">renderPrint</a></span><span class="op">(</span></span>
-<span>    <span class="co"># remove random ID to return only item label name</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"\\-.*$"</span>, replacement <span class="op">=</span> <span class="st">""</span>, x <span class="op">=</span> <span class="va">selectedItems</span><span class="op">$</span><span class="va">selected</span><span class="op">)</span></span>
+<span>  <span class="co"># output$treeId &lt;- shiny::renderPrint(</span></span>
+<span>  <span class="co">#   # return item label with tree ID (not cleaning with gsub())</span></span>
+<span>  <span class="co">#   selectedItems$selected</span></span>
+<span>  <span class="co"># )</span></span>
+<span>  <span class="va">output</span><span class="op">$</span><span class="va">treeLabel</span> <span class="op">&lt;-</span> <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html" class="external-link">renderPrint</a></span><span class="op">(</span></span>
+<span>    <span class="co"># remove dash "-" followed by a random digit (i.e. MUI tree ID) to return only item label</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"\\-[[:digit:]]*$"</span>, replacement <span class="op">=</span> <span class="st">""</span>, x <span class="op">=</span> <span class="va">selectedItems</span><span class="op">$</span><span class="va">selected</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span></span>
@@ -388,7 +393,8 @@ MUI documentation</a>.</p>
 <span></span>
 <span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span>
 <span>  <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/reactOutput.html" class="external-link">reactOutput</a></span><span class="op">(</span><span class="st">"tree"</span><span class="op">)</span>,</span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textOutput.html" class="external-link">verbatimTextOutput</a></span><span class="op">(</span><span class="st">"info"</span><span class="op">)</span></span>
+<span>  <span class="co">#verbatimTextOutput("treeId"),</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textOutput.html" class="external-link">verbatimTextOutput</a></span><span class="op">(</span><span class="st">"treeLabel"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
@@ -429,10 +435,13 @@ MUI documentation</a>.</p>
 <span>    </span>
 <span>    <span class="va">selectedItems</span><span class="op">$</span><span class="va">selected</span> <span class="op">&lt;-</span> <span class="va">new_selection</span></span>
 <span>  <span class="op">}</span><span class="op">)</span></span>
-<span>  </span>
-<span>  <span class="va">output</span><span class="op">$</span><span class="va">info</span> <span class="op">&lt;-</span> <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html" class="external-link">renderPrint</a></span><span class="op">(</span></span>
-<span>    <span class="co"># remove random ID to return only item label name</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"\\-.*$"</span>, replacement <span class="op">=</span> <span class="st">""</span>, x <span class="op">=</span> <span class="va">selectedItems</span><span class="op">$</span><span class="va">selected</span><span class="op">)</span></span>
+<span>  <span class="co"># output$treeId &lt;- shiny::renderPrint(</span></span>
+<span>  <span class="co">#   # return item label with tree ID (not cleaning with gsub())</span></span>
+<span>  <span class="co">#   selectedItems$selected</span></span>
+<span>  <span class="co"># )</span></span>
+<span>  <span class="va">output</span><span class="op">$</span><span class="va">treeLabel</span> <span class="op">&lt;-</span> <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html" class="external-link">renderPrint</a></span><span class="op">(</span></span>
+<span>    <span class="co"># remove dash "-" followed by a random digit (i.e. MUI tree ID) to return only item label</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"\\-[[:digit:]]*$"</span>, replacement <span class="op">=</span> <span class="st">""</span>, x <span class="op">=</span> <span class="va">selectedItems</span><span class="op">$</span><span class="va">selected</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
 <span></span>
 <span><span class="op">}</span></span>
