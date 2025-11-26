@@ -69,25 +69,46 @@
 <div class="section level1">
 <div class="page-header"><h1 id="muimaterial">muiMaterial<a class="anchor" aria-label="anchor" href="#muimaterial"></a>
 </h1></div>
-<p><strong>muiMaterial</strong> provides a wrapper around <a href="https://mui.com/material-ui/getting-started/" class="external-link">Material UI</a>, the popular React framework.</p>
+<p>The <code>muiMaterial</code> R package provides the popular <a href="https://mui.com/material-ui/getting-started/" class="external-link">Material UI</a> React components for Shiny and R Markdown from the company MUI. It facilitates:</p>
+<ul>
+<li>Creation of <a href="https://felixluginbuhl.com/muiMaterial/articles/dashboard-basic.html">fully customizable</a> Shiny dashboards.
+<ul>
+<li>The underlying <a href="https://felixluginbuhl.com/muiMaterial/articles/">UI components</a> (e.g., cards, buttons, navbars, etc) are also designed to work in other contexts (e.g., in Quarto).</li>
+</ul>
+</li>
+<li>Use the <code>reactRouter</code> R package to create static dashboards.
+<ul>
+<li>
+<a href="https://felixluginbuhl.com/muiMaterial/articles/routing.html">Use a router</a> to create dashboards without a server.</li>
+</ul>
+</li>
+<li>The access of advanced React components from other MUI React libraries:
+<ul>
+<li>
+<a href="https://felixluginbuhl.com/muiCharts/" class="external-link"><code>muiCharts</code></a> provides access to MUI interactive charts.</li>
+<li>
+<a href="https://felixluginbuhl.com/muiTreeView/" class="external-link"><code>muiTreeView</code></a> gives access to customizabe MUI TreeView.</li>
+</ul>
+</li>
+</ul>
 <div class="section level3">
 <h3 id="install">Install<a class="anchor" aria-label="anchor" href="#install"></a>
 </h3>
+<p>Install the <code>muiMaterial</code> package as follows:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"lgnbhl/muiMaterial"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h3>
-<p>To quickly get started with any example:</p>
+<p>The quickest way to see what <code>muiMaterial</code> can do is to run <code>muiMaterialExample("mui-template-dashboard")</code>. This launches a demo app containing both <code>muiMaterial</code> and <code>reactRouter</code> as well as the MUI R package companions <code>muiCharts</code> and <code>muiTreeView</code>.</p>
+<p>This demo is a replica of the <a href="https://mui.com/material-ui/getting-started/templates/dashboard/" class="external-link">official template</a> created by MUI, the company behind Material UI.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/muiMaterial">muiMaterial</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># all examples available: muiMaterialExample()</span></span>
-<span><span class="fu"><a href="reference/muiMaterialExample.html">muiMaterialExample</a></span><span class="op">(</span><span class="st">"showcase"</span><span class="op">)</span></span></code></pre></div>
-<p>MUI, the company behind Material UI, made template examples. Using the R package <strong>reactRouter</strong>, it is possible to reproduce it in R:</p>
+<code class="sourceCode R"><span><span class="fu">muiMaterial</span><span class="fu">::</span><span class="fu"><a href="reference/muiMaterialExample.html">muiMaterialExample</a></span><span class="op">(</span><span class="st">"mui-template-dashboard"</span><span class="op">)</span></span></code></pre></div>
+<p>You can also have a look at the available Shiny inputs by running the “showcase” Shiny app:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/muiMaterialExample.html">muiMaterialExample</a></span><span class="op">(</span><span class="st">"mui-template-dashboard"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># all examples available: muiMaterialExample()</span></span>
+<span><span class="fu">muiMaterial</span><span class="fu">::</span><span class="fu"><a href="reference/muiMaterialExample.html">muiMaterialExample</a></span><span class="op">(</span><span class="st">"showcase"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="shiny-inputs-wrappers">Shiny inputs wrappers<a class="anchor" aria-label="anchor" href="#shiny-inputs-wrappers"></a>
@@ -148,7 +169,6 @@
 <div class="dev-status">
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
 <li><a href="https://CRAN.R-project.org/package=muiMaterial" class="external-link"><img src="https://www.r-pkg.org/badges/version/muiMaterial" alt="CRAN status"></a></li>
 <li><a href="https://github.com/lgnbhl/muiMaterial/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/lgnbhl/muiMaterial/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
 <li><a href="https://mui.com/material-ui/getting-started/" class="external-link"><img src="https://img.shields.io/badge/@mui/material-%5E7.3.5-blue.svg"></a></li>
