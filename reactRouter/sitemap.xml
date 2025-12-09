@@ -2,11 +2,13 @@
 <url><loc>https://felixluginbuhl.com/reactRouter/404.html</loc></url>
 <url><loc>https://felixluginbuhl.com/reactRouter/articles/index.html</loc></url>
 <url><loc>https://felixluginbuhl.com/reactRouter/articles/introduction.html</loc></url>
+<url><loc>https://felixluginbuhl.com/reactRouter/articles/shiny.fluent.html</loc></url>
 <url><loc>https://felixluginbuhl.com/reactRouter/authors.html</loc></url>
 <url><loc>https://felixluginbuhl.com/reactRouter/index.html</loc></url>
 <url><loc>https://felixluginbuhl.com/reactRouter/LICENSE-text.html</loc></url>
 <url><loc>https://felixluginbuhl.com/reactRouter/LICENSE.html</loc></url>
 <url><loc>https://felixluginbuhl.com/reactRouter/news/index.html</loc></url>
+<url><loc>https://felixluginbuhl.com/reactRouter/reference/BrowserRouter.html</loc></url>
 <url><loc>https://felixluginbuhl.com/reactRouter/reference/component.html</loc></url>
 <url><loc>https://felixluginbuhl.com/reactRouter/reference/HashRouter.html</loc></url>
 <url><loc>https://felixluginbuhl.com/reactRouter/reference/index.html</loc></url>
@@ -16,6 +18,7 @@
 <url><loc>https://felixluginbuhl.com/reactRouter/reference/NavLink.html</loc></url>
 <url><loc>https://felixluginbuhl.com/reactRouter/reference/Outlet.html</loc></url>
 <url><loc>https://felixluginbuhl.com/reactRouter/reference/reactRouterDependency.html</loc></url>
+<url><loc>https://felixluginbuhl.com/reactRouter/reference/reactRouterExample.html</loc></url>
 <url><loc>https://felixluginbuhl.com/reactRouter/reference/reexports.html</loc></url>
 <url><loc>https://felixluginbuhl.com/reactRouter/reference/Route.html</loc></url>
 <url><loc>https://felixluginbuhl.com/reactRouter/reference/Routes.html</loc></url>

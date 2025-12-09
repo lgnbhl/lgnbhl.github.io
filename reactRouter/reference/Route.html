@@ -41,7 +41,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">Route</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">Route</span><span class="op">(</span><span class="va">...</span>, <span class="va">element</span>, key <span class="op">=</span> <span class="fu">uuid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/uuid/man/UUIDgenerate.html" class="external-link">UUIDgenerate</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -51,10 +51,24 @@
 <dl><dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
 <dd><p>Props to pass to element.</p></dd>
 
+
+<dt id="arg-element">element<a class="anchor" aria-label="anchor" href="#arg-element"></a></dt>
+<dd><p>element wrapped in a `shiny::div()`.</p></dd>
+
+
+<dt id="arg-key">key<a class="anchor" aria-label="anchor" href="#arg-key"></a></dt>
+<dd><p>By default uses a UUID key in the `div()` of the `element` arg.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A Route component.</p>
+    </div>
+    <div class="section level2">
+    <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
+    <p>Internally the `element` is wrapped in a `shiny::div()`
+with a UUID key so, in case R shiny is used, shiny can differentiate
+each element.</p>
     </div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
