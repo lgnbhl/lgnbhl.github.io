@@ -77,25 +77,25 @@
 <img src="logo.png" class="logo" alt=""><h1 id="muimaterial-">muiMaterial <a class="anchor" aria-label="anchor" href="#muimaterial-"></a>
 </h1>
 </div>
-<p>The <code>muiMaterial</code> R package gives access to the popular <a href="https://mui.com/material-ui/getting-started/" class="external-link">Material UI</a> React components for Shiny and Quarto. It helps you:</p>
+<p><strong>muiMaterial</strong> gives access to the popular <a href="https://mui.com/material-ui/getting-started/" class="external-link">Material UI</a> React library from R.</p>
+<p>It helps you:</p>
 <ul>
-<li>Develop <a href="https://felixluginbuhl.com/muiMaterial/articles/dashboard-basic.html">fully customizable</a> Shiny dashboards.
+<li>Develop <a href="https://felixluginbuhl.com/muiMaterial/articles/dashboard-basic.html">fully customizable</a> Shiny dashboards:
 <ul>
 <li>The underlying <a href="https://felixluginbuhl.com/muiMaterial/articles/">UI components</a> (e.g., cards, buttons, navbars, etc) can be used in any Shiny app.</li>
 </ul>
 </li>
-<li>Create static dashboards using the <code>reactRouter</code> R package.
+<li>Create static dashboards using the <strong><a href="https://felixluginbuhl.com/reactRouter" class="external-link">reactRouter</a></strong> R package:
 <ul>
 <li>
 <a href="https://felixluginbuhl.com/muiMaterial/articles/routing.html">Use a router</a> to create dashboards without a server.</li>
 </ul>
 </li>
-<li>Access advanced React components from other MUI React libraries.
+<li>Create advanced apps using MUI’s specialized React libraires:
 <ul>
-<li>
-<a href="https://felixluginbuhl.com/muiCharts/" class="external-link"><code>muiCharts</code></a> provides access to MUI interactive charts.</li>
-<li>
-<a href="https://felixluginbuhl.com/muiTreeView/" class="external-link"><code>muiTreeView</code></a> gives access to customizable MUI TreeView.</li>
+<li><a href="https://felixluginbuhl.com/muiDataGrid/" class="external-link"><strong>muiDataGrid</strong></a></li>
+<li><a href="https://felixluginbuhl.com/muiCharts/" class="external-link"><strong>muiCharts</strong></a></li>
+<li><a href="https://felixluginbuhl.com/muiTreeView/" class="external-link"><strong>muiTreeView</strong></a></li>
 </ul>
 </li>
 </ul>
@@ -109,7 +109,7 @@
 <div class="section level3">
 <h3 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h3>
-<p>The quickest way to try <code>muiMaterial</code> is to launch the demo app of a basic MUI dashboard (code <a href="https://github.com/lgnbhl/muiMaterial/tree/main/inst/examples/dashboard-simple" class="external-link">here</a>).</p>
+<p>The quickest way to try <strong>muiMaterial</strong> is to launch the demo app of a basic MUI dashboard (code <a href="https://github.com/lgnbhl/muiMaterial/tree/main/inst/examples/dashboard-simple" class="external-link">here</a>).</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">muiMaterial</span><span class="fu">::</span><span class="fu"><a href="reference/muiMaterialExample.html">muiMaterialExample</a></span><span class="op">(</span><span class="st">"dashboard-simple"</span><span class="op">)</span></span></code></pre></div>
 <p>A more advanced demo replicating an <a href="https://mui.com/material-ui/getting-started/templates/dashboard/" class="external-link">official template</a> created by MUI (the company behind Material UI).</p>
@@ -130,7 +130,7 @@
 <h3 id="bootstrap-conflict">Bootstrap conflict<a class="anchor" aria-label="anchor" href="#bootstrap-conflict"></a>
 </h3>
 <p><strong>muiMaterial</strong> can enter in conflict with the Bootstrap CSS framework, used by default in Shiny functions such as <code><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html" class="external-link">shiny::fluidPage()</a></code> and friends.</p>
-<p>To create a Shiny app without Bootstrap, you can use <code><a href="reference/muiMaterialPage.html">muiMaterial::muiMaterialPage()</a></code>.</p>
+<p>To create a Shiny app without Bootstrap, you can use <code><a href="reference/muiMaterialPage.html">muiMaterialPage()</a></code>.</p>
 <p>To normalize the CSS page and ensure components render correctly, please wrap them in the <code><a href="reference/CssBaseline.html">CssBaseline()</a></code> function.</p>
 <p>Given Material UI high customization, you can easily fix styling issues using the CSS proprieties using the <code>sx</code> argument.</p>
 </div>
