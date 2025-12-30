@@ -9,7 +9,7 @@ you can use regular Shiny inputs or shiny.router."><meta property="og:image" con
 
     <a class="navbar-brand me-2" href="../index.html">muiMaterial</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,7 +46,7 @@ you can use regular Shiny inputs or shiny.router."><meta property="og:image" con
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>HTML body without Bootstrap and margins</h1>
-      <small class="dont-index">Source: <a href="https://github.com/lgnbhl/muiMaterial/blob/HEAD/R/custom.R" class="external-link"><code>R/custom.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/lgnbhl/muiMaterial/blob/HEAD/R/muiMaterialPage.R" class="external-link"><code>R/muiMaterialPage.R</code></a></small>
       <div class="d-none name"><code>muiMaterialPage.Rd</code></div>
     </div>
 
@@ -57,7 +57,13 @@ you can use regular Shiny inputs or shiny.router.</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">muiMaterialPage</span><span class="op">(</span><span class="va">...</span>, suppressBootstrap <span class="op">=</span> <span class="cn">TRUE</span>, debug_react <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">muiMaterialPage</span><span class="op">(</span></span>
+<span>  <span class="va">...</span>,</span>
+<span>  materialSymbols <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  addFontRoboto <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  suppressBootstrap <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  debugReact <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -68,11 +74,19 @@ you can use regular Shiny inputs or shiny.router.</p>
 <dd><p>The contents of the document body.</p></dd>
 
 
+<dt id="arg-materialsymbols">materialSymbols<a class="anchor" aria-label="anchor" href="#arg-materialsymbols"></a></dt>
+<dd><p>List of Material Symbols to add with Google Font API, ex: c("home", "settings").</p></dd>
+
+
+<dt id="arg-addfontroboto">addFontRoboto<a class="anchor" aria-label="anchor" href="#arg-addfontroboto"></a></dt>
+<dd><p>Whether to add Roboto font with Google Font API.</p></dd>
+
+
 <dt id="arg-suppressbootstrap">suppressBootstrap<a class="anchor" aria-label="anchor" href="#arg-suppressbootstrap"></a></dt>
 <dd><p>Whether to suppress Bootstrap.</p></dd>
 
 
-<dt id="arg-debug-react">debug_react<a class="anchor" aria-label="anchor" href="#arg-debug-react"></a></dt>
+<dt id="arg-debugreact">debugReact<a class="anchor" aria-label="anchor" href="#arg-debugreact"></a></dt>
 <dd><p>Whether to enable react debug mode. Default to FALSE.</p></dd>
 
 </dl></div>
