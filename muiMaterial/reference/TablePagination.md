@@ -89,8 +89,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   changed.Signature:function(event: React.ChangeEvent) =\> voidevent The
   event source of the callback.
 
-- rowsPerPageOptions \`Array\<number\|  label: string, value: number
-  \>\`  
+- rowsPerPageOptions  
   Default is 10, 25, 50, 100 Customizes the options of the rows per page
   select field. If less than two options are available, no select field
   will be displayed. Use -1 for the value with a custom label to show
@@ -107,23 +106,12 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 - showLastButton \`bool\`  
   Default is FALSE If true, show the last-page button.
 
-- slotProps \` actions?: firstButton?: object, firstButtonIcon?: object,
-  lastButton?: object, lastButtonIcon?: object, nextButton?: object,
-  nextButtonIcon?: object, previousButton?: object, previousButtonIcon?:
-  object , displayedRows?: func\| object, menuItem?: func\| object,
-  root?: func\| object, select?: object, selectLabel?: func\| object,
-  spacer?: func\| object, toolbar?: func\| object \`  
+- slotProps  
   Default is The props used for each slot inside.
 
-- slots \` actions?: firstButton?: elementType, firstButtonIcon?:
-  elementType, lastButton?: elementType, lastButtonIcon?: elementType,
-  nextButton?: elementType, nextButtonIcon?: elementType,
-  previousButton?: elementType, previousButtonIcon?: elementType ,
-  displayedRows?: elementType, menuItem?: elementType, root?:
-  elementType, select?: elementType, selectLabel?: elementType, spacer?:
-  elementType, toolbar?: elementType \`  
+- slots  
   Default is The components used for each slot inside.
 
-- sx \`Array\<func\| object\| bool\>\| func\| object\`  
+- sx  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the \`sx\` page for more details.
