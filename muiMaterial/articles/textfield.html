@@ -37,14 +37,27 @@
 <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
 <li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="active nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-input-components" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Input components</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-input-components">
-<li><a class="dropdown-item" href="../articles/button.html">Button</a></li>
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-inputs" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Inputs</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-inputs">
+<li><a class="dropdown-item" href="../articles/autocomplete.html">Autocomplete</a></li>
+    <li><a class="dropdown-item" href="../articles/button.html">Button</a></li>
     <li><a class="dropdown-item" href="../articles/checkbox.html">Checkbox</a></li>
+    <li><a class="dropdown-item" href="../articles/floating-action-button.html">Floating Action Button</a></li>
     <li><a class="dropdown-item" href="../articles/rating.html">Rating</a></li>
+    <li><a class="dropdown-item" href="../articles/select.html">Select</a></li>
     <li><a class="dropdown-item" href="../articles/slider.html">Slider</a></li>
     <li><a class="dropdown-item" href="../articles/textfield.html">TextField</a></li>
     <li><a class="dropdown-item" href="../articles/switch.html">Switch</a></li>
+    <li><a class="dropdown-item" href="../articles/switch.html">Toggle Button Group</a></li>
+  </ul>
+</li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-data-display" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Data Display</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-data-display">
+<li><a class="dropdown-item" href="../articles/avatar.html">Avatar</a></li>
+    <li><a class="dropdown-item" href="../articles/chip.html">Chip</a></li>
+    <li><a class="dropdown-item" href="../articles/divider.html">Divider</a></li>
+    <li><a class="dropdown-item" href="../articles/list.html">List</a></li>
   </ul>
 </li>
 <li class="nav-item dropdown">
@@ -307,7 +320,7 @@ JS code
 </summary><div class="sourceCode" id="cb5"><pre class="sourceCode jsx"><code class="sourceCode javascriptreact"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">&lt;TextField</span> <span class="ot">slotProps</span><span class="op">=</span><span class="va">{</span>{ <span class="dt">htmlInput</span><span class="op">:</span> { <span class="st">'data-testid'</span><span class="op">:</span> <span class="st">'…'</span> } }<span class="va">}</span> <span class="fu">/&gt;</span></span></code></pre></div>
 </details><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## Warning: package 'shiny' was built under R version 4.5.1</span></span></code></pre>
+<pre><code><span><span class="co">## Warning: package 'shiny' was built under R version 4.5.2</span></span></code></pre>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ControlledInput</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="../reference/CssBaseline.html">CssBaseline</a></span><span class="op">(</span></span>
@@ -1521,7 +1534,7 @@ JS code
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.2.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer>

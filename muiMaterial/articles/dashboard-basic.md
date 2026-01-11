@@ -1,0 +1,116 @@
+# Basic Dashboarding
+
+This vignette demonstrates how to build basic dashboards using
+muiMaterial tabs components. The examples show both horizontal and
+vertical tab layouts using Material-UI’s TabContext system.
+
+### Horizontal dashboard
+
+A horizontal dashboard places tabs at the top, ideal for navigation
+between main sections.
+
+The `TabContext` manages the active tab state, while `TabList` contains
+the tab buttons. Each `TabPanel` holds the content for its corresponding
+tab.
+
+``` r
+library(shiny)
+library(muiMaterial)
+
+Header <- TabContext.shinyInput(
+  inputId = "context",
+  value = "1",
+  Box(sx = list(borderBottom = 1, borderColor = 'divider'),
+      TabList.shinyInput(
+        inputId = "tabList",
+        value = "1",
+        Tab(label="Item One", value = "1"),
+        Tab(label="Item Two", value = "2"),
+        Tab(label="Item Three", value = "3")
+      )
+  ),
+  TabPanel.shinyInput(inputId = "tab1", value = "1", "Content 1"),
+  TabPanel.shinyInput(inputId = "tab2", value = "2", "Content 2"),
+  TabPanel.shinyInput(inputId = "tab3", value = "3", "Content 3")
+)
+
+ui <- muiMaterialPage(
+  Header
+)
+
+server <- function(input, output) {
+  observeEvent(input$tabList, {
+    updateTabContext.shinyInput(inputId = "context", value = input$tabList)
+  })
+}
+
+if (interactive()) {
+  shinyApp(ui = ui, server = server)
+}
+```
+
+### Vertical dashboard
+
+A vertical dashboard uses a sidebar layout with tabs on the left and
+content on the right. This pattern works well for complex applications
+with many navigation options.
+
+The `Stack` component with `direction = "row"` creates the side-by-side
+layout, while `orientation = "vertical"` on `TabList` arranges tabs
+vertically.
+
+``` r
+library(shiny)
+library(muiMaterial)
+
+Sidebar <- TabContext.shinyInput(
+  inputId = "context",
+  value = "1",
+  Stack(
+    direction="row", 
+    spacing = 2, 
+    TabList.shinyInput(
+      inputId = "tabList",
+      orientation = "vertical",
+      value = "1",
+      #Typography("Inputs", m = 1),
+      Tab(label="Item One", value = "1"),
+      Tab(label="Item Two", value = "2"),
+      Tab(label="Item Three", value = "3")
+    ),
+    TabPanel.shinyInput(inputId = "tab1", value = "1", "Content 1"),
+    TabPanel.shinyInput(inputId = "tab2", value = "2", "Content 2"),
+    TabPanel.shinyInput(inputId = "tab3", value = "3", "Content 3")
+  )
+)
+
+Header <- AppBar(
+  position = "static",
+  Toolbar(
+    Typography("Dashboard", variant = "h5", component = "div", sx = list(flexGrow = 1))
+  )
+)
+
+ui <- muiMaterialPage(
+  CssBaseline(
+    Header,
+    Sidebar
+  )
+)
+
+server <- function(input, output) {
+  observeEvent(input$tabList, {
+    updateTabContext.shinyInput(inputId = "context", value = input$tabList)
+  })
+}
+
+if (interactive()) {
+  shinyApp(ui = ui, server = server)
+}
+```
+
+### Advanced dashboard
+
+For more advanced dashboard examples using the
+[reactRouter](https://felixluginbuhl.com/reactRouter/) R package, see:
+<https://github.com/lgnbhl/muiMaterial/tree/main/inst/examples/>

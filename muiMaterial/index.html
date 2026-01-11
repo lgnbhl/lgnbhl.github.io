@@ -40,14 +40,27 @@
 <li class="active nav-item"><a class="nav-link" href="index.html">Home</a></li>
 <li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
 <li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-input-components" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Input components</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-input-components">
-<li><a class="dropdown-item" href="articles/button.html">Button</a></li>
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-inputs" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Inputs</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-inputs">
+<li><a class="dropdown-item" href="articles/autocomplete.html">Autocomplete</a></li>
+    <li><a class="dropdown-item" href="articles/button.html">Button</a></li>
     <li><a class="dropdown-item" href="articles/checkbox.html">Checkbox</a></li>
+    <li><a class="dropdown-item" href="articles/floating-action-button.html">Floating Action Button</a></li>
     <li><a class="dropdown-item" href="articles/rating.html">Rating</a></li>
+    <li><a class="dropdown-item" href="articles/select.html">Select</a></li>
     <li><a class="dropdown-item" href="articles/slider.html">Slider</a></li>
     <li><a class="dropdown-item" href="articles/textfield.html">TextField</a></li>
     <li><a class="dropdown-item" href="articles/switch.html">Switch</a></li>
+    <li><a class="dropdown-item" href="articles/switch.html">Toggle Button Group</a></li>
+  </ul>
+</li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-data-display" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Data Display</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-data-display">
+<li><a class="dropdown-item" href="articles/avatar.html">Avatar</a></li>
+    <li><a class="dropdown-item" href="articles/chip.html">Chip</a></li>
+    <li><a class="dropdown-item" href="articles/divider.html">Divider</a></li>
+    <li><a class="dropdown-item" href="articles/list.html">List</a></li>
   </ul>
 </li>
 <li class="nav-item dropdown">
@@ -77,52 +90,50 @@
 <img src="logo.png" class="logo" alt=""><h1 id="muimaterial-">muiMaterial <a class="anchor" aria-label="anchor" href="#muimaterial-"></a>
 </h1>
 </div>
-<p><strong>muiMaterial</strong> brings <a href="https://mui.com/material-ui/getting-started/" class="external-link">Material UI (MUI)</a>, a popular React component library, to R and Shiny.</p>
+<p><code>muiMaterial</code> brings <a href="https://mui.com/material-ui/getting-started/" class="external-link">Material UI</a>, a popular React component library, to R and Shiny.</p>
 <div class="section level2">
-<h2 id="why-muimaterial">Why muiMaterial?<a class="anchor" aria-label="anchor" href="#why-muimaterial"></a>
+<h2 id="use-cases">Use cases<a class="anchor" aria-label="anchor" href="#use-cases"></a>
 </h2>
-<p>Shiny dashboards typically rely on Bootstrap, resulting in a similar look across applications. <strong>muiMaterial</strong> offers a fresh alternative with Google’s Material Design, giving your dashboards a modern, distinctive appearance.</p>
-<ul>
-<li>
-<strong>Break Free from Bootstrap</strong>: Create dashboards that don’t look like every other Shiny app.</li>
-<li>
-<strong>Full UI Customization</strong>: Unlike Bootstrap’s constraints in Shiny, <strong>muiMaterial</strong> gives you complete control over design and styling through Material UI’s powerful theming system.</li>
-<li>
-<strong>Flexible Navigation</strong>: With the <a href="https://felixluginbuhl.com/reactRouter" class="external-link">reactRouter</a> R package, build fully custom navigation patterns (no standardized layouts like in bslib or bs4Dash).</li>
-<li>
-<strong>Rich Ecosystem</strong>: Extend functionality with companion R packages: <a href="https://felixluginbuhl.com/muiDataGrid/" class="external-link">muiDataGrid</a>, <a href="https://felixluginbuhl.com/muiCharts/" class="external-link">muiCharts</a>, and <a href="https://felixluginbuhl.com/muiTreeView/" class="external-link">muiTreeView</a>.</li>
-</ul>
-</div>
-<div class="section level2">
-<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
-</h2>
+<p><strong>Give your dashboards a unique look</strong></p>
+<p>Do you have the feeling that all Shiny apps looks the same?</p>
+<p>It is because they are generally using the Bootstrap framework. Its strength is also its weakness: a high level of standardization.</p>
+<p>Developed by the company MUI, Material UI is probably the most popular React component library. It provides UI tools to easily customize Web applications.</p>
+<p>Break free from Bootstrap and give <code>muiMaterial</code> a try.</p>
+<p>For example, launch a basic dashboard:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"lgnbhl/muiMaterial"</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level2">
-<h2 id="quick-start">Quick Start<a class="anchor" aria-label="anchor" href="#quick-start"></a>
-</h2>
-<p>Launch a fully functional dashboard:</p>
+<code class="sourceCode R"><span><span class="co"># remotes::install_github("lgnbhl/muiMaterial")</span></span>
+<span><span class="fu">muiMaterial</span><span class="fu">::</span><span class="fu"><a href="reference/muiMaterialExample.html">muiMaterialExample</a></span><span class="op">(</span><span class="st">"dashboard-simple"</span><span class="op">)</span></span></code></pre></div>
+<p>Or have a look at the R replica of the official dashboard template:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">muiMaterial</span><span class="fu">::</span><span class="fu"><a href="reference/muiMaterialExample.html">muiMaterialExample</a></span><span class="op">(</span><span class="st">"dashboard-simple"</span><span class="op">)</span></span></code></pre></div>
-<p>Try the R replica of the <a href="https://mui.com/material-ui/getting-started/templates/dashboard/" class="external-link">official MUI dashboard template</a>:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">muiMaterial</span><span class="fu">::</span><span class="fu"><a href="reference/muiMaterialExample.html">muiMaterialExample</a></span><span class="op">(</span><span class="st">"mui-template-dashboard"</span><span class="op">)</span></span></code></pre></div>
-<p>Explore available Shiny inputs:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">muiMaterial</span><span class="fu">::</span><span class="fu"><a href="reference/muiMaterialExample.html">muiMaterialExample</a></span><span class="op">(</span><span class="st">"showcase"</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level2">
-<h2 id="what-you-can-build">What You Can Build<a class="anchor" aria-label="anchor" href="#what-you-can-build"></a>
-</h2>
-<p><strong>Interactive Shiny Dashboards</strong></p>
-<p>Build <a href="https://felixluginbuhl.com/muiMaterial/articles/dashboard-basic.html">fully customizable Shiny apps</a> with reactive components. All <a href="https://felixluginbuhl.com/muiMaterial/reference/">UI components</a> work with R Shiny and Quarto.</p>
-<p><strong>Multi-Page Applications</strong></p>
-<p>Create multi-page dashboards with client-side routing using <a href="https://felixluginbuhl.com/reactRouter" class="external-link">reactRouter</a>. <a href="https://felixluginbuhl.com/muiMaterial/articles/routing.html">Learn more about routing</a>.</p>
-<p><strong>Static Dashboards &amp; Websites</strong></p>
-<p>Create beautiful static dashboards and websites using <strong>muiMaterial</strong> with <a href="https://quarto.org/" class="external-link">Quarto</a> combined with <a href="https://felixluginbuhl.com/reactRouter" class="external-link">reactRouter</a> for client-side navigation (no Shiny server required).</p>
-<p><strong>Advanced Data Components</strong></p>
-<p>Extend your apps with specialized MUI companion R packages:</p>
+<p><strong>Create new UI features easily</strong></p>
+<p>Material UI allows to fully customize your dashboards by providing a rich library of UI components.</p>
+<p>Thanks to React, <a href="https://felixluginbuhl.com/muiMaterial/articles/">UI components</a> can be easily combined together.</p>
+<p>For example, you can create a custom <code><a href="reference/Card.html">Card()</a></code> with <code><a href="reference/Typography.html">Typography()</a></code>:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># remotes::install_github("lgnbhl/muiMaterial")</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/muiMaterial">muiMaterial</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/Card.html">Card</a></span><span class="op">(</span></span>
+<span>  sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="reference/Typography.html">Typography</a></span><span class="op">(</span></span>
+<span>    <span class="st">"Material UI weekly downloads"</span>,</span>
+<span>    variant <span class="op">=</span> <span class="st">"h6"</span>,</span>
+<span>    gutterBottom <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="reference/Typography.html">Typography</a></span><span class="op">(</span></span>
+<span>    <span class="st">"5.8M"</span>,</span>
+<span>    variant <span class="op">=</span> <span class="st">"h3"</span>,</span>
+<span>    fontWeight <span class="op">=</span> <span class="st">"bold"</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<p>By comparison, <a href="https://rstudio.github.io/bslib/articles/custom-components/index.html" class="external-link">here</a> is the more complex custom component example for <code>bslib</code>.</p>
+<p><strong>Flexible Navigation</strong></p>
+<p>With the <a href="https://felixluginbuhl.com/reactRouter" class="external-link">reactRouter</a> R package, you can build a complex and advanced web application with Material UI.</p>
+<p>Create multi-page MUI dashboards with <a href="https://felixluginbuhl.com/muiMaterial/articles/routing.html">client-side routing</a>.</p>
+<p>You are not blocked in standardized Shiny layouts, like in Bootstrap’s based R packages such as <code>bslib</code> or <code>bs4Dash</code>.</p>
+<p><strong>Rich Ecosystem</strong></p>
+<p>Extend functionality with companion R packages:</p>
 <ul>
 <li>
 <a href="https://felixluginbuhl.com/muiDataGrid/" class="external-link">muiDataGrid</a> - Feature-rich data tables with sorting, filtering, and editing</li>
@@ -136,7 +147,10 @@
 <h2 id="key-concepts">Key Concepts<a class="anchor" aria-label="anchor" href="#key-concepts"></a>
 </h2>
 <p><strong>Shiny Input Wrappers</strong></p>
-<p>Material UI components become Shiny inputs through <code>*.shinyInput()</code> wrapper functions. For example, use <code><a href="reference/Button.html">Button.shinyInput()</a></code> instead of <code><a href="reference/Button.html">Button()</a></code> to capture click events in Shiny. <a href="https://appsilon.github.io/shiny.react/articles/shiny-react.html#creating-input-wrappers" class="external-link">Read more about input wrappers</a>.</p>
+<p>Material UI components become Shiny inputs through <code>*.shinyInput()</code> wrapper functions. For example, use <code><a href="reference/Button.html">Button.shinyInput()</a></code> instead of <code><a href="reference/Button.html">Button()</a></code> to capture click events in Shiny.</p>
+<p>Explore available Shiny inputs now:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">muiMaterial</span><span class="fu">::</span><span class="fu"><a href="reference/muiMaterialExample.html">muiMaterialExample</a></span><span class="op">(</span><span class="st">"showcase"</span><span class="op">)</span></span></code></pre></div>
 <p><strong>Bootstrap-Free Pages</strong></p>
 <p><strong>muiMaterial</strong> conflicts with Bootstrap CSS (used in <code><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html" class="external-link">shiny::fluidPage()</a></code> and similar functions). Use <code><a href="reference/muiMaterialPage.html">muiMaterialPage()</a></code> instead and wrap your UI in <code><a href="reference/CssBaseline.html">CssBaseline()</a></code> to normalize styles. Customize styling with the <code>sx</code> argument (CSS-in-JS).</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
@@ -155,6 +169,17 @@
 <span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span><span class="op">}</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre></div>
+<p><strong>Server side Shiny rendering</strong></p>
+<p>When rendering a component from the server in R Shiny, always use <code><a href="https://rdrr.io/pkg/shiny/man/renderUI.html" class="external-link">shiny::renderUI()</a></code> or <code><a href="https://appsilon.github.io/shiny.react/reference/renderReact.html" class="external-link">shiny.react::renderReact()</a></code> in the server. The rendering in the UI side can be done with <code><a href="https://rdrr.io/pkg/shiny/man/htmlOutput.html" class="external-link">shiny::uiOutput()</a></code> or <code><a href="https://appsilon.github.io/shiny.react/reference/reactOutput.html" class="external-link">shiny.react::reactOutput()</a></code>.</p>
+<p><strong>Tabs</strong></p>
+<p>To create Tabs, you should not use <code><a href="reference/Tabs.html">Tabs()</a></code> but instead <code><a href="reference/TabContext.html">TabContext.shinyInput()</a></code> with <code><a href="reference/TabList.html">TabList.shinyInput()</a></code> and <code><a href="reference/TabPanel.html">TabPanel.shinyInput()</a></code> (see <a href="https://github.com/lgnbhl/muiMaterial/blob/main/inst/examples/Tabs.R" class="external-link">example</a>).</p>
+<p><strong>Read the full documentation with examples <a href="https://lgnbhl.github.io/muiMaterial" class="external-link">here</a>.</strong></p>
+</div>
+<div class="section level2">
+<h2 id="install">Install<a class="anchor" aria-label="anchor" href="#install"></a>
+</h2>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"lgnbhl/muiMaterial"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="contributing">Contributing<a class="anchor" aria-label="anchor" href="#contributing"></a>
@@ -208,11 +233,11 @@
 <div class="dev-status">
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://CRAN.R-project.org/package=muiMaterial" class="external-link"><img src="https://www.r-pkg.org/badges/version/muiMaterial.png" alt="CRAN status"></a></li>
+<li><a href="https://CRAN.R-project.org/package=muiMaterial" class="external-link"><img src="https://www.r-pkg.org/badges/version/muiMaterial" alt="CRAN status"></a></li>
 <li><a href="https://github.com/lgnbhl/muiMaterial/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/lgnbhl/muiMaterial/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://mui.com/material-ui/getting-started/" class="external-link"><img src="https://img.shields.io/badge/@mui/material-%5E7.3.5-blue.svg"></a></li>
+<li><a href="https://mui.com/material-ui/getting-started/" class="external-link"><img src="https://img.shields.io/badge/@mui/material-%5E7.3.6-blue.svg"></a></li>
 <li><a href="https://mui.com/material-ui/getting-started/" class="external-link"><img src="https://img.shields.io/badge/react-18.3.1-blue.svg"></a></li>
-<li><a href="https://www.linkedin.com/in/FelixLuginbuhl" class="external-link"><img src="https://img.shields.io/badge/LinkedIn-Follow-E4405F?style=social&amp;logo=linkedin.png" alt="LinkedIn"></a></li>
+<li><a href="https://www.linkedin.com/in/FelixLuginbuhl" class="external-link"><img src="https://img.shields.io/badge/LinkedIn-Follow-E4405F?style=social&amp;logo=linkedin" alt="LinkedIn"></a></li>
 </ul>
 </div>
 
@@ -225,7 +250,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.2.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer>
