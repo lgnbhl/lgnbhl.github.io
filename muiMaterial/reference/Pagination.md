@@ -27,7 +27,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   Default is - Override or extend the styles applied to the
   component.See CSS classes API below for more details.
 
-- color `'primary'| 'secondary'| 'standard'| string`  
+- color `'primary'| 'secondary'| 'standard'| string`  
   Default is 'standard' The active color. It supports both default and
   custom theme colors, which can be added as shown in the palette
   customization guide.
@@ -47,7 +47,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   provides a user-friendly name for the current page. This is important
   for screen reader users.For localization purposes, you can use the
   provided translations.Signature:function(type: string, page: number \|
-  null, selected: boolean) =\> stringtype The link or button type to
+  null, selected: boolean) = stringtype The link or button type to
   format ('page' \| 'first' \| 'last' \| 'next' \| 'previous' \|
   'start-ellipsis' \| 'end-ellipsis'). Defaults to 'page'.page The page
   number to format.selected If true, the current page is selected.
@@ -60,7 +60,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 - onChange `func`  
   Default is - Callback fired when the page is
-  changed.Signature:function(event: React.ChangeEvent, page: number) =\>
+  changed.Signature:function(event: React.ChangeEvent, page: number) =
   voidevent The event source of the callback.page The page selected.
 
 - page `integer`  
@@ -68,11 +68,11 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   numbering from 0, this pagination starts from 1.
 
 - renderItem `func`  
-  Default is (item) =\> \<PaginationItem ...item /\> Render the
-  item.Signature:function(params: PaginationRenderItemParams) =\>
+  Default is (item) = PaginationItem ...item / Render the
+  item.Signature:function(params: PaginationRenderItemParams) =
   ReactNodeparams The props to spread on a PaginationItem.
 
-- shape `'circular'| 'rounded'`  
+- shape `'circular'| 'rounded'`  
   Default is 'circular' The shape of the pagination items.
 
 - showFirstButton `bool`  
@@ -85,12 +85,12 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   Default is 1 Number of always visible pages before and after the
   current page.
 
-- size `'small'| 'medium'| 'large'| string`  
+- size `'small'| 'medium'| 'large'| string`  
   Default is 'medium' The size of the component.
 
-- sx `Array<func| object| bool>| func| object`  
+- sx `Array func| object| bool | func| object`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.
 
-- variant `'outlined'| 'text'| string`  
+- variant `'outlined'| 'text'| string`  
   Default is 'text' The variant to use.

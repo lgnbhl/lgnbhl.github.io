@@ -107,22 +107,22 @@
 <li><p>component <code>elementType</code> <br> Default is - The component used for the root node. Either a string to use a HTML element or a component.</p></li>
 <li><p>defaultValue <code>number</code> <br> Default is null The default value. Use when the component is not controlled.</p></li>
 <li><p>disabled <code>bool</code> <br> Default is FALSE If true, the component is disabled.</p></li>
-<li><p>emptyIcon <code>node</code> <br> Default is <starborder fontsize="inherit"></starborder> The icon to display when empty.</p></li>
+<li><p>emptyIcon <code>node</code> <br> Default is StarBorder fontSize="inherit" / The icon to display when empty.</p></li>
 <li><p>emptyLabelText <code>node</code> <br> Default is 'Empty' The label read when the rating input is empty.</p></li>
-<li><p>getLabelText <code>func</code> <br> Default is function defaultLabelText(value)    return <code>$value || '0' Star$value !== 1 ? 's' : ''</code>;  Accepts a function which returns a string value that provides a user-friendly name for the current value of the rating. This is important for screen reader users.For localization purposes, you can use the provided translations.Signature:function(value: number) =&gt; stringvalue The rating label's value to format.</p></li>
+<li><p>getLabelText <code>func</code> <br> Default is function defaultLabelText(value) return <code>$value || '0' Star$value !== 1 ? 's' : ''</code>; Accepts a function which returns a string value that provides a user-friendly name for the current value of the rating. This is important for screen reader users.For localization purposes, you can use the provided translations.Signature:function(value: number) = stringvalue The rating label's value to format.</p></li>
 <li><p>highlightSelectedOnly <code>bool</code> <br> Default is FALSE If true, only the selected icon will be highlighted.</p></li>
-<li><p>icon <code>node</code> <br> Default is <star fontsize="inherit"></star> The icon to display.</p></li>
-<li><p>IconContainerComponent <code>elementType</code> <br> Default is function IconContainer(props)    const  value, ...other  = props;   return &lt;span ...other /&gt;;  The component containing the icon.Deprecated－Use slotProps.icon.component instead. This prop will be removed in a future major release. See Migrating from deprecated APIs for more details.</p></li>
+<li><p>icon <code>node</code> <br> Default is Star fontSize="inherit" / The icon to display.</p></li>
+<li><p>IconContainerComponent <code>elementType</code> <br> Default is function IconContainer(props) const value, ...other = props; return span ...other / ; The component containing the icon.Deprecated Use slotProps.icon.component instead. This prop will be removed in a future major release. See Migrating from deprecated APIs for more details.</p></li>
 <li><p>max <code>number</code> <br> Default is 5 Maximum rating.</p></li>
 <li><p>name <code>string</code> <br> Default is - The name attribute of the radio input elements. This input name should be unique within the page. Being unique within a form is insufficient since the name is used to generate IDs.</p></li>
-<li><p>onChange <code>func</code> <br> Default is - Callback fired when the value changes.Signature:function(event: React.SyntheticEvent, value: number | null) =&gt; voidevent The event source of the callback.value The new value.</p></li>
-<li><p>onChangeActive <code>func</code> <br> Default is - Callback function that is fired when the hover state changes.Signature:function(event: React.SyntheticEvent, value: number) =&gt; voidevent The event source of the callback.value The new value.</p></li>
+<li><p>onChange <code>func</code> <br> Default is - Callback fired when the value changes.Signature:function(event: React.SyntheticEvent, value: number | null) = voidevent The event source of the callback.value The new value.</p></li>
+<li><p>onChangeActive <code>func</code> <br> Default is - Callback function that is fired when the hover state changes.Signature:function(event: React.SyntheticEvent, value: number) = voidevent The event source of the callback.value The new value.</p></li>
 <li><p>precision <code>number</code> <br> Default is 1 The minimum increment value change allowed.</p></li>
 <li><p>readOnly <code>bool</code> <br> Default is FALSE Removes all hover effects and pointer events.</p></li>
-<li><p>size <code>'small'| 'medium'| 'large'| string</code> <br> Default is 'medium' The size of the component.</p></li>
-<li><p>slotProps <code>{ decimal?: func| object, icon?: func| object, label?: func| object, root?: func| object }</code> <br> Default is  The props used for each slot inside.</p></li>
-<li><p>slots <code>{ decimal?: elementType, icon?: elementType, label?: elementType, root?: elementType }</code> <br> Default is  The components used for each slot inside.</p></li>
-<li><p>sx <code>Array&lt;func| object| bool&gt;| func| object</code> <br> Default is - The system prop that allows defining system overrides as well as additional CSS styles.See the <code>sx</code> page for more details.</p></li>
+<li><p>size <code>'small'| 'medium'| 'large'| string</code> <br> Default is 'medium' The size of the component.</p></li>
+<li><p>slotProps <code>{ decimal?: func| object, icon?: func| object, label?: func| object, root?: func| object }</code> <br> Default is The props used for each slot inside.</p></li>
+<li><p>slots <code>{ decimal?: elementType, icon?: elementType, label?: elementType, root?: elementType }</code> <br> Default is The components used for each slot inside.</p></li>
+<li><p>sx <code>Array func| object| bool | func| object</code> <br> Default is - The system prop that allows defining system overrides as well as additional CSS styles.See the <code>sx</code> page for more details.</p></li>
 <li><p>value <code>number</code> <br> Default is - The rating value.</p></li>
 </ul></div>
 

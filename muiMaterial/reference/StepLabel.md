@@ -29,7 +29,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   component.See CSS classes API below for more details.
 
 - componentsProps `{ label?: object }`  
-  Default is The props used for each slot inside.Deprecated－use the
+  Default is The props used for each slot inside.Deprecated use the
   slotProps prop instead. This prop will be removed in a future major
   release. See Migrating from deprecated APIs for more details.
 
@@ -43,7 +43,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   Default is - The optional node to display.
 
 - slotProps
-  `{ label?: func| object, root?: func| object, stepIcon?: func| object }`  
+  `{ label?: func| object, root?: func| object, stepIcon?: func| object }`  
   Default is The props used for each slot inside.
 
 - slots
@@ -52,15 +52,15 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 - StepIconComponent `elementType`  
   Default is - The component to render in place of the
-  StepIcon.Deprecated－Use slots.stepIcon instead. This prop will be
+  StepIcon.Deprecated Use slots.stepIcon instead. This prop will be
   removed in a future major release. See Migrating from deprecated APIs
   for more details.
 
 - StepIconProps `object`  
-  Default is - Props applied to the StepIcon element.Deprecated－Use
+  Default is - Props applied to the StepIcon element.Deprecated Use
   slotProps.stepIcon instead. This prop will be removed in a future
   major release. See Migrating from deprecated APIs for more details.
 
-- sx `Array<func| object| bool>| func| object`  
+- sx `Array func| object| bool | func| object`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.

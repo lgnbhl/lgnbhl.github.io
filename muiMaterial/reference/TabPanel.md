@@ -50,7 +50,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 ## Details
 
-- value `number| string`  
+- value `number| string`  
   Default is - The value of the corresponding Tab. Must use the index of
   the Tab when no value was passed to Tab.
 
@@ -64,6 +64,6 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 - keepMounted `bool`  
   Default is FALSE Always keep the children in the DOM.
 
-- sx `Array<func| object| bool>| func| object`  
+- sx `Array func| object| bool | func| object`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.

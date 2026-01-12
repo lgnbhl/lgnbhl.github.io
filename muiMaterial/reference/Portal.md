@@ -23,7 +23,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 - children `node`  
   Default is - The children to render into the container.
 
-- container `HTML element| func`  
+- container `HTML element| func`  
   Default is - An HTML element or function that returns one. The
   container will have the portal children appended to it.You can also
   provide a callback, which is called in a React layout effect. This

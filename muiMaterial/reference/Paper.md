@@ -38,9 +38,9 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 - square `bool`  
   Default is FALSE If true, rounded corners are disabled.
 
-- sx `Array<func| object| bool>| func| object`  
+- sx `Array func| object| bool | func| object`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.
 
-- variant `'elevation'| 'outlined'| string`  
+- variant `'elevation'| 'outlined'| string`  
   Default is 'elevation' The variant to use.

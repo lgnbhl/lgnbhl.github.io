@@ -105,14 +105,14 @@
 
 <ul><li><p>children <code>node</code> <br> Default is - The content of the component.</p></li>
 <li><p>classes <code>object</code> <br> Default is - Override or extend the styles applied to the component.See CSS classes API below for more details.</p></li>
-<li><p>color <code>'standard'| 'primary'| 'secondary'| 'error'| 'info'| 'success'| 'warning'| string</code> <br> Default is 'standard' The color of the button when it is selected. It supports both default and custom theme colors, which can be added as shown in the palette customization guide.</p></li>
+<li><p>color <code>'standard'| 'primary'| 'secondary'| 'error'| 'info'| 'success'| 'warning'| string</code> <br> Default is 'standard' The color of the button when it is selected. It supports both default and custom theme colors, which can be added as shown in the palette customization guide.</p></li>
 <li><p>disabled <code>bool</code> <br> Default is FALSE If true, the component is disabled. This implies that all ToggleButton children will be disabled.</p></li>
 <li><p>exclusive <code>bool</code> <br> Default is FALSE If true, only allow one of the child ToggleButton values to be selected.</p></li>
 <li><p>fullWidth <code>bool</code> <br> Default is FALSE If true, the button group will take up the full width of its container.</p></li>
-<li><p>onChange <code>func</code> <br> Default is - Callback fired when the value changes.Signature:function(event: React.MouseEvent, value: any) =&gt; voidevent The event source of the callback.value of the selected buttons. When exclusive is true this is a single value; when false an array of selected values. If no value is selected and exclusive is true the value is null; when false an empty array.</p></li>
-<li><p>orientation <code>'horizontal'| 'vertical'</code> <br> Default is 'horizontal' The component orientation (layout flow direction).</p></li>
-<li><p>size <code>'small'| 'medium'| 'large'| string</code> <br> Default is 'medium' The size of the component.</p></li>
-<li><p>sx <code>Array&lt;func| object| bool&gt;| func| object</code> <br> Default is - The system prop that allows defining system overrides as well as additional CSS styles.See the <code>sx</code> page for more details.</p></li>
+<li><p>onChange <code>func</code> <br> Default is - Callback fired when the value changes.Signature:function(event: React.MouseEvent, value: any) = voidevent The event source of the callback.value of the selected buttons. When exclusive is true this is a single value; when false an array of selected values. If no value is selected and exclusive is true the value is null; when false an empty array.</p></li>
+<li><p>orientation <code>'horizontal'| 'vertical'</code> <br> Default is 'horizontal' The component orientation (layout flow direction).</p></li>
+<li><p>size <code>'small'| 'medium'| 'large'| string</code> <br> Default is 'medium' The size of the component.</p></li>
+<li><p>sx <code>Array func| object| bool | func| object</code> <br> Default is - The system prop that allows defining system overrides as well as additional CSS styles.See the <code>sx</code> page for more details.</p></li>
 <li><p>value <code>any</code> <br> Default is - The currently selected value within the group or an array of selected values when exclusive is false.The value must have reference equality with the option in order to be selected.</p></li>
 </ul></div>
 

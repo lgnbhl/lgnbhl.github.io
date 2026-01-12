@@ -20,7 +20,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 ## Details
 
-- align `'center'| 'inherit'| 'justify'| 'left'| 'right'`  
+- align `'center'| 'inherit'| 'justify'| 'left'| 'right'`  
   Default is 'inherit' Set the text-align on the component.
 
 - children `node`  
@@ -31,7 +31,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   component.See CSS classes API below for more details.
 
 - color
-  `'primary'| 'secondary'| 'success'| 'error'| 'info'| 'warning'| 'textPrimary'| 'textSecondary'| 'textDisabled'| string`  
+  `'primary'| 'secondary'| 'success'| 'error'| 'info'| 'warning'| 'textPrimary'| 'textSecondary'| 'textDisabled'| string`  
   Default is - The color of the component. It supports both default and
   custom theme colors, which can be added as shown in the palette
   customization guide.
@@ -51,22 +51,22 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 - paragraph `bool`  
   Default is FALSE If true, the element will be a paragraph
-  element.Deprecated－Use the component prop instead. This prop will be
+  element.Deprecated Use the component prop instead. This prop will be
   removed in a future major release. See Migrating from deprecated APIs
   for more details.
 
-- sx `Array<func| object| bool>| func| object`  
+- sx `Array func| object| bool | func| object`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.
 
 - variant
-  `'body1'| 'body2'| 'button'| 'caption'| 'h1'| 'h2'| 'h3'| 'h4'| 'h5'| 'h6'| 'inherit'| 'overline'| 'subtitle1'| 'subtitle2'| string`  
+  `'body1'| 'body2'| 'button'| 'caption'| 'h1'| 'h2'| 'h3'| 'h4'| 'h5'| 'h6'| 'inherit'| 'overline'| 'subtitle1'| 'subtitle2'| string`  
   Default is 'body1' Applies the theme typography styles.
 
 - variantMapping `object`  
   Default is h1: 'h1', h2: 'h2', h3: 'h3', h4: 'h4', h5: 'h5', h6: 'h6',
   subtitle1: 'h6', subtitle2: 'h6', body1: 'p', body2: 'p', inherit:
   'p', The component maps the variant prop to a range of different HTML
-  element types. For instance, subtitle1 to
-
-  ###### . If you wish to change that mapping, you can provide your own. Alternatively, you can use the component prop.
+  element types. For instance, subtitle1 to h6 . If you wish to change
+  that mapping, you can provide your own. Alternatively, you can use the
+  component prop.

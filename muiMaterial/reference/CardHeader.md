@@ -41,7 +41,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   text with the Typography component.
 
 - slotProps
-  `{ action?: func| object, avatar?: func| object, content?: func| object, root?: func| object, subheader?: func| object, title?: func| object }`  
+  `{ action?: func| object, avatar?: func| object, content?: func| object, root?: func| object, subheader?: func| object, title?: func| object }`  
   Default is The props used for each slot inside.
 
 - slots
@@ -53,11 +53,11 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 - subheaderTypographyProps `object`  
   Default is - These props will be forwarded to the subheader (as long
-  as disableTypography is not true).Deprecated－Use slotProps.subheader
+  as disableTypography is not true).Deprecated Use slotProps.subheader
   instead. This prop will be removed in a future major release. See
   Migrating from deprecated APIs for more details.
 
-- sx `Array<func| object| bool>| func| object`  
+- sx `Array func| object| bool | func| object`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.
 
@@ -66,6 +66,6 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 - titleTypographyProps `object`  
   Default is - These props will be forwarded to the title (as long as
-  disableTypography is not true).Deprecated－Use slotProps.title
-  instead. This prop will be removed in a future major release. See
-  Migrating from deprecated APIs for more details.
+  disableTypography is not true).Deprecated Use slotProps.title instead.
+  This prop will be removed in a future major release. See Migrating
+  from deprecated APIs for more details.

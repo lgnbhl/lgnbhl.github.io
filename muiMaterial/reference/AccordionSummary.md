@@ -39,13 +39,13 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   to other components if needed.
 
 - slotProps
-  `{ content?: func| object, expandIconWrapper?: func| object, root?: func| object }`  
+  `{ content?: func| object, expandIconWrapper?: func| object, root?: func| object }`  
   Default is The props used for each slot inside.
 
 - slots
   `{ content?: elementType, expandIconWrapper?: elementType, root?: elementType }`  
   Default is The components used for each slot inside.
 
-- sx `Array<func| object| bool>| func| object`  
+- sx `Array func| object| bool | func| object`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.

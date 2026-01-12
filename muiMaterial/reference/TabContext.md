@@ -50,7 +50,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 ## Details
 
-- value `number| string`  
+- value `number| string`  
   Default is NA The value of the currently selected Tab.
 
 - children `node`  

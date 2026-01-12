@@ -28,7 +28,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   component.See CSS classes API below for more details.
 
 - color
-  `'error'| 'info'| 'primary'| 'secondary'| 'success'| 'warning'| string`  
+  `'error'| 'info'| 'primary'| 'secondary'| 'success'| 'warning'| string`  
   Default is - The color of the component. It supports both default and
   custom theme colors, which can be added as shown in the palette
   customization guide.
@@ -56,12 +56,12 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 - shrink `bool`  
   Default is - If true, the label is shrunk.
 
-- size `'medium'| 'small'| string`  
+- size `'medium'| 'small'| string`  
   Default is 'medium' The size of the component.
 
-- sx `Array<func| object| bool>| func| object`  
+- sx `Array func| object| bool | func| object`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.
 
-- variant `'filled'| 'outlined'| 'standard'`  
+- variant `'filled'| 'outlined'| 'standard'`  
   Default is - The variant to use.

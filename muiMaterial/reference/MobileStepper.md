@@ -36,29 +36,28 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   component.See CSS classes API below for more details.
 
 - LinearProgressProps `object`  
-  Default is - Props applied to the LinearProgress
-  element.Deprecated－Use slotProps.progress instead. This prop will be
-  removed in a future major release. See Migrating from deprecated APIs
-  for more details.
+  Default is - Props applied to the LinearProgress element.Deprecated
+  Use slotProps.progress instead. This prop will be removed in a future
+  major release. See Migrating from deprecated APIs for more details.
 
 - nextButton `node`  
   Default is - A next button element. For instance, it can be a Button
   or an IconButton.
 
-- position `'bottom'| 'static'| 'top'`  
+- position `'bottom'| 'static'| 'top'`  
   Default is 'bottom' Set the positioning type.
 
 - slotProps
-  `{ dot?: func| object, dots?: func| object, progress?: func| object, root?: func| object }`  
+  `{ dot?: func| object, dots?: func| object, progress?: func| object, root?: func| object }`  
   Default is The props used for each slot inside.
 
 - slots
   `{ dot?: elementType, dots?: elementType, progress?: elementType, root?: elementType }`  
   Default is The components used for each slot inside.
 
-- sx `Array<func| object| bool>| func| object`  
+- sx `Array func| object| bool | func| object`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.
 
-- variant `'dots'| 'progress'| 'text'`  
+- variant `'dots'| 'progress'| 'text'`  
   Default is 'dots' The variant to use.

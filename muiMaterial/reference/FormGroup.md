@@ -30,6 +30,6 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 - row `bool`  
   Default is FALSE Display group of elements in a compact row.
 
-- sx `Array<func| object| bool>| func| object`  
+- sx `Array func| object| bool | func| object`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.

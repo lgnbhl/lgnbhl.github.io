@@ -85,23 +85,23 @@
 
 <ul><li><p>boundaryCount <code>integer</code> <br> Default is 1 Number of always visible pages at the beginning and end.</p></li>
 <li><p>classes <code>object</code> <br> Default is - Override or extend the styles applied to the component.See CSS classes API below for more details.</p></li>
-<li><p>color <code>'primary'| 'secondary'| 'standard'| string</code> <br> Default is 'standard' The active color. It supports both default and custom theme colors, which can be added as shown in the palette customization guide.</p></li>
+<li><p>color <code>'primary'| 'secondary'| 'standard'| string</code> <br> Default is 'standard' The active color. It supports both default and custom theme colors, which can be added as shown in the palette customization guide.</p></li>
 <li><p>count <code>integer</code> <br> Default is 1 The total number of pages.</p></li>
 <li><p>defaultPage <code>integer</code> <br> Default is 1 The page selected by default when the component is uncontrolled.</p></li>
 <li><p>disabled <code>bool</code> <br> Default is FALSE If true, the component is disabled.</p></li>
-<li><p>getItemAriaLabel <code>func</code> <br> Default is - Accepts a function which returns a string value that provides a user-friendly name for the current page. This is important for screen reader users.For localization purposes, you can use the provided translations.Signature:function(type: string, page: number | null, selected: boolean) =&gt; stringtype The link or button type to format ('page' | 'first' | 'last' | 'next' | 'previous' | 'start-ellipsis' | 'end-ellipsis'). Defaults to 'page'.page The page number to format.selected If true, the current page is selected.</p></li>
+<li><p>getItemAriaLabel <code>func</code> <br> Default is - Accepts a function which returns a string value that provides a user-friendly name for the current page. This is important for screen reader users.For localization purposes, you can use the provided translations.Signature:function(type: string, page: number | null, selected: boolean) = stringtype The link or button type to format ('page' | 'first' | 'last' | 'next' | 'previous' | 'start-ellipsis' | 'end-ellipsis'). Defaults to 'page'.page The page number to format.selected If true, the current page is selected.</p></li>
 <li><p>hideNextButton <code>bool</code> <br> Default is FALSE If true, hide the next-page button.</p></li>
 <li><p>hidePrevButton <code>bool</code> <br> Default is FALSE If true, hide the previous-page button.</p></li>
-<li><p>onChange <code>func</code> <br> Default is - Callback fired when the page is changed.Signature:function(event: React.ChangeEvent, page: number) =&gt; voidevent The event source of the callback.page The page selected.</p></li>
+<li><p>onChange <code>func</code> <br> Default is - Callback fired when the page is changed.Signature:function(event: React.ChangeEvent, page: number) = voidevent The event source of the callback.page The page selected.</p></li>
 <li><p>page <code>integer</code> <br> Default is - The current page. Unlike TablePagination, which starts numbering from 0, this pagination starts from 1.</p></li>
-<li><p>renderItem <code>func</code> <br> Default is (item) =&gt; &lt;PaginationItem ...item /&gt; Render the item.Signature:function(params: PaginationRenderItemParams) =&gt; ReactNodeparams The props to spread on a PaginationItem.</p></li>
-<li><p>shape <code>'circular'| 'rounded'</code> <br> Default is 'circular' The shape of the pagination items.</p></li>
+<li><p>renderItem <code>func</code> <br> Default is (item) = PaginationItem ...item / Render the item.Signature:function(params: PaginationRenderItemParams) = ReactNodeparams The props to spread on a PaginationItem.</p></li>
+<li><p>shape <code>'circular'| 'rounded'</code> <br> Default is 'circular' The shape of the pagination items.</p></li>
 <li><p>showFirstButton <code>bool</code> <br> Default is FALSE If true, show the first-page button.</p></li>
 <li><p>showLastButton <code>bool</code> <br> Default is FALSE If true, show the last-page button.</p></li>
 <li><p>siblingCount <code>integer</code> <br> Default is 1 Number of always visible pages before and after the current page.</p></li>
-<li><p>size <code>'small'| 'medium'| 'large'| string</code> <br> Default is 'medium' The size of the component.</p></li>
-<li><p>sx <code>Array&lt;func| object| bool&gt;| func| object</code> <br> Default is - The system prop that allows defining system overrides as well as additional CSS styles.See the <code>sx</code> page for more details.</p></li>
-<li><p>variant <code>'outlined'| 'text'| string</code> <br> Default is 'text' The variant to use.</p></li>
+<li><p>size <code>'small'| 'medium'| 'large'| string</code> <br> Default is 'medium' The size of the component.</p></li>
+<li><p>sx <code>Array func| object| bool | func| object</code> <br> Default is - The system prop that allows defining system overrides as well as additional CSS styles.See the <code>sx</code> page for more details.</p></li>
+<li><p>variant <code>'outlined'| 'text'| string</code> <br> Default is 'text' The variant to use.</p></li>
 </ul></div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

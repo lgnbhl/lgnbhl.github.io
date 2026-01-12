@@ -40,7 +40,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   component.See CSS classes API below for more details.
 
 - color
-  `'default'| 'error'| 'info'| 'inherit'| 'primary'| 'secondary'| 'success'| 'warning'| string`  
+  `'default'| 'error'| 'info'| 'inherit'| 'primary'| 'secondary'| 'success'| 'warning'| string`  
   Default is 'default' The color of the component. It supports both
   default and custom theme colors, which can be added as shown in the
   palette customization guide.
@@ -62,13 +62,13 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   Default is - The URL to link to when the button is clicked. If
   defined, an a element will be used as the root node.
 
-- size `'small'| 'medium'| 'large'| string`  
+- size `'small'| 'medium'| 'large'| string`  
   Default is 'large' The size of the component. small is equivalent to
   the dense button styling.
 
-- sx `Array<func| object| bool>| func| object`  
+- sx `Array func| object| bool | func| object`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.
 
-- variant `'circular'| 'extended'| string`  
+- variant `'circular'| 'extended'| string`  
   Default is 'circular' The variant to use.

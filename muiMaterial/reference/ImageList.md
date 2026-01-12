@@ -37,12 +37,12 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 - gap `number`  
   Default is 4 The gap between items in px.
 
-- rowHeight `'auto'| number`  
+- rowHeight `'auto'| number`  
   Default is 'auto' The height of one row in px.
 
-- sx `Array<func| object| bool>| func| object`  
+- sx `Array func| object| bool | func| object`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.
 
-- variant `'masonry'| 'quilted'| 'standard'| 'woven'| string`  
+- variant `'masonry'| 'quilted'| 'standard'| 'woven'| string`  
   Default is 'standard' The variant to use.

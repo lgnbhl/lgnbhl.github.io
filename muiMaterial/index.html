@@ -16,8 +16,8 @@
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Material UI for shiny Apps and Quarto">
-<meta name="description" content="A set of user interface components for building shiny applications and quarto documents, including inputs, layouts, navigations, surfaces, and various utilities. All components Material UI from the company MUI are available and all inputs have usage examples in R.">
-<meta property="og:description" content="A set of user interface components for building shiny applications and quarto documents, including inputs, layouts, navigations, surfaces, and various utilities. All components Material UI from the company MUI are available and all inputs have usage examples in R.">
+<meta name="description" content="A set of user interface components for building shiny applications and quarto documents, including inputs, layouts, navigation, surfaces, and various utilities. All components Material UI from the company MUI are available and all inputs have usage examples in R.">
+<meta property="og:description" content="A set of user interface components for building shiny applications and quarto documents, including inputs, layouts, navigation, surfaces, and various utilities. All components Material UI from the company MUI are available and all inputs have usage examples in R.">
 <meta property="og:image" content="https://felixluginbuhl.com/muiMaterial/logo.png">
 </head>
 <body>
@@ -123,7 +123,7 @@
 <div class="section level4">
 <h4 id="flexible-navigation">Flexible Navigation<a class="anchor" aria-label="anchor" href="#flexible-navigation"></a>
 </h4>
-<p>With the <a href="https://felixluginbuhl.com/reactRouter" class="external-link">reactRouter</a> R package, you can build a complex and multi-page websites thanks to <a href="https://felixluginbuhl.com/muiMaterial/articles/routing.html">client-side routing</a>.</p>
+<p>With the <a href="https://felixluginbuhl.com/reactRouter/" class="external-link">reactRouter</a> R package, you can build a complex and multi-page websites thanks to <a href="https://felixluginbuhl.com/muiMaterial/articles/routing.html">client-side routing</a>.</p>
 <p>You are not blocked in standardized Shiny layouts, like in Bootstrap’s based R packages such as <code>bslib</code> or <code>bs4Dash</code>.</p>
 </div>
 <div class="section level4">
@@ -131,10 +131,8 @@
 </h4>
 <p>Extend functionality with companion R packages:</p>
 <ul>
-<li>
-<a href="https://felixluginbuhl.com/muiDataGrid/" class="external-link">muiDataGrid</a> - Professional data tables with filtering, sorting, and inline editing</li>
-<li>
-<a href="https://felixluginbuhl.com/muiCharts/" class="external-link">muiCharts</a> - Beautiful, responsive charts</li>
+<li>muiDataGrid (COMING SOON) - Professional data tables with filtering, sorting, and inline editing</li>
+<li>muiCharts (COMING SOON) - Beautiful, responsive charts</li>
 <li>
 <a href="https://felixluginbuhl.com/muiTreeView/" class="external-link">muiTreeView</a> - Interactive tree navigation</li>
 </ul>
@@ -154,7 +152,7 @@
 </h4>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/muiMaterial">muiMaterial</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/muiMaterial/">muiMaterial</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/muiMaterialPage.html">muiMaterialPage</a></span><span class="op">(</span></span>
 <span>  <span class="fu"><a href="reference/CssBaseline.html">CssBaseline</a></span><span class="op">(</span></span>
@@ -187,13 +185,13 @@
 <h4 id="creating-tabs">Creating tabs<a class="anchor" aria-label="anchor" href="#creating-tabs"></a>
 </h4>
 <p>Use <code><a href="reference/TabContext.html">TabContext.shinyInput()</a></code>, <code><a href="reference/TabList.html">TabList.shinyInput()</a></code>, and <code><a href="reference/TabPanel.html">TabPanel.shinyInput()</a></code> instead of the basic <code><a href="reference/Tabs.html">Tabs()</a></code> component (which currently doesn’t work). <a href="https://github.com/lgnbhl/muiMaterial/blob/main/inst/examples/Tabs.R" class="external-link">See full example</a>.</p>
-<p>For more advanced use cases, it is preferabe to use client-side routing with <a href="https://felixluginbuhl.com/reactRouter" class="external-link">reactRouter</a>.</p>
+<p>For more advanced use cases, it is preferabe to use client-side routing with <a href="https://felixluginbuhl.com/reactRouter/" class="external-link">reactRouter</a>.</p>
 </div>
 <div class="section level4">
 <h4 id="styling-with-sx">Styling with sx<a class="anchor" aria-label="anchor" href="#styling-with-sx"></a>
 </h4>
 <p>Customize any component using the <code>sx</code> argument for inline CSS-in-JS styling. It’s more powerful and maintainable than traditional CSS.</p>
-<p><strong>Read the full documentation with examples <a href="https://lgnbhl.github.io/muiMaterial" class="external-link">here</a>.</strong></p>
+<p><strong>Read the full documentation with examples <a href="https://felixluginbuhl.com/muiMaterial/">here</a>.</strong></p>
 </div>
 </div>
 <div class="section level2">

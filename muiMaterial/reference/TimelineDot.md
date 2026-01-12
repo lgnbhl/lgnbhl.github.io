@@ -28,12 +28,12 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   component.See CSS classes API below for more details.
 
 - color
-  `'error'| 'grey'| 'info'| 'inherit'| 'primary'| 'secondary'| 'success'| 'warning'| string`  
+  `'error'| 'grey'| 'info'| 'inherit'| 'primary'| 'secondary'| 'success'| 'warning'| string`  
   Default is 'grey' The dot can have a different colors.
 
-- sx `Array<func| object| bool>| func| object`  
+- sx `Array func| object| bool | func| object`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.
 
-- variant `'filled'| 'outlined'| string`  
+- variant `'filled'| 'outlined'| string`  
   Default is 'filled' The dot can appear filled or outlined.

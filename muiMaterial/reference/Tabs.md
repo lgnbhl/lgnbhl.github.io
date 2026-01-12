@@ -72,27 +72,27 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   Default is - The component used for the root node. Either a string to
   use a HTML element or a component.
 
-- indicatorColor `'primary'| 'secondary'| string`  
+- indicatorColor `'primary'| 'secondary'| string`  
   Default is 'primary' Determines the color of the indicator.
 
 - onChange `func`  
   Default is - Callback fired when the value
-  changes.Signature:function(event: React.SyntheticEvent, value: any)
-  =\> voidevent The event source of the callback. Warning: This is a
-  generic event not a change event.value We default to the index of the
-  child (number)
+  changes.Signature:function(event: React.SyntheticEvent, value: any) =
+  voidevent The event source of the callback. Warning: This is a generic
+  event not a change event.value We default to the index of the child
+  (number)
 
-- orientation `'horizontal'| 'vertical'`  
+- orientation `'horizontal'| 'vertical'`  
   Default is 'horizontal' The component orientation (layout flow
   direction).
 
 - ScrollButtonComponent `elementType`  
   Default is TabScrollButton The component used to render the scroll
-  buttons.Deprecated－use the slots.scrollButtons prop instead. This
-  prop will be removed in a future major release. See Migrating from
+  buttons.Deprecated use the slots.scrollButtons prop instead. This prop
+  will be removed in a future major release. See Migrating from
   deprecated APIs for more details.
 
-- scrollButtons `'auto'| false| true`  
+- scrollButtons `'auto'| false| true`  
   Default is 'auto' Determine behavior of scroll buttons when tabs are
   set to scroll: auto will only present them when not all the items are
   visible. true will always present them. false will never present them.
@@ -104,37 +104,37 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   only changes on activation.
 
 - slotProps
-  `{ endScrollButtonIcon?: func| object, indicator?: func| object, list?: func| object, root?: func| object, scrollbar?: func| object, scrollButtons?: func| object, scroller?: func| object, startScrollButtonIcon?: func| object }`  
+  `{ endScrollButtonIcon?: func| object, indicator?: func| object, list?: func| object, root?: func| object, scrollbar?: func| object, scrollButtons?: func| object, scroller?: func| object, startScrollButtonIcon?: func| object }`  
   Default is The props used for each slot inside.
 
 - slots
   `{ endScrollButtonIcon?: elementType, EndScrollButtonIcon?: elementType, indicator?: elementType, list?: elementType, root?: elementType, scrollbar?: elementType, scrollButtons?: elementType, scroller?: elementType, startScrollButtonIcon?: elementType, StartScrollButtonIcon?: elementType }`  
   Default is The components used for each slot inside.
 
-- sx `Array<func| object| bool>| func| object`  
+- sx `Array func| object| bool | func| object`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.
 
 - TabIndicatorProps `object`  
-  Default is Props applied to the tab indicator element.Deprecated－use
+  Default is Props applied to the tab indicator element.Deprecated use
   the slotProps.indicator prop instead. This prop will be removed in a
   future major release. See Migrating from deprecated APIs for more
   details.
 
 - TabScrollButtonProps `object`  
-  Default is Props applied to the TabScrollButton
-  element.Deprecated－use the slotProps.scrollButtons prop instead. This
-  prop will be removed in a future major release. See Migrating from
-  deprecated APIs for more details.
+  Default is Props applied to the TabScrollButton element.Deprecated use
+  the slotProps.scrollButtons prop instead. This prop will be removed in
+  a future major release. See Migrating from deprecated APIs for more
+  details.
 
-- textColor `'inherit'| 'primary'| 'secondary'`  
+- textColor `'inherit'| 'primary'| 'secondary'`  
   Default is 'primary' Determines the color of the Tab.
 
 - value `any`  
   Default is - The value of the currently selected Tab. If you don't
   want any selected Tab, you can set this prop to false.
 
-- variant `'fullWidth'| 'scrollable'| 'standard'`  
+- variant `'fullWidth'| 'scrollable'| 'standard'`  
   Default is 'standard' Determines additional display behavior of the
   tabs: scrollable will invoke scrolling properties and allow for
   horizontally scrolling (or swiping) of the tab bar. fullWidth will

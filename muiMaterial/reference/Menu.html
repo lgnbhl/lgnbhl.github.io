@@ -100,20 +100,20 @@
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
 
 <ul><li><p>open <code>bool</code> <br> Default is - If true, the component is shown.</p></li>
-<li><p>anchorEl <code>HTML element| func</code> <br> Default is - An HTML element, or a function that returns one. It's used to set the position of the menu.</p></li>
+<li><p>anchorEl <code>HTML element| func</code> <br> Default is - An HTML element, or a function that returns one. It's used to set the position of the menu.</p></li>
 <li><p>autoFocus <code>bool</code> <br> Default is TRUE If true (Default) will focus the role="menu" if no focusable child is found. Disabled children are not focusable. If you set this prop to false focus will be placed on the parent modal container. This has severe accessibility implications and should only be considered if you manage focus otherwise.</p></li>
 <li><p>children <code>node</code> <br> Default is - Menu contents, normally MenuItems.</p></li>
 <li><p>classes <code>object</code> <br> Default is - Override or extend the styles applied to the component.See CSS classes API below for more details.</p></li>
 <li><p>disableAutoFocusItem <code>bool</code> <br> Default is FALSE When opening the menu will not focus the active item but the role="menu" unless autoFocus is also set to false. Not using the default means not following WAI-ARIA authoring practices. Please be considerate about possible accessibility implications.</p></li>
-<li><p>MenuListProps <code>object</code> <br> Default is  Props applied to the MenuList element.Deprecated－use the slotProps.list prop instead. This prop will be removed in a future major release. See Migrating from deprecated APIs for more details.</p></li>
-<li><p>onClose <code>func</code> <br> Default is - Callback fired when the component requests to be closed.Signature:function(event: object, reason: string) =&gt; voidevent The event source of the callback.reason Can be: "escapeKeyDown", "backdropClick", "tabKeyDown".</p></li>
+<li><p>MenuListProps <code>object</code> <br> Default is Props applied to the MenuList element.Deprecated use the slotProps.list prop instead. This prop will be removed in a future major release. See Migrating from deprecated APIs for more details.</p></li>
+<li><p>onClose <code>func</code> <br> Default is - Callback fired when the component requests to be closed.Signature:function(event: object, reason: string) = voidevent The event source of the callback.reason Can be: "escapeKeyDown", "backdropClick", "tabKeyDown".</p></li>
 <li><p>PopoverClasses <code>object</code> <br> Default is - classes prop applied to the Popover element.</p></li>
-<li><p>slotProps <code>{ backdrop?: func| object, list?: func| object, paper?: func| object, root?: func| object, transition?: func| object }</code> <br> Default is  The props used for each slot inside.</p></li>
-<li><p>slots <code>{ backdrop?: elementType, list?: elementType, paper?: elementType, root?: elementType, transition?: elementType }</code> <br> Default is  The components used for each slot inside.</p></li>
-<li><p>sx <code>Array&lt;func| object| bool&gt;| func| object</code> <br> Default is - The system prop that allows defining system overrides as well as additional CSS styles.See the <code>sx</code> page for more details.</p></li>
-<li><p>transitionDuration <code>'auto'| number| { appear?: number, enter?: number, exit?: number }</code> <br> Default is 'auto' The length of the transition in ms, or 'auto'</p></li>
-<li><p>TransitionProps <code>object</code> <br> Default is  Props applied to the transition element. By default, the element is based on this Transition component.Deprecated－use the slotProps.transition prop instead. This prop will be removed in a future major release. See Migrating from deprecated APIs for more details.</p></li>
-<li><p>variant <code>'menu'| 'selectedMenu'</code> <br> Default is 'selectedMenu' The variant to use. Use menu to prevent selected items from impacting the initial focus.</p></li>
+<li><p>slotProps <code>{ backdrop?: func| object, list?: func| object, paper?: func| object, root?: func| object, transition?: func| object }</code> <br> Default is The props used for each slot inside.</p></li>
+<li><p>slots <code>{ backdrop?: elementType, list?: elementType, paper?: elementType, root?: elementType, transition?: elementType }</code> <br> Default is The components used for each slot inside.</p></li>
+<li><p>sx <code>Array func| object| bool | func| object</code> <br> Default is - The system prop that allows defining system overrides as well as additional CSS styles.See the <code>sx</code> page for more details.</p></li>
+<li><p>transitionDuration <code>'auto'| number| { appear?: number, enter?: number, exit?: number }</code> <br> Default is 'auto' The length of the transition in ms, or 'auto'</p></li>
+<li><p>TransitionProps <code>object</code> <br> Default is Props applied to the transition element. By default, the element is based on this Transition component.Deprecated use the slotProps.transition prop instead. This prop will be removed in a future major release. See Migrating from deprecated APIs for more details.</p></li>
+<li><p>variant <code>'menu'| 'selectedMenu'</code> <br> Default is 'selectedMenu' The variant to use. Use menu to prevent selected items from impacting the initial focus.</p></li>
 </ul></div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

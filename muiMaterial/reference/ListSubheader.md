@@ -27,7 +27,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   Default is - Override or extend the styles applied to the
   component.See CSS classes API below for more details.
 
-- color `'default'| 'inherit'| 'primary'`  
+- color `'default'| 'inherit'| 'primary'`  
   Default is 'default' The color of the component. It supports those
   theme colors that make sense for this component.
 
@@ -45,6 +45,6 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 - inset `bool`  
   Default is FALSE If true, the List Subheader is indented.
 
-- sx `Array<func| object| bool>| func| object`  
+- sx `Array func| object| bool | func| object`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.

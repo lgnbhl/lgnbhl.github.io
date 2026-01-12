@@ -40,7 +40,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   affect the onClick event.
 
 - color
-  `'default'| 'primary'| 'secondary'| 'error'| 'info'| 'success'| 'warning'| string`  
+  `'default'| 'primary'| 'secondary'| 'error'| 'info'| 'success'| 'warning'| string`  
   Default is 'default' The color of the component. It supports both
   default and custom theme colors, which can be added as shown in the
   palette customization guide.
@@ -66,16 +66,16 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   Default is - Callback fired when the delete icon is clicked. If set,
   the delete icon will be shown.
 
-- size `'medium'| 'small'| string`  
+- size `'medium'| 'small'| string`  
   Default is 'medium' The size of the component.
 
 - skipFocusWhenDisabled `bool`  
   Default is FALSE If true, allows the disabled chip to escape focus. If
   false, allows the disabled chip to receive focus.
 
-- sx `Array<func| object| bool>| func| object`  
+- sx `Array func| object| bool | func| object`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.
 
-- variant `'filled'| 'outlined'| string`  
+- variant `'filled'| 'outlined'| string`  
   Default is 'filled' The variant to use.

@@ -55,25 +55,25 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   component.See CSS classes API below for more details.
 
 - color
-  `'primary'| 'secondary'| 'error'| 'info'| 'success'| 'warning'| string`  
+  `'primary'| 'secondary'| 'error'| 'info'| 'success'| 'warning'| string`  
   Default is 'primary' The color of the component. It supports both
   default and custom theme colors, which can be added as shown in the
   palette customization guide.
 
 - components
   `{ Input?: elementType, Mark?: elementType, MarkLabel?: elementType, Rail?: elementType, Root?: elementType, Thumb?: elementType, Track?: elementType, ValueLabel?: elementType }`  
-  Default is The components used for each slot inside.Deprecated－use
-  the slots prop instead. This prop will be removed in a future major
+  Default is The components used for each slot inside.Deprecated use the
+  slots prop instead. This prop will be removed in a future major
   release. See Migrating from deprecated APIs for more details.
 
 - componentsProps
-  `{ input?: func| object, mark?: func| object, markLabel?: func| object, rail?: func| object, root?: func| object, thumb?: func| object, track?: func| object, valueLabel?: func| { children?: element, className?: string, open?: bool, style?: object, value?: node, valueLabelDisplay?: 'auto'| 'off'| 'on' } }`  
+  `{ input?: func| object, mark?: func| object, markLabel?: func| object, rail?: func| object, root?: func| object, thumb?: func| object, track?: func| object, valueLabel?: func| { children?: element, className?: string, open?: bool, style?: object, value?: node, valueLabelDisplay?: 'auto'| 'off'| 'on' } }`  
   Default is The extra props for the slot components. You can override
-  the existing props or add new ones.Deprecated－use the slotProps prop
+  the existing props or add new ones.Deprecated use the slotProps prop
   instead. This prop will be removed in a future major release. See
   Migrating from deprecated APIs for more details.
 
-- defaultValue `Array<number>| number`  
+- defaultValue `Array`  
   Default is - The default value. Use when the component is not
   controlled.
 
@@ -88,16 +88,16 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   Default is - Accepts a function which returns a string value that
   provides a user-friendly name for the thumb labels of the slider. This
   is important for screen reader users.Signature:function(index: number)
-  =\> stringindex The thumb label's index to format.
+  = stringindex The thumb label's index to format.
 
 - getAriaValueText `func`  
   Default is - Accepts a function which returns a string value that
   provides a user-friendly name for the current value of the slider.
   This is important for screen reader users.Signature:function(value:
-  number, index: number) =\> stringvalue The thumb label's value to
+  number, index: number) = stringvalue The thumb label's value to
   format.index The thumb label's index to format.
 
-- marks `Array<{ label?: node, value: number }>| bool`  
+- marks `Array { label?: node, value: number } | bool`  
   Default is FALSE Marks indicate predetermined values to which the user
   can move the slider. If true the marks are spaced according the value
   of the step prop. If an array, it should contain objects with value
@@ -117,33 +117,33 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 - onChange `func`  
   Default is - Callback function that is fired when the slider's value
   changed.Signature:function(event: Event, value: Value, activeThumb:
-  number) =\> voidevent The event source of the callback. You can pull
-  out the new value by accessing event.target.value (any). Warning: This
-  is a generic event not a change event.value The new value.activeThumb
+  number) = voidevent The event source of the callback. You can pull out
+  the new value by accessing event.target.value (any). Warning: This is
+  a generic event not a change event.value The new value.activeThumb
   Index of the currently moved thumb.
 
 - onChangeCommitted `func`  
   Default is - Callback function that is fired when the mouseup is
   triggered.Signature:function(event: React.SyntheticEvent \| Event,
-  value: Value) =\> voidevent The event source of the callback. Warning:
+  value: Value) = voidevent The event source of the callback. Warning:
   This is a generic event not a change event.value The new value.
 
-- orientation `'horizontal'| 'vertical'`  
+- orientation `'horizontal'| 'vertical'`  
   Default is 'horizontal' The component orientation.
 
 - scale `func`  
   Default is function Identity(x) return x; A transformation function,
-  to change the scale of the slider.Signature:function(x: any) =\> any
+  to change the scale of the slider.Signature:function(x: any) = any
 
 - shiftStep `number`  
   Default is 10 The granularity with which the slider can step through
   values when using Page Up/Page Down or Shift + Arrow Up/Arrow Down.
 
-- size `'small'| 'medium'| string`  
+- size `'small'| 'medium'| string`  
   Default is 'medium' The size of the slider.
 
 - slotProps
-  `{ input?: func| object, mark?: func| object, markLabel?: func| object, rail?: func| object, root?: func| object, thumb?: func| object, track?: func| object, valueLabel?: func| { children?: element, className?: string, open?: bool, style?: object, value?: node, valueLabelDisplay?: 'auto'| 'off'| 'on' } }`  
+  `{ input?: func| object, mark?: func| object, markLabel?: func| object, rail?: func| object, root?: func| object, thumb?: func| object, track?: func| object, valueLabel?: func| { children?: element, className?: string, open?: bool, style?: object, value?: node, valueLabelDisplay?: 'auto'| 'off'| 'on' } }`  
   Default is The props used for each slot inside the Slider.
 
 - slots
@@ -158,29 +158,29 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   the step.When step is null, the thumb can only be slid onto marks
   provided with the marks prop.
 
-- sx `Array<func| object| bool>| func| object`  
+- sx `Array`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.
 
 - tabIndex `number`  
   Default is - Tab index attribute of the hidden input element.
 
-- track `'inverted'| 'normal'| false`  
+- track `'inverted'| 'normal'| false`  
   Default is 'normal' The track presentation: normal the track will
   render a bar representing the slider value. inverted the track will
   render a bar representing the remaining slider value. false the track
   will render without a bar.
 
-- value `Array<number>| number`  
+- value `Array`  
   Default is - The value of the slider. For ranged sliders, provide an
   array with two values.
 
-- valueLabelDisplay `'auto'| 'off'| 'on'`  
+- valueLabelDisplay `'auto'| 'off'| 'on'`  
   Default is 'off' Controls when the value label is displayed: auto the
   value label will display when the thumb is hovered or focused. on will
   display persistently. off will never display.
 
-- valueLabelFormat `func| string`  
+- valueLabelFormat `func| string`  
   Default is function Identity(x) return x; The format function the
   value label's value.When a function is provided, it should have the
   following signature:- number value The value label's value to format -

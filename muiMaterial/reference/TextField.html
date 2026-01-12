@@ -106,37 +106,37 @@
 <ul><li><p>autoComplete <code>string</code> <br> Default is - This prop helps users to fill forms faster, especially on mobile devices. The name can be confusing, as it's more like an autofill. You can learn more about it following the specification.</p></li>
 <li><p>autoFocus <code>bool</code> <br> Default is FALSE If true, the input element is focused during the first mount.</p></li>
 <li><p>classes <code>object</code> <br> Default is - Override or extend the styles applied to the component.See CSS classes API below for more details.</p></li>
-<li><p>color <code>'primary'| 'secondary'| 'error'| 'info'| 'success'| 'warning'| string</code> <br> Default is 'primary' The color of the component. It supports both default and custom theme colors, which can be added as shown in the palette customization guide.</p></li>
+<li><p>color <code>'primary'| 'secondary'| 'error'| 'info'| 'success'| 'warning'| string</code> <br> Default is 'primary' The color of the component. It supports both default and custom theme colors, which can be added as shown in the palette customization guide.</p></li>
 <li><p>defaultValue <code>any</code> <br> Default is - The default value. Use when the component is not controlled.</p></li>
 <li><p>disabled <code>bool</code> <br> Default is FALSE If true, the component is disabled.</p></li>
 <li><p>error <code>bool</code> <br> Default is FALSE If true, the label is displayed in an error state.</p></li>
-<li><p>FormHelperTextProps <code>object</code> <br> Default is - Props applied to the FormHelperText element.Deprecated－Use slotProps.formHelperText instead. This prop will be removed in a future major release. See Migrating from deprecated APIs for more details.</p></li>
+<li><p>FormHelperTextProps <code>object</code> <br> Default is - Props applied to the FormHelperText element.Deprecated Use slotProps.formHelperText instead. This prop will be removed in a future major release. See Migrating from deprecated APIs for more details.</p></li>
 <li><p>fullWidth <code>bool</code> <br> Default is FALSE If true, the input will take up the full width of its container.</p></li>
 <li><p>helperText <code>node</code> <br> Default is - The helper text content.</p></li>
 <li><p>id <code>string</code> <br> Default is - The id of the input element. Use this prop to make label and helperText accessible for screen readers.</p></li>
-<li><p>InputLabelProps <code>object</code> <br> Default is - Props applied to the InputLabel element. Pointer events like onClick are enabled if and only if shrink is true.Deprecated－Use slotProps.inputLabel instead. This prop will be removed in a future major release. See Migrating from deprecated APIs for more details.</p></li>
-<li><p>inputProps <code>object</code> <br> Default is - Attributes applied to the input element.Deprecated－Use slotProps.htmlInput instead. This prop will be removed in a future major release. See Migrating from deprecated APIs for more details.</p></li>
-<li><p>InputProps <code>object</code> <br> Default is - Props applied to the Input element. It will be a FilledInput, OutlinedInput or Input component depending on the variant prop value.Deprecated－Use slotProps.input instead. This prop will be removed in a future major release. See Migrating from deprecated APIs for more details.</p></li>
+<li><p>InputLabelProps <code>object</code> <br> Default is - Props applied to the InputLabel element. Pointer events like onClick are enabled if and only if shrink is true.Deprecated Use slotProps.inputLabel instead. This prop will be removed in a future major release. See Migrating from deprecated APIs for more details.</p></li>
+<li><p>inputProps <code>object</code> <br> Default is - Attributes applied to the input element.Deprecated Use slotProps.htmlInput instead. This prop will be removed in a future major release. See Migrating from deprecated APIs for more details.</p></li>
+<li><p>InputProps <code>object</code> <br> Default is - Props applied to the Input element. It will be a FilledInput, OutlinedInput or Input component depending on the variant prop value.Deprecated Use slotProps.input instead. This prop will be removed in a future major release. See Migrating from deprecated APIs for more details.</p></li>
 <li><p>inputRef <code>ref</code> <br> Default is - Pass a ref to the input element.</p></li>
 <li><p>label <code>node</code> <br> Default is - The label content.</p></li>
-<li><p>margin <code>'dense'| 'none'| 'normal'</code> <br> Default is 'none' If dense or normal, will adjust vertical spacing of this and contained components.</p></li>
-<li><p>maxRows <code>number| string</code> <br> Default is - Maximum number of rows to display when multiline option is set to true.</p></li>
-<li><p>minRows <code>number| string</code> <br> Default is - Minimum number of rows to display when multiline option is set to true.</p></li>
+<li><p>margin <code>'dense'| 'none'| 'normal'</code> <br> Default is 'none' If dense or normal, will adjust vertical spacing of this and contained components.</p></li>
+<li><p>maxRows <code>number| string</code> <br> Default is - Maximum number of rows to display when multiline option is set to true.</p></li>
+<li><p>minRows <code>number| string</code> <br> Default is - Minimum number of rows to display when multiline option is set to true.</p></li>
 <li><p>multiline <code>bool</code> <br> Default is FALSE If true, a textarea element is rendered instead of an input.</p></li>
 <li><p>name <code>string</code> <br> Default is - Name attribute of the input element.</p></li>
-<li><p>onChange <code>func</code> <br> Default is - Callback fired when the value is changed.Signature:function(event: object) =&gt; voidevent The event source of the callback. You can pull out the new value by accessing event.target.value (string).</p></li>
+<li><p>onChange <code>func</code> <br> Default is - Callback fired when the value is changed.Signature:function(event: object) = voidevent The event source of the callback. You can pull out the new value by accessing event.target.value (string).</p></li>
 <li><p>placeholder <code>string</code> <br> Default is - The short hint displayed in the input before the user enters a value.</p></li>
 <li><p>required <code>bool</code> <br> Default is FALSE If true, the label is displayed as required and the input element is required.</p></li>
-<li><p>rows <code>number| string</code> <br> Default is - Number of rows to display when multiline option is set to true.</p></li>
+<li><p>rows <code>number| string</code> <br> Default is - Number of rows to display when multiline option is set to true.</p></li>
 <li><p>select <code>bool</code> <br> Default is FALSE Render a Select element while passing the Input element to Select as input parameter. If this option is set you must pass the options of the select as children.</p></li>
-<li><p>SelectProps <code>object</code> <br> Default is - Props applied to the Select element.Deprecated－Use slotProps.select instead. This prop will be removed in a future major release. See Migrating from deprecated APIs for more details.</p></li>
-<li><p>size <code>'medium'| 'small'| string</code> <br> Default is 'medium' The size of the component.</p></li>
-<li><p>slotProps <code>{ formHelperText?: func| object, htmlInput?: func| object, input?: func| object, inputLabel?: func| object, select?: func| object }</code> <br> Default is  The props used for each slot inside.</p></li>
-<li><p>slots <code>{ formHelperText?: elementType, htmlInput?: elementType, input?: elementType, inputLabel?: elementType, root?: elementType, select?: elementType }</code> <br> Default is  The components used for each slot inside.</p></li>
-<li><p>sx <code>Array&lt;func| object| bool&gt;| func| object</code> <br> Default is - The system prop that allows defining system overrides as well as additional CSS styles.See the <code>sx</code> page for more details.</p></li>
+<li><p>SelectProps <code>object</code> <br> Default is - Props applied to the Select element.Deprecated Use slotProps.select instead. This prop will be removed in a future major release. See Migrating from deprecated APIs for more details.</p></li>
+<li><p>size <code>'medium'| 'small'| string</code> <br> Default is 'medium' The size of the component.</p></li>
+<li><p>slotProps <code>{ formHelperText?: func| object, htmlInput?: func| object, input?: func| object, inputLabel?: func| object, select?: func| object }</code> <br> Default is The props used for each slot inside.</p></li>
+<li><p>slots <code>{ formHelperText?: elementType, htmlInput?: elementType, input?: elementType, inputLabel?: elementType, root?: elementType, select?: elementType }</code> <br> Default is The components used for each slot inside.</p></li>
+<li><p>sx <code>Array func| object| bool | func| object</code> <br> Default is - The system prop that allows defining system overrides as well as additional CSS styles.See the <code>sx</code> page for more details.</p></li>
 <li><p>type <code>string</code> <br> Default is - Type of the input element. It should be a valid HTML5 input type.</p></li>
 <li><p>value <code>any</code> <br> Default is - The value of the input element, required for a controlled component.</p></li>
-<li><p>variant <code>'filled'| 'outlined'| 'standard'</code> <br> Default is 'outlined' The variant to use.</p></li>
+<li><p>variant <code>'filled'| 'outlined'| 'standard'</code> <br> Default is 'outlined' The variant to use.</p></li>
 </ul></div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

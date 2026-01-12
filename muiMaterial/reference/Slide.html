@@ -86,11 +86,11 @@
 <ul><li><p>children <code>element</code> <br> Default is - A single child content element.This needs to be able to hold a ref.</p></li>
 <li><p>addEndListener <code>func</code> <br> Default is - Add a custom transition end trigger. Called with the transitioning DOM node and a done callback. Allows for more fine grained transition end logic. Note: Timeouts are still used as a fallback if provided.</p></li>
 <li><p>appear <code>bool</code> <br> Default is TRUE Perform the enter transition when it first mounts if in is also true. Set this to false to disable this behavior.</p></li>
-<li><p>container <code>HTML element| func</code> <br> Default is - An HTML element, or a function that returns one. It's used to set the container the Slide is transitioning from.</p></li>
-<li><p>direction <code>'down'| 'left'| 'right'| 'up'</code> <br> Default is 'down' Direction the child node will enter from.</p></li>
-<li><p>easing <code>{ enter?: string, exit?: string }| string</code> <br> Default is    enter: theme.transitions.easing.easeOut,   exit: theme.transitions.easing.sharp,  The transition timing function. You may specify a single easing or a object containing enter and exit values.</p></li>
+<li><p>container <code>HTML element| func</code> <br> Default is - An HTML element, or a function that returns one. It's used to set the container the Slide is transitioning from.</p></li>
+<li><p>direction <code>'down'| 'left'| 'right'| 'up'</code> <br> Default is 'down' Direction the child node will enter from.</p></li>
+<li><p>easing <code>{ enter?: string, exit?: string }| string</code> <br> Default is enter: theme.transitions.easing.easeOut, exit: theme.transitions.easing.sharp, The transition timing function. You may specify a single easing or a object containing enter and exit values.</p></li>
 <li><p>in <code>bool</code> <br> Default is - If true, the component will transition in.</p></li>
-<li><p>timeout <code>number| { appear?: number, enter?: number, exit?: number }</code> <br> Default is    enter: theme.transitions.duration.enteringScreen,   exit: theme.transitions.duration.leavingScreen,  The duration for the transition, in milliseconds. You may specify a single timeout for all transitions, or individually with an object.</p></li>
+<li><p>timeout <code>number| { appear?: number, enter?: number, exit?: number }</code> <br> Default is enter: theme.transitions.duration.enteringScreen, exit: theme.transitions.duration.leavingScreen, The duration for the transition, in milliseconds. You may specify a single timeout for all transitions, or individually with an object.</p></li>
 </ul></div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

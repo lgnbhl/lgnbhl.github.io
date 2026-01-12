@@ -33,17 +33,16 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 - onChange `func`  
   Default is - Callback fired when the value
-  changes.Signature:function(event: React.SyntheticEvent, value: any)
-  =\> voidevent The event source of the callback. Warning: This is a
-  generic event not a change event.value We default to the index of the
-  child.
+  changes.Signature:function(event: React.SyntheticEvent, value: any) =
+  voidevent The event source of the callback. Warning: This is a generic
+  event not a change event.value We default to the index of the child.
 
 - showLabels `bool`  
   Default is FALSE If true, all BottomNavigationActions will show their
   labels. By default, only the selected BottomNavigationAction will show
   its label.
 
-- sx `Array<func| object| bool>| func| object`  
+- sx `Array func| object| bool | func| object`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.
 

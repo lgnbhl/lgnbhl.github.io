@@ -43,7 +43,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   Default is FALSE If true, the component is disabled.
 
 - disableRipple `bool`  
-  Default is FALSE If true, the ripple effect is disabled.⚠️ Without a
+  Default is FALSE If true, the ripple effect is disabled. Without a
   ripple there is no styling for :focus-visible by default. Be sure to
   highlight the element by applying separate styles with the
   .Mui-focusVisible class.
@@ -71,7 +71,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   Default is - Callback fired when the component is focused with a
   keyboard. We trigger a onFocus callback too.
 
-- sx `Array<func| object| bool>| func| object`  
+- sx `Array func| object| bool | func| object`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.
 
@@ -79,5 +79,5 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   Default is - Props applied to the TouchRipple element.
 
 - touchRippleRef
-  `func| { current?: { pulsate: func, start: func, stop: func } }`  
+  `func| { current?: { pulsate: func, start: func, stop: func } }`  
   Default is - A ref that points to the TouchRipple element.

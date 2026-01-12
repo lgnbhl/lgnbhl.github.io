@@ -42,7 +42,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 - primaryTypographyProps `object`  
   Default is - These props will be forwarded to the primary typography
-  component (as long as disableTypography is not true).Deprecated－Use
+  component (as long as disableTypography is not true).Deprecated Use
   slotProps.primary instead. This prop will be removed in a future major
   release. See Migrating from deprecated APIs for more details.
 
@@ -51,18 +51,18 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 - secondaryTypographyProps `object`  
   Default is - These props will be forwarded to the secondary typography
-  component (as long as disableTypography is not true).Deprecated－Use
+  component (as long as disableTypography is not true).Deprecated Use
   slotProps.secondary instead. This prop will be removed in a future
   major release. See Migrating from deprecated APIs for more details.
 
 - slotProps
-  `{ primary?: func| object, root?: func| object, secondary?: func| object }`  
+  `{ primary?: func| object, root?: func| object, secondary?: func| object }`  
   Default is The props used for each slot inside.
 
 - slots
   `{ primary?: elementType, root?: elementType, secondary?: elementType }`  
   Default is The components used for each slot inside.
 
-- sx `Array<func| object| bool>| func| object`  
+- sx `Array func| object| bool | func| object`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.

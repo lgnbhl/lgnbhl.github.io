@@ -44,7 +44,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   Default is - A list of options that will be shown in the Autocomplete.
 
 - renderInput `func`  
-  Default is - Render the input.Signature:function(params: object) =\>
+  Default is - Render the input.Signature:function(params: object) =
   ReactNode
 
 - autoComplete `bool`  
@@ -64,14 +64,14 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   using the freeSolo mode, the typed value will be the input value if
   the Autocomplete loses focus without highlighting an option.
 
-- blurOnSelect `'mouse'| 'touch'| bool`  
+- blurOnSelect `'mouse'| 'touch'| bool`  
   Default is FALSE Control if the input should be blurred when an option
   is selected: false the input is not blurred. true the input is always
   blurred. touch the input is blurred after a touch event. mouse the
   input is blurred after a mouse event.
 
 - ChipProps `object`  
-  Default is - Props applied to the Chip element.Deprecated－Use
+  Default is - Props applied to the Chip element.Deprecated Use
   slotProps.chip instead. This prop will be removed in a future major
   release. See Migrating from deprecated APIs for more details.
 
@@ -80,7 +80,8 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   component.See CSS classes API below for more details.
 
 - clearIcon `node`  
-  Default is The icon to display in place of the default clear icon.
+  Default is ClearIcon fontSize="small". The icon to display in place of
+  the default clear icon.
 
 - clearOnBlur `bool`  
   Default is !props.freeSolo If true, the input's text is cleared on
@@ -104,7 +105,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 - componentsProps
   `{ clearIndicator?: object, paper?: object, popper?: object, popupIndicator?: object }`  
-  Default is - The props used for each slot inside.Deprecated－Use the
+  Default is - The props used for each slot inside.Deprecated Use the
   slotProps prop instead. This prop will be removed in a future major
   release. See Migrating from deprecated APIs for more details.
 
@@ -136,13 +137,13 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 - filterOptions `func`  
   Default is createFilterOptions() A function that determines the
   filtered options to be rendered on search.Signature:function(options:
-  Array, state: object) =\> Arrayoptions The options to render.state The
+  Array, state: object) = Arrayoptions The options to render.state The
   state of the component.
 
 - filterSelectedOptions `bool`  
   Default is FALSE If true, hide the selected options from the list box.
 
-- forcePopupIcon `'auto'| bool`  
+- forcePopupIcon `'auto'| bool`  
   Default is 'auto' Force the visibility display of the popup icon.
 
 - freeSolo `bool`  
@@ -154,33 +155,33 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   container.
 
 - getLimitTagsText `func`  
-  Default is (more) =\> `+$more` The label to display when the tags are
-  truncated (limitTags).Signature:function(more: number) =\>
-  ReactNodemore The number of truncated tags.
+  Default is (more) = `+$more` The label to display when the tags are
+  truncated (limitTags).Signature:function(more: number) = ReactNodemore
+  The number of truncated tags.
 
 - getOptionDisabled `func`  
   Default is - Used to determine the disabled state for a given
-  option.Signature:function(option: Value) =\> booleanoption The option
-  to test.
+  option.Signature:function(option: Value) = booleanoption The option to
+  test.
 
 - getOptionKey `func`  
   Default is - Used to determine the key for a given option. This can be
   useful when the labels of options are not unique (since labels are
-  used as keys by default).Signature:function(option: Value) =\> string
-  \| numberoption The option to get the key for.
+  used as keys by default).Signature:function(option: Value) = string \|
+  numberoption The option to get the key for.
 
 - getOptionLabel `func`  
-  Default is (option) =\> option.label ?? option Used to determine the
+  Default is (option) = option.label ?? option Used to determine the
   string value for a given option. It's used to fill the input (and the
   list box options if renderOption is not provided).If used in free solo
   mode, it must accept both the type of the options and a
-  string.Signature:function(option: Value) =\> string
+  string.Signature:function(option: Value) = string
 
 - groupBy `func`  
   Default is - If provided, the options will be grouped under the
   returned string. The groupBy value is also used as the text for group
   headings when renderGroup is not provided.Signature:function(option:
-  Value) =\> stringoption The Autocomplete option.
+  Value) = stringoption The Autocomplete option.
 
 - handleHomeEndKeys `bool`  
   Default is !props.freeSolo If true, the component handles the "Home"
@@ -200,23 +201,23 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 - isOptionEqualToValue `func`  
   Default is - Used to determine if the option represents the given
-  value. Uses strict equality by default. ⚠️ Both arguments need to be
+  value. Uses strict equality by default. Both arguments need to be
   handled, an option can only match with one
-  value.Signature:function(option: Value, value: Value) =\>
-  booleanoption The option to test.value The value to test against.
+  value.Signature:function(option: Value, value: Value) = booleanoption
+  The option to test.value The value to test against.
 
 - limitTags `integer`  
   Default is -1 The maximum number of tags that will be visible when not
   focused. Set -1 to disable the limit.
 
 - ListboxComponent `elementType`  
-  Default is 'ul' The component used to render the
-  listbox.Deprecated－Use slotProps.listbox.component instead. This prop
-  will be removed in a future major release. See Migrating from
-  deprecated APIs for more details.
+  Default is 'ul' The component used to render the listbox.Deprecated
+  Use slotProps.listbox.component instead. This prop will be removed in
+  a future major release. See Migrating from deprecated APIs for more
+  details.
 
 - ListboxProps `object`  
-  Default is - Props applied to the Listbox element.Deprecated－Use
+  Default is - Props applied to the Listbox element.Deprecated Use
   slotProps.listbox instead. This prop will be removed in a future major
   release. See Migrating from deprecated APIs for more details.
 
@@ -226,7 +227,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   suggestions to show, for example options are empty).
 
 - loadingText `node`  
-  Default is 'Loading…' Text to display when in a loading state.For
+  Default is 'Loading80' Text to display when in a loading state.For
   localization purposes, you can use the provided translations.
 
 - multiple `bool`  
@@ -240,35 +241,35 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 - onChange `func`  
   Default is - Callback fired when the value
   changes.Signature:function(event: React.SyntheticEvent, value: Value
-  \| Array, reason: string, details?: string) =\> voidevent The event
+  \| Array, reason: string, details?: string) = voidevent The event
   source of the callback.value The new value of the component.reason One
   of "createOption", "selectOption", "removeOption", "blur" or "clear".
 
 - onClose `func`  
   Default is - Callback fired when the popup requests to be closed. Use
   in controlled mode (see open).Signature:function(event:
-  React.SyntheticEvent, reason: string) =\> voidevent The event source
-  of the callback.reason Can be: "toggleInput", "escape",
-  "selectOption", "removeOption", "blur".
+  React.SyntheticEvent, reason: string) = voidevent The event source of
+  the callback.reason Can be: "toggleInput", "escape", "selectOption",
+  "removeOption", "blur".
 
 - onHighlightChange `func`  
   Default is - Callback fired when the highlight option
   changes.Signature:function(event: React.SyntheticEvent, option: Value,
-  reason: string) =\> voidevent The event source of the callback.option
+  reason: string) = voidevent The event source of the callback.option
   The highlighted option.reason Can be: "keyboard", "mouse", "touch".
 
 - onInputChange `func`  
   Default is - Callback fired when the input value
   changes.Signature:function(event: React.SyntheticEvent, value: string,
-  reason: string) =\> voidevent The event source of the callback.value
-  The new value of the text input.reason Can be: "input" (user input),
+  reason: string) = voidevent The event source of the callback.value The
+  new value of the text input.reason Can be: "input" (user input),
   "reset" (programmatic change), "clear", "blur", "selectOption",
   "removeOption"
 
 - onOpen `func`  
   Default is - Callback fired when the popup requests to be opened. Use
   in controlled mode (see open).Signature:function(event:
-  React.SyntheticEvent) =\> voidevent The event source of the callback.
+  React.SyntheticEvent) = voidevent The event source of the callback.
 
 - open `bool`  
   Default is - If true, the component is shown.
@@ -283,18 +284,18 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 - PaperComponent `elementType`  
   Default is Paper The component used to render the body of the
-  popup.Deprecated－Use slots.paper instead. This prop will be removed
-  in a future major release. See Migrating from deprecated APIs for more
+  popup.Deprecated Use slots.paper instead. This prop will be removed in
+  a future major release. See Migrating from deprecated APIs for more
   details.
 
 - PopperComponent `elementType`  
-  Default is Popper The component used to position the
-  popup.Deprecated－Use slots.popper instead. This prop will be removed
-  in a future major release. See Migrating from deprecated APIs for more
-  details.
+  Default is Popper The component used to position the popup.Deprecated
+  Use slots.popper instead. This prop will be removed in a future major
+  release. See Migrating from deprecated APIs for more details.
 
 - popupIcon `node`  
-  Default is The icon to display in place of the default popup icon.
+  Default is ArrowDropDownIcon. The icon to display in place of the
+  default popup icon.
 
 - readOnly `bool`  
   Default is FALSE If true, the component becomes readonly. It is also
@@ -302,38 +303,37 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 - renderGroup `func`  
   Default is - Render the group.Signature:function(params:
-  AutocompleteRenderGroupParams) =\> ReactNodeparams The group to
-  render.
+  AutocompleteRenderGroupParams) = ReactNodeparams The group to render.
 
 - renderOption `func`  
   Default is - Render the option, use getOptionLabel by
   default.Signature:function(props: object, option: Value, state:
-  object, ownerState: object) =\> ReactNodeprops The props to apply on
-  the li element.option The option to render.state The state of each
+  object, ownerState: object) = ReactNodeprops The props to apply on the
+  li element.option The option to render.state The state of each
   option.ownerState The state of the Autocomplete component.
 
 - renderTags `func`  
   Default is - Render the selected value.Signature:function(value:
-  Array, getTagProps: function, ownerState: object) =\> ReactNodevalue
-  The value provided to the component.getTagProps A tag props
+  Array, getTagProps: function, ownerState: object) = ReactNodevalue The
+  value provided to the component.getTagProps A tag props
   getter.ownerState The state of the Autocomplete component.
 
 - selectOnFocus `bool`  
   Default is !props.freeSolo If true, the input's text is selected on
   focus. It helps the user clear the selected value.
 
-- size `'small'| 'medium'| string`  
+- size `'small'| 'medium'| string`  
   Default is 'medium' The size of the component.
 
 - slotProps
-  `{ chip?: func| object, clearIndicator?: func| object, listbox?: func| object, paper?: func| object, popper?: func| object, popupIndicator?: func| object }`  
+  `{ chip?: func| object, clearIndicator?: func| object, listbox?: func| object, paper?: func| object, popper?: func| object, popupIndicator?: func| object }`  
   Default is The props used for each slot inside.
 
 - slots
   `{ listbox?: elementType, paper?: elementType, popper?: elementType }`  
   Default is The components used for each slot inside.
 
-- sx `Array<func| object| bool>| func| object`  
+- sx `Array func| object| bool | func| object`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.
 

@@ -25,7 +25,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   the end of the snackbar.
 
 - anchorOrigin
-  `{ horizontal: 'center'| 'left'| 'right', vertical: 'bottom'| 'top' }`  
+  `{ horizontal: 'center'| 'left'| 'right', vertical: 'bottom'| 'top' }`  
   Default is vertical: 'bottom', horizontal: 'left' The anchor of the
   Snackbar. On smaller screens, the component grows to occupy all the
   available width, the horizontal alignment is ignored.
@@ -44,16 +44,15 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   component.See CSS classes API below for more details.
 
 - ClickAwayListenerProps `object`  
-  Default is - Props applied to the ClickAwayListener
-  element.Deprecated－Use slotProps.clickAwayListener instead. This prop
-  will be removed in a future major release. See Migrating from
-  deprecated APIs for more details.
+  Default is - Props applied to the ClickAwayListener element.Deprecated
+  Use slotProps.clickAwayListener instead. This prop will be removed in
+  a future major release. See Migrating from deprecated APIs for more
+  details.
 
 - ContentProps `object`  
-  Default is - Props applied to the SnackbarContent
-  element.Deprecated－Use slotProps.content instead. This prop will be
-  removed in a future major release. See Migrating from deprecated APIs
-  for more details.
+  Default is - Props applied to the SnackbarContent element.Deprecated
+  Use slotProps.content instead. This prop will be removed in a future
+  major release. See Migrating from deprecated APIs for more details.
 
 - disableWindowBlurListener `bool`  
   Default is FALSE If true, the autoHideDuration timer will expire even
@@ -61,10 +60,10 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 - key `any`  
   Default is - When displaying multiple consecutive snackbars using a
-  single parent-rendered , add the key prop to ensure independent
-  treatment of each message. For instance, use . Otherwise, messages
-  might update in place, and features like autoHideDuration could be
-  affected.
+  single parent-rendered Snackbar, add the key prop to ensure
+  independent treatment of each message. For instance, use Snackbar
+  key=message. Otherwise, messages might update in place, and features
+  like autoHideDuration could be affected.
 
 - message `node`  
   Default is - The message to display.
@@ -75,7 +74,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   is used to control the Snackbar open prop. The reason parameter can
   optionally be used to control the response to onClose, for example
   ignoring clickaway.Signature:function(event: React.SyntheticEvent \|
-  Event, reason: string) =\> voidevent The event source of the
+  Event, reason: string) = voidevent The event source of the
   callback.reason Can be: "timeout" (autoHideDuration expired),
   "clickaway", or "escapeKeyDown".
 
@@ -89,26 +88,26 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   resumeHideDuration isn't, we default to autoHideDuration / 2 ms.
 
 - slotProps
-  `{ clickAwayListener?: func| { children: element, disableReactTree?: bool, mouseEvent?: 'onClick'| 'onMouseDown'| 'onMouseUp'| 'onPointerDown'| 'onPointerUp'| false, onClickAway?: func, touchEvent?: 'onTouchEnd'| 'onTouchStart'| false }, content?: func| object, root?: func| object, transition?: func| object }`  
+  `{ clickAwayListener?: func| { children: element, disableReactTree?: bool, mouseEvent?: 'onClick'| 'onMouseDown'| 'onMouseUp'| 'onPointerDown'| 'onPointerUp'| false, onClickAway?: func, touchEvent?: 'onTouchEnd'| 'onTouchStart'| false }, content?: func| object, root?: func| object, transition?: func| object }`  
   Default is The props used for each slot inside.
 
 - slots
   `{ clickAwayListener?: elementType, content?: elementType, root?: elementType, transition?: elementType }`  
   Default is The components used for each slot inside.
 
-- sx `Array<func| object| bool>| func| object`  
+- sx `Array`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.
 
 - TransitionComponent `elementType`  
   Default is Grow The component used for the transition. Follow this
   guide to learn more about the requirements for this
-  component.Deprecated－Use slots.transition instead. This prop will be
+  component.Deprecated Use slots.transition instead. This prop will be
   removed in a future major release. See Migrating from deprecated APIs
   for more details.
 
 - transitionDuration
-  `number| { appear?: number, enter?: number, exit?: number }`  
+  `number| { appear?: number, enter?: number, exit?: number }`  
   Default is enter: theme.transitions.duration.enteringScreen, exit:
   theme.transitions.duration.leavingScreen, The duration for the
   transition, in milliseconds. You may specify a single timeout for all
@@ -116,6 +115,6 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 - TransitionProps `object`  
   Default is Props applied to the transition element. By default, the
-  element is based on this Transition component.Deprecated－Use
+  element is based on this Transition component.Deprecated Use
   slotProps.transition instead. This prop will be removed in a future
   major release. See Migrating from deprecated APIs for more details.

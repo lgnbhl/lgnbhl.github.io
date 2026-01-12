@@ -29,13 +29,13 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 - BackdropComponent `elementType`  
   Default is styled(Backdrop, name: 'MuiModal', slot: 'Backdrop',
-  overridesResolver: (props, styles) =\> return styles.backdrop; , )(
+  overridesResolver: (props, styles) = return styles.backdrop; , )(
   zIndex: -1, ) A backdrop component. This prop enables custom backdrop
-  rendering.Deprecated－Use slots.backdrop instead. While this prop
+  rendering.Deprecated Use slots.backdrop instead. While this prop
   currently works, it will be removed in the next major version.
 
 - BackdropProps `object`  
-  Default is - Props applied to the Backdrop element.Deprecated－Use
+  Default is - Props applied to the Backdrop element.Deprecated Use
   slotProps.backdrop instead.
 
 - classes `object`  
@@ -51,17 +51,17 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   use a HTML element or a component.
 
 - components `{ Backdrop?: elementType, Root?: elementType }`  
-  Default is The components used for each slot inside.Deprecated－Use
-  the slots prop instead. This prop will be removed in a future major
+  Default is The components used for each slot inside.Deprecated Use the
+  slots prop instead. This prop will be removed in a future major
   release. See Migrating from deprecated APIs for more details.
 
-- componentsProps `{ backdrop?: func| object, root?: func| object }`  
+- componentsProps `{ backdrop?: func| object, root?: func| object }`  
   Default is The extra props for the slot components. You can override
-  the existing props or add new ones.Deprecated－Use the slotProps prop
+  the existing props or add new ones.Deprecated Use the slotProps prop
   instead. This prop will be removed in a future major release. See
   Migrating from deprecated APIs for more details.
 
-- container `HTML element| func`  
+- container `HTML element| func`  
   Default is - An HTML element or function that returns one. The
   container will have the portal children appended to it.You can also
   provide a callback, which is called in a React layout effect. This
@@ -109,9 +109,9 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 - onClose `func`  
   Default is - Callback fired when the component requests to be closed.
   The reason parameter can optionally be used to control the response to
-  onClose.Signature:function(event: object, reason: string) =\>
-  voidevent The event source of the callback.reason Can be:
-  "escapeKeyDown", "backdropClick".
+  onClose.Signature:function(event: object, reason: string) = voidevent
+  The event source of the callback.reason Can be: "escapeKeyDown",
+  "backdropClick".
 
 - onTransitionEnter `func`  
   Default is - A function called when a transition enters.
@@ -119,13 +119,13 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 - onTransitionExited `func`  
   Default is - A function called when a transition has exited.
 
-- slotProps `{ backdrop?: func| object, root?: func| object }`  
+- slotProps `{ backdrop?: func| object, root?: func| object }`  
   Default is The props used for each slot inside the Modal.
 
 - slots `{ backdrop?: elementType, root?: elementType }`  
   Default is The components used for each slot inside the Modal. Either
   a string to use a HTML element or a component.
 
-- sx `Array<func| object| bool>| func| object`  
+- sx `Array func| object| bool | func| object`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.

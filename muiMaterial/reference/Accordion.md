@@ -44,12 +44,12 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 - onChange `func`  
   Default is - Callback fired when the expand/collapse state is
   changed.Signature:function(event: React.SyntheticEvent, expanded:
-  boolean) =\> voidevent The event source of the callback. Warning: This
+  boolean) = voidevent The event source of the callback. Warning: This
   is a generic event not a change event.expanded The expanded state of
   the accordion.
 
 - slotProps
-  `{ heading?: func| object, root?: func| object, transition?: func| object }`  
+  `{ heading?: func| object, root?: func| object, transition?: func| object }`  
   Default is The props used for each slot inside.
 
 - slots
@@ -59,19 +59,18 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 - square `bool`  
   Default is FALSE If true, rounded corners are disabled.
 
-- sx `Array<func| object| bool>| func| object`  
+- sx `Array func| object| bool | func| object`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.
 
 - TransitionComponent `elementType`  
   Default is - The component used for the transition. Follow this guide
-  to learn more about the requirements for this
-  component.Deprecated－Use slots.transition instead. This prop will be
-  removed in a future major release. See Migrating from deprecated APIs
-  for more details.
+  to learn more about the requirements for this component.Deprecated Use
+  slots.transition instead. This prop will be removed in a future major
+  release. See Migrating from deprecated APIs for more details.
 
 - TransitionProps `object`  
   Default is - Props applied to the transition element. By default, the
-  element is based on this Transition component.Deprecated－Use
+  element is based on this Transition component.Deprecated Use
   slotProps.transition instead. This prop will be removed in a future
   major release. See Migrating from deprecated APIs for more details.

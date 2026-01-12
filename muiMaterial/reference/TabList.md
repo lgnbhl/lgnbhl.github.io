@@ -51,4 +51,4 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 ## Details
 
 - children `node`  
-  Default is NA A list of elements.
+  Default is NA A list of Tab / elements.

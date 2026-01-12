@@ -54,8 +54,8 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 - onChange `func`  
   Default is NA Callback fired when a radio button is
-  selected.Signature:function(event: React.ChangeEvent, value: string)
-  =\> voidevent The event source of the callback.value The value of the
+  selected.Signature:function(event: React.ChangeEvent, value: string) =
+  voidevent The event source of the callback.value The value of the
   selected radio button. You can pull out the new value by accessing
   event.target.value (string).
 

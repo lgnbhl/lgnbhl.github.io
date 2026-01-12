@@ -28,17 +28,17 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   use a HTML element or a component.
 
 - direction
-  `'column-reverse'| 'column'| 'row-reverse'| 'row'| Array<'column-reverse'| 'column'| 'row-reverse'| 'row'>| object`  
+  `'column-reverse'| 'column'| 'row-reverse'| 'row'| Array 'column-reverse'| 'column'| 'row-reverse'| 'row' | object`  
   Default is 'column' Defines the flex-direction style property. It is
   applied for all screen sizes.
 
 - divider `node`  
   Default is - Add an element between each child.
 
-- spacing `Array<number| string>| number| object| string`  
+- spacing `Array number| string | number| object| string`  
   Default is 0 Defines the space between immediate children.
 
-- sx `Array<func| object| bool>| func| object`  
+- sx `Array func| object| bool | func| object`  
   Default is - The system prop, which allows defining system overrides
   as well as additional CSS styles.See the `sx` page for more details.
 

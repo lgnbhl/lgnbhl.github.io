@@ -28,7 +28,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   component.See CSS classes API below for more details.
 
 - color
-  `'primary'| 'secondary'| 'error'| 'info'| 'success'| 'warning'| string`  
+  `'primary'| 'secondary'| 'error'| 'info'| 'success'| 'warning'| string`  
   Default is 'primary' The color of the component. It supports both
   default and custom theme colors, which can be added as shown in the
   palette customization guide.
@@ -56,7 +56,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   increase density for a FilledInput. Be sure to add aria-label to the
   input element.
 
-- margin `'dense'| 'none'| 'normal'`  
+- margin `'dense'| 'none'| 'normal'`  
   Default is 'none' If dense or normal, will adjust vertical spacing of
   this and contained components.
 
@@ -64,12 +64,12 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   Default is FALSE If true, the label will indicate that the input is
   required.
 
-- size `'medium'| 'small'| string`  
+- size `'medium'| 'small'| string`  
   Default is 'medium' The size of the component.
 
-- sx `Array<func| object| bool>| func| object`  
+- sx `Array func| object| bool | func| object`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.
 
-- variant `'filled'| 'outlined'| 'standard'`  
+- variant `'filled'| 'outlined'| 'standard'`  
   Default is 'outlined' The variant to use.

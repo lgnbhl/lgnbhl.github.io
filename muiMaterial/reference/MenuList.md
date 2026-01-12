@@ -37,7 +37,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 - disableListWrap `bool`  
   Default is FALSE If true, the menu items will not wrap focus.
 
-- variant `'menu'| 'selectedMenu'`  
+- variant `'menu'| 'selectedMenu'`  
   Default is 'selectedMenu' The variant to use. Use menu to prevent
   selected items from impacting the initial focus and the vertical
   alignment relative to the anchor element.

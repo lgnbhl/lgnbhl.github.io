@@ -36,9 +36,9 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 - disableGutters `bool`  
   Default is FALSE If true, disables gutter padding.
 
-- sx `Array<func| object| bool>| func| object`  
+- sx `Array func| object| bool | func| object`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.
 
-- variant `'dense'| 'regular'| string`  
+- variant `'dense'| 'regular'| string`  
   Default is 'regular' The variant to use.

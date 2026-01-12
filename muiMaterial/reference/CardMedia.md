@@ -40,6 +40,6 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   Default is NA An alias for image property. Available only with media
   components. Media components: video, audio, picture, iframe, img.
 
-- sx `Array<func| object| bool>| func| object`  
+- sx `Array func| object| bool | func| object`  
   Default is NA The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.

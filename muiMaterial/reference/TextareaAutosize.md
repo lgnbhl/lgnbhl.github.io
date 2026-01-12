@@ -20,8 +20,8 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 ## Details
 
-- maxRows `number| string`  
+- maxRows `number| string`  
   Default is - Maximum number of rows to display.
 
-- minRows `number| string`  
+- minRows `number| string`  
   Default is 1 Minimum number of rows to display.

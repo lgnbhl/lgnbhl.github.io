@@ -32,10 +32,10 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   handled.
 
 - mouseEvent
-  `'onClick'| 'onMouseDown'| 'onMouseUp'| 'onPointerDown'| 'onPointerUp'| false`  
+  `'onClick'| 'onMouseDown'| 'onMouseUp'| 'onPointerDown'| 'onPointerUp'| false`  
   Default is 'onClick' The mouse event to listen to. You can disable the
   listener by providing false.
 
-- touchEvent `'onTouchEnd'| 'onTouchStart'| false`  
+- touchEvent `'onTouchEnd'| 'onTouchStart'| false`  
   Default is 'onTouchEnd' The touch event to listen to. You can disable
   the listener by providing false.

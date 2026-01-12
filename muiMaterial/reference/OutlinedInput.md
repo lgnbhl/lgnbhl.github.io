@@ -53,15 +53,15 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   Default is - Override or extend the styles applied to the
   component.See CSS classes API below for more details.
 
-- color `'primary'| 'secondary'| string`  
+- color `'primary'| 'secondary'| string`  
   Default is - The color of the component. It supports both default and
   custom theme colors, which can be added as shown in the palette
   customization guide. The prop defaults to the value ('primary')
   inherited from the parent FormControl component.
 
 - components `{ Input?: elementType, Root?: elementType }`  
-  Default is The components used for each slot inside.Deprecated－use
-  the slots prop instead. This prop will be removed in a future major
+  Default is The components used for each slot inside.Deprecated use the
+  slots prop instead. This prop will be removed in a future major
   release. See Migrating from deprecated APIs for more details.
 
 - defaultValue `any`  
@@ -101,16 +101,16 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   Default is - The label of the input. It is only used for layout. The
   actual labelling is handled by InputLabel.
 
-- margin `'dense'| 'none'`  
+- margin `'dense'| 'none'`  
   Default is - If dense, will adjust vertical spacing. This is normally
   obtained via context from FormControl. The prop defaults to the value
   ('none') inherited from the parent FormControl component.
 
-- maxRows `number| string`  
+- maxRows `number| string`  
   Default is - Maximum number of rows to display when multiline option
   is set to true.
 
-- minRows `number| string`  
+- minRows `number| string`  
   Default is - Minimum number of rows to display when multiline option
   is set to true.
 
@@ -125,7 +125,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 - onChange `func`  
   Default is - Callback fired when the value is
-  changed.Signature:function(event: React.ChangeEvent) =\> voidevent The
+  changed.Signature:function(event: React.ChangeEvent) = voidevent The
   event source of the callback. You can pull out the new value by
   accessing event.target.value (string).
 
@@ -141,7 +141,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   Default is - If true, the input element is required. The prop defaults
   to the value (false) inherited from the parent FormControl component.
 
-- rows `number| string`  
+- rows `number| string`  
   Default is - Number of rows to display when multiline option is set to
   true.
 
@@ -152,7 +152,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 - startAdornment `node`  
   Default is - Start InputAdornment for this component.
 
-- sx `Array<func| object| bool>| func| object`  
+- sx `Array func| object| bool | func| object`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.
 

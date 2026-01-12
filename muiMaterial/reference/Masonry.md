@@ -27,7 +27,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   Default is - Override or extend the styles applied to the
   component.See CSS classes API below for more details.
 
-- columns `Array<number| string>| number| object| string`  
+- columns `Array number| string | number| object| string`  
   Default is 4 Number of columns.
 
 - component `elementType`  
@@ -51,10 +51,10 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   Default is FALSE Allows using sequential order rather than adding to
   shortest column
 
-- spacing `Array<number| string>| number| object| string`  
+- spacing `Array number| string | number| object| string`  
   Default is 1 Defines the space between children. It is a factor of the
   theme's spacing.
 
-- sx `Array<func| object| bool>| func| object`  
+- sx `Array func| object| bool | func| object`  
   Default is - Allows defining system overrides as well as additional
   CSS styles.See the `sx` page for more details.

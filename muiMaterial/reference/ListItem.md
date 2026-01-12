@@ -20,7 +20,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 ## Details
 
-- alignItems `'center'| 'flex-start'`  
+- alignItems `'center'| 'flex-start'`  
   Default is 'center' Defines the align-items style property.
 
 - children `node`  
@@ -36,28 +36,28 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   use a HTML element or a component.
 
 - components `{ Root?: elementType }`  
-  Default is The components used for each slot inside.Deprecated－Use
-  the slots prop instead. This prop will be removed in a future major
+  Default is The components used for each slot inside.Deprecated Use the
+  slots prop instead. This prop will be removed in a future major
   release. See Migrating from deprecated APIs for more details.
 
 - componentsProps `{ root?: object }`  
   Default is The extra props for the slot components. You can override
-  the existing props or add new ones.Deprecated－Use the slotProps prop
+  the existing props or add new ones.Deprecated Use the slotProps prop
   instead. This prop will be removed in a future major release. See
   Migrating from deprecated APIs for more details.
 
 - ContainerComponent `element type`  
   Default is 'li' The container component used when a
   ListItemSecondaryAction is the last child.This needs to be able to
-  hold a ref.Deprecated－Use the component or slots.root prop instead.
+  hold a ref.Deprecated Use the component or slots.root prop instead.
   This prop will be removed in a future major release. See Migrating
   from deprecated APIs for more details.
 
 - ContainerProps `object`  
-  Default is Props applied to the container component if
-  used.Deprecated－Use the slotProps.root prop instead. This prop will
-  be removed in a future major release. See Migrating from deprecated
-  APIs for more details.
+  Default is Props applied to the container component if used.Deprecated
+  Use the slotProps.root prop instead. This prop will be removed in a
+  future major release. See Migrating from deprecated APIs for more
+  details.
 
 - dense `bool`  
   Default is FALSE If true, compact vertical padding designed for
@@ -84,6 +84,6 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 - slots `{ root?: elementType }`  
   Default is The components used for each slot inside.
 
-- sx `Array<func| object| bool>| func| object`  
+- sx `Array func| object| bool | func| object`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.

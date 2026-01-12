@@ -37,11 +37,11 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   fixed set of sizes instead of trying to accommodate a fully fluid
   viewport. It's fluid by default.
 
-- maxWidth `'xs'| 'sm'| 'md'| 'lg'| 'xl'| false| string`  
+- maxWidth `'xs'| 'sm'| 'md'| 'lg'| 'xl'| false| string`  
   Default is 'lg' Determine the max-width of the container. The
   container width grows with the size of the screen. Set to false to
   disable maxWidth.
 
-- sx `Array<func| object| bool>| func| object`  
+- sx `Array func| object| bool | func| object`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.

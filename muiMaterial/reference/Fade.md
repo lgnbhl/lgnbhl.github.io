@@ -34,14 +34,14 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   Default is TRUE Perform the enter transition when it first mounts if
   in is also true. Set this to false to disable this behavior.
 
-- easing `{ enter?: string, exit?: string }| string`  
+- easing `{ enter?: string, exit?: string }| string`  
   Default is - The transition timing function. You may specify a single
   easing or a object containing enter and exit values.
 
 - in `bool`  
   Default is - If true, the component will transition in.
 
-- timeout `number| { appear?: number, enter?: number, exit?: number }`  
+- timeout `number| { appear?: number, enter?: number, exit?: number }`  
   Default is enter: theme.transitions.duration.enteringScreen, exit:
   theme.transitions.duration.leavingScreen, The duration for the
   transition, in milliseconds. You may specify a single timeout for all

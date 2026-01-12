@@ -20,10 +20,10 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 ## Details
 
-- direction `'left'| 'right'`  
+- direction `'left'| 'right'`  
   Default is - The direction the button should indicate.
 
-- orientation `'horizontal'| 'vertical'`  
+- orientation `'horizontal'| 'vertical'`  
   Default is - The component orientation (layout flow direction).
 
 - children `node`  
@@ -37,7 +37,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   Default is FALSE If true, the component is disabled.
 
 - slotProps
-  `{ endScrollButtonIcon?: func| object, startScrollButtonIcon?: func| object }`  
+  `{ endScrollButtonIcon?: func| object, startScrollButtonIcon?: func| object }`  
   Default is The extra props for the slot components. You can override
   the existing props or add new ones.
 
@@ -45,6 +45,6 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   `{ EndScrollButtonIcon?: elementType, StartScrollButtonIcon?: elementType }`  
   Default is The components used for each slot inside.
 
-- sx `Array<func| object| bool>| func| object`  
+- sx `Array func| object| bool | func| object`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.

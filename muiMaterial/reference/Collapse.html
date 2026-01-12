@@ -86,13 +86,13 @@
 <ul><li><p>addEndListener <code>func</code> <br> Default is - Add a custom transition end trigger. Called with the transitioning DOM node and a done callback. Allows for more fine grained transition end logic. Note: Timeouts are still used as a fallback if provided.</p></li>
 <li><p>children <code>node</code> <br> Default is - The content node to be collapsed.</p></li>
 <li><p>classes <code>object</code> <br> Default is - Override or extend the styles applied to the component.See CSS classes API below for more details.</p></li>
-<li><p>collapsedSize <code>number| string</code> <br> Default is '0px' The width (horizontal) or height (vertical) of the container when collapsed.</p></li>
+<li><p>collapsedSize <code>number| string</code> <br> Default is '0px' The width (horizontal) or height (vertical) of the container when collapsed.</p></li>
 <li><p>component <code>element type</code> <br> Default is - The component used for the root node. Either a string to use a HTML element or a component.This needs to be able to hold a ref.</p></li>
-<li><p>easing <code>{ enter?: string, exit?: string }| string</code> <br> Default is - The transition timing function. You may specify a single easing or a object containing enter and exit values.</p></li>
+<li><p>easing <code>{ enter?: string, exit?: string }| string</code> <br> Default is - The transition timing function. You may specify a single easing or a object containing enter and exit values.</p></li>
 <li><p>in <code>bool</code> <br> Default is - If true, the component will transition in.</p></li>
-<li><p>orientation <code>'horizontal'| 'vertical'</code> <br> Default is 'vertical' The transition orientation.</p></li>
-<li><p>sx <code>Array&lt;func| object| bool&gt;| func| object</code> <br> Default is - The system prop that allows defining system overrides as well as additional CSS styles.See the <code>sx</code> page for more details.</p></li>
-<li><p>timeout <code>'auto'| number| { appear?: number, enter?: number, exit?: number }</code> <br> Default is duration.standard The duration for the transition, in milliseconds. You may specify a single timeout for all transitions, or individually with an object.Set to 'auto' to automatically calculate transition time based on height.</p></li>
+<li><p>orientation <code>'horizontal'| 'vertical'</code> <br> Default is 'vertical' The transition orientation.</p></li>
+<li><p>sx <code>Array func| object| bool | func| object</code> <br> Default is - The system prop that allows defining system overrides as well as additional CSS styles.See the <code>sx</code> page for more details.</p></li>
+<li><p>timeout <code>'auto'| number| { appear?: number, enter?: number, exit?: number }</code> <br> Default is duration.standard The duration for the transition, in milliseconds. You may specify a single timeout for all transitions, or individually with an object.Set to 'auto' to automatically calculate transition time based on height.</p></li>
 </ul></div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

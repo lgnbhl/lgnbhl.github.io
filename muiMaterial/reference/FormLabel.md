@@ -28,7 +28,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   component.See CSS classes API below for more details.
 
 - color
-  `'error'| 'info'| 'primary'| 'secondary'| 'success'| 'warning'| string`  
+  `'error'| 'info'| 'primary'| 'secondary'| 'success'| 'warning'| string`  
   Default is NA The color of the component. It supports both default and
   custom theme colors, which can be added as shown in the palette
   customization guide.
@@ -55,6 +55,6 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   Default is NA If true, the label will indicate that the input is
   required.
 
-- sx `Array<func| object| bool>| func| object`  
+- sx `Array func| object| bool | func| object`  
   Default is NA The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.

@@ -20,5 +20,5 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 ## Details
 
-- styles `array| func| number| object| string| bool`  
+- styles `array| func| number| object| string| bool`  
   Default is NA The styles you want to apply globally.

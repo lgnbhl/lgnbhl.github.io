@@ -22,15 +22,15 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 - onClose `func`  
   Default is - Callback fired when the component requests to be
-  closed.Signature:function(event: React.SyntheticEvent\<\>) =\>
-  voidevent The event source of the callback.
+  closed.Signature:function(event: React.SyntheticEvent ) = voidevent
+  The event source of the callback.
 
 - onOpen `func`  
   Default is - Callback fired when the component requests to be
-  opened.Signature:function(event: React.SyntheticEvent\<\>) =\>
-  voidevent The event source of the callback.
+  opened.Signature:function(event: React.SyntheticEvent ) = voidevent
+  The event source of the callback.
 
-- allowSwipeInChildren `func| bool`  
+- allowSwipeInChildren `func| bool`  
   Default is FALSE If set to true, the swipe event will open the drawer
   even if the user begins the swipe on one of the drawer's children.
   This can be useful in scenarios where the drawer is partially visible.
@@ -71,7 +71,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   Default is FALSE If true, the component is shown.
 
 - slotProps
-  `{ backdrop?: func| object, docked?: func| object, paper?: func| object, root?: func| object, swipeArea?: func| object, transition?: func| object }`  
+  `{ backdrop?: func| object, docked?: func| object, paper?: func| object, root?: func| object, swipeArea?: func| object, transition?: func| object }`  
   Default is The props used for each slot inside.
 
 - slots
@@ -80,7 +80,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 - SwipeAreaProps `object`  
   Default is - The element is used to intercept the touch events on the
-  edge.Deprecated－use the slotProps.swipeArea prop instead. This prop
+  edge.Deprecated use the slotProps.swipeArea prop instead. This prop
   will be removed in a future major release. See Migrating from
   deprecated APIs for more details.
 
@@ -89,7 +89,7 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   that the drawer can be swiped open from.
 
 - transitionDuration
-  `number| { appear?: number, enter?: number, exit?: number }`  
+  `number| { appear?: number, enter?: number, exit?: number }`  
   Default is enter: theme.transitions.duration.enteringScreen, exit:
   theme.transitions.duration.leavingScreen, The duration for the
   transition, in milliseconds. You may specify a single timeout for all
