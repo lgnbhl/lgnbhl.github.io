@@ -15,6 +15,11 @@ ThemeProvider(...)
 
   args to pass to element
 
+## Value
+
+Object with \`shiny.tag\` class suitable for use in the UI of a Shiny
+app.
+
 ## Details
 
 Custom ThemeProvider built with MuiThemeProvider. See

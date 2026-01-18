@@ -16,8 +16,8 @@
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Material UI for shiny Apps and Quarto">
-<meta name="description" content="A set of user interface components for building shiny applications and quarto documents, including inputs, layouts, navigation, surfaces, and various utilities. All components Material UI from the company MUI are available and all inputs have usage examples in R.">
-<meta property="og:description" content="A set of user interface components for building shiny applications and quarto documents, including inputs, layouts, navigation, surfaces, and various utilities. All components Material UI from the company MUI are available and all inputs have usage examples in R.">
+<meta name="description" content="A set of user interface components for building shiny applications and quarto documents, including inputs, layouts, navigation, surfaces, and various utilities. All components Material UI from the company MUI &lt;https://mui.com/&gt; are available and all inputs have usage examples in R.">
+<meta property="og:description" content="A set of user interface components for building shiny applications and quarto documents, including inputs, layouts, navigation, surfaces, and various utilities. All components Material UI from the company MUI &lt;https://mui.com/&gt; are available and all inputs have usage examples in R.">
 <meta property="og:image" content="https://felixluginbuhl.com/muiMaterial/logo.png">
 </head>
 <body>
@@ -133,6 +133,7 @@
 <ul>
 <li>muiDataGrid (COMING SOON) - Professional data tables with filtering, sorting, and inline editing</li>
 <li>muiCharts (COMING SOON) - Beautiful, responsive charts</li>
+<li>muiDateTimePickers (COMING SOON) - UI components for selecting dates, times, and ranges</li>
 <li>
 <a href="https://felixluginbuhl.com/muiTreeView/" class="external-link">muiTreeView</a> - Interactive tree navigation</li>
 </ul>
@@ -145,7 +146,8 @@
 <h4 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h4>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"muiMaterial"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#remotes::install_github("lgnbhl/reactRouter") # dev version</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"muiMaterial"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="your-first-material-ui-app">Your first Material UI app<a class="anchor" aria-label="anchor" href="#your-first-material-ui-app"></a>
@@ -191,8 +193,12 @@
 <h4 id="styling-with-sx">Styling with sx<a class="anchor" aria-label="anchor" href="#styling-with-sx"></a>
 </h4>
 <p>Customize any component using the <code>sx</code> argument for inline CSS-in-JS styling. It’s more powerful and maintainable than traditional CSS.</p>
-<p><strong>Read the full documentation with examples <a href="https://felixluginbuhl.com/muiMaterial/">here</a>.</strong></p>
 </div>
+</div>
+<div class="section level2">
+<h2 id="full-documentation">Full documentation<a class="anchor" aria-label="anchor" href="#full-documentation"></a>
+</h2>
+<p><strong>All the docs with examples are <a href="https://felixluginbuhl.com/muiMaterial/">here</a>.</strong></p>
 </div>
 <div class="section level2">
 <h2 id="contributing">Contributing<a class="anchor" aria-label="anchor" href="#contributing"></a>

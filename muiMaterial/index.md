@@ -64,6 +64,8 @@ Extend functionality with companion R packages:
 - muiDataGrid (COMING SOON) - Professional data tables with filtering,
   sorting, and inline editing
 - muiCharts (COMING SOON) - Beautiful, responsive charts
+- muiDateTimePickers (COMING SOON) - UI components for selecting dates,
+  times, and ranges
 - [muiTreeView](https://felixluginbuhl.com/muiTreeView/) - Interactive
   tree navigation
 
@@ -72,6 +74,7 @@ Extend functionality with companion R packages:
 #### Installation
 
 ``` r
+#remotes::install_github("lgnbhl/reactRouter") # dev version
 install.packages("muiMaterial")
 ```
 
@@ -148,7 +151,9 @@ with [reactRouter](https://felixluginbuhl.com/reactRouter/).
 Customize any component using the `sx` argument for inline CSS-in-JS
 styling. It’s more powerful and maintainable than traditional CSS.
 
-**Read the full documentation with examples
+## Full documentation
+
+**All the docs with examples are
 [here](https://felixluginbuhl.com/muiMaterial/).**
 
 ## Contributing
