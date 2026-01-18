@@ -1,0 +1,425 @@
+# introduction
+
+## Install
+
+``` r
+#remotes::install_github("lgnbhl/muiTreeView") # dev version
+install.packages("muiTreeView")
+```
+
+``` r
+library(muiTreeView)
+```
+
+## MUI Rich Tree View
+
+Use
+[`RichTreeView()`](https://felixluginbuhl.com/muiTreeView/reference/RichTreeView.md)
+with the
+[`asMuiTree()`](https://felixluginbuhl.com/muiTreeView/reference/asMuiTree.md)
+helper function:
+
+``` r
+df <- data.frame(
+  pkg = c("muiTreeView", "muiTreeView", "muiTreeView"),
+  functions = c("SimpleTreeView", "RichTreeView", "RichTreeView"),
+  args = c("items", "items", "onItemSelectionToggle")
+)
+
+treeItems <- asMuiTree(df)
+
+RichTreeView(
+  items = treeItems
+)
+```
+
+### Multi selection and checkbox
+
+You can activate checkbox selection with `checkboxSelection = TRUE` and
+multi selection with `multiSelect = TRUE`:
+
+``` r
+RichTreeView(
+  items = treeItems,
+  checkboxSelection = TRUE,
+  multiSelect = TRUE # FALSE for single select,
+)
+```
+
+### Add data with `asMuiTree()`
+
+The helper function
+[`asMuiTree()`](https://felixluginbuhl.com/muiTreeView/reference/asMuiTree.md)
+transforms your dataframe in a structure which can be used with
+[`RichTreeView()`](https://felixluginbuhl.com/muiTreeView/reference/RichTreeView.md).
+
+You can provide a vector of the column names to select and choose the
+level order of the tree nodes, for example:
+
+``` r
+df <- data.frame(
+  pkg = c("muiTreeView", "muiTreeView", "muiTreeView"),
+  functions = c("SimpleTreeView", "RichTreeView", "RichTreeView"),
+  args = c("items", "items", "onItemSelectionToggle")
+)
+
+treeItems <- asMuiTree(df, c("functions", "pkg"))
+
+str(treeItems, max.level = 3)
+#> List of 2
+#>  $ :List of 3
+#>   ..$ label   : chr "SimpleTreeView"
+#>   ..$ id      : chr "SimpleTreeView-7030611"
+#>   ..$ children:List of 1
+#>   .. ..$ :List of 2
+#>  $ :List of 3
+#>   ..$ label   : chr "RichTreeView"
+#>   ..$ id      : chr "RichTreeView-3110731"
+#>   ..$ children:List of 1
+#>   .. ..$ :List of 2
+```
+
+[`asMuiTree()`](https://felixluginbuhl.com/muiTreeView/reference/asMuiTree.md)
+creates also unique IDs for each node by joining the name of the label
+with an random integer between a dash.
+
+``` r
+df <- data.frame(
+  pkg = c("muiTreeView", "muiTreeView", "muiTreeView"),
+  functions = c("SimpleTreeView", "RichTreeView", "RichTreeView"),
+  args = c("items", "items", "onItemSelectionToggle")
+)
+
+treeItems <- asMuiTree(df, c("functions", "pkg"))
+# treeItems <- list(
+#   list(
+#     label = "muiTreeView", id = "muiTreeView-1",
+#     children = list(
+#       list(
+#         label = "SimpleTreeView", id = "SimpleTreeView-2",
+#         children = list(
+#           list(label = "items", id = "items-3")
+#         )
+#       ),
+#       list(
+#         label = "RichTreeView", id = "RichTreeView-4",
+#         children = list(
+#           list(label = "items", id = "items-5"),
+#           list(label = "onItemClick", id = "onItemClick-6")
+#         )
+#       )
+#     )
+#   )
+# )
+
+RichTreeView(
+  items = treeItems
+)
+```
+
+As
+[`asMuiTree()`](https://felixluginbuhl.com/muiTreeView/reference/asMuiTree.md)
+is adapted from
+[`shinyWidgets::create_tree()`](https://dreamrs.github.io/shinyWidgets/reference/create_tree.html),
+I want to thank the authors of shinyWidgets for their amazing work!
+
+### Rich Tree View default selection and expand
+
+Select by default one or multiple items with the `defaultSelectedItems`
+argument by providing its related IDs.
+
+You can also expand by default one or multiple nodes with the
+`defaultExpandedItems` argument by providing its related IDs.
+
+``` r
+df <- data.frame(
+  pkg = c("muiTreeView", "muiTreeView", "muiTreeView"),
+  functions = c("SimpleTreeView", "RichTreeView", "RichTreeView"),
+  args = c("items", "items", "onItemSelectionToggle")
+)
+
+treeItems <- asMuiTree(df)
+
+defaultSelectedId <- treeItems[[1]]$children[[1]]$children[[1]]$id
+defaultExpandedId_1 <- treeItems[[1]]$children[[1]]$id
+defaultExpandedId_2 <- treeItems[[1]]$id
+
+RichTreeView(
+  items = treeItems,
+  defaultSelectedItems = list(defaultSelectedId), # always in list()
+  defaultExpandedItems = list(defaultExpandedId_1, defaultExpandedId_2) # always in list()
+)
+```
+
+### Custom styling
+
+As **muiTreeView** is using the Material UI library under the hood, you
+can customize component styles using CSS classes with the “sx” argument:
+
+``` r
+RichTreeView(
+  items = treeItems,
+  sx = list(
+    ".MuiTreeItem-root" = list(
+      ".Mui-selected, .Mui-selected:hover, .Mui-focused.Mui-selected" = list(
+        background = "red",
+        color = "white"
+      )
+    )
+  )
+)
+```
+
+Note that even if the [CSS
+classes](https://mui.com/x/api/tree-view/tree-item/#classes) are
+deprecated they are still working.
+
+You can access all Material UI components using the
+[shinyMaterialUI](https://felixluginbuhl.com/shinyMaterialUI/) R
+package.
+
+## Simple Tree View
+
+Using
+[`SimpleTreeView()`](https://felixluginbuhl.com/muiTreeView/reference/SimpleTreeView.md)
+with
+[`TreeItem()`](https://felixluginbuhl.com/muiTreeView/reference/TreeItem.md),
+you can easily customize items with icons for example:
+
+``` r
+library(htmltools)
+#> Warning: package 'htmltools' was built under R version 4.5.2
+
+SimpleTreeView(
+  defaultExpandedItems = list("documents"), # always in list()
+  defaultSelectedItems = list("notes"), # always in list()
+  TreeItem(
+    itemId = "documents", 
+    label = div(shiny::icon("folder"), " Documents"),
+    TreeItem(
+      itemId = "notes", 
+      label = div(shiny::icon("file"), " Notes")
+    ),
+    TreeItem(
+      itemId = "images", 
+      label = div(shiny::icon("image"), " Images"),
+      sx = list(
+        ".Mui-selected, .Mui-selected:hover, .Mui-focused.Mui-selected" = list(
+          background = "lightgreen",
+          color = "white"
+        )
+      )
+    ),
+    TreeItem(
+      itemId = "videos", 
+      label = div(shiny::icon("video"), " Videos"),
+      sx = list(
+        ".Mui-selected, .Mui-selected:hover, .Mui-focused.Mui-selected" = list(
+          background = "lightblue",
+          color = "white"
+        )
+      )
+    )
+  ),
+  TreeItem(
+    itemId = "history", 
+    label = div(shiny::icon("history"), " History")
+  ),
+  TreeItem(
+    itemId = "trash", 
+    label = div(shiny::icon("trash"), " Trash")
+  )
+)
+```
+
+## Usage with Shiny
+
+You can get user item clicked in Shiny using the `onItemSelectionToggle`
+argument (more info
+[here](https://mui.com/x/react-tree-view/rich-tree-view/selection/#track-item-selection-change)),
+by creating a “itemSelection” input with
+[`shiny.react::setInput()`](https://appsilon.github.io/shiny.react/reference/setInput.html).
+
+As the “itemSelection” input returns the label name followed by a dash
+“-” with a random integer, you can get the cleaned label using
+[`gsub()`](https://rdrr.io/r/base/grep.html),
+i.e. `gsub(pattern = "\\-[[:digit:]]*$", replacement = "", x = input$itemSelection)`
+
+### Track latest item clicked
+
+``` r
+library(shiny)
+
+df <- data.frame(
+  pkg = c("muiTreeView", "muiTreeView", "muiTreeView"),
+  functions = c("SimpleTreeView", "RichTreeView", "RichTreeView"),
+  args = c("items", "items", "onItemSelectionToggle")
+)
+
+treeItems <- asMuiTree(df)
+defaultExpanded <- treeItems[[1]]$id
+defaultSelectedId <- treeItems[[1]]$children[[1]]$id
+
+ui <- tagList(
+  RichTreeView(
+    items = treeItems,
+    # expand by default a node with its id
+    defaultSelectedItems = list(defaultSelectedId), # always in list()
+    defaultExpandedItems = list(defaultExpanded), # always in list()
+    onItemSelectionToggle = setInput(
+      inputId = "itemSelection", 
+      jsAccessor = "[1]"
+    )
+  ),
+  #verbatimTextOutput("treeId"),
+  verbatimTextOutput("treeLabel")
+)
+
+server <- function(input, output, session) {
+  # Reproduce logic from official MUI's documentation
+  selectedItems <- reactiveValues(
+    selected = defaultSelectedId
+  )
+  
+  observeEvent(input$itemSelection, {
+    current_selection <- input$itemSelection
+    
+    if(current_selection %in% selectedItems$selected) {
+      # Remove if already selected
+      new_selection <- setdiff(selectedItems$selected, current_selection)
+    } else {
+      # Add if not selected
+      new_selection <- c(selectedItems$selected, current_selection)
+    }
+    
+    selectedItems$selected <- new_selection
+  })
+  # output$treeId <- shiny::renderPrint(
+  #   # return item label with tree ID (not cleaning with gsub())
+  #   selectedItems$selected
+  # )
+  output$treeLabel <- shiny::renderPrint(
+    # remove dash "-" followed by a random digit (i.e. MUI tree ID) to return only item label
+    gsub(pattern = "\\-[[:digit:]]*$", replacement = "", x = selectedItems$selected)
+  )
+}
+
+shinyApp(ui, server)
+```
+
+![multiple
+clicked](https://raw.githubusercontent.com/lgnbhl/muiTreeView/refs/heads/main/man/figures/itemSingleClicked.png)
+
+### Track multiple items with checkbox selection
+
+You can use reactive values to get multiple items selection by
+implementing the logic as showed in the [official MUI
+documentation](https://mui.com/x/react-tree-view/rich-tree-view/selection/#track-item-selection-change).
+
+``` r
+library(shiny)
+
+df <- data.frame(
+  pkg = c("muiTreeView", "muiTreeView", "muiTreeView"),
+  functions = c("SimpleTreeView", "RichTreeView", "RichTreeView"),
+  args = c("items", "items", "onItemSelectionToggle")
+)
+
+treeItems <- asMuiTree(df)
+
+defaultExpandedId <- treeItems[[1]]$id
+defaultSelectedId <- treeItems[[1]]$children[[1]]$children[[1]]$id
+
+ui <- tagList(
+  RichTreeView(
+    checkboxSelection = TRUE,
+    multiSelect = TRUE,
+    items = treeItems,
+    # expand by default a node with its id
+    defaultExpandedItems = list(defaultExpandedId), # always in list()
+    defaultSelectedItems = list(defaultSelectedId), # always in list()
+    # By default, selecting a item does not select its children.
+    selectionPropagation = list(
+      descendants = TRUE
+    ),
+    onItemSelectionToggle = setInput(
+      inputId = "itemSelection", 
+      jsAccessor = "[1]"
+    )
+  ),
+  #verbatimTextOutput("treeId"),
+  verbatimTextOutput("treeLabel")
+)
+
+server <- function(input, output, session) {
+  # Reproduce logic from official MUI's documentation
+  selectedItems <- reactiveValues(
+    selected = defaultSelectedId
+  )
+  
+  observeEvent(input$itemSelection, {
+    current_selection <- input$itemSelection
+    
+    if(current_selection %in% selectedItems$selected) {
+      # Remove if already selected
+      new_selection <- setdiff(selectedItems$selected, current_selection)
+    } else {
+      # Add if not selected
+      new_selection <- c(selectedItems$selected, current_selection)
+    }
+    
+    selectedItems$selected <- new_selection
+  })
+  # output$treeId <- shiny::renderPrint(
+  #   # return item label with tree ID (not cleaning with gsub())
+  #   selectedItems$selected
+  # )
+  output$treeLabel <- shiny::renderPrint(
+    # remove dash "-" followed by a random digit (i.e. MUI tree ID) to return only item label
+    gsub(pattern = "\\-[[:digit:]]*$", replacement = "", x = selectedItems$selected)
+  )
+
+}
+
+shinyApp(ui, server)
+```
+
+![multiple
+clicked](https://raw.githubusercontent.com/lgnbhl/muiTreeView/refs/heads/main/man/figures/itemMultipleClicked.png)
+
+## More features
+
+Explore the [official MUI Tree View
+documentation](https://mui.com/x/react-tree-view/) to see how more
+features can be added.
+
+### Use other MUI products
+
+MUI X Tree View is developed MUI, the company behind the popular React
+framework Material UI. **muiTreeView** is therefore a companion to the R
+package [**muiMaterial**](https://felixluginbuhl.com/muiMaterial/) ,
+which provides access to all Material UI components from R.
+
+### Bootstrap conflict
+
+**muiTreeView** can enter in conflict with the Bootstrap CSS framework,
+used by default in Shiny functions such as
+[`shiny::fluidPage()`](https://rdrr.io/pkg/shiny/man/fluidPage.html) and
+friends.
+
+You can use
+[`muiMaterial::muiMaterialPage()`](https://felixluginbuhl.com/muiMaterial/reference/muiMaterialPage.html)
+and
+[`muiMaterial::CssBaseline()`](https://felixluginbuhl.com/muiMaterial/reference/CssBaseline.html)
+to avoid using Bootstrap and normalized CSS. See
+[**muiMaterial**](https://felixluginbuhl.com/muiMaterial/) docs for more
+information.
+
+### Contribute
+
+If you have any issue, question or want to contribute with a pull
+request, don’t hesitate to write me on
+<https://github.com/lgnbhl/muiTreeView>
+
+For updates follow [Felix
+Luginbuhl](https://linkedin.com/in/FelixLuginbuhl) on LinkedIn.

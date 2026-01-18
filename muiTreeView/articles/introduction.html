@@ -66,23 +66,17 @@
 <h2 id="install">Install<a class="anchor" aria-label="anchor" href="#install"></a>
 </h2>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">#remotes::install_github("lgnbhl/muiTreeView") # development version</span></span>
-<span></span>
+<code class="sourceCode R"><span><span class="co">#remotes::install_github("lgnbhl/muiTreeView") # dev version</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"muiTreeView"</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/muiTreeView">muiTreeView</a></span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="basic-examples">Basic examples<a class="anchor" aria-label="anchor" href="#basic-examples"></a>
+<h2 id="mui-rich-tree-view">MUI Rich Tree View<a class="anchor" aria-label="anchor" href="#mui-rich-tree-view"></a>
 </h2>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/muiTreeView">muiTreeView</a></span><span class="op">)</span></span></code></pre></div>
-<div class="section level3">
-<h3 id="mui-rich-tree-view">MUI Rich Tree View<a class="anchor" aria-label="anchor" href="#mui-rich-tree-view"></a>
-</h3>
 <p>Use <code><a href="../reference/RichTreeView.html">RichTreeView()</a></code> with the <code><a href="../reference/asMuiTree.html">asMuiTree()</a></code>
 helper function:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
 <span>  pkg <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"muiTreeView"</span>, <span class="st">"muiTreeView"</span>, <span class="st">"muiTreeView"</span><span class="op">)</span>,</span>
 <span>  functions <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"SimpleTreeView"</span>, <span class="st">"RichTreeView"</span>, <span class="st">"RichTreeView"</span><span class="op">)</span>,</span>
@@ -97,18 +91,17 @@ helper function:</p>
 <div class="react-container" data-react-id="bnsrafhqmlsyefrmqrct">
 <script class="react-data" type="application/json">{"type":"element","module":"@mui/x-tree-view","name":"RichTreeView","props":{"type":"raw","value":{"items":[{"label":"muiTreeView","id":"muiTreeView-7227951","children":[{"label":"SimpleTreeView","id":"SimpleTreeView-5115981","children":[{"label":"items","id":"items-8518078"}]},{"label":"RichTreeView","id":"RichTreeView-3583403","children":[{"label":"items","id":"items-4010539"},{"label":"onItemSelectionToggle","id":"onItemSelectionToggle-310741"}]}]}]}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('bnsrafhqmlsyefrmqrct')</script>
 </div>
-</div>
 <div class="section level3">
 <h3 id="multi-selection-and-checkbox">Multi selection and checkbox<a class="anchor" aria-label="anchor" href="#multi-selection-and-checkbox"></a>
 </h3>
 <p>You can activate checkbox selection with
 <code>checkboxSelection = TRUE</code> and multi selection with
 <code>multiSelect = TRUE</code>:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/RichTreeView.html">RichTreeView</a></span><span class="op">(</span></span>
 <span>  items <span class="op">=</span> <span class="va">treeItems</span>,</span>
 <span>  checkboxSelection <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>  multiSelect <span class="op">=</span> <span class="cn">TRUE</span> <span class="co"># FALSE for single select</span></span>
+<span>  multiSelect <span class="op">=</span> <span class="cn">TRUE</span> <span class="co"># FALSE for single select,</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="uzzklienmufsbjvhoipe">
 <script class="react-data" type="application/json">{"type":"element","module":"@mui/x-tree-view","name":"RichTreeView","props":{"type":"raw","value":{"items":[{"label":"muiTreeView","id":"muiTreeView-7227951","children":[{"label":"SimpleTreeView","id":"SimpleTreeView-5115981","children":[{"label":"items","id":"items-8518078"}]},{"label":"RichTreeView","id":"RichTreeView-3583403","children":[{"label":"items","id":"items-4010539"},{"label":"onItemSelectionToggle","id":"onItemSelectionToggle-310741"}]}]}],"checkboxSelection":true,"multiSelect":true}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('uzzklienmufsbjvhoipe')</script>
@@ -122,7 +115,7 @@ dataframe in a structure which can be used with
 <code><a href="../reference/RichTreeView.html">RichTreeView()</a></code>.</p>
 <p>You can provide a vector of the column names to select and choose the
 level order of the tree nodes, for example:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
 <span>  pkg <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"muiTreeView"</span>, <span class="st">"muiTreeView"</span>, <span class="st">"muiTreeView"</span><span class="op">)</span>,</span>
 <span>  functions <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"SimpleTreeView"</span>, <span class="st">"RichTreeView"</span>, <span class="st">"RichTreeView"</span><span class="op">)</span>,</span>
@@ -145,7 +138,7 @@ level order of the tree nodes, for example:</p>
 <span><span class="co">#&gt;   .. ..$ :List of 2</span></span></code></pre></div>
 <p><code><a href="../reference/asMuiTree.html">asMuiTree()</a></code> creates also unique IDs for each node by
 joining the name of the label with an random integer between a dash.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
 <span>  pkg <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"muiTreeView"</span>, <span class="st">"muiTreeView"</span>, <span class="st">"muiTreeView"</span><span class="op">)</span>,</span>
 <span>  functions <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"SimpleTreeView"</span>, <span class="st">"RichTreeView"</span>, <span class="st">"RichTreeView"</span><span class="op">)</span>,</span>
@@ -192,7 +185,7 @@ IDs.</p>
 <p>You can also expand by default one or multiple nodes with the
 <code>defaultExpandedItems</code> argument by providing its related
 IDs.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
 <span>  pkg <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"muiTreeView"</span>, <span class="st">"muiTreeView"</span>, <span class="st">"muiTreeView"</span><span class="op">)</span>,</span>
 <span>  functions <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"SimpleTreeView"</span>, <span class="st">"RichTreeView"</span>, <span class="st">"RichTreeView"</span><span class="op">)</span>,</span>
@@ -220,7 +213,7 @@ IDs.</p>
 <p>As <strong>muiTreeView</strong> is using the Material UI library
 under the hood, you can customize component styles using CSS classes
 with the “sx” argument:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/RichTreeView.html">RichTreeView</a></span><span class="op">(</span></span>
 <span>  items <span class="op">=</span> <span class="va">treeItems</span>,</span>
 <span>  sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
@@ -240,13 +233,15 @@ classes</a> are deprecated they are still working.</p>
 <p>You can access all Material UI components using the <a href="https://felixluginbuhl.com/shinyMaterialUI/" class="external-link">shinyMaterialUI</a> R
 package.</p>
 </div>
-<div class="section level3">
-<h3 id="simple-tree-view">Simple Tree View<a class="anchor" aria-label="anchor" href="#simple-tree-view"></a>
-</h3>
+</div>
+<div class="section level2">
+<h2 id="simple-tree-view">Simple Tree View<a class="anchor" aria-label="anchor" href="#simple-tree-view"></a>
+</h2>
 <p>Using <code><a href="../reference/SimpleTreeView.html">SimpleTreeView()</a></code> with <code><a href="../reference/TreeItem.html">TreeItem()</a></code>, you
 can easily customize items with icons for example:</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/htmltools" class="external-link">htmltools</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: package 'htmltools' was built under R version 4.5.2</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/SimpleTreeView.html">SimpleTreeView</a></span><span class="op">(</span></span>
 <span>  defaultExpandedItems <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">"documents"</span><span class="op">)</span>, <span class="co"># always in list()</span></span>
@@ -292,7 +287,6 @@ can easily customize items with icons for example:</p>
 <script class="react-data" type="application/json">{"type":"element","module":"@mui/x-tree-view","name":"SimpleTreeView","props":{"type":"object","value":{"defaultExpandedItems":{"type":"raw","value":["documents"]},"defaultSelectedItems":{"type":"raw","value":["notes"]},"children":{"type":"array","value":[{"type":"element","module":"@mui/x-tree-view","name":"TreeItem","props":{"type":"object","value":{"itemId":{"type":"raw","value":"documents"},"label":{"type":"element","name":"div","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","name":"i","props":{"type":"raw","value":{"class":"far fa-folder","role":"presentation","aria-label":"folder icon"}}},{"type":"raw","value":" Documents"}]}}}},"children":{"type":"array","value":[{"type":"element","module":"@mui/x-tree-view","name":"TreeItem","props":{"type":"object","value":{"itemId":{"type":"raw","value":"notes"},"label":{"type":"element","name":"div","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","name":"i","props":{"type":"raw","value":{"class":"far fa-file","role":"presentation","aria-label":"file icon"}}},{"type":"raw","value":" Notes"}]}}}}}}},{"type":"element","module":"@mui/x-tree-view","name":"TreeItem","props":{"type":"object","value":{"itemId":{"type":"raw","value":"images"},"label":{"type":"element","name":"div","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","name":"i","props":{"type":"raw","value":{"class":"far fa-image","role":"presentation","aria-label":"image icon"}}},{"type":"raw","value":" Images"}]}}}},"sx":{"type":"raw","value":{".Mui-selected, .Mui-selected:hover, .Mui-focused.Mui-selected":{"background":"lightgreen","color":"white"}}}}}},{"type":"element","module":"@mui/x-tree-view","name":"TreeItem","props":{"type":"object","value":{"itemId":{"type":"raw","value":"videos"},"label":{"type":"element","name":"div","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","name":"i","props":{"type":"raw","value":{"class":"fas fa-video","role":"presentation","aria-label":"video icon"}}},{"type":"raw","value":" Videos"}]}}}},"sx":{"type":"raw","value":{".Mui-selected, .Mui-selected:hover, .Mui-focused.Mui-selected":{"background":"lightblue","color":"white"}}}}}}]}}}},{"type":"element","module":"@mui/x-tree-view","name":"TreeItem","props":{"type":"object","value":{"itemId":{"type":"raw","value":"history"},"label":{"type":"element","name":"div","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","name":"i","props":{"type":"raw","value":{"class":"fas fa-clock-rotate-left","role":"presentation","aria-label":"clock-rotate-left icon"}}},{"type":"raw","value":" History"}]}}}}}}},{"type":"element","module":"@mui/x-tree-view","name":"TreeItem","props":{"type":"object","value":{"itemId":{"type":"raw","value":"trash"},"label":{"type":"element","name":"div","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","name":"i","props":{"type":"raw","value":{"class":"fas fa-trash","role":"presentation","aria-label":"trash icon"}}},{"type":"raw","value":" Trash"}]}}}}}}}]}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('skbdyfrfovdghawktsnz')</script>
 </div>
 </div>
-</div>
 <div class="section level2">
 <h2 id="usage-with-shiny">Usage with Shiny<a class="anchor" aria-label="anchor" href="#usage-with-shiny"></a>
 </h2>
@@ -303,11 +297,11 @@ by creating a “itemSelection” input with
 <p>As the “itemSelection” input returns the label name followed by a
 dash “-” with a random integer, you can get the cleaned label using
 <code><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub()</a></code>,
-i.e. <code>gsub(pattern = "\\-.*$", replacement = "", x = input$itemSelection)</code></p>
+i.e. <code>gsub(pattern = "\\-[[:digit:]]*$", replacement = "", x = input$itemSelection)</code></p>
 <div class="section level3">
 <h3 id="track-latest-item-clicked">Track latest item clicked<a class="anchor" aria-label="anchor" href="#track-latest-item-clicked"></a>
 </h3>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
@@ -321,25 +315,21 @@ i.e. <code>gsub(pattern = "\\-.*$", replacement = "", x = input$itemSelection)<
 <span><span class="va">defaultSelectedId</span> <span class="op">&lt;-</span> <span class="va">treeItems</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">children</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">id</span></span>
 <span></span>
 <span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span>
-<span>  <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/reactOutput.html" class="external-link">reactOutput</a></span><span class="op">(</span><span class="st">"tree"</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="../reference/RichTreeView.html">RichTreeView</a></span><span class="op">(</span></span>
+<span>    items <span class="op">=</span> <span class="va">treeItems</span>,</span>
+<span>    <span class="co"># expand by default a node with its id</span></span>
+<span>    defaultSelectedItems <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">defaultSelectedId</span><span class="op">)</span>, <span class="co"># always in list()</span></span>
+<span>    defaultExpandedItems <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">defaultExpanded</span><span class="op">)</span>, <span class="co"># always in list()</span></span>
+<span>    onItemSelectionToggle <span class="op">=</span> <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/setInput.html" class="external-link">setInput</a></span><span class="op">(</span></span>
+<span>      inputId <span class="op">=</span> <span class="st">"itemSelection"</span>, </span>
+<span>      jsAccessor <span class="op">=</span> <span class="st">"[1]"</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span>,</span>
 <span>  <span class="co">#verbatimTextOutput("treeId"),</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textOutput.html" class="external-link">verbatimTextOutput</a></span><span class="op">(</span><span class="st">"treeLabel"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="va">output</span><span class="op">$</span><span class="va">tree</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/renderReact.html" class="external-link">renderReact</a></span><span class="op">(</span><span class="op">{</span></span>
-<span>    <span class="fu"><a href="../reference/RichTreeView.html">RichTreeView</a></span><span class="op">(</span></span>
-<span>      items <span class="op">=</span> <span class="va">treeItems</span>,</span>
-<span>      <span class="co"># expand by default a node with its id</span></span>
-<span>      defaultSelectedItems <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">defaultSelectedId</span><span class="op">)</span>, <span class="co"># always in list()</span></span>
-<span>      defaultExpandedItems <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">defaultExpanded</span><span class="op">)</span>, <span class="co"># always in list()</span></span>
-<span>      onItemSelectionToggle <span class="op">=</span> <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/setInput.html" class="external-link">setInput</a></span><span class="op">(</span></span>
-<span>        inputId <span class="op">=</span> <span class="st">"itemSelection"</span>, </span>
-<span>        jsAccessor <span class="op">=</span> <span class="st">"[1]"</span></span>
-<span>      <span class="op">)</span></span>
-<span>    <span class="op">)</span></span>
-<span>  <span class="op">}</span><span class="op">)</span></span>
-<span>  </span>
 <span>  <span class="co"># Reproduce logic from official MUI's documentation</span></span>
 <span>  <span class="va">selectedItems</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactiveValues.html" class="external-link">reactiveValues</a></span><span class="op">(</span></span>
 <span>    selected <span class="op">=</span> <span class="va">defaultSelectedId</span></span>
@@ -377,7 +367,7 @@ i.e. <code>gsub(pattern = "\\-.*$", replacement = "", x = input$itemSelection)<
 <p>You can use reactive values to get multiple items selection by
 implementing the logic as showed in the <a href="https://mui.com/x/react-tree-view/rich-tree-view/selection/#track-item-selection-change" class="external-link">official
 MUI documentation</a>.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
@@ -392,31 +382,27 @@ MUI documentation</a>.</p>
 <span><span class="va">defaultSelectedId</span> <span class="op">&lt;-</span> <span class="va">treeItems</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">children</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">children</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">id</span></span>
 <span></span>
 <span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span>
-<span>  <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/reactOutput.html" class="external-link">reactOutput</a></span><span class="op">(</span><span class="st">"tree"</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="../reference/RichTreeView.html">RichTreeView</a></span><span class="op">(</span></span>
+<span>    checkboxSelection <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>    multiSelect <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>    items <span class="op">=</span> <span class="va">treeItems</span>,</span>
+<span>    <span class="co"># expand by default a node with its id</span></span>
+<span>    defaultExpandedItems <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">defaultExpandedId</span><span class="op">)</span>, <span class="co"># always in list()</span></span>
+<span>    defaultSelectedItems <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">defaultSelectedId</span><span class="op">)</span>, <span class="co"># always in list()</span></span>
+<span>    <span class="co"># By default, selecting a item does not select its children.</span></span>
+<span>    selectionPropagation <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>      descendants <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    onItemSelectionToggle <span class="op">=</span> <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/setInput.html" class="external-link">setInput</a></span><span class="op">(</span></span>
+<span>      inputId <span class="op">=</span> <span class="st">"itemSelection"</span>, </span>
+<span>      jsAccessor <span class="op">=</span> <span class="st">"[1]"</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span>,</span>
 <span>  <span class="co">#verbatimTextOutput("treeId"),</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textOutput.html" class="external-link">verbatimTextOutput</a></span><span class="op">(</span><span class="st">"treeLabel"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="va">output</span><span class="op">$</span><span class="va">tree</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/renderReact.html" class="external-link">renderReact</a></span><span class="op">(</span><span class="op">{</span></span>
-<span>    <span class="fu"><a href="../reference/RichTreeView.html">RichTreeView</a></span><span class="op">(</span></span>
-<span>      checkboxSelection <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>      multiSelect <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>      items <span class="op">=</span> <span class="va">treeItems</span>,</span>
-<span>      <span class="co"># expand by default a node with its id</span></span>
-<span>      defaultExpandedItems <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">defaultExpandedId</span><span class="op">)</span>, <span class="co"># always in list()</span></span>
-<span>      defaultSelectedItems <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">defaultSelectedId</span><span class="op">)</span>, <span class="co"># always in list()</span></span>
-<span>      <span class="co"># By default, selecting a item does not select its children.</span></span>
-<span>      selectionPropagation <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>        descendants <span class="op">=</span> <span class="cn">TRUE</span></span>
-<span>      <span class="op">)</span>,</span>
-<span>      onItemSelectionToggle <span class="op">=</span> <span class="fu">shiny.react</span><span class="fu">::</span><span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/setInput.html" class="external-link">setInput</a></span><span class="op">(</span></span>
-<span>        inputId <span class="op">=</span> <span class="st">"itemSelection"</span>, </span>
-<span>        jsAccessor <span class="op">=</span> <span class="st">"[1]"</span></span>
-<span>      <span class="op">)</span></span>
-<span>    <span class="op">)</span></span>
-<span>  <span class="op">}</span><span class="op">)</span></span>
-<span>  </span>
 <span>  <span class="co"># Reproduce logic from official MUI's documentation</span></span>
 <span>  <span class="va">selectedItems</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactiveValues.html" class="external-link">reactiveValues</a></span><span class="op">(</span></span>
 <span>    selected <span class="op">=</span> <span class="va">defaultSelectedId</span></span>
@@ -449,18 +435,18 @@ MUI documentation</a>.</p>
 <span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre></div>
 <p><img src="https://raw.githubusercontent.com/lgnbhl/muiTreeView/refs/heads/main/man/figures/itemMultipleClicked.png" alt="multiple clicked" style="padding:1px;border:thin solid black;"></p>
 </div>
-<div class="section level3">
-<h3 id="more-features">More features<a class="anchor" aria-label="anchor" href="#more-features"></a>
-</h3>
+</div>
+<div class="section level2">
+<h2 id="more-features">More features<a class="anchor" aria-label="anchor" href="#more-features"></a>
+</h2>
 <p>Explore the <a href="https://mui.com/x/react-tree-view/" class="external-link">official MUI
 Tree View documentation</a> to see how more features can be added.</p>
-</div>
 <div class="section level3">
 <h3 id="use-other-mui-products">Use other MUI products<a class="anchor" aria-label="anchor" href="#use-other-mui-products"></a>
 </h3>
 <p>MUI X Tree View is developed MUI, the company behind the popular
 React framework Material UI. <strong>muiTreeView</strong> is therefore a
-companion to the R package <a href="https://felixluginbuhl.com/shinyMaterialUI/" class="external-link"><strong>shinyMaterialUI</strong></a>
+companion to the R package <a href="https://felixluginbuhl.com/muiMaterial/" class="external-link"><strong>muiMaterial</strong></a>
 , which provides access to all Material UI components from R.</p>
 </div>
 <div class="section level3">
@@ -469,8 +455,10 @@ companion to the R package <a href="https://felixluginbuhl.com/shinyMaterialUI/"
 <p><strong>muiTreeView</strong> can enter in conflict with the Bootstrap
 CSS framework, used by default in Shiny functions such as
 <code><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html" class="external-link">shiny::fluidPage()</a></code> and friends.</p>
-<p>The Bootstrap conflict could potentially be solved using <a href="https://mui.com/material-ui/customization/shadow-dom/" class="external-link">Shadow
-DOM</a>.</p>
+<p>You can use <code><a href="https://felixluginbuhl.com/muiMaterial/reference/muiMaterialPage.html" class="external-link">muiMaterial::muiMaterialPage()</a></code> and
+<code><a href="https://felixluginbuhl.com/muiMaterial/reference/CssBaseline.html" class="external-link">muiMaterial::CssBaseline()</a></code> to avoid using Bootstrap and
+normalized CSS. See <a href="https://felixluginbuhl.com/muiMaterial/" class="external-link"><strong>muiMaterial</strong></a>
+docs for more information.</p>
 </div>
 <div class="section level3">
 <h3 id="contribute">Contribute<a class="anchor" aria-label="anchor" href="#contribute"></a>
@@ -492,7 +480,7 @@ LinkedIn.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.2.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer>
