@@ -14,7 +14,7 @@ remotes::install_github("lgnbhl/muiTreeView")
 ```
 
 **Read the full documentation with examples
-[here](https://lgnbhl.github.io/muiTreeView/articles/introduction.html).**
+[here](https://felixluginbuhl.com/muiTreeView/).**
 
 ## Basic example
 
@@ -47,7 +47,7 @@ RichTreeView(
 
 If you have any issue, question or want to contribute with a pull
 request, don’t hesitate to write me on
-<https://github.com/lgnbhl/muiTreeView>
+<https://github.com/lgnbhl/muiTreeView>.
 
 For updates follow [Felix
 Luginbuhl](https://linkedin.com/in/FelixLuginbuhl) on LinkedIn.
