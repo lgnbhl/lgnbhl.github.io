@@ -19,14 +19,17 @@ popular React components library globally. `muiMaterial` allows access
 to its vast library of UI tools, so you can create fully customized
 dashboards and websites in R.
 
-For example, launch a basic dashboard:
+For example, launch a basic dashboard (live
+[here](https://lgnbhl-muimaterial-simple-dashboard.share.connect.posit.cloud)):
 
 ``` r
 # remotes::install_github("lgnbhl/muiMaterial")
 muiMaterial::muiMaterialExample("dashboard-simple")
 ```
 
-Or have a look at the R replica of the official MUI dashboard template:
+Or have a look at the R replica of the official MUI dashboard template
+(live
+[here](https://lgnbhl-muimaterial-mui-template-dashboard.share.connect.posit.cloud/)):
 
 ``` r
 muiMaterial::muiMaterialExample("mui-template-dashboard")
@@ -115,7 +118,8 @@ instead of
 [`Button()`](https://felixluginbuhl.com/muiMaterial/reference/Button.md)
 to capture user interactions in Shiny.
 
-Explore available Shiny inputs with:
+Explore available Shiny inputs with app live
+[here](https://lgnbhl-muimaterial-showcase.share.connect.posit.cloud/):
 
 ``` r
 muiMaterial::muiMaterialExample("showcase")
