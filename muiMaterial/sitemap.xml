@@ -1,5 +1,8 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
 <url><loc>https://felixluginbuhl.com/muiMaterial/404.html</loc></url>
+<url><loc>https://felixluginbuhl.com/muiMaterial/LICENSE-text.html</loc></url>
+<url><loc>https://felixluginbuhl.com/muiMaterial/LICENSE.html</loc></url>
+<url><loc>https://felixluginbuhl.com/muiMaterial/articles/ai-assisted-development.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/articles/autocomplete.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/articles/avatar.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/articles/badge.html</loc></url>
@@ -9,6 +12,7 @@
 <url><loc>https://felixluginbuhl.com/muiMaterial/articles/dashboard-basic.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/articles/divider.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/articles/floating-action-button.html</loc></url>
+<url><loc>https://felixluginbuhl.com/muiMaterial/articles/getting-started.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/articles/index.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/articles/list.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/articles/rating.html</loc></url>
@@ -20,8 +24,6 @@
 <url><loc>https://felixluginbuhl.com/muiMaterial/articles/toggle-button-group.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/authors.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/index.html</loc></url>
-<url><loc>https://felixluginbuhl.com/muiMaterial/LICENSE-text.html</loc></url>
-<url><loc>https://felixluginbuhl.com/muiMaterial/LICENSE.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/news/index.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/Accordion.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/AccordionActions.html</loc></url>
@@ -53,7 +55,6 @@
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/CircularProgress.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/ClickAwayListener.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/Collapse.html</loc></url>
-<url><loc>https://felixluginbuhl.com/muiMaterial/reference/component.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/Container.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/CssBaseline.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/Dialog.html</loc></url>
@@ -63,6 +64,7 @@
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/DialogTitle.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/Divider.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/Drawer.html</loc></url>
+<url><loc>https://felixluginbuhl.com/muiMaterial/reference/Drawer.triggerId.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/Fab.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/Fade.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/FilledInput.html</loc></url>
@@ -80,7 +82,6 @@
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/ImageList.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/ImageListItem.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/ImageListItemBar.html</loc></url>
-<url><loc>https://felixluginbuhl.com/muiMaterial/reference/index.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/Input.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/InputAdornment.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/InputBase.html</loc></url>
@@ -97,13 +98,11 @@
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/ListSubheader.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/Masonry.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/Menu.html</loc></url>
+<url><loc>https://felixluginbuhl.com/muiMaterial/reference/Menu.triggerId.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/MenuItem.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/MenuList.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/MobileStepper.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/Modal.html</loc></url>
-<url><loc>https://felixluginbuhl.com/muiMaterial/reference/muiMaterialDependency.html</loc></url>
-<url><loc>https://felixluginbuhl.com/muiMaterial/reference/muiMaterialExample.html</loc></url>
-<url><loc>https://felixluginbuhl.com/muiMaterial/reference/muiMaterialPage.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/NativeSelect.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/NoSsr.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/OutlinedInput.html</loc></url>
@@ -119,10 +118,8 @@
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/Radio.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/RadioGroup.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/Rating.html</loc></url>
-<url><loc>https://felixluginbuhl.com/muiMaterial/reference/reexports.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/ScopedCssBaseline.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/Select.html</loc></url>
-<url><loc>https://felixluginbuhl.com/muiMaterial/reference/shinyInput.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/Skeleton.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/Slide.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/Slider.html</loc></url>
@@ -141,9 +138,13 @@
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/Stepper.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/SvgIcon.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/SwipeableDrawer.html</loc></url>
+<url><loc>https://felixluginbuhl.com/muiMaterial/reference/SwipeableDrawer.triggerId.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/Switch.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/Tab.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/TabContext.html</loc></url>
+<url><loc>https://felixluginbuhl.com/muiMaterial/reference/TabList.html</loc></url>
+<url><loc>https://felixluginbuhl.com/muiMaterial/reference/TabPanel.html</loc></url>
+<url><loc>https://felixluginbuhl.com/muiMaterial/reference/TabScrollButton.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/Table.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/TableBody.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/TableCell.html</loc></url>
@@ -153,12 +154,9 @@
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/TablePagination.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/TableRow.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/TableSortLabel.html</loc></url>
-<url><loc>https://felixluginbuhl.com/muiMaterial/reference/TabList.html</loc></url>
-<url><loc>https://felixluginbuhl.com/muiMaterial/reference/TabPanel.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/Tabs.html</loc></url>
-<url><loc>https://felixluginbuhl.com/muiMaterial/reference/TabScrollButton.html</loc></url>
-<url><loc>https://felixluginbuhl.com/muiMaterial/reference/TextareaAutosize.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/TextField.html</loc></url>
+<url><loc>https://felixluginbuhl.com/muiMaterial/reference/TextareaAutosize.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/ThemeProvider.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/Timeline.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/TimelineConnector.html</loc></url>
@@ -173,5 +171,13 @@
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/Tooltip.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/Typography.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/Zoom.html</loc></url>
+<url><loc>https://felixluginbuhl.com/muiMaterial/reference/component.html</loc></url>
+<url><loc>https://felixluginbuhl.com/muiMaterial/reference/index.html</loc></url>
+<url><loc>https://felixluginbuhl.com/muiMaterial/reference/muiMaterialDependency.html</loc></url>
+<url><loc>https://felixluginbuhl.com/muiMaterial/reference/muiMaterialExample.html</loc></url>
+<url><loc>https://felixluginbuhl.com/muiMaterial/reference/muiMaterialPage.html</loc></url>
+<url><loc>https://felixluginbuhl.com/muiMaterial/reference/print.muiMaterial.html</loc></url>
+<url><loc>https://felixluginbuhl.com/muiMaterial/reference/reexports.html</loc></url>
+<url><loc>https://felixluginbuhl.com/muiMaterial/reference/shinyInput.html</loc></url>
 </urlset>
 

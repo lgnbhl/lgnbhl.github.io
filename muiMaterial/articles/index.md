@@ -2,6 +2,9 @@
 
 ### All vignettes
 
+- [AI-Assisted
+  Development](https://felixluginbuhl.com/muiMaterial/articles/ai-assisted-development.md):
+
 - [Autocomplete](https://felixluginbuhl.com/muiMaterial/articles/autocomplete.md):
 
 - [Avatar](https://felixluginbuhl.com/muiMaterial/articles/avatar.md):
@@ -29,6 +32,9 @@
 
 - [Floating Action
   Button](https://felixluginbuhl.com/muiMaterial/articles/floating-action-button.md):
+
+- [Getting
+  Started](https://felixluginbuhl.com/muiMaterial/articles/getting-started.md):
 
 - [List](https://felixluginbuhl.com/muiMaterial/articles/list.md):
 

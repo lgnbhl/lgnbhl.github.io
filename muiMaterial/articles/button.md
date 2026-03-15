@@ -8,8 +8,6 @@ library(muiMaterial)
 library(shiny)
 ```
 
-    ## Warning: package 'shiny' was built under R version 4.5.2
-
 ## Button
 
 Buttons allow users to take actions, and make choices, with a single

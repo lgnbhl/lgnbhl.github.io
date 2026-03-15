@@ -1,16 +1,21 @@
 # HTML body without Bootstrap and margins
 
-Creates a Material UI page without using CssBaseline, so you can use
-regular Shiny inputs or shiny.router.
+Creates a Material UI page without Bootstrap and with 0 margin in body
+by default. You can choose to use Google Roboto font as well as Google
+icons fonts with the \`Icon()\` component.
 
 ## Usage
 
 ``` r
 muiMaterialPage(
   ...,
-  materialSymbols = FALSE,
-  addFontRoboto = FALSE,
+  useFontRoboto = FALSE,
+  useMaterialIconsFilled = FALSE,
+  useMaterialIconsOutlined = FALSE,
+  useMaterialIconsRounded = FALSE,
+  useMaterialIconsTwoTones = FALSE,
   suppressBootstrap = TRUE,
+  styleBody = "margin:0",
   debugReact = FALSE
 )
 ```
@@ -21,18 +26,37 @@ muiMaterialPage(
 
   The contents of the document body.
 
-- materialSymbols:
+- useFontRoboto:
 
-  List of Material Symbols to add with Google Font API, ex: c("home",
-  "settings").
+  Use Google Roboto font CDN in head, FALSE by default.
 
-- addFontRoboto:
+- useMaterialIconsFilled:
 
-  Whether to add Roboto font with Google Font API.
+  Use Google icons CDN in head to use \`Icon()\` component, FALSE by
+  default.
+
+- useMaterialIconsOutlined:
+
+  Use Google icons CDN in head to use \`Icon()\` component, FALSE by
+  default.
+
+- useMaterialIconsRounded:
+
+  Use Google icons CDN in head to use \`Icon()\` component, FALSE by
+  default.
+
+- useMaterialIconsTwoTones:
+
+  Use Google icons CDN in head to use \`Icon()\` component, FALSE by
+  default.
 
 - suppressBootstrap:
 
   Whether to suppress Bootstrap.
+
+- styleBody:
+
+  CSS style in body, using \`margin:0\` by default.
 
 - debugReact:
 
@@ -46,7 +70,6 @@ app.
 ## Details
 
 The Bootstrap library is suppressed by default, as it doesn't work well
-with Material UI in general. Some default Material UI styles are apply,
-i.e. the margin is removed for all browser and the font size.
+with Material UI in general.
 
-<https://mui.com/material-ui/react-css-baseline/>
+<https://fonts.google.com/icons?icon.set=Material+Icons>

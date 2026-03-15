@@ -88,6 +88,8 @@
   [`Drawer.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Drawer.md)
   [`updateDrawer.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Drawer.md)
   : Drawer
+- [`Drawer.triggerId()`](https://felixluginbuhl.com/muiMaterial/reference/Drawer.triggerId.md)
+  : Drawer.triggerId
 - [`Fab()`](https://felixluginbuhl.com/muiMaterial/reference/Fab.md)
   [`Fab.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Fab.md)
   [`updateFab.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Fab.md)
@@ -164,6 +166,8 @@
   [`Menu.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Menu.md)
   [`updateMenu.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Menu.md)
   : Menu
+- [`Menu.triggerId()`](https://felixluginbuhl.com/muiMaterial/reference/Menu.triggerId.md)
+  : Menu.triggerId
 - [`MenuItem()`](https://felixluginbuhl.com/muiMaterial/reference/MenuItem.md)
   : MenuItem
 - [`MenuList()`](https://felixluginbuhl.com/muiMaterial/reference/MenuList.md)
@@ -172,12 +176,6 @@
   : MobileStepper
 - [`Modal()`](https://felixluginbuhl.com/muiMaterial/reference/Modal.md)
   : Modal
-- [`muiMaterialDependency()`](https://felixluginbuhl.com/muiMaterial/reference/muiMaterialDependency.md)
-  : Mui Charts UI JS dependency
-- [`muiMaterialExample()`](https://felixluginbuhl.com/muiMaterial/reference/muiMaterialExample.md)
-  : Run muiMaterial example
-- [`muiMaterialPage()`](https://felixluginbuhl.com/muiMaterial/reference/muiMaterialPage.md)
-  : HTML body without Bootstrap and margins
 - [`NativeSelect()`](https://felixluginbuhl.com/muiMaterial/reference/NativeSelect.md)
   : NativeSelect
 - [`NoSsr()`](https://felixluginbuhl.com/muiMaterial/reference/NoSsr.md)
@@ -262,6 +260,8 @@
   : SvgIcon
 - [`SwipeableDrawer()`](https://felixluginbuhl.com/muiMaterial/reference/SwipeableDrawer.md)
   : SwipeableDrawer
+- [`SwipeableDrawer.triggerId()`](https://felixluginbuhl.com/muiMaterial/reference/SwipeableDrawer.triggerId.md)
+  : SwipeableDrawer.triggerId
 - [`Switch()`](https://felixluginbuhl.com/muiMaterial/reference/Switch.md)
   [`Switch.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Switch.md)
   [`updateSwitch.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Switch.md)
@@ -274,6 +274,16 @@
   [`TabContext.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/TabContext.md)
   [`updateTabContext.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/TabContext.md)
   : TabContext
+- [`TabList()`](https://felixluginbuhl.com/muiMaterial/reference/TabList.md)
+  [`TabList.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/TabList.md)
+  [`updateTabList.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/TabList.md)
+  : TabList
+- [`TabPanel()`](https://felixluginbuhl.com/muiMaterial/reference/TabPanel.md)
+  [`TabPanel.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/TabPanel.md)
+  [`updateTabPanel.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/TabPanel.md)
+  : TabPanel
+- [`TabScrollButton()`](https://felixluginbuhl.com/muiMaterial/reference/TabScrollButton.md)
+  : TabScrollButton
 - [`Table()`](https://felixluginbuhl.com/muiMaterial/reference/Table.md)
   : Table
 - [`TableBody()`](https://felixluginbuhl.com/muiMaterial/reference/TableBody.md)
@@ -292,26 +302,16 @@
   : TableRow
 - [`TableSortLabel()`](https://felixluginbuhl.com/muiMaterial/reference/TableSortLabel.md)
   : TableSortLabel
-- [`TabList()`](https://felixluginbuhl.com/muiMaterial/reference/TabList.md)
-  [`TabList.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/TabList.md)
-  [`updateTabList.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/TabList.md)
-  : TabList
-- [`TabPanel()`](https://felixluginbuhl.com/muiMaterial/reference/TabPanel.md)
-  [`TabPanel.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/TabPanel.md)
-  [`updateTabPanel.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/TabPanel.md)
-  : TabPanel
 - [`Tabs()`](https://felixluginbuhl.com/muiMaterial/reference/Tabs.md)
   [`Tabs.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Tabs.md)
   [`updateTabs.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Tabs.md)
   : Tabs
-- [`TabScrollButton()`](https://felixluginbuhl.com/muiMaterial/reference/TabScrollButton.md)
-  : TabScrollButton
-- [`TextareaAutosize()`](https://felixluginbuhl.com/muiMaterial/reference/TextareaAutosize.md)
-  : TextareaAutosize
 - [`TextField()`](https://felixluginbuhl.com/muiMaterial/reference/TextField.md)
   [`TextField.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/TextField.md)
   [`updateTextField.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/TextField.md)
   : TextField
+- [`TextareaAutosize()`](https://felixluginbuhl.com/muiMaterial/reference/TextareaAutosize.md)
+  : TextareaAutosize
 - [`ThemeProvider()`](https://felixluginbuhl.com/muiMaterial/reference/ThemeProvider.md)
   : ThemeProvider
 - [`Timeline()`](https://felixluginbuhl.com/muiMaterial/reference/Timeline.md)
@@ -344,3 +344,11 @@
   : Typography
 - [`Zoom()`](https://felixluginbuhl.com/muiMaterial/reference/Zoom.md) :
   Zoom
+- [`muiMaterialDependency()`](https://felixluginbuhl.com/muiMaterial/reference/muiMaterialDependency.md)
+  : Mui Charts UI JS dependency
+- [`muiMaterialExample()`](https://felixluginbuhl.com/muiMaterial/reference/muiMaterialExample.md)
+  : Run muiMaterial example
+- [`muiMaterialPage()`](https://felixluginbuhl.com/muiMaterial/reference/muiMaterialPage.md)
+  : HTML body without Bootstrap and margins
+- [`print(`*`<muiMaterial>`*`)`](https://felixluginbuhl.com/muiMaterial/reference/print.muiMaterial.md)
+  : Print muiMaterial components

@@ -8,8 +8,6 @@ library(muiMaterial)
 library(shiny)
 ```
 
-    ## Warning: package 'shiny' was built under R version 4.5.2
-
 ## Floating Action Button
 
 A Floating Action Button (FAB) performs the primary, or most common,

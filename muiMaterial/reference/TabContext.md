@@ -7,14 +7,6 @@
 ``` r
 TabContext(...)
 
-TabContext.shinyInput(inputId, ..., value = defaultValue)
-
-updateTabContext.shinyInput(
-  session = shiny::getDefaultReactiveDomain(),
-  inputId,
-  ...
-)
-
 TabContext(...)
 
 TabContext.shinyInput(inputId, ..., value = defaultValue)

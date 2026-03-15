@@ -732,11 +732,7 @@ JS code
 
 ``` r
 library(shiny)
-```
 
-    ## Warning: package 'shiny' was built under R version 4.5.2
-
-``` r
 AccessibleSwitch <- function() {
   CssBaseline(
     Switch.shinyInput(
