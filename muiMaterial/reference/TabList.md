@@ -14,16 +14,6 @@ updateTabList.shinyInput(
   inputId,
   ...
 )
-
-TabList(...)
-
-TabList.shinyInput(inputId, ..., value = defaultValue)
-
-updateTabList.shinyInput(
-  session = shiny::getDefaultReactiveDomain(),
-  inputId,
-  ...
-)
 ```
 
 ## Arguments

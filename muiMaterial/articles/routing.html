@@ -6,11 +6,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Using a router • muiMaterial</title>
-<!-- favicons --><link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png">
-<link rel="icon" type="”image/svg+xml”" href="../favicon.svg">
-<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
-<link rel="icon" sizes="any" href="../favicon.ico">
-<link rel="manifest" href="../site.webmanifest">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
@@ -25,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">muiMaterial</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.3</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,6 +30,13 @@
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-get-started" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Get Started</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-get-started">
+<li><a class="dropdown-item" href="../articles/getting-started.html">Getting Started</a></li>
+    <li><a class="dropdown-item" href="../articles/ai-assisted-development.html">AI-Assisted Development</a></li>
+  </ul>
+</li>
 <li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-inputs" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Inputs</button>
@@ -88,7 +90,7 @@
       <img src="../logo.png" class="logo" alt=""><h1>Using a router</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/lgnbhl/muiMaterial/blob/HEAD/vignettes/routing.Rmd" class="external-link"><code>vignettes/routing.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/lgnbhl/muiMaterial/blob/v0.1.3/vignettes/routing.Rmd" class="external-link"><code>vignettes/routing.Rmd</code></a></small>
       <div class="d-none name"><code>routing.Rmd</code></div>
     </div>
 
@@ -162,7 +164,7 @@ routing (no server):</p>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="zarjxrrtognksqkyhbof">
-<script class="react-data" type="application/json">{"type":"element","module":"react-router-dom","name":"HashRouter","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"AppBar","props":{"type":"object","value":{"position":{"type":"raw","value":"static"},"children":{"type":"element","module":"@mui/material","name":"Toolbar","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"Typography","props":{"type":"raw","value":{"variant":"h6","component":"div","children":"muiMaterial"}}},{"type":"element","module":"react-router-dom","name":"NavLink","props":{"type":"object","value":{"to":{"type":"raw","value":"/"},"style":{"type":"expr","value":"({isActive}) => { return isActive ? {color: \"white\"} : {color: \"white\"}; }"},"reloadDocument":{"type":"raw","value":true},"children":{"type":"element","module":"@mui/material","name":"Button","props":{"type":"raw","value":{"color":"inherit","children":"Home"}}}}}},{"type":"element","module":"react-router-dom","name":"NavLink","props":{"type":"object","value":{"to":{"type":"raw","value":"/analysis"},"style":{"type":"expr","value":"({isActive}) => { return isActive ? {color: \"white\"} : {color: \"white\"}; }"},"reloadDocument":{"type":"raw","value":true},"children":{"type":"element","module":"@mui/material","name":"Button","props":{"type":"raw","value":{"color":"inherit","children":"Analysis"}}}}}}]}}}}}}},{"type":"element","module":"@mui/material","name":"Box","props":{"type":"object","value":{"sx":{"type":"raw","value":{"p":3}},"children":{"type":"element","module":"react-router-dom","name":"Routes","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","module":"react-router-dom","name":"Route","props":{"type":"object","value":{"path":{"type":"raw","value":"/"},"element":{"type":"element","name":"div","props":{"type":"object","value":{"key":{"type":"raw","value":"df2fce92-bc10-4550-9b7e-dca0c9a70bb5"},"children":{"type":"element","name":"div","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","name":"h3","props":{"type":"raw","value":{"children":"Home page"}}},{"type":"element","name":"p","props":{"type":"raw","value":{"children":"A basic example of reactRouter with muiMaterial."}}},{"type":"element","name":"p","props":{"type":"raw","value":{"children":"Content home"}}}]}}}}}}}}}},{"type":"element","module":"react-router-dom","name":"Route","props":{"type":"object","value":{"path":{"type":"raw","value":"/analysis"},"element":{"type":"element","name":"div","props":{"type":"object","value":{"key":{"type":"raw","value":"cce50fd8-6293-4349-a84d-44bd4a658407"},"children":{"type":"element","name":"div","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","name":"h3","props":{"type":"raw","value":{"children":"Analysis"}}},{"type":"element","name":"p","props":{"type":"raw","value":{"children":"Content analysis"}}}]}}}}}}}}}},{"type":"element","module":"react-router-dom","name":"Route","props":{"type":"object","value":{"path":{"type":"raw","value":"*"},"element":{"type":"element","name":"div","props":{"type":"object","value":{"key":{"type":"raw","value":"2f59caf5-ecde-41e7-ac9c-0e712632f7ff"},"children":{"type":"element","name":"div","props":{"type":"object","value":{"children":{"type":"element","name":"p","props":{"type":"raw","value":{"children":"Error 404"}}}}}}}}}}}}]}}}}}}}]}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('zarjxrrtognksqkyhbof')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"react-router-dom","name":"HashRouter","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"AppBar","props":{"type":"object","value":{"position":{"type":"raw","value":"static"},"children":{"type":"element","module":"@mui/material","name":"Toolbar","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"Typography","props":{"type":"raw","value":{"variant":"h6","component":"div","children":"muiMaterial"}}},{"type":"element","module":"react-router-dom","name":"NavLink","props":{"type":"object","value":{"to":{"type":"raw","value":"/"},"style":{"type":"expr","value":"({isActive}) => { return isActive ? {color: \"white\"} : {color: \"white\"}; }"},"reloadDocument":{"type":"raw","value":true},"children":{"type":"element","module":"@mui/material","name":"Button","props":{"type":"raw","value":{"color":"inherit","children":"Home"}}}}}},{"type":"element","module":"react-router-dom","name":"NavLink","props":{"type":"object","value":{"to":{"type":"raw","value":"/analysis"},"style":{"type":"expr","value":"({isActive}) => { return isActive ? {color: \"white\"} : {color: \"white\"}; }"},"reloadDocument":{"type":"raw","value":true},"children":{"type":"element","module":"@mui/material","name":"Button","props":{"type":"raw","value":{"color":"inherit","children":"Analysis"}}}}}}]}}}}}}},{"type":"element","module":"@mui/material","name":"Box","props":{"type":"object","value":{"sx":{"type":"raw","value":{"p":3}},"children":{"type":"element","module":"react-router-dom","name":"Routes","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","module":"react-router-dom","name":"Route","props":{"type":"object","value":{"path":{"type":"raw","value":"/"},"element":{"type":"element","name":"div","props":{"type":"object","value":{"key":{"type":"raw","value":"9973715c-654e-445a-828d-db7db4e6ad0a"},"children":{"type":"element","name":"div","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","name":"h3","props":{"type":"raw","value":{"children":"Home page"}}},{"type":"element","name":"p","props":{"type":"raw","value":{"children":"A basic example of reactRouter with muiMaterial."}}},{"type":"element","name":"p","props":{"type":"raw","value":{"children":"Content home"}}}]}}}}}}}}}},{"type":"element","module":"react-router-dom","name":"Route","props":{"type":"object","value":{"path":{"type":"raw","value":"/analysis"},"element":{"type":"element","name":"div","props":{"type":"object","value":{"key":{"type":"raw","value":"ef07ace4-67c3-44f0-bebb-9bcf297059f6"},"children":{"type":"element","name":"div","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","name":"h3","props":{"type":"raw","value":{"children":"Analysis"}}},{"type":"element","name":"p","props":{"type":"raw","value":{"children":"Content analysis"}}}]}}}}}}}}}},{"type":"element","module":"react-router-dom","name":"Route","props":{"type":"object","value":{"path":{"type":"raw","value":"*"},"element":{"type":"element","name":"div","props":{"type":"object","value":{"key":{"type":"raw","value":"fbc7c98b-8ebf-498d-ac94-ea5ac5131f6c"},"children":{"type":"element","name":"div","props":{"type":"object","value":{"children":{"type":"element","name":"p","props":{"type":"raw","value":{"children":"Error 404"}}}}}}}}}}}}]}}}}}}}]}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('zarjxrrtognksqkyhbof')</script>
 </div>
 <p>An example with <a href="https://github.com/lgnbhl/reactRouter" class="external-link">reactRouter</a> in an R
 Shiny app (with server):</p>
