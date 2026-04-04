@@ -14,6 +14,8 @@
 - [Row
   Height](https://felixluginbuhl.com/muiDataGrid/articles/row-height.md):
 - [Row
+  Selection](https://felixluginbuhl.com/muiDataGrid/articles/row-selection.md):
+- [Row
   Spanning](https://felixluginbuhl.com/muiDataGrid/articles/row-spanning.md):
 - [Server-Side
   Data](https://felixluginbuhl.com/muiDataGrid/articles/server-side-data.md):
