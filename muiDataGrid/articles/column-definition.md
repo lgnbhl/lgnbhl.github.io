@@ -19,6 +19,17 @@ various properties that control its behavior.
 The unique identifier for the column (required). Must match a field in
 the row data.
 
+[`DataGrid()`](https://felixluginbuhl.com/muiDataGrid/reference/DataGrid.md)
+internally handles the mandatory `"id"` argument required by MUI Data
+Grid. If the dataset does not contain an `"id"` column, one is
+automatically added based on row number using
+[`nrow()`](https://rdrr.io/r/base/nrow.html). If an `"id"` column
+already exists in the dataset, it is used as-is.
+
+> **Warning:** If your dataframe already contains an `"id"` column, each
+> value must be unique — duplicate IDs will cause unexpected behavior in
+> the grid.
+
 ``` r
 
 DataGrid(

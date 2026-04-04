@@ -7,7 +7,12 @@ and more.
 
 ## Install
 
-You can install the development version of muiTreeView like so:
+``` r
+
+install.packages("muiDataGrid")
+```
+
+You can install the development version of muiDataGrid like so:
 
 ``` r
 
@@ -51,13 +56,13 @@ DataGrid(
 ```
 
 **Read the full documentation with examples
-[here](https://lgnbhl.github.io/muiDataGrid/).**
+[here](https://felixluginbuhl.com/muiDataGrid/).**
 
 ### Contribute
 
 If you have any issue, question or want to contribute with a pull
 request, don’t hesitate to write me on
-<https://github.com/lgnbhl/muiDataGrid>
+<https://felixluginbuhl.com/muiDataGrid/>
 
 For updates follow [Felix
 Luginbuhl](https://linkedin.com/in/FelixLuginbuhl) on LinkedIn.
