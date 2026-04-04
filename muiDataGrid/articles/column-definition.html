@@ -90,6 +90,16 @@ various properties that control its behavior.</p>
 </h4>
 <p>The unique identifier for the column (required). Must match a field
 in the row data.</p>
+<p><code><a href="../reference/DataGrid.html">DataGrid()</a></code> internally handles the mandatory
+<code>"id"</code> argument required by MUI Data Grid. If the dataset
+does not contain an <code>"id"</code> column, one is automatically added
+based on row number using <code><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow()</a></code>. If an <code>"id"</code>
+column already exists in the dataset, it is used as-is.</p>
+<blockquote>
+<p><strong>Warning:</strong> If your dataframe already contains an
+<code>"id"</code> column, each value must be unique — duplicate IDs will
+cause unexpected behavior in the grid.</p>
+</blockquote>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/DataGrid.html">DataGrid</a></span><span class="op">(</span></span>
 <span>  rows <span class="op">=</span> <span class="va">starwars</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">name</span>, <span class="va">height</span>, <span class="va">mass</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span>,</span>
