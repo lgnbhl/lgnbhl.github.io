@@ -59,7 +59,7 @@ parameters to a data.frame. Use inside <code><a href="https://appsilon.github.io
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">processGridParams</span><span class="op">(</span><span class="va">data</span>, <span class="va">params</span>, pageSize <span class="op">=</span> <span class="fl">10L</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">processGridParams</span><span class="op">(</span><span class="va">data</span>, <span class="va">params</span>, pageSize <span class="op">=</span> <span class="fl">100L</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -76,7 +76,10 @@ on initial render.</p></dd>
 
 
 <dt id="arg-pagesize">pageSize<a class="anchor" aria-label="anchor" href="#arg-pagesize"></a></dt>
-<dd><p>Default page size when params is NULL. Default 10.</p></dd>
+<dd><p>Page size to use when <code>params</code> is <code>NULL</code> (i.e.
+the first render before the grid has sent state). Should match the
+<code>initialPageSize</code> passed to <code>DataGridServer</code>, or MUI's default
+of 100 if none was specified.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -87,12 +90,52 @@ on initial render.</p></dd>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
-<span class="r-in"><span><span class="va">output</span><span class="op">$</span><span class="va">grid</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/renderReact.html" class="external-link">renderReact</a></span><span class="op">(</span><span class="op">{</span></span></span>
-<span class="r-in"><span>  <span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">processGridParams</span><span class="op">(</span><span class="va">my_data</span>, <span class="va">input</span><span class="op">$</span><span class="va">grid_params</span><span class="op">)</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="DataGridServer.html">DataGridServer</a></span><span class="op">(</span><span class="st">"grid_params"</span>, rows <span class="op">=</span> <span class="va">result</span><span class="op">$</span><span class="va">rows</span>, rowCount <span class="op">=</span> <span class="va">result</span><span class="op">$</span><span class="va">rowCount</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"Row"</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">50</span><span class="op">)</span>, value <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">50</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Initial render (no params yet)</span></span></span>
+<span class="r-in"><span><span class="fu">processGridParams</span><span class="op">(</span><span class="va">df</span>, params <span class="op">=</span> <span class="cn">NULL</span>, pageSize <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $rows</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      name value id</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1   Row 1     1  1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   Row 2     2  2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3   Row 3     3  3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4   Row 4     4  4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   Row 5     5  5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   Row 6     6  6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7   Row 7     7  7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8   Row 8     8  8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9   Row 9     9  9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 Row 10    10 10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $rowCount</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 50</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Page 2, sorted descending, filtered</span></span></span>
+<span class="r-in"><span><span class="va">params</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  pagination_model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>page <span class="op">=</span> <span class="fl">1</span>, pageSize <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  sort_model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>field <span class="op">=</span> <span class="st">"value"</span>, sort <span class="op">=</span> <span class="st">"desc"</span><span class="op">)</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  filter_model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>items <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>field <span class="op">=</span> <span class="st">"value"</span>, operator <span class="op">=</span> <span class="st">"&gt;"</span>, value <span class="op">=</span> <span class="st">"10"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">processGridParams</span><span class="op">(</span><span class="va">df</span>, <span class="va">params</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $rows</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      name value id</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  Row 40    40 11</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  Row 39    39 12</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  Row 38    38 13</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  Row 37    37 14</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  Row 36    36 15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  Row 35    35 16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  Row 34    34 17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  Row 33    33 18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  Row 32    32 19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 Row 31    31 20</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $rowCount</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

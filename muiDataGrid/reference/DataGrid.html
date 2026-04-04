@@ -61,15 +61,17 @@
 
 
 <dl><dt id="arg-rows">rows<a class="anchor" aria-label="anchor" href="#arg-rows"></a></dt>
-<dd><p>rows</p></dd>
+<dd><p>A data.frame of rows. An <code>id</code> column is added automatically
+from row names if not already present.</p></dd>
 
 
 <dt id="arg-columns">columns<a class="anchor" aria-label="anchor" href="#arg-columns"></a></dt>
-<dd><p>columns</p></dd>
+<dd><p>Column definitions (list of lists). If <code>NULL</code>,
+auto-generated from <code>names(rows)</code>.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>Other props</p></dd>
+<dd><p>Additional props passed directly to the MUI DataGrid component.</p></dd>
 
 </dl></div>
 

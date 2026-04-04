@@ -60,10 +60,11 @@ The component sends pagination, sort, and filter state to R via a Shiny input.</
 <span>  <span class="va">inputId</span>,</span>
 <span>  rows <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  columns <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  rowCount <span class="op">=</span> <span class="fl">0L</span>,</span>
-<span>  loading <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>  initialPageSize <span class="op">=</span> <span class="fl">25L</span>,</span>
-<span>  pageSizeOptions <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10L</span>, <span class="fl">25L</span>, <span class="fl">50L</span>, <span class="fl">100L</span><span class="op">)</span>,</span>
+<span>  rowCount <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  loading <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  initialPageSize <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  pageSizeOptions <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  filterDebounce <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -81,7 +82,10 @@ sort items), and <code>filter_model</code> (list with <code>items</code>).</p></
 
 
 <dt id="arg-rows">rows<a class="anchor" aria-label="anchor" href="#arg-rows"></a></dt>
-<dd><p>A data.frame of rows for the current page.</p></dd>
+<dd><p>A data.frame. Pass the <strong>full</strong> dataset (like
+<code><a href="DataGrid.html">DataGrid()</a></code>) and let <code>DataGridServer()</code> handle pagination
+automatically, or pass a pre-sliced page together with an explicit
+<code>rowCount</code> for manual control.</p></dd>
 
 
 <dt id="arg-columns">columns<a class="anchor" aria-label="anchor" href="#arg-columns"></a></dt>
@@ -90,31 +94,78 @@ from <code>names(rows)</code>.</p></dd>
 
 
 <dt id="arg-rowcount">rowCount<a class="anchor" aria-label="anchor" href="#arg-rowcount"></a></dt>
-<dd><p>Integer. Total number of rows across all pages.</p></dd>
+<dd><p>Integer. When provided, <code>rows</code> is assumed to be
+already paginated and <code>rowCount</code> is used as the total row count
+(manual mode). When <code>NULL</code> (default), pagination is handled
+automatically from the full <code>rows</code> dataset.</p></dd>
 
 
 <dt id="arg-loading">loading<a class="anchor" aria-label="anchor" href="#arg-loading"></a></dt>
-<dd><p>Logical. Whether to show the loading indicator.</p></dd>
+<dd><p>Logical. Whether to show the loading indicator. If
+<code>NULL</code>, MUI defaults to <code>FALSE</code>.</p></dd>
 
 
 <dt id="arg-initialpagesize">initialPageSize<a class="anchor" aria-label="anchor" href="#arg-initialpagesize"></a></dt>
-<dd><p>Integer. Initial page size. Default 25.</p></dd>
+<dd><p>Integer. Convenience for setting the initial page
+size. Builds MUI's <code>initialState</code> prop. If <code>NULL</code>, MUI defaults
+to 100. Also sets the page size for the first automatic render before the
+grid has sent state. Must be included in <code>pageSizeOptions</code>.</p></dd>
 
 
 <dt id="arg-pagesizeoptions">pageSizeOptions<a class="anchor" aria-label="anchor" href="#arg-pagesizeoptions"></a></dt>
-<dd><p>Integer vector. Available page size options.
-Default <code>c(10, 25, 50, 100)</code>.</p></dd>
+<dd><p>Integer vector. Available page size options. If
+<code>NULL</code>, MUI defaults to <code>c(25, 50, 100)</code>.</p></dd>
+
+
+<dt id="arg-filterdebounce">filterDebounce<a class="anchor" aria-label="anchor" href="#arg-filterdebounce"></a></dt>
+<dd><p>Integer. Milliseconds to debounce filter input before
+sending state to R. If <code>NULL</code>, defaults to 300 ms.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>Additional props passed to the MUI DataGrid.</p></dd>
+<dd><p>Additional props passed directly to the MUI DataGrid component.
+Note: <code>paginationMode</code>, <code>sortingMode</code>, <code>filterMode</code>, and
+<code>pagination</code> are set automatically and should not be overridden.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A shiny.react element.</p>
     </div>
+    <div class="section level2">
+    <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
+    <p>Pass the full dataset via <code>rows</code> — just like <code><a href="DataGrid.html">DataGrid()</a></code> —
+and <code>DataGridServer()</code> handles pagination, sorting, and filtering
+automatically. For manual control (e.g. database queries), supply
+pre-sliced <code>rows</code> together with an explicit <code>rowCount</code>.</p>
+    </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+<span class="r-in"><span><span class="co"># Simple usage: pass the full dataset, pagination is handled automatically</span></span></span>
+<span class="r-in"><span><span class="va">output</span><span class="op">$</span><span class="va">grid</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/renderReact.html" class="external-link">renderReact</a></span><span class="op">(</span><span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="fu">DataGridServer</span><span class="op">(</span><span class="st">"grid_params"</span>,</span></span>
+<span class="r-in"><span>    rows <span class="op">=</span> <span class="va">my_data</span>,</span></span>
+<span class="r-in"><span>    initialPageSize <span class="op">=</span> <span class="fl">10L</span>,</span></span>
+<span class="r-in"><span>    pageSizeOptions <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10L</span>, <span class="fl">25L</span>, <span class="fl">50L</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Manual usage: handle pagination yourself (e.g. database queries)</span></span></span>
+<span class="r-in"><span><span class="va">output</span><span class="op">$</span><span class="va">grid</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/renderReact.html" class="external-link">renderReact</a></span><span class="op">(</span><span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="processGridParams.html">processGridParams</a></span><span class="op">(</span><span class="va">my_data</span>, <span class="va">input</span><span class="op">$</span><span class="va">grid_params</span>, pageSize <span class="op">=</span> <span class="fl">10L</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu">DataGridServer</span><span class="op">(</span><span class="st">"grid_params"</span>,</span></span>
+<span class="r-in"><span>    rows <span class="op">=</span> <span class="va">result</span><span class="op">$</span><span class="va">rows</span>,</span></span>
+<span class="r-in"><span>    rowCount <span class="op">=</span> <span class="va">result</span><span class="op">$</span><span class="va">rowCount</span>,</span></span>
+<span class="r-in"><span>    initialPageSize <span class="op">=</span> <span class="fl">10L</span>,</span></span>
+<span class="r-in"><span>    pageSizeOptions <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10L</span>, <span class="fl">25L</span>, <span class="fl">50L</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
+<span class="r-in"><span></span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>
 

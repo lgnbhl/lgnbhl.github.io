@@ -4,26 +4,20 @@
 
 library(muiDataGrid)
 library(dplyr)
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
 ```
 
-## Custom columns using Javascript
+## Custom with React JS
 
-Using `valueGetter` or `valueGetter`:
+### Custom columns using Javascript
+
+Using `valueGetter` or `valueFormatter`:
 
 ``` r
 
 # https://stackoverflow.com/a/79508826
 library(dplyr)
 
-# "id" column is mandatory
+# "id" is auto-generated if not present
 df <- starwars |>
   select(1:2) |>
   mutate(
@@ -63,7 +57,7 @@ Using `valueGetter` and `renderCell`:
 
 library(shiny.react)
 
-# "id" column is mandatory
+# "id" is auto-generated if not present
 df <- starwars |>
   select(1:2) |>
   mutate(
@@ -86,7 +80,7 @@ DataGrid(
 )
 ```
 
-## Custom table using React JS Components
+### Custom table using React JS Components
 
 If you don’t know React, I would suggest to ask an LLM to create a React
 function for you. All the examples below have been created using the

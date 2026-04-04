@@ -4,14 +4,6 @@
 
 library(muiDataGrid)
 library(dplyr)
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
 ```
 
 ## Styling Basics
@@ -111,7 +103,7 @@ DataGrid(
   ),
   sx = list(
     "& .custom-header" = list(
-      backgroundColor = "#f0f0f0",
+      backgroundColor = "#7b71cd",
       fontWeight = "bold"
     )
   )

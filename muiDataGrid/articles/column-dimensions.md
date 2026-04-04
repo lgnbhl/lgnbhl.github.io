@@ -4,23 +4,17 @@
 
 library(muiDataGrid)
 library(dplyr)
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
 ```
+
+## Column Dimensions
 
 Column dimensions control how columns are sized within the data grid.
 The grid provides flexible options for both fixed and dynamic column
 widths.
 
-## Width
+### Width
 
-### Fixed Width
+#### Fixed Width
 
 The simplest way to control column width is to set a fixed pixel value:
 
@@ -36,7 +30,7 @@ DataGrid(
 )
 ```
 
-### Default Width
+#### Default Width
 
 If no width is specified, columns default to 100 pixels wide.
 
@@ -48,13 +42,13 @@ DataGrid(
 )
 ```
 
-## Fluid Width
+### Fluid Width
 
 Use the `flex` property to make columns grow proportionally to fill
 available space. The `flex` value determines the proportion of available
 space each column takes.
 
-### Basic Flex
+#### Basic Flex
 
 ``` r
 
@@ -70,7 +64,7 @@ DataGrid(
 
 All columns share the available space equally.
 
-### Proportional Flex
+#### Proportional Flex
 
 Columns with higher flex values take proportionally more space:
 
@@ -87,7 +81,7 @@ DataGrid(
 )
 ```
 
-### Combining Fixed and Flex
+#### Combining Fixed and Flex
 
 You can mix fixed width columns with flex columns:
 
@@ -107,7 +101,7 @@ DataGrid(
 The fixed columns maintain their width, while flex columns share the
 remaining space.
 
-## Minimum Width
+### Minimum Width
 
 Set a minimum width constraint to prevent columns from becoming too
 narrow:
@@ -127,7 +121,7 @@ DataGrid(
 When the grid is resized smaller, columns will not shrink below their
 `minWidth`.
 
-## Maximum Width
+### Maximum Width
 
 Set a maximum width constraint to prevent columns from becoming too
 wide:
@@ -144,7 +138,7 @@ DataGrid(
 )
 ```
 
-## Min and Max Width Together
+### Min and Max Width Together
 
 Combine minimum and maximum width for precise control:
 
@@ -163,9 +157,9 @@ DataGrid(
 This ensures columns stay within a reasonable range while still being
 flexible.
 
-## Column Resizing
+### Column Resizing
 
-### Resizable Columns
+#### Resizable Columns
 
 By default, users can manually resize columns by dragging the column
 header edges:
@@ -178,7 +172,7 @@ DataGrid(
 )
 ```
 
-### Disable Resizing Per Column
+#### Disable Resizing Per Column
 
 Control which columns can be resized:
 
@@ -194,7 +188,7 @@ DataGrid(
 )
 ```
 
-### Disable Resizing Globally
+#### Disable Resizing Globally
 
 Disable column resizing for the entire grid:
 
@@ -206,7 +200,7 @@ DataGrid(
 )
 ```
 
-## Autosizing Columns
+### Autosizing Columns
 
 You can programmatically auto-size columns to fit their content. This is
 typically done through the grid’s API, but you can set initial widths

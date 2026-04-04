@@ -74,25 +74,20 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/muiDataGrid">muiDataGrid</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Attaching package: 'dplyr'</span></span>
-<span><span class="co">#&gt; The following objects are masked from 'package:stats':</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;     filter, lag</span></span>
-<span><span class="co">#&gt; The following objects are masked from 'package:base':</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/muiDataGrid/">muiDataGrid</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></code></pre></div>
+<div class="section level2">
+<h2 id="column-dimensions">Column Dimensions<a class="anchor" aria-label="anchor" href="#column-dimensions"></a>
+</h2>
 <p>Column dimensions control how columns are sized within the data grid.
 The grid provides flexible options for both fixed and dynamic column
 widths.</p>
-<div class="section level2">
-<h2 id="width">Width<a class="anchor" aria-label="anchor" href="#width"></a>
-</h2>
 <div class="section level3">
-<h3 id="fixed-width">Fixed Width<a class="anchor" aria-label="anchor" href="#fixed-width"></a>
+<h3 id="width">Width<a class="anchor" aria-label="anchor" href="#width"></a>
 </h3>
+<div class="section level4">
+<h4 id="fixed-width">Fixed Width<a class="anchor" aria-label="anchor" href="#fixed-width"></a>
+</h4>
 <p>The simplest way to control column width is to set a fixed pixel
 value:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
@@ -105,12 +100,12 @@ value:</p>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="cvpeammhtuweaikfkbkz">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"id":"1"},{"name":"C-3PO","height":167,"mass":75,"id":"2"},{"name":"R2-D2","height":96,"mass":32,"id":"3"},{"name":"Darth Vader","height":202,"mass":136,"id":"4"},{"name":"Leia Organa","height":150,"mass":49,"id":"5"},{"name":"Owen Lars","height":178,"mass":120,"id":"6"}],"columns":[{"field":"name","width":250},{"field":"height","width":100},{"field":"mass","width":100}]}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('cvpeammhtuweaikfkbkz')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"id":1},{"name":"C-3PO","height":167,"mass":75,"id":2},{"name":"R2-D2","height":96,"mass":32,"id":3},{"name":"Darth Vader","height":202,"mass":136,"id":4},{"name":"Leia Organa","height":150,"mass":49,"id":5},{"name":"Owen Lars","height":178,"mass":120,"id":6}],"columns":[{"field":"name","width":250},{"field":"height","width":100},{"field":"mass","width":100}]}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('cvpeammhtuweaikfkbkz')</script>
 </div>
 </div>
-<div class="section level3">
-<h3 id="default-width">Default Width<a class="anchor" aria-label="anchor" href="#default-width"></a>
-</h3>
+<div class="section level4">
+<h4 id="default-width">Default Width<a class="anchor" aria-label="anchor" href="#default-width"></a>
+</h4>
 <p>If no width is specified, columns default to 100 pixels wide.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/DataGrid.html">DataGrid</a></span><span class="op">(</span></span>
@@ -118,19 +113,19 @@ value:</p>
 <span>  <span class="co"># All columns will be 100px wide</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="hrtfztbnsrafhqmlsyef">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"id":"1"},{"name":"C-3PO","height":167,"mass":75,"id":"2"},{"name":"R2-D2","height":96,"mass":32,"id":"3"},{"name":"Darth Vader","height":202,"mass":136,"id":"4"},{"name":"Leia Organa","height":150,"mass":49,"id":"5"},{"name":"Owen Lars","height":178,"mass":120,"id":"6"}],"columns":[{"field":"name"},{"field":"height"},{"field":"mass"}]}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('hrtfztbnsrafhqmlsyef')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"id":1},{"name":"C-3PO","height":167,"mass":75,"id":2},{"name":"R2-D2","height":96,"mass":32,"id":3},{"name":"Darth Vader","height":202,"mass":136,"id":4},{"name":"Leia Organa","height":150,"mass":49,"id":5},{"name":"Owen Lars","height":178,"mass":120,"id":6}],"columns":[{"field":"name"},{"field":"height"},{"field":"mass"}]}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('hrtfztbnsrafhqmlsyef')</script>
 </div>
 </div>
 </div>
-<div class="section level2">
-<h2 id="fluid-width">Fluid Width<a class="anchor" aria-label="anchor" href="#fluid-width"></a>
-</h2>
+<div class="section level3">
+<h3 id="fluid-width">Fluid Width<a class="anchor" aria-label="anchor" href="#fluid-width"></a>
+</h3>
 <p>Use the <code>flex</code> property to make columns grow
 proportionally to fill available space. The <code>flex</code> value
 determines the proportion of available space each column takes.</p>
-<div class="section level3">
-<h3 id="basic-flex">Basic Flex<a class="anchor" aria-label="anchor" href="#basic-flex"></a>
-</h3>
+<div class="section level4">
+<h4 id="basic-flex">Basic Flex<a class="anchor" aria-label="anchor" href="#basic-flex"></a>
+</h4>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/DataGrid.html">DataGrid</a></span><span class="op">(</span></span>
 <span>  rows <span class="op">=</span> <span class="va">starwars</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">name</span>, <span class="va">height</span>, <span class="va">mass</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span>,</span>
@@ -141,13 +136,13 @@ determines the proportion of available space each column takes.</p>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="rmqrctuzzklienmufsbj">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"id":"1"},{"name":"C-3PO","height":167,"mass":75,"id":"2"},{"name":"R2-D2","height":96,"mass":32,"id":"3"},{"name":"Darth Vader","height":202,"mass":136,"id":"4"},{"name":"Leia Organa","height":150,"mass":49,"id":"5"},{"name":"Owen Lars","height":178,"mass":120,"id":"6"}],"columns":[{"field":"name","flex":1},{"field":"height","flex":1},{"field":"mass","flex":1}]}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('rmqrctuzzklienmufsbj')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"id":1},{"name":"C-3PO","height":167,"mass":75,"id":2},{"name":"R2-D2","height":96,"mass":32,"id":3},{"name":"Darth Vader","height":202,"mass":136,"id":4},{"name":"Leia Organa","height":150,"mass":49,"id":5},{"name":"Owen Lars","height":178,"mass":120,"id":6}],"columns":[{"field":"name","flex":1},{"field":"height","flex":1},{"field":"mass","flex":1}]}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('rmqrctuzzklienmufsbj')</script>
 </div>
 <p>All columns share the available space equally.</p>
 </div>
-<div class="section level3">
-<h3 id="proportional-flex">Proportional Flex<a class="anchor" aria-label="anchor" href="#proportional-flex"></a>
-</h3>
+<div class="section level4">
+<h4 id="proportional-flex">Proportional Flex<a class="anchor" aria-label="anchor" href="#proportional-flex"></a>
+</h4>
 <p>Columns with higher flex values take proportionally more space:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/DataGrid.html">DataGrid</a></span><span class="op">(</span></span>
@@ -160,12 +155,12 @@ determines the proportion of available space each column takes.</p>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="vhoipeyoohljamkajowk">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"hair_color":"blond","id":"1"},{"name":"C-3PO","height":167,"mass":75,"hair_color":null,"id":"2"},{"name":"R2-D2","height":96,"mass":32,"hair_color":null,"id":"3"},{"name":"Darth Vader","height":202,"mass":136,"hair_color":"none","id":"4"},{"name":"Leia Organa","height":150,"mass":49,"hair_color":"brown","id":"5"},{"name":"Owen Lars","height":178,"mass":120,"hair_color":"brown, grey","id":"6"}],"columns":[{"field":"name","flex":3},{"field":"height","flex":1},{"field":"mass","flex":1},{"field":"hair_color","width":150}]}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('vhoipeyoohljamkajowk')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"hair_color":"blond","id":1},{"name":"C-3PO","height":167,"mass":75,"hair_color":null,"id":2},{"name":"R2-D2","height":96,"mass":32,"hair_color":null,"id":3},{"name":"Darth Vader","height":202,"mass":136,"hair_color":"none","id":4},{"name":"Leia Organa","height":150,"mass":49,"hair_color":"brown","id":5},{"name":"Owen Lars","height":178,"mass":120,"hair_color":"brown, grey","id":6}],"columns":[{"field":"name","flex":3},{"field":"height","flex":1},{"field":"mass","flex":1},{"field":"hair_color","width":150}]}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('vhoipeyoohljamkajowk')</script>
 </div>
 </div>
-<div class="section level3">
-<h3 id="combining-fixed-and-flex">Combining Fixed and Flex<a class="anchor" aria-label="anchor" href="#combining-fixed-and-flex"></a>
-</h3>
+<div class="section level4">
+<h4 id="combining-fixed-and-flex">Combining Fixed and Flex<a class="anchor" aria-label="anchor" href="#combining-fixed-and-flex"></a>
+</h4>
 <p>You can mix fixed width columns with flex columns:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/DataGrid.html">DataGrid</a></span><span class="op">(</span></span>
@@ -178,15 +173,15 @@ determines the proportion of available space each column takes.</p>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="npghmxkfrbzdnvsgovam">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"hair_color":"blond","id":"1"},{"name":"C-3PO","height":167,"mass":75,"hair_color":null,"id":"2"},{"name":"R2-D2","height":96,"mass":32,"hair_color":null,"id":"3"},{"name":"Darth Vader","height":202,"mass":136,"hair_color":"none","id":"4"},{"name":"Leia Organa","height":150,"mass":49,"hair_color":"brown","id":"5"},{"name":"Owen Lars","height":178,"mass":120,"hair_color":"brown, grey","id":"6"}],"columns":[{"field":"name","flex":2},{"field":"height","width":100},{"field":"mass","width":100},{"field":"hair_color","flex":1}]}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('npghmxkfrbzdnvsgovam')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"hair_color":"blond","id":1},{"name":"C-3PO","height":167,"mass":75,"hair_color":null,"id":2},{"name":"R2-D2","height":96,"mass":32,"hair_color":null,"id":3},{"name":"Darth Vader","height":202,"mass":136,"hair_color":"none","id":4},{"name":"Leia Organa","height":150,"mass":49,"hair_color":"brown","id":5},{"name":"Owen Lars","height":178,"mass":120,"hair_color":"brown, grey","id":6}],"columns":[{"field":"name","flex":2},{"field":"height","width":100},{"field":"mass","width":100},{"field":"hair_color","flex":1}]}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('npghmxkfrbzdnvsgovam')</script>
 </div>
 <p>The fixed columns maintain their width, while flex columns share the
 remaining space.</p>
 </div>
 </div>
-<div class="section level2">
-<h2 id="minimum-width">Minimum Width<a class="anchor" aria-label="anchor" href="#minimum-width"></a>
-</h2>
+<div class="section level3">
+<h3 id="minimum-width">Minimum Width<a class="anchor" aria-label="anchor" href="#minimum-width"></a>
+</h3>
 <p>Set a minimum width constraint to prevent columns from becoming too
 narrow:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
@@ -199,14 +194,14 @@ narrow:</p>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="uvkfkrnrnvswaxznjupq">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"id":"1"},{"name":"C-3PO","height":167,"mass":75,"id":"2"},{"name":"R2-D2","height":96,"mass":32,"id":"3"},{"name":"Darth Vader","height":202,"mass":136,"id":"4"},{"name":"Leia Organa","height":150,"mass":49,"id":"5"},{"name":"Owen Lars","height":178,"mass":120,"id":"6"}],"columns":[{"field":"name","flex":1,"minWidth":150},{"field":"height","flex":1,"minWidth":80},{"field":"mass","flex":1,"minWidth":80}]}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('uvkfkrnrnvswaxznjupq')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"id":1},{"name":"C-3PO","height":167,"mass":75,"id":2},{"name":"R2-D2","height":96,"mass":32,"id":3},{"name":"Darth Vader","height":202,"mass":136,"id":4},{"name":"Leia Organa","height":150,"mass":49,"id":5},{"name":"Owen Lars","height":178,"mass":120,"id":6}],"columns":[{"field":"name","flex":1,"minWidth":150},{"field":"height","flex":1,"minWidth":80},{"field":"mass","flex":1,"minWidth":80}]}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('uvkfkrnrnvswaxznjupq')</script>
 </div>
 <p>When the grid is resized smaller, columns will not shrink below their
 <code>minWidth</code>.</p>
 </div>
-<div class="section level2">
-<h2 id="maximum-width">Maximum Width<a class="anchor" aria-label="anchor" href="#maximum-width"></a>
-</h2>
+<div class="section level3">
+<h3 id="maximum-width">Maximum Width<a class="anchor" aria-label="anchor" href="#maximum-width"></a>
+</h3>
 <p>Set a maximum width constraint to prevent columns from becoming too
 wide:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
@@ -219,12 +214,12 @@ wide:</p>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="wogxwgkudferwyoprgbx">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"id":"1"},{"name":"C-3PO","height":167,"mass":75,"id":"2"},{"name":"R2-D2","height":96,"mass":32,"id":"3"},{"name":"Darth Vader","height":202,"mass":136,"id":"4"},{"name":"Leia Organa","height":150,"mass":49,"id":"5"},{"name":"Owen Lars","height":178,"mass":120,"id":"6"}],"columns":[{"field":"name","flex":1,"maxWidth":200},{"field":"height","flex":1},{"field":"mass","flex":1}]}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('wogxwgkudferwyoprgbx')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"id":1},{"name":"C-3PO","height":167,"mass":75,"id":2},{"name":"R2-D2","height":96,"mass":32,"id":3},{"name":"Darth Vader","height":202,"mass":136,"id":4},{"name":"Leia Organa","height":150,"mass":49,"id":5},{"name":"Owen Lars","height":178,"mass":120,"id":6}],"columns":[{"field":"name","flex":1,"maxWidth":200},{"field":"height","flex":1},{"field":"mass","flex":1}]}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('wogxwgkudferwyoprgbx')</script>
 </div>
 </div>
-<div class="section level2">
-<h2 id="min-and-max-width-together">Min and Max Width Together<a class="anchor" aria-label="anchor" href="#min-and-max-width-together"></a>
-</h2>
+<div class="section level3">
+<h3 id="min-and-max-width-together">Min and Max Width Together<a class="anchor" aria-label="anchor" href="#min-and-max-width-together"></a>
+</h3>
 <p>Combine minimum and maximum width for precise control:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/DataGrid.html">DataGrid</a></span><span class="op">(</span></span>
@@ -236,17 +231,17 @@ wide:</p>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="bzpexapgxvsfsfliogmx">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"id":"1"},{"name":"C-3PO","height":167,"mass":75,"id":"2"},{"name":"R2-D2","height":96,"mass":32,"id":"3"},{"name":"Darth Vader","height":202,"mass":136,"id":"4"},{"name":"Leia Organa","height":150,"mass":49,"id":"5"},{"name":"Owen Lars","height":178,"mass":120,"id":"6"}],"columns":[{"field":"name","flex":1,"minWidth":120,"maxWidth":300},{"field":"height","width":100},{"field":"mass","width":100}]}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('bzpexapgxvsfsfliogmx')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"id":1},{"name":"C-3PO","height":167,"mass":75,"id":2},{"name":"R2-D2","height":96,"mass":32,"id":3},{"name":"Darth Vader","height":202,"mass":136,"id":4},{"name":"Leia Organa","height":150,"mass":49,"id":5},{"name":"Owen Lars","height":178,"mass":120,"id":6}],"columns":[{"field":"name","flex":1,"minWidth":120,"maxWidth":300},{"field":"height","width":100},{"field":"mass","width":100}]}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('bzpexapgxvsfsfliogmx')</script>
 </div>
 <p>This ensures columns stay within a reasonable range while still being
 flexible.</p>
 </div>
-<div class="section level2">
-<h2 id="column-resizing">Column Resizing<a class="anchor" aria-label="anchor" href="#column-resizing"></a>
-</h2>
 <div class="section level3">
-<h3 id="resizable-columns">Resizable Columns<a class="anchor" aria-label="anchor" href="#resizable-columns"></a>
+<h3 id="column-resizing">Column Resizing<a class="anchor" aria-label="anchor" href="#column-resizing"></a>
 </h3>
+<div class="section level4">
+<h4 id="resizable-columns">Resizable Columns<a class="anchor" aria-label="anchor" href="#resizable-columns"></a>
+</h4>
 <p>By default, users can manually resize columns by dragging the column
 header edges:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
@@ -255,12 +250,12 @@ header edges:</p>
 <span>  <span class="co"># Column resizing enabled by default</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="zvxpuzsfhswgayltrkjt">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"id":"1"},{"name":"C-3PO","height":167,"mass":75,"id":"2"},{"name":"R2-D2","height":96,"mass":32,"id":"3"},{"name":"Darth Vader","height":202,"mass":136,"id":"4"},{"name":"Leia Organa","height":150,"mass":49,"id":"5"},{"name":"Owen Lars","height":178,"mass":120,"id":"6"}],"columns":[{"field":"name"},{"field":"height"},{"field":"mass"}]}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('zvxpuzsfhswgayltrkjt')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"id":1},{"name":"C-3PO","height":167,"mass":75,"id":2},{"name":"R2-D2","height":96,"mass":32,"id":3},{"name":"Darth Vader","height":202,"mass":136,"id":4},{"name":"Leia Organa","height":150,"mass":49,"id":5},{"name":"Owen Lars","height":178,"mass":120,"id":6}],"columns":[{"field":"name"},{"field":"height"},{"field":"mass"}]}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('zvxpuzsfhswgayltrkjt')</script>
 </div>
 </div>
-<div class="section level3">
-<h3 id="disable-resizing-per-column">Disable Resizing Per Column<a class="anchor" aria-label="anchor" href="#disable-resizing-per-column"></a>
-</h3>
+<div class="section level4">
+<h4 id="disable-resizing-per-column">Disable Resizing Per Column<a class="anchor" aria-label="anchor" href="#disable-resizing-per-column"></a>
+</h4>
 <p>Control which columns can be resized:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/DataGrid.html">DataGrid</a></span><span class="op">(</span></span>
@@ -272,12 +267,12 @@ header edges:</p>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="rcwcwcmgreyijxvcxujz">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"id":"1"},{"name":"C-3PO","height":167,"mass":75,"id":"2"},{"name":"R2-D2","height":96,"mass":32,"id":"3"},{"name":"Darth Vader","height":202,"mass":136,"id":"4"},{"name":"Leia Organa","height":150,"mass":49,"id":"5"},{"name":"Owen Lars","height":178,"mass":120,"id":"6"}],"columns":[{"field":"name","resizable":true},{"field":"height","resizable":false},{"field":"mass","resizable":false}]}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('rcwcwcmgreyijxvcxujz')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"id":1},{"name":"C-3PO","height":167,"mass":75,"id":2},{"name":"R2-D2","height":96,"mass":32,"id":3},{"name":"Darth Vader","height":202,"mass":136,"id":4},{"name":"Leia Organa","height":150,"mass":49,"id":5},{"name":"Owen Lars","height":178,"mass":120,"id":6}],"columns":[{"field":"name","resizable":true},{"field":"height","resizable":false},{"field":"mass","resizable":false}]}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('rcwcwcmgreyijxvcxujz')</script>
 </div>
 </div>
-<div class="section level3">
-<h3 id="disable-resizing-globally">Disable Resizing Globally<a class="anchor" aria-label="anchor" href="#disable-resizing-globally"></a>
-</h3>
+<div class="section level4">
+<h4 id="disable-resizing-globally">Disable Resizing Globally<a class="anchor" aria-label="anchor" href="#disable-resizing-globally"></a>
+</h4>
 <p>Disable column resizing for the entire grid:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/DataGrid.html">DataGrid</a></span><span class="op">(</span></span>
@@ -285,13 +280,13 @@ header edges:</p>
 <span>  disableColumnResize <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="jyfadwffbyguhwhzptvt">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"id":"1"},{"name":"C-3PO","height":167,"mass":75,"id":"2"},{"name":"R2-D2","height":96,"mass":32,"id":"3"},{"name":"Darth Vader","height":202,"mass":136,"id":"4"},{"name":"Leia Organa","height":150,"mass":49,"id":"5"},{"name":"Owen Lars","height":178,"mass":120,"id":"6"}],"columns":[{"field":"name"},{"field":"height"},{"field":"mass"}],"disableColumnResize":true}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('jyfadwffbyguhwhzptvt')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"id":1},{"name":"C-3PO","height":167,"mass":75,"id":2},{"name":"R2-D2","height":96,"mass":32,"id":3},{"name":"Darth Vader","height":202,"mass":136,"id":4},{"name":"Leia Organa","height":150,"mass":49,"id":5},{"name":"Owen Lars","height":178,"mass":120,"id":6}],"columns":[{"field":"name"},{"field":"height"},{"field":"mass"}],"disableColumnResize":true}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('jyfadwffbyguhwhzptvt')</script>
 </div>
 </div>
 </div>
-<div class="section level2">
-<h2 id="autosizing-columns">Autosizing Columns<a class="anchor" aria-label="anchor" href="#autosizing-columns"></a>
-</h2>
+<div class="section level3">
+<h3 id="autosizing-columns">Autosizing Columns<a class="anchor" aria-label="anchor" href="#autosizing-columns"></a>
+</h3>
 <p>You can programmatically auto-size columns to fit their content. This
 is typically done through the grid’s API, but you can set initial widths
 based on content length:</p>
@@ -306,7 +301,8 @@ based on content length:</p>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="kdcrprizswzfrkbqpkwn">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"hair_color":"blond","id":"1"},{"name":"C-3PO","height":167,"mass":75,"hair_color":null,"id":"2"},{"name":"R2-D2","height":96,"mass":32,"hair_color":null,"id":"3"},{"name":"Darth Vader","height":202,"mass":136,"hair_color":"none","id":"4"},{"name":"Leia Organa","height":150,"mass":49,"hair_color":"brown","id":"5"},{"name":"Owen Lars","height":178,"mass":120,"hair_color":"brown, grey","id":"6"}],"columns":[{"field":"name","width":180},{"field":"height","width":90},{"field":"hair_color","width":120}]}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('kdcrprizswzfrkbqpkwn')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"hair_color":"blond","id":1},{"name":"C-3PO","height":167,"mass":75,"hair_color":null,"id":2},{"name":"R2-D2","height":96,"mass":32,"hair_color":null,"id":3},{"name":"Darth Vader","height":202,"mass":136,"hair_color":"none","id":4},{"name":"Leia Organa","height":150,"mass":49,"hair_color":"brown","id":5},{"name":"Owen Lars","height":178,"mass":120,"hair_color":"brown, grey","id":6}],"columns":[{"field":"name","width":180},{"field":"height","width":90},{"field":"hair_color","width":120}]}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('kdcrprizswzfrkbqpkwn')</script>
+</div>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

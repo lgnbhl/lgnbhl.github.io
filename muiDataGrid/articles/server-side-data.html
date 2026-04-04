@@ -156,48 +156,72 @@ current page.</li>
 </ol>
 </div>
 <div class="section level3">
+<h3 id="automatic-vs-manual-mode">Automatic vs manual mode<a class="anchor" aria-label="anchor" href="#automatic-vs-manual-mode"></a>
+</h3>
+<p><code><a href="../reference/DataGridServer.html">DataGridServer()</a></code> supports two modes:</p>
+<ul>
+<li>
+<strong>Automatic mode</strong> (default): pass the full dataset via
+<code>rows</code>. Pagination, sorting, and filtering are handled
+internally by <code><a href="../reference/processGridParams.html">processGridParams()</a></code>. This is the simplest
+option and works well when the data fits in R memory.</li>
+<li>
+<strong>Manual mode</strong>: pass pre-sliced <code>rows</code>
+together with an explicit <code>rowCount</code>. Use this when you need
+full control — for example, to query a database or apply custom
+filtering logic.</li>
+</ul>
+</div>
+<div class="section level3">
 <h3 id="basic-usage">Basic usage<a class="anchor" aria-label="anchor" href="#basic-usage"></a>
 </h3>
-<p>A minimal server-side DataGrid app requires three things:</p>
-<ol style="list-style-type: decimal">
-<li>
-<code><a href="https://appsilon.github.io/shiny.react/reference/reactOutput.html" class="external-link">reactOutput()</a></code> in the UI</li>
-<li>
-<code><a href="../reference/processGridParams.html">processGridParams()</a></code> to handle pagination, sorting, and
-filtering</li>
-<li>
-<code><a href="../reference/DataGridServer.html">DataGridServer()</a></code> to render the grid with the current
-page of data</li>
-</ol>
+<p>A minimal server-side DataGrid requires only
+<code><a href="https://appsilon.github.io/shiny.react/reference/reactOutput.html" class="external-link">reactOutput()</a></code> in the UI and <code><a href="../reference/DataGridServer.html">DataGridServer()</a></code>
+in the server. Pass the full dataset via <code>rows</code> — exactly
+like <code><a href="../reference/DataGrid.html">DataGrid()</a></code> — and pagination, sorting, and filtering
+are handled automatically:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/muiDataGrid">muiDataGrid</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/muiMaterial/" class="external-link">muiMaterial</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
+<span><span class="co"># 100'000 rows</span></span>
+<span><span class="va">all_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
+<span>  id <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">100000</span>,</span>
+<span>  label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"Row"</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">100000</span><span class="op">)</span>,</span>
+<span>  value <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">100000</span>,</span>
+<span>  group <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span><span class="op">)</span>, each <span class="op">=</span> <span class="fl">25000</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">all_data</span> <span class="op">&lt;-</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="va"><a href="https://dplyr.tidyverse.org/reference/starwars.html" class="external-link">starwars</a></span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">name</span>, <span class="va">height</span>, <span class="va">mass</span>, <span class="va">birth_year</span>, <span class="va">gender</span>, <span class="va">homeworld</span><span class="op">)</span></span>
+<span><span class="co"># Very slow with big data</span></span>
+<span><span class="co"># DataGrid(</span></span>
+<span><span class="co">#   rows = all_data,</span></span>
+<span><span class="co">#   initialState = list(</span></span>
+<span><span class="co">#     pagination = list(</span></span>
+<span><span class="co">#       paginationModel = list(pageSize = 5)</span></span>
+<span><span class="co">#     )</span></span>
+<span><span class="co">#   )</span></span>
+<span><span class="co"># )</span></span>
 <span></span>
-<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/muiMaterialPage.html" class="external-link">muiMaterialPage</a></span><span class="op">(</span></span>
+<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
 <span>  <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/reactOutput.html" class="external-link">reactOutput</a></span><span class="op">(</span><span class="st">"grid"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">output</span><span class="op">$</span><span class="va">grid</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/renderReact.html" class="external-link">renderReact</a></span><span class="op">(</span><span class="op">{</span></span>
-<span>    <span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/processGridParams.html">processGridParams</a></span><span class="op">(</span><span class="va">all_data</span>, <span class="va">input</span><span class="op">$</span><span class="va">grid_params</span><span class="op">)</span></span>
-<span></span>
 <span>    <span class="fu"><a href="../reference/DataGridServer.html">DataGridServer</a></span><span class="op">(</span></span>
 <span>      inputId <span class="op">=</span> <span class="st">"grid_params"</span>,</span>
-<span>      rows <span class="op">=</span> <span class="va">result</span><span class="op">$</span><span class="va">rows</span>,</span>
-<span>      rowCount <span class="op">=</span> <span class="va">result</span><span class="op">$</span><span class="va">rowCount</span>,</span>
-<span>      initialPageSize <span class="op">=</span> <span class="fl">10L</span>,</span>
-<span>      pageSizeOptions <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">5L</span>, <span class="fl">10L</span>, <span class="fl">25L</span><span class="op">)</span>,</span>
-<span>      sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>height <span class="op">=</span> <span class="fl">500</span><span class="op">)</span></span>
+<span>      rows <span class="op">=</span> <span class="va">all_data</span>,</span>
+<span>      initialPageSize <span class="op">=</span> <span class="fl">5L</span>,</span>
+<span>      pageSizeOptions <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">5L</span>, <span class="fl">10L</span>, <span class="fl">25L</span><span class="op">)</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">}</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre></div>
+<blockquote>
+<p><strong>Note:</strong> <code>initialPageSize</code> must be included
+in <code>pageSizeOptions</code> — an error is raised if not. It also
+sets the page size for the very first render, before the grid has sent
+any state to R.</p>
+</blockquote>
 </div>
 <div class="section level3">
 <h3 id="key-functions">Key functions<a class="anchor" aria-label="anchor" href="#key-functions"></a>
@@ -225,8 +249,8 @@ filtering.</p>
 </tr>
 <tr class="even">
 <td><code>rows</code></td>
-<td>Data frame with the rows for the <strong>current page
-only</strong>.</td>
+<td>Full data frame (automatic mode) <strong>or</strong> pre-sliced page
+with explicit <code>rowCount</code> (manual mode).</td>
 </tr>
 <tr class="odd">
 <td><code>columns</code></td>
@@ -235,22 +259,31 @@ NULL).</td>
 </tr>
 <tr class="even">
 <td><code>rowCount</code></td>
-<td>Total number of matching rows across all pages.</td>
+<td>When provided, <code>rows</code> is treated as already paginated and
+<code>rowCount</code> is the total. When NULL (default), pagination is
+handled automatically from the full <code>rows</code> dataset.</td>
 </tr>
 <tr class="odd">
 <td><code>initialPageSize</code></td>
-<td>Initial number of rows per page (default 25).</td>
+<td>Initial rows per page. Must be included in
+<code>pageSizeOptions</code>. Defaults to MUI’s default (100) if
+NULL.</td>
 </tr>
 <tr class="even">
 <td><code>pageSizeOptions</code></td>
-<td>Available page size choices (default
-<code>c(10, 25, 50, 100)</code>).</td>
+<td>Available page size choices. Defaults to MUI’s default
+<code>c(25, 50, 100)</code> if NULL.</td>
 </tr>
 <tr class="odd">
+<td><code>filterDebounce</code></td>
+<td>Milliseconds to wait after typing before sending filter state to R.
+Defaults to 300 ms if NULL.</td>
+</tr>
+<tr class="even">
 <td><code>loading</code></td>
 <td>Show a loading indicator (default FALSE).</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>...</code></td>
 <td>Additional props passed to the MUI DataGrid.</td>
 </tr>
@@ -262,7 +295,9 @@ NULL).</td>
 <code>processGridParams()</code><a class="anchor" aria-label="anchor" href="#processgridparams"></a>
 </h4>
 <p>Applies pagination, sorting, and filtering to a data frame based on
-<code>input$&lt;inputId&gt;</code>.</p>
+<code>input$&lt;inputId&gt;</code>. Use this directly when you need
+custom server-side logic (e.g. database queries) that
+<code><a href="../reference/DataGridServer.html">DataGridServer()</a></code> cannot handle automatically.</p>
 <table class="table">
 <colgroup>
 <col width="50%">
@@ -285,7 +320,8 @@ NULL).</td>
 </tr>
 <tr class="odd">
 <td><code>pageSize</code></td>
-<td>Default page size before first interaction (default 10).</td>
+<td>Page size used on first render before the grid sends state. Should
+match <code>initialPageSize</code>. Defaults to 100.</td>
 </tr>
 </tbody>
 </table>
@@ -298,6 +334,57 @@ NULL).</td>
 filtering, before pagination)</li>
 </ul>
 </div>
+<div class="section level4">
+<h4 id="supported-filter-operators">Supported filter operators<a class="anchor" aria-label="anchor" href="#supported-filter-operators"></a>
+</h4>
+<p><code><a href="../reference/processGridParams.html">processGridParams()</a></code> handles the following MUI filter
+operators:</p>
+<table class="table">
+<colgroup>
+<col width="50%">
+<col width="50%">
+</colgroup>
+<thead><tr class="header">
+<th>Column type</th>
+<th>Operators</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>String</td>
+<td>
+<code>contains</code>, <code>equals</code>, <code>startsWith</code>,
+<code>endsWith</code>, <code>not</code> / <code>!=</code>,
+<code>isEmpty</code>, <code>isNotEmpty</code>, <code>isAnyOf</code>
+</td>
+</tr>
+<tr class="even">
+<td>Number</td>
+<td>
+<code>=</code>, <code>!=</code>, <code>&gt;</code>,
+<code>&gt;=</code>, <code>&lt;</code>, <code>&lt;=</code>,
+<code>isEmpty</code>, <code>isNotEmpty</code>, <code>isAnyOf</code>
+</td>
+</tr>
+<tr class="odd">
+<td>Date</td>
+<td>
+<code>is</code>, <code>not</code>, <code>after</code>,
+<code>onOrAfter</code>, <code>before</code>, <code>onOrBefore</code>,
+<code>isEmpty</code>, <code>isNotEmpty</code>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Unrecognized operators are ignored (all rows pass). If you need
+operators not listed here, use manual mode and handle filtering
+yourself.</p>
+<blockquote>
+<p><strong>Note:</strong> String operators (<code>contains</code>,
+<code>equals</code>, <code>startsWith</code>, <code>endsWith</code>,
+<code>not</code>) are case-insensitive. The <code>is</code> operator is
+case-sensitive, matching MUI’s default behavior.</p>
+</blockquote>
+</div>
 </div>
 <div class="section level3">
 <h3 id="custom-columns">Custom columns<a class="anchor" aria-label="anchor" href="#custom-columns"></a>
@@ -305,24 +392,58 @@ filtering, before pagination)</li>
 <p>You can define custom columns the same way as with
 <code><a href="../reference/DataGrid.html">DataGrid()</a></code>:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">output</span><span class="op">$</span><span class="va">grid</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/renderReact.html" class="external-link">renderReact</a></span><span class="op">(</span><span class="op">{</span></span>
-<span>    <span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/processGridParams.html">processGridParams</a></span><span class="op">(</span><span class="va">all_data</span>, <span class="va">input</span><span class="op">$</span><span class="va">grid_params</span><span class="op">)</span></span>
+<span>    <span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/processGridParams.html">processGridParams</a></span><span class="op">(</span><span class="fu">dplyr</span><span class="fu">::</span><span class="va"><a href="https://dplyr.tidyverse.org/reference/starwars.html" class="external-link">starwars</a></span>, <span class="va">input</span><span class="op">$</span><span class="va">grid_params</span>, pageSize <span class="op">=</span> <span class="fl">5L</span><span class="op">)</span></span>
 <span></span>
 <span>    <span class="fu"><a href="../reference/DataGridServer.html">DataGridServer</a></span><span class="op">(</span></span>
 <span>      inputId <span class="op">=</span> <span class="st">"grid_params"</span>,</span>
 <span>      rows <span class="op">=</span> <span class="va">result</span><span class="op">$</span><span class="va">rows</span>,</span>
 <span>      rowCount <span class="op">=</span> <span class="va">result</span><span class="op">$</span><span class="va">rowCount</span>,</span>
+<span>      initialPageSize <span class="op">=</span> <span class="fl">5L</span>,</span>
 <span>      columns <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>        <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>field <span class="op">=</span> <span class="st">"name"</span>, headerName <span class="op">=</span> <span class="st">"Name"</span>, flex <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
 <span>        <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>field <span class="op">=</span> <span class="st">"height"</span>, headerName <span class="op">=</span> <span class="st">"Height (cm)"</span>, type <span class="op">=</span> <span class="st">"number"</span>, width <span class="op">=</span> <span class="fl">120</span><span class="op">)</span>,</span>
 <span>        <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>field <span class="op">=</span> <span class="st">"mass"</span>, headerName <span class="op">=</span> <span class="st">"Mass (kg)"</span>, type <span class="op">=</span> <span class="st">"number"</span>, width <span class="op">=</span> <span class="fl">120</span><span class="op">)</span>,</span>
 <span>        <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>field <span class="op">=</span> <span class="st">"gender"</span>, headerName <span class="op">=</span> <span class="st">"Gender"</span>, width <span class="op">=</span> <span class="fl">120</span><span class="op">)</span></span>
-<span>      <span class="op">)</span>,</span>
-<span>      initialPageSize <span class="op">=</span> <span class="fl">10L</span></span>
+<span>      <span class="op">)</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">}</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="loading-indicator">Loading indicator<a class="anchor" aria-label="anchor" href="#loading-indicator"></a>
+</h3>
+<p>For manual mode, the grid can show a loading overlay while data is
+being fetched. Use a <code>reactiveVal</code> to track the loading
+state:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">loading</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactiveVal.html" class="external-link">reactiveVal</a></span><span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="va">grid_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactive.html" class="external-link">reactive</a></span><span class="op">(</span><span class="op">{</span></span>
+<span>    <span class="fu">loading</span><span class="op">(</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/on.exit.html" class="external-link">on.exit</a></span><span class="op">(</span><span class="fu">loading</span><span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span>
+<span>    <span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/processGridParams.html">processGridParams</a></span><span class="op">(</span><span class="va">all_data</span>, <span class="va">input</span><span class="op">$</span><span class="va">grid_params</span>, pageSize <span class="op">=</span> <span class="fl">50L</span><span class="op">)</span></span>
+<span>    <span class="va">result</span></span>
+<span>  <span class="op">}</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="va">output</span><span class="op">$</span><span class="va">grid</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/renderReact.html" class="external-link">renderReact</a></span><span class="op">(</span><span class="op">{</span></span>
+<span>    <span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">grid_data</span><span class="op">(</span><span class="op">)</span></span>
+<span>    <span class="fu"><a href="../reference/DataGridServer.html">DataGridServer</a></span><span class="op">(</span></span>
+<span>      inputId <span class="op">=</span> <span class="st">"grid_params"</span>,</span>
+<span>      rows <span class="op">=</span> <span class="va">result</span><span class="op">$</span><span class="va">rows</span>,</span>
+<span>      rowCount <span class="op">=</span> <span class="va">result</span><span class="op">$</span><span class="va">rowCount</span>,</span>
+<span>      loading <span class="op">=</span> <span class="fu">loading</span><span class="op">(</span><span class="op">)</span>,</span>
+<span>      initialPageSize <span class="op">=</span> <span class="fl">50L</span>,</span>
+<span>      pageSizeOptions <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">50L</span>, <span class="fl">100L</span><span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">}</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
+<p>This is most useful when the data source is slow (e.g. a database
+query or API call).</p>
 </div>
 <div class="section level3">
 <h3 id="reading-grid-state">Reading grid state<a class="anchor" aria-label="anchor" href="#reading-grid-state"></a>
@@ -340,12 +461,11 @@ a list with three elements:</p>
 <li>
 <code>filter_model</code>: list with <code>items</code>, each
 containing <code>field</code>, <code>operator</code>, and
-<code>value</code>
-</li>
+<code>value</code>; and <code>logicOperator</code> (“and” or “or”)</li>
 </ul>
 <p>You can use this to display diagnostics or trigger other reactive
 logic:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">output</span><span class="op">$</span><span class="va">grid</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/renderReact.html" class="external-link">renderReact</a></span><span class="op">(</span><span class="op">{</span></span>
 <span>    <span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/processGridParams.html">processGridParams</a></span><span class="op">(</span><span class="va">all_data</span>, <span class="va">input</span><span class="op">$</span><span class="va">grid_params</span><span class="op">)</span></span>
@@ -367,13 +487,13 @@ logic:</p>
 <p><code><a href="../reference/processGridParams.html">processGridParams()</a></code> covers common sorting and filtering
 operators. If you need custom logic (e.g. querying a database), you can
 skip it and handle <code>input$&lt;inputId&gt;</code> directly:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">output</span><span class="op">$</span><span class="va">grid</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/renderReact.html" class="external-link">renderReact</a></span><span class="op">(</span><span class="op">{</span></span>
 <span>    <span class="va">params</span> <span class="op">&lt;-</span> <span class="va">input</span><span class="op">$</span><span class="va">grid_params</span></span>
 <span></span>
-<span>    <span class="va">page</span> <span class="op">&lt;-</span> <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html" class="external-link">is.null</a></span><span class="op">(</span><span class="va">params</span><span class="op">)</span><span class="op">)</span> <span class="va">params</span><span class="op">$</span><span class="va">pagination_model</span><span class="op">$</span><span class="va">page</span> <span class="kw">else</span> <span class="fl">0</span></span>
-<span>    <span class="va">page_size</span> <span class="op">&lt;-</span> <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html" class="external-link">is.null</a></span><span class="op">(</span><span class="va">params</span><span class="op">)</span><span class="op">)</span> <span class="va">params</span><span class="op">$</span><span class="va">pagination_model</span><span class="op">$</span><span class="va">pageSize</span> <span class="kw">else</span> <span class="fl">10</span></span>
+<span>    <span class="va">page</span>      <span class="op">&lt;-</span> <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html" class="external-link">is.null</a></span><span class="op">(</span><span class="va">params</span><span class="op">)</span><span class="op">)</span> <span class="va">params</span><span class="op">$</span><span class="va">pagination_model</span><span class="op">$</span><span class="va">page</span>     <span class="kw">else</span> <span class="fl">0</span></span>
+<span>    <span class="va">page_size</span> <span class="op">&lt;-</span> <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html" class="external-link">is.null</a></span><span class="op">(</span><span class="va">params</span><span class="op">)</span><span class="op">)</span> <span class="va">params</span><span class="op">$</span><span class="va">pagination_model</span><span class="op">$</span><span class="va">pageSize</span>  <span class="kw">else</span> <span class="fl">25</span></span>
 <span></span>
 <span>    <span class="co"># Custom database query</span></span>
 <span>    <span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">DBI</span><span class="fu">::</span><span class="fu"><a href="https://dbi.r-dbi.org/reference/dbGetQuery.html" class="external-link">dbGetQuery</a></span><span class="op">(</span><span class="va">con</span>, <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span></span>
@@ -386,7 +506,8 @@ skip it and handle <code>input$&lt;inputId&gt;</code> directly:</p>
 <span>      inputId <span class="op">=</span> <span class="st">"grid_params"</span>,</span>
 <span>      rows <span class="op">=</span> <span class="va">result</span>,</span>
 <span>      rowCount <span class="op">=</span> <span class="va">total</span>,</span>
-<span>      initialPageSize <span class="op">=</span> <span class="fl">10L</span></span>
+<span>      initialPageSize <span class="op">=</span> <span class="fl">25L</span>,</span>
+<span>      pageSizeOptions <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">25L</span>, <span class="fl">50L</span>, <span class="fl">100L</span><span class="op">)</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">}</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>

@@ -4,14 +4,6 @@
 
 library(muiDataGrid)
 library(dplyr)
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
 ```
 
 ## Row Height
@@ -145,8 +137,8 @@ DataGrid(
 )
 ```
 
-Density values affect row height: - “compact”: ~52px - “standard”: ~52px
-(default) - “comfortable”: ~62px
+Density values affect row height: - “compact”: ~36px - “standard”: ~52px
+(default) - “comfortable”: ~65px
 
 ### Row Spacing
 
