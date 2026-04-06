@@ -5,17 +5,20 @@ data visualization from R.
 
 ## Install and load
 
-You can install the development version of muiCharts like so:
+You can install the development version of **muiCharts** like so:
 
 ``` r
 
 remotes::install_github("lgnbhl/muiCharts")
+```
+
+``` r
 
 library(muiCharts)
 ```
 
 **Read the full documentation with examples
-[here](https://lgnbhl.github.io/muiCharts/articles/introduction.html).**
+[here](https://lgnbhl.github.io/muiCharts).**
 
 ## Basic example
 
@@ -41,7 +44,8 @@ BarChart(
 )
 ```
 
-![BarChart](https://raw.githubusercontent.com/lgnbhl/muiCharts/refs/heads/main/man/figures/BarChart.png)
+![BarChart
+example](https://raw.githubusercontent.com/lgnbhl/muiCharts/refs/heads/master/man/Figures/BarChart.png)
 
 ### Contribute
 
