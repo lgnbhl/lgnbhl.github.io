@@ -2,6 +2,8 @@
 
 ### All vignettes
 
+- [Bootstrap CSS
+  Conflicts](https://felixluginbuhl.com/muiDataGrid/articles/bootstrap-css-conflicts.md):
 - [Column
   Definition](https://felixluginbuhl.com/muiDataGrid/articles/column-definition.md):
 - [Column
