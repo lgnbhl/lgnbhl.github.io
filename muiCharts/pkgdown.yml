@@ -1,0 +1,25 @@
+pandoc: 3.9.0.2
+pkgdown: 2.2.0
+pkgdown_sha: ~
+articles:
+  areas: areas.html
+  axis: axis.html
+  bars: bars.html
+  composition: composition.html
+  gauge: gauge.html
+  highlighting: highlighting.html
+  introduction: introduction.html
+  legend: legend.html
+  lines: lines.html
+  pies: pies.html
+  quarto: quarto.html
+  radar: radar.html
+  scatter: scatter.html
+  shiny: shiny.html
+  sparkline: sparkline.html
+  styling: styling.html
+  tooltip: tooltip.html
+last_built: 2026-04-06T13:48Z
+urls:
+  reference: https://felixluginbuhl.com/muiCharts/reference
+  article: https://felixluginbuhl.com/muiCharts/articles

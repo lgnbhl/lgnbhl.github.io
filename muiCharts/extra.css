@@ -1,0 +1,6 @@
+.mui-charts-widget * {
+  box-sizing: content-box;
+}
+.mui-charts-widget label {
+  margin-bottom: 0;
+}

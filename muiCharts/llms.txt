@@ -1,0 +1,234 @@
+# muiCharts
+
+**muiCharts** gives access to *MUI X Charts* React chart components for
+data visualization from R.
+
+## Install and load
+
+You can install the development version of muiCharts like so:
+
+``` r
+
+remotes::install_github("lgnbhl/muiCharts")
+
+library(muiCharts)
+```
+
+**Read the full documentation with examples
+[here](https://lgnbhl.github.io/muiCharts/articles/introduction.html).**
+
+## Basic example
+
+``` r
+
+library(dplyr)
+
+starwars_summary <- starwars |>
+  filter(species %in% c("Human", "Droid", "Wookiee")) |>
+  group_by(species) |>
+  summarise(height = mean(height, na.rm = TRUE), mass = mean(mass, na.rm = TRUE))
+
+BarChart(
+  dataset = starwars_summary,
+  xAxis = list(
+    list(scaleType = "band", dataKey = "species")
+  ),
+  series = list(
+    list(dataKey = "height", label = "Height"),
+    list(dataKey = "mass", label = "Mass")
+  ),
+  height = 300
+)
+```
+
+![BarChart](https://raw.githubusercontent.com/lgnbhl/muiCharts/refs/heads/main/man/figures/BarChart.png)
+
+### Contribute
+
+If you have any issue, question or want to contribute with a pull
+request, don’t hesitate to write me on
+<https://github.com/lgnbhl/muiCharts>
+
+For updates follow [Felix
+Luginbuhl](https://linkedin.com/in/FelixLuginbuhl) on LinkedIn.
+
+# Package index
+
+## All functions
+
+- [`AnimatedArea()`](https://felixluginbuhl.com/muiCharts/reference/AnimatedArea.md)
+  : AnimatedArea
+- [`AnimatedLine()`](https://felixluginbuhl.com/muiCharts/reference/AnimatedLine.md)
+  : AnimatedLine
+- [`AreaElement()`](https://felixluginbuhl.com/muiCharts/reference/AreaElement.md)
+  : AreaElement
+- [`AreaPlot()`](https://felixluginbuhl.com/muiCharts/reference/AreaPlot.md)
+  : AreaPlot
+- [`BarChart()`](https://felixluginbuhl.com/muiCharts/reference/BarChart.md)
+  : BarChart
+- [`BarElement()`](https://felixluginbuhl.com/muiCharts/reference/BarElement.md)
+  : BarElement
+- [`BarLabel()`](https://felixluginbuhl.com/muiCharts/reference/BarLabel.md)
+  : BarLabel
+- [`BarPlot()`](https://felixluginbuhl.com/muiCharts/reference/BarPlot.md)
+  : BarPlot
+- [`ChartContainer()`](https://felixluginbuhl.com/muiCharts/reference/ChartContainer.md)
+  : ChartContainer
+- [`ChartDataProvider()`](https://felixluginbuhl.com/muiCharts/reference/ChartDataProvider.md)
+  : ChartDataProvider
+- [`ChartsAxis()`](https://felixluginbuhl.com/muiCharts/reference/ChartsAxis.md)
+  : ChartsAxis
+- [`ChartsAxisHighlight()`](https://felixluginbuhl.com/muiCharts/reference/ChartsAxisHighlight.md)
+  : ChartsAxisHighlight
+- [`ChartsAxisHighlightPath()`](https://felixluginbuhl.com/muiCharts/reference/ChartsAxisHighlightPath.md)
+  : ChartsAxisHighlightPath
+- [`ChartsAxisTooltipContent()`](https://felixluginbuhl.com/muiCharts/reference/ChartsAxisTooltipContent.md)
+  : ChartsAxisTooltipContent
+- [`ChartsClipPath()`](https://felixluginbuhl.com/muiCharts/reference/ChartsClipPath.md)
+  : ChartsClipPath
+- [`ChartsContainer()`](https://felixluginbuhl.com/muiCharts/reference/ChartsContainer.md)
+  : ChartsContainer
+- [`ChartsDataProvider()`](https://felixluginbuhl.com/muiCharts/reference/ChartsDataProvider.md)
+  : ChartsDataProvider
+- [`ChartsGrid()`](https://felixluginbuhl.com/muiCharts/reference/ChartsGrid.md)
+  : ChartsGrid
+- [`ChartsItemTooltipContent()`](https://felixluginbuhl.com/muiCharts/reference/ChartsItemTooltipContent.md)
+  : ChartsItemTooltipContent
+- [`ChartsLabel()`](https://felixluginbuhl.com/muiCharts/reference/ChartsLabel.md)
+  : ChartsLabel
+- [`ChartsLabelMark()`](https://felixluginbuhl.com/muiCharts/reference/ChartsLabelMark.md)
+  : ChartsLabelMark
+- [`ChartsLegend()`](https://felixluginbuhl.com/muiCharts/reference/ChartsLegend.md)
+  : ChartsLegend
+- [`ChartsLocalizationProvider()`](https://felixluginbuhl.com/muiCharts/reference/ChartsLocalizationProvider.md)
+  : ChartsLocalizationProvider
+- [`ChartsReferenceLine()`](https://felixluginbuhl.com/muiCharts/reference/ChartsReferenceLine.md)
+  : ChartsReferenceLine
+- [`ChartsSurface()`](https://felixluginbuhl.com/muiCharts/reference/ChartsSurface.md)
+  : ChartsSurface
+- [`ChartsText()`](https://felixluginbuhl.com/muiCharts/reference/ChartsText.md)
+  : ChartsText
+- [`ChartsTooltip()`](https://felixluginbuhl.com/muiCharts/reference/ChartsTooltip.md)
+  : ChartsTooltip
+- [`ChartsTooltipCell()`](https://felixluginbuhl.com/muiCharts/reference/ChartsTooltipCell.md)
+  : ChartsTooltipCell
+- [`ChartsTooltipContainer()`](https://felixluginbuhl.com/muiCharts/reference/ChartsTooltipContainer.md)
+  : ChartsTooltipContainer
+- [`ChartsTooltipPaper()`](https://felixluginbuhl.com/muiCharts/reference/ChartsTooltipPaper.md)
+  : ChartsTooltipPaper
+- [`ChartsTooltipRow()`](https://felixluginbuhl.com/muiCharts/reference/ChartsTooltipRow.md)
+  : ChartsTooltipRow
+- [`ChartsTooltipTable()`](https://felixluginbuhl.com/muiCharts/reference/ChartsTooltipTable.md)
+  : ChartsTooltipTable
+- [`ChartsWrapper()`](https://felixluginbuhl.com/muiCharts/reference/ChartsWrapper.md)
+  : ChartsWrapper
+- [`ChartsXAxis()`](https://felixluginbuhl.com/muiCharts/reference/ChartsXAxis.md)
+  : ChartsXAxis
+- [`ChartsYAxis()`](https://felixluginbuhl.com/muiCharts/reference/ChartsYAxis.md)
+  : ChartsYAxis
+- [`ContinuousColorLegend()`](https://felixluginbuhl.com/muiCharts/reference/ContinuousColorLegend.md)
+  : ContinuousColorLegend
+- [`FocusedBar()`](https://felixluginbuhl.com/muiCharts/reference/FocusedBar.md)
+  : FocusedBar
+- [`FocusedLineMark()`](https://felixluginbuhl.com/muiCharts/reference/FocusedLineMark.md)
+  : FocusedLineMark
+- [`FocusedRadarMark()`](https://felixluginbuhl.com/muiCharts/reference/FocusedRadarMark.md)
+  : FocusedRadarMark
+- [`FocusedScatterMark()`](https://felixluginbuhl.com/muiCharts/reference/FocusedScatterMark.md)
+  : FocusedScatterMark
+- [`Gauge()`](https://felixluginbuhl.com/muiCharts/reference/Gauge.md) :
+  Gauge
+- [`GaugeContainer()`](https://felixluginbuhl.com/muiCharts/reference/GaugeContainer.md)
+  : GaugeContainer
+- [`GaugeReferenceArc()`](https://felixluginbuhl.com/muiCharts/reference/GaugeReferenceArc.md)
+  : GaugeReferenceArc
+- [`GaugeValueArc()`](https://felixluginbuhl.com/muiCharts/reference/GaugeValueArc.md)
+  : GaugeValueArc
+- [`GaugeValueText()`](https://felixluginbuhl.com/muiCharts/reference/GaugeValueText.md)
+  : GaugeValueText
+- [`LineChart()`](https://felixluginbuhl.com/muiCharts/reference/LineChart.md)
+  : LineChart
+- [`LineElement()`](https://felixluginbuhl.com/muiCharts/reference/LineElement.md)
+  : LineElement
+- [`LineHighlightElement()`](https://felixluginbuhl.com/muiCharts/reference/LineHighlightElement.md)
+  : LineHighlightElement
+- [`LineHighlightPlot()`](https://felixluginbuhl.com/muiCharts/reference/LineHighlightPlot.md)
+  : LineHighlightPlot
+- [`LinePlot()`](https://felixluginbuhl.com/muiCharts/reference/LinePlot.md)
+  : LinePlot
+- [`MarkElement()`](https://felixluginbuhl.com/muiCharts/reference/MarkElement.md)
+  : MarkElement
+- [`MarkPlot()`](https://felixluginbuhl.com/muiCharts/reference/MarkPlot.md)
+  : MarkPlot
+- [`muiChartsDependency()`](https://felixluginbuhl.com/muiCharts/reference/muiChartsDependency.md)
+  : Mui Charts UI JS dependency
+- [`PieArc()`](https://felixluginbuhl.com/muiCharts/reference/PieArc.md)
+  : PieArc
+- [`PieArcLabel()`](https://felixluginbuhl.com/muiCharts/reference/PieArcLabel.md)
+  : PieArcLabel
+- [`PieArcLabelPlot()`](https://felixluginbuhl.com/muiCharts/reference/PieArcLabelPlot.md)
+  : PieArcLabelPlot
+- [`PieArcPlot()`](https://felixluginbuhl.com/muiCharts/reference/PieArcPlot.md)
+  : PieArcPlot
+- [`PiecewiseColorLegend()`](https://felixluginbuhl.com/muiCharts/reference/PiecewiseColorLegend.md)
+  : PiecewiseColorLegend
+- [`PieChart()`](https://felixluginbuhl.com/muiCharts/reference/PieChart.md)
+  : PieChart
+- [`PiePlot()`](https://felixluginbuhl.com/muiCharts/reference/PiePlot.md)
+  : PiePlot
+- [`print(`*`<muiCharts>`*`)`](https://felixluginbuhl.com/muiCharts/reference/print.muiCharts.md)
+  : Print muiCharts components
+- [`RadarAxis()`](https://felixluginbuhl.com/muiCharts/reference/RadarAxis.md)
+  : RadarAxis
+- [`RadarAxisHighlight()`](https://felixluginbuhl.com/muiCharts/reference/RadarAxisHighlight.md)
+  : RadarAxisHighlight
+- [`RadarChart()`](https://felixluginbuhl.com/muiCharts/reference/RadarChart.md)
+  : RadarChart
+- [`RadarDataProvider()`](https://felixluginbuhl.com/muiCharts/reference/RadarDataProvider.md)
+  : RadarDataProvider
+- [`RadarGrid()`](https://felixluginbuhl.com/muiCharts/reference/RadarGrid.md)
+  : RadarGrid
+- [`RadarMetricLabels()`](https://felixluginbuhl.com/muiCharts/reference/RadarMetricLabels.md)
+  : RadarMetricLabels
+- [`RadarSeriesArea()`](https://felixluginbuhl.com/muiCharts/reference/RadarSeriesArea.md)
+  : RadarSeriesArea
+- [`RadarSeriesMarks()`](https://felixluginbuhl.com/muiCharts/reference/RadarSeriesMarks.md)
+  : RadarSeriesMarks
+- [`RadarSeriesPlot()`](https://felixluginbuhl.com/muiCharts/reference/RadarSeriesPlot.md)
+  : RadarSeriesPlot
+- [`Scatter()`](https://felixluginbuhl.com/muiCharts/reference/Scatter.md)
+  : Scatter
+- [`ScatterChart()`](https://felixluginbuhl.com/muiCharts/reference/ScatterChart.md)
+  : ScatterChart
+- [`ScatterMarker()`](https://felixluginbuhl.com/muiCharts/reference/ScatterMarker.md)
+  : ScatterMarker
+- [`ScatterPlot()`](https://felixluginbuhl.com/muiCharts/reference/ScatterPlot.md)
+  : ScatterPlot
+- [`SparkLineChart()`](https://felixluginbuhl.com/muiCharts/reference/SparkLineChart.md)
+  : SparkLineChart
+
+# Articles
+
+### All vignettes
+
+- [Area Charts](https://felixluginbuhl.com/muiCharts/articles/areas.md):
+- [Axis & Grid](https://felixluginbuhl.com/muiCharts/articles/axis.md):
+- [Bar Charts](https://felixluginbuhl.com/muiCharts/articles/bars.md):
+- [Composition](https://felixluginbuhl.com/muiCharts/articles/composition.md):
+- [Gauge
+  Charts](https://felixluginbuhl.com/muiCharts/articles/gauge.md):
+- [Highlighting](https://felixluginbuhl.com/muiCharts/articles/highlighting.md):
+- [Introduction](https://felixluginbuhl.com/muiCharts/articles/introduction.md):
+- [Legend](https://felixluginbuhl.com/muiCharts/articles/legend.md):
+- [Line Charts](https://felixluginbuhl.com/muiCharts/articles/lines.md):
+- [Pie Charts](https://felixluginbuhl.com/muiCharts/articles/pies.md):
+- [Quarto](https://felixluginbuhl.com/muiCharts/articles/quarto.md):
+- [Radar
+  Charts](https://felixluginbuhl.com/muiCharts/articles/radar.md):
+- [Scatter
+  Charts](https://felixluginbuhl.com/muiCharts/articles/scatter.md):
+- [Shiny](https://felixluginbuhl.com/muiCharts/articles/shiny.md):
+- [Sparkline
+  Charts](https://felixluginbuhl.com/muiCharts/articles/sparkline.md):
+- [Styling](https://felixluginbuhl.com/muiCharts/articles/styling.md):
+- [Tooltip](https://felixluginbuhl.com/muiCharts/articles/tooltip.md):

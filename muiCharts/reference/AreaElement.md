@@ -1,0 +1,31 @@
+# AreaElement
+
+<https://mui.com/x/api/charts/area-element/>
+
+## Usage
+
+``` r
+AreaElement(...)
+```
+
+## Arguments
+
+- ...:
+
+  Props to pass to the component.
+
+## Value
+
+Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
+
+## Details
+
+- skipAnimation `bool`\
+  Default is FALSE If true, animations are skipped.
+
+- slotProps `object`\
+  Default is The props used for each component slot.
+
+- slots `object`\
+  Default is Overridable component slots.See Slots API below for more
+  details.
