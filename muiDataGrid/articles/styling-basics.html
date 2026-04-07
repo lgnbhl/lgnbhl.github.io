@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">muiDataGrid</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -491,11 +491,54 @@ content:</p>
 </div>
 </div>
 <div class="section level3">
+<h3 id="using-muimaterial-themeprovider">Using muiMaterial ThemeProvider<a class="anchor" aria-label="anchor" href="#using-muimaterial-themeprovider"></a>
+</h3>
+<p>You can use the <code>ThemeProvider</code> from the
+<code>muiMaterial</code> package to apply a global MUI theme to the Data
+Grid. This allows you to customize colors, typography, and other theme
+tokens that cascade into the grid automatically.</p>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/muiMaterial/" class="external-link">muiMaterial</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/muiDataGrid/">muiDataGrid</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/muiMaterialPage.html" class="external-link">muiMaterialPage</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/ThemeProvider.html" class="external-link">ThemeProvider</a></span><span class="op">(</span></span>
+<span>    theme <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>      palette <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>        mode <span class="op">=</span> <span class="st">"dark"</span></span>
+<span>      <span class="op">)</span>,</span>
+<span>      typography <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>        fontSize <span class="op">=</span> <span class="fl">16</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="../reference/DataGrid.html">DataGrid</a></span><span class="op">(</span></span>
+<span>      rows <span class="op">=</span> <span class="va">starwars</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">name</span>, <span class="va">height</span>, <span class="va">mass</span>, <span class="va">species</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>      sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>        <span class="st">"&amp; .MuiTablePagination-root"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"#ffffff"</span><span class="op">)</span>,</span>
+<span>        <span class="st">"&amp; .MuiTablePagination-selectLabel"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"#ffffff"</span><span class="op">)</span>,</span>
+<span>        <span class="st">"&amp; .MuiTablePagination-displayedRows"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"#ffffff"</span><span class="op">)</span>,</span>
+<span>        <span class="st">"&amp; .MuiTablePagination-select"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"#ffffff"</span><span class="op">)</span>,</span>
+<span>        <span class="st">"&amp; .MuiSvgIcon-root"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"#ffffff"</span><span class="op">)</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+
+
+<div class="react-container" data-react-id="dyutnockerryfzkqvbnt">
+<script class="react-data" type="application/json">{"type":"element","module":"@/muiMaterial","name":"ThemeProvider","props":{"type":"object","value":{"theme":{"type":"raw","value":{"palette":{"mode":"dark"},"typography":{"fontSize":16}}},"children":{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"species":"Human","id":1},{"name":"C-3PO","height":167,"mass":75,"species":"Droid","id":2},{"name":"R2-D2","height":96,"mass":32,"species":"Droid","id":3},{"name":"Darth Vader","height":202,"mass":136,"species":"Human","id":4},{"name":"Leia Organa","height":150,"mass":49,"species":"Human","id":5},{"name":"Owen Lars","height":178,"mass":120,"species":"Human","id":6}],"columns":[{"field":"name"},{"field":"height"},{"field":"mass"},{"field":"species"}],"sx":{"& .MuiTablePagination-root":{"color":"#ffffff"},"& .MuiTablePagination-selectLabel":{"color":"#ffffff"},"& .MuiTablePagination-displayedRows":{"color":"#ffffff"},"& .MuiTablePagination-select":{"color":"#ffffff"},"& .MuiSvgIcon-root":{"color":"#ffffff"}}}}}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('dyutnockerryfzkqvbnt')</script>
+</div>
+
+
+</div>
+<div class="section level3">
 <h3 id="complete-styling-example">Complete Styling Example<a class="anchor" aria-label="anchor" href="#complete-styling-example"></a>
 </h3>
 <p>Here’s a comprehensive example combining multiple styling
 techniques:</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">starwars_styled</span> <span class="op">&lt;-</span> <span class="va">starwars</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">name</span>, <span class="va">height</span>, <span class="va">mass</span>, <span class="va">species</span>, <span class="va">homeworld</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -578,8 +621,8 @@ techniques:</p>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<div class="react-container" data-react-id="zarjxrrtognksqkyhbof">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"object","value":{"rows":{"type":"raw","value":[{"name":"Luke Skywalker","height":172,"mass":77,"species":"Human","homeworld":"Tatooine","id":1},{"name":"C-3PO","height":167,"mass":75,"species":"Droid","homeworld":"Tatooine","id":2},{"name":"R2-D2","height":96,"mass":32,"species":"Droid","homeworld":"Naboo","id":3},{"name":"Darth Vader","height":202,"mass":136,"species":"Human","homeworld":"Tatooine","id":4},{"name":"Leia Organa","height":150,"mass":49,"species":"Human","homeworld":"Alderaan","id":5},{"name":"Owen Lars","height":178,"mass":120,"species":"Human","homeworld":"Tatooine","id":6}]},"columns":{"type":"raw","value":[{"field":"name","headerName":"Character","width":180,"cellClassName":"bold-cell","headerAlign":"left"},{"field":"height","headerName":"Height (cm)","width":120,"type":"number","align":"right","headerAlign":"right"},{"field":"mass","headerName":"Mass (kg)","width":120,"type":"number","align":"right","headerAlign":"right"},{"field":"species","headerName":"Species","width":130,"align":"center","headerAlign":"center"},{"field":"homeworld","headerName":"Homeworld","width":140}]},"getRowClassName":{"type":"expr","value":"\n    function(params) {\n      const baseClass = params.indexRelativeToCurrentPage % 2 === 0 ? 'even' : 'odd';\n      if (params.row.species === 'Droid') {\n        return baseClass + ' droid';\n      }\n      return baseClass;\n    }\n  "},"sx":{"type":"raw","value":{"border":2,"borderColor":"primary.light","borderRadius":2,"& .MuiDataGrid-columnHeaders":{"backgroundColor":"#1976d2","color":"darkgreen","fontSize":14,"fontWeight":"bold"},"& .bold-cell":{"fontWeight":"600"},"& .even":{"backgroundColor":"#fafafa"},"& .odd":{"backgroundColor":"white"},"& .droid":{"backgroundColor":"#e3f2fd !important"},"& .MuiDataGrid-cell:hover":{"color":"primary.main"},"& .MuiDataGrid-row:hover":{"backgroundColor":"#f5f5f5"}}}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('zarjxrrtognksqkyhbof')</script>
+<div class="react-container" data-react-id="lofazeuxvpxadcskbdyf">
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"object","value":{"rows":{"type":"raw","value":[{"name":"Luke Skywalker","height":172,"mass":77,"species":"Human","homeworld":"Tatooine","id":1},{"name":"C-3PO","height":167,"mass":75,"species":"Droid","homeworld":"Tatooine","id":2},{"name":"R2-D2","height":96,"mass":32,"species":"Droid","homeworld":"Naboo","id":3},{"name":"Darth Vader","height":202,"mass":136,"species":"Human","homeworld":"Tatooine","id":4},{"name":"Leia Organa","height":150,"mass":49,"species":"Human","homeworld":"Alderaan","id":5},{"name":"Owen Lars","height":178,"mass":120,"species":"Human","homeworld":"Tatooine","id":6}]},"columns":{"type":"raw","value":[{"field":"name","headerName":"Character","width":180,"cellClassName":"bold-cell","headerAlign":"left"},{"field":"height","headerName":"Height (cm)","width":120,"type":"number","align":"right","headerAlign":"right"},{"field":"mass","headerName":"Mass (kg)","width":120,"type":"number","align":"right","headerAlign":"right"},{"field":"species","headerName":"Species","width":130,"align":"center","headerAlign":"center"},{"field":"homeworld","headerName":"Homeworld","width":140}]},"getRowClassName":{"type":"expr","value":"\n    function(params) {\n      const baseClass = params.indexRelativeToCurrentPage % 2 === 0 ? 'even' : 'odd';\n      if (params.row.species === 'Droid') {\n        return baseClass + ' droid';\n      }\n      return baseClass;\n    }\n  "},"sx":{"type":"raw","value":{"border":2,"borderColor":"primary.light","borderRadius":2,"& .MuiDataGrid-columnHeaders":{"backgroundColor":"#1976d2","color":"darkgreen","fontSize":14,"fontWeight":"bold"},"& .bold-cell":{"fontWeight":"600"},"& .even":{"backgroundColor":"#fafafa"},"& .odd":{"backgroundColor":"white"},"& .droid":{"backgroundColor":"#e3f2fd !important"},"& .MuiDataGrid-cell:hover":{"color":"primary.main"},"& .MuiDataGrid-row:hover":{"backgroundColor":"#f5f5f5"}}}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('lofazeuxvpxadcskbdyf')</script>
 </div>
 </div>
 </div>
