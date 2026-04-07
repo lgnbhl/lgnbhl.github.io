@@ -1,0 +1,324 @@
+# Using useLoaderData
+
+## Overview
+
+[`useLoaderData()`](https://felixluginbuhl.com/reactRouter/reference/useLoaderData.md)
+connects React Router’s
+[`useLoaderData()`](https://reactrouter.com/6.30.0/hooks/use-loader-data)
+hook to your UI. It calls the hook and injects the result into a
+component — either as text content inside a plain HTML element, or as a
+structured JavaScript value into any prop of a `shiny.react`-based
+component.
+
+Use it inside a `Route` that has a `loader` function.
+
+## Arguments
+
+| Argument | Required | Description |
+|----|----|----|
+| `into` | yes | The component that will receive the loader data. Can be a plain `htmltools` tag (e.g. `tags$h3()`) or a `shiny.react`-based component. |
+| `as` | no | The prop name to inject data into. Defaults to `"children"`. |
+| `selector` | no | A key to extract from the loader data object. If `NULL` (default), the entire loader data is passed. |
+
+## Rendering text in HTML elements
+
+Pass any `htmltools` tag as `into` to render loader data as text. This
+is the simplest use case — no extra configuration needed:
+
+``` r
+
+# Render a single field as text
+useLoaderData(tags$h3(), selector = "name")      # renders the "name" field
+useLoaderData(tags$pre())                         # renders full JSON string
+```
+
+Full example with dynamic route parameters:
+
+``` r
+
+library(reactRouter)
+library(htmltools)
+library(dplyr)
+
+people_json <- dplyr::starwars |>
+  mutate(id = dplyr::row_number()) |>
+  jsonlite::toJSON(dataframe = "rows", auto_unbox = TRUE)
+
+RouterProvider(
+  Route(
+    path = "/",
+    element = div(Outlet()),
+    Route(
+      path = "people/:id",
+      loader = JS(sprintf(
+        "({ params }) => {
+          const db = %s;
+          const person = db.find(row => row.id == params.id);
+          if (!person) throw new Response('Not found', { status: 404 });
+          return person;
+        }",
+        people_json
+      )),
+      element = div(
+        useLoaderData(tags$h3(), selector = "name"),
+        useLoaderData(tags$span(), selector = "gender")
+      )
+    )
+  )
+)
+```
+
+## Injecting structured data into shiny.react components
+
+Pass a `shiny.react`-based component as `into` and specify the target
+prop with `as`. The loader data (or a `selector` field from it) is
+injected as the raw JavaScript value — not converted to a string.
+
+This is needed whenever a component expects an actual array or object
+for a prop, for example `rows` in a data grid or `options` in an
+autocomplete.
+
+``` r
+
+library(reactRouter)
+library(muiDataGrid)
+library(htmltools)
+
+loader <- JS("async () => {
+  const res = await fetch('https://swapi.info/api/people');
+  return (await res.json()).map((p, i) => ({
+    id: i, name: p.name, height: p.height
+  }));
+}")
+
+RouterProvider(
+  Route(
+    path = "/",
+    loader = loader,
+    element = div(
+      style = "height: 400px;",
+      useLoaderData(
+        muiDataGrid::DataGrid(
+          columns = JS("[
+            { field: 'name',   headerName: 'Name',   flex: 1 },
+            { field: 'height', headerName: 'Height', width: 100 }
+          ]")
+        ),
+        as = "rows"
+      )
+    )
+  )
+)
+```
+
+When the loader returns an object with multiple fields, use `selector`
+to extract the relevant one:
+
+``` r
+
+loader <- JS("async () => {
+  const res = await fetch('https://swapi.info/api/people');
+  const data = await res.json();
+  return {
+    names: data.map(p => p.name).sort(),
+    people: data.map((p, i) => ({ id: i, name: p.name, height: p.height }))
+  };
+}")
+
+RouterProvider(
+  Route(
+    path = "/",
+    loader = loader,
+    element = div(
+      useLoaderData(
+        muiMaterial::Autocomplete(
+          renderInput = JS(
+            "(params) => React.createElement(window.jsmodule['@mui/material'].TextField, {...params, label: 'Name'})"
+          ),
+          multiple = TRUE
+        ),
+        as = "options",
+        selector = "names"
+      ),
+      div(
+        style = "height: 400px;",
+        useLoaderData(
+          muiDataGrid::DataGrid(
+            columns = JS("[
+              { field: 'name',   headerName: 'Name',   flex: 1 },
+              { field: 'height', headerName: 'Height', width: 100 }
+            ]")
+          ),
+          as = "rows",
+          selector = "people"
+        )
+      )
+    )
+  )
+)
+```
+
+## Designing your loader
+
+The React Router community recommends that each loader returns **exactly
+the shape the consuming component needs**. This avoids the need for
+`selector`:
+
+``` r
+
+# Loader returns the array directly — no selector needed
+loader <- JS("async () => {
+  const res = await fetch('https://swapi.info/api/people');
+  return (await res.json()).map((p, i) => ({
+    id: i, name: p.name, height: p.height
+  }));
+}")
+
+useLoaderData(muiDataGrid::DataGrid(columns = columns), as = "rows")
+```
+
+When a single route renders multiple components with different data
+needs, consider splitting into nested routes — each with its own loader:
+
+``` r
+
+RouterProvider(
+  Route(
+    path = "/",
+    loader = stats_loader,
+    element = div(
+      useLoaderData(tags$h2(), selector = "summary"),
+      Outlet()
+    ),
+    Route(
+      index = TRUE,
+      loader = people_loader,
+      element = div(
+        style = "height: 400px;",
+        useLoaderData(muiDataGrid::DataGrid(columns = columns), as = "rows")
+      )
+    )
+  )
+)
+```
+
+## Works with any shiny.react component
+
+[`useLoaderData()`](https://felixluginbuhl.com/reactRouter/reference/useLoaderData.md)
+works with any component built on `shiny.react` — it simply injects a
+prop value via `React.cloneElement()`. Examples of compatible packages:
+
+- [`muiDataGrid`](https://github.com/lgnbhl/muiDataGrid) — MUI X Data
+  Grid
+- [`muiMaterial`](https://github.com/lgnbhl/muiMaterial) — MUI Material
+  components
+- [`muiCharts`](https://github.com/lgnbhl/muiCharts) — MUI X Charts
+- [`muiTreeView`](https://github.com/lgnbhl/muiTreeView) — MUI X Tree
+  View
+- [`shiny.fluent`](https://appsilon.github.io/shiny.fluent/) — Microsoft
+  Fluent UI components
+- [`shiny.blueprint`](https://appsilon.github.io/shiny.blueprint/) —
+  Palantir Blueprint UI components
+
+Standard `htmltools` tags (`tags$div`, `tags$h3`, etc.) only support
+text injection (the default `as = "children"` with no structured data).
+
+**muiCharts::BarChart** — inject loader data as `dataset`:
+
+``` r
+
+library(reactRouter)
+library(muiCharts)
+library(htmltools)
+
+loader <- JS("async () => {
+  const res = await fetch('https://swapi.info/api/people');
+  const people = await res.json();
+  return people.slice(0, 10).map(p => ({
+    name: p.name,
+    height: Number(p.height) || 0,
+    mass: Number(p.mass) || 0
+  }));
+}")
+
+RouterProvider(
+  Route(
+    path = "/",
+    loader = loader,
+    element = useLoaderData(
+      muiCharts::BarChart(
+        series = list(
+          list(dataKey = "height", label = "Height (cm)"),
+          list(dataKey = "mass",   label = "Mass (kg)")
+        ),
+        xAxis = list(list(scaleType = "band", dataKey = "name")),
+        height = 400
+      ),
+      as = "dataset"
+    )
+  )
+)
+```
+
+## Injecting into multiple props
+
+To inject loader data into more than one prop of the same component,
+nest
+[`useLoaderData()`](https://felixluginbuhl.com/reactRouter/reference/useLoaderData.md)
+calls:
+
+``` r
+
+library(reactRouter)
+library(muiDataGrid)
+library(htmltools)
+
+loader <- JS("async () => {
+  const res = await fetch('https://swapi.info/api/people');
+  const people = await res.json();
+  return {
+    columnDefs: [
+      { field: 'name',   headerName: 'Name',   flex: 1 },
+      { field: 'height', headerName: 'Height', width: 100 }
+    ],
+    people: people.map((p, i) => ({ id: i, name: p.name, height: p.height }))
+  };
+}")
+
+RouterProvider(
+  Route(
+    path = "/",
+    loader = loader,
+    element = div(
+      style = "height: 400px;",
+      useLoaderData(
+        useLoaderData(
+          muiDataGrid::DataGrid(),
+          as = "rows",
+          selector = "people"
+        ),
+        as = "columns",
+        selector = "columnDefs"
+      )
+    )
+  )
+)
+```
+
+Each call extracts its own `selector` from the same
+[`useLoaderData()`](https://felixluginbuhl.com/reactRouter/reference/useLoaderData.md)
+result and injects it into the specified prop.
+
+## Requirements
+
+[`useLoaderData()`](https://felixluginbuhl.com/reactRouter/reference/useLoaderData.md)
+requires a **data router** (`createHashRouter`, `createBrowserRouter`,
+or `createMemoryRouter`) because only data routers support `loader`
+functions. It will not work with the component-based routers
+(`HashRouter`, `MemoryRouter`).
+
+The child component’s JavaScript bundle must be loaded independently.
+For example,
+[`muiDataGrid::DataGrid()`](https://felixluginbuhl.com/muiDataGrid/reference/DataGrid.html)
+automatically attaches its own HTML dependency — `reactRouter` does not
+bundle it.
