@@ -3,13 +3,15 @@
 The goal of **reactRouter** is to provide a wrapper around [React Router
 (v6)](https://reactrouter.com/6.30.0).
 
-> \[!CAUTION\] **Breaking Change in v.0.1.3** : `reloadDocument` is now
+> \[!CAUTION\] **Breaking Change in v.0.1.2** : `reloadDocument` is now
 > FALSE by default in
 > [`NavLink()`](https://felixluginbuhl.com/reactRouter/reference/NavLink.md)
 > and
 > [`Link()`](https://felixluginbuhl.com/reactRouter/reference/Link.md).
 > Set `reloadDocument = TRUE` only when target routes contain Shiny
-> server-rendered output like `uiOutput()` / `renderUI()`.
+> server-rendered output like
+> [`uiOutput()`](https://rdrr.io/pkg/shiny/man/htmlOutput.html) /
+> [`renderUI()`](https://rdrr.io/pkg/shiny/man/renderUI.html).
 
 ### Usage
 
