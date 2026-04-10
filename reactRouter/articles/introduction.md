@@ -82,6 +82,11 @@ A minimal example using [bslib](https://rstudio.github.io/bslib/).
 
 library(reactRouter)
 library(bslib)
+#> 
+#> Attaching package: 'bslib'
+#> The following object is masked from 'package:utils':
+#> 
+#>     page
 library(htmltools)
 
 RouterProvider(
@@ -117,6 +122,10 @@ RouterProvider(
     reactRouter::Route(path = "*", element = "Custom error 404")
   )
 )
+#> Warning: Navigation containers expect a collection of
+#> `bslib::nav_panel()`/`shiny::tabPanel()`s and/or
+#> `bslib::nav_menu()`/`shiny::navbarMenu()`s. Consider using `header` or `footer`
+#> if you wish to place content above (or below) every panel's contents.
 ```
 
 ![](https://raw.githubusercontent.com/lgnbhl/reactRouter/master/man/figures/reactRouter-with-bslib.png)
@@ -124,61 +133,65 @@ RouterProvider(
 ### Usage with muiMaterial
 
 A minimal example using
-[shinyMaterialUI](https://felixluginbuhl.com/muiMaterial/).
+[muiMaterial](https://felixluginbuhl.com/muiMaterial/).
 
 ``` r
 
-# remotes::install_github("lgnbhl/muiMaterial")
 library(muiMaterial)
+#> 
+#> Attaching package: 'muiMaterial'
+#> The following object is masked from 'package:reactRouter':
+#> 
+#>     Link
 
-RouterProvider(
-  Route(
-    path = "/",
-    element = Box(
-      sx = list(flexGrow = 1),
-      AppBar(
-        position = "static",
-        Toolbar(
-          Typography(
-            variant = "h6",
-            component = "div",
-            sx = list(mr = 1),
-            "shinyMaterialUI"
-          ),
-          NavLink(
-            to = "/",
-            Button(
-              color = "inherit",
-              "Home"
-            )
-          ),
-          NavLink(
-            to = "analysis",
-            Button(
-              color = "inherit",
-              "Analysis"
+muiMaterialPage(
+  RouterProvider(
+    Route(
+      path = "/",
+      element = Box(
+        sx = list(flexGrow = 1),
+        AppBar(
+          position = "static",
+          Toolbar(
+            Typography(
+              variant = "h6",
+              component = "div",
+              sx = list(mr = 1),
+              "muiMaterial"
+            ),
+            NavLink(
+              to = "/",
+              Button(
+                color = "inherit",
+                "Home"
+              )
+            ),
+            NavLink(
+              to = "analysis",
+              Button(
+                color = "inherit",
+                "Analysis"
+              )
             )
           )
-        )
+        ),
+        Box(Outlet())
       ),
-      Box(Outlet())
-    ),
-    reactRouter::Route(
-      index = TRUE,
-      element = Box("Home page", sx = list(p = 1))
-    ),
-    reactRouter::Route(
-      path = "analysis",
-      element = Box("Content analysis", sx = list(p = 1))
-    ),
-    reactRouter::Route(path = "*", element = "Error 404")
+      reactRouter::Route(
+        index = TRUE,
+        element = Box("Home page", sx = list(p = 1))
+      ),
+      reactRouter::Route(
+        path = "analysis",
+        element = Box("Content analysis", sx = list(p = 1))
+      ),
+      reactRouter::Route(path = "*", element = "Error 404")
+    )
   )
 )
 ```
 
-![](https://raw.githubusercontent.com/lgnbhl/reactRouter/master/man/figures/reactRouter-with-muiMaterial.png)
-
-Find more examples with **muiMaterial**
+Find more examples using **muiMaterial**
 [here](https://felixluginbuhl.com/muiMaterial/).
 
 ### Usage with Shiny modules
@@ -331,12 +344,12 @@ To allow R Shiny to update URL hashs, you have to add
 
 library(shiny)
 library(reactRouter)
-library(bslib)
+library(htmltools)
 
 ui <- RouterProvider(
   Route(
     path = "/",
-    element = bslib::page(
+    element = div(
       Link(
         to = "/",
         h3("reactRouter with dynamic routes", class = "m-3"),
@@ -349,41 +362,26 @@ ui <- RouterProvider(
       element = div(
         NavLink(
           to = "project/1/overview",
-          reloadDocument = TRUE, 
+          # if default FALSE session$clientData$url_hash not visible
+          reloadDocument = TRUE,
           "Project 1"
         ),
         tags$br(),
         NavLink(
           to = "project/2/overview",
+          # if default FALSE session$clientData$url_hash not visible
           reloadDocument = TRUE,
           "Project 2"
         )
       )
     ),
     Route(
-      path = "project/:id/*",
-      element = div(
-        NavLink(
-          to = "overview",
-          reloadDocument = TRUE,
-          "Overview"
-        ),
-        tags$br(),
-        NavLink(
-          to = "analysis",
-          reloadDocument = TRUE,
-          "Analysis"
-        ),
-        Outlet()
-      ),
-      Route(
-        path = "overview",
-        element = uiOutput("uiOverview")
-      ),
-      Route(
-        path = "analysis",
-        element = uiOutput("uiAnalysis")
-      )
+      path = "project/:id/overview",
+      element = uiOutput("uiOverview")
+    ),
+    Route(
+      path = "project/:id/analysis",
+      element = uiOutput("uiAnalysis")
     )
   )
 )

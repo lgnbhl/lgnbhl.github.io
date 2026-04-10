@@ -1,9 +1,9 @@
 # reactRouter
 
-The goal of **reactRouter** is to provide a wrapper around [React Router
-(v6)](https://reactrouter.com/6.30.0).
+The goal of **reactRouter** is to provide a wrapper around [React
+Router](https://reactrouter.com).
 
-> \[!CAUTION\] **Breaking Change in v.0.1.2** : `reloadDocument` is now
+> \[!CAUTION\] **Breaking Change in v.0.2.0** : `reloadDocument` is now
 > FALSE by default in
 > [`NavLink()`](https://felixluginbuhl.com/reactRouter/reference/NavLink.md)
 > and
@@ -11,7 +11,8 @@ The goal of **reactRouter** is to provide a wrapper around [React Router
 > Set `reloadDocument = TRUE` only when target routes contain Shiny
 > server-rendered output like
 > [`uiOutput()`](https://rdrr.io/pkg/shiny/man/htmlOutput.html) /
-> [`renderUI()`](https://rdrr.io/pkg/shiny/man/renderUI.html).
+> [`renderUI()`](https://rdrr.io/pkg/shiny/man/renderUI.html) in dynamic
+> segments (`/:id/`).
 
 ### Usage
 
@@ -21,6 +22,7 @@ so:
 ``` r
 
 library(reactRouter)
+library(htmltools)
 
 RouterProvider(
   Route(
@@ -45,45 +47,15 @@ RouterProvider(
 install.packages("reactRouter")
 ```
 
-### Example
+### Resources
 
-Get started with a showcase example:
-
-``` r
-
-# print all examples available: reactRouterExample()
-reactRouterExample("dynamic-segment")
-```
-
-Read the vignette
-[here](https://felixluginbuhl.com/reactRouter/articles/introduction.html)
-for detailed use cases with Quarto and R Shiny.
-
-### Choosing a router
-
-The simplest way to add routing is
-[`RouterProvider()`](https://felixluginbuhl.com/reactRouter/reference/RouterProvider.md),
-which defaults to hash-based routing and works in Shiny apps, static
-HTML, and Quarto documents:
-
-``` r
-
-RouterProvider(
-  Route(path = "/", element = ..., Route(...))
-)
-# type = "hash" (default) — URL shows /#/about, bookmarkable
-# type = "memory"         — URL never changes, great for embedded widgets
-```
-
-Lower-level functions
-([`createHashRouter()`](https://felixluginbuhl.com/reactRouter/reference/createHashRouter.md),
-[`createMemoryRouter()`](https://felixluginbuhl.com/reactRouter/reference/createMemoryRouter.md),
-[`HashRouter()`](https://felixluginbuhl.com/reactRouter/reference/HashRouter.md),
-[`MemoryRouter()`](https://felixluginbuhl.com/reactRouter/reference/MemoryRouter.md),
-[`BrowserRouter()`](https://felixluginbuhl.com/reactRouter/reference/BrowserRouter.md))
-are also available for more control. See the [Choosing a
-router](https://felixluginbuhl.com/reactRouter/articles/routers.html)
-vignette for details and code examples.
+- [Package documentation](https://felixluginbuhl.com/reactRouter/)
+- [Getting Started
+  vignette](https://felixluginbuhl.com/reactRouter/articles/introduction.html)
+- [All R
+  examples](https://github.com/lgnbhl/reactRouter/tree/main/inst/examples)
+- [Official Material UI
+  docs](https://mui.com/material-ui/getting-started/)
 
 ### Contribute
 

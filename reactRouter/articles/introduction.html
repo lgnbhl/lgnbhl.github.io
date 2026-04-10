@@ -25,7 +25,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">reactRouter</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,7 +41,7 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="../articles/introduction.html">Introduction to reactRouter</a></li>
     <li><a class="dropdown-item" href="../articles/routers.html">Choosing a router</a></li>
-    <li><a class="dropdown-item" href="../articles/with-loader-data.html">Using useLoaderData</a></li>
+    <li><a class="dropdown-item" href="../articles/useLoaderData.html">Using useLoaderData</a></li>
     <li><a class="dropdown-item" href="../articles/shiny.fluent.html">Tutorial with rhino and shiny.fluent</a></li>
   </ul>
 </li>
@@ -62,7 +62,9 @@
 
 
 
-<script src="introduction_files/react-18.3.1/react.production.min.js"></script><script src="introduction_files/react-18.3.1/react-dom.production.min.js"></script><script src="introduction_files/shiny.react-0.1.0/shiny-react.js"></script><script src="introduction_files/reactRouter-0.0.1/react-router-dom.js"></script><div class="row">
+<script src="introduction_files/react-18.3.1/react.production.min.js"></script><script src="introduction_files/react-18.3.1/react-dom.production.min.js"></script><script src="introduction_files/shiny.react-0.1.0/shiny-react.js"></script><script src="introduction_files/reactRouter-0.0.1/react-router-dom.js"></script><script src="introduction_files/bs3compat-0.10.0/transition.js"></script><script src="introduction_files/bs3compat-0.10.0/tabs.js"></script><script src="introduction_files/bs3compat-0.10.0/bs3compat.js"></script><link href="introduction_files/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+<script src="introduction_files/bslib-component-js-0.10.0/components.min.js"></script><script src="introduction_files/bslib-component-js-0.10.0/web-components.min.js" type="module"></script><link href="introduction_files/bslib-component-css-0.10.0/components.css" rel="stylesheet">
+<script src="introduction_files/muiMaterial-7.3.5/mui-material.js"></script><div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Introduction to reactRouter</h1>
             
@@ -110,7 +112,7 @@
 <span><span class="co">#&gt; <span style="color: #555555;">Call `lifecycle::last_lifecycle_warnings()` to see where this warning was</span></span></span>
 <span><span class="co">#&gt; <span style="color: #555555;">generated.</span></span></span></code></pre></div>
 <div class="react-container" data-react-id="wogxwgkudferwyoprgbx">
-<script class="react-data" type="application/json">{"type":"element","module":"@/reactRouter","name":"RouterProvider","props":{"type":"object","value":{"type":{"type":"raw","value":"hash"},"children":{"type":"element","module":"react-router-dom","name":"Route","props":{"type":"object","value":{"path":{"type":"raw","value":"/"},"loader":{"type":"raw","value":null},"element":{"type":"element","name":"div","props":{"type":"object","value":{"key":{"type":"raw","value":"f41fdbf7-01bc-4c4e-ae5e-ba3d5a4b9619"},"children":{"type":"element","name":"div","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","module":"react-router-dom","name":"NavLink","props":{"type":"raw","value":{"to":"/","reloadDocument":false,"children":"Main"}}},{"type":"element","module":"react-router-dom","name":"NavLink","props":{"type":"raw","value":{"to":"/analysis","reloadDocument":false,"children":"Analysis"}}},{"type":"element","module":"react-router-dom","name":"Outlet","props":{"type":"raw","value":[]}}]}}}}}}},"children":{"type":"array","value":[{"type":"element","module":"react-router-dom","name":"Route","props":{"type":"object","value":{"index":{"type":"raw","value":true},"loader":{"type":"raw","value":null},"element":{"type":"element","name":"div","props":{"type":"raw","value":{"key":"3695fdaf-f761-4e0c-a922-007fb5798216","children":"Main content"}}}}}},{"type":"element","module":"react-router-dom","name":"Route","props":{"type":"object","value":{"path":{"type":"raw","value":"analysis"},"loader":{"type":"raw","value":null},"element":{"type":"element","name":"div","props":{"type":"raw","value":{"key":"f8607e28-1e61-4e4a-94b9-40c724feaab8","children":"Analysis content"}}}}}}]}}}}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('wogxwgkudferwyoprgbx')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@/reactRouter","name":"RouterProvider","props":{"type":"object","value":{"type":{"type":"raw","value":"hash"},"children":{"type":"element","module":"react-router-dom","name":"Route","props":{"type":"object","value":{"path":{"type":"raw","value":"/"},"loader":{"type":"raw","value":null},"element":{"type":"element","name":"div","props":{"type":"object","value":{"key":{"type":"raw","value":"b7305b7d-3904-49de-b254-6e3d5371fddf"},"children":{"type":"element","name":"div","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","module":"react-router-dom","name":"NavLink","props":{"type":"raw","value":{"to":"/","reloadDocument":false,"children":"Main"}}},{"type":"element","module":"react-router-dom","name":"NavLink","props":{"type":"raw","value":{"to":"/analysis","reloadDocument":false,"children":"Analysis"}}},{"type":"element","module":"react-router-dom","name":"Outlet","props":{"type":"raw","value":[]}}]}}}}}}},"children":{"type":"array","value":[{"type":"element","module":"react-router-dom","name":"Route","props":{"type":"object","value":{"index":{"type":"raw","value":true},"loader":{"type":"raw","value":null},"element":{"type":"element","name":"div","props":{"type":"raw","value":{"key":"e7aaa00d-949b-4311-babb-67192e623aa1","children":"Main content"}}}}}},{"type":"element","module":"react-router-dom","name":"Route","props":{"type":"object","value":{"path":{"type":"raw","value":"analysis"},"loader":{"type":"raw","value":null},"element":{"type":"element","name":"div","props":{"type":"raw","value":{"key":"e7f35c4e-88e3-47bb-b549-50ad9bd10626","children":"Analysis content"}}}}}}]}}}}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('wogxwgkudferwyoprgbx')</script>
 </div>
 <div class="section level3">
 <h3 id="usage-with-shiny">Usage with shiny<a class="anchor" aria-label="anchor" href="#usage-with-shiny"></a>
@@ -148,6 +150,11 @@
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/reactRouter/">reactRouter</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rstudio.github.io/bslib/" class="external-link">bslib</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'bslib'</span></span>
+<span><span class="co">#&gt; The following object is masked from 'package:utils':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     page</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/htmltools" class="external-link">htmltools</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/RouterProvider.html">RouterProvider</a></span><span class="op">(</span></span>
@@ -182,62 +189,81 @@
 <span>    <span class="op">)</span>,</span>
 <span>    <span class="fu">reactRouter</span><span class="fu">::</span><span class="fu"><a href="../reference/Route.html">Route</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"*"</span>, element <span class="op">=</span> <span class="st">"Custom error 404"</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
-<span><span class="op">)</span></span></code></pre></div>
+<span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: Navigation containers expect a collection of</span></span>
+<span><span class="co">#&gt; `bslib::nav_panel()`/`shiny::tabPanel()`s and/or</span></span>
+<span><span class="co">#&gt; `bslib::nav_menu()`/`shiny::navbarMenu()`s. Consider using `header` or `footer`</span></span>
+<span><span class="co">#&gt; if you wish to place content above (or below) every panel's contents.</span></span></code></pre></div>
+<div class="react-container" data-react-id="lofazeuxvpxadcskbdyf">
+<script class="react-data" type="application/json">{"type":"element","module":"@/reactRouter","name":"RouterProvider","props":{"type":"object","value":{"type":{"type":"raw","value":"hash"},"children":{"type":"element","module":"react-router-dom","name":"Route","props":{"type":"object","value":{"path":{"type":"raw","value":"/"},"loader":{"type":"raw","value":null},"element":{"type":"element","name":"div","props":{"type":"object","value":{"key":{"type":"raw","value":"00b96517-1afb-4e9e-9d21-a14982d78de7"},"children":{"type":"array","value":[{"type":"raw","value":[null,null,null]},{"type":"raw","value":null},{"type":"element","name":"head","props":{"type":"object","value":{"children":{"type":"element","name":"title","props":{"type":"raw","value":{"children":"reactRouter with bslib"}}}}}},{"type":"raw","value":null},{"type":"array","value":[{"type":"element","name":"body","props":{"type":"object","value":{"class":{"type":"raw","value":"bslib-page-fill bslib-gap-spacing"},"class.1":{"type":"raw","value":"bslib-flow-mobile"},"style":{"type":"raw","value":"padding:0px;gap:0px;"},"class.2":{"type":"raw","value":"html-fill-container"},"class.3":{"type":"raw","value":"bslib-page-navbar"},"children":{"type":"array","value":[{"type":"raw","value":null},{"type":"element","name":"head","props":{"type":"object","value":{"children":{"type":"element","name":"style","props":{"type":"raw","value":{"children":"html { height: 100%; }"}}}}}},{"type":"array","value":[{"type":"element","name":"nav","props":{"type":"object","value":{"class":{"type":"raw","value":"navbar navbar-default navbar-static-top"},"role":{"type":"raw","value":"navigation"},"data-bs-theme":{"type":"raw","value":"auto"},"children":{"type":"element","name":"div","props":{"type":"object","value":{"class":{"type":"raw","value":"container-fluid"},"children":{"type":"array","value":[{"type":"element","name":"div","props":{"type":"object","value":{"class":{"type":"raw","value":"navbar-header"},"children":{"type":"array","value":[{"type":"element","name":"button","props":{"type":"object","value":{"type":{"type":"raw","value":"button"},"class":{"type":"raw","value":"navbar-toggle collapsed"},"data-toggle":{"type":"raw","value":"collapse"},"data-target":{"type":"raw","value":"#navbar-collapse-4002"},"data-bs-toggle":{"type":"raw","value":"collapse"},"data-bs-target":{"type":"raw","value":"#navbar-collapse-4002"},"children":{"type":"array","value":[{"type":"element","name":"span","props":{"type":"raw","value":{"class":"sr-only visually-hidden","children":"Toggle navigation"}}},{"type":"element","name":"span","props":{"type":"raw","value":{"class":"icon-bar"}}},{"type":"element","name":"span","props":{"type":"raw","value":{"class":"icon-bar"}}},{"type":"element","name":"span","props":{"type":"raw","value":{"class":"icon-bar"}}}]}}}},{"type":"element","name":"span","props":{"type":"raw","value":{"class":"navbar-brand","children":"reactRouter with bslib"}}}]}}}},{"type":"element","name":"div","props":{"type":"object","value":{"class":{"type":"raw","value":"navbar-collapse collapse"},"id":{"type":"raw","value":"navbar-collapse-4002"},"children":{"type":"element","name":"ul","props":{"type":"object","value":{"class":{"type":"raw","value":"nav navbar-nav nav-underline"},"data-tabsetid":{"type":"raw","value":5450},"children":{"type":"array","value":[{"type":"element","name":"li","props":{"type":"object","value":{"class":{"type":"raw","value":"bslib-nav-item nav-item form-inline"},"children":{"type":"element","module":"react-router-dom","name":"NavLink","props":{"type":"raw","value":{"to":"/","reloadDocument":false,"children":"Home"}}}}}},{"type":"element","name":"li","props":{"type":"object","value":{"class":{"type":"raw","value":"bslib-nav-item nav-item form-inline"},"children":{"type":"element","module":"react-router-dom","name":"NavLink","props":{"type":"raw","value":{"to":"/analysis","reloadDocument":false,"children":"Analysis"}}}}}},{"type":"element","name":"li","props":{"type":"object","value":{"children":{"type":"element","name":"a","props":{"type":"raw","value":{"href":"#tab-5450-3","data-toggle":"tab","data-bs-toggle":"tab","disabled":null,"children":[null,null]}}}}}}]}}}}}}}]}}}}}}},{"type":"element","name":"div","props":{"type":"object","value":{"class":{"type":"raw","value":"container-fluid"},"class.1":{"type":"raw","value":"html-fill-item"},"class.2":{"type":"raw","value":"html-fill-container"},"children":{"type":"element","name":"div","props":{"type":"object","value":{"class":{"type":"raw","value":"tab-content"},"data-tabsetid":{"type":"raw","value":5450},"class.1":{"type":"raw","value":"html-fill-item"},"class.2":{"type":"raw","value":"html-fill-container"},"children":{"type":"array","value":[{"type":"raw","value":null},{"type":"raw","value":null},{"type":"element","module":"react-router-dom","name":"Outlet","props":{"type":"raw","value":[]}},{"type":"raw","value":null}]}}}}}}}]}]}}}},{"type":"raw","value":[null,null]}]}]}}}},"children":{"type":"array","value":[{"type":"element","module":"react-router-dom","name":"Route","props":{"type":"object","value":{"index":{"type":"raw","value":true},"loader":{"type":"raw","value":null},"element":{"type":"element","name":"div","props":{"type":"object","value":{"key":{"type":"raw","value":"d3ab266a-37f5-4909-9fa4-7425cc382711"},"children":{"type":"element","name":"div","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","name":"h3","props":{"type":"raw","value":{"children":"Home page"}}},{"type":"element","name":"p","props":{"type":"raw","value":{"children":"A basic example of reactRouter with bslib."}}}]}}}}}}}}}},{"type":"element","module":"react-router-dom","name":"Route","props":{"type":"object","value":{"path":{"type":"raw","value":"analysis"},"loader":{"type":"raw","value":null},"element":{"type":"element","name":"div","props":{"type":"raw","value":{"key":"0e7be2e9-390b-4dcb-a353-23ee31fba337","children":"Content analysis"}}}}}},{"type":"element","module":"react-router-dom","name":"Route","props":{"type":"object","value":{"path":{"type":"raw","value":"*"},"loader":{"type":"raw","value":null},"element":{"type":"element","name":"div","props":{"type":"raw","value":{"key":"ac0ccb19-c365-4b11-92e0-2ef31b88d001","children":"Custom error 404"}}}}}}]}}}}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('lofazeuxvpxadcskbdyf')</script>
+</div>
 <p><img style="border:1px solid black;" src="https://raw.githubusercontent.com/lgnbhl/reactRouter/master/man/figures/reactRouter-with-bslib.png" align="center"></p>
 </div>
 <div class="section level3">
 <h3 id="usage-with-muimaterial">Usage with muiMaterial<a class="anchor" aria-label="anchor" href="#usage-with-muimaterial"></a>
 </h3>
-<p>A minimal example using <a href="https://felixluginbuhl.com/muiMaterial/" class="external-link">shinyMaterialUI</a>.</p>
+<p>A minimal example using <a href="https://felixluginbuhl.com/muiMaterial/" class="external-link">muiMaterial</a>.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># remotes::install_github("lgnbhl/muiMaterial")</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/muiMaterial/" class="external-link">muiMaterial</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/muiMaterial/" class="external-link">muiMaterial</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'muiMaterial'</span></span>
+<span><span class="co">#&gt; The following object is masked from 'package:reactRouter':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     Link</span></span>
 <span></span>
-<span><span class="fu"><a href="../reference/RouterProvider.html">RouterProvider</a></span><span class="op">(</span></span>
-<span>  <span class="fu"><a href="../reference/Route.html">Route</a></span><span class="op">(</span></span>
-<span>    path <span class="op">=</span> <span class="st">"/"</span>,</span>
-<span>    element <span class="op">=</span> <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Box.html" class="external-link">Box</a></span><span class="op">(</span></span>
-<span>      sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>flexGrow <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/AppBar.html" class="external-link">AppBar</a></span><span class="op">(</span></span>
-<span>        position <span class="op">=</span> <span class="st">"static"</span>,</span>
-<span>        <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Toolbar.html" class="external-link">Toolbar</a></span><span class="op">(</span></span>
-<span>          <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Typography.html" class="external-link">Typography</a></span><span class="op">(</span></span>
-<span>            variant <span class="op">=</span> <span class="st">"h6"</span>,</span>
-<span>            component <span class="op">=</span> <span class="st">"div"</span>,</span>
-<span>            sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>mr <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
-<span>            <span class="st">"shinyMaterialUI"</span></span>
-<span>          <span class="op">)</span>,</span>
-<span>          <span class="fu"><a href="../reference/NavLink.html">NavLink</a></span><span class="op">(</span></span>
-<span>            to <span class="op">=</span> <span class="st">"/"</span>,</span>
-<span>            <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Button.html" class="external-link">Button</a></span><span class="op">(</span></span>
-<span>              color <span class="op">=</span> <span class="st">"inherit"</span>,</span>
-<span>              <span class="st">"Home"</span></span>
-<span>            <span class="op">)</span></span>
-<span>          <span class="op">)</span>,</span>
-<span>          <span class="fu"><a href="../reference/NavLink.html">NavLink</a></span><span class="op">(</span></span>
-<span>            to <span class="op">=</span> <span class="st">"analysis"</span>,</span>
-<span>            <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Button.html" class="external-link">Button</a></span><span class="op">(</span></span>
-<span>              color <span class="op">=</span> <span class="st">"inherit"</span>,</span>
-<span>              <span class="st">"Analysis"</span></span>
+<span><span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/muiMaterialPage.html" class="external-link">muiMaterialPage</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="../reference/RouterProvider.html">RouterProvider</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="../reference/Route.html">Route</a></span><span class="op">(</span></span>
+<span>      path <span class="op">=</span> <span class="st">"/"</span>,</span>
+<span>      element <span class="op">=</span> <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Box.html" class="external-link">Box</a></span><span class="op">(</span></span>
+<span>        sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>flexGrow <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
+<span>        <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/AppBar.html" class="external-link">AppBar</a></span><span class="op">(</span></span>
+<span>          position <span class="op">=</span> <span class="st">"static"</span>,</span>
+<span>          <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Toolbar.html" class="external-link">Toolbar</a></span><span class="op">(</span></span>
+<span>            <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Typography.html" class="external-link">Typography</a></span><span class="op">(</span></span>
+<span>              variant <span class="op">=</span> <span class="st">"h6"</span>,</span>
+<span>              component <span class="op">=</span> <span class="st">"div"</span>,</span>
+<span>              sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>mr <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
+<span>              <span class="st">"muiMaterial"</span></span>
+<span>            <span class="op">)</span>,</span>
+<span>            <span class="fu"><a href="../reference/NavLink.html">NavLink</a></span><span class="op">(</span></span>
+<span>              to <span class="op">=</span> <span class="st">"/"</span>,</span>
+<span>              <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Button.html" class="external-link">Button</a></span><span class="op">(</span></span>
+<span>                color <span class="op">=</span> <span class="st">"inherit"</span>,</span>
+<span>                <span class="st">"Home"</span></span>
+<span>              <span class="op">)</span></span>
+<span>            <span class="op">)</span>,</span>
+<span>            <span class="fu"><a href="../reference/NavLink.html">NavLink</a></span><span class="op">(</span></span>
+<span>              to <span class="op">=</span> <span class="st">"analysis"</span>,</span>
+<span>              <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Button.html" class="external-link">Button</a></span><span class="op">(</span></span>
+<span>                color <span class="op">=</span> <span class="st">"inherit"</span>,</span>
+<span>                <span class="st">"Analysis"</span></span>
+<span>              <span class="op">)</span></span>
 <span>            <span class="op">)</span></span>
 <span>          <span class="op">)</span></span>
-<span>        <span class="op">)</span></span>
+<span>        <span class="op">)</span>,</span>
+<span>        <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Box.html" class="external-link">Box</a></span><span class="op">(</span><span class="fu"><a href="../reference/Outlet.html">Outlet</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span>      <span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Box.html" class="external-link">Box</a></span><span class="op">(</span><span class="fu"><a href="../reference/Outlet.html">Outlet</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    <span class="fu">reactRouter</span><span class="fu">::</span><span class="fu"><a href="../reference/Route.html">Route</a></span><span class="op">(</span></span>
-<span>      index <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>      element <span class="op">=</span> <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Box.html" class="external-link">Box</a></span><span class="op">(</span><span class="st">"Home page"</span>, sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    <span class="fu">reactRouter</span><span class="fu">::</span><span class="fu"><a href="../reference/Route.html">Route</a></span><span class="op">(</span></span>
-<span>      path <span class="op">=</span> <span class="st">"analysis"</span>,</span>
-<span>      element <span class="op">=</span> <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Box.html" class="external-link">Box</a></span><span class="op">(</span><span class="st">"Content analysis"</span>, sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    <span class="fu">reactRouter</span><span class="fu">::</span><span class="fu"><a href="../reference/Route.html">Route</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"*"</span>, element <span class="op">=</span> <span class="st">"Error 404"</span><span class="op">)</span></span>
+<span>      <span class="fu">reactRouter</span><span class="fu">::</span><span class="fu"><a href="../reference/Route.html">Route</a></span><span class="op">(</span></span>
+<span>        index <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>        element <span class="op">=</span> <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Box.html" class="external-link">Box</a></span><span class="op">(</span><span class="st">"Home page"</span>, sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
+<span>      <span class="op">)</span>,</span>
+<span>      <span class="fu">reactRouter</span><span class="fu">::</span><span class="fu"><a href="../reference/Route.html">Route</a></span><span class="op">(</span></span>
+<span>        path <span class="op">=</span> <span class="st">"analysis"</span>,</span>
+<span>        element <span class="op">=</span> <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Box.html" class="external-link">Box</a></span><span class="op">(</span><span class="st">"Content analysis"</span>, sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
+<span>      <span class="op">)</span>,</span>
+<span>      <span class="fu">reactRouter</span><span class="fu">::</span><span class="fu"><a href="../reference/Route.html">Route</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"*"</span>, element <span class="op">=</span> <span class="st">"Error 404"</span><span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<p><img style="border:1px solid black;" src="https://raw.githubusercontent.com/lgnbhl/reactRouter/master/man/figures/reactRouter-with-muiMaterial.png" align="center"></p>
-<p>Find more examples with <strong>muiMaterial</strong> <a href="https://felixluginbuhl.com/muiMaterial/" class="external-link">here</a>.</p>
+
+
+<div class="react-container" data-react-id="hpdqsparqlnrwtkldlpb">
+<script class="react-data" type="application/json">{"type":"element","module":"@/reactRouter","name":"RouterProvider","props":{"type":"object","value":{"type":{"type":"raw","value":"hash"},"children":{"type":"element","module":"react-router-dom","name":"Route","props":{"type":"object","value":{"path":{"type":"raw","value":"/"},"loader":{"type":"raw","value":null},"element":{"type":"element","name":"div","props":{"type":"object","value":{"key":{"type":"raw","value":"62e77bed-42cd-4816-aa2b-2c93d5f8c49f"},"children":{"type":"element","module":"@mui/material","name":"Box","props":{"type":"object","value":{"sx":{"type":"raw","value":{"flexGrow":1}},"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"AppBar","props":{"type":"object","value":{"position":{"type":"raw","value":"static"},"children":{"type":"element","module":"@mui/material","name":"Toolbar","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"Typography","props":{"type":"raw","value":{"variant":"h6","component":"div","sx":{"mr":1},"children":"muiMaterial"}}},{"type":"element","module":"react-router-dom","name":"NavLink","props":{"type":"object","value":{"to":{"type":"raw","value":"/"},"reloadDocument":{"type":"raw","value":false},"children":{"type":"element","module":"@mui/material","name":"Button","props":{"type":"raw","value":{"color":"inherit","children":"Home"}}}}}},{"type":"element","module":"react-router-dom","name":"NavLink","props":{"type":"object","value":{"to":{"type":"raw","value":"analysis"},"reloadDocument":{"type":"raw","value":false},"children":{"type":"element","module":"@mui/material","name":"Button","props":{"type":"raw","value":{"color":"inherit","children":"Analysis"}}}}}}]}}}}}}},{"type":"element","module":"@mui/material","name":"Box","props":{"type":"object","value":{"children":{"type":"element","module":"react-router-dom","name":"Outlet","props":{"type":"raw","value":[]}}}}}]}}}}}}},"children":{"type":"array","value":[{"type":"element","module":"react-router-dom","name":"Route","props":{"type":"object","value":{"index":{"type":"raw","value":true},"loader":{"type":"raw","value":null},"element":{"type":"element","name":"div","props":{"type":"object","value":{"key":{"type":"raw","value":"88dc600c-9bfb-4fc0-a86f-e78b687582ac"},"children":{"type":"element","module":"@mui/material","name":"Box","props":{"type":"raw","value":{"sx":{"p":1},"children":"Home page"}}}}}}}}},{"type":"element","module":"react-router-dom","name":"Route","props":{"type":"object","value":{"path":{"type":"raw","value":"analysis"},"loader":{"type":"raw","value":null},"element":{"type":"element","name":"div","props":{"type":"object","value":{"key":{"type":"raw","value":"e34f8491-464f-493d-9b87-e56566ec7d0d"},"children":{"type":"element","module":"@mui/material","name":"Box","props":{"type":"raw","value":{"sx":{"p":1},"children":"Content analysis"}}}}}}}}},{"type":"element","module":"react-router-dom","name":"Route","props":{"type":"object","value":{"path":{"type":"raw","value":"*"},"loader":{"type":"raw","value":null},"element":{"type":"element","name":"div","props":{"type":"raw","value":{"key":"20c7b170-88b4-4c6f-b4b0-31c87cdaf1a5","children":"Error 404"}}}}}}]}}}}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('hpdqsparqlnrwtkldlpb')</script>
+</div>
+
+
+<p>Find more examples using <strong>muiMaterial</strong> <a href="https://felixluginbuhl.com/muiMaterial/" class="external-link">here</a>.</p>
 </div>
 <div class="section level3">
 <h3 id="usage-with-shiny-modules">Usage with Shiny modules<a class="anchor" aria-label="anchor" href="#usage-with-shiny-modules"></a>
@@ -372,8 +398,8 @@ multiple routes in a Quarto or R markdown documents:</p>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<div class="react-container" data-react-id="auvzjepuatfadrqikssy">
-<script class="react-data" type="application/json">{"type":"element","module":"@/reactRouter","name":"RouterProvider","props":{"type":"object","value":{"type":{"type":"raw","value":"hash"},"children":{"type":"element","module":"react-router-dom","name":"Route","props":{"type":"object","value":{"path":{"type":"raw","value":"/"},"loader":{"type":"raw","value":null},"element":{"type":"element","name":"div","props":{"type":"object","value":{"key":{"type":"raw","value":"9b1421bf-35ab-4bc5-b3f0-77427c08a43d"},"children":{"type":"element","name":"div","props":{"type":"object","value":{"style":{"type":"raw","value":"border:1px solid black;"},"children":{"type":"array","value":[{"type":"element","name":"h1","props":{"type":"raw","value":{"children":"Basic Example"}}},{"type":"element","name":"p","props":{"type":"raw","value":{"children":"This example demonstrates some of the core features of React Router\n        including nested reactRouter::Route(), reactRouter::Outlet(),\n        reactRouter::Link(), and using a \"*\" route (aka \"splat route\")\n        to render a \"not found\" page when someone visits an unrecognized URL."}}},{"type":"element","name":"nav","props":{"type":"object","value":{"children":{"type":"element","name":"ul","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","name":"li","props":{"type":"object","value":{"children":{"type":"element","module":"react-router-dom","name":"Link","props":{"type":"raw","value":{"to":"/","reloadDocument":false,"children":"Home"}}}}}},{"type":"element","name":"li","props":{"type":"object","value":{"children":{"type":"element","module":"react-router-dom","name":"Link","props":{"type":"raw","value":{"to":"/dashboard","reloadDocument":false,"children":"Dashboard"}}}}}},{"type":"element","name":"li","props":{"type":"object","value":{"children":{"type":"element","module":"react-router-dom","name":"Link","props":{"type":"raw","value":{"to":"/nothing-here","reloadDocument":false,"children":"Nothing Here"}}}}}}]}}}}}}},{"type":"element","name":"hr","props":{"type":"raw","value":[]}},{"type":"element","module":"react-router-dom","name":"Outlet","props":{"type":"raw","value":[]}}]}}}}}}},"children":{"type":"array","value":[{"type":"element","module":"react-router-dom","name":"Route","props":{"type":"object","value":{"index":{"type":"raw","value":true},"loader":{"type":"raw","value":null},"element":{"type":"element","name":"div","props":{"type":"object","value":{"key":{"type":"raw","value":"21c1b3ef-87e2-42ba-9a4f-378ce922da59"},"children":{"type":"element","name":"div","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","name":"h2","props":{"type":"raw","value":{"children":"Home"}}},{"type":"element","name":"p","props":{"type":"raw","value":{"children":"Home content"}}}]}}}}}}}}}},{"type":"element","module":"react-router-dom","name":"Route","props":{"type":"object","value":{"path":{"type":"raw","value":"dashboard"},"loader":{"type":"raw","value":null},"element":{"type":"element","name":"div","props":{"type":"object","value":{"key":{"type":"raw","value":"e26dac80-9300-41c4-980e-2d676236fff6"},"children":{"type":"element","name":"div","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","name":"h2","props":{"type":"raw","value":{"children":"Dashboard"}}},{"type":"element","name":"p","props":{"type":"raw","value":{"children":"Dashboard here"}}}]}}}}}}}}}},{"type":"element","module":"react-router-dom","name":"Route","props":{"type":"object","value":{"path":{"type":"raw","value":"*"},"loader":{"type":"raw","value":null},"element":{"type":"element","name":"div","props":{"type":"object","value":{"key":{"type":"raw","value":"169e97b6-82f9-41e1-a802-92376b1afee4"},"children":{"type":"element","name":"div","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","name":"h2","props":{"type":"raw","value":{"children":"Nothing to see here!"}}},{"type":"element","name":"p","props":{"type":"object","value":{"children":{"type":"element","module":"react-router-dom","name":"Link","props":{"type":"raw","value":{"to":"/","reloadDocument":false,"children":"Go to the home page"}}}}}}]}}}}}}}}}}]}}}}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('auvzjepuatfadrqikssy')</script>
+<div class="react-container" data-react-id="mggogqiyxctossblvopw">
+<script class="react-data" type="application/json">{"type":"element","module":"@/reactRouter","name":"RouterProvider","props":{"type":"object","value":{"type":{"type":"raw","value":"hash"},"children":{"type":"element","module":"react-router-dom","name":"Route","props":{"type":"object","value":{"path":{"type":"raw","value":"/"},"loader":{"type":"raw","value":null},"element":{"type":"element","name":"div","props":{"type":"object","value":{"key":{"type":"raw","value":"450a72e6-fe7b-4b16-9a37-0538423c4d34"},"children":{"type":"element","name":"div","props":{"type":"object","value":{"style":{"type":"raw","value":"border:1px solid black;"},"children":{"type":"array","value":[{"type":"element","name":"h1","props":{"type":"raw","value":{"children":"Basic Example"}}},{"type":"element","name":"p","props":{"type":"raw","value":{"children":"This example demonstrates some of the core features of React Router\n        including nested reactRouter::Route(), reactRouter::Outlet(),\n        reactRouter::Link(), and using a \"*\" route (aka \"splat route\")\n        to render a \"not found\" page when someone visits an unrecognized URL."}}},{"type":"element","name":"nav","props":{"type":"object","value":{"children":{"type":"element","name":"ul","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","name":"li","props":{"type":"object","value":{"children":{"type":"element","module":"react-router-dom","name":"Link","props":{"type":"raw","value":{"to":"/","reloadDocument":false,"children":"Home"}}}}}},{"type":"element","name":"li","props":{"type":"object","value":{"children":{"type":"element","module":"react-router-dom","name":"Link","props":{"type":"raw","value":{"to":"/dashboard","reloadDocument":false,"children":"Dashboard"}}}}}},{"type":"element","name":"li","props":{"type":"object","value":{"children":{"type":"element","module":"react-router-dom","name":"Link","props":{"type":"raw","value":{"to":"/nothing-here","reloadDocument":false,"children":"Nothing Here"}}}}}}]}}}}}}},{"type":"element","name":"hr","props":{"type":"raw","value":[]}},{"type":"element","module":"react-router-dom","name":"Outlet","props":{"type":"raw","value":[]}}]}}}}}}},"children":{"type":"array","value":[{"type":"element","module":"react-router-dom","name":"Route","props":{"type":"object","value":{"index":{"type":"raw","value":true},"loader":{"type":"raw","value":null},"element":{"type":"element","name":"div","props":{"type":"object","value":{"key":{"type":"raw","value":"2a781a57-bcd8-4be3-9c7a-cdd341aba493"},"children":{"type":"element","name":"div","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","name":"h2","props":{"type":"raw","value":{"children":"Home"}}},{"type":"element","name":"p","props":{"type":"raw","value":{"children":"Home content"}}}]}}}}}}}}}},{"type":"element","module":"react-router-dom","name":"Route","props":{"type":"object","value":{"path":{"type":"raw","value":"dashboard"},"loader":{"type":"raw","value":null},"element":{"type":"element","name":"div","props":{"type":"object","value":{"key":{"type":"raw","value":"6a4e6500-eb7e-4587-9338-898ad4da75c5"},"children":{"type":"element","name":"div","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","name":"h2","props":{"type":"raw","value":{"children":"Dashboard"}}},{"type":"element","name":"p","props":{"type":"raw","value":{"children":"Dashboard here"}}}]}}}}}}}}}},{"type":"element","module":"react-router-dom","name":"Route","props":{"type":"object","value":{"path":{"type":"raw","value":"*"},"loader":{"type":"raw","value":null},"element":{"type":"element","name":"div","props":{"type":"object","value":{"key":{"type":"raw","value":"7b59c8a8-9da2-4045-8e26-71034e2bd817"},"children":{"type":"element","name":"div","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","name":"h2","props":{"type":"raw","value":{"children":"Nothing to see here!"}}},{"type":"element","name":"p","props":{"type":"object","value":{"children":{"type":"element","module":"@mui/material","name":"Link","props":{"type":"raw","value":{"to":"/","children":"Go to the home page"}}}}}}]}}}}}}}}}}]}}}}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('mggogqiyxctossblvopw')</script>
 </div>
 </div>
 <div class="section level3">
@@ -387,12 +413,12 @@ multiple routes in a Quarto or R markdown documents:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/reactRouter/">reactRouter</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rstudio.github.io/bslib/" class="external-link">bslib</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/htmltools" class="external-link">htmltools</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/RouterProvider.html">RouterProvider</a></span><span class="op">(</span></span>
 <span>  <span class="fu"><a href="../reference/Route.html">Route</a></span><span class="op">(</span></span>
 <span>    path <span class="op">=</span> <span class="st">"/"</span>,</span>
-<span>    element <span class="op">=</span> <span class="fu">bslib</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/bslib/reference/page.html" class="external-link">page</a></span><span class="op">(</span></span>
+<span>    element <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
 <span>      <span class="fu"><a href="../reference/Link.html">Link</a></span><span class="op">(</span></span>
 <span>        to <span class="op">=</span> <span class="st">"/"</span>,</span>
 <span>        <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">h3</a></span><span class="op">(</span><span class="st">"reactRouter with dynamic routes"</span>, class <span class="op">=</span> <span class="st">"m-3"</span><span class="op">)</span>,</span>
@@ -405,41 +431,26 @@ multiple routes in a Quarto or R markdown documents:</p>
 <span>      element <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
 <span>        <span class="fu"><a href="../reference/NavLink.html">NavLink</a></span><span class="op">(</span></span>
 <span>          to <span class="op">=</span> <span class="st">"project/1/overview"</span>,</span>
-<span>          reloadDocument <span class="op">=</span> <span class="cn">TRUE</span>, </span>
+<span>          <span class="co"># if default FALSE session$clientData$url_hash not visible</span></span>
+<span>          reloadDocument <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>          <span class="st">"Project 1"</span></span>
 <span>        <span class="op">)</span>,</span>
 <span>        <span class="va">tags</span><span class="op">$</span><span class="fu">br</span><span class="op">(</span><span class="op">)</span>,</span>
 <span>        <span class="fu"><a href="../reference/NavLink.html">NavLink</a></span><span class="op">(</span></span>
 <span>          to <span class="op">=</span> <span class="st">"project/2/overview"</span>,</span>
+<span>          <span class="co"># if default FALSE session$clientData$url_hash not visible</span></span>
 <span>          reloadDocument <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>          <span class="st">"Project 2"</span></span>
 <span>        <span class="op">)</span></span>
 <span>      <span class="op">)</span></span>
 <span>    <span class="op">)</span>,</span>
 <span>    <span class="fu"><a href="../reference/Route.html">Route</a></span><span class="op">(</span></span>
-<span>      path <span class="op">=</span> <span class="st">"project/:id/*"</span>,</span>
-<span>      element <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
-<span>        <span class="fu"><a href="../reference/NavLink.html">NavLink</a></span><span class="op">(</span></span>
-<span>          to <span class="op">=</span> <span class="st">"overview"</span>,</span>
-<span>          reloadDocument <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>          <span class="st">"Overview"</span></span>
-<span>        <span class="op">)</span>,</span>
-<span>        <span class="va">tags</span><span class="op">$</span><span class="fu">br</span><span class="op">(</span><span class="op">)</span>,</span>
-<span>        <span class="fu"><a href="../reference/NavLink.html">NavLink</a></span><span class="op">(</span></span>
-<span>          to <span class="op">=</span> <span class="st">"analysis"</span>,</span>
-<span>          reloadDocument <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>          <span class="st">"Analysis"</span></span>
-<span>        <span class="op">)</span>,</span>
-<span>        <span class="fu"><a href="../reference/Outlet.html">Outlet</a></span><span class="op">(</span><span class="op">)</span></span>
-<span>      <span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="../reference/Route.html">Route</a></span><span class="op">(</span></span>
-<span>        path <span class="op">=</span> <span class="st">"overview"</span>,</span>
-<span>        element <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/htmlOutput.html" class="external-link">uiOutput</a></span><span class="op">(</span><span class="st">"uiOverview"</span><span class="op">)</span></span>
-<span>      <span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="../reference/Route.html">Route</a></span><span class="op">(</span></span>
-<span>        path <span class="op">=</span> <span class="st">"analysis"</span>,</span>
-<span>        element <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/htmlOutput.html" class="external-link">uiOutput</a></span><span class="op">(</span><span class="st">"uiAnalysis"</span><span class="op">)</span></span>
-<span>      <span class="op">)</span></span>
+<span>      path <span class="op">=</span> <span class="st">"project/:id/overview"</span>,</span>
+<span>      element <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/htmlOutput.html" class="external-link">uiOutput</a></span><span class="op">(</span><span class="st">"uiOverview"</span><span class="op">)</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="../reference/Route.html">Route</a></span><span class="op">(</span></span>
+<span>      path <span class="op">=</span> <span class="st">"project/:id/analysis"</span>,</span>
+<span>      element <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/htmlOutput.html" class="external-link">uiOutput</a></span><span class="op">(</span><span class="st">"uiAnalysis"</span><span class="op">)</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span>

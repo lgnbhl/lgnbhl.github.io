@@ -28,7 +28,7 @@
 
     <a class="navbar-brand me-2" href="index.html">reactRouter</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,7 +44,7 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="articles/introduction.html">Introduction to reactRouter</a></li>
     <li><a class="dropdown-item" href="articles/routers.html">Choosing a router</a></li>
-    <li><a class="dropdown-item" href="articles/with-loader-data.html">Using useLoaderData</a></li>
+    <li><a class="dropdown-item" href="articles/useLoaderData.html">Using useLoaderData</a></li>
     <li><a class="dropdown-item" href="articles/shiny.fluent.html">Tutorial with rhino and shiny.fluent</a></li>
   </ul>
 </li>
@@ -70,9 +70,9 @@
 </div>
 <!-- badges: start -->
 
-<p>The goal of <strong>reactRouter</strong> is to provide a wrapper around <a href="https://reactrouter.com/6.30.0" class="external-link">React Router (v6)</a>.</p>
+<p>The goal of <strong>reactRouter</strong> is to provide a wrapper around <a href="https://reactrouter.com" class="external-link">React Router</a>.</p>
 <blockquote>
-<p>[!CAUTION] <strong>Breaking Change in v.0.1.2</strong> : <code>reloadDocument</code> is now FALSE by default in <code><a href="reference/NavLink.html">NavLink()</a></code> and <code><a href="reference/Link.html">Link()</a></code>. Set <code>reloadDocument = TRUE</code> only when target routes contain Shiny server-rendered output like <code><a href="https://rdrr.io/pkg/shiny/man/htmlOutput.html" class="external-link">uiOutput()</a></code> / <code><a href="https://rdrr.io/pkg/shiny/man/renderUI.html" class="external-link">renderUI()</a></code>.</p>
+<p>[!CAUTION] <strong>Breaking Change in v.0.2.0</strong> : <code>reloadDocument</code> is now FALSE by default in <code><a href="reference/NavLink.html">NavLink()</a></code> and <code><a href="reference/Link.html">Link()</a></code>. Set <code>reloadDocument = TRUE</code> only when target routes contain Shiny server-rendered output like <code><a href="https://rdrr.io/pkg/shiny/man/htmlOutput.html" class="external-link">uiOutput()</a></code> / <code><a href="https://rdrr.io/pkg/shiny/man/renderUI.html" class="external-link">renderUI()</a></code> in dynamic segments (<code>/:id/</code>).</p>
 </blockquote>
 <div class="section level3">
 <h3 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
@@ -80,6 +80,7 @@
 <p>You can easily add URL pages in a Quarto document or R Shiny app like so:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/reactRouter/">reactRouter</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/htmltools" class="external-link">htmltools</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="reference/RouterProvider.html">RouterProvider</a></span><span class="op">(</span></span>
 <span>  <span class="fu"><a href="reference/Route.html">Route</a></span><span class="op">(</span></span>
@@ -103,25 +104,14 @@
 <span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"reactRouter"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
+<h3 id="resources">Resources<a class="anchor" aria-label="anchor" href="#resources"></a>
 </h3>
-<p>Get started with a showcase example:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># print all examples available: reactRouterExample()</span></span>
-<span><span class="fu"><a href="reference/reactRouterExample.html">reactRouterExample</a></span><span class="op">(</span><span class="st">"dynamic-segment"</span><span class="op">)</span></span></code></pre></div>
-<p>Read the vignette <a href="https://felixluginbuhl.com/reactRouter/articles/introduction.html">here</a> for detailed use cases with Quarto and R Shiny.</p>
-</div>
-<div class="section level3">
-<h3 id="choosing-a-router">Choosing a router<a class="anchor" aria-label="anchor" href="#choosing-a-router"></a>
-</h3>
-<p>The simplest way to add routing is <code><a href="reference/RouterProvider.html">RouterProvider()</a></code>, which defaults to hash-based routing and works in Shiny apps, static HTML, and Quarto documents:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/RouterProvider.html">RouterProvider</a></span><span class="op">(</span></span>
-<span>  <span class="fu"><a href="reference/Route.html">Route</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"/"</span>, element <span class="op">=</span> <span class="va">...</span>, <span class="fu"><a href="reference/Route.html">Route</a></span><span class="op">(</span><span class="va">...</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="op">)</span></span>
-<span><span class="co"># type = "hash" (default) — URL shows /#/about, bookmarkable</span></span>
-<span><span class="co"># type = "memory"         — URL never changes, great for embedded widgets</span></span></code></pre></div>
-<p>Lower-level functions (<code><a href="reference/createHashRouter.html">createHashRouter()</a></code>, <code><a href="reference/createMemoryRouter.html">createMemoryRouter()</a></code>, <code><a href="reference/HashRouter.html">HashRouter()</a></code>, <code><a href="reference/MemoryRouter.html">MemoryRouter()</a></code>, <code><a href="reference/BrowserRouter.html">BrowserRouter()</a></code>) are also available for more control. See the <a href="https://felixluginbuhl.com/reactRouter/articles/routers.html">Choosing a router</a> vignette for details and code examples.</p>
+<ul>
+<li><a href="https://felixluginbuhl.com/reactRouter/">Package documentation</a></li>
+<li><a href="https://felixluginbuhl.com/reactRouter/articles/introduction.html">Getting Started vignette</a></li>
+<li><a href="https://github.com/lgnbhl/reactRouter/tree/main/inst/examples" class="external-link">All R examples</a></li>
+<li><a href="https://mui.com/material-ui/getting-started/" class="external-link">Official Material UI docs</a></li>
+</ul>
 </div>
 <div class="section level3">
 <h3 id="contribute">Contribute<a class="anchor" aria-label="anchor" href="#contribute"></a>
@@ -169,7 +159,7 @@
 <li><a href="https://CRAN.R-project.org/package=reactRouter" class="external-link"><img src="https://www.r-pkg.org/badges/version/reactRouter" alt="CRAN status"></a></li>
 <li><a href="https://cran.r-project.org/package=reactRouter" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/grand-total/reactRouter" alt="Grand total"></a></li>
 <li><a href="https://github.com/lgnbhl/reactRouter/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/lgnbhl/reactRouter/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://reactrouter.com/6.30.0" class="external-link"><img src="https://img.shields.io/badge/react--router--dom-6.30.0-blue.svg"></a></li>
+<li><a href="https://reactrouter.com" class="external-link"><img src="https://img.shields.io/badge/react--router--dom-7.14.0-blue.svg"></a></li>
 <li><a href="https://www.linkedin.com/in/FelixLuginbuhl" class="external-link"><img src="https://img.shields.io/badge/LinkedIn-Follow-E4405F?style=social&amp;logo=linkedin" alt="LinkedIn"></a></li>
 </ul>
 </div>

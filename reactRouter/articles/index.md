@@ -9,4 +9,4 @@
 - [Tutorial: Using reactRouter with rhino and
   shiny.fluent](https://felixluginbuhl.com/reactRouter/articles/shiny.fluent.md):
 - [Using
-  useLoaderData](https://felixluginbuhl.com/reactRouter/articles/with-loader-data.md):
+  useLoaderData](https://felixluginbuhl.com/reactRouter/articles/useLoaderData.md):
