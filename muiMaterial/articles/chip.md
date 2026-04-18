@@ -9,6 +9,7 @@ forms, filters, and selection interfaces.
 The `Chip` component supports filled (default) and outlined styling.
 
 ``` r
+
 library(muiMaterial)
 
 muiMaterialPage(
@@ -29,6 +30,7 @@ are: “default”, “primary”, “secondary”, “error”, “warning”, 
 “success”.
 
 ``` r
+
 library(muiMaterial)
 
 muiMaterialPage(
@@ -52,6 +54,7 @@ muiMaterialPage(
 Outlined chips with different colors:
 
 ``` r
+
 library(muiMaterial)
 
 muiMaterialPage(
@@ -76,6 +79,7 @@ Control the size of chips using the `size` prop. Use “medium” (default)
 or “small”.
 
 ``` r
+
 library(muiMaterial)
 
 muiMaterialPage(
@@ -97,6 +101,7 @@ Enable multiline text in chips using the `sx` prop to set `height: auto`
 on the chip and `whiteSpace: normal` on the label.
 
 ``` r
+
 library(muiMaterial)
 
 muiMaterialPage(
@@ -123,6 +128,7 @@ muiMaterialPage(
 Add an avatar to the beginning of a chip using the `avatar` prop.
 
 ``` r
+
 library(muiMaterial)
 
 muiMaterialPage(
@@ -151,6 +157,7 @@ muiMaterialPage(
 Add an icon to the beginning of a chip using the `icon` prop.
 
 ``` r
+
 library(muiMaterial)
 
 muiMaterialPage(
@@ -177,6 +184,7 @@ Add interactivity to chips using `onClick` with JavaScript callbacks and
 [`renderUI()`](https://rdrr.io/pkg/shiny/man/renderUI.html).
 
 ``` r
+
 library(shiny)
 library(muiMaterial)
 
@@ -238,6 +246,7 @@ Add a delete icon to chips using `onDelete` callback. Handle deletion by
 removing the chip from your list and re-rendering.
 
 ``` r
+
 library(shiny)
 library(muiMaterial)
 
@@ -288,6 +297,7 @@ Combine both click and delete functionality with custom JavaScript
 callbacks.
 
 ``` r
+
 library(shiny)
 library(muiMaterial)
 
@@ -360,6 +370,7 @@ shinyApp(ui, server)
 Use the `component` prop to render a chip as a link.
 
 ``` r
+
 library(muiMaterial)
 
 muiMaterialPage(
@@ -389,6 +400,7 @@ muiMaterialPage(
 Display user roles as deletable chips:
 
 ``` r
+
 library(muiMaterial)
 
 muiMaterialPage(

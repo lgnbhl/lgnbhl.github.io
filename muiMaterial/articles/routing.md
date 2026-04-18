@@ -13,6 +13,7 @@ An example using [reactRouter](https://github.com/lgnbhl/reactRouter)
 client routing (no server):
 
 ``` r
+
 # install.packages("reactRouter")
 library(reactRouter)
 library(muiMaterial)
@@ -73,6 +74,7 @@ An example with [reactRouter](https://github.com/lgnbhl/reactRouter) in
 an R Shiny app (with server):
 
 ``` r
+
 # install.packages("reactRouter")
 library(reactRouter)
 library(muiMaterial)
@@ -183,6 +185,7 @@ at top level doesn’t work with shiny.router.
 should be used only at the lower level, as showed below.
 
 ``` r
+
 library(shiny)
 library(muiMaterial)
 library(shiny.router)

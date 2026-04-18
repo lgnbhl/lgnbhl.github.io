@@ -10,6 +10,7 @@ adjustments.
 By default, the Divider renders as a horizontal line:
 
 ``` r
+
 muiMaterialPage(
   CssBaseline(
     Box(
@@ -28,6 +29,7 @@ The Divider component supports three variants: `"fullWidth"` (default),
 `"inset"`, and `"middle"`:
 
 ``` r
+
 muiMaterialPage(
   CssBaseline(
     Box(
@@ -50,6 +52,7 @@ vertical. When using vertical orientation, the Divider renders a `<div>`
 with the corresponding accessibility attributes instead of `<hr>`:
 
 ``` r
+
 muiMaterialPage(
   CssBaseline(
     Box(
@@ -73,6 +76,7 @@ Use the `flexItem` prop to display the Divider when it’s being used in a
 flex container:
 
 ``` r
+
 muiMaterialPage(
   CssBaseline(
     Box(
@@ -109,6 +113,7 @@ Use the Divider with child elements to create dividers with text or
 other content:
 
 ``` r
+
 muiMaterialPage(
   CssBaseline(
     Box(
@@ -135,6 +140,7 @@ Use the `textAlign` prop to align elements that are wrapped by the
 Divider:
 
 ``` r
+
 muiMaterialPage(
   CssBaseline(
     Box(
@@ -168,6 +174,7 @@ muiMaterialPage(
 Combine the Divider with other components like Chip:
 
 ``` r
+
 muiMaterialPage(
   CssBaseline(
     Box(
@@ -196,6 +203,7 @@ prop to render it as an `<li>`—otherwise it won’t be a valid HTML
 element:
 
 ``` r
+
 muiMaterialPage(
   CssBaseline(
     Box(
@@ -224,6 +232,7 @@ If you’re using it as a purely stylistic element, set
 `aria-hidden="true"` to make screen readers bypass it:
 
 ``` r
+
 Divider(sx = list(`aria-hidden` = "true"))
 ```
 
@@ -232,6 +241,7 @@ element to a `<div>` using the `component` prop and set
 `role="presentation"`:
 
 ``` r
+
 Divider(
   component = "div",
   role = "presentation",

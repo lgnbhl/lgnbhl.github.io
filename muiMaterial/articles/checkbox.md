@@ -36,6 +36,7 @@ export default function Checkboxes() {
 ```
 
 ``` r
+
 ui <- CssBaseline(
   div(
     Checkbox.shinyInput(inputId = "checkbox1", value = TRUE, 
@@ -81,6 +82,7 @@ export default function CheckboxLabels() {
 ```
 
 ``` r
+
 ui <- CssBaseline(
   FormGroup(
     FormControlLabel(
@@ -134,6 +136,7 @@ export default function SizeCheckboxes() {
 ```
 
 ``` r
+
 ui <- CssBaseline(
   div(
     Checkbox.shinyInput(
@@ -195,6 +198,7 @@ export default function ColorCheckboxes() {
 ```
 
 ``` r
+
 ui <- CssBaseline(
   div(
     Checkbox.shinyInput(
@@ -268,6 +272,7 @@ export default function IconCheckboxes() {
 ```
 
 ``` r
+
 ui <- CssBaseline(
   div(
     Checkbox.shinyInput(
@@ -319,6 +324,7 @@ export default function ControlledCheckbox() {
 ```
 
 ``` r
+
 ui <- muiMaterialPage(
   Checkbox.shinyInput(
     inputId = "controlledCheckbox",
@@ -400,6 +406,7 @@ export default function IndeterminateCheckbox() {
 ```
 
 ``` r
+
 ui <- muiMaterialPage(
   div(
     FormControlLabel(
@@ -574,6 +581,7 @@ export default function CheckboxesGroup() {
 ```
 
 ``` r
+
 ui <- muiMaterialPage(
   Box(
     sx = list(display = "flex"),
@@ -718,6 +726,7 @@ export default function FormControlLabelPosition() {
 ```
 
 ``` r
+
 ui <- CssBaseline(
   FormControl(
     component = "fieldset",
@@ -834,6 +843,7 @@ export default function CustomizedCheckbox() {
 ```
 
 ``` r
+
 # For the customized checkbox, we'll use ThemeProvider to create a custom theme
 # TODO
 ```

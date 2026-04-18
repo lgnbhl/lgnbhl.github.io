@@ -2,6 +2,8 @@
 
 ## muiMaterial 0.1.3
 
+CRAN release: 2026-03-15
+
 - BREAKING CHANGE in
   [`muiMaterialPage()`](https://felixluginbuhl.com/muiMaterial/reference/muiMaterialPage.md):
   - remove `materialSymbols` argument.

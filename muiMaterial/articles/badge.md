@@ -10,6 +10,7 @@ Examples of badges containing text, using primary and secondary colors.
 The badge is applied to its children.
 
 ``` r
+
 library(muiMaterial)
 
 muiMaterialPage(
@@ -36,6 +37,7 @@ muiMaterialPage(
 Use the `color` prop to apply theme palette to the badge.
 
 ``` r
+
 library(muiMaterial)
 
 muiMaterialPage(
@@ -82,6 +84,7 @@ muiMaterialPage(
 The visibility of badges can be controlled using the `invisible` prop.
 
 ``` r
+
 library(muiMaterial)
 
 muiMaterialPage(
@@ -108,6 +111,7 @@ The badge hides automatically when `badgeContent` is zero. You can
 override this with the `showZero` prop.
 
 ``` r
+
 library(muiMaterial)
 
 muiMaterialPage(
@@ -135,6 +139,7 @@ muiMaterialPage(
 You can use the `max` prop to cap the value of the badge content.
 
 ``` r
+
 library(muiMaterial)
 
 muiMaterialPage(
@@ -169,6 +174,7 @@ used as a notification that something has changed without giving a
 count.
 
 ``` r
+
 library(muiMaterial)
 
 muiMaterialPage(
@@ -202,6 +208,7 @@ of the wrapped element. Use `"rectangular"` (default) for rectangular
 children or `"circular"` for circular children like avatars.
 
 ``` r
+
 library(muiMaterial)
 
 muiMaterialPage(
@@ -257,6 +264,7 @@ You can use the `anchorOrigin` prop to move the badge to any corner of
 the wrapped element.
 
 ``` r
+
 library(muiMaterial)
 
 muiMaterialPage(
@@ -322,6 +330,7 @@ muiMaterialPage(
 Combine badges with avatars to show online status or other information.
 
 ``` r
+
 library(muiMaterial)
 
 muiMaterialPage(
@@ -385,6 +394,7 @@ especially for important notifications. Use `aria-label` on the parent
 element to describe the badge content.
 
 ``` r
+
 library(muiMaterial)
 
 muiMaterialPage(

@@ -34,6 +34,7 @@ export default function BasicSwitches() {
 ```
 
 ``` r
+
 library(shiny)
 
 ui <- muiMaterialPage(
@@ -95,6 +96,7 @@ export default function SwitchLabels() {
 ```
 
 ``` r
+
 library(shiny)
 
 ui <- muiMaterialPage(
@@ -155,6 +157,7 @@ export default function SwitchesSize() {
 ```
 
 ``` r
+
 library(shiny)
 
 ui <- function() {
@@ -221,6 +224,7 @@ export default function ColorSwitches() {
 ```
 
 ``` r
+
 library(shiny)
 
 ui <- function() {
@@ -304,6 +308,7 @@ export default function ControlledSwitches() {
 ```
 
 ``` r
+
 library(shiny)
 
 ui <- muiMaterialPage(
@@ -387,6 +392,7 @@ export default function SwitchesGroup() {
 ```
 
 ``` r
+
 library(shiny)
 
 ui <- muiMaterialPage(
@@ -516,6 +522,7 @@ export default function CustomizedSwitches() {
 ```
 
 ``` r
+
 library(shiny)
 
 ui <- function() {
@@ -646,6 +653,7 @@ export default function FormControlLabelPosition() {
 ```
 
 ``` r
+
 library(shiny)
 
 ui <- function() {
@@ -731,6 +739,7 @@ JS code
 ```
 
 ``` r
+
 library(shiny)
 
 AccessibleSwitch <- function() {

@@ -23,6 +23,7 @@ available for selection at a time.
 active.
 
 ``` r
+
 library(shiny)
 library(muiMaterial)
 
@@ -72,6 +73,7 @@ Multiple selection allows for logically-grouped options, like bold,
 italic, and underline, to have multiple options selected.
 
 ``` r
+
 library(shiny)
 library(muiMaterial)
 
@@ -119,6 +121,7 @@ shinyApp(ui, server)
 For larger or smaller buttons, use the `size` prop.
 
 ``` r
+
 library(shiny)
 library(muiMaterial)
 
@@ -209,6 +212,7 @@ shinyApp(ui, server)
 Use the `color` prop to apply theme color palette to component.
 
 ``` r
+
 library(shiny)
 library(muiMaterial)
 
@@ -290,6 +294,7 @@ The buttons can be stacked vertically with the `orientation` prop set to
 “vertical”.
 
 ``` r
+
 library(shiny)
 library(muiMaterial)
 
@@ -336,6 +341,7 @@ shinyApp(ui, server)
 ### Standalone toggle button
 
 ``` r
+
 library(shiny)
 library(muiMaterial)
 
@@ -372,6 +378,7 @@ Here is an example of customizing the component using the `sx` prop and
 `color` prop.
 
 ``` r
+
 library(shiny)
 library(muiMaterial)
 

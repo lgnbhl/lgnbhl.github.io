@@ -45,6 +45,7 @@ export default function ContinuousSlider() {
 ```
 
 ``` r
+
 ui <- muiMaterialPage(
   Box(sx = list(width = 200),
     Stack(spacing = 2, direction = "row", sx = list(alignItems = "center", mb = 1),
@@ -92,6 +93,7 @@ export default function SliderSizes() {
 ```
 
 ``` r
+
 ui <- CssBaseline(
   Box(sx = list(width = 300, mt = 4),
     Slider.shinyInput(inputId = "smallSlider", value = 70, size = "small", 
@@ -144,6 +146,7 @@ export default function DiscreteSlider() {
 ```
 
 ``` r
+
 ui <- CssBaseline(
   Box(sx = list(width = 300, mt = 4),
     Slider.shinyInput(inputId = "temperatureSlider", value = 30, 
@@ -202,6 +205,7 @@ export default function DiscreteSliderSteps() {
 ```
 
 ``` r
+
 ui <- CssBaseline(
   Box(sx = list(width = 300, mt = 4),
     Slider.shinyInput(inputId = "smallStepsSlider", value = 0.00000005, 
@@ -271,6 +275,7 @@ export default function DiscreteSliderMarks() {
 ```
 
 ``` r
+
 marks <- list(
   list(
     value = 0,
@@ -358,6 +363,7 @@ export default function DiscreteSliderValues() {
 ```
 
 ``` r
+
 marks <- list(
   list(
     value = 0,
@@ -445,6 +451,7 @@ export default function DiscreteSliderLabel() {
 ```
 
 ``` r
+
 marks <- list(
   list(
     value = 0,
@@ -518,6 +525,7 @@ export default function RangeSlider() {
 ```
 
 ``` r
+
 ui <- muiMaterialPage(
   Box(sx = list(width = 300, mt = 4),
     Slider.shinyInput(
@@ -525,7 +533,7 @@ ui <- muiMaterialPage(
       value = c(20, 37), 
       getAriaLabel = JS('function() { "Temperature range" }'), 
       valueLabelDisplay = "auto",
-      getAriaValueText = JS("function(value) { return `${value} °C`; }"),
+      getAriaValueText = JS("function(value) { return `${value} °C`; }")
     )
   )
 )
@@ -533,151 +541,6 @@ ui <- muiMaterialPage(
 server <- function(input, output, session) {
   observeEvent(input$rangeSlider, {
     # Handle the range slider value change
-  })
-}
-
-shinyApp(ui, server)
-```
-
-## Minimum distance
-
-You can enforce a minimum distance between values in the onChange event
-handler. By default, when you move the pointer over a thumb while
-dragging another thumb, the active thumb will swap to the hovered thumb.
-You can disable this behavior with the disableSwap prop. If you want the
-range to shift when reaching minimum distance, you can utilize the
-activeThumb parameter in onChange.
-
-JS code
-
-``` jsx
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Slider from '@mui/material/Slider';
-
-function valuetext(value: number) {
-  return `${value}°C`;
-}
-
-const minDistance = 10;
-
-export default function MinimumDistanceSlider() {
-  const [value1, setValue1] = React.useState<number[]>([20, 37]);
-
-  const handleChange1 = (event: Event, newValue: number[], activeThumb: number) => {
-    if (activeThumb === 0) {
-      setValue1([Math.min(newValue[0], value1[1] - minDistance), value1[1]]);
-    } else {
-      setValue1([value1[0], Math.max(newValue[1], value1[0] + minDistance)]);
-    }
-  };
-
-  const [value2, setValue2] = React.useState<number[]>([20, 37]);
-
-  const handleChange2 = (event: Event, newValue: number[], activeThumb: number) => {
-    if (newValue[1] - newValue[0] < minDistance) {
-      if (activeThumb === 0) {
-        const clamped = Math.min(newValue[0], 100 - minDistance);
-        setValue2([clamped, clamped + minDistance]);
-      } else {
-        const clamped = Math.max(newValue[1], minDistance);
-        setValue2([clamped - minDistance, clamped]);
-      }
-    } else {
-      setValue2(newValue);
-    }
-  };
-
-  return (
-    <Box sx={{ width: 300 }}>
-      <Slider
-        getAriaLabel={() => 'Minimum distance'}
-        value={value1}
-        onChange={handleChange1}
-        valueLabelDisplay="auto"
-        getAriaValueText={valuetext}
-        disableSwap
-      />
-      <Slider
-        getAriaLabel={() => 'Minimum distance shift'}
-        value={value2}
-        onChange={handleChange2}
-        valueLabelDisplay="auto"
-        getAriaValueText={valuetext}
-        disableSwap
-      />
-    </Box>
-  );
-}
-```
-
-``` r
-minDistance <- 10
-ui <- muiMaterialPage(
-  Box(sx = list(width = 300, mt = 4),
-    Slider.shinyInput(inputId = "minDistanceSlider1", value = c(20, 37), 
-                      getAriaLabel = JS('function() { return "Minimum distance" }'), 
-                      valueLabelDisplay = "auto",
-                      disableSwap = TRUE),
-    Slider.shinyInput(inputId = "minDistanceSlider2", value = c(20, 37), 
-                      getAriaLabel = JS('function() { return "Minimum distance shift" }'), 
-                      valueLabelDisplay = "auto",
-                      disableSwap = TRUE)
-  )
-)
-server <- function(input, output, session) {
-  # Create reactive values to track when updates are in progress
-  updating <- reactiveValues(slider1 = FALSE, slider2 = FALSE)
-  
-  # Handler for first slider
-  observeEvent(input$minDistanceSlider1, {
-    # Skip if this is an update we triggered
-    if (updating$slider1) return()
-    
-    updating$slider1 <- TRUE
-    on.exit(updating$slider1 <- FALSE)
-    
-    values <- input$minDistanceSlider1
-    if (length(values) >= 2) {
-      # Get active thumb (default to left/0 if NULL)
-      active <- if (is.null(input$minDistanceSlider1_activeThumb)) 0 else input$minDistanceSlider1_activeThumb
-      
-      # Calculate new values based on minimum distance
-      if (active == 0) {
-        # Left thumb moved - ensure min distance from right
-        left <- min(values[1], values[2] - minDistance)
-        updateSlider.shinyInput(session, "minDistanceSlider1", value = c(left, values[2]))
-      } else {
-        # Right thumb moved - ensure min distance from left
-        right <- max(values[2], values[1] + minDistance)
-        updateSlider.shinyInput(session, "minDistanceSlider1", value = c(values[1], right))
-      }
-    }
-  })
-  
-  # Handler for second slider
-  observeEvent(input$minDistanceSlider2, {
-    # Skip if this is an update we triggered
-    if (updating$slider2) return()
-    
-    updating$slider2 <- TRUE
-    on.exit(updating$slider2 <- FALSE)
-    
-    values <- input$minDistanceSlider2
-    if (length(values) >= 2 && values[2] - values[1] < minDistance) {
-      # Get active thumb (default to left/0 if NULL)
-      active <- if (is.null(input$minDistanceSlider2_activeThumb)) 0 else input$minDistanceSlider2_activeThumb
-      
-      if (active == 0) {
-        # Left thumb moved - clamp and update right accordingly
-        left <- min(values[1], 100 - minDistance)
-        updateSlider.shinyInput(session, "minDistanceSlider2", value = c(left, left + minDistance))
-      } else {
-        # Right thumb moved - clamp and update left accordingly
-        right <- max(values[2], minDistance)
-        updateSlider.shinyInput(session, "minDistanceSlider2", value = c(right - minDistance, right))
-      }
-    }
   })
 }
 
@@ -761,6 +624,7 @@ export default function InputSlider() {
 ```
 
 ``` r
+
 ui <- muiMaterialPage(
   Box(sx = list(width = 250, mt = 4),
     Typography(id = "input-slider", gutterBottom = TRUE,
@@ -834,6 +698,7 @@ export default function ColorSlider() {
 ```
 
 ``` r
+
 ui <- CssBaseline(
   Box(sx = list(width = 300, mt = 4),
     Slider.shinyInput(inputId = "colorSlider", value = 30, 
@@ -1050,6 +915,7 @@ export default function CustomizedSlider() {
 ```
 
 ``` r
+
 ui <- muiMaterialPage(
   CssBaseline(
     Box(
@@ -1464,6 +1330,7 @@ export default function MusicPlayerSlider() {
 ```
 
 ``` r
+
 # Format duration function
 formatDuration <- function(value) {
   minute <- floor(value / 60)
@@ -1716,6 +1583,7 @@ const marks = [
 ```
 
 ``` r
+
 # Define marks for the slider
 marks <- list(
   list(value = 0, label = "0°C"),
@@ -1841,6 +1709,7 @@ export default function CustomMarks() {
 ```
 
 ``` r
+
 # Define constants
 MAX <- 100
 MIN <- 0
@@ -1967,6 +1836,7 @@ export default function TrackFalseSlider() {
 ```
 
 ``` r
+
 # Define data and helper functions
 marks <- list(
   list(value = 0, label = "0°C"),
@@ -2093,6 +1963,7 @@ export default function TrackInvertedSlider() {
 ```
 
 ``` r
+
 # Define data and helper functions
 marks <- list(
   list(value = 0, label = "0°C"),
@@ -2208,6 +2079,7 @@ export default function NonLinearSlider() {
 ```
 
 ``` r
+
 # Helper functions for formatting and scaling
 valueLabelFormat <- function(value) {
   units <- c('KB', 'MB', 'GB', 'TB')

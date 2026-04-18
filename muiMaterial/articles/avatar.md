@@ -11,6 +11,7 @@ Image avatars are created by passing `src` and `alt` properties to the
 component:
 
 ``` r
+
 muiMaterialPage(
   CssBaseline(
     Box(
@@ -37,6 +38,7 @@ muiMaterialPage(
 Avatars can display text initials or single characters as children:
 
 ``` r
+
 muiMaterialPage(
   CssBaseline(
     Box(
@@ -61,6 +63,7 @@ Control avatar size using the `sx` prop with `width` and `height` CSS
 properties:
 
 ``` r
+
 muiMaterialPage(
   CssBaseline(
     Box(
@@ -89,6 +92,7 @@ muiMaterialPage(
 Use Material Design icons as avatar content:
 
 ``` r
+
 muiMaterialPage(
   CssBaseline(
     Box(
@@ -119,6 +123,7 @@ Change avatar shape using the `variant` prop. Options include:
 - `"square"`
 
 ``` r
+
 muiMaterialPage(
   CssBaseline(
     Box(
@@ -152,6 +157,7 @@ When an image fails to load, avatars fall back in the following order:
 3.  Generic avatar icon
 
 ``` r
+
 muiMaterialPage(
   CssBaseline(
     Box(
@@ -186,6 +192,7 @@ to stack multiple avatars. Control the maximum number displayed with the
 `max` prop:
 
 ``` r
+
 muiMaterialPage(
   CssBaseline(
     Box(
@@ -223,6 +230,7 @@ muiMaterialPage(
 Control the total number of avatars not shown using the `total` prop:
 
 ``` r
+
 muiMaterialPage(
   CssBaseline(
     Box(
@@ -260,6 +268,7 @@ Control the spacing between avatars in a group using the `spacing` prop:
 - Numeric value - custom pixel spacing
 
 ``` r
+
 muiMaterialPage(
   CssBaseline(
     Box(
@@ -324,6 +333,7 @@ Combine avatars with the
 component to add status indicators:
 
 ``` r
+
 muiMaterialPage(
   CssBaseline(
     Box(

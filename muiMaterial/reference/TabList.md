@@ -14,13 +14,15 @@ updateTabList.shinyInput(
   inputId,
   ...
 )
+
+TabList.static(...)
 ```
 
 ## Arguments
 
 - ...:
 
-  Props to pass to the component.
+  Child `Tab` elements and other props.
 
 - inputId:
 
@@ -40,5 +42,5 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 ## Details
 
-- children `node`  
+- children `node`\
   Default is NA A list of Tab / elements.

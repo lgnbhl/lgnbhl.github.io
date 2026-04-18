@@ -1,6 +1,7 @@
 # AI-Assisted Development
 
 ``` r
+
 library(muiMaterial)
 library(shiny)
 ```
@@ -37,6 +38,7 @@ Prompt an AI assistant with:
 The AI could generate:
 
 ``` r
+
 Card(
   sx = list(p = 3),
   Typography("Material UI weekly downloads", variant = "h6", gutterBottom = TRUE),

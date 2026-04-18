@@ -4,6 +4,7 @@ This page is an adaptation of the related [MUI Material UI documentation
 page](https://mui.com/material-ui/react-button/).
 
 ``` r
+
 library(muiMaterial)
 library(shiny)
 ```
@@ -27,6 +28,7 @@ The Button comes with three variants: text (default), contained, and
 outlined.
 
 ``` r
+
 CssBaseline(
   Stack(
     spacing = 2, 
@@ -63,6 +65,7 @@ those located: in dialogs, in cards. In cards, text buttons help
 maintain an emphasis on card content.
 
 ``` r
+
 CssBaseline(
   Stack(
     direction = "row", 
@@ -98,6 +101,7 @@ Contained buttons are high-emphasis, distinguished by their use of
 elevation and fill. They contain actions that are primary to your app.
 
 ``` r
+
 CssBaseline(
   Stack(
     direction = "row", 
@@ -134,6 +138,7 @@ export default function ContainedButtons() {
 You can remove the elevation with the disableElevation prop.
 
 ``` r
+
 CssBaseline(
   Button(variant = "contained", disableElevation = TRUE, "Disable elevation")
 )
@@ -163,6 +168,7 @@ Outlined buttons are also a lower emphasis alternative to contained
 buttons, or a higher emphasis alternative to text buttons.
 
 ``` r
+
 CssBaseline(
   Stack(
     direction = "row", 
@@ -202,6 +208,7 @@ All components accept an onClick handler that is applied to the root DOM
 element.
 
 ``` r
+
 ui <- muiMaterialPage(
   Button.shinyInput(
     inputId = "clickButton",
@@ -239,6 +246,7 @@ lot) in the API section of the components.
 ### Color
 
 ``` r
+
 CssBaseline(
   Stack(
     direction = "row", 
@@ -281,6 +289,7 @@ more info.
 For larger or smaller buttons, use the size prop.
 
 ``` r
+
 CssBaseline(
   Box(
     sx = list('& button' = list(m = 1)),
@@ -353,6 +362,7 @@ text. For example, if you have a delete button you can label it with a
 dustbin icon.
 
 ``` r
+
 CssBaseline(
   Stack(
     direction = "row", 
@@ -403,6 +413,7 @@ to be selected or deselected, such as adding or removing a star to an
 item.
 
 ``` r
+
 CssBaseline(
   Stack(
     direction = "row", 
@@ -466,6 +477,7 @@ export default function IconButtons() {
 For larger or smaller icon buttons, use the size prop.
 
 ``` r
+
 CssBaseline(
   Stack(
     direction = "row", 
@@ -528,6 +540,7 @@ export default function IconButtonSizes() {
 Use color prop to apply theme color palette to component.
 
 ``` r
+
 CssBaseline(
   Stack(
     direction = "row", 
@@ -574,6 +587,7 @@ Starting from v6.4.0, use loading prop to set icon buttons in a loading
 state and disable interactions.
 
 ``` r
+
 ui <- muiMaterialPage(
   Tooltip(
     title = "Click to see loading",
@@ -634,6 +648,7 @@ export default function LoadingIconButton() {
 You can use the Badge component to add a badge to an IconButton.
 
 ``` r
+
 CssBaseline(
   IconButton(
     shiny::icon("shopping-cart", class = "fa-sm"),
@@ -685,6 +700,7 @@ component=“label” and then create a visually-hidden input with type
 file.
 
 ``` r
+
 ui <- muiMaterialPage(
   Button(
     component = "label",
@@ -759,6 +775,7 @@ Starting from v6.4.0, use the loading prop to set buttons in a loading
 state and disable interactions.
 
 ``` r
+
 CssBaseline(
   Stack(
     spacing = 2,
@@ -880,6 +897,7 @@ states.
 ### Loading
 
 ``` r
+
 ui <- muiMaterialPage(
   div(
     FormControlLabel(
@@ -1175,6 +1193,7 @@ export default function CustomizedButtons() {
 ```
 
 ``` r
+
 library(shiny)
 
 CustomizedButtons <- function() {
@@ -1384,6 +1403,7 @@ export default function ButtonBaseDemo() {
 ```
 
 ``` r
+
 library(shiny)
 
 ButtonBaseDemo <- function() {

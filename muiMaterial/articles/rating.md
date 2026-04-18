@@ -49,6 +49,7 @@ export default function BasicRating() {
 ```
 
 ``` r
+
 library(muiMaterial)
 library(shiny)
 
@@ -124,6 +125,7 @@ export default function HalfRating() {
 ```
 
 ``` r
+
 library(muiMaterial)
 
 CssBaseline(
@@ -201,6 +203,7 @@ export default function HoverRating() {
 ```
 
 ``` r
+
 # Hover Feedback Example
 labels <- list(
   "0.5" = "Useless",
@@ -260,6 +263,7 @@ export default function RatingSize() {
 ```
 
 ``` r
+
 library(muiMaterial)
 
 CssBaseline(
@@ -325,6 +329,7 @@ export default function CustomizedRating() {
 ```
 
 ``` r
+
 muiMaterialPage(
   CssBaseline(
     ThemeProvider(
@@ -430,6 +435,7 @@ export default function RadioGroupRating() {
 ```
 
 ``` r
+
 ui <- muiMaterialPage(
   CssBaseline(
     ThemeProvider(

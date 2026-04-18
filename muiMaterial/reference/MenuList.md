@@ -20,24 +20,24 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 ## Details
 
-- autoFocus `bool`  
+- autoFocus `bool`\
   Default is FALSE If true, will focus the role="menu" container and
   move into tab order.
 
-- autoFocusItem `bool`  
+- autoFocusItem `bool`\
   Default is FALSE If true, will focus the first menuitem if
   variant="menu" or selected item if variant="selectedMenu".
 
-- children `node`  
+- children `node`\
   Default is - MenuList contents, normally MenuItems.
 
-- disabledItemsFocusable `bool`  
+- disabledItemsFocusable `bool`\
   Default is FALSE If true, will allow focus on disabled items.
 
-- disableListWrap `bool`  
+- disableListWrap `bool`\
   Default is FALSE If true, the menu items will not wrap focus.
 
-- variant `'menu'| 'selectedMenu'`  
+- variant `'menu'| 'selectedMenu'`\
   Default is 'selectedMenu' The variant to use. Use menu to prevent
   selected items from impacting the initial focus and the vertical
   alignment relative to the anchor element.

@@ -20,10 +20,10 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 ## Details
 
-- children `node`  
+- children `node`\
   Default is - You can wrap a node.
 
-- enableColorScheme `bool`  
+- enableColorScheme `bool`\
   Default is FALSE Enable color-scheme CSS property to use
   theme.palette.mode. For more details, check out
   https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme For

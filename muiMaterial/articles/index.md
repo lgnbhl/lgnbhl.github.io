@@ -13,6 +13,9 @@
 
 - [Badge](https://felixluginbuhl.com/muiMaterial/articles/badge.md):
 
+- [CSS conflicts with
+  Bootstrap](https://felixluginbuhl.com/muiMaterial/articles/bootstrap.md):
+
 - [Button](https://felixluginbuhl.com/muiMaterial/articles/button.md):
 
 - [Checkbox](https://felixluginbuhl.com/muiMaterial/articles/checkbox.md):
@@ -51,6 +54,8 @@
 - [Slider](https://felixluginbuhl.com/muiMaterial/articles/slider.md):
 
 - [Switch](https://felixluginbuhl.com/muiMaterial/articles/switch.md):
+
+- [Tabs](https://felixluginbuhl.com/muiMaterial/articles/tabs.md):
 
 - [TextField](https://felixluginbuhl.com/muiMaterial/articles/textfield.md):
 

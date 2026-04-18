@@ -1,6 +1,6 @@
 # muiMaterial
 
-`muiMaterial` brings [Material
+`muiMaterial` brings MUI [Material
 UI](https://mui.com/material-ui/getting-started/), the world’s most
 popular React UI framework, to R and Shiny.
 
@@ -16,6 +16,7 @@ Launch a basic dashboard (live
 [here](https://lgnbhl-muimaterial-simple-dashboard.share.connect.posit.cloud)):
 
 ``` r
+
 muiMaterial::muiMaterialExample("dashboard-simple")
 ```
 
@@ -23,6 +24,7 @@ Or the R replica of the official MUI dashboard template (live
 [here](https://lgnbhl-muimaterial-mui-template-dashboard.share.connect.posit.cloud/)):
 
 ``` r
+
 muiMaterial::muiMaterialExample("mui-template-dashboard")
 ```
 
@@ -57,11 +59,12 @@ routing](https://felixluginbuhl.com/muiMaterial/articles/routing.html).
 
 Extend functionality with companion R packages:
 
+- [muiDataGrid](https://felixluginbuhl.com/muiDataGrid/) - Professional
+  data tables with filtering, sorting, and inline editing
+- [muiCharts](https://felixluginbuhl.com/muiCharts/) - Beautiful,
+  responsive charts
 - [muiTreeView](https://felixluginbuhl.com/muiTreeView/) - Interactive
   tree navigation
-- muiDataGrid (COMING SOON) - Professional data tables with filtering,
-  sorting, and inline editing
-- muiCharts (COMING SOON) - Beautiful, responsive charts
 - muiDateTimePickers (COMING SOON) - UI components for selecting dates,
   times, and ranges
 
@@ -70,16 +73,19 @@ Extend functionality with companion R packages:
 Install the stable version from CRAN:
 
 ``` r
+
 install.packages("muiMaterial")
 ```
 
 Or install the development version from GitHub:
 
 ``` r
+
 pak::pak("lgnbhl/muiMaterial")
 ```
 
 ``` r
+
 library(shiny)
 library(muiMaterial)
 
@@ -112,6 +118,7 @@ vignette.
 Run the showcase to see some Shiny inputs in action:
 
 ``` r
+
 muiMaterial::muiMaterialExample("showcase")
 ```
 

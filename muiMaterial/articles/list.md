@@ -9,6 +9,7 @@ represented by icons and text.
 A simple list with text items:
 
 ``` r
+
 muiMaterialPage(
   CssBaseline(
     Box(
@@ -37,6 +38,7 @@ muiMaterialPage(
 A list with nested items and collapsible sections:
 
 ``` r
+
 library(shiny)
 library(muiMaterial)
 
@@ -98,6 +100,7 @@ Use
 to separate list items:
 
 ``` r
+
 muiMaterialPage(
   CssBaseline(
     Box(
@@ -135,6 +138,7 @@ muiMaterialPage(
 Combine lists with Avatar() components:
 
 ``` r
+
 muiMaterialPage(
   CssBaseline(
     Box(
@@ -187,6 +191,7 @@ muiMaterialPage(
 Add secondary actions to list items using ListItemSecondaryAction():
 
 ``` r
+
 muiMaterialPage(
   CssBaseline(
     Box(
@@ -236,6 +241,7 @@ Create an interactive navigation list with
 [reactRouter](https://felixluginbuhl.com/reactRouter/) R package:
 
 ``` r
+
 library(muiMaterial)
 library(reactRouter)
 #> 
@@ -314,6 +320,12 @@ muiMaterialPage(
     )
   )
 )
+#> Warning: The `reloadDocument` argument of `Link()` default is now FALSE as of
+#> reactRouter 0.2.0.
+#> ℹ The default of `reloadDocument` was TRUE in version 0.1.1. It is now FALSE.
+#> This warning is displayed once per session.
+#> Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+#> generated.
 ```
 
 ## Selectable list
@@ -321,6 +333,7 @@ muiMaterialPage(
 Create a list with selectable items:
 
 ``` r
+
 library(shiny)
 library(muiMaterial)
 
@@ -389,6 +402,7 @@ shinyApp(ui, server)
 Add checkboxes to list items for multiple selection:
 
 ``` r
+
 library(shiny)
 library(muiMaterial)
 
@@ -461,6 +475,7 @@ shinyApp(ui, server)
 Add switches to list items for settings-style lists:
 
 ``` r
+
 library(shiny)
 library(muiMaterial)
 
@@ -525,6 +540,7 @@ shinyApp(ui, server)
 Use the dense prop for more compact lists:
 
 ``` r
+
 muiMaterialPage(
   CssBaseline(
     Box(

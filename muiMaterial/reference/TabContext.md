@@ -16,13 +16,16 @@ updateTabContext.shinyInput(
   inputId,
   ...
 )
+
+TabContext.static(value, ...)
 ```
 
 ## Arguments
 
 - ...:
 
-  Props to pass to the component.
+  Child elements (typically a `Box` wrapping `TabList.static` and
+  `TabPanel.static` components).
 
 - inputId:
 
@@ -30,7 +33,7 @@ updateTabContext.shinyInput(
 
 - value:
 
-  Starting value.
+  Initial selected tab value.
 
 - session:
 
@@ -42,8 +45,8 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 ## Details
 
-- value `number| string`  
+- value `number| string`\
   Default is NA The value of the currently selected Tab.
 
-- children `node`  
+- children `node`\
   Default is NA The content of the component.

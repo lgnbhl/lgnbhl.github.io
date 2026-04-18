@@ -10,6 +10,7 @@ Use
 to create a searchable dropdown with suggestions.
 
 ``` r
+
 library(shiny)
 library(muiMaterial)
 
@@ -41,6 +42,7 @@ shinyApp(ui, server)
 Set `multiple = TRUE` to allow selecting multiple values.
 
 ``` r
+
 ui <- Autocomplete.shinyInput(
   inputId = "animals",
   multiple = TRUE,
@@ -59,6 +61,7 @@ Use `limitTags` to control how many selected items are displayed before
 showing a count.
 
 ``` r
+
 ui <- Autocomplete.shinyInput(
   inputId = "animals",
   multiple = TRUE,
@@ -78,6 +81,7 @@ Use the `sx` argument for custom styling and `inputProps` for label
 configuration.
 
 ``` r
+
 ui <- Autocomplete.shinyInput(
   sx = list(m = 1, minWidth = 120, width = 300),
   inputId = "animal",
@@ -97,6 +101,7 @@ Combine with `FormControl`, `FormLabel`, and `FormHelperText` for
 enhanced forms.
 
 ``` r
+
 ui <- FormControl(
   sx = list(m = 1, minWidth = 120, width = 300),
   FormLabel("Pet Selection"),
@@ -126,6 +131,7 @@ pass user input directly into
 [`JS()`](https://appsilon.github.io/shiny.react/reference/JS.html).
 
 ``` r
+
 library(shiny)
 library(muiMaterial)
 library(shiny.react)
@@ -161,11 +167,74 @@ server <- function(input, output) {
 shinyApp(ui, server)
 ```
 
+## Custom Option with Secondary Text
+
+Use `renderOption` with a data frame to display additional information
+below each option label.
+
+**Note**: Like `groupBy` and `getOptionLabel`, define `renderOption` as
+a static JavaScript function. Never pass user input directly into
+[`JS()`](https://appsilon.github.io/shiny.react/reference/JS.html).
+
+``` r
+
+library(shiny)
+library(muiMaterial)
+library(shiny.react)
+
+df <- data.frame(
+  label = c("dog", "cat", "fish", "parrot", "rabbit"),
+  description = c(
+    "Loyal and friendly companion",
+    "Independent and curious",
+    "Low maintenance aquatic pet",
+    "Colorful and talkative bird",
+    "Gentle and social small pet"
+  ),
+  stringsAsFactors = FALSE
+)
+
+ui <- muiMaterialPage(
+  CssBaseline(
+    Box(
+      sx = list(p = 2),
+      Autocomplete.shinyInput(
+        sx = list(minWidth = 300, width = 400),
+        inputId = "pet",
+        placeholder = "Choose a pet",
+        options = df,
+        getOptionLabel = JS("function(option) { return option.label || ''; }"),
+        renderOption = JS("function(props, option) {
+          return React.createElement('li', props,
+            React.createElement('div', null,
+              React.createElement('div', null, option.label),
+              React.createElement('div', {
+                style: { fontSize: '0.8em', color: '#888' }
+              }, option.description)
+            )
+          );
+        }")
+      ),
+      verbatimTextOutput("selected")
+    )
+  )
+)
+
+server <- function(input, output) {
+  output$selected <- renderText({
+    paste("Selected:", input$pet$label)
+  })
+}
+
+shinyApp(ui, server)
+```
+
 ## Disable Clearable
 
 Set `disableClearable = TRUE` to prevent clearing the selection.
 
 ``` r
+
 Autocomplete.shinyInput(
   inputId = "animal",
   placeholder = "Select an animal",
@@ -179,6 +248,7 @@ Autocomplete.shinyInput(
 Set an initial value using the `value` argument.
 
 ``` r
+
 # Simple value
 Autocomplete.shinyInput(
   inputId = "animal",
@@ -206,6 +276,7 @@ Autocomplete.shinyInput(
 ## Complete Example
 
 ``` r
+
 library(shiny)
 library(muiMaterial)
 library(shiny.react)

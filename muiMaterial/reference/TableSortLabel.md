@@ -20,32 +20,32 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 ## Details
 
-- active `bool`  
+- active `bool`\
   Default is FALSE If true, the label will have the active styling
   (should be true for the sorted column).
 
-- children `node`  
+- children `node`\
   Default is - Label contents, the arrow will be appended automatically.
 
-- classes `object`  
+- classes `object`\
   Default is - Override or extend the styles applied to the
   component.See CSS classes API below for more details.
 
-- direction `'asc'| 'desc'`  
+- direction `'asc'| 'desc'`\
   Default is 'asc' The current sort direction.
 
-- hideSortIcon `bool`  
+- hideSortIcon `bool`\
   Default is FALSE Hide sort icon when active is false.
 
-- IconComponent `elementType`  
+- IconComponent `elementType`\
   Default is ArrowDownwardIcon Sort icon to use.
 
-- slotProps `{ icon?: func| object, root?: func| object }`  
+- slotProps `{ icon?: func| object, root?: func| object }`\
   Default is The props used for each slot inside.
 
-- slots `{ icon?: elementType, root?: elementType }`  
+- slots `{ icon?: elementType, root?: elementType }`\
   Default is The components used for each slot inside.
 
-- sx `Array func| object| bool | func| object`  
+- sx `Array func| object| bool | func| object`\
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.

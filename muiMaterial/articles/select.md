@@ -33,6 +33,7 @@ to create a dropdown select with options provided as
 children.
 
 ``` r
+
 library(shiny)
 library(muiMaterial)
 
@@ -68,6 +69,7 @@ Select supports three visual variants: `outlined` (default), `filled`,
 and `standard`.
 
 ``` r
+
 ui <- muiMaterialPage(
   CssBaseline(
     Box(
@@ -117,6 +119,7 @@ Use the `inputProps` argument with a `label` property to add a label to
 the Select.
 
 ``` r
+
 ui <- muiMaterialPage(
   CssBaseline(
     Box(
@@ -151,6 +154,7 @@ Set `multiple = TRUE` to allow selecting multiple values. The selected
 value will be an array.
 
 ``` r
+
 ui <- muiMaterialPage(
   CssBaseline(
     Box(
@@ -190,6 +194,7 @@ and
 to organize options into groups.
 
 ``` r
+
 ui <- muiMaterialPage(
   CssBaseline(
     Box(
@@ -231,6 +236,7 @@ Use
 to create menu items with primary and secondary text.
 
 ``` r
+
 ui <- muiMaterialPage(
   CssBaseline(
     Box(
@@ -282,6 +288,7 @@ Combine with `FormControl`, `FormLabel`, and `FormHelperText` for
 enhanced forms.
 
 ``` r
+
 ui <- muiMaterialPage(
   CssBaseline(
     Box(
@@ -319,6 +326,7 @@ Use `displayEmpty = TRUE` to show a placeholder even when no value is
 selected.
 
 ``` r
+
 ui <- muiMaterialPage(
   CssBaseline(
     Box(
@@ -358,6 +366,7 @@ Set `autoWidth = TRUE` to automatically size the dropdown menu based on
 its content.
 
 ``` r
+
 ui <- muiMaterialPage(
   CssBaseline(
     Box(
@@ -396,6 +405,7 @@ Use the `sx` argument for custom styling and control the appearance of
 the Select component.
 
 ``` r
+
 ui <- muiMaterialPage(
   CssBaseline(
     Box(
@@ -436,6 +446,7 @@ Use
 to programmatically update the selected value from the server.
 
 ``` r
+
 ui <- muiMaterialPage(
   CssBaseline(
     Box(
@@ -485,6 +496,7 @@ Set `native = TRUE` to use the browser’s native select element (useful
 for mobile devices).
 
 ``` r
+
 ui <- muiMaterialPage(
   CssBaseline(
     Box(

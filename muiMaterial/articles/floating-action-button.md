@@ -4,6 +4,7 @@ This page is an adaptation of the related [MUI Material UI documentation
 page](https://mui.com/material-ui/react-floating-action-button/).
 
 ``` r
+
 library(muiMaterial)
 library(shiny)
 ```
@@ -24,6 +25,7 @@ represent the most common action.
 ### Basic FAB
 
 ``` r
+
 CssBaseline(
   Box(
     sx = list('& > :not(style)' = list(m = 1)),
@@ -89,6 +91,7 @@ By default, the size is `large`. Use the `size` prop for smaller
 floating action buttons.
 
 ``` r
+
 CssBaseline(
   Box(
     sx = list('& > :not(style)' = list(m = 1)),
@@ -139,6 +142,7 @@ export default function FloatingActionButtonSize() {
 ```
 
 ``` r
+
 CssBaseline(
   Box(
     sx = list('& > :not(style)' = list(m = 1)),
@@ -209,6 +213,7 @@ use `enterDelay` to allow the outgoing Floating Action Button’s
 animation to finish before the new one enters.
 
 ``` r
+
 library(muiMaterial)
 library(shiny)
 

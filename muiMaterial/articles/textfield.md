@@ -40,6 +40,7 @@ export default function BasicTextFields() {
 ```
 
 ``` r
+
 library(shiny)
 
 ui <- muiMaterialPage(
@@ -150,6 +151,7 @@ export default function FormPropsTextFields() {
 ```
 
 ``` r
+
 library(shiny)
 
 ui <- muiMaterialPage(
@@ -234,6 +236,7 @@ JS code
 ```
 
 ``` r
+
 library(shiny)
 
 ControlledInput <- function() {
@@ -337,6 +340,7 @@ export default function ValidationTextFields() {
 ```
 
 ``` r
+
 library(shiny)
 
 ui <- muiMaterialPage(
@@ -453,6 +457,7 @@ export default function MultilineTextFields() {
 ```
 
 ``` r
+
 library(shiny)
 
 ui <- muiMaterialPage(
@@ -586,6 +591,7 @@ export default function InputAdornments() {
 ```
 
 ``` r
+
 library(shiny)
 
 ui <- muiMaterialPage(
@@ -704,6 +710,7 @@ export default function TextFieldSizes() {
 ```
 
 ``` r
+
 library(shiny)
 
 ui <- function() {
@@ -773,6 +780,7 @@ export default function LayoutTextFields() {
 ```
 
 ``` r
+
 library(shiny)
 
 ui <- function() {
@@ -836,6 +844,7 @@ export default function FullWidthTextField() {
 ```
 
 ``` r
+
 library(shiny)
 
 ui <- function() {
@@ -899,6 +908,7 @@ export default function StateTextFields() {
 ```
 
 ``` r
+
 library(shiny)
 
 ui <- muiMaterialPage(
@@ -977,6 +987,7 @@ export default function InputWithIcon() {
 ```
 
 ``` r
+
 library(shiny)
 
 InputWithIcon <- function() {
@@ -1046,6 +1057,7 @@ export default function ColorTextFields() {
 ```
 
 ``` r
+
 library(shiny)
 
 ui <- function() {
@@ -1164,6 +1176,7 @@ export default function CustomizedInputsStyled() {
 ```
 
 ``` r
+
 library(shiny)
 
 CustomizedInputsStyled <- function() {
@@ -1275,6 +1288,7 @@ JS code
 ```
 
 ``` r
+
 library(shiny)
 
 ui <- function() {
@@ -1354,6 +1368,7 @@ JS code
 ```
 
 ``` r
+
 library(shiny)
 
 ui <- function() {
@@ -1477,6 +1492,7 @@ JS code
 ```
 
 ``` r
+
 ui <- function() {
   CssBaseline(
     FormControl(

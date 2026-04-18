@@ -20,28 +20,28 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 ## Details
 
-- children `node`  
+- children `node`\
   Default is - The content of the component.
 
-- classes `object`  
+- classes `object`\
   Default is - Override or extend the styles applied to the
   component.See CSS classes API below for more details.
 
-- defaultExpanded `bool`  
+- defaultExpanded `bool`\
   Default is FALSE If true, expands the accordion by default.
 
-- disabled `bool`  
+- disabled `bool`\
   Default is FALSE If true, the component is disabled.
 
-- disableGutters `bool`  
+- disableGutters `bool`\
   Default is FALSE If true, it removes the margin between two expanded
   accordion items and the increase of height.
 
-- expanded `bool`  
+- expanded `bool`\
   Default is - If true, expands the accordion, otherwise collapse it.
   Setting this prop enables control over the accordion.
 
-- onChange `func`  
+- onChange `func`\
   Default is - Callback fired when the expand/collapse state is
   changed.Signature:function(event: React.SyntheticEvent, expanded:
   boolean) = voidevent The event source of the callback. Warning: This
@@ -49,27 +49,27 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   the accordion.
 
 - slotProps
-  `{ heading?: func| object, root?: func| object, transition?: func| object }`  
+  `{ heading?: func| object, root?: func| object, transition?: func| object }`\
   Default is The props used for each slot inside.
 
 - slots
-  `{ heading?: elementType, root?: elementType, transition?: elementType }`  
+  `{ heading?: elementType, root?: elementType, transition?: elementType }`\
   Default is The components used for each slot inside.
 
-- square `bool`  
+- square `bool`\
   Default is FALSE If true, rounded corners are disabled.
 
-- sx `Array func| object| bool | func| object`  
+- sx `Array func| object| bool | func| object`\
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.
 
-- TransitionComponent `elementType`  
+- TransitionComponent `elementType`\
   Default is - The component used for the transition. Follow this guide
   to learn more about the requirements for this component.Deprecated Use
   slots.transition instead. This prop will be removed in a future major
   release. See Migrating from deprecated APIs for more details.
 
-- TransitionProps `object`  
+- TransitionProps `object`\
   Default is - Props applied to the transition element. By default, the
   element is based on this Transition component.Deprecated Use
   slotProps.transition instead. This prop will be removed in a future

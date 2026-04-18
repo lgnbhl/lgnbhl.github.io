@@ -14,6 +14,7 @@ the tab buttons. Each `TabPanel` holds the content for its corresponding
 tab.
 
 ``` r
+
 library(shiny)
 library(muiMaterial)
 
@@ -60,6 +61,7 @@ layout, while `orientation = "vertical"` on `TabList` arranges tabs
 vertically.
 
 ``` r
+
 library(shiny)
 library(muiMaterial)
 

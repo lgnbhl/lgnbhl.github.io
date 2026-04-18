@@ -6,6 +6,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Getting Started • muiMaterial</title>
+<!-- favicons --><link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png">
+<link rel="icon" type="”image/svg+xml”" href="../favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="icon" sizes="any" href="../favicon.ico">
+<link rel="manifest" href="../site.webmanifest">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
@@ -20,7 +25,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">muiMaterial</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.4</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,6 +71,7 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-dashboarding" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Dashboarding</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-dashboarding">
 <li><a class="dropdown-item" href="../articles/dashboard-basic.html">Basic dashboarding</a></li>
+    <li><a class="dropdown-item" href="../articles/bootstrap.html">CSS conflicts with Bootstrap</a></li>
     <li><a class="dropdown-item" href="../articles/routing.html">Using a router</a></li>
   </ul>
 </li>
@@ -90,7 +96,7 @@
       <img src="../logo.png" class="logo" alt=""><h1>Getting Started</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/lgnbhl/muiMaterial/blob/v0.1.3/vignettes/getting-started.Rmd" class="external-link"><code>vignettes/getting-started.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/lgnbhl/muiMaterial/blob/HEAD/vignettes/getting-started.Rmd" class="external-link"><code>vignettes/getting-started.Rmd</code></a></small>
       <div class="d-none name"><code>getting-started.Rmd</code></div>
     </div>
 
@@ -109,7 +115,7 @@
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"muiMaterial"</span><span class="op">)</span></span></code></pre></div>
 <p>Or install the development version:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"lgnbhl/muiMaterial"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"lgnbhl/muiMaterial"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="your-first-material-ui-app">Your first Material UI app<a class="anchor" aria-label="anchor" href="#your-first-material-ui-app"></a>
@@ -133,7 +139,8 @@
 <p><strong>Important</strong>: Use <code><a href="../reference/muiMaterialPage.html">muiMaterialPage()</a></code>
 instead of <code><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html" class="external-link">fluidPage()</a></code> and wrap your UI in
 <code><a href="../reference/CssBaseline.html">CssBaseline()</a></code> to ensure proper styling. Material UI uses
-its own design system and conflicts with Bootstrap.</p>
+its own design system and can conflict with Bootstrap (see [Bootstrap
+conflict] below).</p>
 </div>
 <div class="section level3">
 <h3 id="shiny-input-wrappers">Shiny input wrappers<a class="anchor" aria-label="anchor" href="#shiny-input-wrappers"></a>
@@ -160,8 +167,10 @@ capture user interactions in Shiny.</p>
 </h3>
 <p>Use <code><a href="../reference/TabContext.html">TabContext.shinyInput()</a></code>,
 <code><a href="../reference/TabList.html">TabList.shinyInput()</a></code>, and
-<code><a href="../reference/TabPanel.html">TabPanel.shinyInput()</a></code> instead of the basic
-<code><a href="../reference/Tabs.html">Tabs()</a></code> component (which currently doesn’t work). See <a href="https://github.com/lgnbhl/muiMaterial/blob/main/inst/examples/Tabs.R" class="external-link">full
+<code><a href="../reference/TabPanel.html">TabPanel.shinyInput()</a></code> to create tabs with server-side
+reactivity, or <code><a href="../reference/TabContext.html">TabContext.static()</a></code>,
+<code><a href="../reference/TabList.html">TabList.static()</a></code>, and <code><a href="../reference/TabPanel.html">TabPanel.static()</a></code> for
+purely client-side tab switching. See <a href="https://github.com/lgnbhl/muiMaterial/blob/main/inst/examples/Tabs.R" class="external-link">full
 example</a>.</p>
 <p>For more advanced navigation, use client-side routing with <a href="https://felixluginbuhl.com/reactRouter/" class="external-link">reactRouter</a>.</p>
 </div>
@@ -185,6 +194,49 @@ CSS-in-JS styling:</p>
 </div>
 <p>It is more powerful and maintainable than traditional CSS. See the <a href="https://mui.com/system/getting-started/the-sx-prop/" class="external-link">MUI sx
 documentation</a> for all available properties.</p>
+</div>
+<div class="section level3">
+<h3 id="naming-conventions">Naming conventions<a class="anchor" aria-label="anchor" href="#naming-conventions"></a>
+</h3>
+<p>Function names in <code>muiMaterial</code> mirror the original <a href="https://mui.com/material-ui/all-components/" class="external-link">MUI component
+names</a> as closely as possible (e.g. <code><a href="../reference/Button.html">Button()</a></code>,
+<code><a href="../reference/Typography.html">Typography()</a></code>, <code><a href="../reference/Drawer.html">Drawer()</a></code>). Suffixes are used to
+distinguish variants that add R/Shiny-specific behavior:</p>
+<ul>
+<li><p><strong><code>.shinyInput</code></strong> — Wraps a component as
+a Shiny input, so its value is available server-side via
+<code>input$inputId</code>. Use these when you need to read or react to
+user interactions in R. This convention is borrowed from the <a href="https://appsilon.github.io/shiny.fluent/" class="external-link">shiny.fluent</a>
+package. Examples: <code><a href="../reference/Button.html">Button.shinyInput()</a></code>,
+<code><a href="../reference/Slider.html">Slider.shinyInput()</a></code>,
+<code><a href="../reference/Autocomplete.html">Autocomplete.shinyInput()</a></code>.</p></li>
+<li><p><strong><code>.triggerId</code></strong> — Wraps a component that
+binds to an external DOM element by its HTML <code>id</code>. The
+referenced element acts as a trigger (e.g. a button click opens a drawer
+or menu), with open/close state managed entirely on the client side.
+Examples: <code><a href="../reference/Drawer.triggerId.html">Drawer.triggerId()</a></code>,
+<code><a href="../reference/Menu.triggerId.html">Menu.triggerId()</a></code>.</p></li>
+<li><p><strong><code>.static</code></strong> — Wraps a component whose
+state is managed entirely on the client side (in React), with no
+round-trip to the Shiny server. Useful when server-side reactivity is
+not needed, for example tab switching that only shows/hides content.
+Examples: <code><a href="../reference/TabContext.html">TabContext.static()</a></code>,
+<code><a href="../reference/TabList.html">TabList.static()</a></code>, <code><a href="../reference/TabPanel.html">TabPanel.static()</a></code>.</p></li>
+</ul>
+<p>Both <code>.triggerId</code> and <code>.static</code> variants keep
+state in the browser and never communicate with the Shiny server. The
+difference is that <code>.triggerId</code> components require a
+reference to an external trigger element, while <code>.static</code>
+components are self-contained.</p>
+</div>
+<div class="section level3">
+<h3 id="css-conflicts-with-bootstrap">CSS conflicts with Bootstrap<a class="anchor" aria-label="anchor" href="#css-conflicts-with-bootstrap"></a>
+</h3>
+<p><code><a href="../reference/muiMaterialPage.html">muiMaterialPage()</a></code> suppresses Bootstrap by default,
+giving MUI components a clean CSS environment. If you need to mix MUI
+with Bootstrap-dependent packages (e.g. <code>shiny</code>,
+<code>bslib</code>, <code>DT</code>, <code>plotly</code>), see the <a href="bootstrap.html">CSS conflicts with Bootstrap</a> vignette for
+details and workarounds.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

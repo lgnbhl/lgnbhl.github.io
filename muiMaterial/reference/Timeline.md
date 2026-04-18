@@ -20,20 +20,20 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 ## Details
 
-- children `node`  
+- children `node`\
   Default is - The content of the component.
 
-- classes `object`  
+- classes `object`\
   Default is - Override or extend the styles applied to the
   component.See CSS classes API below for more details.
 
-- className `string`  
+- className `string`\
   Default is - className applied to the root element.
 
-- position `'alternate-reverse'| 'alternate'| 'left'| 'right'`  
+- position `'alternate-reverse'| 'alternate'| 'left'| 'right'`\
   Default is 'right' The position where the TimelineContent should
   appear relative to the time axis.
 
-- sx `Array func| object| bool | func| object`  
+- sx `Array func| object| bool | func| object`\
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.
