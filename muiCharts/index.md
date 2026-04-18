@@ -3,18 +3,13 @@
 **muiCharts** gives access to *MUI X Charts* React chart components for
 data visualization from R.
 
-## Install and load
+## Install
 
 You can install the development version of **muiCharts** like so:
 
 ``` r
 
 remotes::install_github("lgnbhl/muiCharts")
-```
-
-``` r
-
-library(muiCharts)
 ```
 
 **Read the full documentation with examples
@@ -24,21 +19,15 @@ library(muiCharts)
 
 ``` r
 
-library(dplyr)
-
-starwars_summary <- starwars |>
-  filter(species %in% c("Human", "Droid", "Wookiee")) |>
-  group_by(species) |>
-  summarise(height = mean(height, na.rm = TRUE), mass = mean(mass, na.rm = TRUE))
+library(muiCharts)
 
 BarChart(
-  dataset = starwars_summary,
+  dataset = head(starwars_people, 4),
   xAxis = list(
-    list(scaleType = "band", dataKey = "species")
+    list(scaleType = "band", dataKey = "name")
   ),
   series = list(
-    list(dataKey = "height", label = "Height"),
-    list(dataKey = "mass", label = "Mass")
+    list(dataKey = "height", label = "Height")
   ),
   height = 300
 )

@@ -152,3 +152,13 @@
   : ScatterPlot
 - [`SparkLineChart()`](https://felixluginbuhl.com/muiCharts/reference/SparkLineChart.md)
   : SparkLineChart
+- [`starwars_films`](https://felixluginbuhl.com/muiCharts/reference/starwars_films.md)
+  : Star Wars Films
+- [`starwars_people`](https://felixluginbuhl.com/muiCharts/reference/starwars_people.md)
+  : Star Wars People
+- [`starwars_planets`](https://felixluginbuhl.com/muiCharts/reference/starwars_planets.md)
+  : Star Wars Planets
+- [`starwars_species`](https://felixluginbuhl.com/muiCharts/reference/starwars_species.md)
+  : Star Wars Species
+- [`starwars_starships`](https://felixluginbuhl.com/muiCharts/reference/starwars_starships.md)
+  : Star Wars Starships

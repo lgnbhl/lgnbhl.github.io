@@ -2,7 +2,7 @@
 
 ## Authors
 
-- **Félix Luginbuhl**. Author, maintainer.
+- **[Felix Luginbuhl](https://felixluginbuhl.com)**. Author, maintainer.
 
 ## Citation
 
@@ -15,7 +15,7 @@ Luginbuhl F (2026). *muiCharts: 'MUI X Charts' for 'shiny' Apps and
 
     @Manual{,
       title = {muiCharts: 'MUI X Charts' for 'shiny' Apps and 'Quarto'},
-      author = {Félix Luginbuhl},
+      author = {Felix Luginbuhl},
       year = {2026},
       note = {R package version 0.1.0},
       url = {https://github.com/lgnbhl/muiCharts},

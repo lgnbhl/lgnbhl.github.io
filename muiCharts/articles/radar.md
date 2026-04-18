@@ -1,84 +1,94 @@
 # Radar Charts
 
+## Overview
+
+Radar charts compare multiple quantitative variables for one or more
+groups. They are ideal for profiling items across a common set of
+dimensions.
+
+## Setup
+
 ``` r
 
 library(muiCharts)
 library(dplyr)
-library(tidyr)
 ```
 
-This article demonstrates how to create radar charts using muiCharts,
-based on the [MUI Radar Chart
-documentation](https://mui.com/x/react-charts/radar/).
-
-## Basics
-
-Create a basic radar chart showing character counts by sex across
-different metrics:
+Compute element counts per film — Characters, Planets, Species and
+Starships make natural radar dimensions:
 
 ``` r
 
-# Prepare data: count characters by sex for each film
-starwars_film_sex <- starwars |>
-  unnest_longer(films) |>
-  count(films, sex) |>
-  filter(!is.na(sex)) |>
-  pivot_wider(names_from = sex, values_from = n, values_fill = 0)
+film_metrics <- starwars_films |>
+  mutate(
+    n_characters = lengths(characters),
+    n_planets    = lengths(planets),
+    n_species    = lengths(species),
+    n_starships  = lengths(starships)
+  )
+```
 
-# Create radar chart for one film
-film_data <- starwars_film_sex |>
-  filter(films == "A New Hope")
+## Basic Radar Chart
+
+Profile a single film across its four element dimensions:
+
+``` r
 
 RadarChart(
-  height = 300,
-  series = list(
+  height  = 300,
+  series  = list(
     list(
-      label = "A New Hope",
-      data = c(film_data$male, film_data$female, film_data$hermaphroditic, film_data$none)
+      label = film_metrics$title[1], 
+      data = c(
+        film_metrics$n_characters[1], film_metrics$n_planets[1],
+        film_metrics$n_species[1], film_metrics$n_starships[1]
+      )
     )
   ),
-  radar = list(
-    metrics = c("male", "female", "hermaphroditic", "none")
-  )
+  radar   = list(metrics = c("Characters", "Planets", "Species", "Starships"))
 )
 ```
 
 ## Multi-series Radar Chart
 
-Compare multiple films on the same radar chart:
+Overlay multiple films to compare how each is composed across the same
+dimensions:
 
 ``` r
-
-# Prepare data for three films
-film1 <- starwars_film_sex |> filter(films == "A New Hope")
-film2 <- starwars_film_sex |> filter(films == "Attack of the Clones")
-film3 <- starwars_film_sex |> filter(films == "Return of the Jedi")
 
 RadarChart(
   height = 350,
   series = list(
     list(
-      label = "A New Hope",
-      data = c(film1$male, film1$female, film1$hermaphroditic, film1$none)
+      label = film_metrics$title[1],
+      data = c(
+        film_metrics$n_characters[1], film_metrics$n_planets[1],
+        film_metrics$n_species[1], film_metrics$n_starships[1]
+      )
     ),
     list(
-      label = "Attack of the Clones",
-      data = c(film2$male, film2$female, film2$hermaphroditic, film2$none)
+      label = film_metrics$title[2],
+      data = c(
+        film_metrics$n_characters[2], film_metrics$n_planets[2],
+        film_metrics$n_species[2], film_metrics$n_starships[2]
+      )
     ),
     list(
-      label = "Return of the Jedi",
-      data = c(film3$male, film3$female, film3$hermaphroditic, film3$none)
+      label = film_metrics$title[3],
+      data = c(
+        film_metrics$n_characters[3], film_metrics$n_planets[3],
+        film_metrics$n_species[3], film_metrics$n_starships[3]
+      )
     )
   ),
-  radar = list(
-    metrics = c("male", "female", "hermaphroditic", "none")
-  )
+  radar  = list(metrics = c("Characters", "Planets", "Species", "Starships"))
 )
 ```
 
 ## Series Options
 
-Customize series appearance with `hideMark` and `fillArea`:
+Use `fillArea = TRUE` to shade the polygon and `hideMark = TRUE` to
+suppress vertex dots:
 
 ``` r
 
@@ -86,26 +96,30 @@ RadarChart(
   height = 350,
   series = list(
     list(
-      label = "A New Hope",
-      data = c(film1$male, film1$female, film1$hermaphroditic, film1$none),
+      label = film_metrics$title[1],
+      data = c(
+        film_metrics$n_characters[1], film_metrics$n_planets[1],
+        film_metrics$n_species[1], film_metrics$n_starships[1]
+      ),
       fillArea = TRUE
     ),
     list(
-      label = "Attack of the Clones",
-      data = c(film2$male, film2$female, film2$hermaphroditic, film2$none),
+      label = film_metrics$title[2],
+      data = c(
+        film_metrics$n_characters[2], film_metrics$n_planets[2],
+        film_metrics$n_species[2], film_metrics$n_starships[2]
+      ),
       hideMark = TRUE
     )
   ),
-  radar = list(
-    metrics = c("male", "female", "hermaphroditic", "none")
-  )
+  radar  = list(metrics = c("Characters", "Planets", "Species", "Starships"))
 )
 ```
 
-## Metrics
+## Metrics with Fixed Range
 
-Define metrics with detailed configuration using objects with `name`,
-`min`, and `max`:
+Define `min` and `max` per metric to ensure all axes share the same
+scale:
 
 ``` r
 
@@ -113,85 +127,85 @@ RadarChart(
   height = 350,
   series = list(
     list(
-      label = "A New Hope",
-      data = c(film1$male, film1$female, film1$hermaphroditic, film1$none)
+      label = film_metrics$title[1],
+      data = c(
+        film_metrics$n_characters[1], film_metrics$n_planets[1],
+        film_metrics$n_species[1], film_metrics$n_starships[1]
+      )
     ),
     list(
-      label = "Attack of the Clones",
-      data = c(film2$male, film2$female, film2$hermaphroditic, film2$none)
-    ),
-    list(
-      label = "Return of the Jedi",
-      data = c(film3$male, film3$female, film3$hermaphroditic, film3$none)
+      label = film_metrics$title[2],
+      data = c(
+        film_metrics$n_characters[2], film_metrics$n_planets[2],
+        film_metrics$n_species[2], film_metrics$n_starships[2]
+      )
     )
   ),
-  radar = list(
-    metrics = list(
-      list(name = "male", min = 0, max = 30),
-      list(name = "female", min = 0, max = 30),
-      list(name = "hermaphroditic", min = 0, max = 30),
-      list(name = "none", min = 0, max = 30)
-    )
-  )
+  radar  = list(metrics = list(
+    list(name = "Characters", min = 0, max = 20),
+    list(name = "Planets",    min = 0, max = 20),
+    list(name = "Species",    min = 0, max = 20),
+    list(name = "Starships",  min = 0, max = 20)
+  ))
 )
 ```
 
-## Grid
+## Grid Shape
 
-Customize the radar grid with `shape` and `divisions`:
+Switch between a circular (`"circular"`) and a polygon (`"sharp"`) grid:
 
 ``` r
 
 RadarChart(
-  height = 350,
+  height    = 350,
   series = list(
     list(
-      label = "A New Hope",
-      data = c(film1$male, film1$female, film1$hermaphroditic, film1$none)
+      label = film_metrics$title[1],
+      data = c(
+        film_metrics$n_characters[1], film_metrics$n_planets[1],
+        film_metrics$n_species[1], film_metrics$n_starships[1]
+      )
     ),
     list(
-      label = "Attack of the Clones",
-      data = c(film2$male, film2$female, film2$hermaphroditic, film2$none)
-    ),
-    list(
-      label = "Return of the Jedi",
-      data = c(film3$male, film3$female, film3$hermaphroditic, film3$none)
+      label = film_metrics$title[2],
+      data = c(
+        film_metrics$n_characters[2], film_metrics$n_planets[2],
+        film_metrics$n_species[2], film_metrics$n_starships[2]
+      )
     )
   ),
-  shape = "circular", # or "sharp"
+  shape = "circular",
   divisions = 3,
-  radar = list(
-    metrics = c("male", "female", "hermaphroditic", "none")
-  )
+  radar = list(metrics = c("Characters", "Planets", "Species", "Starships"))
 )
 ```
 
 ## Highlight
 
-Control highlighting with the `highlight` prop:
+Control hover highlighting with `highlight`:
 
 ``` r
 
 RadarChart(
-  height = 350,
+  height    = 350,
   series = list(
     list(
-      label = "A New Hope",
-      data = c(film1$male, film1$female, film1$hermaphroditic, film1$none)
+      label = film_metrics$title[1],
+      data = c(
+        film_metrics$n_characters[1], film_metrics$n_planets[1],
+        film_metrics$n_species[1], film_metrics$n_starships[1]
+      )
     ),
     list(
-      label = "Attack of the Clones",
-      data = c(film2$male, film2$female, film2$hermaphroditic, film2$none)
-    ),
-    list(
-      label = "Return of the Jedi",
-      data = c(film3$male, film3$female, film3$hermaphroditic, film3$none)
+      label = film_metrics$title[2],
+      data = c(
+        film_metrics$n_characters[2], film_metrics$n_planets[2],
+        film_metrics$n_species[2], film_metrics$n_starships[2]
+      )
     )
   ),
   highlight = "series",
-  radar = list(
-    metrics = c("male", "female", "hermaphroditic", "none")
-  )
+  radar     = list(metrics = c("Characters", "Planets", "Species", "Starships"))
 )
 ```
 
@@ -202,25 +216,25 @@ Customize tooltip behavior with the `trigger` option:
 ``` r
 
 RadarChart(
-  height = 350,
+  height    = 350,
   series = list(
     list(
-      label = "A New Hope",
-      data = c(film1$male, film1$female, film1$hermaphroditic, film1$none)
+      label = film_metrics$title[1],
+      data = c(
+        film_metrics$n_characters[1], film_metrics$n_planets[1],
+        film_metrics$n_species[1], film_metrics$n_starships[1]
+      )
     ),
     list(
-      label = "Attack of the Clones",
-      data = c(film2$male, film2$female, film2$hermaphroditic, film2$none)
+      label = film_metrics$title[2],
+      data = c(
+        film_metrics$n_characters[2], film_metrics$n_planets[2],
+        film_metrics$n_species[2], film_metrics$n_starships[2]
+      )
     )
   ),
-  radar = list(
-    metrics = c("male", "female", "hermaphroditic", "none")
-  ),
-  slotProps = list(
-    tooltip = list(
-      trigger = "axis" # or "item"
-    )
-  )
+  radar     = list(metrics = c("Characters", "Planets", "Species", "Starships")),
+  slotProps = list(tooltip = list(trigger = "axis"))
 )
 ```
 
@@ -228,7 +242,7 @@ RadarChart(
 
 `RadarDataProvider` is the dedicated data provider for radar charts. Use
 it with `RadarGrid`, `RadarAxis`, `RadarSeriesPlot`, and
-`RadarMetricLabels` to build a fully custom radar chart:
+`RadarMetricLabels` for a fully custom layout:
 
 ``` r
 
@@ -236,122 +250,25 @@ RadarDataProvider(
   height = 350,
   series = list(
     list(
-      label = "A New Hope",
-      data = c(film1$male, film1$female, film1$hermaphroditic, film1$none)
+      label = film_metrics$title[1],
+      data = c(
+        film_metrics$n_characters[1], film_metrics$n_planets[1],
+        film_metrics$n_species[1], film_metrics$n_starships[1]
+      )
     ),
     list(
-      label = "Attack of the Clones",
-      data = c(film2$male, film2$female, film2$hermaphroditic, film2$none)
+      label = film_metrics$title[2],
+      data = c(
+        film_metrics$n_characters[2], film_metrics$n_planets[2],
+        film_metrics$n_species[2], film_metrics$n_starships[2]
+      )
     )
   ),
-  radar = list(
-    metrics = c("male", "female", "hermaphroditic", "none")
-  ),
+  radar  = list(metrics = c("Characters", "Planets", "Species", "Starships")),
   ChartsLegend(),
   ChartsTooltip(),
   ChartsSurface(
     RadarGrid(),
-    RadarSeriesPlot(),
-    RadarAxis(),
-    RadarMetricLabels()
-  )
-)
-```
-
-## Focused Radar Mark
-
-`FocusedRadarMark` renders the visual indicator when a radar data point
-receives keyboard focus. Add it inside `ChartsSurface`:
-
-``` r
-
-RadarDataProvider(
-  height = 350,
-  series = list(
-    list(
-      label = "A New Hope",
-      data = c(film1$male, film1$female, film1$hermaphroditic, film1$none)
-    ),
-    list(
-      label = "Attack of the Clones",
-      data = c(film2$male, film2$female, film2$hermaphroditic, film2$none)
-    )
-  ),
-  radar = list(
-    metrics = c("male", "female", "hermaphroditic", "none")
-  ),
-  ChartsTooltip(),
-  ChartsSurface(
-    RadarGrid(),
-    RadarSeriesPlot(),
-    RadarSeriesMarks(),
-    FocusedRadarMark(),
-    RadarAxis(),
-    RadarMetricLabels()
-  )
-)
-```
-
-## Radar Axis Highlight
-
-`RadarAxisHighlight` renders the highlight indicator when hovering over
-a radar axis. Add it inside `ChartsSurface` in the composition API:
-
-``` r
-
-RadarDataProvider(
-  height = 350,
-  series = list(
-    list(
-      label = "A New Hope",
-      data = c(film1$male, film1$female, film1$hermaphroditic, film1$none)
-    ),
-    list(
-      label = "Attack of the Clones",
-      data = c(film2$male, film2$female, film2$hermaphroditic, film2$none)
-    )
-  ),
-  radar = list(
-    metrics = c("male", "female", "hermaphroditic", "none")
-  ),
-  ChartsTooltip(),
-  ChartsSurface(
-    RadarGrid(),
-    RadarSeriesPlot(),
-    RadarAxisHighlight(),
-    RadarAxis(),
-    RadarMetricLabels()
-  )
-)
-```
-
-## Radar Series Area
-
-`RadarSeriesArea` renders the filled area for each radar series. Use it
-alongside `RadarSeriesPlot` for filled-area radar charts:
-
-``` r
-
-RadarDataProvider(
-  height = 350,
-  series = list(
-    list(
-      label = "A New Hope",
-      data = c(film1$male, film1$female, film1$hermaphroditic, film1$none)
-    ),
-    list(
-      label = "Attack of the Clones",
-      data = c(film2$male, film2$female, film2$hermaphroditic, film2$none)
-    )
-  ),
-  radar = list(
-    metrics = c("male", "female", "hermaphroditic", "none")
-  ),
-  ChartsLegend(),
-  ChartsTooltip(),
-  ChartsSurface(
-    RadarGrid(),
-    RadarSeriesArea(),
     RadarSeriesPlot(),
     RadarAxis(),
     RadarMetricLabels()

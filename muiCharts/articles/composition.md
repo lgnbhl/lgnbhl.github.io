@@ -1,17 +1,20 @@
 # Composition
 
+## Overview
+
+MUI X Charts can be built using self-contained components
+(e.g. `BarChart`) or composed from individual building blocks. The
+composition API gives full control over layout, sub-components, and
+mixed chart types.
+
+## Setup
+
 ``` r
 
 library(muiCharts)
 library(muiMaterial)
 library(dplyr)
-library(tidyr)
 ```
-
-MUI X Charts can be built using self-contained components
-(e.g. `BarChart`) or composed from individual building blocks. This
-article demonstrates the composition API based on the [MUI Composition
-documentation](https://mui.com/x/react-charts/composition/).
 
 ## Why Composition?
 
@@ -25,7 +28,7 @@ composition API gives you:
 
 ## Basic Composition Pattern
 
-The composition pattern uses three key components:
+Three key components work together:
 
 1.  **`ChartDataProvider`** — wraps everything, provides data context
 2.  **`ChartsSurface`** — renders the SVG element (plots, axes, grid)
@@ -34,29 +37,22 @@ The composition pattern uses three key components:
 
 ``` r
 
-starwars_gender <- dplyr::starwars |>
-  unnest_longer(films) |>
-  count(films, sex) |>
-  filter(!is.na(sex)) |>
-  pivot_wider(names_from = sex, values_from = n) |>
-  mutate(release = c(1977, 2002, 1983, 2005, 1980, 2015, 1999)) |>
-  arrange(release)
-
 ChartDataProvider(
-  dataset = starwars_gender,
+  dataset = starwars_films |>
+    mutate(
+      Characters = lengths(characters),
+      Planets    = lengths(planets),
+      Species    = lengths(species),
+      Starships  = lengths(starships)
+    ) |>
+    arrange(episode_id),
   height = 300,
-  xAxis = list(
-    list(
-      scaleType = "band",
-      dataKey = "films",
-      tickLabelStyle = list(fontSize = "0.5em")
-    )
-  ),
+  xAxis  = list(list(scaleType = "band", dataKey = "episode_id", label = "Star Wars Episode")),
   series = list(
-    list(type = "bar", dataKey = "male", label = "Male"),
-    list(type = "bar", dataKey = "female", label = "Female"),
-    list(type = "bar", dataKey = "hermaphroditic", label = "Hermaphroditic"),
-    list(type = "bar", dataKey = "none", label = "None")
+    list(type = "bar", dataKey = "Characters", label = "Characters"),
+    list(type = "bar", dataKey = "Planets",    label = "Planets"),
+    list(type = "bar", dataKey = "Species",    label = "Species"),
+    list(type = "bar", dataKey = "Starships",  label = "Starships")
   ),
   ChartsLegend(),
   ChartsTooltip(),
@@ -75,27 +71,23 @@ Use `muiMaterial` components for custom titles and layout:
 
 ``` r
 
+library(muiMaterial)
+
 Box(
-  sx = list(
-    width = "100%",
-    display = "flex",
-    flexDirection = "column",
-    alignItems = "center"
-  ),
-  Typography(variant = "h6", "Star Wars Characters by Gender"),
+  sx = list(width = "100%", display = "flex", flexDirection = "column", alignItems = "center"),
+  Typography(variant = "h6", "Star Wars Film Elements by Episode"),
   ChartDataProvider(
-    dataset = starwars_gender,
+    dataset = starwars_films |>
+      mutate(
+        Characters = lengths(characters),
+        Planets    = lengths(planets)
+      ) |>
+      arrange(episode_id),
     height = 300,
-    xAxis = list(
-      list(
-        scaleType = "band",
-        dataKey = "films",
-        tickLabelStyle = list(fontSize = "0.5em")
-      )
-    ),
+    xAxis  = list(list(scaleType = "band", dataKey = "episode_id", label = "Star Wars Episode")),
     series = list(
-      list(type = "bar", dataKey = "male", label = "Male"),
-      list(type = "bar", dataKey = "female", label = "Female")
+      list(type = "bar", dataKey = "Characters", label = "Characters"),
+      list(type = "bar", dataKey = "Planets",    label = "Planets")
     ),
     ChartsLegend(),
     ChartsTooltip(),
@@ -111,24 +103,23 @@ Box(
 
 ## Mixed Chart Types
 
-Combine different plot types in a single chart. Use `type` in the series
-to specify plot kinds:
+Combine bar and line plots in a single chart — bars show character
+counts, the line tracks planet counts:
 
 ``` r
 
 ChartDataProvider(
-  dataset = starwars_gender,
+  dataset = starwars_films |>
+    mutate(
+      Characters = lengths(characters),
+      Planets    = lengths(planets)
+    ) |>
+    arrange(episode_id),
   height = 350,
-  xAxis = list(
-    list(
-      scaleType = "band",
-      dataKey = "films",
-      tickLabelStyle = list(fontSize = "0.5em")
-    )
-  ),
+  xAxis  = list(list(scaleType = "band", dataKey = "episode_id", label = "Star Wars Episode")),
   series = list(
-    list(type = "bar", dataKey = "male", label = "Male (bars)"),
-    list(type = "line", dataKey = "female", label = "Female (line)")
+    list(type = "bar",  dataKey = "Characters", label = "Characters (bars)"),
+    list(type = "line", dataKey = "Planets",    label = "Planets (line)")
   ),
   ChartsLegend(),
   ChartsTooltip(),
@@ -145,32 +136,29 @@ ChartDataProvider(
 
 ## Reference Lines
 
-Add reference lines to mark important thresholds:
+Mark important thresholds with `ChartsReferenceLine`:
 
 ``` r
 
-avg_male <- round(mean(starwars_gender$male, na.rm = TRUE))
+avg_chars <- starwars_films |>
+  mutate(n = lengths(characters)) |>
+  summarise(avg = round(mean(n))) |>
+  pull(avg)
 
 ChartDataProvider(
-  dataset = starwars_gender,
+  dataset = starwars_films |>
+    mutate(Characters = lengths(characters)) |>
+    arrange(episode_id),
   height = 350,
-  xAxis = list(
-    list(
-      scaleType = "band",
-      dataKey = "films",
-      tickLabelStyle = list(fontSize = "0.5em")
-    )
-  ),
-  series = list(
-    list(type = "bar", dataKey = "male", label = "Male")
-  ),
+  xAxis  = list(list(scaleType = "band", dataKey = "episode_id", label = "Star Wars Episode")),
+  series = list(list(type = "bar", dataKey = "Characters", label = "Characters")),
   ChartsTooltip(),
   ChartsSurface(
     ChartsGrid(horizontal = TRUE),
     BarPlot(),
     ChartsReferenceLine(
-      y = avg_male,
-      label = paste("Average:", avg_male),
+      y     = avg_chars,
+      label = paste("Saga avg:", avg_chars),
       lineStyle = list(stroke = "red", strokeDasharray = "5 5")
     ),
     ChartsXAxis(),
@@ -181,33 +169,24 @@ ChartDataProvider(
 
 ## Scatter Chart Composition
 
-Compose a scatter chart with a title and custom grid:
+Compose a scatter chart with a title and custom grid — height vs mass
+for characters:
 
 ``` r
 
-starwars_scatter <- starwars |>
-  filter(!is.na(height), !is.na(mass), mass < 200) |>
-  select(name, height, mass) |>
-  mutate(id = row_number())
-
 Box(
-  sx = list(
-    width = "100%",
-    display = "flex",
-    flexDirection = "column",
-    alignItems = "center"
-  ),
+  sx = list(width = "100%", display = "flex", flexDirection = "column", alignItems = "center"),
   Typography(variant = "h6", "Star Wars Characters: Height vs Mass"),
   ChartDataProvider(
-    dataset = starwars_scatter,
+    dataset = starwars_people |>
+      filter(!is.na(height), !is.na(mass), mass < 200) |>
+      mutate(id = row_number()),
     height = 350,
-    series = list(
-      list(
-        type = "scatter",
-        datasetKeys = list(x = "height", y = "mass"),
-        label = "Characters"
-      )
-    ),
+    series = list(list(
+      type        = "scatter",
+      datasetKeys = list(x = "height", y = "mass"),
+      label       = "Characters"
+    )),
     xAxis = list(list(label = "Height (cm)")),
     yAxis = list(list(label = "Mass (kg)")),
     ChartsLegend(),
@@ -224,23 +203,22 @@ Box(
 
 ## Line Chart Composition
 
-Compose a line chart with marks, area, and highlighted points:
+Compose a line chart with area fill and interactive highlighting:
 
 ``` r
 
 ChartDataProvider(
-  dataset = starwars_gender,
+  dataset = starwars_films |>
+    mutate(
+      Characters = lengths(characters),
+      Planets    = lengths(planets)
+    ) |>
+    arrange(episode_id),
   height = 350,
-  xAxis = list(
-    list(
-      scaleType = "point",
-      dataKey = "films",
-      tickLabelStyle = list(fontSize = "0.5em")
-    )
-  ),
+  xAxis  = list(list(scaleType = "point", dataKey = "episode_id", label = "Star Wars Episode")),
   series = list(
-    list(type = "line", dataKey = "male", label = "Male", area = TRUE),
-    list(type = "line", dataKey = "female", label = "Female", area = TRUE)
+    list(type = "line", dataKey = "Characters", label = "Characters", area = TRUE),
+    list(type = "line", dataKey = "Planets",    label = "Planets",    area = TRUE)
   ),
   ChartsLegend(),
   ChartsTooltip(trigger = "axis"),
@@ -264,44 +242,39 @@ Compose a gauge from individual sub-components for full control:
 ``` r
 
 GaugeContainer(
-  width = 200,
-  height = 200,
-  value = 75,
-  startAngle = -110,
-  endAngle = 110,
-  innerRadius = "60%",
-  outerRadius = "100%",
+  width        = 200,
+  height       = 200,
+  value        = 75,
+  startAngle   = -110,
+  endAngle     = 110,
+  innerRadius  = "60%",
+  outerRadius  = "100%",
   cornerRadius = "50%",
   GaugeReferenceArc(),
   GaugeValueArc(),
-  GaugeValueText(
-    text = JS("({ value, valueMax }) => `${value} / ${valueMax}`")
-  )
+  GaugeValueText(text = JS("({ value, valueMax }) => `${value} / ${valueMax}`"))
 )
 ```
 
-## ChartsContainer and ChartsDataProvider
+## ChartsDataProvider and ChartsContainer
 
-`ChartsContainer` and `ChartsDataProvider` are the v8 equivalents of
-`ChartContainer` and `ChartDataProvider`. `ChartsDataProvider` provides
-data context without rendering SVG — pair it with `ChartsWrapper` for
-the HTML layer and `ChartsSurface` for the SVG:
+`ChartsDataProvider` provides data context without rendering SVG — pair
+it with `ChartsWrapper` and `ChartsSurface`:
 
 ``` r
 
 ChartsDataProvider(
-  dataset = starwars_gender,
+  dataset = starwars_films |>
+    mutate(
+      Characters = lengths(characters),
+      Planets    = lengths(planets)
+    ) |>
+    arrange(episode_id),
   height = 300,
-  xAxis = list(
-    list(
-      scaleType = "band",
-      dataKey = "films",
-      tickLabelStyle = list(fontSize = "0.5em")
-    )
-  ),
+  xAxis  = list(list(scaleType = "band", dataKey = "episode_id", label = "Star Wars Episode")),
   series = list(
-    list(type = "bar", dataKey = "male", label = "Male"),
-    list(type = "bar", dataKey = "female", label = "Female")
+    list(type = "bar", dataKey = "Characters", label = "Characters"),
+    list(type = "bar", dataKey = "Planets",    label = "Planets")
   ),
   ChartsWrapper(
     ChartsLegend(),
@@ -316,25 +289,23 @@ ChartsDataProvider(
 )
 ```
 
-`ChartsContainer` combines `ChartsDataProvider` and `ChartsSurface` into
-a single SVG-based container. Use it when you only need SVG content
-without an outer HTML wrapper:
+`ChartsContainer` combines `ChartsDataProvider` and `ChartsSurface` —
+useful when you need only SVG content:
 
 ``` r
 
 ChartsContainer(
-  dataset = starwars_gender,
+  dataset = starwars_films |>
+    mutate(
+      Characters = lengths(characters),
+      Planets    = lengths(planets)
+    ) |>
+    arrange(episode_id),
   height = 300,
-  xAxis = list(
-    list(
-      scaleType = "band",
-      dataKey = "films",
-      tickLabelStyle = list(fontSize = "0.5em")
-    )
-  ),
+  xAxis  = list(list(scaleType = "band", dataKey = "episode_id", label = "Star Wars Episode")),
   series = list(
-    list(type = "bar", dataKey = "male", label = "Male"),
-    list(type = "bar", dataKey = "female", label = "Female")
+    list(type = "bar", dataKey = "Characters", label = "Characters"),
+    list(type = "bar", dataKey = "Planets",    label = "Planets")
   ),
   ChartsGrid(horizontal = TRUE),
   BarPlot(),
@@ -347,28 +318,18 @@ ChartsContainer(
 ## Inline Labels
 
 `ChartsLabel` renders a styled HTML `<span>` element. Place it as a
-sibling of `ChartsSurface` (outside the SVG) inside `ChartDataProvider`,
-and pass the text as a child argument:
+sibling of `ChartsSurface` inside `ChartDataProvider`:
 
 ``` r
 
 ChartDataProvider(
-  dataset = starwars_gender,
+  dataset = starwars_films |>
+    mutate(Characters = lengths(characters)) |>
+    arrange(episode_id),
   height = 320,
-  xAxis = list(
-    list(
-      scaleType = "band",
-      dataKey = "films",
-      tickLabelStyle = list(fontSize = "0.5em")
-    )
-  ),
-  series = list(
-    list(type = "bar", dataKey = "male", label = "Male")
-  ),
-  ChartsLabel(
-    "Star Wars Characters",
-    style = list(fontSize = "0.85rem", fontWeight = "bold")
-  ),
+  xAxis  = list(list(scaleType = "band", dataKey = "episode_id", label = "Star Wars Episode")),
+  series = list(list(type = "bar", dataKey = "Characters", label = "Characters")),
+  ChartsLabel("Characters per Film", style = list(fontSize = "0.85rem", fontWeight = "bold")),
   ChartsSurface(
     BarPlot(),
     ChartsXAxis(),
@@ -379,62 +340,26 @@ ChartDataProvider(
 
 ## Charts Text
 
-`ChartsText` renders an SVG text element inside `ChartsSurface`. Use it
-to add text annotations directly to the chart:
+`ChartsText` renders an SVG text element inside `ChartsSurface` — useful
+for annotations directly on the chart:
 
 ``` r
 
 ChartDataProvider(
-  dataset = starwars_gender,
+  dataset = starwars_films |>
+    mutate(Characters = lengths(characters)) |>
+    arrange(episode_id),
   height = 320,
-  xAxis = list(
-    list(
-      scaleType = "band",
-      dataKey = "films",
-      tickLabelStyle = list(fontSize = "0.5em")
-    )
-  ),
-  series = list(
-    list(type = "bar", dataKey = "male", label = "Male")
-  ),
+  xAxis  = list(list(scaleType = "band", dataKey = "episode_id", label = "Star Wars Episode")),
+  series = list(list(type = "bar", dataKey = "Characters", label = "Characters")),
   ChartsSurface(
     BarPlot(),
     ChartsText(
-      text = "Male characters per film",
-      x = 5,
-      y = 15,
+      text  = "Characters per episode",
+      x     = 5,
+      y     = 15,
       style = list(fontSize = "0.75rem", fill = "#555")
     ),
-    ChartsXAxis(),
-    ChartsYAxis()
-  )
-)
-```
-
-## Clip Path
-
-`ChartsClipPath` adds an SVG `<clipPath>` definition inside
-`ChartsSurface` to restrict plot rendering to the drawing area:
-
-``` r
-
-ChartDataProvider(
-  dataset = starwars_gender,
-  height = 300,
-  xAxis = list(
-    list(
-      scaleType = "band",
-      dataKey = "films",
-      tickLabelStyle = list(fontSize = "0.5em")
-    )
-  ),
-  series = list(
-    list(type = "bar", dataKey = "male", label = "Male"),
-    list(type = "bar", dataKey = "female", label = "Female")
-  ),
-  ChartsSurface(
-    ChartsClipPath(id = "drawing-area-clip"),
-    BarPlot(),
     ChartsXAxis(),
     ChartsYAxis()
   )

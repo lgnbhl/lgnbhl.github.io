@@ -36,38 +36,28 @@ Render any muiCharts component inside
 library(muiCharts)
 library(shiny)
 library(dplyr)
-library(tidyr)
 
-starwars_gender <- starwars |>
-  unnest_longer(films) |>
-  count(films, sex) |>
-  filter(!is.na(sex)) |>
-  pivot_wider(names_from = sex, values_from = n) |>
-  arrange(female)
+film_counts <- starwars_films |>
+  mutate(
+    Characters = lengths(characters),
+    Planets    = lengths(planets)
+  ) |>
+  arrange(episode_id)
 
-ui <- tagList(
-  uiOutput("chart")
-)
+ui <- tagList(uiOutput("chart"))
 
 server <- function(input, output, session) {
   output$chart <- renderUI({
     BarChart(
-      dataset = starwars_gender,
-      xAxis = list(
-        list(
-          scaleType = "band",
-          dataKey = "films",
-          label = "Movies"
-        )
+      dataset = film_counts,
+      layout  = "horizontal",
+      yAxis   = list(list(scaleType = "band", dataKey = "title", width = 220)),
+      series  = list(
+        list(dataKey = "Characters", label = "Characters"),
+        list(dataKey = "Planets",    label = "Planets")
       ),
-      series = list(
-        list(dataKey = "male", label = "Male"),
-        list(dataKey = "female", label = "Female"),
-        list(dataKey = "hermaphroditic", label = "Hermaphroditic"),
-        list(dataKey = "none", label = "None")
-      ),
-      grid = list(horizontal = TRUE),
-      height = 300
+      grid   = list(horizontal = TRUE),
+      height = 380
     )
   })
 }
@@ -80,7 +70,8 @@ shinyApp(ui, server)
 ## Reactive Charts
 
 Use [muiMaterial](https://github.com/lgnbhl/muiMaterial) inputs to
-dynamically update charts:
+dynamically update charts — switch chart type and select which film
+elements to display:
 
 ``` r
 
@@ -88,50 +79,50 @@ library(muiCharts)
 library(muiMaterial)
 library(shiny)
 library(dplyr)
-library(tidyr)
 
-starwars_gender <- starwars |>
-  unnest_longer(films) |>
-  count(films, sex) |>
-  filter(!is.na(sex)) |>
-  pivot_wider(names_from = sex, values_from = n) |>
-  mutate(release = c(1977, 2002, 1983, 2005, 1980, 2015, 1999)) |>
-  arrange(release)
+film_counts <- starwars_films |>
+  mutate(
+    Characters = lengths(characters),
+    Planets    = lengths(planets),
+    Species    = lengths(species),
+    Starships  = lengths(starships)
+  ) |>
+  arrange(episode_id)
 
 ui <- muiMaterialPage(
   CssBaseline(
     Container(
       maxWidth = "md",
       sx = list(py = 4),
-      Typography("Star Wars Characters", variant = "h4", gutterBottom = TRUE),
+      Typography("Star Wars Films", variant = "h4", gutterBottom = TRUE),
       Stack(
         spacing = 3,
         ToggleButtonGroup.shinyInput(
-          inputId = "chart_type",
-          value = "bar",
+          inputId   = "chart_type",
+          value     = "bar",
           exclusive = TRUE,
-          ToggleButton.shinyInput(inputId = "btn_bar", value = "bar", "Bar"),
+          ToggleButton.shinyInput(inputId = "btn_bar",  value = "bar",  "Bar"),
           ToggleButton.shinyInput(inputId = "btn_line", value = "line", "Line")
         ),
         Box(
-          Typography("Gender:", variant = "subtitle1"),
+          Typography("Elements:", variant = "subtitle1"),
           FormGroup(
             row = TRUE,
             FormControlLabel(
-              control = Checkbox.shinyInput(inputId = "chk_male", value = TRUE),
-              label = "Male"
+              control = Checkbox.shinyInput(inputId = "chk_chars",     value = TRUE),
+              label   = "Characters"
             ),
             FormControlLabel(
-              control = Checkbox.shinyInput(inputId = "chk_female", value = TRUE),
-              label = "Female"
+              control = Checkbox.shinyInput(inputId = "chk_planets",   value = TRUE),
+              label   = "Planets"
             ),
             FormControlLabel(
-              control = Checkbox.shinyInput(inputId = "chk_hermaphroditic", value = FALSE),
-              label = "Hermaphroditic"
+              control = Checkbox.shinyInput(inputId = "chk_species",   value = FALSE),
+              label   = "Species"
             ),
             FormControlLabel(
-              control = Checkbox.shinyInput(inputId = "chk_none", value = FALSE),
-              label = "None"
+              control = Checkbox.shinyInput(inputId = "chk_starships", value = FALSE),
+              label   = "Starships"
             )
           )
         ),
@@ -144,56 +135,36 @@ ui <- muiMaterialPage(
 server <- function(input, output, session) {
   chart_type <- reactiveVal("bar")
 
-  observeEvent(input$btn_bar, chart_type("bar"))
+  observeEvent(input$btn_bar,  chart_type("bar"))
   observeEvent(input$btn_line, chart_type("line"))
-  observeEvent(c(input$btn_bar, input$btn_line), {
-    updateToggleButtonGroup.shinyInput(
-      inputId = "chart_type", value = chart_type()
-    )
-  })
 
-  selected_gender <- reactive({
-    genders <- c(
-      male = input$chk_male,
-      female = input$chk_female,
-      hermaphroditic = input$chk_hermaphroditic,
-      none = input$chk_none
+  selected_series <- reactive({
+    keys <- c(
+      Characters = input$chk_chars,
+      Planets    = input$chk_planets,
+      Species    = input$chk_species,
+      Starships  = input$chk_starships
     )
-    names(genders[genders == TRUE])
+    names(keys[keys == TRUE])
   })
 
   output$chart <- renderUI({
-    req(length(selected_gender()) > 0)
-
-    series <- lapply(selected_gender(), function(g) {
-      list(dataKey = g, label = tools::toTitleCase(g))
-    })
+    req(length(selected_series()) > 0)
+    series <- lapply(selected_series(), function(s) list(dataKey = s, label = s))
 
     if (chart_type() == "bar") {
       BarChart(
-        dataset = starwars_gender,
-        xAxis = list(
-          list(
-            scaleType = "band",
-            dataKey = "films",
-            tickLabelStyle = list(fontSize = "0.5em")
-          )
-        ),
-        series = series,
-        height = 400
+        dataset = film_counts,
+        xAxis   = list(list(scaleType = "band", dataKey = "episode_id", label = "Star Wars Episode")),
+        series  = series,
+        height  = 400
       )
     } else {
       LineChart(
-        dataset = starwars_gender,
-        xAxis = list(
-          list(
-            scaleType = "point",
-            dataKey = "films",
-            tickLabelStyle = list(fontSize = "0.5em")
-          )
-        ),
-        series = series,
-        height = 400
+        dataset = film_counts,
+        xAxis   = list(list(scaleType = "point", dataKey = "episode_id", label = "Star Wars Episode")),
+        series  = series,
+        height  = 400
       )
     }
   })
@@ -211,47 +182,45 @@ Capture user clicks on chart elements using `onAxisClick` and
 
 library(muiCharts)
 library(shiny)
+library(dplyr)
 library(glue)
+
+film_counts <- starwars_films |>
+  mutate(
+    Characters = lengths(characters),
+    Planets    = lengths(planets)
+  ) |>
+  arrange(episode_id)
 
 ui <- tagList(
   tags$h1("Click on the chart"),
   uiOutput("chart"),
-  tags$h3("User clicked on:"),
+  tags$h3("You clicked:"),
   tableOutput("clickEvent")
 )
 
 server <- function(input, output, session) {
-
   setClickEvent <- function(inputId) {
     JS(glue::glue("(event, d) => Shiny.setInputValue('{inputId}', d)"))
   }
 
   output$clickEvent <- renderTable({
-    includeNull <- function(x) {
-      ifelse(length(x) == 0, NA_character_, paste0(x))
-    }
-
+    includeNull <- function(x) ifelse(length(x) == 0, NA_character_, paste0(x))
     data.frame(
-      films = includeNull(input$userClick$axisValue[1]),
-      male = includeNull(input$userClick$seriesValues$`auto-generated-id-0`[1]),
-      female = includeNull(input$userClick$seriesValues$`auto-generated-id-1`[1])
+      episode    = includeNull(input$userClick$axisValue[1]),
+      Characters = includeNull(input$userClick$seriesValues$`auto-generated-id-0`[1]),
+      Planets    = includeNull(input$userClick$seriesValues$`auto-generated-id-1`[1])
     )
   })
 
   output$chart <- renderUI({
     BarChart(
-      dataset = starwars_gender,
+      dataset    = film_counts,
       onAxisClick = setClickEvent("userClick"),
-      xAxis = list(
-        list(
-          scaleType = "band",
-          dataKey = "films",
-          label = "Movies"
-        )
-      ),
-      series = list(
-        list(dataKey = "male", label = "Male"),
-        list(dataKey = "female", label = "Female")
+      xAxis      = list(list(scaleType = "band", dataKey = "episode_id", label = "Star Wars Episode")),
+      series     = list(
+        list(dataKey = "Characters", label = "Characters"),
+        list(dataKey = "Planets",    label = "Planets")
       ),
       height = 300
     )
@@ -265,8 +234,7 @@ shinyApp(ui, server)
 
 ## Dashboard with muiMaterial
 
-Use [muiMaterial](https://github.com/lgnbhl/muiMaterial) layout
-components for a dashboard that works seamlessly with muiCharts:
+Combine pie chart and gauge in a responsive dashboard layout:
 
 ``` r
 
@@ -275,14 +243,12 @@ library(muiMaterial)
 library(shiny)
 library(dplyr)
 
-starwars_sex <- starwars |>
-  count(sex) |>
-  filter(!is.na(sex)) |>
-  select(label = sex, value = n)
+gender_dist <- starwars_people |>
+  count(gender) |>
+  filter(!is.na(gender)) |>
+  select(label = gender, value = n)
 
-human_pct <- round(
-  sum(starwars$species == "Human", na.rm = TRUE) / nrow(starwars) * 100
-)
+male_pct <- round(mean(starwars_people$gender == "male", na.rm = TRUE) * 100)
 
 ui <- muiMaterialPage(
   CssBaseline(
@@ -293,36 +259,32 @@ ui <- muiMaterialPage(
       Box(
         Typography("Chart height:", variant = "subtitle1"),
         Slider.shinyInput(
-          inputId = "height",
-          value = 300,
-          min = 200,
-          max = 500,
-          step = 50,
+          inputId          = "height",
+          value            = 300,
+          min              = 200,
+          max              = 500,
+          step             = 50,
           valueLabelDisplay = "auto",
-          sx = list(maxWidth = 300)
+          sx               = list(maxWidth = 300)
         )
       ),
       Grid(
         container = TRUE,
-        spacing = 3,
-        sx = list(mt = 2),
+        spacing   = 3,
+        sx        = list(mt = 2),
         Grid(
           size = list(xs = 12, md = 8),
-          Card(
-            CardContent(
-              Typography("Characters by Sex", variant = "h6"),
-              uiOutput("pieChart")
-            )
-          )
+          Card(CardContent(
+            Typography("Characters by Gender", variant = "h6"),
+            uiOutput("pieChart")
+          ))
         ),
         Grid(
           size = list(xs = 12, md = 4),
-          Card(
-            CardContent(
-              Typography("Human Characters", variant = "h6"),
-              uiOutput("gauge")
-            )
-          )
+          Card(CardContent(
+            Typography("Male Characters", variant = "h6"),
+            uiOutput("gauge")
+          ))
         )
       )
     )
@@ -332,25 +294,13 @@ ui <- muiMaterialPage(
 server <- function(input, output, session) {
   output$pieChart <- renderUI({
     PieChart(
-      series = list(
-        list(
-          data = starwars_sex,
-          innerRadius = 50,
-          outerRadius = 100
-        )
-      ),
+      series = list(list(data = gender_dist, innerRadius = 50, outerRadius = 100)),
       height = input$height
     )
   })
 
   output$gauge <- renderUI({
-    Gauge(
-      width = 150,
-      height = 150,
-      value = human_pct,
-      startAngle = -90,
-      endAngle = 90
-    )
+    Gauge(width = 150, height = 150, value = male_pct, startAngle = -90, endAngle = 90)
   })
 }
 
@@ -382,34 +332,26 @@ are alternatives to
 [`uiOutput()`](https://rdrr.io/pkg/shiny/man/htmlOutput.html) /
 [`renderUI()`](https://rdrr.io/pkg/shiny/man/renderUI.html) from the
 [shiny.react](https://appsilon.github.io/shiny.react/) package,
-re-exported here for convenience. They provide more direct React
-rendering control:
+re-exported here for convenience:
 
 ``` r
 
 library(muiCharts)
 library(shiny)
 library(dplyr)
-library(tidyr)
 
-starwars_gender <- starwars |>
-  unnest_longer(films) |>
-  count(films, sex) |>
-  filter(!is.na(sex)) |>
-  pivot_wider(names_from = sex, values_from = n, values_fill = 0) |>
-  arrange(female)
+film_counts <- starwars_films |>
+  mutate(Characters = lengths(characters)) |>
+  arrange(episode_id)
 
-ui <- tagList(
-  reactOutput("chart")
-)
-
+ui     <- tagList(reactOutput("chart"))
 server <- function(input, output, session) {
   output$chart <- renderReact({
     BarChart(
-      dataset = starwars_gender,
-      xAxis = list(list(scaleType = "band", dataKey = "films")),
-      series = list(list(dataKey = "male", label = "Male")),
-      height = 300
+      dataset = film_counts,
+      xAxis   = list(list(scaleType = "band", dataKey = "episode_id", label = "Star Wars Episode")),
+      series  = list(list(dataKey = "Characters", label = "Characters")),
+      height  = 300
     )
   })
 }

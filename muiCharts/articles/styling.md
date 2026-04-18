@@ -1,15 +1,18 @@
 # Styling
 
-``` r
-
-library(muiCharts)
-library(dplyr)
-library(tidyr)
-```
+## Overview
 
 MUI X Charts offer several ways to customize colors and appearance. This
 article demonstrates styling options based on the [MUI Styling
 documentation](https://mui.com/x/react-charts/styling/).
+
+## Setup
+
+``` r
+
+library(muiCharts)
+library(dplyr)
+```
 
 ## Color Palette
 
@@ -17,24 +20,21 @@ Use the `colors` prop to set a custom color palette for all series:
 
 ``` r
 
-starwars_gender <- dplyr::starwars |>
-  unnest_longer(films) |>
-  count(films, sex) |>
-  filter(!is.na(sex)) |>
-  pivot_wider(names_from = sex, values_from = n) |>
-  mutate(release = c(1977, 2002, 1983, 2005, 1980, 2015, 1999)) |>
-  arrange(release)
-
 BarChart(
-  dataset = starwars_gender,
-  xAxis = list(
-    list(scaleType = "band", dataKey = "films", tickLabelStyle = list(fontSize = "0.5em"))
-  ),
+  dataset = starwars_films |>
+    mutate(
+      Characters = lengths(characters),
+      Planets    = lengths(planets),
+      Species    = lengths(species),
+      Starships  = lengths(starships)
+    ) |>
+    arrange(episode_id),
+  xAxis  = list(list(scaleType = "band", dataKey = "episode_id", label = "Star Wars Episode")),
   series = list(
-    list(dataKey = "male", label = "Male"),
-    list(dataKey = "female", label = "Female"),
-    list(dataKey = "hermaphroditic", label = "Hermaphroditic"),
-    list(dataKey = "none", label = "None")
+    list(dataKey = "Characters", label = "Characters"),
+    list(dataKey = "Planets",    label = "Planets"),
+    list(dataKey = "Species",    label = "Species"),
+    list(dataKey = "Starships",  label = "Starships")
   ),
   colors = c("#440154FF", "#2A788EFF", "#FDE725FF", "#35B779FF"),
   height = 300
@@ -48,13 +48,16 @@ Assign colors to individual series using the `color` property:
 ``` r
 
 BarChart(
-  dataset = starwars_gender,
-  xAxis = list(
-    list(scaleType = "band", dataKey = "films", tickLabelStyle = list(fontSize = "0.5em"))
-  ),
+  dataset = starwars_films |>
+    mutate(
+      Characters = lengths(characters),
+      Planets    = lengths(planets)
+    ) |>
+    arrange(episode_id),
+  xAxis  = list(list(scaleType = "band", dataKey = "episode_id", label = "Star Wars Episode")),
   series = list(
-    list(dataKey = "male", label = "Male", color = "#1976d2"),
-    list(dataKey = "female", label = "Female", color = "#d32f2f")
+    list(dataKey = "Characters", label = "Characters", color = "#1976d2"),
+    list(dataKey = "Planets",    label = "Planets",    color = "#d32f2f")
   ),
   height = 300
 )
@@ -62,93 +65,83 @@ BarChart(
 
 ## Color Maps
 
-The `colorMap` property on axes maps data values to colors. Three types
-are available:
+The `colorMap` property on axes maps data values to colors.
 
 ### Piecewise Color Map
 
-Defines thresholds and assigns different colors to ranges:
+Define thresholds and assign different colors to value ranges — useful
+for highlighting high/low values:
 
 ``` r
 
 BarChart(
-  dataset = starwars_gender,
-  xAxis = list(
-    list(scaleType = "band", dataKey = "films", tickLabelStyle = list(fontSize = "0.5em"))
-  ),
-  yAxis = list(
-    list(
-      colorMap = list(
-        type = "piecewise",
-        thresholds = c(5, 10, 15),
-        colors = c("#4caf50", "#ff9800", "#f44336", "#9c27b0")
-      )
+  dataset = starwars_films |>
+    mutate(Characters = lengths(characters)) |>
+    arrange(episode_id),
+  xAxis  = list(list(scaleType = "band", dataKey = "episode_id", label = "Star Wars Episode")),
+  yAxis  = list(list(
+    colorMap = list(
+      type       = "piecewise",
+      thresholds = c(15, 20, 25),
+      colors     = c("#4caf50", "#ff9800", "#f44336", "#9c27b0")
     )
-  ),
-  series = list(list(dataKey = "male", label = "Male")),
+  )),
+  series = list(list(dataKey = "Characters", label = "Characters")),
   height = 300
 )
 ```
 
 ### Continuous Color Map
 
-Maps a value range to a color gradient:
+Map a value range to a color gradient — here characters are colored by
+birth year:
 
 ``` r
 
-starwars_color <- starwars |>
-  filter(!is.na(height), !is.na(mass), !is.na(birth_year), mass < 200) |>
-  select(name, height, mass, birth_year) |>
-  mutate(id = row_number())
-
 ScatterChart(
-  height = 350,
-  dataset = starwars_color,
-  series = list(
-    list(
-      datasetKeys = list(x = "height", y = "mass", z = "birth_year"),
-      label = "Characters"
+  height  = 350,
+  dataset = starwars_people |>
+    filter(!is.na(height), !is.na(mass), !is.na(birth_year), mass < 200) |>
+    mutate(id = row_number()),
+  series  = list(list(
+    datasetKeys = list(x = "height", y = "mass", z = "birth_year"),
+    label = "Characters"
+  )),
+  xAxis  = list(list(label = "Height (cm)")),
+  yAxis  = list(list(label = "Mass (kg)")),
+  zAxis  = list(list(
+    colorMap = list(
+      type  = "continuous",
+      min   = 0,
+      max   = 100,
+      color = c("#d01c8b", "#f1b6da", "#b8e186", "#4dac26")
     )
-  ),
-  xAxis = list(list(label = "Height (cm)")),
-  yAxis = list(list(label = "Mass (kg)")),
-  zAxis = list(
-    list(
-      colorMap = list(
-        type = "continuous",
-        min = 0,
-        max = 100,
-        color = c("#d01c8b", "#f1b6da", "#b8e186", "#4dac26")
-      )
-    )
-  )
+  ))
 )
 ```
 
 ### Ordinal Color Map
 
-Maps categorical values to specific colors:
+Map categorical values to specific colors — top 3 species by membership
+each get a distinct color:
 
 ``` r
 
-starwars_species <- starwars |>
-  filter(!is.na(height), species %in% c("Human", "Droid", "Wookiee")) |>
-  count(species)
-
 BarChart(
-  dataset = starwars_species,
-  xAxis = list(
-    list(
-      scaleType = "band",
-      dataKey = "species",
-      colorMap = list(
-        type = "ordinal",
-        values = c("Human", "Droid", "Wookiee"),
-        colors = c("#1976d2", "#ff9800", "#4caf50")
-      )
+  dataset = starwars_species |>
+    mutate(n = lengths(people)) |>
+    arrange(desc(n)) |>
+    head(3),
+  xAxis  = list(list(
+    scaleType = "band",
+    dataKey   = "name",
+    colorMap  = list(
+      type   = "ordinal",
+      values = c("Human", "Droid", "Naboo"),
+      colors = c("#1976d2", "#ff9800", "#4caf50")
     )
-  ),
-  series = list(list(dataKey = "n", label = "Count")),
+  )),
+  series = list(list(dataKey = "n", label = "Members")),
   height = 300
 )
 ```
@@ -156,24 +149,19 @@ BarChart(
 ## The sx Prop
 
 Use the `sx` prop for CSS overrides on chart elements using MUI CSS
-class selectors:
+class selectors — here rounded bars and a subtle axis line:
 
 ``` r
 
 BarChart(
-  dataset = starwars_gender,
-  xAxis = list(
-    list(scaleType = "band", dataKey = "films", tickLabelStyle = list(fontSize = "0.5em"))
-  ),
-  series = list(list(dataKey = "male", label = "Male")),
+  dataset = starwars_films |>
+    mutate(Characters = lengths(characters)) |>
+    arrange(episode_id),
+  xAxis  = list(list(scaleType = "band", dataKey = "episode_id", label = "Star Wars Episode")),
+  series = list(list(dataKey = "Characters", label = "Characters")),
   sx = list(
-    "& .MuiBarElement-root" = list(
-      rx = 10
-    ),
-    "& .MuiChartsAxis-line" = list(
-      stroke = "#999",
-      strokeWidth = 2
-    )
+    "& .MuiBarElement-root" = list(rx = 8),
+    "& .MuiChartsAxis-line" = list(stroke = "#999", strokeWidth = 2)
   ),
   height = 300
 )
@@ -181,27 +169,24 @@ BarChart(
 
 ## Line Chart Styling
 
-Customize line appearance with `sx`:
+Customize line and mark appearance with `sx`:
 
 ``` r
 
 LineChart(
-  dataset = starwars_gender,
-  xAxis = list(
-    list(scaleType = "point", dataKey = "films", tickLabelStyle = list(fontSize = "0.5em"))
-  ),
+  dataset = starwars_films |>
+    mutate(
+      Characters = lengths(characters),
+      Planets    = lengths(planets)
+    ) |>
+    arrange(episode_id),
+  xAxis  = list(list(scaleType = "point", dataKey = "episode_id", label = "Star Wars Episode")),
   series = list(
-    list(dataKey = "male", label = "Male"),
-    list(dataKey = "female", label = "Female")
+    list(dataKey = "Characters", label = "Characters"),
+    list(dataKey = "Planets",    label = "Planets")
   ),
   sx = list(
-    "& .MuiLineElement-root" = list(
-      strokeWidth = 3,
-      strokeDasharray = "5 5"
-    ),
-    "& .MuiMarkElement-root" = list(
-      scale = "1.5"
-    )
+    "& .MuiLineElement-root"  = list(strokeWidth = 3, strokeDasharray = "5 5")
   ),
   height = 300
 )
@@ -209,41 +194,96 @@ LineChart(
 
 ## Pie Chart Styling
 
-Customize pie chart appearance:
+Combine `innerRadius`, `paddingAngle`, and `cornerRadius` for a polished
+donut look:
 
 ``` r
 
-df <- starwars |>
-  count(sex) |>
-  filter(!is.na(sex)) |>
-  select(label = sex, value = n)
-
 PieChart(
-  series = list(
-    list(
-      data = df,
-      innerRadius = 50,
-      paddingAngle = 3,
-      cornerRadius = 5
-    )
-  ),
+  series = list(list(
+    data = starwars_people |>
+      count(gender) |>
+      filter(!is.na(gender)) |>
+      select(label = gender, value = n),
+    innerRadius  = 50,
+    paddingAngle = 3,
+    cornerRadius = 5
+  )),
   height = 300
 )
 ```
 
 ## Dark/Light Mode Colors
 
-Use a JavaScript function for the `color` prop to adapt to theme mode:
+Pass a JavaScript function to `color` that adapts to the current theme
+mode:
 
 ``` r
 
 SparkLineChart(
-  data = c(3, 5, 8, 12, 7, 15, 9),
+  data   = starwars_films |> arrange(episode_id) |> mutate(n = lengths(characters)) |> pull(n),
   height = 100,
-  color = JS("(mode) => (mode === 'light' ? '#1976d2' : '#90caf9')"),
-  area = TRUE
+  color  = JS("(mode) => (mode === 'light' ? '#1976d2' : '#90caf9')"),
+  area   = TRUE,
+  showHighlight = TRUE,
+  showTooltip = TRUE
 )
 ```
+
+## Dashboard Example
+
+Combine `ThemeProvider` from muiMaterial with charts for a cohesive
+dashboard. Define palette colors in R variables and reference them in
+both the theme and chart:
+
+``` r
+
+library(muiMaterial)
+
+muiMaterialPage(
+  CssBaseline(),
+  {
+    # Define theme colors once in R; both ThemeProvider and chart use the same values
+    primaryColor <- "#9819d2"
+    secondaryColor <- "#dc004e"
+
+    ThemeProvider(
+      theme = list(
+        palette = list(
+          primary = list(main = primaryColor),
+          secondary = list(main = secondaryColor)
+        )
+      ),
+      Box(
+        sx = list(p = 3, bgcolor = "background.paper"),
+        Typography("Star Wars Characters by Episode", variant = "h5", sx = list(mb = 2)),
+        Card(
+          CardContent(
+            BarChart(
+              dataset = starwars_films |>
+                mutate(Characters = lengths(characters)) |>
+                arrange(episode_id),
+              xAxis = list(
+                list(scaleType = "band", dataKey = "episode_id", label = "Episode")
+              ),
+              series = list(
+                list(dataKey = "Characters", label = "Characters", color = primaryColor)
+              ),
+              height = 300
+            )
+          )
+        )
+      )
+    )
+  }
+)
+```
+
+Define palette colors as R variables (e.g., `primaryColor`), then pass
+them to both `ThemeProvider`’s palette and the chart’s `color` prop.
+This keeps colors in sync—when you edit `primaryColor`, it updates
+everywhere automatically. The dashboard layout is built with muiMaterial
+components (`Box`, `Card`, `Typography`) for visual consistency.
 
 ## Learn More
 

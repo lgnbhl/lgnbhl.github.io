@@ -1,15 +1,18 @@
 # Legend
 
+## Overview
+
+The legend identifies each series displayed in a chart. This article
+demonstrates legend customization based on the [MUI Legend
+documentation](https://mui.com/x/react-charts/legend/).
+
+## Setup
+
 ``` r
 
 library(muiCharts)
 library(dplyr)
-library(tidyr)
 ```
-
-The legend identifies each series displayed in the chart. This article
-demonstrates legend customization based on the [MUI Legend
-documentation](https://mui.com/x/react-charts/legend/).
 
 ## Default Legend
 
@@ -17,24 +20,21 @@ By default, a legend is displayed above the chart showing all series:
 
 ``` r
 
-starwars_gender <- dplyr::starwars |>
-  unnest_longer(films) |>
-  count(films, sex) |>
-  filter(!is.na(sex)) |>
-  pivot_wider(names_from = sex, values_from = n) |>
-  mutate(release = c(1977, 2002, 1983, 2005, 1980, 2015, 1999)) |>
-  arrange(release)
-
 BarChart(
-  dataset = starwars_gender,
-  xAxis = list(
-    list(scaleType = "band", dataKey = "films", tickLabelStyle = list(fontSize = "0.5em"))
-  ),
+  dataset = starwars_films |>
+    mutate(
+      Characters = lengths(characters),
+      Planets    = lengths(planets),
+      Species    = lengths(species),
+      Starships  = lengths(starships)
+    ) |>
+    arrange(episode_id),
+  xAxis  = list(list(scaleType = "band", dataKey = "episode_id", label = "Star Wars Episode")),
   series = list(
-    list(dataKey = "male", label = "Male"),
-    list(dataKey = "female", label = "Female"),
-    list(dataKey = "hermaphroditic", label = "Hermaphroditic"),
-    list(dataKey = "none", label = "None")
+    list(dataKey = "Characters", label = "Characters"),
+    list(dataKey = "Planets",    label = "Planets"),
+    list(dataKey = "Species",    label = "Species"),
+    list(dataKey = "Starships",  label = "Starships")
   ),
   height = 300
 )
@@ -42,76 +42,77 @@ BarChart(
 
 ## Hiding the Legend
 
-Use `hideLegend = TRUE` to remove the legend:
+Use `hideLegend = TRUE` to remove the legend entirely:
 
 ``` r
 
 BarChart(
-  dataset = starwars_gender,
-  xAxis = list(
-    list(scaleType = "band", dataKey = "films", tickLabelStyle = list(fontSize = "0.5em"))
-  ),
-  series = list(
-    list(dataKey = "male", label = "Male"),
-    list(dataKey = "female", label = "Female")
+  dataset = starwars_films |>
+    mutate(
+      Characters = lengths(characters),
+      Planets    = lengths(planets)
+    ) |>
+    arrange(episode_id),
+  xAxis      = list(list(scaleType = "band", dataKey = "episode_id", label = "Star Wars Episode")),
+  series     = list(
+    list(dataKey = "Characters", label = "Characters"),
+    list(dataKey = "Planets",    label = "Planets")
   ),
   hideLegend = TRUE,
-  height = 300
+  height     = 300
 )
 ```
 
 ## Legend Position
 
-Customize legend position using `slotProps`. The legend can be
-positioned at `"start"`, `"middle"`, or `"end"` in both horizontal and
-vertical directions:
+Position the legend using `slotProps`. The argument `horizontal` accepts
+`"start"`, `"middle"`, or `"end"`, while `vertical` accepts `"top"`,
+`"middle"`, or `"bottom"`:
 
 ``` r
 
 BarChart(
-  dataset = starwars_gender,
-  xAxis = list(
-    list(scaleType = "band", dataKey = "films", tickLabelStyle = list(fontSize = "0.5em"))
-  ),
+  dataset = starwars_films |>
+    mutate(
+      Characters = lengths(characters),
+      Planets    = lengths(planets)
+    ) |>
+    arrange(episode_id),
+  xAxis  = list(list(scaleType = "band", dataKey = "episode_id", label = "Star Wars Episode")),
   series = list(
-    list(dataKey = "male", label = "Male"),
-    list(dataKey = "female", label = "Female")
+    list(dataKey = "Characters", label = "Characters"),
+    list(dataKey = "Planets",    label = "Planets")
   ),
-  slotProps = list(
-    legend = list(
-      position = list(
-        vertical = "middle",
-        horizontal = "right"
-      )
-    )
-  ),
+  slotProps = list(legend = list(
+    position = list(vertical = "bottom", horizontal = "middle")
+  )),
   height = 300
 )
 ```
 
 ## Legend Direction
 
-Change the legend layout direction from horizontal (default) to
-vertical:
+Change the legend layout from horizontal (default) to vertical:
 
 ``` r
 
 BarChart(
-  dataset = starwars_gender,
-  xAxis = list(
-    list(scaleType = "band", dataKey = "films", tickLabelStyle = list(fontSize = "0.5em"))
-  ),
+  dataset = starwars_films |>
+    mutate(
+      Characters = lengths(characters),
+      Planets    = lengths(planets),
+      Species    = lengths(species),
+      Starships  = lengths(starships)
+    ) |>
+    arrange(episode_id),
+  xAxis  = list(list(scaleType = "band", dataKey = "episode_id", label = "Star Wars Episode")),
   series = list(
-    list(dataKey = "male", label = "Male"),
-    list(dataKey = "female", label = "Female"),
-    list(dataKey = "hermaphroditic", label = "Hermaphroditic"),
-    list(dataKey = "none", label = "None")
+    list(dataKey = "Characters", label = "Characters"),
+    list(dataKey = "Planets",    label = "Planets"),
+    list(dataKey = "Species",    label = "Species"),
+    list(dataKey = "Starships",  label = "Starships")
   ),
-  slotProps = list(
-    legend = list(
-      direction = "vertical"
-    )
-  ),
+  slotProps = list(legend = list(direction = "vertical")),
   height = 350
 )
 ```
@@ -122,81 +123,66 @@ Pie charts automatically show legend entries for each slice:
 
 ``` r
 
-df <- starwars |>
-  count(sex) |>
-  filter(!is.na(sex)) |>
-  select(label = sex, value = n)
-
 PieChart(
-  series = list(
-    list(data = df)
-  ),
+  series = list(list(
+    data = starwars_people |>
+      count(gender) |>
+      filter(!is.na(gender)) |>
+      select(label = gender, value = n)
+  )),
   height = 300
 )
 ```
 
 ## Color Legends
 
-For charts using `colorMap`, you can use `ContinuousColorLegend` or
-`PiecewiseColorLegend`:
+For charts using `colorMap`, use `ContinuousColorLegend` or
+`PiecewiseColorLegend` to explain the color scale.
 
 ### Continuous Color Legend
 
+Characters plotted by height and mass, colored by birth year:
+
 ``` r
 
-starwars_color <- starwars |>
-  filter(!is.na(height), !is.na(mass), !is.na(birth_year), mass < 200) |>
-  select(name, height, mass, birth_year) |>
-  mutate(id = row_number())
-
 ScatterChart(
-  height = 350,
-  dataset = starwars_color,
-  series = list(
-    list(
-      datasetKeys = list(x = "height", y = "mass", z = "birth_year"),
-      label = "Characters"
-    )
-  ),
-  xAxis = list(list(label = "Height (cm)")),
-  yAxis = list(list(label = "Mass (kg)")),
-  zAxis = list(
-    list(
-      colorMap = list(
-        type = "continuous",
-        min = 0,
-        max = 100,
-        color = c("#d01c8b", "#4dac26")
-      )
-    )
-  )
+  height  = 380,
+  dataset = starwars_people |>
+    filter(!is.na(height), !is.na(mass), !is.na(birth_year), mass < 200) |>
+    mutate(id = row_number()),
+  series  = list(list(
+    datasetKeys = list(x = "height", y = "mass", z = "birth_year"),
+    label = "Characters"
+  )),
+  xAxis  = list(list(label = "Height (cm)")),
+  yAxis  = list(list(label = "Mass (kg)")),
+  zAxis  = list(list(
+    colorMap = list(type = "continuous", min = 0, max = 100, color = c("#d01c8b", "#4dac26"))
+  ))
 )
 ```
 
 ## Legend in Composition
 
 When using composition, place `ChartsLegend` inside `ChartDataProvider`
-but **outside** `ChartsSurface` (since in MUI v8 the legend is an HTML
-component, not SVG):
+but **outside** `ChartsSurface` (the legend is HTML, not SVG):
 
 ``` r
 
 library(muiMaterial)
-#> 
-#> Attaching package: 'muiMaterial'
-#> The following object is masked from 'package:muiCharts':
-#> 
-#>     Toolbar
 
 ChartDataProvider(
-  dataset = starwars_gender,
+  dataset = starwars_films |>
+    mutate(
+      Characters = lengths(characters),
+      Planets    = lengths(planets)
+    ) |>
+    arrange(episode_id),
   height = 300,
-  xAxis = list(
-    list(scaleType = "band", dataKey = "films", tickLabelStyle = list(fontSize = "0.5em"))
-  ),
+  xAxis  = list(list(scaleType = "band", dataKey = "episode_id", label = "Star Wars Episode")),
   series = list(
-    list(type = "bar", dataKey = "male", label = "Male"),
-    list(type = "bar", dataKey = "female", label = "Female")
+    list(type = "bar", dataKey = "Characters", label = "Characters"),
+    list(type = "bar", dataKey = "Planets",    label = "Planets")
   ),
   ChartsLegend(),
   ChartsSurface(
@@ -209,35 +195,35 @@ ChartDataProvider(
 
 ## Label Marks
 
-`ChartsLabelMark` renders the colored shape used to identify a series —
-the small icon that appears next to a series name. Use it inside custom
-legend layouts or annotations:
+`ChartsLabelMark` renders the small colored shape that appears next to a
+series name. Use it in custom legend layouts:
 
 ``` r
 
-library(muiMaterial)
-
 ChartDataProvider(
-  dataset = starwars_gender,
+  dataset = starwars_films |>
+    mutate(
+      Characters = lengths(characters),
+      Planets    = lengths(planets)
+    ) |>
+    arrange(episode_id),
   height = 300,
-  xAxis = list(
-    list(scaleType = "band", dataKey = "films", tickLabelStyle = list(fontSize = "0.5em"))
-  ),
+  xAxis  = list(list(scaleType = "band", dataKey = "episode_id", label = "Star Wars Episode")),
   series = list(
-    list(type = "bar", dataKey = "male", label = "Male"),
-    list(type = "bar", dataKey = "female", label = "Female")
+    list(type = "bar", dataKey = "Characters", label = "Characters"),
+    list(type = "bar", dataKey = "Planets",    label = "Planets")
   ),
   Box(
     sx = list(display = "flex", gap = "16px", padding = "8px"),
     Box(
       sx = list(display = "flex", alignItems = "center", gap = "4px"),
-      ChartsLabelMark(type = "square", color = "#19d23e"),
-      Typography(variant = "body2", "Male")
+      ChartsLabelMark(type = "square", color = "#1976d2"),
+      Typography(variant = "body2", "Characters")
     ),
     Box(
       sx = list(display = "flex", alignItems = "center", gap = "4px"),
-      ChartsLabelMark(type = "square", color = "#9c27b0"),
-      Typography(variant = "body2", "Female")
+      ChartsLabelMark(type = "square", color = "#d32f2f"),
+      Typography(variant = "body2", "Planets")
     )
   ),
   ChartsSurface(

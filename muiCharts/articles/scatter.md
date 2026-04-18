@@ -1,297 +1,176 @@
 # Scatter Charts
 
+## Overview
+
+Scatter charts express the relation between two variables using points
+in a surface. They are ideal for visualizing relationships or
+correlations, identifying clusters, trends, and outliers in datasets.
+
+## Setup
+
 ``` r
 
 library(muiCharts)
 library(dplyr)
 ```
 
-Scatter charts express the relation between two variables, using points
-in a surface. They are ideal for visualizing relationships or
-correlations, identifying clusters, trends, and outliers in datasets.
+## Basic Scatter Chart
 
-This article follows the [MUI Scatter Chart
-documentation](https://mui.com/x/react-charts/scatter/).
-
-## Basics
-
-Scatter chart series should contain a `data` property with an array of
-objects. Each object requires `x` and `y` properties, with an optional
-`id` property.
-
-``` r
-
-# Prepare starwars data with two variables
-starwars_scatter <- starwars |>
-  filter(!is.na(height), !is.na(mass), mass < 200) |>
-  select(name, height, mass, species) |>
-  mutate(
-    id = row_number(),
-    species_group = case_when(
-      species == "Human" ~ "Human",
-      species == "Droid" ~ "Droid",
-      TRUE ~ "Other"
-    )
-  )
-
-# Create two series based on species group
-series_a <- starwars_scatter |>
-  filter(species_group == "Human")
-
-series_b <- starwars_scatter |>
-  filter(species_group == "Droid")
-
-ScatterChart(
-  height = 350,
-  series = list(
-    list(
-      label = "Human",
-      data = lapply(1:nrow(series_a), function(i) {
-        list(
-          id = series_a$id[i],
-          x = series_a$height[i],
-          y = series_a$mass[i]
-        )
-      })
-    ),
-    list(
-      label = "Droid",
-      data = lapply(1:nrow(series_b), function(i) {
-        list(
-          id = series_b$id[i],
-          x = series_b$height[i],
-          y = series_b$mass[i]
-        )
-      })
-    )
-  ),
-  xAxis = list(
-    list(label = "Height (cm)")
-  ),
-  yAxis = list(
-    list(label = "Mass (kg)")
-  )
-)
-```
-
-## Using a Dataset
-
-You can use the `dataset` prop with `datasetKeys` to specify which
-columns to use for x and y values:
+Height vs mass for Star Wars characters with known values. Each point is
+a character:
 
 ``` r
 
 ScatterChart(
   height = 350,
-  dataset = starwars_scatter,
-  series = list(
-    list(
-      datasetKeys = list(x = "height", y = "mass"),
-      label = "Characters"
-    )
-  ),
-  xAxis = list(
-    list(label = "Height (cm)")
-  ),
-  yAxis = list(
-    list(label = "Mass (kg)")
-  )
+  dataset = starwars_people |> head(20),
+  series = list(list(
+    datasetKeys = list(x = "height", y = "mass"),
+    label = "Characters"
+  )),
+  xAxis = list(list(label = "Height (cm)")),
+  yAxis = list(list(label = "Mass (kg)"))
 )
 ```
 
-## Interaction
+## Multi-series Scatter Chart
+
+Separate male and female characters into two series for easy comparison:
+
+> **Note:** The `data` argument require two columns named `x` and `y`.
+
+``` r
+
+ScatterChart(
+  height = 350,
+  series = list(
+    list(
+      data = starwars_people |> 
+        filter(gender == "male") |> 
+        select(x = height, y = mass),
+      label = "Male"),
+    list(
+      data = starwars_people |> 
+        filter(gender == "female") |> 
+        select(x = height, y = mass),
+      label = "Female")
+  ),
+  xAxis = list(list(label = "Height (cm)")),
+  yAxis = list(list(label = "Mass (kg)"))
+)
+```
+
+## Voronoi Interaction
 
 The chart computes Voronoi cells to map pointer position to the closest
-element. You can define a maximum radius with `voronoiMaxRadius`:
+element. Set a maximum radius with `voronoiMaxRadius`:
 
 ``` r
 
 ScatterChart(
   height = 350,
-  dataset = starwars_scatter,
-  series = list(
-    list(
-      datasetKeys = list(x = "height", y = "mass"),
-      label = "Characters"
-    )
-  ),
+  dataset = starwars_people |> head(20),
+  series = list(list(datasetKeys = list(x = "height", y = "mass"), label = "Characters")),
   voronoiMaxRadius = 50,
-  xAxis = list(
-    list(label = "Height (cm)")
-  ),
-  yAxis = list(
-    list(label = "Mass (kg)")
-  )
+  xAxis = list(list(label = "Height (cm)")),
+  yAxis = list(list(label = "Mass (kg)"))
 )
 ```
 
 Set `voronoiMaxRadius = "item"` to trigger interactions only when
-hovering exactly over an element:
+hovering exactly over a point:
 
 ``` r
 
 ScatterChart(
   height = 350,
-  dataset = starwars_scatter,
-  series = list(
-    list(
-      datasetKeys = list(x = "height", y = "mass"),
-      label = "Characters"
-    )
-  ),
+  dataset = starwars_people |> head(20),
+  series = list(list(datasetKeys = list(x = "height", y = "mass"), label = "Characters")),
   voronoiMaxRadius = "item",
-  xAxis = list(
-    list(label = "Height (cm)")
-  ),
-  yAxis = list(
-    list(label = "Mass (kg)")
-  )
-)
-```
-
-## Marker Size
-
-Customize the size of points with the `markerSize` prop:
-
-``` r
-
-ScatterChart(
-  height = 350,
-  series = list(
-    list(
-      label = "Human",
-      data = lapply(1:nrow(series_a), function(i) {
-        list(
-          id = series_a$id[i],
-          x = series_a$height[i],
-          y = series_a$mass[i]
-        )
-      }),
-      markerSize = 10
-    ),
-    list(
-      label = "Droid",
-      data = lapply(1:nrow(series_b), function(i) {
-        list(
-          id = series_b$id[i],
-          x = series_b$height[i],
-          y = series_b$mass[i]
-        )
-      }),
-      markerSize = 5
-    )
-  ),
-  xAxis = list(
-    list(label = "Height (cm)")
-  ),
-  yAxis = list(
-    list(label = "Mass (kg)")
-  )
+  xAxis = list(list(label = "Height (cm)")),
+  yAxis = list(list(label = "Mass (kg)"))
 )
 ```
 
 ## Multiple Axes
 
-You can use multiple y-axes for different series:
+Use dual y-axes to compare mass and birth year against height on the
+same chart:
 
 ``` r
 
-# Prepare data with different scales
-starwars_multi <- starwars |>
-  filter(!is.na(height), !is.na(mass), !is.na(birth_year), mass < 200) |>
-  select(height, mass, birth_year) |>
-  mutate(id = row_number())
-
 ScatterChart(
   height = 350,
-  dataset = starwars_multi,
+  dataset = starwars_people |> head(20),
   series = list(
     list(
       datasetKeys = list(x = "height", y = "mass"),
       label = "Mass (kg)",
-      yAxisId = "leftAxis"
-    ),
+      yAxisId = "left"),
     list(
       datasetKeys = list(x = "height", y = "birth_year"),
       label = "Birth Year (BBY)",
-      yAxisId = "rightAxis"
-    )
+      yAxisId = "right")
   ),
-  xAxis = list(
-    list(label = "Height (cm)")
-  ),
+  xAxis = list(list(label = "Height (cm)")),
   yAxis = list(
-    list(id = "leftAxis", label = "Mass (kg)"),
-    list(id = "rightAxis", label = "Birth Year (BBY)")
+    list(id = "left",  label = "Mass (kg)"),
+    list(id = "right", label = "Birth Year (BBY)")
   )
 )
 ```
 
-## Custom Scatter Marker
+## Dashboard Example
 
-`ScatterMarker` is the individual marker element rendered for each data
-point. Use it inside `ChartsSurface` via the composition API to
-customise marker appearance through `slotProps`:
+muiCharts integrates seamlessly with
+[muiMaterial](https://felixluginbuhl.com/muiMaterial) to create modern,
+fully-styled dashboards. muiMaterial’s `Card`, `Typography`, and `Stack`
+components make it easy to add titles, subtitles, and footers around
+charts. Combine `ThemeProvider` to customize colors across your entire
+dashboard:
 
 ``` r
 
-ChartDataProvider(
-  dataset = starwars_scatter,
-  height = 350,
-  series = list(
-    list(
-      datasetKeys = list(x = "height", y = "mass"),
-      label = "Characters"
+library(muiMaterial)
+
+muiMaterialPage(
+  CssBaseline(),
+  {
+    primaryColor <- "#1976d2"
+    secondaryColor <- "#dc004e"
+
+    ThemeProvider(
+      theme = list(palette = list(primary = list(main = primaryColor), secondary = list(main = secondaryColor))),
+      Box(sx = list(p = 3, bgcolor = "background.paper"),
+        Card(sx = list(boxShadow = 3),
+          CardContent(
+            Stack(spacing = 1.5,
+              Typography("Height vs Mass by Gender", variant = "h6", sx = list(fontWeight = 600)),
+              Typography("Character physical attributes comparison", variant = "body2", sx = list(color = "text.secondary")),
+              ScatterChart(
+                height = 280,
+                series = list(
+                  list(data = starwars_people |> filter(gender == "male", !is.na(height), !is.na(mass)) |> select(x = height, y = mass), label = "Male", color = primaryColor),
+                  list(data = starwars_people |> filter(gender == "female", !is.na(height), !is.na(mass)) |> select(x = height, y = mass), label = "Female", color = secondaryColor)
+                ),
+                xAxis = list(list(label = "Height (cm)")),
+                yAxis = list(list(label = "Mass (kg)"))
+              ),
+              Divider(),
+              Typography("Made with muiCharts and muiMaterial", variant = "caption", sx = list(color = "text.secondary"))
+            )
+          )
+        )
+      )
     )
-  ),
-  xAxis = list(list(label = "Height (cm)")),
-  yAxis = list(list(label = "Mass (kg)")),
-  ChartsTooltip(trigger = "item"),
-  ChartsSurface(
-    ScatterPlot(
-      slots = list(scatter = JS("
-        React.forwardRef(function CustomMarker(props, ref) {
-          return React.createElement(
-            MuiXCharts.ScatterMarker,
-            Object.assign({}, props, { ref: ref, shape: 'cross' })
-          );
-        })
-      "))
-    ),
-    ChartsXAxis(),
-    ChartsYAxis()
-  )
+  }
 )
 ```
 
-## Focused Scatter Mark
-
-`FocusedScatterMark` renders the visual indicator when a scatter point
-receives keyboard focus. Add it inside `ChartsSurface` in the
-composition API:
-
-``` r
-
-ChartDataProvider(
-  dataset = starwars_scatter,
-  height = 350,
-  series = list(
-    list(
-      datasetKeys = list(x = "height", y = "mass"),
-      label = "Characters"
-    )
-  ),
-  xAxis = list(list(label = "Height (cm)")),
-  yAxis = list(list(label = "Mass (kg)")),
-  ChartsTooltip(trigger = "item"),
-  ChartsSurface(
-    ScatterPlot(),
-    FocusedScatterMark(),
-    ChartsXAxis(),
-    ChartsYAxis()
-  )
-)
-```
+The `Stack` component organizes the title, chart, and footer. Colors
+from `ThemeProvider` are reused in the chart. This pattern works with
+any muiCharts component and fits perfectly within the Material Design
+ecosystem.
 
 ## Learn More
 

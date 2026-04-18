@@ -16,106 +16,52 @@ library(dplyr)
 library(tidyr)
 ```
 
-## Prepare Data
-
-We’ll use the `starwars` dataset from dplyr for our examples. Let’s
-prepare the data by counting characters by species and homeworld:
-
-``` r
-
-# Count characters by species
-starwars_species <- dplyr::starwars |>
-  count(species) |>
-  filter(!is.na(species)) |>
-  arrange(desc(n)) |>
-  slice_head(n = 7)
-
-# Count characters by homeworld
-starwars_homeworld <- dplyr::starwars |>
-  count(homeworld) |>
-  filter(!is.na(homeworld)) |>
-  arrange(desc(n)) |>
-  slice_head(n = 8)
-
-# Count characters by gender across films
-starwars_gender <- dplyr::starwars |>
-  unnest_longer(films) |>
-  count(films, sex) |>
-  filter(!is.na(sex)) |>
-  pivot_wider(names_from = sex, values_from = n, values_fill = 0) |>
-  mutate(release = c(1977, 2002, 1983, 2005, 1980, 2015, 1999)) |>
-  arrange(release)
-```
-
 ## Basic Bar Chart
 
-A simple vertical bar chart showing the count of characters by species:
+A vertical bar chart showing the six tallest Star Wars characters from
+`starwars_people`. Sorting before slicing puts the tallest first:
 
 ``` r
 
 BarChart(
-  dataset = starwars_species,
-  xAxis = list(
-    list(
-      scaleType = "band",
-      dataKey = "species",
-      label = "Species"
-    )
-  ),
-  series = list(
-    list(dataKey = "n", label = "Count")
-  ),
+  dataset = starwars_people |> head(4),
+  xAxis = list(list(scaleType = "band", dataKey = "name", label = "Character")),
+  series = list(list(dataKey = "height", label = "Height (cm)")),
   height = 300
 )
 ```
 
 ## Horizontal Bar Chart
 
-You can create horizontal bars by using the `layout = "horizontal"`
-property:
+Use `layout = "horizontal"` when category names are long. Here
+`starwars_starships` is sorted and trimmed to the eight largest vessels
+— their names read naturally on the y-axis:
 
 ``` r
 
 BarChart(
-  dataset = starwars_homeworld,
+  dataset = starwars_people |> head(4) |> arrange(height),
   layout = "horizontal",
-  yAxis = list(
-    list(
-      scaleType = "band",
-      dataKey = "homeworld",
-      label = "Homeworld"
-    )
-  ),
-  series = list(
-    list(dataKey = "n", label = "Count")
-  ),
-  height = 350
+  yAxis = list(list(scaleType = "band", dataKey = "name", label = "Character", width = 140)),
+  series = list(list(dataKey = "height", label = "Height (m)")),
+  height = 380
 )
 ```
 
 ## Grouped Bar Chart
 
-Display multiple series side by side:
+Place multiple series side by side to compare them directly. This chart
+contrasts height and mass for the first six characters where both values
+are known:
 
 ``` r
 
 BarChart(
-  dataset = starwars_gender,
-  xAxis = list(
-    list(
-      scaleType = "band",
-      dataKey = "films",
-      label = "Movies",
-      tickLabelStyle = list(
-        fontSize = "0.5em"
-      )
-    )
-  ),
+  dataset = starwars_people |> head(4),
+  xAxis = list(list(scaleType = "band", dataKey = "name", label = "Character")),
   series = list(
-    list(dataKey = "male", label = "Male"),
-    list(dataKey = "female", label = "Female"),
-    list(dataKey = "hermaphroditic", label = "Hermaphroditic"),
-    list(dataKey = "none", label = "None")
+    list(dataKey = "height", label = "Height (cm)"),
+    list(dataKey = "mass",   label = "Mass (kg)")
   ),
   grid = list(horizontal = TRUE),
   height = 300
@@ -124,150 +70,128 @@ BarChart(
 
 ## Stacked Bar Chart
 
-Stack series on top of each other using the `stack` property:
+Stack series with `stack` to show both totals and part-to-whole
+relationships. The `starwars_films` dataset contains list columns;
+[`lengths()`](https://rdrr.io/r/base/lengths.html) counts how many items
+each film has:
 
 ``` r
 
 BarChart(
-  dataset = starwars_gender,
-  xAxis = list(
-    list(
-      scaleType = "band",
-      dataKey = "films",
-      label = "Movies",
-      tickLabelStyle = list(
-        fontSize = "0.5em"
-      )
-    )
+  dataset = starwars_films |> mutate(
+    Characters = lengths(characters),
+    Planets    = lengths(planets),
+    Species    = lengths(species)
   ),
+  layout = "horizontal",
+  yAxis = list(list(scaleType = "band", dataKey = "title", width = 220)),
   series = list(
-    list(dataKey = "male", label = "Male", stack = "total"),
-    list(dataKey = "female", label = "Female", stack = "total"),
-    list(dataKey = "hermaphroditic", label = "Hermaphroditic", stack = "total"),
-    list(dataKey = "none", label = "None", stack = "total")
+    list(dataKey = "Characters", label = "Number of Characters", stack = "total"),
+    list(dataKey = "Planets",    label = "Number of Planets",    stack = "total"),
+    list(dataKey = "Species",    label = "Number of Species",    stack = "total")
   ),
-  grid = list(horizontal = TRUE),
-  height = 300
-)
-```
-
-## Customized Bar Chart
-
-Customize colors, border radius, and spacing:
-
-``` r
-
-BarChart(
-  dataset = starwars_gender,
-  xAxis = list(
-    list(
-      scaleType = "band",
-      dataKey = "films",
-      label = "Movies",
-      categoryGapRatio = 0.3,
-      barGapRatio = 0.5,
-      height = 100,
-      tickLabelStyle = list(
-        fontSize = "0.6em",
-        angle = 45
-      )
-    )
-  ),
-  series = list(
-    list(dataKey = "male", label = "Male", color = "#440154FF"),
-    list(dataKey = "female", label = "Female", color = "#2A788EFF"),
-    list(dataKey = "hermaphroditic", label = "Hermaphroditic", color = "#FDE725FF"),
-    list(dataKey = "none", label = "None", color = "#35B779FF")
-  ),
-  borderRadius = 10,
-  grid = list(horizontal = TRUE),
-  height = 400
+  height = 320
 )
 ```
 
 ## Bar Chart with Labels
 
-Display values directly on the bars:
+Set `barLabel = "value"` to print the data value directly on each bar.
+The top species by average height from `starwars_species` make a
+compact, readable chart:
 
 ``` r
 
-starwars_top5 <- starwars_species |>
-  slice_head(n = 5)
-
 BarChart(
-  dataset = starwars_top5,
-  xAxis = list(
-    list(
-      scaleType = "band",
-      dataKey = "species",
-      label = "Species"
-    )
-  ),
-  series = list(
-    list(dataKey = "n", label = "Count", barLabel = "value")
-  ),
-  height = 300
+  dataset = starwars_species |>
+    filter(!is.na(average_height)) |>
+    head(4),
+  xAxis = list(list(scaleType = "band", dataKey = "name", label = "Species")),
+  series = list(list(
+    dataKey  = "average_height",
+    label    = "Avg. Height (cm)",
+    barLabel = "value"
+  )),
+  height = 320
 )
 ```
 
-## Mixed Stacking
+## Numeric Axis
 
-Create different stacking groups:
+Integer columns work as discrete band categories. Here `release_date` is
+converted to an integer year — each unique year gets its own band, and a
+`valueFormatter` prevents MUI from formatting `1977` as `1,977`:
 
 ``` r
 
 BarChart(
-  dataset = starwars_gender,
-  xAxis = list(
-    list(
-      scaleType = "band",
-      dataKey = "films",
-      label = "Movies",
-      tickLabelStyle = list(
-        fontSize = "0.5em"
-      )
-    )
+  dataset = starwars_films |> mutate(
+    year         = as.integer(format(release_date, "%Y")),
+    n_characters = lengths(characters)
   ),
-  series = list(
-    list(dataKey = "male", label = "Male", stack = "group1"),
-    list(dataKey = "female", label = "Female", stack = "group2"),
-    list(dataKey = "hermaphroditic", label = "Hermaphroditic", stack = "group3"),
-    list(dataKey = "none", label = "None", stack = "group3")
-  ),
+  xAxis = list(list(
+    scaleType      = "band",
+    dataKey        = "year",
+    label          = "Film Release Year",
+    valueFormatter = JS("(v) => String(v)")
+  )),
+  series = list(list(dataKey = "n_characters", label = "Number of Characters")),
   grid = list(horizontal = TRUE),
   height = 300
 )
 ```
 
-## Bar Size Customization
+## Color Customization
 
-Control the spacing between bars and categories:
+Set `color` on each series and `borderRadius` on the chart for a
+polished look. Here film and character counts from `starwars_species`
+list columns are styled with a coordinated purple palette:
 
 ``` r
 
-# Prepare height data
-starwars_height <- dplyr::starwars |>
-  filter(!is.na(height), !is.na(species)) |>
-  group_by(species) |>
-  summarize(avg_height = mean(height, na.rm = TRUE)) |>
-  arrange(desc(avg_height)) |>
-  slice_head(n = 6)
+BarChart(
+  dataset = starwars_species |>
+    mutate(n_films = lengths(films), n_people = lengths(people)) |>
+    arrange(desc(n_films)) |>
+    head(4),
+  xAxis = list(list(scaleType = "band", dataKey = "name", label = "Species")),
+  series = list(
+    list(dataKey = "n_films",  label = "Number of Films",      color = "#4338CA"),
+    list(dataKey = "n_people", label = "Number of Characters", color = "#A5B4FC")
+  ),
+  borderRadius = 8,
+  grid = list(horizontal = TRUE),
+  height = 320
+)
+```
+
+## Mixed Stacking
+
+Assign different `stack` values to create independent stacks side by
+side. Here characters are grouped by gender: the `"cast"` stack shows
+how many characters exist per gender, while the `"piloted"` stack breaks
+down the vehicles they operated — starships and ground vehicles stacked
+separately:
+
+``` r
 
 BarChart(
-  dataset = starwars_height,
-  xAxis = list(
-    list(
-      scaleType = "band",
-      dataKey = "species",
-      label = "Species",
-      categoryGapRatio = 0.2,  # Gap between categories
-      barGapRatio = 0.1        # Gap between bars
-    )
-  ),
+  dataset = starwars_people |>
+    filter(gender %in% c("male", "female")) |>
+    group_by(gender) |>
+    summarise(
+      Characters = n(),
+      Starships  = sum(lengths(starships)),
+      Vehicles   = sum(lengths(vehicles))
+    ),
+  xAxis = list(list(scaleType = "band", dataKey = "gender", label = "Gender")),
   series = list(
-    list(dataKey = "avg_height", label = "Average Height (cm)")
+    list(dataKey = "Characters", label = "Characters",        stack = "cast"),
+    list(dataKey = "Starships",  label = "Starships piloted", stack = "piloted"),
+    list(dataKey = "Vehicles",   label = "Vehicles piloted",  stack = "piloted")
   ),
-  height = 300
+  grid = list(horizontal = TRUE),
+  height = 320
 )
 ```
 
@@ -289,22 +213,73 @@ custom slot override:
 ``` r
 
 ChartDataProvider(
-  dataset = starwars_top5,
-  height = 320,
-  xAxis = list(list(scaleType = "band", dataKey = "species", label = "Species")),
-  series = list(list(type = "bar", dataKey = "n", label = "Count")),
+  dataset = starwars_species |>
+    filter(!is.na(average_height)) |>
+    head(4) |>
+    arrange(desc(average_height)),
+  height = 340,
+  xAxis = list(list(scaleType = "band", dataKey = "name", label = "Species")),
+  series = list(list(type = "bar", dataKey = "average_height", label = "Avg. Height (cm)")),
+  ChartsTooltip(),
+  ChartsLegend(),
   ChartsSurface(
     BarPlot(
       barLabel = "value",
-      slotProps = list(
-        barLabel = list(placement = "outside")
-      )
+      slotProps = list(barLabel = list(placement = "outside"))
     ),
     ChartsXAxis(),
     ChartsYAxis()
   )
 )
 ```
+
+## Dashboard Example
+
+muiCharts integrates seamlessly with
+[muiMaterial](https://felixluginbuhl.com/muiMaterial) to create modern,
+fully-styled dashboards. muiMaterial’s `Card`, `Typography`, and `Stack`
+components make it easy to add titles, subtitles, and footers around
+charts. Combine `ThemeProvider` to customize colors across your entire
+dashboard:
+
+``` r
+
+library(muiMaterial)
+
+muiMaterialPage(
+  CssBaseline(),
+  {
+    primaryColor <- "#1976d2"
+
+    ThemeProvider(
+      theme = list(palette = list(primary = list(main = primaryColor))),
+      Box(sx = list(p = 3, bgcolor = "background.paper"),
+        Card(sx = list(boxShadow = 3),
+          CardContent(
+            Stack(spacing = 1.5,
+              Typography("Character Count", variant = "h6", sx = list(fontWeight = 600)),
+              Typography("Number of characters by episode", variant = "body2", sx = list(color = "text.secondary")),
+              BarChart(
+                dataset = starwars_films |> mutate(Characters = lengths(characters)) |> arrange(episode_id),
+                xAxis = list(list(scaleType = "band", dataKey = "episode_id")),
+                series = list(list(dataKey = "Characters", color = primaryColor)),
+                height = 280
+              ),
+              Divider(),
+              Typography("Made with muiCharts and muiMaterial", variant = "caption", sx = list(color = "text.secondary"))
+            )
+          )
+        )
+      )
+    )
+  }
+)
+```
+
+The `Stack` component organizes the title, chart, and footer. The
+`primaryColor` from `ThemeProvider` is reused in the chart. This pattern
+works with any muiCharts component and fits perfectly within the
+Material Design ecosystem.
 
 ## Learn More
 

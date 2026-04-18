@@ -92,233 +92,246 @@
 
     
     
+<div class="section level2">
+<h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
+</h2>
+<p>Radar charts compare multiple quantitative variables for one or more
+groups. They are ideal for profiling items across a common set of
+dimensions.</p>
+</div>
+<div class="section level2">
+<h2 id="setup">Setup<a class="anchor" aria-label="anchor" href="#setup"></a>
+</h2>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/lgnbhl/muiCharts" class="external-link">muiCharts</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org" class="external-link">tidyr</a></span><span class="op">)</span></span></code></pre></div>
-<p>This article demonstrates how to create radar charts using muiCharts,
-based on the <a href="https://mui.com/x/react-charts/radar/" class="external-link">MUI Radar
-Chart documentation</a>.</p>
-<div class="section level2">
-<h2 id="basics">Basics<a class="anchor" aria-label="anchor" href="#basics"></a>
-</h2>
-<p>Create a basic radar chart showing character counts by sex across
-different metrics:</p>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></code></pre></div>
+<p>Compute element counts per film — Characters, Planets, Species and
+Starships make natural radar dimensions:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Prepare data: count characters by sex for each film</span></span>
-<span><span class="va">starwars_film_sex</span> <span class="op">&lt;-</span> <span class="va">starwars</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/unnest_longer.html" class="external-link">unnest_longer</a></span><span class="op">(</span><span class="va">films</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">films</span>, <span class="va">sex</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html" class="external-link">pivot_wider</a></span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">sex</span>, values_from <span class="op">=</span> <span class="va">n</span>, values_fill <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Create radar chart for one film</span></span>
-<span><span class="va">film_data</span> <span class="op">&lt;-</span> <span class="va">starwars_film_sex</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">films</span> <span class="op">==</span> <span class="st">"A New Hope"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="../reference/RadarChart.html">RadarChart</a></span><span class="op">(</span></span>
-<span>  height <span class="op">=</span> <span class="fl">300</span>,</span>
-<span>  series <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="va">film_metrics</span> <span class="op">&lt;-</span> <span class="va">starwars_films</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
+<span>    n_characters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lengths.html" class="external-link">lengths</a></span><span class="op">(</span><span class="va">characters</span><span class="op">)</span>,</span>
+<span>    n_planets    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lengths.html" class="external-link">lengths</a></span><span class="op">(</span><span class="va">planets</span><span class="op">)</span>,</span>
+<span>    n_species    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lengths.html" class="external-link">lengths</a></span><span class="op">(</span><span class="va">species</span><span class="op">)</span>,</span>
+<span>    n_starships  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lengths.html" class="external-link">lengths</a></span><span class="op">(</span><span class="va">starships</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="basic-radar-chart">Basic Radar Chart<a class="anchor" aria-label="anchor" href="#basic-radar-chart"></a>
+</h2>
+<p>Profile a single film across its four element dimensions:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/RadarChart.html">RadarChart</a></span><span class="op">(</span></span>
+<span>  height  <span class="op">=</span> <span class="fl">300</span>,</span>
+<span>  series  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      label <span class="op">=</span> <span class="st">"A New Hope"</span>,</span>
-<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">film_data</span><span class="op">$</span><span class="va">male</span>, <span class="va">film_data</span><span class="op">$</span><span class="va">female</span>, <span class="va">film_data</span><span class="op">$</span><span class="va">hermaphroditic</span>, <span class="va">film_data</span><span class="op">$</span><span class="va">none</span><span class="op">)</span></span>
+<span>      label <span class="op">=</span> <span class="va">film_metrics</span><span class="op">$</span><span class="va">title</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, </span>
+<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>        <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_characters</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_planets</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
+<span>        <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_species</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_starships</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span>
+<span>      <span class="op">)</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span>,</span>
-<span>  radar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    metrics <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"male"</span>, <span class="st">"female"</span>, <span class="st">"hermaphroditic"</span>, <span class="st">"none"</span><span class="op">)</span></span>
-<span>  <span class="op">)</span></span>
+<span>  radar   <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>metrics <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Characters"</span>, <span class="st">"Planets"</span>, <span class="st">"Species"</span>, <span class="st">"Starships"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="cvpeammhtuweaikfkbkz">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"RadarChart","props":{"type":"raw","value":{"height":300,"series":[{"label":"A New Hope","data":[11,2,1,3]}],"radar":{"metrics":["male","female","hermaphroditic","none"]}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('cvpeammhtuweaikfkbkz')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"RadarChart","props":{"type":"raw","value":{"height":300,"series":[{"label":"A New Hope","data":[18,3,5,8]}],"radar":{"metrics":["Characters","Planets","Species","Starships"]}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('cvpeammhtuweaikfkbkz')</script>
 </div>
 </div>
 <div class="section level2">
 <h2 id="multi-series-radar-chart">Multi-series Radar Chart<a class="anchor" aria-label="anchor" href="#multi-series-radar-chart"></a>
 </h2>
-<p>Compare multiple films on the same radar chart:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Prepare data for three films</span></span>
-<span><span class="va">film1</span> <span class="op">&lt;-</span> <span class="va">starwars_film_sex</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">films</span> <span class="op">==</span> <span class="st">"A New Hope"</span><span class="op">)</span></span>
-<span><span class="va">film2</span> <span class="op">&lt;-</span> <span class="va">starwars_film_sex</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">films</span> <span class="op">==</span> <span class="st">"Attack of the Clones"</span><span class="op">)</span></span>
-<span><span class="va">film3</span> <span class="op">&lt;-</span> <span class="va">starwars_film_sex</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">films</span> <span class="op">==</span> <span class="st">"Return of the Jedi"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="../reference/RadarChart.html">RadarChart</a></span><span class="op">(</span></span>
-<span>  height <span class="op">=</span> <span class="fl">350</span>,</span>
-<span>  series <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      label <span class="op">=</span> <span class="st">"A New Hope"</span>,</span>
-<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">film1</span><span class="op">$</span><span class="va">male</span>, <span class="va">film1</span><span class="op">$</span><span class="va">female</span>, <span class="va">film1</span><span class="op">$</span><span class="va">hermaphroditic</span>, <span class="va">film1</span><span class="op">$</span><span class="va">none</span><span class="op">)</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      label <span class="op">=</span> <span class="st">"Attack of the Clones"</span>,</span>
-<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">film2</span><span class="op">$</span><span class="va">male</span>, <span class="va">film2</span><span class="op">$</span><span class="va">female</span>, <span class="va">film2</span><span class="op">$</span><span class="va">hermaphroditic</span>, <span class="va">film2</span><span class="op">$</span><span class="va">none</span><span class="op">)</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      label <span class="op">=</span> <span class="st">"Return of the Jedi"</span>,</span>
-<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">film3</span><span class="op">$</span><span class="va">male</span>, <span class="va">film3</span><span class="op">$</span><span class="va">female</span>, <span class="va">film3</span><span class="op">$</span><span class="va">hermaphroditic</span>, <span class="va">film3</span><span class="op">$</span><span class="va">none</span><span class="op">)</span></span>
-<span>    <span class="op">)</span></span>
-<span>  <span class="op">)</span>,</span>
-<span>  radar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    metrics <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"male"</span>, <span class="st">"female"</span>, <span class="st">"hermaphroditic"</span>, <span class="st">"none"</span><span class="op">)</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="op">)</span></span></code></pre></div>
-<div class="react-container" data-react-id="hrtfztbnsrafhqmlsyef">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"RadarChart","props":{"type":"raw","value":{"height":350,"series":[{"label":"A New Hope","data":[11,2,1,3]},{"label":"Attack of the Clones","data":[23,11,0,3]},{"label":"Return of the Jedi","data":[15,2,1,2]}],"radar":{"metrics":["male","female","hermaphroditic","none"]}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('hrtfztbnsrafhqmlsyef')</script>
-</div>
-</div>
-<div class="section level2">
-<h2 id="series-options">Series Options<a class="anchor" aria-label="anchor" href="#series-options"></a>
-</h2>
-<p>Customize series appearance with <code>hideMark</code> and
-<code>fillArea</code>:</p>
+<p>Overlay multiple films to compare how each is composed across the
+same dimensions:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/RadarChart.html">RadarChart</a></span><span class="op">(</span></span>
 <span>  height <span class="op">=</span> <span class="fl">350</span>,</span>
 <span>  series <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      label <span class="op">=</span> <span class="st">"A New Hope"</span>,</span>
-<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">film1</span><span class="op">$</span><span class="va">male</span>, <span class="va">film1</span><span class="op">$</span><span class="va">female</span>, <span class="va">film1</span><span class="op">$</span><span class="va">hermaphroditic</span>, <span class="va">film1</span><span class="op">$</span><span class="va">none</span><span class="op">)</span>,</span>
-<span>      fillArea <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span>      label <span class="op">=</span> <span class="va">film_metrics</span><span class="op">$</span><span class="va">title</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
+<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>        <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_characters</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_planets</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
+<span>        <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_species</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_starships</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span>
+<span>      <span class="op">)</span></span>
 <span>    <span class="op">)</span>,</span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      label <span class="op">=</span> <span class="st">"Attack of the Clones"</span>,</span>
-<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">film2</span><span class="op">$</span><span class="va">male</span>, <span class="va">film2</span><span class="op">$</span><span class="va">female</span>, <span class="va">film2</span><span class="op">$</span><span class="va">hermaphroditic</span>, <span class="va">film2</span><span class="op">$</span><span class="va">none</span><span class="op">)</span>,</span>
-<span>      hideMark <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span>      label <span class="op">=</span> <span class="va">film_metrics</span><span class="op">$</span><span class="va">title</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>,</span>
+<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>        <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_characters</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_planets</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>,</span>
+<span>        <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_species</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_starships</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>      label <span class="op">=</span> <span class="va">film_metrics</span><span class="op">$</span><span class="va">title</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>,</span>
+<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>        <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_characters</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>, <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_planets</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>,</span>
+<span>        <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_species</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>, <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_starships</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span></span>
+<span>      <span class="op">)</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span>,</span>
-<span>  radar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    metrics <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"male"</span>, <span class="st">"female"</span>, <span class="st">"hermaphroditic"</span>, <span class="st">"none"</span><span class="op">)</span></span>
-<span>  <span class="op">)</span></span>
+<span>  radar  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>metrics <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Characters"</span>, <span class="st">"Planets"</span>, <span class="st">"Species"</span>, <span class="st">"Starships"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<div class="react-container" data-react-id="rmqrctuzzklienmufsbj">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"RadarChart","props":{"type":"raw","value":{"height":350,"series":[{"label":"A New Hope","data":[11,2,1,3],"fillArea":true},{"label":"Attack of the Clones","data":[23,11,0,3],"hideMark":true}],"radar":{"metrics":["male","female","hermaphroditic","none"]}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('rmqrctuzzklienmufsbj')</script>
+<div class="react-container" data-react-id="hrtfztbnsrafhqmlsyef">
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"RadarChart","props":{"type":"raw","value":{"height":350,"series":[{"label":"A New Hope","data":[18,3,5,8]},{"label":"The Empire Strikes Back","data":[16,4,5,9]},{"label":"Return of the Jedi","data":[20,5,9,12]}],"radar":{"metrics":["Characters","Planets","Species","Starships"]}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('hrtfztbnsrafhqmlsyef')</script>
 </div>
 </div>
 <div class="section level2">
-<h2 id="metrics">Metrics<a class="anchor" aria-label="anchor" href="#metrics"></a>
+<h2 id="series-options">Series Options<a class="anchor" aria-label="anchor" href="#series-options"></a>
 </h2>
-<p>Define metrics with detailed configuration using objects with
-<code>name</code>, <code>min</code>, and <code>max</code>:</p>
+<p>Use <code>fillArea = TRUE</code> to shade the polygon and
+<code>hideMark = TRUE</code> to suppress vertex dots:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/RadarChart.html">RadarChart</a></span><span class="op">(</span></span>
 <span>  height <span class="op">=</span> <span class="fl">350</span>,</span>
 <span>  series <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      label <span class="op">=</span> <span class="st">"A New Hope"</span>,</span>
-<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">film1</span><span class="op">$</span><span class="va">male</span>, <span class="va">film1</span><span class="op">$</span><span class="va">female</span>, <span class="va">film1</span><span class="op">$</span><span class="va">hermaphroditic</span>, <span class="va">film1</span><span class="op">$</span><span class="va">none</span><span class="op">)</span></span>
+<span>      label <span class="op">=</span> <span class="va">film_metrics</span><span class="op">$</span><span class="va">title</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
+<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>        <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_characters</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_planets</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
+<span>        <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_species</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_starships</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span>
+<span>      <span class="op">)</span>,</span>
+<span>      fillArea <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span>    <span class="op">)</span>,</span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      label <span class="op">=</span> <span class="st">"Attack of the Clones"</span>,</span>
-<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">film2</span><span class="op">$</span><span class="va">male</span>, <span class="va">film2</span><span class="op">$</span><span class="va">female</span>, <span class="va">film2</span><span class="op">$</span><span class="va">hermaphroditic</span>, <span class="va">film2</span><span class="op">$</span><span class="va">none</span><span class="op">)</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      label <span class="op">=</span> <span class="st">"Return of the Jedi"</span>,</span>
-<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">film3</span><span class="op">$</span><span class="va">male</span>, <span class="va">film3</span><span class="op">$</span><span class="va">female</span>, <span class="va">film3</span><span class="op">$</span><span class="va">hermaphroditic</span>, <span class="va">film3</span><span class="op">$</span><span class="va">none</span><span class="op">)</span></span>
+<span>      label <span class="op">=</span> <span class="va">film_metrics</span><span class="op">$</span><span class="va">title</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>,</span>
+<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>        <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_characters</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_planets</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>,</span>
+<span>        <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_species</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_starships</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></span>
+<span>      <span class="op">)</span>,</span>
+<span>      hideMark <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span>,</span>
-<span>  radar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    metrics <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"male"</span>, min <span class="op">=</span> <span class="fl">0</span>, max <span class="op">=</span> <span class="fl">30</span><span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"female"</span>, min <span class="op">=</span> <span class="fl">0</span>, max <span class="op">=</span> <span class="fl">30</span><span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"hermaphroditic"</span>, min <span class="op">=</span> <span class="fl">0</span>, max <span class="op">=</span> <span class="fl">30</span><span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"none"</span>, min <span class="op">=</span> <span class="fl">0</span>, max <span class="op">=</span> <span class="fl">30</span><span class="op">)</span></span>
-<span>    <span class="op">)</span></span>
-<span>  <span class="op">)</span></span>
+<span>  radar  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>metrics <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Characters"</span>, <span class="st">"Planets"</span>, <span class="st">"Species"</span>, <span class="st">"Starships"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<div class="react-container" data-react-id="vhoipeyoohljamkajowk">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"RadarChart","props":{"type":"raw","value":{"height":350,"series":[{"label":"A New Hope","data":[11,2,1,3]},{"label":"Attack of the Clones","data":[23,11,0,3]},{"label":"Return of the Jedi","data":[15,2,1,2]}],"radar":{"metrics":[{"name":"male","min":0,"max":30},{"name":"female","min":0,"max":30},{"name":"hermaphroditic","min":0,"max":30},{"name":"none","min":0,"max":30}]}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('vhoipeyoohljamkajowk')</script>
+<div class="react-container" data-react-id="rmqrctuzzklienmufsbj">
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"RadarChart","props":{"type":"raw","value":{"height":350,"series":[{"label":"A New Hope","data":[18,3,5,8],"fillArea":true},{"label":"The Empire Strikes Back","data":[16,4,5,9],"hideMark":true}],"radar":{"metrics":["Characters","Planets","Species","Starships"]}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('rmqrctuzzklienmufsbj')</script>
 </div>
 </div>
 <div class="section level2">
-<h2 id="grid">Grid<a class="anchor" aria-label="anchor" href="#grid"></a>
+<h2 id="metrics-with-fixed-range">Metrics with Fixed Range<a class="anchor" aria-label="anchor" href="#metrics-with-fixed-range"></a>
 </h2>
-<p>Customize the radar grid with <code>shape</code> and
-<code>divisions</code>:</p>
+<p>Define <code>min</code> and <code>max</code> per metric to ensure all
+axes share the same scale:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/RadarChart.html">RadarChart</a></span><span class="op">(</span></span>
 <span>  height <span class="op">=</span> <span class="fl">350</span>,</span>
 <span>  series <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      label <span class="op">=</span> <span class="st">"A New Hope"</span>,</span>
-<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">film1</span><span class="op">$</span><span class="va">male</span>, <span class="va">film1</span><span class="op">$</span><span class="va">female</span>, <span class="va">film1</span><span class="op">$</span><span class="va">hermaphroditic</span>, <span class="va">film1</span><span class="op">$</span><span class="va">none</span><span class="op">)</span></span>
+<span>      label <span class="op">=</span> <span class="va">film_metrics</span><span class="op">$</span><span class="va">title</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
+<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>        <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_characters</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_planets</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
+<span>        <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_species</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_starships</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span>
+<span>      <span class="op">)</span></span>
 <span>    <span class="op">)</span>,</span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      label <span class="op">=</span> <span class="st">"Attack of the Clones"</span>,</span>
-<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">film2</span><span class="op">$</span><span class="va">male</span>, <span class="va">film2</span><span class="op">$</span><span class="va">female</span>, <span class="va">film2</span><span class="op">$</span><span class="va">hermaphroditic</span>, <span class="va">film2</span><span class="op">$</span><span class="va">none</span><span class="op">)</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      label <span class="op">=</span> <span class="st">"Return of the Jedi"</span>,</span>
-<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">film3</span><span class="op">$</span><span class="va">male</span>, <span class="va">film3</span><span class="op">$</span><span class="va">female</span>, <span class="va">film3</span><span class="op">$</span><span class="va">hermaphroditic</span>, <span class="va">film3</span><span class="op">$</span><span class="va">none</span><span class="op">)</span></span>
+<span>      label <span class="op">=</span> <span class="va">film_metrics</span><span class="op">$</span><span class="va">title</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>,</span>
+<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>        <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_characters</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_planets</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>,</span>
+<span>        <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_species</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_starships</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></span>
+<span>      <span class="op">)</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span>,</span>
-<span>  shape <span class="op">=</span> <span class="st">"circular"</span>, <span class="co"># or "sharp"</span></span>
+<span>  radar  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>metrics <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Characters"</span>, min <span class="op">=</span> <span class="fl">0</span>, max <span class="op">=</span> <span class="fl">20</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Planets"</span>,    min <span class="op">=</span> <span class="fl">0</span>, max <span class="op">=</span> <span class="fl">20</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Species"</span>,    min <span class="op">=</span> <span class="fl">0</span>, max <span class="op">=</span> <span class="fl">20</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Starships"</span>,  min <span class="op">=</span> <span class="fl">0</span>, max <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></span>
+<span>  <span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<div class="react-container" data-react-id="vhoipeyoohljamkajowk">
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"RadarChart","props":{"type":"raw","value":{"height":350,"series":[{"label":"A New Hope","data":[18,3,5,8]},{"label":"The Empire Strikes Back","data":[16,4,5,9]}],"radar":{"metrics":[{"name":"Characters","min":0,"max":20},{"name":"Planets","min":0,"max":20},{"name":"Species","min":0,"max":20},{"name":"Starships","min":0,"max":20}]}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('vhoipeyoohljamkajowk')</script>
+</div>
+</div>
+<div class="section level2">
+<h2 id="grid-shape">Grid Shape<a class="anchor" aria-label="anchor" href="#grid-shape"></a>
+</h2>
+<p>Switch between a circular (<code>"circular"</code>) and a polygon
+(<code>"sharp"</code>) grid:</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/RadarChart.html">RadarChart</a></span><span class="op">(</span></span>
+<span>  height    <span class="op">=</span> <span class="fl">350</span>,</span>
+<span>  series <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>      label <span class="op">=</span> <span class="va">film_metrics</span><span class="op">$</span><span class="va">title</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
+<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>        <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_characters</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_planets</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
+<span>        <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_species</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_starships</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>      label <span class="op">=</span> <span class="va">film_metrics</span><span class="op">$</span><span class="va">title</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>,</span>
+<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>        <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_characters</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_planets</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>,</span>
+<span>        <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_species</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_starships</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  shape <span class="op">=</span> <span class="st">"circular"</span>,</span>
 <span>  divisions <span class="op">=</span> <span class="fl">3</span>,</span>
-<span>  radar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    metrics <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"male"</span>, <span class="st">"female"</span>, <span class="st">"hermaphroditic"</span>, <span class="st">"none"</span><span class="op">)</span></span>
-<span>  <span class="op">)</span></span>
+<span>  radar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>metrics <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Characters"</span>, <span class="st">"Planets"</span>, <span class="st">"Species"</span>, <span class="st">"Starships"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="npghmxkfrbzdnvsgovam">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"RadarChart","props":{"type":"raw","value":{"height":350,"series":[{"label":"A New Hope","data":[11,2,1,3]},{"label":"Attack of the Clones","data":[23,11,0,3]},{"label":"Return of the Jedi","data":[15,2,1,2]}],"shape":"circular","divisions":3,"radar":{"metrics":["male","female","hermaphroditic","none"]}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('npghmxkfrbzdnvsgovam')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"RadarChart","props":{"type":"raw","value":{"height":350,"series":[{"label":"A New Hope","data":[18,3,5,8]},{"label":"The Empire Strikes Back","data":[16,4,5,9]}],"shape":"circular","divisions":3,"radar":{"metrics":["Characters","Planets","Species","Starships"]}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('npghmxkfrbzdnvsgovam')</script>
 </div>
 </div>
 <div class="section level2">
 <h2 id="highlight">Highlight<a class="anchor" aria-label="anchor" href="#highlight"></a>
 </h2>
-<p>Control highlighting with the <code>highlight</code> prop:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<p>Control hover highlighting with <code>highlight</code>:</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/RadarChart.html">RadarChart</a></span><span class="op">(</span></span>
-<span>  height <span class="op">=</span> <span class="fl">350</span>,</span>
+<span>  height    <span class="op">=</span> <span class="fl">350</span>,</span>
 <span>  series <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      label <span class="op">=</span> <span class="st">"A New Hope"</span>,</span>
-<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">film1</span><span class="op">$</span><span class="va">male</span>, <span class="va">film1</span><span class="op">$</span><span class="va">female</span>, <span class="va">film1</span><span class="op">$</span><span class="va">hermaphroditic</span>, <span class="va">film1</span><span class="op">$</span><span class="va">none</span><span class="op">)</span></span>
+<span>      label <span class="op">=</span> <span class="va">film_metrics</span><span class="op">$</span><span class="va">title</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
+<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>        <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_characters</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_planets</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
+<span>        <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_species</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_starships</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span>
+<span>      <span class="op">)</span></span>
 <span>    <span class="op">)</span>,</span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      label <span class="op">=</span> <span class="st">"Attack of the Clones"</span>,</span>
-<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">film2</span><span class="op">$</span><span class="va">male</span>, <span class="va">film2</span><span class="op">$</span><span class="va">female</span>, <span class="va">film2</span><span class="op">$</span><span class="va">hermaphroditic</span>, <span class="va">film2</span><span class="op">$</span><span class="va">none</span><span class="op">)</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      label <span class="op">=</span> <span class="st">"Return of the Jedi"</span>,</span>
-<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">film3</span><span class="op">$</span><span class="va">male</span>, <span class="va">film3</span><span class="op">$</span><span class="va">female</span>, <span class="va">film3</span><span class="op">$</span><span class="va">hermaphroditic</span>, <span class="va">film3</span><span class="op">$</span><span class="va">none</span><span class="op">)</span></span>
+<span>      label <span class="op">=</span> <span class="va">film_metrics</span><span class="op">$</span><span class="va">title</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>,</span>
+<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>        <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_characters</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_planets</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>,</span>
+<span>        <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_species</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_starships</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></span>
+<span>      <span class="op">)</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span>,</span>
 <span>  highlight <span class="op">=</span> <span class="st">"series"</span>,</span>
-<span>  radar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    metrics <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"male"</span>, <span class="st">"female"</span>, <span class="st">"hermaphroditic"</span>, <span class="st">"none"</span><span class="op">)</span></span>
-<span>  <span class="op">)</span></span>
+<span>  radar     <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>metrics <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Characters"</span>, <span class="st">"Planets"</span>, <span class="st">"Species"</span>, <span class="st">"Starships"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="uvkfkrnrnvswaxznjupq">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"RadarChart","props":{"type":"raw","value":{"height":350,"series":[{"label":"A New Hope","data":[11,2,1,3]},{"label":"Attack of the Clones","data":[23,11,0,3]},{"label":"Return of the Jedi","data":[15,2,1,2]}],"highlight":"series","radar":{"metrics":["male","female","hermaphroditic","none"]}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('uvkfkrnrnvswaxznjupq')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"RadarChart","props":{"type":"raw","value":{"height":350,"series":[{"label":"A New Hope","data":[18,3,5,8]},{"label":"The Empire Strikes Back","data":[16,4,5,9]}],"highlight":"series","radar":{"metrics":["Characters","Planets","Species","Starships"]}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('uvkfkrnrnvswaxznjupq')</script>
 </div>
 </div>
 <div class="section level2">
 <h2 id="tooltip">Tooltip<a class="anchor" aria-label="anchor" href="#tooltip"></a>
 </h2>
 <p>Customize tooltip behavior with the <code>trigger</code> option:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/RadarChart.html">RadarChart</a></span><span class="op">(</span></span>
-<span>  height <span class="op">=</span> <span class="fl">350</span>,</span>
+<span>  height    <span class="op">=</span> <span class="fl">350</span>,</span>
 <span>  series <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      label <span class="op">=</span> <span class="st">"A New Hope"</span>,</span>
-<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">film1</span><span class="op">$</span><span class="va">male</span>, <span class="va">film1</span><span class="op">$</span><span class="va">female</span>, <span class="va">film1</span><span class="op">$</span><span class="va">hermaphroditic</span>, <span class="va">film1</span><span class="op">$</span><span class="va">none</span><span class="op">)</span></span>
+<span>      label <span class="op">=</span> <span class="va">film_metrics</span><span class="op">$</span><span class="va">title</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
+<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>        <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_characters</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_planets</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
+<span>        <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_species</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_starships</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span>
+<span>      <span class="op">)</span></span>
 <span>    <span class="op">)</span>,</span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      label <span class="op">=</span> <span class="st">"Attack of the Clones"</span>,</span>
-<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">film2</span><span class="op">$</span><span class="va">male</span>, <span class="va">film2</span><span class="op">$</span><span class="va">female</span>, <span class="va">film2</span><span class="op">$</span><span class="va">hermaphroditic</span>, <span class="va">film2</span><span class="op">$</span><span class="va">none</span><span class="op">)</span></span>
+<span>      label <span class="op">=</span> <span class="va">film_metrics</span><span class="op">$</span><span class="va">title</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>,</span>
+<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>        <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_characters</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_planets</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>,</span>
+<span>        <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_species</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_starships</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></span>
+<span>      <span class="op">)</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span>,</span>
-<span>  radar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    metrics <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"male"</span>, <span class="st">"female"</span>, <span class="st">"hermaphroditic"</span>, <span class="st">"none"</span><span class="op">)</span></span>
-<span>  <span class="op">)</span>,</span>
-<span>  slotProps <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    tooltip <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      trigger <span class="op">=</span> <span class="st">"axis"</span> <span class="co"># or "item"</span></span>
-<span>    <span class="op">)</span></span>
-<span>  <span class="op">)</span></span>
+<span>  radar     <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>metrics <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Characters"</span>, <span class="st">"Planets"</span>, <span class="st">"Species"</span>, <span class="st">"Starships"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  slotProps <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>tooltip <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>trigger <span class="op">=</span> <span class="st">"axis"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="wogxwgkudferwyoprgbx">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"RadarChart","props":{"type":"raw","value":{"height":350,"series":[{"label":"A New Hope","data":[11,2,1,3]},{"label":"Attack of the Clones","data":[23,11,0,3]}],"radar":{"metrics":["male","female","hermaphroditic","none"]},"slotProps":{"tooltip":{"trigger":"axis"}}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('wogxwgkudferwyoprgbx')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"RadarChart","props":{"type":"raw","value":{"height":350,"series":[{"label":"A New Hope","data":[18,3,5,8]},{"label":"The Empire Strikes Back","data":[16,4,5,9]}],"radar":{"metrics":["Characters","Planets","Species","Starships"]},"slotProps":{"tooltip":{"trigger":"axis"}}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('wogxwgkudferwyoprgbx')</script>
 </div>
 </div>
 <div class="section level2">
@@ -327,23 +340,27 @@ different metrics:</p>
 <p><code>RadarDataProvider</code> is the dedicated data provider for
 radar charts. Use it with <code>RadarGrid</code>,
 <code>RadarAxis</code>, <code>RadarSeriesPlot</code>, and
-<code>RadarMetricLabels</code> to build a fully custom radar chart:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code>RadarMetricLabels</code> for a fully custom layout:</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/RadarDataProvider.html">RadarDataProvider</a></span><span class="op">(</span></span>
 <span>  height <span class="op">=</span> <span class="fl">350</span>,</span>
 <span>  series <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      label <span class="op">=</span> <span class="st">"A New Hope"</span>,</span>
-<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">film1</span><span class="op">$</span><span class="va">male</span>, <span class="va">film1</span><span class="op">$</span><span class="va">female</span>, <span class="va">film1</span><span class="op">$</span><span class="va">hermaphroditic</span>, <span class="va">film1</span><span class="op">$</span><span class="va">none</span><span class="op">)</span></span>
+<span>      label <span class="op">=</span> <span class="va">film_metrics</span><span class="op">$</span><span class="va">title</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
+<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>        <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_characters</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_planets</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
+<span>        <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_species</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_starships</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span>
+<span>      <span class="op">)</span></span>
 <span>    <span class="op">)</span>,</span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      label <span class="op">=</span> <span class="st">"Attack of the Clones"</span>,</span>
-<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">film2</span><span class="op">$</span><span class="va">male</span>, <span class="va">film2</span><span class="op">$</span><span class="va">female</span>, <span class="va">film2</span><span class="op">$</span><span class="va">hermaphroditic</span>, <span class="va">film2</span><span class="op">$</span><span class="va">none</span><span class="op">)</span></span>
+<span>      label <span class="op">=</span> <span class="va">film_metrics</span><span class="op">$</span><span class="va">title</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>,</span>
+<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>        <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_characters</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_planets</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>,</span>
+<span>        <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_species</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, <span class="va">film_metrics</span><span class="op">$</span><span class="va">n_starships</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></span>
+<span>      <span class="op">)</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span>,</span>
-<span>  radar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    metrics <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"male"</span>, <span class="st">"female"</span>, <span class="st">"hermaphroditic"</span>, <span class="st">"none"</span><span class="op">)</span></span>
-<span>  <span class="op">)</span>,</span>
+<span>  radar  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>metrics <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Characters"</span>, <span class="st">"Planets"</span>, <span class="st">"Species"</span>, <span class="st">"Starships"</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>  <span class="fu"><a href="../reference/ChartsLegend.html">ChartsLegend</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  <span class="fu"><a href="../reference/ChartsTooltip.html">ChartsTooltip</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  <span class="fu"><a href="../reference/ChartsSurface.html">ChartsSurface</a></span><span class="op">(</span></span>
@@ -354,114 +371,7 @@ radar charts. Use it with <code>RadarGrid</code>,
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="lofazeuxvpxadcskbdyf">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"RadarDataProvider","props":{"type":"object","value":{"height":{"type":"raw","value":350},"series":{"type":"raw","value":[{"label":"A New Hope","data":[11,2,1,3]},{"label":"Attack of the Clones","data":[23,11,0,3]}]},"radar":{"type":"raw","value":{"metrics":["male","female","hermaphroditic","none"]}},"children":{"type":"array","value":[{"type":"element","module":"@mui/x-charts","name":"ChartsLegend","props":{"type":"raw","value":[]}},{"type":"element","module":"@mui/x-charts","name":"ChartsTooltip","props":{"type":"raw","value":[]}},{"type":"element","module":"@mui/x-charts","name":"ChartsSurface","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","module":"@mui/x-charts","name":"RadarGrid","props":{"type":"raw","value":[]}},{"type":"element","module":"@mui/x-charts","name":"RadarSeriesPlot","props":{"type":"raw","value":[]}},{"type":"element","module":"@mui/x-charts","name":"RadarAxis","props":{"type":"raw","value":[]}},{"type":"element","module":"@mui/x-charts","name":"RadarMetricLabels","props":{"type":"raw","value":[]}}]}}}}]}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('lofazeuxvpxadcskbdyf')</script>
-</div>
-</div>
-<div class="section level2">
-<h2 id="focused-radar-mark">Focused Radar Mark<a class="anchor" aria-label="anchor" href="#focused-radar-mark"></a>
-</h2>
-<p><code>FocusedRadarMark</code> renders the visual indicator when a
-radar data point receives keyboard focus. Add it inside
-<code>ChartsSurface</code>:</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/RadarDataProvider.html">RadarDataProvider</a></span><span class="op">(</span></span>
-<span>  height <span class="op">=</span> <span class="fl">350</span>,</span>
-<span>  series <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      label <span class="op">=</span> <span class="st">"A New Hope"</span>,</span>
-<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">film1</span><span class="op">$</span><span class="va">male</span>, <span class="va">film1</span><span class="op">$</span><span class="va">female</span>, <span class="va">film1</span><span class="op">$</span><span class="va">hermaphroditic</span>, <span class="va">film1</span><span class="op">$</span><span class="va">none</span><span class="op">)</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      label <span class="op">=</span> <span class="st">"Attack of the Clones"</span>,</span>
-<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">film2</span><span class="op">$</span><span class="va">male</span>, <span class="va">film2</span><span class="op">$</span><span class="va">female</span>, <span class="va">film2</span><span class="op">$</span><span class="va">hermaphroditic</span>, <span class="va">film2</span><span class="op">$</span><span class="va">none</span><span class="op">)</span></span>
-<span>    <span class="op">)</span></span>
-<span>  <span class="op">)</span>,</span>
-<span>  radar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    metrics <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"male"</span>, <span class="st">"female"</span>, <span class="st">"hermaphroditic"</span>, <span class="st">"none"</span><span class="op">)</span></span>
-<span>  <span class="op">)</span>,</span>
-<span>  <span class="fu"><a href="../reference/ChartsTooltip.html">ChartsTooltip</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>  <span class="fu"><a href="../reference/ChartsSurface.html">ChartsSurface</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="../reference/RadarGrid.html">RadarGrid</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="../reference/RadarSeriesPlot.html">RadarSeriesPlot</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="../reference/RadarSeriesMarks.html">RadarSeriesMarks</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="../reference/FocusedRadarMark.html">FocusedRadarMark</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="../reference/RadarAxis.html">RadarAxis</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="../reference/RadarMetricLabels.html">RadarMetricLabels</a></span><span class="op">(</span><span class="op">)</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="op">)</span></span></code></pre></div>
-<div class="react-container" data-react-id="phctukbtnhgofqthwwbj">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"RadarDataProvider","props":{"type":"object","value":{"height":{"type":"raw","value":350},"series":{"type":"raw","value":[{"label":"A New Hope","data":[11,2,1,3]},{"label":"Attack of the Clones","data":[23,11,0,3]}]},"radar":{"type":"raw","value":{"metrics":["male","female","hermaphroditic","none"]}},"children":{"type":"array","value":[{"type":"element","module":"@mui/x-charts","name":"ChartsTooltip","props":{"type":"raw","value":[]}},{"type":"element","module":"@mui/x-charts","name":"ChartsSurface","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","module":"@mui/x-charts","name":"RadarGrid","props":{"type":"raw","value":[]}},{"type":"element","module":"@mui/x-charts","name":"RadarSeriesPlot","props":{"type":"raw","value":[]}},{"type":"element","module":"@mui/x-charts","name":"RadarSeriesMarks","props":{"type":"raw","value":[]}},{"type":"element","module":"@mui/x-charts","name":"FocusedRadarMark","props":{"type":"raw","value":[]}},{"type":"element","module":"@mui/x-charts","name":"RadarAxis","props":{"type":"raw","value":[]}},{"type":"element","module":"@mui/x-charts","name":"RadarMetricLabels","props":{"type":"raw","value":[]}}]}}}}]}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('phctukbtnhgofqthwwbj')</script>
-</div>
-</div>
-<div class="section level2">
-<h2 id="radar-axis-highlight">Radar Axis Highlight<a class="anchor" aria-label="anchor" href="#radar-axis-highlight"></a>
-</h2>
-<p><code>RadarAxisHighlight</code> renders the highlight indicator when
-hovering over a radar axis. Add it inside <code>ChartsSurface</code> in
-the composition API:</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/RadarDataProvider.html">RadarDataProvider</a></span><span class="op">(</span></span>
-<span>  height <span class="op">=</span> <span class="fl">350</span>,</span>
-<span>  series <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      label <span class="op">=</span> <span class="st">"A New Hope"</span>,</span>
-<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">film1</span><span class="op">$</span><span class="va">male</span>, <span class="va">film1</span><span class="op">$</span><span class="va">female</span>, <span class="va">film1</span><span class="op">$</span><span class="va">hermaphroditic</span>, <span class="va">film1</span><span class="op">$</span><span class="va">none</span><span class="op">)</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      label <span class="op">=</span> <span class="st">"Attack of the Clones"</span>,</span>
-<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">film2</span><span class="op">$</span><span class="va">male</span>, <span class="va">film2</span><span class="op">$</span><span class="va">female</span>, <span class="va">film2</span><span class="op">$</span><span class="va">hermaphroditic</span>, <span class="va">film2</span><span class="op">$</span><span class="va">none</span><span class="op">)</span></span>
-<span>    <span class="op">)</span></span>
-<span>  <span class="op">)</span>,</span>
-<span>  radar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    metrics <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"male"</span>, <span class="st">"female"</span>, <span class="st">"hermaphroditic"</span>, <span class="st">"none"</span><span class="op">)</span></span>
-<span>  <span class="op">)</span>,</span>
-<span>  <span class="fu"><a href="../reference/ChartsTooltip.html">ChartsTooltip</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>  <span class="fu"><a href="../reference/ChartsSurface.html">ChartsSurface</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="../reference/RadarGrid.html">RadarGrid</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="../reference/RadarSeriesPlot.html">RadarSeriesPlot</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="../reference/RadarAxisHighlight.html">RadarAxisHighlight</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="../reference/RadarAxis.html">RadarAxis</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="../reference/RadarMetricLabels.html">RadarMetricLabels</a></span><span class="op">(</span><span class="op">)</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="op">)</span></span></code></pre></div>
-<div class="react-container" data-react-id="hpdqsparqlnrwtkldlpb">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"RadarDataProvider","props":{"type":"object","value":{"height":{"type":"raw","value":350},"series":{"type":"raw","value":[{"label":"A New Hope","data":[11,2,1,3]},{"label":"Attack of the Clones","data":[23,11,0,3]}]},"radar":{"type":"raw","value":{"metrics":["male","female","hermaphroditic","none"]}},"children":{"type":"array","value":[{"type":"element","module":"@mui/x-charts","name":"ChartsTooltip","props":{"type":"raw","value":[]}},{"type":"element","module":"@mui/x-charts","name":"ChartsSurface","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","module":"@mui/x-charts","name":"RadarGrid","props":{"type":"raw","value":[]}},{"type":"element","module":"@mui/x-charts","name":"RadarSeriesPlot","props":{"type":"raw","value":[]}},{"type":"element","module":"@mui/x-charts","name":"RadarAxisHighlight","props":{"type":"raw","value":[]}},{"type":"element","module":"@mui/x-charts","name":"RadarAxis","props":{"type":"raw","value":[]}},{"type":"element","module":"@mui/x-charts","name":"RadarMetricLabels","props":{"type":"raw","value":[]}}]}}}}]}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('hpdqsparqlnrwtkldlpb')</script>
-</div>
-</div>
-<div class="section level2">
-<h2 id="radar-series-area">Radar Series Area<a class="anchor" aria-label="anchor" href="#radar-series-area"></a>
-</h2>
-<p><code>RadarSeriesArea</code> renders the filled area for each radar
-series. Use it alongside <code>RadarSeriesPlot</code> for filled-area
-radar charts:</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/RadarDataProvider.html">RadarDataProvider</a></span><span class="op">(</span></span>
-<span>  height <span class="op">=</span> <span class="fl">350</span>,</span>
-<span>  series <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      label <span class="op">=</span> <span class="st">"A New Hope"</span>,</span>
-<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">film1</span><span class="op">$</span><span class="va">male</span>, <span class="va">film1</span><span class="op">$</span><span class="va">female</span>, <span class="va">film1</span><span class="op">$</span><span class="va">hermaphroditic</span>, <span class="va">film1</span><span class="op">$</span><span class="va">none</span><span class="op">)</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      label <span class="op">=</span> <span class="st">"Attack of the Clones"</span>,</span>
-<span>      data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">film2</span><span class="op">$</span><span class="va">male</span>, <span class="va">film2</span><span class="op">$</span><span class="va">female</span>, <span class="va">film2</span><span class="op">$</span><span class="va">hermaphroditic</span>, <span class="va">film2</span><span class="op">$</span><span class="va">none</span><span class="op">)</span></span>
-<span>    <span class="op">)</span></span>
-<span>  <span class="op">)</span>,</span>
-<span>  radar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    metrics <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"male"</span>, <span class="st">"female"</span>, <span class="st">"hermaphroditic"</span>, <span class="st">"none"</span><span class="op">)</span></span>
-<span>  <span class="op">)</span>,</span>
-<span>  <span class="fu"><a href="../reference/ChartsLegend.html">ChartsLegend</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>  <span class="fu"><a href="../reference/ChartsTooltip.html">ChartsTooltip</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>  <span class="fu"><a href="../reference/ChartsSurface.html">ChartsSurface</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="../reference/RadarGrid.html">RadarGrid</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="../reference/RadarSeriesArea.html">RadarSeriesArea</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="../reference/RadarSeriesPlot.html">RadarSeriesPlot</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="../reference/RadarAxis.html">RadarAxis</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="../reference/RadarMetricLabels.html">RadarMetricLabels</a></span><span class="op">(</span><span class="op">)</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="op">)</span></span></code></pre></div>
-<div class="react-container" data-react-id="yjfsefvibadatyzkhmba">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"RadarDataProvider","props":{"type":"object","value":{"height":{"type":"raw","value":350},"series":{"type":"raw","value":[{"label":"A New Hope","data":[11,2,1,3]},{"label":"Attack of the Clones","data":[23,11,0,3]}]},"radar":{"type":"raw","value":{"metrics":["male","female","hermaphroditic","none"]}},"children":{"type":"array","value":[{"type":"element","module":"@mui/x-charts","name":"ChartsLegend","props":{"type":"raw","value":[]}},{"type":"element","module":"@mui/x-charts","name":"ChartsTooltip","props":{"type":"raw","value":[]}},{"type":"element","module":"@mui/x-charts","name":"ChartsSurface","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","module":"@mui/x-charts","name":"RadarGrid","props":{"type":"raw","value":[]}},{"type":"element","module":"@mui/x-charts","name":"RadarSeriesArea","props":{"type":"raw","value":[]}},{"type":"element","module":"@mui/x-charts","name":"RadarSeriesPlot","props":{"type":"raw","value":[]}},{"type":"element","module":"@mui/x-charts","name":"RadarAxis","props":{"type":"raw","value":[]}},{"type":"element","module":"@mui/x-charts","name":"RadarMetricLabels","props":{"type":"raw","value":[]}}]}}}}]}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('yjfsefvibadatyzkhmba')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"RadarDataProvider","props":{"type":"object","value":{"height":{"type":"raw","value":350},"series":{"type":"raw","value":[{"label":"A New Hope","data":[18,3,5,8]},{"label":"The Empire Strikes Back","data":[16,4,5,9]}]},"radar":{"type":"raw","value":{"metrics":["Characters","Planets","Species","Starships"]}},"children":{"type":"array","value":[{"type":"element","module":"@mui/x-charts","name":"ChartsLegend","props":{"type":"raw","value":[]}},{"type":"element","module":"@mui/x-charts","name":"ChartsTooltip","props":{"type":"raw","value":[]}},{"type":"element","module":"@mui/x-charts","name":"ChartsSurface","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","module":"@mui/x-charts","name":"RadarGrid","props":{"type":"raw","value":[]}},{"type":"element","module":"@mui/x-charts","name":"RadarSeriesPlot","props":{"type":"raw","value":[]}},{"type":"element","module":"@mui/x-charts","name":"RadarAxis","props":{"type":"raw","value":[]}},{"type":"element","module":"@mui/x-charts","name":"RadarMetricLabels","props":{"type":"raw","value":[]}}]}}}}]}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('lofazeuxvpxadcskbdyf')</script>
 </div>
 </div>
 <div class="section level2">
@@ -479,7 +389,7 @@ Documentation</a></li>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Félix Luginbuhl.</p>
+  <p>Developed by <a href="https://felixluginbuhl.com" class="external-link">Felix Luginbuhl</a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">

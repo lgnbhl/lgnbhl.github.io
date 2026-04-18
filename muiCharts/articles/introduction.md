@@ -15,29 +15,14 @@ remotes::install_github("lgnbhl/muiCharts")
 
 library(muiCharts)
 library(dplyr)
-
-starwars_summary <- dplyr::starwars |>
-  filter(species %in% c("Human", "Droid", "Wookiee")) |>
-  group_by(species) |>
-  summarise(height = mean(height, na.rm = TRUE), mass = mean(mass, na.rm = TRUE))
 ```
 
 ``` r
 
 BarChart(
-  dataset = starwars_summary,
-  xAxis = list(
-    list(
-      scaleType = "band",
-      dataKey = "species",
-      label = "Species"
-    )
-  ),
-  series = list(
-    list(dataKey = "height", label = "Height (cm)"),
-    list(dataKey = "mass", label = "Mass (kg)")
-  ),
-  grid = list(horizontal = TRUE),
+  dataset = head(starwars_people, 4),
+  xAxis  = list(list(scaleType = "band", dataKey = "name")),
+  series = list(list(dataKey = "height", label = "Height (cm)")),
   height = 300
 )
 ```
@@ -51,40 +36,54 @@ values with `valueFormatter`:
 
 ``` r
 
-customValueFormatter <- function(category){
-  JS(
-    paste0(
-      "function(value){",
-      "if (value === null) { return 'None' }",
-      "return `${value} ", category, "`}"
-    )
-  )
-}
-
 BarChart(
-  dataset = starwars_summary,
-  xAxis = list(
-    list(
-      scaleType = "band",
-      dataKey = "species",
-      label = "Species",
-      valueFormatter = JS("(value) => `${value}`")
-    )
-  ),
+  dataset = head(starwars_people, 4),
+  xAxis  = list(list(scaleType = "band", dataKey = "name")),
   series = list(
-    list(
-      dataKey = "height",
-      label = "Height (cm)",
-      valueFormatter = customValueFormatter("cm")
-    ),
-    list(
-      dataKey = "mass",
-      label = "Mass (kg)",
-      valueFormatter = customValueFormatter("kg")
-    )
+    list(dataKey = "height", label = "Height (cm)", valueFormatter = JS("(v) => v + ' cm'")),
+    list(dataKey = "mass",   label = "Mass (kg)",   valueFormatter = JS("(v) => v + ' kg'"))
   ),
-  grid = list(horizontal = TRUE),
-  height = 400
+  height = 300
+)
+```
+
+## MUI ecosystem
+
+muiCharts integrates seamlessly with
+[muiMaterial](https://felixluginbuhl.com/muiMaterial) to create modern,
+fully-styled dashboards.
+
+``` r
+
+library(muiMaterial)
+
+muiMaterialPage(
+  CssBaseline(),
+  {
+    primaryColor <- "#1976d2"
+
+    ThemeProvider(
+      theme = list(palette = list(primary = list(main = primaryColor))),
+      Box(sx = list(p = 3, bgcolor = "background.paper"),
+        Card(sx = list(boxShadow = 3),
+          CardContent(
+            Stack(spacing = 1.5,
+              Typography("Character Count", variant = "h6", sx = list(fontWeight = 600)),
+              Typography("Number of characters by Star Wars episode", variant = "body2", sx = list(color = "text.secondary")),
+              BarChart(
+                dataset = starwars_films |> mutate(Characters = lengths(characters)) |> arrange(episode_id),
+                xAxis = list(list(scaleType = "band", dataKey = "episode_id")),
+                series = list(list(dataKey = "Characters", color = primaryColor)),
+                height = 280
+              ),
+              Divider(),
+              Typography("Made with muiCharts and muiMaterial", variant = "caption", sx = list(color = "text.secondary"))
+            )
+          )
+        )
+      )
+    )
+  }
 )
 ```
 

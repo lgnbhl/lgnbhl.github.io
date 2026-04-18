@@ -80,7 +80,7 @@
 
 
 
-<script src="pies_files/react-18.3.1/react.production.min.js"></script><script src="pies_files/react-18.3.1/react-dom.production.min.js"></script><script src="pies_files/shiny.react-0.1.0/shiny-react.js"></script><script src="pies_files/muiCharts-8.18.0/mui-x-charts.js"></script><div class="row">
+<script src="pies_files/react-18.3.1/react.production.min.js"></script><script src="pies_files/react-18.3.1/react-dom.production.min.js"></script><script src="pies_files/shiny.react-0.1.0/shiny-react.js"></script><script src="pies_files/muiCharts-8.18.0/mui-x-charts.js"></script><script src="pies_files/muiMaterial-7.3.5/mui-material.js"></script><div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Pie Charts</h1>
@@ -99,6 +99,13 @@
 circle. They are ideal for showing proportions and making relative
 shares easy to compare at a glance. Each slice represents a category’s
 contribution to the total.</p>
+<blockquote>
+<p><strong>Note:</strong> The <code>data</code> argument of
+<code><a href="../reference/PieChart.html">PieChart()</a></code> expects a data frame with at least two columns
+named <code>label</code> (slice names) and <code>value</code> (numeric
+sizes). Any additional columns (e.g. <code>color</code>) are passed
+through as per-slice properties.</p>
+</blockquote>
 </div>
 <div class="section level2">
 <h2 id="setup">Setup<a class="anchor" aria-label="anchor" href="#setup"></a>
@@ -108,91 +115,77 @@ contribution to the total.</p>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="prepare-data">Prepare Data<a class="anchor" aria-label="anchor" href="#prepare-data"></a>
-</h2>
-<p>For pie charts, the data must have <code>label</code> and
-<code>value</code> columns:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Count characters by sex</span></span>
-<span><span class="va">starwars_sex</span> <span class="op">&lt;-</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="va"><a href="https://dplyr.tidyverse.org/reference/starwars.html" class="external-link">starwars</a></span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">sex</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">sex</span>, value <span class="op">=</span> <span class="va">n</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Count characters by species (top 5)</span></span>
-<span><span class="va">starwars_species</span> <span class="op">&lt;-</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="va"><a href="https://dplyr.tidyverse.org/reference/starwars.html" class="external-link">starwars</a></span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">species</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">species</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">desc</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_head</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">species</span>, value <span class="op">=</span> <span class="va">n</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level2">
 <h2 id="basic-pie-chart">Basic Pie Chart<a class="anchor" aria-label="anchor" href="#basic-pie-chart"></a>
 </h2>
-<p>A simple pie chart showing the distribution of characters by sex:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<p>Top 4 species by number of members:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/PieChart.html">PieChart</a></span><span class="op">(</span></span>
 <span>  series <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      data <span class="op">=</span> <span class="va">starwars_sex</span></span>
-<span>    <span class="op">)</span></span>
+<span>      data <span class="op">=</span> <span class="va">starwars_people</span> <span class="op">|&gt;</span> </span>
+<span>        <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">gender</span>, sort <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>        <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">gender</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>        <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">gender</span>, value <span class="op">=</span> <span class="va">n</span><span class="op">)</span></span>
+<span>      <span class="op">)</span></span>
 <span>  <span class="op">)</span>,</span>
 <span>  height <span class="op">=</span> <span class="fl">300</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="cvpeammhtuweaikfkbkz">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"PieChart","props":{"type":"raw","value":{"series":[{"data":[{"label":"female","value":16},{"label":"hermaphroditic","value":1},{"label":"male","value":60},{"label":"none","value":6}]}],"height":300}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('cvpeammhtuweaikfkbkz')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"PieChart","props":{"type":"raw","value":{"series":[{"data":[{"label":"male","value":60},{"label":"female","value":17},{"label":"hermaphrodite","value":1},{"label":"none","value":1}]}],"height":300}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('cvpeammhtuweaikfkbkz')</script>
 </div>
 </div>
 <div class="section level2">
 <h2 id="per-slice-colors">Per-Slice Colors<a class="anchor" aria-label="anchor" href="#per-slice-colors"></a>
 </h2>
-<p>Add a <code>color</code> column to the data to assign colors to
-individual slices:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">starwars_sex_colored</span> <span class="op">&lt;-</span> <span class="va">starwars_sex</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>color <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"#440154FF"</span>, <span class="st">"#2A788EFF"</span>, <span class="st">"#FDE725FF"</span>, <span class="st">"#35B779FF"</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="../reference/PieChart.html">PieChart</a></span><span class="op">(</span></span>
+<p>Add a <code>color</code> column to assign colors to individual
+slices:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/PieChart.html">PieChart</a></span><span class="op">(</span></span>
 <span>  series <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      data <span class="op">=</span> <span class="va">starwars_sex_colored</span></span>
+<span>      data <span class="op">=</span> <span class="va">starwars_species</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fl">4</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>        <span class="fu"><a href="https://dplyr.tidyverse.org/reference/transmute.html" class="external-link">transmute</a></span><span class="op">(</span></span>
+<span>          label <span class="op">=</span> <span class="va">name</span>,  </span>
+<span>          value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lengths.html" class="external-link">lengths</a></span><span class="op">(</span><span class="va">people</span><span class="op">)</span>,</span>
+<span>          color <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"#4338CA"</span>, <span class="st">"#7C3AED"</span>, <span class="st">"#A78BFA"</span>, <span class="st">"#DDD6FE"</span><span class="op">)</span><span class="op">)</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span>,</span>
 <span>  height <span class="op">=</span> <span class="fl">300</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="hrtfztbnsrafhqmlsyef">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"PieChart","props":{"type":"raw","value":{"series":[{"data":[{"label":"female","value":16,"color":"#440154FF"},{"label":"hermaphroditic","value":1,"color":"#2A788EFF"},{"label":"male","value":60,"color":"#FDE725FF"},{"label":"none","value":6,"color":"#35B779FF"}]}],"height":300}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('hrtfztbnsrafhqmlsyef')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"PieChart","props":{"type":"raw","value":{"series":[{"data":[{"label":"Human","value":4,"color":"#4338CA"},{"label":"Droid","value":4,"color":"#7C3AED"},{"label":"Wookie","value":2,"color":"#A78BFA"},{"label":"Rodian","value":1,"color":"#DDD6FE"}]}],"height":300}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('hrtfztbnsrafhqmlsyef')</script>
 </div>
 </div>
 <div class="section level2">
 <h2 id="donut-chart">Donut Chart<a class="anchor" aria-label="anchor" href="#donut-chart"></a>
 </h2>
-<p>Create a donut chart by setting the <code>innerRadius</code>:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<p>Create a donut chart by setting <code>innerRadius</code>:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/PieChart.html">PieChart</a></span><span class="op">(</span></span>
 <span>  series <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      data <span class="op">=</span> <span class="va">starwars_sex</span>,</span>
-<span>      innerRadius <span class="op">=</span> <span class="fl">50</span>,</span>
-<span>      outerRadius <span class="op">=</span> <span class="fl">100</span></span>
+<span>      data <span class="op">=</span> <span class="va">starwars_species</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fl">4</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>      <span class="fu"><a href="https://dplyr.tidyverse.org/reference/transmute.html" class="external-link">transmute</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">name</span>, value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lengths.html" class="external-link">lengths</a></span><span class="op">(</span><span class="va">people</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>    innerRadius <span class="op">=</span> <span class="fl">50</span>,</span>
+<span>    outerRadius <span class="op">=</span> <span class="fl">100</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span>,</span>
 <span>  height <span class="op">=</span> <span class="fl">300</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="rmqrctuzzklienmufsbj">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"PieChart","props":{"type":"raw","value":{"series":[{"data":[{"label":"female","value":16},{"label":"hermaphroditic","value":1},{"label":"male","value":60},{"label":"none","value":6}],"innerRadius":50,"outerRadius":100}],"height":300}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('rmqrctuzzklienmufsbj')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"PieChart","props":{"type":"raw","value":{"series":[{"data":[{"label":"Human","value":4},{"label":"Droid","value":4},{"label":"Wookie","value":2},{"label":"Rodian","value":1}],"innerRadius":50,"outerRadius":100}],"height":300}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('rmqrctuzzklienmufsbj')</script>
 </div>
 </div>
 <div class="section level2">
-<h2 id="pie-chart-with-arc-labels">Pie Chart with Arc Labels<a class="anchor" aria-label="anchor" href="#pie-chart-with-arc-labels"></a>
+<h2 id="arc-labels">Arc Labels<a class="anchor" aria-label="anchor" href="#arc-labels"></a>
 </h2>
-<p>Display values directly on the slices:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<p>Display labels directly on the slices with <code>arcLabel</code>:</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/PieChart.html">PieChart</a></span><span class="op">(</span></span>
 <span>  series <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      data <span class="op">=</span> <span class="va">starwars_sex</span>,</span>
+<span>      data <span class="op">=</span> <span class="va">starwars_species</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fl">4</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>        <span class="fu"><a href="https://dplyr.tidyverse.org/reference/transmute.html" class="external-link">transmute</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">name</span>, value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lengths.html" class="external-link">lengths</a></span><span class="op">(</span><span class="va">people</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>      arcLabel <span class="op">=</span> <span class="st">"label"</span>,</span>
 <span>      innerRadius <span class="op">=</span> <span class="fl">50</span>,</span>
 <span>      outerRadius <span class="op">=</span> <span class="fl">100</span></span>
@@ -201,18 +194,19 @@ individual slices:</p>
 <span>  height <span class="op">=</span> <span class="fl">300</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="vhoipeyoohljamkajowk">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"PieChart","props":{"type":"raw","value":{"series":[{"data":[{"label":"female","value":16},{"label":"hermaphroditic","value":1},{"label":"male","value":60},{"label":"none","value":6}],"arcLabel":"label","innerRadius":50,"outerRadius":100}],"height":300}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('vhoipeyoohljamkajowk')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"PieChart","props":{"type":"raw","value":{"series":[{"data":[{"label":"Human","value":4},{"label":"Droid","value":4},{"label":"Wookie","value":2},{"label":"Rodian","value":1}],"arcLabel":"label","innerRadius":50,"outerRadius":100}],"height":300}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('vhoipeyoohljamkajowk')</script>
 </div>
 </div>
 <div class="section level2">
-<h2 id="pie-chart-with-value-labels">Pie Chart with Value Labels<a class="anchor" aria-label="anchor" href="#pie-chart-with-value-labels"></a>
+<h2 id="value-labels">Value Labels<a class="anchor" aria-label="anchor" href="#value-labels"></a>
 </h2>
-<p>Show the value on each arc:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<p>Show the count on each arc using <code>arcLabel = "value"</code>:</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/PieChart.html">PieChart</a></span><span class="op">(</span></span>
 <span>  series <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      data <span class="op">=</span> <span class="va">starwars_species</span>,</span>
+<span>      data <span class="op">=</span> <span class="va">starwars_species</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fl">4</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>        <span class="fu"><a href="https://dplyr.tidyverse.org/reference/transmute.html" class="external-link">transmute</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">name</span>, value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lengths.html" class="external-link">lengths</a></span><span class="op">(</span><span class="va">people</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>      arcLabel <span class="op">=</span> <span class="st">"value"</span>,</span>
 <span>      innerRadius <span class="op">=</span> <span class="fl">40</span>,</span>
 <span>      outerRadius <span class="op">=</span> <span class="fl">100</span></span>
@@ -221,69 +215,70 @@ individual slices:</p>
 <span>  height <span class="op">=</span> <span class="fl">300</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="npghmxkfrbzdnvsgovam">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"PieChart","props":{"type":"raw","value":{"series":[{"data":[{"label":"Human","value":35},{"label":"Droid","value":6},{"label":"Gungan","value":3},{"label":"Kaminoan","value":2},{"label":"Mirialan","value":2}],"arcLabel":"value","innerRadius":40,"outerRadius":100}],"height":300}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('npghmxkfrbzdnvsgovam')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"PieChart","props":{"type":"raw","value":{"series":[{"data":[{"label":"Human","value":4},{"label":"Droid","value":4},{"label":"Wookie","value":2},{"label":"Rodian","value":1}],"arcLabel":"value","innerRadius":40,"outerRadius":100}],"height":300}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('npghmxkfrbzdnvsgovam')</script>
 </div>
 </div>
 <div class="section level2">
-<h2 id="pie-chart-with-percentage-labels">Pie Chart with Percentage Labels<a class="anchor" aria-label="anchor" href="#pie-chart-with-percentage-labels"></a>
+<h2 id="percentage-labels">Percentage Labels<a class="anchor" aria-label="anchor" href="#percentage-labels"></a>
 </h2>
-<p>Display custom formatted labels using JavaScript:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Calculate percentages</span></span>
-<span><span class="va">starwars_sex_pct</span> <span class="op">&lt;-</span> <span class="va">starwars_sex</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
-<span>    pct <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="va">value</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">value</span><span class="op">)</span> <span class="op">*</span> <span class="fl">100</span>, <span class="fl">1</span><span class="op">)</span>,</span>
-<span>    pct_label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="va">pct</span>, <span class="st">"%"</span><span class="op">)</span></span>
-<span>  <span class="op">)</span></span>
+<p>Use <code>arcLabel</code> with a JavaScript formatter to show the
+percentage of each slice:</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">total</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lengths.html" class="external-link">lengths</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">starwars_species</span>, <span class="fl">4</span><span class="op">)</span><span class="op">$</span><span class="va">people</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/PieChart.html">PieChart</a></span><span class="op">(</span></span>
 <span>  series <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      data <span class="op">=</span> <span class="va">starwars_sex_pct</span>,</span>
-<span>      arcLabel <span class="op">=</span> <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/JS.html" class="external-link">JS</a></span><span class="op">(</span><span class="st">"(item) =&gt; `${item.label}: ${item.pct}%`"</span><span class="op">)</span>,</span>
-<span>      arcLabelMinAngle <span class="op">=</span> <span class="fl">20</span>,</span>
-<span>      innerRadius <span class="op">=</span> <span class="fl">50</span>,</span>
-<span>      outerRadius <span class="op">=</span> <span class="fl">100</span></span>
+<span>      data <span class="op">=</span> <span class="va">starwars_species</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fl">4</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>        <span class="fu"><a href="https://dplyr.tidyverse.org/reference/transmute.html" class="external-link">transmute</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">name</span>, value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lengths.html" class="external-link">lengths</a></span><span class="op">(</span><span class="va">people</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>        arcLabel <span class="op">=</span> <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/JS.html" class="external-link">JS</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"(item) =&gt; Math.round(item.value / "</span>, <span class="va">total</span>, <span class="st">" * 100) + '%'"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>        arcLabelMinAngle <span class="op">=</span> <span class="fl">20</span>,</span>
+<span>        innerRadius <span class="op">=</span> <span class="fl">50</span>,</span>
+<span>        outerRadius <span class="op">=</span> <span class="fl">100</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span>,</span>
 <span>  height <span class="op">=</span> <span class="fl">300</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="uvkfkrnrnvswaxznjupq">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"PieChart","props":{"type":"object","value":{"series":{"type":"array","value":[{"type":"object","value":{"data":{"type":"raw","value":[{"label":"female","value":16,"pct":19.3,"pct_label":"19.3%"},{"label":"hermaphroditic","value":1,"pct":1.2,"pct_label":"1.2%"},{"label":"male","value":60,"pct":72.3,"pct_label":"72.3%"},{"label":"none","value":6,"pct":7.2,"pct_label":"7.2%"}]},"arcLabel":{"type":"expr","value":"(item) => `${item.label}: ${item.pct}%`"},"arcLabelMinAngle":{"type":"raw","value":20},"innerRadius":{"type":"raw","value":50},"outerRadius":{"type":"raw","value":100}}}]},"height":{"type":"raw","value":300}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('uvkfkrnrnvswaxznjupq')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"PieChart","props":{"type":"object","value":{"series":{"type":"array","value":[{"type":"object","value":{"data":{"type":"raw","value":[{"label":"Human","value":4},{"label":"Droid","value":4},{"label":"Wookie","value":2},{"label":"Rodian","value":1}]},"arcLabel":{"type":"expr","value":"(item) => Math.round(item.value / 11 * 100) + '%'"},"arcLabelMinAngle":{"type":"raw","value":20},"innerRadius":{"type":"raw","value":50},"outerRadius":{"type":"raw","value":100}}}]},"height":{"type":"raw","value":300}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('uvkfkrnrnvswaxznjupq')</script>
 </div>
 </div>
 <div class="section level2">
-<h2 id="pie-chart-with-padding">Pie Chart with Padding<a class="anchor" aria-label="anchor" href="#pie-chart-with-padding"></a>
+<h2 id="padding-and-corner-radius">Padding and Corner Radius<a class="anchor" aria-label="anchor" href="#padding-and-corner-radius"></a>
 </h2>
-<p>Add spacing between slices using <code>paddingAngle</code>:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<p>Add spacing between slices with <code>paddingAngle</code> and rounded
+corners with <code>cornerRadius</code>:</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/PieChart.html">PieChart</a></span><span class="op">(</span></span>
 <span>  series <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      data <span class="op">=</span> <span class="va">starwars_sex</span>,</span>
+<span>      data <span class="op">=</span> <span class="va">starwars_species</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fl">4</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>        <span class="fu"><a href="https://dplyr.tidyverse.org/reference/transmute.html" class="external-link">transmute</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">name</span>, value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lengths.html" class="external-link">lengths</a></span><span class="op">(</span><span class="va">people</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>      paddingAngle <span class="op">=</span> <span class="fl">5</span>,</span>
 <span>      cornerRadius <span class="op">=</span> <span class="fl">5</span>,</span>
-<span>      innerRadius <span class="op">=</span> <span class="fl">40</span>,</span>
-<span>      outerRadius <span class="op">=</span> <span class="fl">100</span></span>
+<span>      innerRadius  <span class="op">=</span> <span class="fl">40</span>,</span>
+<span>      outerRadius  <span class="op">=</span> <span class="fl">100</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span>,</span>
 <span>  height <span class="op">=</span> <span class="fl">300</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="wogxwgkudferwyoprgbx">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"PieChart","props":{"type":"raw","value":{"series":[{"data":[{"label":"female","value":16},{"label":"hermaphroditic","value":1},{"label":"male","value":60},{"label":"none","value":6}],"paddingAngle":5,"cornerRadius":5,"innerRadius":40,"outerRadius":100}],"height":300}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('wogxwgkudferwyoprgbx')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"PieChart","props":{"type":"raw","value":{"series":[{"data":[{"label":"Human","value":4},{"label":"Droid","value":4},{"label":"Wookie","value":2},{"label":"Rodian","value":1}],"paddingAngle":5,"cornerRadius":5,"innerRadius":40,"outerRadius":100}],"height":300}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('wogxwgkudferwyoprgbx')</script>
 </div>
 </div>
 <div class="section level2">
-<h2 id="semi-circle-pie-chart">Semi-Circle Pie Chart<a class="anchor" aria-label="anchor" href="#semi-circle-pie-chart"></a>
+<h2 id="semi-circle-chart">Semi-Circle Chart<a class="anchor" aria-label="anchor" href="#semi-circle-chart"></a>
 </h2>
-<p>Create a semi-circle chart by setting start and end angles:</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<p>Restrict the arc range with <code>startAngle</code> and
+<code>endAngle</code>:</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/PieChart.html">PieChart</a></span><span class="op">(</span></span>
 <span>  series <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      data <span class="op">=</span> <span class="va">starwars_sex</span>,</span>
+<span>      data <span class="op">=</span> <span class="va">starwars_species</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fl">4</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>        <span class="fu"><a href="https://dplyr.tidyverse.org/reference/transmute.html" class="external-link">transmute</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">name</span>, value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lengths.html" class="external-link">lengths</a></span><span class="op">(</span><span class="va">people</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>      startAngle <span class="op">=</span> <span class="op">-</span><span class="fl">90</span>,</span>
-<span>      endAngle <span class="op">=</span> <span class="fl">90</span>,</span>
+<span>      endAngle <span class="op">=</span>  <span class="fl">90</span>,</span>
 <span>      innerRadius <span class="op">=</span> <span class="fl">50</span>,</span>
 <span>      outerRadius <span class="op">=</span> <span class="fl">100</span></span>
 <span>    <span class="op">)</span></span>
@@ -291,159 +286,115 @@ individual slices:</p>
 <span>  height <span class="op">=</span> <span class="fl">250</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="bzpexapgxvsfsfliogmx">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"PieChart","props":{"type":"raw","value":{"series":[{"data":[{"label":"female","value":16},{"label":"hermaphroditic","value":1},{"label":"male","value":60},{"label":"none","value":6}],"startAngle":-90,"endAngle":90,"innerRadius":50,"outerRadius":100}],"height":250}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('bzpexapgxvsfsfliogmx')</script>
-</div>
-</div>
-<div class="section level2">
-<h2 id="two-level-pie-chart">Two-Level Pie Chart<a class="anchor" aria-label="anchor" href="#two-level-pie-chart"></a>
-</h2>
-<p>Create nested pie charts with multiple series:</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Prepare inner and outer data</span></span>
-<span><span class="va">starwars_inner</span> <span class="op">&lt;-</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="va"><a href="https://dplyr.tidyverse.org/reference/starwars.html" class="external-link">starwars</a></span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">sex</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">sex</span>, value <span class="op">=</span> <span class="va">n</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">starwars_outer</span> <span class="op">&lt;-</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="va"><a href="https://dplyr.tidyverse.org/reference/starwars.html" class="external-link">starwars</a></span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">sex</span><span class="op">)</span>, <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">species</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">species</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">desc</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_head</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">8</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">species</span>, value <span class="op">=</span> <span class="va">n</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="../reference/PieChart.html">PieChart</a></span><span class="op">(</span></span>
-<span>  series <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      data <span class="op">=</span> <span class="va">starwars_inner</span>,</span>
-<span>      innerRadius <span class="op">=</span> <span class="fl">0</span>,</span>
-<span>      outerRadius <span class="op">=</span> <span class="fl">60</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      data <span class="op">=</span> <span class="va">starwars_outer</span>,</span>
-<span>      innerRadius <span class="op">=</span> <span class="fl">80</span>,</span>
-<span>      outerRadius <span class="op">=</span> <span class="fl">100</span></span>
-<span>    <span class="op">)</span></span>
-<span>  <span class="op">)</span>,</span>
-<span>  height <span class="op">=</span> <span class="fl">300</span></span>
-<span><span class="op">)</span></span></code></pre></div>
-<div class="react-container" data-react-id="zvxpuzsfhswgayltrkjt">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"PieChart","props":{"type":"raw","value":{"series":[{"data":[{"label":"female","value":16},{"label":"hermaphroditic","value":1},{"label":"male","value":60},{"label":"none","value":6}],"innerRadius":0,"outerRadius":60},{"data":[{"label":"Human","value":35},{"label":"Droid","value":6},{"label":"Gungan","value":3},{"label":"Kaminoan","value":2},{"label":"Mirialan","value":2},{"label":"Twi'lek","value":2},{"label":"Wookiee","value":2},{"label":"Zabrak","value":2}],"innerRadius":80,"outerRadius":100}],"height":300}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('zvxpuzsfhswgayltrkjt')</script>
-</div>
-</div>
-<div class="section level2">
-<h2 id="pie-chart-with-custom-size">Pie Chart with Custom Size<a class="anchor" aria-label="anchor" href="#pie-chart-with-custom-size"></a>
-</h2>
-<p>Control the position and size of the pie:</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/PieChart.html">PieChart</a></span><span class="op">(</span></span>
-<span>  series <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      data <span class="op">=</span> <span class="va">starwars_sex</span>,</span>
-<span>      cx <span class="op">=</span> <span class="fl">150</span>,</span>
-<span>      cy <span class="op">=</span> <span class="fl">150</span>,</span>
-<span>      innerRadius <span class="op">=</span> <span class="fl">40</span>,</span>
-<span>      outerRadius <span class="op">=</span> <span class="fl">80</span></span>
-<span>    <span class="op">)</span></span>
-<span>  <span class="op">)</span>,</span>
-<span>  height <span class="op">=</span> <span class="fl">300</span>,</span>
-<span>  width <span class="op">=</span> <span class="fl">300</span></span>
-<span><span class="op">)</span></span></code></pre></div>
-<div class="react-container" data-react-id="rcwcwcmgreyijxvcxujz">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"PieChart","props":{"type":"raw","value":{"series":[{"data":[{"label":"female","value":16},{"label":"hermaphroditic","value":1},{"label":"male","value":60},{"label":"none","value":6}],"cx":150,"cy":150,"innerRadius":40,"outerRadius":80}],"height":300,"width":300}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('rcwcwcmgreyijxvcxujz')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"PieChart","props":{"type":"raw","value":{"series":[{"data":[{"label":"Human","value":4},{"label":"Droid","value":4},{"label":"Wookie","value":2},{"label":"Rodian","value":1}],"startAngle":-90,"endAngle":90,"innerRadius":50,"outerRadius":100}],"height":250}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('bzpexapgxvsfsfliogmx')</script>
 </div>
 </div>
 <div class="section level2">
 <h2 id="gauge-style-donut">Gauge-Style Donut<a class="anchor" aria-label="anchor" href="#gauge-style-donut"></a>
 </h2>
-<p>Create a gauge-like visualization:</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Calculate percentage for a specific category</span></span>
-<span><span class="va">starwars_gauge</span> <span class="op">&lt;-</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="va"><a href="https://dplyr.tidyverse.org/reference/starwars.html" class="external-link">starwars</a></span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">sex</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
-<span>    prop <span class="op">=</span> <span class="va">n</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span> <span class="op">*</span> <span class="fl">100</span>,</span>
-<span>    prop_label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="va">prop</span><span class="op">)</span>, <span class="st">"%"</span><span class="op">)</span></span>
-<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">sex</span> <span class="op">==</span> <span class="st">"female"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">sex</span>, value <span class="op">=</span> <span class="va">prop</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Add remaining to complete the circle</span></span>
-<span><span class="va">starwars_gauge_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_rows.html" class="external-link">bind_rows</a></span><span class="op">(</span></span>
-<span>  <span class="va">starwars_gauge</span>,</span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">"Other"</span>, value <span class="op">=</span> <span class="fl">100</span> <span class="op">-</span> <span class="va">starwars_gauge</span><span class="op">$</span><span class="va">value</span><span class="op">)</span></span>
-<span><span class="op">)</span></span>
+<p>A semi-donut showing what share of characters are female:</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">female_pct</span> <span class="op">&lt;-</span> <span class="va">starwars_people</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>pct <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">gender</span> <span class="op">==</span> <span class="st">"female"</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">*</span> <span class="fl">100</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">pct</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/PieChart.html">PieChart</a></span><span class="op">(</span></span>
-<span>  series <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      data <span class="op">=</span> <span class="va">starwars_gauge_data</span>,</span>
-<span>      innerRadius <span class="op">=</span> <span class="fl">70</span>,</span>
-<span>      outerRadius <span class="op">=</span> <span class="fl">90</span>,</span>
-<span>      startAngle <span class="op">=</span> <span class="op">-</span><span class="fl">90</span>,</span>
-<span>      endAngle <span class="op">=</span> <span class="fl">90</span></span>
-<span>    <span class="op">)</span></span>
-<span>  <span class="op">)</span>,</span>
+<span>  series <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
+<span>      label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Female"</span>, <span class="st">"Other"</span><span class="op">)</span>,</span>
+<span>      value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">female_pct</span>, <span class="fl">100</span> <span class="op">-</span> <span class="va">female_pct</span><span class="op">)</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    innerRadius <span class="op">=</span> <span class="fl">70</span>,</span>
+<span>    outerRadius <span class="op">=</span> <span class="fl">90</span>,</span>
+<span>    startAngle  <span class="op">=</span> <span class="op">-</span><span class="fl">90</span>,</span>
+<span>    endAngle    <span class="op">=</span>  <span class="fl">90</span></span>
+<span>  <span class="op">)</span><span class="op">)</span>,</span>
 <span>  height <span class="op">=</span> <span class="fl">250</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<div class="react-container" data-react-id="jyfadwffbyguhwhzptvt">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"PieChart","props":{"type":"raw","value":{"series":[{"data":[{"label":"female","value":19.2771},{"label":"Other","value":80.7229}],"innerRadius":70,"outerRadius":90,"startAngle":-90,"endAngle":90}],"height":250}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('jyfadwffbyguhwhzptvt')</script>
+<div class="react-container" data-react-id="zvxpuzsfhswgayltrkjt">
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"PieChart","props":{"type":"raw","value":{"series":[{"data":[{"label":"Female","value":22},{"label":"Other","value":78}],"innerRadius":70,"outerRadius":90,"startAngle":-90,"endAngle":90}],"height":250}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('zvxpuzsfhswgayltrkjt')</script>
 </div>
 </div>
 <div class="section level2">
 <h2 id="pie-chart-composition">Pie Chart Composition<a class="anchor" aria-label="anchor" href="#pie-chart-composition"></a>
 </h2>
 <p>Build pie charts from individual sub-components using
-<code>ChartDataProvider</code>. Use <code>PiePlot</code> to render both
-arcs and labels together:</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code>ChartDataProvider</code> and <code>PiePlot</code>:</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ChartDataProvider.html">ChartDataProvider</a></span><span class="op">(</span></span>
-<span>  series <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      type <span class="op">=</span> <span class="st">"pie"</span>,</span>
-<span>      data <span class="op">=</span> <span class="va">starwars_sex</span>,</span>
-<span>      innerRadius <span class="op">=</span> <span class="fl">50</span>,</span>
-<span>      outerRadius <span class="op">=</span> <span class="fl">100</span></span>
-<span>    <span class="op">)</span></span>
-<span>  <span class="op">)</span>,</span>
+<span>  series <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    type        <span class="op">=</span> <span class="st">"pie"</span>,</span>
+<span>    data        <span class="op">=</span> <span class="va">starwars_species</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fl">4</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>      <span class="fu"><a href="https://dplyr.tidyverse.org/reference/transmute.html" class="external-link">transmute</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">name</span>, value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lengths.html" class="external-link">lengths</a></span><span class="op">(</span><span class="va">people</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>    innerRadius <span class="op">=</span> <span class="fl">50</span>,</span>
+<span>    outerRadius <span class="op">=</span> <span class="fl">100</span></span>
+<span>  <span class="op">)</span><span class="op">)</span>,</span>
 <span>  height <span class="op">=</span> <span class="fl">300</span>,</span>
+<span>  <span class="fu"><a href="../reference/ChartsLegend.html">ChartsLegend</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  <span class="fu"><a href="../reference/ChartsTooltip.html">ChartsTooltip</a></span><span class="op">(</span>trigger <span class="op">=</span> <span class="st">"item"</span><span class="op">)</span>,</span>
-<span>  <span class="fu"><a href="../reference/ChartsSurface.html">ChartsSurface</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="../reference/PiePlot.html">PiePlot</a></span><span class="op">(</span><span class="op">)</span></span>
-<span>  <span class="op">)</span></span>
+<span>  <span class="fu"><a href="../reference/ChartsSurface.html">ChartsSurface</a></span><span class="op">(</span><span class="fu"><a href="../reference/PiePlot.html">PiePlot</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
+<div class="react-container" data-react-id="dyutnockerryfzkqvbnt">
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"ChartDataProvider","props":{"type":"object","value":{"series":{"type":"raw","value":[{"type":"pie","data":[{"label":"Human","value":4},{"label":"Droid","value":4},{"label":"Wookie","value":2},{"label":"Rodian","value":1}],"innerRadius":50,"outerRadius":100}]},"height":{"type":"raw","value":300},"children":{"type":"array","value":[{"type":"element","module":"@mui/x-charts","name":"ChartsLegend","props":{"type":"raw","value":[]}},{"type":"element","module":"@mui/x-charts","name":"ChartsTooltip","props":{"type":"raw","value":{"trigger":"item"}}},{"type":"element","module":"@mui/x-charts","name":"ChartsSurface","props":{"type":"object","value":{"children":{"type":"element","module":"@mui/x-charts","name":"PiePlot","props":{"type":"raw","value":[]}}}}}]}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('dyutnockerryfzkqvbnt')</script>
+</div>
+</div>
+<div class="section level2">
+<h2 id="dashboard-example">Dashboard Example<a class="anchor" aria-label="anchor" href="#dashboard-example"></a>
+</h2>
+<p>muiCharts integrates seamlessly with <a href="https://felixluginbuhl.com/muiMaterial" class="external-link">muiMaterial</a> to create
+modern, fully-styled dashboards. muiMaterial’s <code>Card</code>,
+<code>Typography</code>, and <code>Stack</code> components make it easy
+to add titles, subtitles, and footers around charts. Combine
+<code>ThemeProvider</code> to customize colors across your entire
+dashboard:</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/muiMaterial/" class="external-link">muiMaterial</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/muiMaterialPage.html" class="external-link">muiMaterialPage</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/CssBaseline.html" class="external-link">CssBaseline</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  <span class="op">{</span></span>
+<span>    <span class="va">primaryColor</span> <span class="op">&lt;-</span> <span class="st">"#1976d2"</span></span>
+<span>    <span class="va">secondaryColor</span> <span class="op">&lt;-</span> <span class="st">"#dc004e"</span></span>
+<span>    <span class="va">tertiaryColor</span> <span class="op">&lt;-</span> <span class="st">"#9c27b0"</span></span>
+<span></span>
+<span>    <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/ThemeProvider.html" class="external-link">ThemeProvider</a></span><span class="op">(</span></span>
+<span>      theme <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>primary <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>main <span class="op">=</span> <span class="va">primaryColor</span><span class="op">)</span>, secondary <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>main <span class="op">=</span> <span class="va">secondaryColor</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>      <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Box.html" class="external-link">Box</a></span><span class="op">(</span>sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">3</span>, bgcolor <span class="op">=</span> <span class="st">"background.paper"</span><span class="op">)</span>,</span>
+<span>        <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Card.html" class="external-link">Card</a></span><span class="op">(</span>sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>boxShadow <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>,</span>
+<span>          <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/CardContent.html" class="external-link">CardContent</a></span><span class="op">(</span></span>
+<span>            <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Stack.html" class="external-link">Stack</a></span><span class="op">(</span>spacing <span class="op">=</span> <span class="fl">1.5</span>,</span>
+<span>              <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Typography.html" class="external-link">Typography</a></span><span class="op">(</span><span class="st">"Species Population"</span>, variant <span class="op">=</span> <span class="st">"h6"</span>, sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>fontWeight <span class="op">=</span> <span class="fl">600</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>              <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Typography.html" class="external-link">Typography</a></span><span class="op">(</span><span class="st">"Character distribution across species"</span>, variant <span class="op">=</span> <span class="st">"body2"</span>, sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"text.secondary"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>              <span class="fu"><a href="../reference/PieChart.html">PieChart</a></span><span class="op">(</span></span>
+<span>                series <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>                  data <span class="op">=</span> <span class="va">starwars_species</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/transmute.html" class="external-link">transmute</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">name</span>, value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lengths.html" class="external-link">lengths</a></span><span class="op">(</span><span class="va">people</span><span class="op">)</span>, color <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">primaryColor</span>, <span class="va">secondaryColor</span>, <span class="va">tertiaryColor</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>                  innerRadius <span class="op">=</span> <span class="fl">50</span>, outerRadius <span class="op">=</span> <span class="fl">100</span></span>
+<span>                <span class="op">)</span><span class="op">)</span>,</span>
+<span>                height <span class="op">=</span> <span class="fl">280</span></span>
+<span>              <span class="op">)</span>,</span>
+<span>              <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Divider.html" class="external-link">Divider</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>              <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Typography.html" class="external-link">Typography</a></span><span class="op">(</span><span class="st">"Made with muiCharts and muiMaterial"</span>, variant <span class="op">=</span> <span class="st">"caption"</span>, sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"text.secondary"</span><span class="op">)</span><span class="op">)</span></span>
+<span>            <span class="op">)</span></span>
+<span>          <span class="op">)</span></span>
+<span>        <span class="op">)</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">}</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+
+
 <div class="react-container" data-react-id="lofazeuxvpxadcskbdyf">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"ChartDataProvider","props":{"type":"object","value":{"series":{"type":"raw","value":[{"type":"pie","data":[{"label":"female","value":16},{"label":"hermaphroditic","value":1},{"label":"male","value":60},{"label":"none","value":6}],"innerRadius":50,"outerRadius":100}]},"height":{"type":"raw","value":300},"children":{"type":"array","value":[{"type":"element","module":"@mui/x-charts","name":"ChartsTooltip","props":{"type":"raw","value":{"trigger":"item"}}},{"type":"element","module":"@mui/x-charts","name":"ChartsSurface","props":{"type":"object","value":{"children":{"type":"element","module":"@mui/x-charts","name":"PiePlot","props":{"type":"raw","value":[]}}}}}]}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('lofazeuxvpxadcskbdyf')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"CssBaseline","props":{"type":"raw","value":[]}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('lofazeuxvpxadcskbdyf')</script>
 </div>
-<p>Use <code>PieArcPlot</code> and <code>PieArcLabelPlot</code>
-separately for independent control over arcs and labels:</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/ChartDataProvider.html">ChartDataProvider</a></span><span class="op">(</span></span>
-<span>  series <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      type <span class="op">=</span> <span class="st">"pie"</span>,</span>
-<span>      data <span class="op">=</span> <span class="va">starwars_sex</span>,</span>
-<span>      innerRadius <span class="op">=</span> <span class="fl">50</span>,</span>
-<span>      outerRadius <span class="op">=</span> <span class="fl">100</span>,</span>
-<span>      arcLabel <span class="op">=</span> <span class="st">"label"</span></span>
-<span>    <span class="op">)</span></span>
-<span>  <span class="op">)</span>,</span>
-<span>  height <span class="op">=</span> <span class="fl">300</span>,</span>
-<span>  <span class="fu"><a href="../reference/ChartsTooltip.html">ChartsTooltip</a></span><span class="op">(</span>trigger <span class="op">=</span> <span class="st">"item"</span><span class="op">)</span>,</span>
-<span>  <span class="fu"><a href="../reference/ChartsSurface.html">ChartsSurface</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="../reference/PieArcPlot.html">PieArcPlot</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="../reference/PieArcLabelPlot.html">PieArcLabelPlot</a></span><span class="op">(</span><span class="op">)</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="op">)</span></span></code></pre></div>
-<div class="react-container" data-react-id="wwiafyhwyaofqswjxvsa">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-charts","name":"ChartDataProvider","props":{"type":"object","value":{"series":{"type":"raw","value":[{"type":"pie","data":[{"label":"female","value":16},{"label":"hermaphroditic","value":1},{"label":"male","value":60},{"label":"none","value":6}],"innerRadius":50,"outerRadius":100,"arcLabel":"label"}]},"height":{"type":"raw","value":300},"children":{"type":"array","value":[{"type":"element","module":"@mui/x-charts","name":"ChartsTooltip","props":{"type":"raw","value":{"trigger":"item"}}},{"type":"element","module":"@mui/x-charts","name":"ChartsSurface","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","module":"@mui/x-charts","name":"PieArcPlot","props":{"type":"raw","value":[]}},{"type":"element","module":"@mui/x-charts","name":"PieArcLabelPlot","props":{"type":"raw","value":[]}}]}}}}]}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('wwiafyhwyaofqswjxvsa')</script>
+<div class="react-container" data-react-id="exxfwaxkbqxvnpmxrkog">
+<script class="react-data" type="application/json">{"type":"element","module":"@/muiMaterial","name":"ThemeProvider","props":{"type":"object","value":{"theme":{"type":"raw","value":{"palette":{"primary":{"main":"#1976d2"},"secondary":{"main":"#dc004e"}}}},"children":{"type":"element","module":"@mui/material","name":"Box","props":{"type":"object","value":{"sx":{"type":"raw","value":{"p":3,"bgcolor":"background.paper"}},"children":{"type":"element","module":"@mui/material","name":"Card","props":{"type":"object","value":{"sx":{"type":"raw","value":{"boxShadow":3}},"children":{"type":"element","module":"@mui/material","name":"CardContent","props":{"type":"object","value":{"children":{"type":"element","module":"@mui/material","name":"Stack","props":{"type":"object","value":{"spacing":{"type":"raw","value":1.5},"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"Typography","props":{"type":"raw","value":{"variant":"h6","sx":{"fontWeight":600},"children":"Species Population"}}},{"type":"element","module":"@mui/material","name":"Typography","props":{"type":"raw","value":{"variant":"body2","sx":{"color":"text.secondary"},"children":"Character distribution across species"}}},{"type":"element","module":"@mui/x-charts","name":"PieChart","props":{"type":"raw","value":{"series":[{"data":[{"label":"Human","value":4,"color":"#1976d2"},{"label":"Droid","value":4,"color":"#dc004e"},{"label":"Wookie","value":2,"color":"#9c27b0"}],"innerRadius":50,"outerRadius":100}],"height":280}}},{"type":"element","module":"@mui/material","name":"Divider","props":{"type":"raw","value":[]}},{"type":"element","module":"@mui/material","name":"Typography","props":{"type":"raw","value":{"variant":"caption","sx":{"color":"text.secondary"},"children":"Made with muiCharts and muiMaterial"}}}]}}}}}}}}}}}}}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('exxfwaxkbqxvnpmxrkog')</script>
 </div>
-<p><code>PieArc</code> and <code>PieArcLabel</code> are the slot
-sub-components for individual arc and label rendering:</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/PieArc.html">PieArc</a></span><span class="op">(</span>skipAnimation <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/PieArcLabel.html">PieArcLabel</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+
+
+<p>The <code>Stack</code> component organizes the title, chart, and
+footer. Colors from <code>ThemeProvider</code> are reused in the chart.
+This pattern works with any muiCharts component and fits perfectly
+within the Material Design ecosystem.</p>
 </div>
 <div class="section level2">
 <h2 id="learn-more">Learn More<a class="anchor" aria-label="anchor" href="#learn-more"></a>
@@ -462,7 +413,7 @@ effects, <a href="styling.html">Styling</a> for colors, <a href="legend.html">Le
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Félix Luginbuhl.</p>
+  <p>Developed by <a href="https://felixluginbuhl.com" class="external-link">Felix Luginbuhl</a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">

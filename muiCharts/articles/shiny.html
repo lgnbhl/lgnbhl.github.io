@@ -122,38 +122,28 @@ conflicts between Bootstrap and MUI.</p>
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/lgnbhl/muiCharts" class="external-link">muiCharts</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org" class="external-link">tidyr</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">starwars_gender</span> <span class="op">&lt;-</span> <span class="va">starwars</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/unnest_longer.html" class="external-link">unnest_longer</a></span><span class="op">(</span><span class="va">films</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">films</span>, <span class="va">sex</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html" class="external-link">pivot_wider</a></span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">sex</span>, values_from <span class="op">=</span> <span class="va">n</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">female</span><span class="op">)</span></span>
+<span><span class="va">film_counts</span> <span class="op">&lt;-</span> <span class="va">starwars_films</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
+<span>    Characters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lengths.html" class="external-link">lengths</a></span><span class="op">(</span><span class="va">characters</span><span class="op">)</span>,</span>
+<span>    Planets    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lengths.html" class="external-link">lengths</a></span><span class="op">(</span><span class="va">planets</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">episode_id</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/htmlOutput.html" class="external-link">uiOutput</a></span><span class="op">(</span><span class="st">"chart"</span><span class="op">)</span></span>
-<span><span class="op">)</span></span>
+<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/htmlOutput.html" class="external-link">uiOutput</a></span><span class="op">(</span><span class="st">"chart"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">output</span><span class="op">$</span><span class="va">chart</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderUI.html" class="external-link">renderUI</a></span><span class="op">(</span><span class="op">{</span></span>
 <span>    <span class="fu"><a href="../reference/BarChart.html">BarChart</a></span><span class="op">(</span></span>
-<span>      dataset <span class="op">=</span> <span class="va">starwars_gender</span>,</span>
-<span>      xAxis <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>        <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>          scaleType <span class="op">=</span> <span class="st">"band"</span>,</span>
-<span>          dataKey <span class="op">=</span> <span class="st">"films"</span>,</span>
-<span>          label <span class="op">=</span> <span class="st">"Movies"</span></span>
-<span>        <span class="op">)</span></span>
+<span>      dataset <span class="op">=</span> <span class="va">film_counts</span>,</span>
+<span>      layout  <span class="op">=</span> <span class="st">"horizontal"</span>,</span>
+<span>      yAxis   <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>scaleType <span class="op">=</span> <span class="st">"band"</span>, dataKey <span class="op">=</span> <span class="st">"title"</span>, width <span class="op">=</span> <span class="fl">220</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>      series  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>dataKey <span class="op">=</span> <span class="st">"Characters"</span>, label <span class="op">=</span> <span class="st">"Characters"</span><span class="op">)</span>,</span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>dataKey <span class="op">=</span> <span class="st">"Planets"</span>,    label <span class="op">=</span> <span class="st">"Planets"</span><span class="op">)</span></span>
 <span>      <span class="op">)</span>,</span>
-<span>      series <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>        <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>dataKey <span class="op">=</span> <span class="st">"male"</span>, label <span class="op">=</span> <span class="st">"Male"</span><span class="op">)</span>,</span>
-<span>        <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>dataKey <span class="op">=</span> <span class="st">"female"</span>, label <span class="op">=</span> <span class="st">"Female"</span><span class="op">)</span>,</span>
-<span>        <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>dataKey <span class="op">=</span> <span class="st">"hermaphroditic"</span>, label <span class="op">=</span> <span class="st">"Hermaphroditic"</span><span class="op">)</span>,</span>
-<span>        <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>dataKey <span class="op">=</span> <span class="st">"none"</span>, label <span class="op">=</span> <span class="st">"None"</span><span class="op">)</span></span>
-<span>      <span class="op">)</span>,</span>
-<span>      grid <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>horizontal <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
-<span>      height <span class="op">=</span> <span class="fl">300</span></span>
+<span>      grid   <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>horizontal <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>      height <span class="op">=</span> <span class="fl">380</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">}</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
@@ -165,56 +155,57 @@ conflicts between Bootstrap and MUI.</p>
 <h2 id="reactive-charts">Reactive Charts<a class="anchor" aria-label="anchor" href="#reactive-charts"></a>
 </h2>
 <p>Use <a href="https://github.com/lgnbhl/muiMaterial" class="external-link">muiMaterial</a>
-inputs to dynamically update charts:</p>
+inputs to dynamically update charts — switch chart type and select which
+film elements to display:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/lgnbhl/muiCharts" class="external-link">muiCharts</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/muiMaterial/" class="external-link">muiMaterial</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org" class="external-link">tidyr</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">starwars_gender</span> <span class="op">&lt;-</span> <span class="va">starwars</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/unnest_longer.html" class="external-link">unnest_longer</a></span><span class="op">(</span><span class="va">films</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">films</span>, <span class="va">sex</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html" class="external-link">pivot_wider</a></span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">sex</span>, values_from <span class="op">=</span> <span class="va">n</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>release <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1977</span>, <span class="fl">2002</span>, <span class="fl">1983</span>, <span class="fl">2005</span>, <span class="fl">1980</span>, <span class="fl">2015</span>, <span class="fl">1999</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">release</span><span class="op">)</span></span>
+<span><span class="va">film_counts</span> <span class="op">&lt;-</span> <span class="va">starwars_films</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
+<span>    Characters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lengths.html" class="external-link">lengths</a></span><span class="op">(</span><span class="va">characters</span><span class="op">)</span>,</span>
+<span>    Planets    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lengths.html" class="external-link">lengths</a></span><span class="op">(</span><span class="va">planets</span><span class="op">)</span>,</span>
+<span>    Species    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lengths.html" class="external-link">lengths</a></span><span class="op">(</span><span class="va">species</span><span class="op">)</span>,</span>
+<span>    Starships  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lengths.html" class="external-link">lengths</a></span><span class="op">(</span><span class="va">starships</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">episode_id</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/muiMaterialPage.html" class="external-link">muiMaterialPage</a></span><span class="op">(</span></span>
 <span>  <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/CssBaseline.html" class="external-link">CssBaseline</a></span><span class="op">(</span></span>
 <span>    <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Container.html" class="external-link">Container</a></span><span class="op">(</span></span>
 <span>      maxWidth <span class="op">=</span> <span class="st">"md"</span>,</span>
 <span>      sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>py <span class="op">=</span> <span class="fl">4</span><span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Typography.html" class="external-link">Typography</a></span><span class="op">(</span><span class="st">"Star Wars Characters"</span>, variant <span class="op">=</span> <span class="st">"h4"</span>, gutterBottom <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>      <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Typography.html" class="external-link">Typography</a></span><span class="op">(</span><span class="st">"Star Wars Films"</span>, variant <span class="op">=</span> <span class="st">"h4"</span>, gutterBottom <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
 <span>      <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Stack.html" class="external-link">Stack</a></span><span class="op">(</span></span>
 <span>        spacing <span class="op">=</span> <span class="fl">3</span>,</span>
 <span>        <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/ToggleButtonGroup.html" class="external-link">ToggleButtonGroup.shinyInput</a></span><span class="op">(</span></span>
-<span>          inputId <span class="op">=</span> <span class="st">"chart_type"</span>,</span>
-<span>          value <span class="op">=</span> <span class="st">"bar"</span>,</span>
+<span>          inputId   <span class="op">=</span> <span class="st">"chart_type"</span>,</span>
+<span>          value     <span class="op">=</span> <span class="st">"bar"</span>,</span>
 <span>          exclusive <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>          <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/ToggleButton.html" class="external-link">ToggleButton.shinyInput</a></span><span class="op">(</span>inputId <span class="op">=</span> <span class="st">"btn_bar"</span>, value <span class="op">=</span> <span class="st">"bar"</span>, <span class="st">"Bar"</span><span class="op">)</span>,</span>
+<span>          <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/ToggleButton.html" class="external-link">ToggleButton.shinyInput</a></span><span class="op">(</span>inputId <span class="op">=</span> <span class="st">"btn_bar"</span>,  value <span class="op">=</span> <span class="st">"bar"</span>,  <span class="st">"Bar"</span><span class="op">)</span>,</span>
 <span>          <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/ToggleButton.html" class="external-link">ToggleButton.shinyInput</a></span><span class="op">(</span>inputId <span class="op">=</span> <span class="st">"btn_line"</span>, value <span class="op">=</span> <span class="st">"line"</span>, <span class="st">"Line"</span><span class="op">)</span></span>
 <span>        <span class="op">)</span>,</span>
 <span>        <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Box.html" class="external-link">Box</a></span><span class="op">(</span></span>
-<span>          <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Typography.html" class="external-link">Typography</a></span><span class="op">(</span><span class="st">"Gender:"</span>, variant <span class="op">=</span> <span class="st">"subtitle1"</span><span class="op">)</span>,</span>
+<span>          <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Typography.html" class="external-link">Typography</a></span><span class="op">(</span><span class="st">"Elements:"</span>, variant <span class="op">=</span> <span class="st">"subtitle1"</span><span class="op">)</span>,</span>
 <span>          <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/FormGroup.html" class="external-link">FormGroup</a></span><span class="op">(</span></span>
 <span>            row <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>            <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/FormControlLabel.html" class="external-link">FormControlLabel</a></span><span class="op">(</span></span>
-<span>              control <span class="op">=</span> <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Checkbox.html" class="external-link">Checkbox.shinyInput</a></span><span class="op">(</span>inputId <span class="op">=</span> <span class="st">"chk_male"</span>, value <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
-<span>              label <span class="op">=</span> <span class="st">"Male"</span></span>
+<span>              control <span class="op">=</span> <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Checkbox.html" class="external-link">Checkbox.shinyInput</a></span><span class="op">(</span>inputId <span class="op">=</span> <span class="st">"chk_chars"</span>,     value <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>              label   <span class="op">=</span> <span class="st">"Characters"</span></span>
 <span>            <span class="op">)</span>,</span>
 <span>            <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/FormControlLabel.html" class="external-link">FormControlLabel</a></span><span class="op">(</span></span>
-<span>              control <span class="op">=</span> <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Checkbox.html" class="external-link">Checkbox.shinyInput</a></span><span class="op">(</span>inputId <span class="op">=</span> <span class="st">"chk_female"</span>, value <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
-<span>              label <span class="op">=</span> <span class="st">"Female"</span></span>
+<span>              control <span class="op">=</span> <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Checkbox.html" class="external-link">Checkbox.shinyInput</a></span><span class="op">(</span>inputId <span class="op">=</span> <span class="st">"chk_planets"</span>,   value <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>              label   <span class="op">=</span> <span class="st">"Planets"</span></span>
 <span>            <span class="op">)</span>,</span>
 <span>            <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/FormControlLabel.html" class="external-link">FormControlLabel</a></span><span class="op">(</span></span>
-<span>              control <span class="op">=</span> <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Checkbox.html" class="external-link">Checkbox.shinyInput</a></span><span class="op">(</span>inputId <span class="op">=</span> <span class="st">"chk_hermaphroditic"</span>, value <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>,</span>
-<span>              label <span class="op">=</span> <span class="st">"Hermaphroditic"</span></span>
+<span>              control <span class="op">=</span> <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Checkbox.html" class="external-link">Checkbox.shinyInput</a></span><span class="op">(</span>inputId <span class="op">=</span> <span class="st">"chk_species"</span>,   value <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>,</span>
+<span>              label   <span class="op">=</span> <span class="st">"Species"</span></span>
 <span>            <span class="op">)</span>,</span>
 <span>            <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/FormControlLabel.html" class="external-link">FormControlLabel</a></span><span class="op">(</span></span>
-<span>              control <span class="op">=</span> <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Checkbox.html" class="external-link">Checkbox.shinyInput</a></span><span class="op">(</span>inputId <span class="op">=</span> <span class="st">"chk_none"</span>, value <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>,</span>
-<span>              label <span class="op">=</span> <span class="st">"None"</span></span>
+<span>              control <span class="op">=</span> <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Checkbox.html" class="external-link">Checkbox.shinyInput</a></span><span class="op">(</span>inputId <span class="op">=</span> <span class="st">"chk_starships"</span>, value <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>,</span>
+<span>              label   <span class="op">=</span> <span class="st">"Starships"</span></span>
 <span>            <span class="op">)</span></span>
 <span>          <span class="op">)</span></span>
 <span>        <span class="op">)</span>,</span>
@@ -227,56 +218,36 @@ inputs to dynamically update charts:</p>
 <span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">chart_type</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactiveVal.html" class="external-link">reactiveVal</a></span><span class="op">(</span><span class="st">"bar"</span><span class="op">)</span></span>
 <span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">btn_bar</span>, <span class="fu">chart_type</span><span class="op">(</span><span class="st">"bar"</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">btn_bar</span>,  <span class="fu">chart_type</span><span class="op">(</span><span class="st">"bar"</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">btn_line</span>, <span class="fu">chart_type</span><span class="op">(</span><span class="st">"line"</span><span class="op">)</span><span class="op">)</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">btn_bar</span>, <span class="va">input</span><span class="op">$</span><span class="va">btn_line</span><span class="op">)</span>, <span class="op">{</span></span>
-<span>    <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/ToggleButtonGroup.html" class="external-link">updateToggleButtonGroup.shinyInput</a></span><span class="op">(</span></span>
-<span>      inputId <span class="op">=</span> <span class="st">"chart_type"</span>, value <span class="op">=</span> <span class="fu">chart_type</span><span class="op">(</span><span class="op">)</span></span>
-<span>    <span class="op">)</span></span>
-<span>  <span class="op">}</span><span class="op">)</span></span>
 <span></span>
-<span>  <span class="va">selected_gender</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactive.html" class="external-link">reactive</a></span><span class="op">(</span><span class="op">{</span></span>
-<span>    <span class="va">genders</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
-<span>      male <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">chk_male</span>,</span>
-<span>      female <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">chk_female</span>,</span>
-<span>      hermaphroditic <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">chk_hermaphroditic</span>,</span>
-<span>      none <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">chk_none</span></span>
+<span>  <span class="va">selected_series</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactive.html" class="external-link">reactive</a></span><span class="op">(</span><span class="op">{</span></span>
+<span>    <span class="va">keys</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>      Characters <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">chk_chars</span>,</span>
+<span>      Planets    <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">chk_planets</span>,</span>
+<span>      Species    <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">chk_species</span>,</span>
+<span>      Starships  <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">chk_starships</span></span>
 <span>    <span class="op">)</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">genders</span><span class="op">[</span><span class="va">genders</span> <span class="op">==</span> <span class="cn">TRUE</span><span class="op">]</span><span class="op">)</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">keys</span><span class="op">[</span><span class="va">keys</span> <span class="op">==</span> <span class="cn">TRUE</span><span class="op">]</span><span class="op">)</span></span>
 <span>  <span class="op">}</span><span class="op">)</span></span>
 <span></span>
 <span>  <span class="va">output</span><span class="op">$</span><span class="va">chart</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderUI.html" class="external-link">renderUI</a></span><span class="op">(</span><span class="op">{</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/req.html" class="external-link">req</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu">selected_gender</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span></span>
-<span></span>
-<span>    <span class="va">series</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="fu">selected_gender</span><span class="op">(</span><span class="op">)</span>, <span class="kw">function</span><span class="op">(</span><span class="va">g</span><span class="op">)</span> <span class="op">{</span></span>
-<span>      <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>dataKey <span class="op">=</span> <span class="va">g</span>, label <span class="op">=</span> <span class="fu">tools</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/tools/toTitleCase.html" class="external-link">toTitleCase</a></span><span class="op">(</span><span class="va">g</span><span class="op">)</span><span class="op">)</span></span>
-<span>    <span class="op">}</span><span class="op">)</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/req.html" class="external-link">req</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu">selected_series</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span></span>
+<span>    <span class="va">series</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="fu">selected_series</span><span class="op">(</span><span class="op">)</span>, <span class="kw">function</span><span class="op">(</span><span class="va">s</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>dataKey <span class="op">=</span> <span class="va">s</span>, label <span class="op">=</span> <span class="va">s</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span>    <span class="kw">if</span> <span class="op">(</span><span class="fu">chart_type</span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="st">"bar"</span><span class="op">)</span> <span class="op">{</span></span>
 <span>      <span class="fu"><a href="../reference/BarChart.html">BarChart</a></span><span class="op">(</span></span>
-<span>        dataset <span class="op">=</span> <span class="va">starwars_gender</span>,</span>
-<span>        xAxis <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>          <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>            scaleType <span class="op">=</span> <span class="st">"band"</span>,</span>
-<span>            dataKey <span class="op">=</span> <span class="st">"films"</span>,</span>
-<span>            tickLabelStyle <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>fontSize <span class="op">=</span> <span class="st">"0.5em"</span><span class="op">)</span></span>
-<span>          <span class="op">)</span></span>
-<span>        <span class="op">)</span>,</span>
-<span>        series <span class="op">=</span> <span class="va">series</span>,</span>
-<span>        height <span class="op">=</span> <span class="fl">400</span></span>
+<span>        dataset <span class="op">=</span> <span class="va">film_counts</span>,</span>
+<span>        xAxis   <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>scaleType <span class="op">=</span> <span class="st">"band"</span>, dataKey <span class="op">=</span> <span class="st">"episode_id"</span>, label <span class="op">=</span> <span class="st">"Star Wars Episode"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>        series  <span class="op">=</span> <span class="va">series</span>,</span>
+<span>        height  <span class="op">=</span> <span class="fl">400</span></span>
 <span>      <span class="op">)</span></span>
 <span>    <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
 <span>      <span class="fu"><a href="../reference/LineChart.html">LineChart</a></span><span class="op">(</span></span>
-<span>        dataset <span class="op">=</span> <span class="va">starwars_gender</span>,</span>
-<span>        xAxis <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>          <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>            scaleType <span class="op">=</span> <span class="st">"point"</span>,</span>
-<span>            dataKey <span class="op">=</span> <span class="st">"films"</span>,</span>
-<span>            tickLabelStyle <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>fontSize <span class="op">=</span> <span class="st">"0.5em"</span><span class="op">)</span></span>
-<span>          <span class="op">)</span></span>
-<span>        <span class="op">)</span>,</span>
-<span>        series <span class="op">=</span> <span class="va">series</span>,</span>
-<span>        height <span class="op">=</span> <span class="fl">400</span></span>
+<span>        dataset <span class="op">=</span> <span class="va">film_counts</span>,</span>
+<span>        xAxis   <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>scaleType <span class="op">=</span> <span class="st">"point"</span>, dataKey <span class="op">=</span> <span class="st">"episode_id"</span>, label <span class="op">=</span> <span class="st">"Star Wars Episode"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>        series  <span class="op">=</span> <span class="va">series</span>,</span>
+<span>        height  <span class="op">=</span> <span class="fl">400</span></span>
 <span>      <span class="op">)</span></span>
 <span>    <span class="op">}</span></span>
 <span>  <span class="op">}</span><span class="op">)</span></span>
@@ -292,47 +263,45 @@ and <code>Shiny.setInputValue()</code>:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/lgnbhl/muiCharts" class="external-link">muiCharts</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://glue.tidyverse.org/" class="external-link">glue</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">film_counts</span> <span class="op">&lt;-</span> <span class="va">starwars_films</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
+<span>    Characters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lengths.html" class="external-link">lengths</a></span><span class="op">(</span><span class="va">characters</span><span class="op">)</span>,</span>
+<span>    Planets    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lengths.html" class="external-link">lengths</a></span><span class="op">(</span><span class="va">planets</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">episode_id</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span>
 <span>  <span class="va">tags</span><span class="op">$</span><span class="fu">h1</span><span class="op">(</span><span class="st">"Click on the chart"</span><span class="op">)</span>,</span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/htmlOutput.html" class="external-link">uiOutput</a></span><span class="op">(</span><span class="st">"chart"</span><span class="op">)</span>,</span>
-<span>  <span class="va">tags</span><span class="op">$</span><span class="fu">h3</span><span class="op">(</span><span class="st">"User clicked on:"</span><span class="op">)</span>,</span>
+<span>  <span class="va">tags</span><span class="op">$</span><span class="fu">h3</span><span class="op">(</span><span class="st">"You clicked:"</span><span class="op">)</span>,</span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderTable.html" class="external-link">tableOutput</a></span><span class="op">(</span><span class="st">"clickEvent"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
-<span></span>
 <span>  <span class="va">setClickEvent</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">inputId</span><span class="op">)</span> <span class="op">{</span></span>
 <span>    <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/JS.html" class="external-link">JS</a></span><span class="op">(</span><span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html" class="external-link">glue</a></span><span class="op">(</span><span class="st">"(event, d) =&gt; Shiny.setInputValue('{inputId}', d)"</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="op">}</span></span>
 <span></span>
 <span>  <span class="va">output</span><span class="op">$</span><span class="va">clickEvent</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderTable.html" class="external-link">renderTable</a></span><span class="op">(</span><span class="op">{</span></span>
-<span>    <span class="va">includeNull</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
-<span>      <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">==</span> <span class="fl">0</span>, <span class="cn">NA_character_</span>, <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span>
-<span>    <span class="op">}</span></span>
-<span></span>
+<span>    <span class="va">includeNull</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">==</span> <span class="fl">0</span>, <span class="cn">NA_character_</span>, <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
-<span>      films <span class="op">=</span> <span class="fu">includeNull</span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">userClick</span><span class="op">$</span><span class="va">axisValue</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span>,</span>
-<span>      male <span class="op">=</span> <span class="fu">includeNull</span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">userClick</span><span class="op">$</span><span class="va">seriesValues</span><span class="op">$</span><span class="va">`auto-generated-id-0`</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span>,</span>
-<span>      female <span class="op">=</span> <span class="fu">includeNull</span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">userClick</span><span class="op">$</span><span class="va">seriesValues</span><span class="op">$</span><span class="va">`auto-generated-id-1`</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
+<span>      episode    <span class="op">=</span> <span class="fu">includeNull</span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">userClick</span><span class="op">$</span><span class="va">axisValue</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span>,</span>
+<span>      Characters <span class="op">=</span> <span class="fu">includeNull</span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">userClick</span><span class="op">$</span><span class="va">seriesValues</span><span class="op">$</span><span class="va">`auto-generated-id-0`</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span>,</span>
+<span>      Planets    <span class="op">=</span> <span class="fu">includeNull</span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">userClick</span><span class="op">$</span><span class="va">seriesValues</span><span class="op">$</span><span class="va">`auto-generated-id-1`</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">}</span><span class="op">)</span></span>
 <span></span>
 <span>  <span class="va">output</span><span class="op">$</span><span class="va">chart</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderUI.html" class="external-link">renderUI</a></span><span class="op">(</span><span class="op">{</span></span>
 <span>    <span class="fu"><a href="../reference/BarChart.html">BarChart</a></span><span class="op">(</span></span>
-<span>      dataset <span class="op">=</span> <span class="va">starwars_gender</span>,</span>
+<span>      dataset    <span class="op">=</span> <span class="va">film_counts</span>,</span>
 <span>      onAxisClick <span class="op">=</span> <span class="fu">setClickEvent</span><span class="op">(</span><span class="st">"userClick"</span><span class="op">)</span>,</span>
-<span>      xAxis <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>        <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>          scaleType <span class="op">=</span> <span class="st">"band"</span>,</span>
-<span>          dataKey <span class="op">=</span> <span class="st">"films"</span>,</span>
-<span>          label <span class="op">=</span> <span class="st">"Movies"</span></span>
-<span>        <span class="op">)</span></span>
-<span>      <span class="op">)</span>,</span>
-<span>      series <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>        <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>dataKey <span class="op">=</span> <span class="st">"male"</span>, label <span class="op">=</span> <span class="st">"Male"</span><span class="op">)</span>,</span>
-<span>        <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>dataKey <span class="op">=</span> <span class="st">"female"</span>, label <span class="op">=</span> <span class="st">"Female"</span><span class="op">)</span></span>
+<span>      xAxis      <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>scaleType <span class="op">=</span> <span class="st">"band"</span>, dataKey <span class="op">=</span> <span class="st">"episode_id"</span>, label <span class="op">=</span> <span class="st">"Star Wars Episode"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>      series     <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>dataKey <span class="op">=</span> <span class="st">"Characters"</span>, label <span class="op">=</span> <span class="st">"Characters"</span><span class="op">)</span>,</span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>dataKey <span class="op">=</span> <span class="st">"Planets"</span>,    label <span class="op">=</span> <span class="st">"Planets"</span><span class="op">)</span></span>
 <span>      <span class="op">)</span>,</span>
 <span>      height <span class="op">=</span> <span class="fl">300</span></span>
 <span>    <span class="op">)</span></span>
@@ -345,23 +314,19 @@ and <code>Shiny.setInputValue()</code>:</p>
 <div class="section level2">
 <h2 id="dashboard-with-muimaterial">Dashboard with muiMaterial<a class="anchor" aria-label="anchor" href="#dashboard-with-muimaterial"></a>
 </h2>
-<p>Use <a href="https://github.com/lgnbhl/muiMaterial" class="external-link">muiMaterial</a>
-layout components for a dashboard that works seamlessly with
-muiCharts:</p>
+<p>Combine pie chart and gauge in a responsive dashboard layout:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/lgnbhl/muiCharts" class="external-link">muiCharts</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/muiMaterial/" class="external-link">muiMaterial</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">starwars_sex</span> <span class="op">&lt;-</span> <span class="va">starwars</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">sex</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">sex</span>, value <span class="op">=</span> <span class="va">n</span><span class="op">)</span></span>
+<span><span class="va">gender_dist</span> <span class="op">&lt;-</span> <span class="va">starwars_people</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">gender</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">gender</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">gender</span>, value <span class="op">=</span> <span class="va">n</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">human_pct</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">starwars</span><span class="op">$</span><span class="va">species</span> <span class="op">==</span> <span class="st">"Human"</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">starwars</span><span class="op">)</span> <span class="op">*</span> <span class="fl">100</span></span>
-<span><span class="op">)</span></span>
+<span><span class="va">male_pct</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">starwars_people</span><span class="op">$</span><span class="va">gender</span> <span class="op">==</span> <span class="st">"male"</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">*</span> <span class="fl">100</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/muiMaterialPage.html" class="external-link">muiMaterialPage</a></span><span class="op">(</span></span>
 <span>  <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/CssBaseline.html" class="external-link">CssBaseline</a></span><span class="op">(</span></span>
@@ -372,36 +337,32 @@ muiCharts:</p>
 <span>      <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Box.html" class="external-link">Box</a></span><span class="op">(</span></span>
 <span>        <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Typography.html" class="external-link">Typography</a></span><span class="op">(</span><span class="st">"Chart height:"</span>, variant <span class="op">=</span> <span class="st">"subtitle1"</span><span class="op">)</span>,</span>
 <span>        <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Slider.html" class="external-link">Slider.shinyInput</a></span><span class="op">(</span></span>
-<span>          inputId <span class="op">=</span> <span class="st">"height"</span>,</span>
-<span>          value <span class="op">=</span> <span class="fl">300</span>,</span>
-<span>          min <span class="op">=</span> <span class="fl">200</span>,</span>
-<span>          max <span class="op">=</span> <span class="fl">500</span>,</span>
-<span>          step <span class="op">=</span> <span class="fl">50</span>,</span>
+<span>          inputId          <span class="op">=</span> <span class="st">"height"</span>,</span>
+<span>          value            <span class="op">=</span> <span class="fl">300</span>,</span>
+<span>          min              <span class="op">=</span> <span class="fl">200</span>,</span>
+<span>          max              <span class="op">=</span> <span class="fl">500</span>,</span>
+<span>          step             <span class="op">=</span> <span class="fl">50</span>,</span>
 <span>          valueLabelDisplay <span class="op">=</span> <span class="st">"auto"</span>,</span>
-<span>          sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>maxWidth <span class="op">=</span> <span class="fl">300</span><span class="op">)</span></span>
+<span>          sx               <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>maxWidth <span class="op">=</span> <span class="fl">300</span><span class="op">)</span></span>
 <span>        <span class="op">)</span></span>
 <span>      <span class="op">)</span>,</span>
 <span>      <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Grid.html" class="external-link">Grid</a></span><span class="op">(</span></span>
 <span>        container <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>        spacing <span class="op">=</span> <span class="fl">3</span>,</span>
-<span>        sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>mt <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
+<span>        spacing   <span class="op">=</span> <span class="fl">3</span>,</span>
+<span>        sx        <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>mt <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
 <span>        <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Grid.html" class="external-link">Grid</a></span><span class="op">(</span></span>
 <span>          size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>xs <span class="op">=</span> <span class="fl">12</span>, md <span class="op">=</span> <span class="fl">8</span><span class="op">)</span>,</span>
-<span>          <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Card.html" class="external-link">Card</a></span><span class="op">(</span></span>
-<span>            <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/CardContent.html" class="external-link">CardContent</a></span><span class="op">(</span></span>
-<span>              <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Typography.html" class="external-link">Typography</a></span><span class="op">(</span><span class="st">"Characters by Sex"</span>, variant <span class="op">=</span> <span class="st">"h6"</span><span class="op">)</span>,</span>
-<span>              <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/htmlOutput.html" class="external-link">uiOutput</a></span><span class="op">(</span><span class="st">"pieChart"</span><span class="op">)</span></span>
-<span>            <span class="op">)</span></span>
-<span>          <span class="op">)</span></span>
+<span>          <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Card.html" class="external-link">Card</a></span><span class="op">(</span><span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/CardContent.html" class="external-link">CardContent</a></span><span class="op">(</span></span>
+<span>            <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Typography.html" class="external-link">Typography</a></span><span class="op">(</span><span class="st">"Characters by Gender"</span>, variant <span class="op">=</span> <span class="st">"h6"</span><span class="op">)</span>,</span>
+<span>            <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/htmlOutput.html" class="external-link">uiOutput</a></span><span class="op">(</span><span class="st">"pieChart"</span><span class="op">)</span></span>
+<span>          <span class="op">)</span><span class="op">)</span></span>
 <span>        <span class="op">)</span>,</span>
 <span>        <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Grid.html" class="external-link">Grid</a></span><span class="op">(</span></span>
 <span>          size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>xs <span class="op">=</span> <span class="fl">12</span>, md <span class="op">=</span> <span class="fl">4</span><span class="op">)</span>,</span>
-<span>          <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Card.html" class="external-link">Card</a></span><span class="op">(</span></span>
-<span>            <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/CardContent.html" class="external-link">CardContent</a></span><span class="op">(</span></span>
-<span>              <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Typography.html" class="external-link">Typography</a></span><span class="op">(</span><span class="st">"Human Characters"</span>, variant <span class="op">=</span> <span class="st">"h6"</span><span class="op">)</span>,</span>
-<span>              <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/htmlOutput.html" class="external-link">uiOutput</a></span><span class="op">(</span><span class="st">"gauge"</span><span class="op">)</span></span>
-<span>            <span class="op">)</span></span>
-<span>          <span class="op">)</span></span>
+<span>          <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Card.html" class="external-link">Card</a></span><span class="op">(</span><span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/CardContent.html" class="external-link">CardContent</a></span><span class="op">(</span></span>
+<span>            <span class="fu"><a href="https://felixluginbuhl.com/muiMaterial/reference/Typography.html" class="external-link">Typography</a></span><span class="op">(</span><span class="st">"Male Characters"</span>, variant <span class="op">=</span> <span class="st">"h6"</span><span class="op">)</span>,</span>
+<span>            <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/htmlOutput.html" class="external-link">uiOutput</a></span><span class="op">(</span><span class="st">"gauge"</span><span class="op">)</span></span>
+<span>          <span class="op">)</span><span class="op">)</span></span>
 <span>        <span class="op">)</span></span>
 <span>      <span class="op">)</span></span>
 <span>    <span class="op">)</span></span>
@@ -411,25 +372,13 @@ muiCharts:</p>
 <span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">output</span><span class="op">$</span><span class="va">pieChart</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderUI.html" class="external-link">renderUI</a></span><span class="op">(</span><span class="op">{</span></span>
 <span>    <span class="fu"><a href="../reference/PieChart.html">PieChart</a></span><span class="op">(</span></span>
-<span>      series <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>        <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>          data <span class="op">=</span> <span class="va">starwars_sex</span>,</span>
-<span>          innerRadius <span class="op">=</span> <span class="fl">50</span>,</span>
-<span>          outerRadius <span class="op">=</span> <span class="fl">100</span></span>
-<span>        <span class="op">)</span></span>
-<span>      <span class="op">)</span>,</span>
+<span>      series <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">gender_dist</span>, innerRadius <span class="op">=</span> <span class="fl">50</span>, outerRadius <span class="op">=</span> <span class="fl">100</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>      height <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">height</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">}</span><span class="op">)</span></span>
 <span></span>
 <span>  <span class="va">output</span><span class="op">$</span><span class="va">gauge</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderUI.html" class="external-link">renderUI</a></span><span class="op">(</span><span class="op">{</span></span>
-<span>    <span class="fu"><a href="../reference/Gauge.html">Gauge</a></span><span class="op">(</span></span>
-<span>      width <span class="op">=</span> <span class="fl">150</span>,</span>
-<span>      height <span class="op">=</span> <span class="fl">150</span>,</span>
-<span>      value <span class="op">=</span> <span class="va">human_pct</span>,</span>
-<span>      startAngle <span class="op">=</span> <span class="op">-</span><span class="fl">90</span>,</span>
-<span>      endAngle <span class="op">=</span> <span class="fl">90</span></span>
-<span>    <span class="op">)</span></span>
+<span>    <span class="fu"><a href="../reference/Gauge.html">Gauge</a></span><span class="op">(</span>width <span class="op">=</span> <span class="fl">150</span>, height <span class="op">=</span> <span class="fl">150</span>, value <span class="op">=</span> <span class="va">male_pct</span>, startAngle <span class="op">=</span> <span class="op">-</span><span class="fl">90</span>, endAngle <span class="op">=</span> <span class="fl">90</span><span class="op">)</span></span>
 <span>  <span class="op">}</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span></span>
@@ -455,32 +404,24 @@ dependency when embedding charts in custom HTML:</p>
 <p><code><a href="https://appsilon.github.io/shiny.react/reference/reactOutput.html" class="external-link">reactOutput()</a></code> and <code><a href="https://appsilon.github.io/shiny.react/reference/renderReact.html" class="external-link">renderReact()</a></code> are
 alternatives to <code><a href="https://rdrr.io/pkg/shiny/man/htmlOutput.html" class="external-link">uiOutput()</a></code> / <code><a href="https://rdrr.io/pkg/shiny/man/renderUI.html" class="external-link">renderUI()</a></code> from
 the <a href="https://appsilon.github.io/shiny.react/" class="external-link">shiny.react</a>
-package, re-exported here for convenience. They provide more direct
-React rendering control:</p>
+package, re-exported here for convenience:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/lgnbhl/muiCharts" class="external-link">muiCharts</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org" class="external-link">tidyr</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">starwars_gender</span> <span class="op">&lt;-</span> <span class="va">starwars</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/unnest_longer.html" class="external-link">unnest_longer</a></span><span class="op">(</span><span class="va">films</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">films</span>, <span class="va">sex</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html" class="external-link">pivot_wider</a></span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">sex</span>, values_from <span class="op">=</span> <span class="va">n</span>, values_fill <span class="op">=</span> <span class="fl">0</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">female</span><span class="op">)</span></span>
+<span><span class="va">film_counts</span> <span class="op">&lt;-</span> <span class="va">starwars_films</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>Characters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lengths.html" class="external-link">lengths</a></span><span class="op">(</span><span class="va">characters</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">episode_id</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span>
-<span>  <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/reactOutput.html" class="external-link">reactOutput</a></span><span class="op">(</span><span class="st">"chart"</span><span class="op">)</span></span>
-<span><span class="op">)</span></span>
-<span></span>
+<span><span class="va">ui</span>     <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList</a></span><span class="op">(</span><span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/reactOutput.html" class="external-link">reactOutput</a></span><span class="op">(</span><span class="st">"chart"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">output</span><span class="op">$</span><span class="va">chart</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/renderReact.html" class="external-link">renderReact</a></span><span class="op">(</span><span class="op">{</span></span>
 <span>    <span class="fu"><a href="../reference/BarChart.html">BarChart</a></span><span class="op">(</span></span>
-<span>      dataset <span class="op">=</span> <span class="va">starwars_gender</span>,</span>
-<span>      xAxis <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>scaleType <span class="op">=</span> <span class="st">"band"</span>, dataKey <span class="op">=</span> <span class="st">"films"</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>      series <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>dataKey <span class="op">=</span> <span class="st">"male"</span>, label <span class="op">=</span> <span class="st">"Male"</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>      height <span class="op">=</span> <span class="fl">300</span></span>
+<span>      dataset <span class="op">=</span> <span class="va">film_counts</span>,</span>
+<span>      xAxis   <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>scaleType <span class="op">=</span> <span class="st">"band"</span>, dataKey <span class="op">=</span> <span class="st">"episode_id"</span>, label <span class="op">=</span> <span class="st">"Star Wars Episode"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>      series  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>dataKey <span class="op">=</span> <span class="st">"Characters"</span>, label <span class="op">=</span> <span class="st">"Characters"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>      height  <span class="op">=</span> <span class="fl">300</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">}</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
@@ -522,7 +463,7 @@ documentation</a></li>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Félix Luginbuhl.</p>
+  <p>Developed by <a href="https://felixluginbuhl.com" class="external-link">Felix Luginbuhl</a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">

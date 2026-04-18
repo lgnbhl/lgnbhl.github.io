@@ -1,20 +1,22 @@
 # Axis & Grid
 
-``` r
-
-library(muiCharts)
-library(dplyr)
-library(tidyr)
-```
+## Overview
 
 MUI X Charts provide flexible axis configuration. This article
 demonstrates axis customization based on the [MUI Axis
 documentation](https://mui.com/x/react-charts/axis/).
 
+## Setup
+
+``` r
+
+library(muiCharts)
+library(dplyr)
+```
+
 ## Scale Types
 
-The `scaleType` property defines how data maps to axis positions.
-Available types:
+The `scaleType` property defines how data maps to axis positions:
 
 - `"band"` — categorical (for bar charts)
 - `"point"` — categorical (for line/scatter charts)
@@ -25,46 +27,58 @@ Available types:
 
 ### Band Scale
 
+Discrete categories on the x-axis — ideal for bar charts:
+
 ``` r
 
-starwars_gender <- dplyr::starwars |>
-  unnest_longer(films) |>
-  count(films, sex) |>
-  filter(!is.na(sex)) |>
-  pivot_wider(names_from = sex, values_from = n) |>
-  mutate(release = c(1977, 2002, 1983, 2005, 1980, 2015, 1999)) |>
-  arrange(release)
-
 BarChart(
-  dataset = starwars_gender,
-  xAxis = list(
-    list(scaleType = "band", dataKey = "films")
-  ),
-  series = list(list(dataKey = "male", label = "Male")),
+  dataset = starwars_films |>
+    mutate(Characters = lengths(characters)) |>
+    arrange(episode_id),
+  xAxis  = list(list(scaleType = "band", dataKey = "episode_id", label = "Star Wars Episode")),
+  series = list(list(dataKey = "Characters", label = "Characters")),
+  height = 300
+)
+```
+
+### Point Scale
+
+Point scale places each category at a discrete position — used for line
+charts:
+
+``` r
+
+LineChart(
+  dataset = starwars_films |>
+    mutate(Characters = lengths(characters)) |>
+    arrange(episode_id),
+  xAxis  = list(list(scaleType = "point", dataKey = "episode_id", label = "Star Wars Episode")),
+  series = list(list(dataKey = "Characters", label = "Characters", showMark = TRUE)),
   height = 300
 )
 ```
 
 ### Linear Scale
 
-``` r
-
-LineChart(
-  dataset = data.frame(x = c(1, 2, 5, 10, 20), y = c(2, 5, 10, 15, 30)),
-  xAxis = list(list(scaleType = "linear", dataKey = "x")),
-  series = list(list(dataKey = "y")),
-  height = 300
-)
-```
-
-### Log Scale
+Numeric x-axis with release year — spacing between points reflects
+actual time gaps between films:
 
 ``` r
 
 LineChart(
-  dataset = data.frame(x = c(1, 10, 100, 1000), y = c(1, 2, 3, 4)),
-  xAxis = list(list(scaleType = "log", dataKey = "x")),
-  series = list(list(dataKey = "y")),
+  dataset = starwars_films |>
+    mutate(
+      year       = as.integer(format(release_date, "%Y")),
+      Characters = lengths(characters)
+    ) |>
+    arrange(year),
+  xAxis = list(list(
+    scaleType      = "linear",
+    dataKey        = "year",
+    label          = "Release Year",
+    valueFormatter = JS("(v) => String(v)")
+  )),
+  series = list(list(dataKey = "Characters", label = "Characters", showMark = TRUE)),
   height = 300
 )
 ```
@@ -76,19 +90,12 @@ Add labels to axes using the `label` property:
 ``` r
 
 BarChart(
-  dataset = starwars_gender,
-  xAxis = list(
-    list(
-      scaleType = "band",
-      dataKey = "films",
-      label = "Star Wars Films",
-      tickLabelStyle = list(fontSize = "0.5em")
-    )
-  ),
-  yAxis = list(
-    list(label = "Number of Characters")
-  ),
-  series = list(list(dataKey = "male", label = "Male")),
+  dataset = starwars_films |>
+    mutate(Characters = lengths(characters)) |>
+    arrange(episode_id),
+  xAxis  = list(list(scaleType = "band", dataKey = "episode_id", label = "Star Wars Episode")),
+  yAxis  = list(list(label = "Number of Characters")),
+  series = list(list(dataKey = "Characters", label = "Characters")),
   height = 300
 )
 ```
@@ -100,133 +107,91 @@ Customize how axis values are displayed using `valueFormatter`:
 ``` r
 
 BarChart(
-  dataset = starwars_gender,
-  xAxis = list(
-    list(
-      scaleType = "band",
-      dataKey = "films",
-      tickLabelStyle = list(fontSize = "0.5em")
-    )
-  ),
-  yAxis = list(
-    list(
-      valueFormatter = JS("(value) => `${value} characters`"),
-      width = 100
-    )
-  ),
-  series = list(list(dataKey = "male", label = "Male")),
+  dataset = starwars_films |>
+    mutate(Characters = lengths(characters)) |>
+    arrange(episode_id),
+  xAxis  = list(list(scaleType = "band", dataKey = "episode_id", label = "Star Wars Episode")),
+  yAxis  = list(list(
+    valueFormatter = JS("(v) => `${v} characters`"),
+    width = 100
+  )),
+  series = list(list(dataKey = "Characters", label = "Characters")),
   height = 300
 )
 ```
 
 ## Tick Label Styling
 
-Customize tick label appearance with `tickLabelStyle`:
+Customize tick label appearance with `tickLabelStyle`. Rotated labels
+work well for long category names:
 
 ``` r
 
 BarChart(
-  dataset = starwars_gender,
-  xAxis = list(
-    list(
-      scaleType = "band",
-      dataKey = "films",
-      height = 100,
-      tickLabelStyle = list(
-        fontSize = "0.6em",
-        angle = 45
-      )
-    )
-  ),
-  series = list(list(dataKey = "male", label = "Male")),
-  height = 350
-)
-```
-
-## Multiple Axes
-
-Use multiple y-axes for series with different scales:
-
-``` r
-
-starwars_multi <- starwars |>
-  filter(!is.na(height), !is.na(mass), !is.na(birth_year), mass < 200) |>
-  select(name, height, mass, birth_year) |>
-  head(10)
-
-LineChart(
-  dataset = starwars_multi,
-  xAxis = list(
-    list(scaleType = "point", dataKey = "name", tickLabelStyle = list(fontSize = "0.5em"))
-  ),
-  yAxis = list(
-    list(id = "leftAxis", label = "Height (cm)"),
-    list(id = "rightAxis", label = "Mass (kg)")
-  ),
-  series = list(
-    list(dataKey = "height", label = "Height", yAxisId = "leftAxis"),
-    list(dataKey = "mass", label = "Mass", yAxisId = "rightAxis")
-  ),
+  dataset = starwars_starships |>
+    arrange(desc(crew)) |>
+    head(6),
+  xAxis  = list(list(
+    scaleType      = "band",
+    dataKey        = "name",
+    height         = 90,
+    tickLabelStyle = list(fontSize = "0.7em", angle = 90)
+  )),
+  yAxis = list(list(width = 60)),
+  series = list(list(dataKey = "crew", label = "Crew")),
   height = 350
 )
 ```
 
 ## Grid Lines
 
-Add grid lines with the `grid` prop:
+Add horizontal and/or vertical grid lines with the `grid` prop:
 
 ``` r
 
 BarChart(
-  dataset = starwars_gender,
-  xAxis = list(
-    list(scaleType = "band", dataKey = "films", tickLabelStyle = list(fontSize = "0.5em"))
-  ),
+  dataset = starwars_films |>
+    mutate(
+      Characters = lengths(characters),
+      Planets    = lengths(planets)
+    ) |>
+    arrange(episode_id),
+  xAxis  = list(list(scaleType = "band", dataKey = "episode_id", label = "Star Wars Episode")),
   series = list(
-    list(dataKey = "male", label = "Male"),
-    list(dataKey = "female", label = "Female")
+    list(dataKey = "Characters", label = "Characters"),
+    list(dataKey = "Planets",    label = "Planets")
   ),
-  grid = list(horizontal = TRUE, vertical = TRUE),
+  grid   = list(horizontal = TRUE, vertical = TRUE),
   height = 300
 )
 ```
 
 ## Reference Lines
 
-Use `ChartsReferenceLine` to add horizontal or vertical reference lines.
-This requires the composition API:
+Use `ChartsReferenceLine` to mark important thresholds. Here the saga
+average character count is shown:
 
 ``` r
 
-library(muiMaterial)
-#> 
-#> Attaching package: 'muiMaterial'
-#> The following object is masked from 'package:muiCharts':
-#> 
-#>     Toolbar
-
-avg_male <- round(mean(starwars_gender$male, na.rm = TRUE))
+avg_chars <- starwars_films |>
+  mutate(n = lengths(characters)) |>
+  summarise(avg = round(mean(n))) |>
+  pull(avg)
 
 ChartDataProvider(
-  dataset = starwars_gender,
+  dataset = starwars_films |>
+    mutate(Characters = lengths(characters)) |>
+    arrange(episode_id),
   height = 350,
-  xAxis = list(
-    list(
-      scaleType = "band",
-      dataKey = "films",
-      tickLabelStyle = list(fontSize = "0.5em")
-    )
-  ),
-  series = list(
-    list(type = "bar", dataKey = "male", label = "Male")
-  ),
+  xAxis  = list(list(scaleType = "band", dataKey = "episode_id", label = "Star Wars Episode")),
+  series = list(list(type = "bar", dataKey = "Characters", label = "Characters")),
   ChartsTooltip(),
   ChartsSurface(
     ChartsGrid(horizontal = TRUE),
     BarPlot(),
     ChartsReferenceLine(
-      y = avg_male,
-      label = paste("Avg:", avg_male),
+      y     = avg_chars,
+      label = paste("Saga avg:", avg_chars),
       lineStyle = list(stroke = "red", strokeDasharray = "5 5")
     ),
     ChartsXAxis(),
@@ -243,11 +208,11 @@ prop:
 ``` r
 
 BarChart(
-  dataset = starwars_gender,
-  xAxis = list(
-    list(scaleType = "band", dataKey = "films", tickLabelStyle = list(fontSize = "0.5em"))
-  ),
-  series = list(list(dataKey = "male", label = "Male")),
+  dataset = starwars_films |>
+    mutate(Characters = lengths(characters)) |>
+    arrange(episode_id),
+  xAxis  = list(list(scaleType = "band", dataKey = "episode_id", label = "Star Wars Episode")),
+  series = list(list(dataKey = "Characters", label = "Characters")),
   margin = list(top = 20, bottom = 60, left = 80, right = 20),
   height = 300
 )
