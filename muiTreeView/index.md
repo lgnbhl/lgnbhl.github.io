@@ -10,6 +10,7 @@ expanded and collapsed.
 You can install the development version of muiTreeView like so:
 
 ``` r
+
 remotes::install_github("lgnbhl/muiTreeView")
 ```
 
@@ -19,6 +20,7 @@ remotes::install_github("lgnbhl/muiTreeView")
 ## Basic example
 
 ``` r
+
 library(muiTreeView)
 
 df <- data.frame(

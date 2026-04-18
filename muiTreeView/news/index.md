@@ -2,6 +2,8 @@
 
 ## muiTreeView 0.1.1
 
+CRAN release: 2026-01-26
+
 - rename function `createTree()` as
   [`asMuiTree()`](https://felixluginbuhl.com/muiTreeView/reference/asMuiTree.md).
 

@@ -3,11 +3,13 @@
 ## Install
 
 ``` r
+
 #remotes::install_github("lgnbhl/muiTreeView") # dev version
 install.packages("muiTreeView")
 ```
 
 ``` r
+
 library(muiTreeView)
 ```
 
@@ -20,6 +22,7 @@ with the
 helper function:
 
 ``` r
+
 df <- data.frame(
   pkg = c("muiTreeView", "muiTreeView", "muiTreeView"),
   functions = c("SimpleTreeView", "RichTreeView", "RichTreeView"),
@@ -39,6 +42,7 @@ You can activate checkbox selection with `checkboxSelection = TRUE` and
 multi selection with `multiSelect = TRUE`:
 
 ``` r
+
 RichTreeView(
   items = treeItems,
   checkboxSelection = TRUE,
@@ -57,6 +61,7 @@ You can provide a vector of the column names to select and choose the
 level order of the tree nodes, for example:
 
 ``` r
+
 df <- data.frame(
   pkg = c("muiTreeView", "muiTreeView", "muiTreeView"),
   functions = c("SimpleTreeView", "RichTreeView", "RichTreeView"),
@@ -84,6 +89,7 @@ creates also unique IDs for each node by joining the name of the label
 with an random integer between a dash.
 
 ``` r
+
 df <- data.frame(
   pkg = c("muiTreeView", "muiTreeView", "muiTreeView"),
   functions = c("SimpleTreeView", "RichTreeView", "RichTreeView"),
@@ -132,6 +138,7 @@ You can also expand by default one or multiple nodes with the
 `defaultExpandedItems` argument by providing its related IDs.
 
 ``` r
+
 df <- data.frame(
   pkg = c("muiTreeView", "muiTreeView", "muiTreeView"),
   functions = c("SimpleTreeView", "RichTreeView", "RichTreeView"),
@@ -157,6 +164,7 @@ As **muiTreeView** is using the Material UI library under the hood, you
 can customize component styles using CSS classes with the “sx” argument:
 
 ``` r
+
 RichTreeView(
   items = treeItems,
   sx = list(
@@ -187,8 +195,8 @@ with
 you can easily customize items with icons for example:
 
 ``` r
+
 library(htmltools)
-#> Warning: package 'htmltools' was built under R version 4.5.2
 
 SimpleTreeView(
   defaultExpandedItems = list("documents"), # always in list()
@@ -248,6 +256,7 @@ i.e. `gsub(pattern = "\\-[[:digit:]]*$", replacement = "", x = input$itemSelect
 ### Track latest item clicked
 
 ``` r
+
 library(shiny)
 
 df <- data.frame(
@@ -304,6 +313,7 @@ Use the `selectionPropagation` argument to choose if selecting a parent
 item does select its children (it doesn’t by default).
 
 ``` r
+
 library(shiny)
 
 df <- data.frame(
@@ -333,7 +343,8 @@ ui <- tagList(
     defaultSelectedItems = list(defaultSelectedId), # always in list()
     # By default, selecting a item does not select its children.
     selectionPropagation = list(
-      descendants = TRUE
+      descendants = TRUE, # FALSE by default
+      parents = FALSE # FALSE by default
     ),
     onItemSelectionToggle = setInput(
       inputId = "itemSelection", 
