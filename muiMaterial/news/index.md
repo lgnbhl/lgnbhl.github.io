@@ -1,5 +1,13 @@
 # Changelog
 
+## muiMaterial 0.2.0
+
+- CRAN release.
+- new R functions with `.shinyInput` and `.triggerId`.
+- add more examples and vignettes.
+- new examples.
+- improved JS code and a lot of code refactoring.
+
 ## muiMaterial 0.1.3
 
 CRAN release: 2026-03-15

@@ -1,5 +1,8 @@
 # TabPanel
 
+\`TabPanel.static()\` is an alias for \`TabPanel()\`, kept for backward
+compatibility.
+
 <https://mui.com/material-ui/api/tab-panel/>
 
 ## Usage
