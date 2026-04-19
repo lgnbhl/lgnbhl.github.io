@@ -73,7 +73,11 @@
 - [`CssBaseline()`](https://felixluginbuhl.com/muiMaterial/reference/CssBaseline.md)
   : CssBaseline
 - [`Dialog()`](https://felixluginbuhl.com/muiMaterial/reference/Dialog.md)
+  [`Dialog.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Dialog.md)
+  [`updateDialog.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Dialog.md)
   : Dialog
+- [`Dialog.triggerId()`](https://felixluginbuhl.com/muiMaterial/reference/Dialog.triggerId.md)
+  : Dialog.triggerId
 - [`DialogActions()`](https://felixluginbuhl.com/muiMaterial/reference/DialogActions.md)
   : DialogActions
 - [`DialogContent()`](https://felixluginbuhl.com/muiMaterial/reference/DialogContent.md)
@@ -160,6 +164,10 @@
   : ListItemText
 - [`ListSubheader()`](https://felixluginbuhl.com/muiMaterial/reference/ListSubheader.md)
   : ListSubheader
+- [`LoadingButton()`](https://felixluginbuhl.com/muiMaterial/reference/LoadingButton.md)
+  [`LoadingButton.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/LoadingButton.md)
+  [`updateLoadingButton.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/LoadingButton.md)
+  : LoadingButton
 - [`Masonry()`](https://felixluginbuhl.com/muiMaterial/reference/Masonry.md)
   : Masonry
 - [`Menu()`](https://felixluginbuhl.com/muiMaterial/reference/Menu.md)
@@ -169,15 +177,21 @@
 - [`Menu.triggerId()`](https://felixluginbuhl.com/muiMaterial/reference/Menu.triggerId.md)
   : Menu.triggerId
 - [`MenuItem()`](https://felixluginbuhl.com/muiMaterial/reference/MenuItem.md)
+  [`MenuItem.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/MenuItem.md)
+  [`updateMenuItem.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/MenuItem.md)
   : MenuItem
 - [`MenuList()`](https://felixluginbuhl.com/muiMaterial/reference/MenuList.md)
   : MenuList
 - [`MobileStepper()`](https://felixluginbuhl.com/muiMaterial/reference/MobileStepper.md)
   : MobileStepper
 - [`Modal()`](https://felixluginbuhl.com/muiMaterial/reference/Modal.md)
+  [`Modal.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Modal.md)
+  [`updateModal.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Modal.md)
   : Modal
+- [`Modal.triggerId()`](https://felixluginbuhl.com/muiMaterial/reference/Modal.triggerId.md)
+  : Modal.triggerId
 - [`muiMaterialDependency()`](https://felixluginbuhl.com/muiMaterial/reference/muiMaterialDependency.md)
-  : Mui Charts UI JS dependency
+  : muiMaterial JS dependency
 - [`muiMaterialExample()`](https://felixluginbuhl.com/muiMaterial/reference/muiMaterialExample.md)
   : Run muiMaterial example
 - [`muiMaterialPage()`](https://felixluginbuhl.com/muiMaterial/reference/muiMaterialPage.md)
@@ -191,6 +205,8 @@
   [`updateOutlinedInput.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/OutlinedInput.md)
   : OutlinedInput
 - [`Pagination()`](https://felixluginbuhl.com/muiMaterial/reference/Pagination.md)
+  [`Pagination.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Pagination.md)
+  [`updatePagination.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Pagination.md)
   : Pagination
 - [`PaginationItem()`](https://felixluginbuhl.com/muiMaterial/reference/PaginationItem.md)
   : PaginationItem
@@ -204,6 +220,8 @@
   : PigmentStack
 - [`Popover()`](https://felixluginbuhl.com/muiMaterial/reference/Popover.md)
   : Popover
+- [`Popover.triggerId()`](https://felixluginbuhl.com/muiMaterial/reference/Popover.triggerId.md)
+  : Popover.triggerId
 - [`Popper()`](https://felixluginbuhl.com/muiMaterial/reference/Popper.md)
   : Popper
 - [`Portal()`](https://felixluginbuhl.com/muiMaterial/reference/Portal.md)
@@ -237,6 +255,8 @@
   [`updateSlider.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Slider.md)
   : Slider
 - [`Snackbar()`](https://felixluginbuhl.com/muiMaterial/reference/Snackbar.md)
+  [`Snackbar.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Snackbar.md)
+  [`updateSnackbar.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Snackbar.md)
   : Snackbar
 - [`SnackbarContent()`](https://felixluginbuhl.com/muiMaterial/reference/SnackbarContent.md)
   : SnackbarContent
@@ -307,9 +327,9 @@
   [`TabList.static()`](https://felixluginbuhl.com/muiMaterial/reference/TabList.md)
   : TabList
 - [`TabPanel()`](https://felixluginbuhl.com/muiMaterial/reference/TabPanel.md)
+  [`TabPanel.static()`](https://felixluginbuhl.com/muiMaterial/reference/TabPanel.md)
   [`TabPanel.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/TabPanel.md)
   [`updateTabPanel.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/TabPanel.md)
-  [`TabPanel.static()`](https://felixluginbuhl.com/muiMaterial/reference/TabPanel.md)
   : TabPanel
 - [`Tabs()`](https://felixluginbuhl.com/muiMaterial/reference/Tabs.md)
   [`Tabs.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Tabs.md)

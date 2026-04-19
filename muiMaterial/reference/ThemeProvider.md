@@ -23,4 +23,4 @@ app.
 ## Details
 
 Custom ThemeProvider built with MuiThemeProvider. See
-'js/src/ThemeProvider.tsx'.
+'js/src/ThemeProvider.jsx'.

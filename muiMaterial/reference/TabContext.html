@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">muiMaterial</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.4</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,6 +45,7 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-dashboarding" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Dashboarding</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-dashboarding"><li><a class="dropdown-item" href="../articles/dashboard-basic.html">Basic dashboarding</a></li>
+    <li><a class="dropdown-item" href="../articles/tabs.html">Tabs</a></li>
     <li><a class="dropdown-item" href="../articles/bootstrap.html">CSS conflicts with Bootstrap</a></li>
     <li><a class="dropdown-item" href="../articles/routing.html">Using a router</a></li>
   </ul></li>
@@ -73,8 +74,6 @@
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">TabContext</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">TabContext</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
-<span></span>
 <span><span class="fu">TabContext.shinyInput</span><span class="op">(</span><span class="va">inputId</span>, <span class="va">...</span>, value <span class="op">=</span> <span class="va">defaultValue</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">updateTabContext.shinyInput</span><span class="op">(</span></span>
@@ -91,7 +90,7 @@
 
 
 <dl><dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>Child elements (typically a <code>Box</code> wrapping <code>TabList.static</code> and <code>TabPanel.static</code> components).</p></dd>
+<dd><p>Child elements (typically a <code>Box</code> wrapping <code>TabList.static</code> and <code>TabPanel</code> components).</p></dd>
 
 
 <dt id="arg-inputid">inputId<a class="anchor" aria-label="anchor" href="#arg-inputid"></a></dt>

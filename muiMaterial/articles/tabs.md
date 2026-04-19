@@ -9,7 +9,7 @@ Use
 [`TabContext.static()`](https://felixluginbuhl.com/muiMaterial/reference/TabContext.md),
 [`TabList.static()`](https://felixluginbuhl.com/muiMaterial/reference/TabList.md),
 and
-[`TabPanel.static()`](https://felixluginbuhl.com/muiMaterial/reference/TabPanel.md)
+[`TabPanel()`](https://felixluginbuhl.com/muiMaterial/reference/TabPanel.md)
 to create tabs. These are custom wrappers around
 [`@mui/lab`](https://mui.com/material-ui/about-the-lab/) tab components
 that manage tab state internally with `React.useState`, so they work
@@ -30,9 +30,9 @@ TabContext.static(
       Tab(label = "Item Three", value = "three")
     )
   ),
-  TabPanel.static(value = "one", "Content 1"),
-  TabPanel.static(value = "two", "Content 2"),
-  TabPanel.static(value = "three", "Content 3")
+  TabPanel(value = "one", "Content 1"),
+  TabPanel(value = "two", "Content 2"),
+  TabPanel(value = "three", "Content 3")
 )
 ```
 
@@ -65,16 +65,16 @@ code chunk. No server function or `runtime: shiny` is needed.
           Tab(label = "Item Three", value = "three")
         )
       ),
-      TabPanel.static(value = "one", Typography("First tab content")),
-      TabPanel.static(value = "two", Typography("Second tab content")),
-      TabPanel.static(value = "three", Typography("Third tab content"))
+      TabPanel(value = "one", Typography("First tab content")),
+      TabPanel(value = "two", Typography("Second tab content")),
+      TabPanel(value = "three", Typography("Third tab content"))
     )
     ```
 
 
     ```{=html}
     <div class="react-container" data-react-id="kdcrprizswzfrkbqpkwn">
-    <script class="react-data" type="application/json">{"type":"element","module":"@/muiMaterial","name":"MuiStaticTabContext","props":{"type":"object","value":{"value":{"type":"raw","value":"one"},"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"Box","props":{"type":"object","value":{"sx":{"type":"raw","value":{"borderBottom":1,"borderColor":"divider"}},"children":{"type":"element","module":"@/muiMaterial","name":"MuiStaticTabList","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"Tab","props":{"type":"raw","value":{"label":"Item One","value":"one"}}},{"type":"element","module":"@mui/material","name":"Tab","props":{"type":"raw","value":{"label":"Item Two","value":"two"}}},{"type":"element","module":"@mui/material","name":"Tab","props":{"type":"raw","value":{"label":"Item Three","value":"three"}}}]}}}}}}},{"type":"element","module":"@/muiMaterial","name":"MuiStaticTabPanel","props":{"type":"object","value":{"value":{"type":"raw","value":"one"},"children":{"type":"element","module":"@mui/material","name":"Typography","props":{"type":"raw","value":{"children":"First tab content"}}}}}},{"type":"element","module":"@/muiMaterial","name":"MuiStaticTabPanel","props":{"type":"object","value":{"value":{"type":"raw","value":"two"},"children":{"type":"element","module":"@mui/material","name":"Typography","props":{"type":"raw","value":{"children":"Second tab content"}}}}}},{"type":"element","module":"@/muiMaterial","name":"MuiStaticTabPanel","props":{"type":"object","value":{"value":{"type":"raw","value":"three"},"children":{"type":"element","module":"@mui/material","name":"Typography","props":{"type":"raw","value":{"children":"Third tab content"}}}}}}]}}}}</script>
+    <script class="react-data" type="application/json">{"type":"element","module":"@/muiMaterial","name":"MuiStaticTabContext","props":{"type":"object","value":{"value":{"type":"raw","value":"one"},"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"Box","props":{"type":"object","value":{"sx":{"type":"raw","value":{"borderBottom":1,"borderColor":"divider"}},"children":{"type":"element","module":"@/muiMaterial","name":"MuiStaticTabList","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"Tab","props":{"type":"raw","value":{"label":"Item One","value":"one"}}},{"type":"element","module":"@mui/material","name":"Tab","props":{"type":"raw","value":{"label":"Item Two","value":"two"}}},{"type":"element","module":"@mui/material","name":"Tab","props":{"type":"raw","value":{"label":"Item Three","value":"three"}}}]}}}}}}},{"type":"element","module":"@mui/lab","name":"TabPanel","props":{"type":"object","value":{"value":{"type":"raw","value":"one"},"children":{"type":"element","module":"@mui/material","name":"Typography","props":{"type":"raw","value":{"children":"First tab content"}}}}}},{"type":"element","module":"@mui/lab","name":"TabPanel","props":{"type":"object","value":{"value":{"type":"raw","value":"two"},"children":{"type":"element","module":"@mui/material","name":"Typography","props":{"type":"raw","value":{"children":"Second tab content"}}}}}},{"type":"element","module":"@mui/lab","name":"TabPanel","props":{"type":"object","value":{"value":{"type":"raw","value":"three"},"children":{"type":"element","module":"@mui/material","name":"Typography","props":{"type":"raw","value":{"children":"Third tab content"}}}}}}]}}}}</script>
     <script>jsmodule['@/shiny.react'].findAndRenderReactData('kdcrprizswzfrkbqpkwn')</script>
     </div>
     ```

@@ -25,7 +25,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">muiMaterial</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.4</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,6 +71,7 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-dashboarding" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Dashboarding</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-dashboarding">
 <li><a class="dropdown-item" href="../articles/dashboard-basic.html">Basic dashboarding</a></li>
+    <li><a class="dropdown-item" href="../articles/tabs.html">Tabs</a></li>
     <li><a class="dropdown-item" href="../articles/bootstrap.html">CSS conflicts with Bootstrap</a></li>
     <li><a class="dropdown-item" href="../articles/routing.html">Using a router</a></li>
   </ul>
@@ -91,7 +92,7 @@
 
 
 
-<script src="getting-started_files/react-18.3.1/react.production.min.js"></script><script src="getting-started_files/react-18.3.1/react-dom.production.min.js"></script><script src="getting-started_files/shiny.react-0.1.0/shiny-react.js"></script><script src="getting-started_files/muiMaterial-7.3.5/mui-material.js"></script><div class="row">
+<script src="getting-started_files/react-18.3.1/react.production.min.js"></script><script src="getting-started_files/react-18.3.1/react-dom.production.min.js"></script><script src="getting-started_files/shiny.react-0.1.0/shiny-react.js"></script><script src="getting-started_files/muiMaterial-0.2.0/mui-material.js"></script><div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Getting Started</h1>
             
@@ -169,9 +170,10 @@ capture user interactions in Shiny.</p>
 <code><a href="../reference/TabList.html">TabList.shinyInput()</a></code>, and
 <code><a href="../reference/TabPanel.html">TabPanel.shinyInput()</a></code> to create tabs with server-side
 reactivity, or <code><a href="../reference/TabContext.html">TabContext.static()</a></code>,
-<code><a href="../reference/TabList.html">TabList.static()</a></code>, and <code><a href="../reference/TabPanel.html">TabPanel.static()</a></code> for
-purely client-side tab switching. See <a href="https://github.com/lgnbhl/muiMaterial/blob/main/inst/examples/Tabs.R" class="external-link">full
-example</a>.</p>
+<code><a href="../reference/TabList.html">TabList.static()</a></code>, and <code><a href="../reference/TabPanel.html">TabPanel()</a></code> for purely
+client-side tab switching. Read the <a href="https://felixluginbuhl.com/muiMaterial/articles/tabs.html">vignette</a>
+or see a <a href="https://github.com/lgnbhl/muiMaterial/blob/main/inst/examples/Tabs.R" class="external-link">minimal
+code example</a>.</p>
 <p>For more advanced navigation, use client-side routing with <a href="https://felixluginbuhl.com/reactRouter/" class="external-link">reactRouter</a>.</p>
 </div>
 <div class="section level3">
@@ -220,8 +222,8 @@ Examples: <code><a href="../reference/Drawer.triggerId.html">Drawer.triggerId()<
 state is managed entirely on the client side (in React), with no
 round-trip to the Shiny server. Useful when server-side reactivity is
 not needed, for example tab switching that only shows/hides content.
-Examples: <code><a href="../reference/TabContext.html">TabContext.static()</a></code>,
-<code><a href="../reference/TabList.html">TabList.static()</a></code>, <code><a href="../reference/TabPanel.html">TabPanel.static()</a></code>.</p></li>
+Examples: <code><a href="../reference/TabContext.html">TabContext.static()</a></code> and
+<code><a href="../reference/TabList.html">TabList.static()</a></code>.</p></li>
 </ul>
 <p>Both <code>.triggerId</code> and <code>.static</code> variants keep
 state in the browser and never communicate with the Shiny server. The

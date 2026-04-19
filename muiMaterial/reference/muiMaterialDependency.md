@@ -1,6 +1,6 @@
-# Mui Charts UI JS dependency
+# muiMaterial JS dependency
 
-Mui Charts UI JS dependency
+muiMaterial JS dependency
 
 ## Usage
 

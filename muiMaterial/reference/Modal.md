@@ -6,6 +6,14 @@
 
 ``` r
 Modal(...)
+
+Modal.shinyInput(inputId, ...)
+
+updateModal.shinyInput(
+  session = shiny::getDefaultReactiveDomain(),
+  inputId,
+  ...
+)
 ```
 
 ## Arguments
@@ -13,6 +21,14 @@ Modal(...)
 - ...:
 
   Props to pass to the component.
+
+- inputId:
+
+  ID of the component.
+
+- session:
+
+  Object passed as the \`session\` argument to Shiny server.
 
 ## Value
 

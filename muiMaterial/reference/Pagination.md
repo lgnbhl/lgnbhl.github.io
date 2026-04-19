@@ -6,6 +6,14 @@
 
 ``` r
 Pagination(...)
+
+Pagination.shinyInput(inputId, ..., value = defaultValue)
+
+updatePagination.shinyInput(
+  session = shiny::getDefaultReactiveDomain(),
+  inputId,
+  ...
+)
 ```
 
 ## Arguments
@@ -13,6 +21,18 @@ Pagination(...)
 - ...:
 
   Props to pass to the component.
+
+- inputId:
+
+  ID of the component.
+
+- value:
+
+  Starting value.
+
+- session:
+
+  Object passed as the \`session\` argument to Shiny server.
 
 ## Value
 

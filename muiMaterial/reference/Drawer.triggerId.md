@@ -1,7 +1,7 @@
 # Drawer.triggerId
 
-Custom Drawer for mobiles using Drawer component. See
-'js/src/Drawer.triggerId.jsx'.
+Custom Drawer bound to a DOM element by id. See
+'js/src/MuiDrawerTriggerId.jsx'.
 
 ## Usage
 

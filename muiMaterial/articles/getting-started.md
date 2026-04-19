@@ -89,8 +89,10 @@ to create tabs with server-side reactivity, or
 [`TabContext.static()`](https://felixluginbuhl.com/muiMaterial/reference/TabContext.md),
 [`TabList.static()`](https://felixluginbuhl.com/muiMaterial/reference/TabList.md),
 and
-[`TabPanel.static()`](https://felixluginbuhl.com/muiMaterial/reference/TabPanel.md)
-for purely client-side tab switching. See [full
+[`TabPanel()`](https://felixluginbuhl.com/muiMaterial/reference/TabPanel.md)
+for purely client-side tab switching. Read the
+[vignette](https://felixluginbuhl.com/muiMaterial/articles/tabs.html) or
+see a [minimal code
 example](https://github.com/lgnbhl/muiMaterial/blob/main/inst/examples/Tabs.R).
 
 For more advanced navigation, use client-side routing with
@@ -150,9 +152,9 @@ behavior:
   the client side (in React), with no round-trip to the Shiny server.
   Useful when server-side reactivity is not needed, for example tab
   switching that only shows/hides content. Examples:
-  [`TabContext.static()`](https://felixluginbuhl.com/muiMaterial/reference/TabContext.md),
-  [`TabList.static()`](https://felixluginbuhl.com/muiMaterial/reference/TabList.md),
-  [`TabPanel.static()`](https://felixluginbuhl.com/muiMaterial/reference/TabPanel.md).
+  [`TabContext.static()`](https://felixluginbuhl.com/muiMaterial/reference/TabContext.md)
+  and
+  [`TabList.static()`](https://felixluginbuhl.com/muiMaterial/reference/TabList.md).
 
 Both `.triggerId` and `.static` variants keep state in the browser and
 never communicate with the Shiny server. The difference is that

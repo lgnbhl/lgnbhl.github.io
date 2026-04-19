@@ -7,8 +7,6 @@
 ``` r
 TabContext(...)
 
-TabContext(...)
-
 TabContext.shinyInput(inputId, ..., value = defaultValue)
 
 updateTabContext.shinyInput(
@@ -25,7 +23,7 @@ TabContext.static(value, ...)
 - ...:
 
   Child elements (typically a `Box` wrapping `TabList.static` and
-  `TabPanel.static` components).
+  `TabPanel` components).
 
 - inputId:
 

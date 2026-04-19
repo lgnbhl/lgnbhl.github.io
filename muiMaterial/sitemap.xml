@@ -61,6 +61,7 @@
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/Container.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/CssBaseline.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/Dialog.html</loc></url>
+<url><loc>https://felixluginbuhl.com/muiMaterial/reference/Dialog.triggerId.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/DialogActions.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/DialogContent.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/DialogContentText.html</loc></url>
@@ -100,6 +101,7 @@
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/ListItemSecondaryAction.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/ListItemText.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/ListSubheader.html</loc></url>
+<url><loc>https://felixluginbuhl.com/muiMaterial/reference/LoadingButton.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/Masonry.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/Menu.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/Menu.triggerId.html</loc></url>
@@ -107,6 +109,7 @@
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/MenuList.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/MobileStepper.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/Modal.html</loc></url>
+<url><loc>https://felixluginbuhl.com/muiMaterial/reference/Modal.triggerId.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/muiMaterialDependency.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/muiMaterialExample.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/muiMaterialPage.html</loc></url>
@@ -120,6 +123,7 @@
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/PigmentGrid.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/PigmentStack.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/Popover.html</loc></url>
+<url><loc>https://felixluginbuhl.com/muiMaterial/reference/Popover.triggerId.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/Popper.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/Portal.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiMaterial/reference/print.muiMaterial.html</loc></url>

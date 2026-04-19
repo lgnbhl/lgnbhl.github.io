@@ -25,7 +25,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">muiMaterial</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.4</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,6 +71,7 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-dashboarding" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Dashboarding</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-dashboarding">
 <li><a class="dropdown-item" href="../articles/dashboard-basic.html">Basic dashboarding</a></li>
+    <li><a class="dropdown-item" href="../articles/tabs.html">Tabs</a></li>
     <li><a class="dropdown-item" href="../articles/bootstrap.html">CSS conflicts with Bootstrap</a></li>
     <li><a class="dropdown-item" href="../articles/routing.html">Using a router</a></li>
   </ul>
@@ -107,112 +108,37 @@
 muiMaterial tabs components. The examples show both horizontal and
 vertical tab layouts using Material-UI’s TabContext system.</p>
 <div class="section level3">
-<h3 id="horizontal-dashboard">Horizontal dashboard<a class="anchor" aria-label="anchor" href="#horizontal-dashboard"></a>
+<h3 id="simple-dashboard">Simple dashboard<a class="anchor" aria-label="anchor" href="#simple-dashboard"></a>
 </h3>
-<p>A horizontal dashboard places tabs at the top, ideal for navigation
-between main sections.</p>
-<p>The <code>TabContext</code> manages the active tab state, while
-<code>TabList</code> contains the tab buttons. Each
-<code>TabPanel</code> holds the content for its corresponding tab.</p>
+<p>Launch an example of a simple dashboard:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/muiMaterial/">muiMaterial</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">Header</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/TabContext.html">TabContext.shinyInput</a></span><span class="op">(</span></span>
-<span>  inputId <span class="op">=</span> <span class="st">"context"</span>,</span>
-<span>  value <span class="op">=</span> <span class="st">"1"</span>,</span>
-<span>  <span class="fu"><a href="../reference/Box.html">Box</a></span><span class="op">(</span>sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>borderBottom <span class="op">=</span> <span class="fl">1</span>, borderColor <span class="op">=</span> <span class="st">'divider'</span><span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="../reference/TabList.html">TabList.shinyInput</a></span><span class="op">(</span></span>
-<span>        inputId <span class="op">=</span> <span class="st">"tabList"</span>,</span>
-<span>        value <span class="op">=</span> <span class="st">"1"</span>,</span>
-<span>        <span class="fu"><a href="../reference/Tab.html">Tab</a></span><span class="op">(</span>label<span class="op">=</span><span class="st">"Item One"</span>, value <span class="op">=</span> <span class="st">"1"</span><span class="op">)</span>,</span>
-<span>        <span class="fu"><a href="../reference/Tab.html">Tab</a></span><span class="op">(</span>label<span class="op">=</span><span class="st">"Item Two"</span>, value <span class="op">=</span> <span class="st">"2"</span><span class="op">)</span>,</span>
-<span>        <span class="fu"><a href="../reference/Tab.html">Tab</a></span><span class="op">(</span>label<span class="op">=</span><span class="st">"Item Three"</span>, value <span class="op">=</span> <span class="st">"3"</span><span class="op">)</span></span>
-<span>      <span class="op">)</span></span>
-<span>  <span class="op">)</span>,</span>
-<span>  <span class="fu"><a href="../reference/TabPanel.html">TabPanel.shinyInput</a></span><span class="op">(</span>inputId <span class="op">=</span> <span class="st">"tab1"</span>, value <span class="op">=</span> <span class="st">"1"</span>, <span class="st">"Content 1"</span><span class="op">)</span>,</span>
-<span>  <span class="fu"><a href="../reference/TabPanel.html">TabPanel.shinyInput</a></span><span class="op">(</span>inputId <span class="op">=</span> <span class="st">"tab2"</span>, value <span class="op">=</span> <span class="st">"2"</span>, <span class="st">"Content 2"</span><span class="op">)</span>,</span>
-<span>  <span class="fu"><a href="../reference/TabPanel.html">TabPanel.shinyInput</a></span><span class="op">(</span>inputId <span class="op">=</span> <span class="st">"tab3"</span>, value <span class="op">=</span> <span class="st">"3"</span>, <span class="st">"Content 3"</span><span class="op">)</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/muiMaterialPage.html">muiMaterialPage</a></span><span class="op">(</span></span>
-<span>  <span class="va">Header</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">tabList</span>, <span class="op">{</span></span>
-<span>    <span class="fu"><a href="../reference/TabContext.html">updateTabContext.shinyInput</a></span><span class="op">(</span>inputId <span class="op">=</span> <span class="st">"context"</span>, value <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">tabList</span><span class="op">)</span></span>
-<span>  <span class="op">}</span><span class="op">)</span></span>
-<span><span class="op">}</span></span>
-<span></span>
-<span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span>ui <span class="op">=</span> <span class="va">ui</span>, server <span class="op">=</span> <span class="va">server</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">muiMaterial</span><span class="fu">::</span><span class="fu"><a href="../reference/muiMaterialExample.html">muiMaterialExample</a></span><span class="op">(</span><span class="st">"dashboard-simple"</span><span class="op">)</span></span></code></pre></div>
+<p>The code is here: <a href="https://github.com/lgnbhl/muiMaterial/tree/main/inst/examples/dashboard-simple" class="external-link uri">https://github.com/lgnbhl/muiMaterial/tree/main/inst/examples/dashboard-simple</a></p>
 </div>
 <div class="section level3">
-<h3 id="vertical-dashboard">Vertical dashboard<a class="anchor" aria-label="anchor" href="#vertical-dashboard"></a>
+<h3 id="inset-dashboard">Inset dashboard<a class="anchor" aria-label="anchor" href="#inset-dashboard"></a>
 </h3>
-<p>A vertical dashboard uses a sidebar layout with tabs on the left and
-content on the right. This pattern works well for complex applications
-with many navigation options.</p>
-<p>The <code>Stack</code> component with <code>direction = "row"</code>
-creates the side-by-side layout, while
-<code>orientation = "vertical"</code> on <code>TabList</code> arranges
-tabs vertically.</p>
+<p>Launch an example of an inset dashboard:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/muiMaterial/">muiMaterial</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">Sidebar</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/TabContext.html">TabContext.shinyInput</a></span><span class="op">(</span></span>
-<span>  inputId <span class="op">=</span> <span class="st">"context"</span>,</span>
-<span>  value <span class="op">=</span> <span class="st">"1"</span>,</span>
-<span>  <span class="fu"><a href="../reference/Stack.html">Stack</a></span><span class="op">(</span></span>
-<span>    direction<span class="op">=</span><span class="st">"row"</span>, </span>
-<span>    spacing <span class="op">=</span> <span class="fl">2</span>, </span>
-<span>    <span class="fu"><a href="../reference/TabList.html">TabList.shinyInput</a></span><span class="op">(</span></span>
-<span>      inputId <span class="op">=</span> <span class="st">"tabList"</span>,</span>
-<span>      orientation <span class="op">=</span> <span class="st">"vertical"</span>,</span>
-<span>      value <span class="op">=</span> <span class="st">"1"</span>,</span>
-<span>      <span class="co">#Typography("Inputs", m = 1),</span></span>
-<span>      <span class="fu"><a href="../reference/Tab.html">Tab</a></span><span class="op">(</span>label<span class="op">=</span><span class="st">"Item One"</span>, value <span class="op">=</span> <span class="st">"1"</span><span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="../reference/Tab.html">Tab</a></span><span class="op">(</span>label<span class="op">=</span><span class="st">"Item Two"</span>, value <span class="op">=</span> <span class="st">"2"</span><span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="../reference/Tab.html">Tab</a></span><span class="op">(</span>label<span class="op">=</span><span class="st">"Item Three"</span>, value <span class="op">=</span> <span class="st">"3"</span><span class="op">)</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="../reference/TabPanel.html">TabPanel.shinyInput</a></span><span class="op">(</span>inputId <span class="op">=</span> <span class="st">"tab1"</span>, value <span class="op">=</span> <span class="st">"1"</span>, <span class="st">"Content 1"</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="../reference/TabPanel.html">TabPanel.shinyInput</a></span><span class="op">(</span>inputId <span class="op">=</span> <span class="st">"tab2"</span>, value <span class="op">=</span> <span class="st">"2"</span>, <span class="st">"Content 2"</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="../reference/TabPanel.html">TabPanel.shinyInput</a></span><span class="op">(</span>inputId <span class="op">=</span> <span class="st">"tab3"</span>, value <span class="op">=</span> <span class="st">"3"</span>, <span class="st">"Content 3"</span><span class="op">)</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">Header</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/AppBar.html">AppBar</a></span><span class="op">(</span></span>
-<span>  position <span class="op">=</span> <span class="st">"static"</span>,</span>
-<span>  <span class="fu"><a href="../reference/Toolbar.html">Toolbar</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="../reference/Typography.html">Typography</a></span><span class="op">(</span><span class="st">"Dashboard"</span>, variant <span class="op">=</span> <span class="st">"h5"</span>, component <span class="op">=</span> <span class="st">"div"</span>, sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>flexGrow <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/muiMaterialPage.html">muiMaterialPage</a></span><span class="op">(</span></span>
-<span>  <span class="fu"><a href="../reference/CssBaseline.html">CssBaseline</a></span><span class="op">(</span></span>
-<span>    <span class="va">Header</span>,</span>
-<span>    <span class="va">Sidebar</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">tabList</span>, <span class="op">{</span></span>
-<span>    <span class="fu"><a href="../reference/TabContext.html">updateTabContext.shinyInput</a></span><span class="op">(</span>inputId <span class="op">=</span> <span class="st">"context"</span>, value <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">tabList</span><span class="op">)</span></span>
-<span>  <span class="op">}</span><span class="op">)</span></span>
-<span><span class="op">}</span></span>
-<span></span>
-<span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span>ui <span class="op">=</span> <span class="va">ui</span>, server <span class="op">=</span> <span class="va">server</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">muiMaterial</span><span class="fu">::</span><span class="fu"><a href="../reference/muiMaterialExample.html">muiMaterialExample</a></span><span class="op">(</span><span class="st">"dashboard-inset"</span><span class="op">)</span></span></code></pre></div>
+<p>The code is here: <a href="https://github.com/lgnbhl/muiMaterial/tree/main/inst/examples/dashboard-inset" class="external-link uri">https://github.com/lgnbhl/muiMaterial/tree/main/inst/examples/dashboard-inset</a></p>
+</div>
+<div class="section level3">
+<h3 id="icons-dashboard">Icons dashboard<a class="anchor" aria-label="anchor" href="#icons-dashboard"></a>
+</h3>
+<p>Launch an example of an dashboard with icons instead of texts in the
+sidebar:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">muiMaterial</span><span class="fu">::</span><span class="fu"><a href="../reference/muiMaterialExample.html">muiMaterialExample</a></span><span class="op">(</span><span class="st">"dashboard-icons"</span><span class="op">)</span></span></code></pre></div>
+<p>The code is here: <a href="https://github.com/lgnbhl/muiMaterial/tree/main/inst/examples/dashboard-icons" class="external-link uri">https://github.com/lgnbhl/muiMaterial/tree/main/inst/examples/dashboard-icons</a></p>
 </div>
 <div class="section level3">
 <h3 id="advanced-dashboard">Advanced dashboard<a class="anchor" aria-label="anchor" href="#advanced-dashboard"></a>
 </h3>
-<p>For more advanced dashboard examples using the <a href="https://felixluginbuhl.com/reactRouter/" class="external-link">reactRouter</a> R
-package, see: <a href="https://github.com/lgnbhl/muiMaterial/tree/main/inst/examples/" class="external-link uri">https://github.com/lgnbhl/muiMaterial/tree/main/inst/examples/</a></p>
+<p>Launch the R replica dashboard of the official MUI dashboard:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">muiMaterial</span><span class="fu">::</span><span class="fu"><a href="../reference/muiMaterialExample.html">muiMaterialExample</a></span><span class="op">(</span><span class="st">"mui-template-dashboard"</span><span class="op">)</span></span></code></pre></div>
+<p>The code is here: <a href="https://github.com/lgnbhl/muiMaterial/tree/main/inst/examples/mui-template-dashboard" class="external-link uri">https://github.com/lgnbhl/muiMaterial/tree/main/inst/examples/mui-template-dashboard</a></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>

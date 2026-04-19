@@ -1,7 +1,7 @@
 # SwipeableDrawer.triggerId
 
-Custom Drawer for mobiles using SwipeableDrawer component. See
-'js/src/SwipeableDrawer.triggerId.jsx'.
+Custom SwipeableDrawer bound to a DOM element by id. See
+'js/src/MuiSwipeableDrawerTriggerId.jsx'.
 
 ## Usage
 

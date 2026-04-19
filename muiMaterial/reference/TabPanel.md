@@ -7,6 +7,8 @@
 ``` r
 TabPanel(...)
 
+TabPanel.static(...)
+
 TabPanel.shinyInput(inputId, ..., value = defaultValue)
 
 updateTabPanel.shinyInput(
@@ -14,15 +16,13 @@ updateTabPanel.shinyInput(
   inputId,
   ...
 )
-
-TabPanel.static(value, ...)
 ```
 
 ## Arguments
 
 - ...:
 
-  Content to display when this tab is selected.
+  Props to pass to the component.
 
 - inputId:
 
@@ -30,7 +30,7 @@ TabPanel.static(value, ...)
 
 - value:
 
-  The value that matches the corresponding tab.
+  Starting value.
 
 - session:
 
