@@ -83,17 +83,17 @@
 <li>
 <strong>Static hosting</strong> — the output is plain HTML/JS, deployable to GitHub Pages, Netlify, Posit Connect, or any static file host (if you don’t use it with Shiny).</li>
 </ul>
-<p>In that sense, <code>reactRouter</code> brings the best of both worlds: the <strong>reactivity of Shiny</strong> (data that updates as users interact) and the <strong>simplicity of Quarto</strong> (multiple pages as static files, hostable anywhere, no server to maintain or pay for).</p>
+<p>Used alone, <code>reactRouter</code> brings the best of both worlds: the <strong>reactivity of Shiny</strong> (data that updates as users interact) and the <strong>simplicity of Quarto</strong> (multiple pages as static files, hostable anywhere, no server to maintain or pay for).</p>
 </div>
 <div class="section level3">
 <h3 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
 </h3>
-<p>Add <strong>URL pages</strong> in a Quarto document or R Shiny app:</p>
+<p>Create <strong>URL pages</strong> easily:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/reactRouter/">reactRouter</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/htmltools" class="external-link">htmltools</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="reference/RouterProvider.html">RouterProvider</a></span><span class="op">(</span></span>
+<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/RouterProvider.html">RouterProvider</a></span><span class="op">(</span></span>
 <span>  router <span class="op">=</span> <span class="fu"><a href="reference/createHashRouter.html">createHashRouter</a></span><span class="op">(</span></span>
 <span>    <span class="fu"><a href="reference/Route.html">Route</a></span><span class="op">(</span></span>
 <span>      path <span class="op">=</span> <span class="st">"/"</span>,</span>
@@ -106,15 +106,19 @@
 <span>      <span class="fu"><a href="reference/Route.html">Route</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"analysis"</span>, element <span class="op">=</span> <span class="st">"Analysis content"</span><span class="op">)</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
-<span><span class="op">)</span></span></code></pre></div>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># htmltools::save_html(ui, "index.html")</span></span>
+<span><span class="fu">htmltools</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/htmltools/reference/browsable.html" class="external-link">browsable</a></span><span class="op">(</span><span class="va">ui</span><span class="op">)</span></span></code></pre></div>
 <p>Or use <strong>data loaders</strong> to fetch and display data client-side — no R server needed:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/reactRouter/">reactRouter</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/htmltools" class="external-link">htmltools</a></span><span class="op">)</span></span>
 <span></span>
+<span><span class="co"># local or fetch an API</span></span>
 <span><span class="va">people_json</span> <span class="op">&lt;-</span> <span class="fu">jsonlite</span><span class="fu">::</span><span class="fu"><a href="https://jeroen.r-universe.dev/jsonlite/reference/fromJSON.html" class="external-link">toJSON</a></span><span class="op">(</span><span class="fu">dplyr</span><span class="fu">::</span><span class="va"><a href="https://dplyr.tidyverse.org/reference/starwars.html" class="external-link">starwars</a></span>, dataframe <span class="op">=</span> <span class="st">"rows"</span>, auto_unbox <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="reference/RouterProvider.html">RouterProvider</a></span><span class="op">(</span></span>
+<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/RouterProvider.html">RouterProvider</a></span><span class="op">(</span></span>
 <span>  router <span class="op">=</span> <span class="fu"><a href="reference/createHashRouter.html">createHashRouter</a></span><span class="op">(</span></span>
 <span>    <span class="fu"><a href="reference/Route.html">Route</a></span><span class="op">(</span></span>
 <span>      path <span class="op">=</span> <span class="st">"/"</span>,</span>
@@ -134,7 +138,10 @@
 <span>      <span class="op">)</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
-<span><span class="op">)</span></span></code></pre></div>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># htmltools::save_html(ui, "index.html")</span></span>
+<span><span class="fu">htmltools</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/htmltools/reference/browsable.html" class="external-link">browsable</a></span><span class="op">(</span><span class="va">ui</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="install">Install<a class="anchor" aria-label="anchor" href="#install"></a>

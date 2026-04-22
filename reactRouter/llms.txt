@@ -18,21 +18,21 @@ its own. It extends whatever you are already building with new features:
   Pages, Netlify, Posit Connect, or any static file host (if you don’t
   use it with Shiny).
 
-In that sense, `reactRouter` brings the best of both worlds: the
+Used alone, `reactRouter` brings the best of both worlds: the
 **reactivity of Shiny** (data that updates as users interact) and the
 **simplicity of Quarto** (multiple pages as static files, hostable
 anywhere, no server to maintain or pay for).
 
 ### Usage
 
-Add **URL pages** in a Quarto document or R Shiny app:
+Create **URL pages** easily:
 
 ``` r
 
 library(reactRouter)
 library(htmltools)
 
-RouterProvider(
+ui <- RouterProvider(
   router = createHashRouter(
     Route(
       path = "/",
@@ -46,6 +46,9 @@ RouterProvider(
     )
   )
 )
+
+# htmltools::save_html(ui, "index.html")
+htmltools::browsable(ui)
 ```
 
 Or use **data loaders** to fetch and display data client-side — no R
@@ -56,9 +59,10 @@ server needed:
 library(reactRouter)
 library(htmltools)
 
+# local or fetch an API
 people_json <- jsonlite::toJSON(dplyr::starwars, dataframe = "rows", auto_unbox = TRUE)
 
-RouterProvider(
+ui <- RouterProvider(
   router = createHashRouter(
     Route(
       path = "/",
@@ -79,6 +83,9 @@ RouterProvider(
     )
   )
 )
+
+# htmltools::save_html(ui, "index.html")
+htmltools::browsable(ui)
 ```
 
 ### Install
