@@ -7,8 +7,15 @@
 
 - **Andryas Waurzenczak**. Contributor.
 
-- **Shopify Inc.**. Contributor, copyright holder.\
-  Shopify Inc. template \<<https://reactrouter.com/>\>
+- **React Training LLC**. Copyright holder.\
+  react-router-dom, Copyright (c) React Training LLC 2015-2019
+  \<<https://reactrouter.com/>\>
+
+- **Remix Software Inc.**. Copyright holder.\
+  react-router-dom, Copyright (c) Remix Software Inc. 2020-2021
+
+- **Shopify Inc.**. Copyright holder.\
+  react-router-dom, Copyright (c) Shopify Inc. 2022-2023
 
 ## Citation
 

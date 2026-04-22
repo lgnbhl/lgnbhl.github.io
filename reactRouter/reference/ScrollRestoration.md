@@ -1,6 +1,6 @@
 # ScrollRestoration
 
-<https://reactrouter.com/6.30.0/components/scroll-restoration>
+<https://api.reactrouter.com/v7/functions/react-router.ScrollRestoration.html>
 
 ## Usage
 

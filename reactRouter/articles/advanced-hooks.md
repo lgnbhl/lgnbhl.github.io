@@ -1,0 +1,337 @@
+# Advanced hooks: useBlocker and useOutletContext
+
+## Overview
+
+This vignette covers two hooks that address specific routing patterns
+beyond basic data loading and navigation:
+
+| Hook | What it does |
+|----|----|
+| [`useBlocker()`](https://felixluginbuhl.com/reactRouter/reference/useBlocker.md) | Intercept navigation — e.g. warn about unsaved changes |
+| [`useOutletContext()`](https://felixluginbuhl.com/reactRouter/reference/useOutletContext.md) | Read data passed from a parent route through `Outlet(context = ...)` |
+
+Both hooks require a data router:
+[`RouterProvider()`](https://felixluginbuhl.com/reactRouter/reference/RouterProvider.md)
+with
+[`createHashRouter()`](https://felixluginbuhl.com/reactRouter/reference/createHashRouter.md),
+[`createBrowserRouter()`](https://felixluginbuhl.com/reactRouter/reference/createBrowserRouter.md),
+or
+[`createMemoryRouter()`](https://felixluginbuhl.com/reactRouter/reference/createMemoryRouter.md).
+
+## Two ways to inject hook values
+
+Every hook wrapper in **reactRouter** offers two mutually exclusive ways
+to turn a hook value into UI. Pick whichever is more ergonomic for the
+case at hand — the API is identical across all hooks
+([`useLoaderData()`](https://felixluginbuhl.com/reactRouter/reference/useLoaderData.md),
+[`useParams()`](https://felixluginbuhl.com/reactRouter/reference/useParams.md),
+[`useBlocker()`](https://felixluginbuhl.com/reactRouter/reference/useBlocker.md),
+[`useOutletContext()`](https://felixluginbuhl.com/reactRouter/reference/useOutletContext.md),
+…).
+
+**1. R-idiomatic (`into` + `as` + `selector`)** — the default. The hook
+value is cloned into an existing component as a single prop. Good for
+displaying one field, populating a data grid’s `rows`, or feeding an
+input’s `value`:
+
+``` r
+
+useOutletContext(tags$span(), selector = "user.name")
+```
+
+**2. Native render-prop (`render = JS(...)`)** — the escape hatch. Pass
+a JS function `(value) => ReactNode`. Mirrors the official React Router
+pattern and is the right choice when one prop is not enough — e.g.
+combining several fields, conditional rendering, or template strings:
+
+``` r
+
+useOutletContext(render = JS("u => `${u.name} (${u.role})`"))
+```
+
+When `render` is supplied, `into`, `as`, and `selector` are ignored —
+apply any selection inside the JS function directly.
+
+------------------------------------------------------------------------
+
+## `useBlocker()`
+
+[`useBlocker()`](https://felixluginbuhl.com/reactRouter/reference/useBlocker.md)
+intercepts navigation when a JavaScript condition returns `true`. It
+exposes a `state` field:
+
+| State          | Meaning                                               |
+|----------------|-------------------------------------------------------|
+| `"unblocked"`  | No navigation is being intercepted (default)          |
+| `"blocked"`    | A navigation was intercepted — show a confirmation UI |
+| `"proceeding"` | User confirmed; navigation is in progress             |
+
+### Arguments
+
+| Argument | Required | Description |
+|----|----|----|
+| `into` | yes\* | Component that receives the value |
+| `as` | no | Prop to inject into. Defaults to `"children"` |
+| `selector` | no | Field from the blocker object. Defaults to `"state"` |
+| `render` | no | [`JS()`](https://appsilon.github.io/shiny.react/reference/JS.html) function `(value) => ReactNode`. When supplied, replaces `into`/`as`/`selector`. |
+| `shouldBlock` | no | A [`JS()`](https://appsilon.github.io/shiny.react/reference/JS.html) function receiving `{ currentLocation, nextLocation, historyAction }` and returning `true` to block or `false` to allow. Defaults to `FALSE` (never blocks). |
+
+\* `into` is required unless `render` is supplied.
+
+### Show blocker state
+
+``` r
+
+useBlocker(
+  tags$span(),
+  shouldBlock = JS(
+    "({ currentLocation, nextLocation }) =>
+      currentLocation.pathname !== nextLocation.pathname"
+  )
+)
+# renders "unblocked", "blocked", or "proceeding"
+```
+
+### Conditional UI with `render`
+
+Because `selector = "state"` only exposes the state string, use `render`
+when you need to branch on the full blocker object (e.g. show the target
+URL in the confirmation prompt):
+
+``` r
+
+useBlocker(
+  shouldBlock = should_block,
+  render = JS(
+    "b => b.state === 'blocked'
+      ? `Leave for ${b.location.pathname}?`
+      : null"
+  )
+)
+```
+
+### Full example
+
+The `render` function receives the full blocker object, including
+`b.proceed()` and `b.reset()` methods. Use them inside `onClick`
+handlers to build a real confirmation dialog:
+
+``` r
+
+library(reactRouter)
+library(htmltools)
+
+should_block <- JS(
+  "({ currentLocation, nextLocation }) =>
+    currentLocation.pathname !== nextLocation.pathname"
+)
+
+blocker_ui <- JS(
+  "b => {
+    const state = React.createElement('code', null, b.state);
+    if (b.state !== 'blocked') return state;
+    return React.createElement(React.Fragment, null,
+      state, ' — ',
+      React.createElement('button', { onClick: () => b.proceed() }, 'Leave'),
+      ' ',
+      React.createElement('button', { onClick: () => b.reset() }, 'Stay')
+    );
+  }"
+)
+
+RouterProvider(
+  router = createHashRouter(
+    Route(
+      path = "/",
+      element = div(
+        tags$nav(tags$ul(
+          tags$li(NavLink(to = "/",      "Home")),
+          tags$li(NavLink(to = "/other", "Other page"))
+        )),
+        tags$hr(),
+        Outlet()
+      ),
+      Route(
+        index = TRUE,
+        element = div(
+          tags$h3("Home — blocker active"),
+          tags$p(
+            tags$strong("Blocker state: "),
+            useBlocker(shouldBlock = should_block, render = blocker_ui)
+          ),
+          tags$p(
+            style = "color: #555; font-size: 0.9em;",
+            "Click 'Other page'. The state changes to ",
+            tags$code('"blocked"'), " and two buttons appear.",
+            tags$br(),
+            tags$em("Leave"), " calls ", tags$code("b.proceed()"),
+            " to confirm navigation;",
+            tags$br(),
+            tags$em("Stay"), " calls ", tags$code("b.reset()"),
+            " to cancel and return to ", tags$code('"unblocked"'), "."
+          )
+        )
+      ),
+      Route(
+        path = "other",
+        element = div(
+          tags$h3("Other page"),
+          tags$p("No blocker here. Navigate freely.")
+        )
+      )
+    )
+  )
+)
+#> Warning: The `reloadDocument` argument of `NavLink()` default is now FALSE as of
+#> reactRouter 0.2.0.
+#> ℹ The default of `reloadDocument` was TRUE in version 0.1.1. It is now FALSE.
+#> This warning is displayed once per session.
+#> Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+#> generated.
+```
+
+### Conditional blocking
+
+Pass any condition as the `shouldBlock` JS function:
+
+``` r
+
+# Block only when navigating to a specific path
+JS("({ nextLocation }) => nextLocation.pathname === '/confirm'")
+
+# Always block (useful for testing)
+JS("() => true")
+
+# Never block
+FALSE  # the default
+```
+
+------------------------------------------------------------------------
+
+## `useOutletContext()`
+
+Parent routes can pass data to child routes through
+`Outlet(context = ...)`. Any child route reads that data with
+[`useOutletContext()`](https://felixluginbuhl.com/reactRouter/reference/useOutletContext.md),
+avoiding prop-drilling through deeply nested layouts.
+
+### Arguments
+
+| Argument | Required | Description |
+|----|----|----|
+| `into` | yes\* | Component that receives the value |
+| `as` | no | Prop to inject into. Defaults to `"children"` |
+| `selector` | no | Field to extract from the context object. Dotted paths like `"user.name"` navigate nested objects. `NULL` (default) injects the full context. |
+| `render` | no | [`JS()`](https://appsilon.github.io/shiny.react/reference/JS.html) function `(context) => ReactNode`. When supplied, replaces `into`/`as`/`selector`. |
+
+\* `into` is required unless `render` is supplied.
+
+### Passing context from a parent route
+
+Add a `context` argument to
+[`Outlet()`](https://felixluginbuhl.com/reactRouter/reference/Outlet.md):
+
+``` r
+
+Route(
+  path = "/",
+  element = div(
+    # Pass a named list — any R object that serialises to JSON
+    Outlet(context = list(user = "Alice", role = "admin")),
+    NavLink(to = "/profile", "Profile")
+  ),
+  Route(
+    path = "profile",
+    element = div(
+      tags$p("Name: ",  useOutletContext(tags$span(), selector = "user")),
+      tags$p("Role: ",  useOutletContext(tags$span(), selector = "role"))
+    )
+  )
+)
+```
+
+### Full example
+
+``` r
+
+library(reactRouter)
+library(htmltools)
+
+current_user <- list(name = "Alice", role = "admin", email = "alice@example.com")
+
+RouterProvider(
+  router = createHashRouter(
+    Route(
+      path = "/",
+      element = div(
+        tags$nav(tags$ul(
+          tags$li(NavLink(to = "/",        "Dashboard")),
+          tags$li(NavLink(to = "/profile", "Profile")),
+          tags$li(NavLink(to = "/settings","Settings"))
+        )),
+        tags$hr(),
+        Outlet(context = current_user)
+      ),
+      Route(
+        index = TRUE,
+        element = div(
+          tags$h3("Dashboard"),
+          tags$p(
+            "Welcome back, ",
+            tags$strong(useOutletContext(tags$span(), selector = "name")),
+            "!"
+          ),
+          tags$p("Your role: ", useOutletContext(tags$code(), selector = "role"))
+        )
+      ),
+      Route(
+        path = "profile",
+        element = div(
+          tags$h3("Profile"),
+          tags$p("Name: ",  useOutletContext(tags$span(), selector = "name")),
+          tags$p("Email: ", useOutletContext(tags$span(), selector = "email")),
+          tags$p("Role: ",  useOutletContext(tags$span(), selector = "role")),
+          tags$details(
+            tags$summary("Full context (JSON)"),
+            tags$pre(useOutletContext(tags$span()))
+          )
+        )
+      ),
+      Route(
+        path = "settings",
+        element = div(
+          tags$h3("Settings"),
+          tags$p(
+            "Editing settings for ",
+            tags$strong(useOutletContext(tags$span(), selector = "name"))
+          )
+        )
+      )
+    )
+  )
+)
+```
+
+The context is passed once at the layout level and is available to every
+child route without repeating it in each `element`.
+
+### Combining fields with `render`
+
+`selector` extracts a single field. When you need to compose several
+fields into one output — a greeting, a formatted label, a conditional
+element — use `render` instead:
+
+``` r
+
+useOutletContext(
+  render = JS(
+    "u => u.role === 'admin'
+      ? `${u.name} (admin — ${u.email})`
+      : u.name"
+  )
+)
+```
+
+This matches the React Router v7 idiom where the component itself
+decides how to consume the hook value, at the cost of a small amount of
+inline JS.

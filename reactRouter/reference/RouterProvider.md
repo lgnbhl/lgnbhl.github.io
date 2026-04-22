@@ -1,24 +1,26 @@
 # RouterProvider
 
-<https://reactrouter.com/6.30.0/routers/router-provider>
+<https://api.reactrouter.com/v7/functions/react-router.RouterProvider.html>
 
 ## Usage
 
 ``` r
-RouterProvider(..., type = c("hash", "memory", "browser"))
+RouterProvider(router, fallbackElement = NULL)
 ```
 
 ## Arguments
 
-- ...:
+- router:
 
-  [`Route`](https://felixluginbuhl.com/reactRouter/reference/Route.md)
-  elements, typically via
-  [`createRoutesFromElements`](https://felixluginbuhl.com/reactRouter/reference/createRoutesFromElements.md).
+  A router element produced by
+  [`createHashRouter`](https://felixluginbuhl.com/reactRouter/reference/createHashRouter.md),
+  [`createBrowserRouter`](https://felixluginbuhl.com/reactRouter/reference/createBrowserRouter.md),
+  or
+  [`createMemoryRouter`](https://felixluginbuhl.com/reactRouter/reference/createMemoryRouter.md).
 
-- type:
+- fallbackElement:
 
-  Character. One of `"hash"` (default), `"memory"`, or `"browser"`.
+  Element shown while the initial route's loader is resolving.
 
 ## Value
 
@@ -26,10 +28,10 @@ A RouterProvider component.
 
 ## Details
 
-A unified wrapper around data routers. Use the `type` argument to select
-the router variant: `"hash"` (default), `"memory"`, or `"browser"`.
-Internally equivalent to
+Renders a data router. Mirrors the React Router v7 composition pattern:
+pass a router built with
 [`createHashRouter`](https://felixluginbuhl.com/reactRouter/reference/createHashRouter.md),
-[`createMemoryRouter`](https://felixluginbuhl.com/reactRouter/reference/createMemoryRouter.md),
+[`createBrowserRouter`](https://felixluginbuhl.com/reactRouter/reference/createBrowserRouter.md),
 or
-[`createBrowserRouter`](https://felixluginbuhl.com/reactRouter/reference/createBrowserRouter.md).
+[`createMemoryRouter`](https://felixluginbuhl.com/reactRouter/reference/createMemoryRouter.md)
+to the `router` argument.

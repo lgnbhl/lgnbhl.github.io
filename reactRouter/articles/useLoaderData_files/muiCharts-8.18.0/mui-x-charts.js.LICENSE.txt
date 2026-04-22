@@ -19,7 +19,27 @@
  */
 
 /**
- * @mui/lab v7.0.1-beta.23
+ * @license React
+ * use-sync-external-store-shim.production.js
+ *
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/**
+ * @license React
+ * use-sync-external-store-shim/with-selector.production.js
+ *
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/**
+ * @mui/private-theming v9.0.0
  *
  * @license MIT
  * This source code is licensed under the MIT license found in the
@@ -27,7 +47,7 @@
  */
 
 /**
- * @mui/material v7.3.9
+ * @mui/styled-engine v9.0.0
  *
  * @license MIT
  * This source code is licensed under the MIT license found in the
@@ -35,7 +55,7 @@
  */
 
 /**
- * @mui/private-theming v7.3.9
+ * @mui/system v9.0.0
  *
  * @license MIT
  * This source code is licensed under the MIT license found in the
@@ -43,23 +63,7 @@
  */
 
 /**
- * @mui/styled-engine v7.3.9
- *
- * @license MIT
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-/**
- * @mui/system v7.3.9
- *
- * @license MIT
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-/**
- * @mui/utils v7.3.9
+ * @mui/x-charts v9.0.2
  *
  * @license MIT
  * This source code is licensed under the MIT license found in the

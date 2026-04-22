@@ -39,10 +39,10 @@
 <li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="../articles/introduction.html">Introduction to reactRouter</a></li>
-    <li><a class="dropdown-item" href="../articles/routers.html">Choosing a router</a></li>
-    <li><a class="dropdown-item" href="../articles/useLoaderData.html">Using useLoaderData</a></li>
-    <li><a class="dropdown-item" href="../articles/shiny.fluent.html">Tutorial with rhino and shiny.fluent</a></li>
+<li><a class="dropdown-item" href="../articles/routers.html">Choosing a router</a></li>
+    <li><a class="dropdown-item" href="../articles/useLoaderData.html">Using Data Loaders</a></li>
+    <li><a class="dropdown-item" href="../articles/useFetcher.html">Using Form and Fetchers</a></li>
+    <li><a class="dropdown-item" href="../articles/advanced-hooks.html">Advanced Hooks</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
@@ -75,59 +75,56 @@
     
     
 <p>The <strong>reactRouter</strong> package provides multiple ways to
-add routing. <code><a href="../reference/RouterProvider.html">RouterProvider()</a></code> is the simplest entry point:
-just pass your <code><a href="../reference/Route.html">Route()</a></code> elements and pick a router type.</p>
+add routing. <code><a href="../reference/RouterProvider.html">RouterProvider()</a></code> is the recommended entry
+point: pass a router built with <code><a href="../reference/createHashRouter.html">createHashRouter()</a></code>,
+<code><a href="../reference/createMemoryRouter.html">createMemoryRouter()</a></code>, or <code><a href="../reference/createBrowserRouter.html">createBrowserRouter()</a></code>
+to its <code>router</code> argument.</p>
 <div class="section level2">
-<h2 id="routerprovider-the-simplest-way-to-get-started">
-<code>RouterProvider()</code> — the simplest way to get started<a class="anchor" aria-label="anchor" href="#routerprovider-the-simplest-way-to-get-started"></a>
+<h2 id="routerprovider-recommended-entry-point">
+<code>RouterProvider()</code> — recommended entry point<a class="anchor" aria-label="anchor" href="#routerprovider-recommended-entry-point"></a>
 </h2>
-<p><code><a href="../reference/RouterProvider.html">RouterProvider()</a></code> is a unified wrapper that covers the
-most common use cases through its <code>type</code> argument:</p>
-<ul>
-<li>
-<code>type = "hash"</code> (default) — hash-based routing
-(<code>/#/about</code>). Works in Shiny, Quarto, and static HTML. Routes
-are visible in the URL, so users can bookmark pages and use browser
-back/forward.</li>
-<li>
-<code>type = "memory"</code> — in-memory routing. The URL never
-changes. Ideal for embedded widgets, multi-step wizards, or multiple
-independent routers on the same page.</li>
-<li>
-<code>type = "browser"</code> — HTML5 History API
-(<code>/about</code>). Not recommended for use with R (see <a href="#browserouter----not-recommended-in-r">BrowserRouter</a>
-below).</li>
-</ul>
+<p><code><a href="../reference/RouterProvider.html">RouterProvider()</a></code> renders a data router. It mirrors the
+React Router v7 composition pattern: you build a router with one of the
+<code>create*Router()</code> functions and pass it to the
+<code>router</code> argument.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/reactRouter/">reactRouter</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/htmltools" class="external-link">htmltools</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="../reference/RouterProvider.html">RouterProvider</a></span><span class="op">(</span></span>
-<span>  <span class="co"># type = "hash" by default — change to type = "memory" if needed</span></span>
-<span>  <span class="fu"><a href="../reference/Route.html">Route</a></span><span class="op">(</span></span>
-<span>    path <span class="op">=</span> <span class="st">"/"</span>,</span>
-<span>    element <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
-<span>      <span class="va">tags</span><span class="op">$</span><span class="fu">nav</span><span class="op">(</span></span>
-<span>        <span class="va">tags</span><span class="op">$</span><span class="fu">ul</span><span class="op">(</span></span>
-<span>          <span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span><span class="fu"><a href="../reference/NavLink.html">NavLink</a></span><span class="op">(</span>to <span class="op">=</span> <span class="st">"/"</span>,      <span class="st">"Home"</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>          <span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span><span class="fu"><a href="../reference/NavLink.html">NavLink</a></span><span class="op">(</span>to <span class="op">=</span> <span class="st">"/about"</span>, <span class="st">"About"</span><span class="op">)</span><span class="op">)</span></span>
-<span>        <span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/RouterProvider.html">RouterProvider</a></span><span class="op">(</span></span>
+<span>  router <span class="op">=</span> <span class="fu"><a href="../reference/createHashRouter.html">createHashRouter</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="../reference/Route.html">Route</a></span><span class="op">(</span></span>
+<span>      path <span class="op">=</span> <span class="st">"/"</span>,</span>
+<span>      element <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
+<span>        <span class="fu"><a href="../reference/NavLink.html">NavLink</a></span><span class="op">(</span>to <span class="op">=</span> <span class="st">"/"</span>,         <span class="st">"Home"</span><span class="op">)</span>,</span>
+<span>        <span class="fu"><a href="../reference/NavLink.html">NavLink</a></span><span class="op">(</span>to <span class="op">=</span> <span class="st">"/analysis"</span>, <span class="st">"Analysis"</span><span class="op">)</span>,</span>
+<span>        <span class="fu"><a href="../reference/Outlet.html">Outlet</a></span><span class="op">(</span><span class="op">)</span></span>
 <span>      <span class="op">)</span>,</span>
-<span>      <span class="va">tags</span><span class="op">$</span><span class="fu">hr</span><span class="op">(</span><span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="../reference/Outlet.html">Outlet</a></span><span class="op">(</span><span class="op">)</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="../reference/Route.html">Route</a></span><span class="op">(</span>index <span class="op">=</span> <span class="cn">TRUE</span>,   element <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span><span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">h2</a></span><span class="op">(</span><span class="st">"Home"</span><span class="op">)</span>,  <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="st">"Welcome."</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="../reference/Route.html">Route</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"about"</span>, element <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span><span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">h2</a></span><span class="op">(</span><span class="st">"About"</span><span class="op">)</span>, <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="st">"About page."</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span>      <span class="fu"><a href="../reference/Route.html">Route</a></span><span class="op">(</span>index <span class="op">=</span> <span class="cn">TRUE</span>,        element <span class="op">=</span> <span class="st">"Main content"</span><span class="op">)</span>,</span>
+<span>      <span class="fu"><a href="../reference/Route.html">Route</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"analysis"</span>,   element <span class="op">=</span> <span class="st">"Analysis content"</span><span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<p>The lower-level functions (<code><a href="../reference/createHashRouter.html">createHashRouter()</a></code>,
-<code><a href="../reference/createMemoryRouter.html">createMemoryRouter()</a></code>, <code><a href="../reference/HashRouter.html">HashRouter()</a></code>,
-<code><a href="../reference/MemoryRouter.html">MemoryRouter()</a></code>) are also available and give you more
-control. They are described below.</p>
+<div class="section level3">
+<h3 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a>
+</h3>
+<p><strong><code>router</code></strong> — required. A router object
+produced by <code><a href="../reference/createHashRouter.html">createHashRouter()</a></code>,
+<code><a href="../reference/createMemoryRouter.html">createMemoryRouter()</a></code>, or
+<code><a href="../reference/createBrowserRouter.html">createBrowserRouter()</a></code>.</p>
+<p><strong><code>fallbackElement</code></strong> — optional. An element
+shown while the initial route’s <code>loader</code> is resolving
+(i.e. the loading state before the first route renders). Example:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/RouterProvider.html">RouterProvider</a></span><span class="op">(</span></span>
+<span>  router   <span class="op">=</span> <span class="fu"><a href="../reference/createHashRouter.html">createHashRouter</a></span><span class="op">(</span> <span class="va">...</span> <span class="op">)</span>,</span>
+<span>  fallbackElement <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span><span class="st">"Loading…"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<hr>
+</div>
 </div>
 <div class="section level2">
-<h2 id="quick-reference">Quick reference<a class="anchor" aria-label="anchor" href="#quick-reference"></a>
+<h2 id="choosing-a-router">Choosing a router<a class="anchor" aria-label="anchor" href="#choosing-a-router"></a>
 </h2>
+<p>The three <code>create*Router()</code> functions differ only in how
+they interact with the browser URL:</p>
 <table class="table">
 <colgroup>
 <col width="25%">
@@ -136,7 +133,7 @@ control. They are described below.</p>
 <col width="25%">
 </colgroup>
 <thead><tr class="header">
-<th>Router / shortcut</th>
+<th>Function</th>
 <th>URL style</th>
 <th>Works on <code>file://</code>
 </th>
@@ -144,107 +141,75 @@ control. They are described below.</p>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td><code>RouterProvider(type = "hash")</code></td>
-<td><code>/#/about</code></td>
-<td>yes</td>
-<td><strong>yes — simplest</strong></td>
-</tr>
-<tr class="even">
-<td><code>RouterProvider(type = "memory")</code></td>
-<td>in-memory (no URL change)</td>
-<td>yes</td>
-<td><strong>yes — simplest</strong></td>
-</tr>
-<tr class="odd">
 <td><code><a href="../reference/createHashRouter.html">createHashRouter()</a></code></td>
 <td><code>/#/about</code></td>
 <td>yes</td>
-<td>yes</td>
+<td><strong>yes — default choice</strong></td>
 </tr>
 <tr class="even">
 <td><code><a href="../reference/createMemoryRouter.html">createMemoryRouter()</a></code></td>
 <td>in-memory (no URL change)</td>
 <td>yes</td>
-<td>yes</td>
+<td><strong>yes — for embedded / multi-router pages</strong></td>
 </tr>
 <tr class="odd">
-<td><code><a href="../reference/HashRouter.html">HashRouter()</a></code></td>
-<td><code>/#/about</code></td>
-<td>yes</td>
-<td>no (legacy)</td>
-</tr>
-<tr class="even">
-<td><code><a href="../reference/MemoryRouter.html">MemoryRouter()</a></code></td>
-<td>in-memory (no URL change)</td>
-<td>yes</td>
-<td>no (legacy)</td>
-</tr>
-<tr class="odd">
-<td>
-<code>RouterProvider(type = "browser")</code> /
-<code><a href="../reference/BrowserRouter.html">BrowserRouter()</a></code>
-</td>
+<td><code><a href="../reference/createBrowserRouter.html">createBrowserRouter()</a></code></td>
 <td><code>/about</code></td>
 <td>no</td>
-<td>no</td>
+<td>no (see below)</td>
 </tr>
 </tbody>
 </table>
 <hr>
 </div>
 <div class="section level2">
-<h2 id="createhashrouter-recommended-default-for-shiny-and-static-sites">
-<code>createHashRouter()</code> — recommended default for Shiny and
-static sites<a class="anchor" aria-label="anchor" href="#createhashrouter-recommended-default-for-shiny-and-static-sites"></a>
+<h2 id="createhashrouter-recommended-default">
+<code>createHashRouter()</code> — recommended default<a class="anchor" aria-label="anchor" href="#createhashrouter-recommended-default"></a>
 </h2>
-<p><code>createHashRouter</code> is the best default choice for R Shiny
-apps and static sites (Quarto, R Markdown HTML output). It uses the URL
-hash (the <code>#</code> fragment) for routing, so routes like
-<code>/#/about</code> are visible in the address bar. This means users
-can bookmark pages, share deep links, and use the browser back/forward
-buttons — all without requiring a server that handles URL rewriting.</p>
+<p><code><a href="../reference/createHashRouter.html">createHashRouter()</a></code> uses the URL hash
+(<code>/#/about</code>) for routing. Hash changes never trigger a real
+HTTP request, so the router works in Shiny apps, Quarto documents, and
+static HTML pages without any server configuration.</p>
 <p><strong>Why it works well with Shiny:</strong></p>
 <ul>
-<li>Hash changes (<code>/#/about</code>) never trigger a real HTTP
-request, so Shiny’s server is not affected.</li>
+<li>Hash changes do not affect Shiny’s HTTP layer.</li>
 <li>
 <code>session$clientData$url_hash</code> updates reactively whenever
-the route changes, letting the server know the current page.</li>
+the route changes.</li>
 </ul>
-<p><strong>Why it is preferred over
-<code>HashRouter</code>:</strong></p>
+<p><strong>Why it is preferred over the legacy
+<code><a href="../reference/HashRouter.html">HashRouter()</a></code>:</strong></p>
 <ul>
 <li>Unlocks the full data router API: <code>loader</code>,
 <code>action</code>, <code>errorElement</code>,
 <code>useLoaderData</code>, <code>useNavigation</code>,
-<code>useFetcher</code>, and deferred data.</li>
+<code>useFetcher</code>, and deferred data via <code>Await</code>.</li>
 <li>This is the model React Router is actively developing;
-<code>HashRouter</code> is a legacy compatibility wrapper.</li>
+<code><a href="../reference/HashRouter.html">HashRouter()</a></code> is a legacy compatibility wrapper.</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/reactRouter/">reactRouter</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/htmltools" class="external-link">htmltools</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="../reference/createHashRouter.html">createHashRouter</a></span><span class="op">(</span></span>
-<span>  <span class="fu"><a href="../reference/Route.html">Route</a></span><span class="op">(</span></span>
-<span>    path <span class="op">=</span> <span class="st">"/"</span>,</span>
-<span>    element <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
-<span>      <span class="va">tags</span><span class="op">$</span><span class="fu">nav</span><span class="op">(</span></span>
-<span>        <span class="va">tags</span><span class="op">$</span><span class="fu">ul</span><span class="op">(</span></span>
-<span>          <span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span><span class="fu"><a href="../reference/NavLink.html">NavLink</a></span><span class="op">(</span>to <span class="op">=</span> <span class="st">"/"</span>,      <span class="st">"Home"</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>          <span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span><span class="fu"><a href="../reference/NavLink.html">NavLink</a></span><span class="op">(</span>to <span class="op">=</span> <span class="st">"/about"</span>, <span class="st">"About"</span><span class="op">)</span><span class="op">)</span></span>
-<span>        <span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/RouterProvider.html">RouterProvider</a></span><span class="op">(</span></span>
+<span>  router <span class="op">=</span> <span class="fu"><a href="../reference/createHashRouter.html">createHashRouter</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="../reference/Route.html">Route</a></span><span class="op">(</span></span>
+<span>      path <span class="op">=</span> <span class="st">"/"</span>,</span>
+<span>      element <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
+<span>        <span class="va">tags</span><span class="op">$</span><span class="fu">nav</span><span class="op">(</span></span>
+<span>          <span class="va">tags</span><span class="op">$</span><span class="fu">ul</span><span class="op">(</span></span>
+<span>            <span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span><span class="fu"><a href="../reference/NavLink.html">NavLink</a></span><span class="op">(</span>to <span class="op">=</span> <span class="st">"/"</span>,      <span class="st">"Home"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>            <span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span><span class="fu"><a href="../reference/NavLink.html">NavLink</a></span><span class="op">(</span>to <span class="op">=</span> <span class="st">"/about"</span>, <span class="st">"About"</span><span class="op">)</span><span class="op">)</span></span>
+<span>          <span class="op">)</span></span>
+<span>        <span class="op">)</span>,</span>
+<span>        <span class="va">tags</span><span class="op">$</span><span class="fu">hr</span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        <span class="fu"><a href="../reference/Outlet.html">Outlet</a></span><span class="op">(</span><span class="op">)</span></span>
 <span>      <span class="op">)</span>,</span>
-<span>      <span class="va">tags</span><span class="op">$</span><span class="fu">hr</span><span class="op">(</span><span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="../reference/Outlet.html">Outlet</a></span><span class="op">(</span><span class="op">)</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="../reference/Route.html">Route</a></span><span class="op">(</span>index <span class="op">=</span> <span class="cn">TRUE</span>,   element <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span><span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">h2</a></span><span class="op">(</span><span class="st">"Home"</span><span class="op">)</span>,  <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="st">"Welcome."</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="../reference/Route.html">Route</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"about"</span>, element <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span><span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">h2</a></span><span class="op">(</span><span class="st">"About"</span><span class="op">)</span>, <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="st">"About page."</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span>      <span class="fu"><a href="../reference/Route.html">Route</a></span><span class="op">(</span>index <span class="op">=</span> <span class="cn">TRUE</span>,   element <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span><span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">h2</a></span><span class="op">(</span><span class="st">"Home"</span><span class="op">)</span>,  <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="st">"Welcome."</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>      <span class="fu"><a href="../reference/Route.html">Route</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"about"</span>, element <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span><span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">h2</a></span><span class="op">(</span><span class="st">"About"</span><span class="op">)</span>, <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="st">"About page."</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<p>Note: the default <code>reloadDocument = FALSE</code> is used here so
-that React Router handles navigation client-side without triggering a
-full page reload.</p>
 <hr>
 </div>
 <div class="section level2">
@@ -252,12 +217,10 @@ full page reload.</p>
 <code>createMemoryRouter()</code> — recommended for in-memory
 routing<a class="anchor" aria-label="anchor" href="#creatememoryrouter-recommended-for-in-memory-routing"></a>
 </h2>
-<p><code>createMemoryRouter</code> keeps the routing state entirely in
-memory. It does not read or modify the browser URL at all, which
-means:</p>
+<p><code><a href="../reference/createMemoryRouter.html">createMemoryRouter()</a></code> keeps routing state entirely in
+memory. It never reads or modifies the browser URL, which means:</p>
 <ul>
-<li>It always starts at <code>/</code>, regardless of what the real URL
-is.</li>
+<li>It always starts at <code>/</code>, regardless of the real URL.</li>
 <li>Navigation updates the in-memory location but the browser address
 bar does not change.</li>
 <li>Browser back/forward buttons and bookmarks do not reflect the
@@ -265,19 +228,17 @@ current route.</li>
 </ul>
 <p>This makes it ideal for <strong>internal-only navigation</strong> —
 multi-step wizards, tabbed panels, or any UI where the route is an
-implementation detail rather than something the user should see or
-share. It is also the right choice when you need <strong>multiple
+implementation detail rather than something the user should share or
+bookmark. It is also the right choice when you need <strong>multiple
 independent routers on the same page</strong> (e.g. several routed
 widgets in a Shiny dashboard), since they don’t touch the URL and
 therefore can’t conflict with each other.</p>
-<p><code>createMemoryRouter</code> works in Shiny apps, static HTML
-pages (<code>file://</code>), and Quarto output blocks.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/reactRouter/">reactRouter</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/htmltools" class="external-link">htmltools</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="../reference/createMemoryRouter.html">createMemoryRouter</a></span><span class="op">(</span></span>
-<span>  <span class="fu"><a href="../reference/createRoutesFromElements.html">createRoutesFromElements</a></span><span class="op">(</span></span>
+<span><span class="fu"><a href="../reference/RouterProvider.html">RouterProvider</a></span><span class="op">(</span></span>
+<span>  router <span class="op">=</span> <span class="fu"><a href="../reference/createMemoryRouter.html">createMemoryRouter</a></span><span class="op">(</span></span>
 <span>    <span class="fu"><a href="../reference/Route.html">Route</a></span><span class="op">(</span></span>
 <span>      path <span class="op">=</span> <span class="st">"/"</span>,</span>
 <span>      element <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
@@ -308,59 +269,90 @@ pages (<code>file://</code>), and Quarto output blocks.</p>
 <tbody>
 <tr class="odd">
 <td>Shiny app with bookmarkable/shareable routes</td>
-<td><code>createHashRouter</code></td>
+<td><code><a href="../reference/createHashRouter.html">createHashRouter()</a></code></td>
 </tr>
 <tr class="even">
 <td>Static site (Quarto, R Markdown) with multiple pages</td>
-<td><code>createHashRouter</code></td>
+<td><code><a href="../reference/createHashRouter.html">createHashRouter()</a></code></td>
 </tr>
 <tr class="odd">
 <td>Shiny app with internal-only navigation (wizards, tabbed
 panels)</td>
-<td><code>createMemoryRouter</code></td>
+<td><code><a href="../reference/createMemoryRouter.html">createMemoryRouter()</a></code></td>
 </tr>
 <tr class="even">
 <td>Multiple independent routed widgets on the same page</td>
-<td><code>createMemoryRouter</code></td>
+<td><code><a href="../reference/createMemoryRouter.html">createMemoryRouter()</a></code></td>
 </tr>
 <tr class="odd">
 <td>Embedded widget where the URL should not change</td>
-<td><code>createMemoryRouter</code></td>
+<td><code><a href="../reference/createMemoryRouter.html">createMemoryRouter()</a></code></td>
 </tr>
 </tbody>
 </table>
 <p>In short: if the route should be visible in the URL (bookmarks, deep
-links, back/forward), use <code>createHashRouter</code>. If routing is
-purely an internal UI concern, use <code>createMemoryRouter</code>.</p>
+links, back/forward), use <code><a href="../reference/createHashRouter.html">createHashRouter()</a></code>. If routing is
+purely an internal UI concern, use
+<code><a href="../reference/createMemoryRouter.html">createMemoryRouter()</a></code>.</p>
+<hr>
+</div>
+<div class="section level2">
+<h2 id="createbrowserrouter-not-recommended-in-r">
+<code>createBrowserRouter()</code> — not recommended in R<a class="anchor" aria-label="anchor" href="#createbrowserrouter-not-recommended-in-r"></a>
+</h2>
+<p><code><a href="../reference/createBrowserRouter.html">createBrowserRouter()</a></code> uses the HTML5 History API
+(<code>pushState</code>) for clean URLs (e.g. <code>/about</code>
+instead of <code>/#/about</code>). It is the standard router in full
+React web applications, but it is <strong>not well-suited for use with
+this R package</strong>:</p>
+<ul>
+<li>
+<strong>Static files (<code>file://</code>):</strong> The URL path
+is a file system path (e.g. <code>/C:/Users/.../file.html</code>), not
+<code>/</code>. No route matches and the app immediately shows a
+404.</li>
+<li>
+<strong>Shiny apps:</strong> Clean URLs like <code>/about</code>
+require the server to rewrite all paths back to <code>/</code>. Shiny
+does not do this by default.</li>
+<li>
+<strong>Refreshing on a sub-route:</strong> Even when served from a
+proper HTTP server, refreshing on <code>/about</code> will 404 unless
+the server is configured to rewrite all routes to
+<code>index.html</code>.</li>
+</ul>
+<p><code><a href="../reference/createBrowserRouter.html">createBrowserRouter()</a></code> only works correctly in a full web
+application deployment (e.g. React served by Node.js, Express, or Nginx
+with URL rewriting). That scenario is outside the scope of this R
+package.</p>
 <hr>
 </div>
 <div class="section level2">
 <h2 id="legacy-hashrouter-and-memoryrouter-component-api">Legacy: <code>HashRouter()</code> and <code>MemoryRouter()</code> —
 component API<a class="anchor" aria-label="anchor" href="#legacy-hashrouter-and-memoryrouter-component-api"></a>
 </h2>
-<p><code>HashRouter</code> and <code>MemoryRouter</code> are the older,
-component-based equivalents of <code>createHashRouter</code> and
-<code>createMemoryRouter</code>. They remain <strong>fully
-supported</strong> in this package and are safe to use in existing
-code.</p>
-<p><strong>However, <code><a href="../reference/RouterProvider.html">RouterProvider()</a></code> (or
-<code>createHashRouter</code> / <code>createMemoryRouter</code>) is
+<p><code><a href="../reference/HashRouter.html">HashRouter()</a></code> and <code><a href="../reference/MemoryRouter.html">MemoryRouter()</a></code> are the
+older, component-based equivalents of <code><a href="../reference/createHashRouter.html">createHashRouter()</a></code>
+and <code><a href="../reference/createMemoryRouter.html">createMemoryRouter()</a></code>. They remain <strong>fully
+supported</strong> and are safe to use in existing code.</p>
+<p><strong>However, <code><a href="../reference/RouterProvider.html">RouterProvider()</a></code> with
+<code><a href="../reference/createHashRouter.html">createHashRouter()</a></code> / <code><a href="../reference/createMemoryRouter.html">createMemoryRouter()</a></code> is
 preferred for new code</strong> because the component-based API:</p>
 <ul>
 <li>Does not support <code>loader</code>, <code>action</code>,
 <code>errorElement</code>, or any data router features.</li>
 <li>Is not the direction React Router is developing toward.</li>
 </ul>
-<p>Use <code>HashRouter</code> or <code>MemoryRouter</code> only if you
-have a specific reason to stay with the component API (e.g. migrating an
-existing app incrementally).</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<p>Use <code><a href="../reference/HashRouter.html">HashRouter()</a></code> or <code><a href="../reference/MemoryRouter.html">MemoryRouter()</a></code> only if
+you have a specific reason to stay with the component API
+(e.g. migrating an existing app incrementally).</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Legacy: component API — still works, but RouterProvider() is preferred</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/reactRouter/">reactRouter</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/HashRouter.html">HashRouter</a></span><span class="op">(</span></span>
-<span>  <span class="fu"><a href="../reference/NavLink.html">NavLink</a></span><span class="op">(</span>to <span class="op">=</span> <span class="st">"/"</span>, reloadDocument <span class="op">=</span> <span class="cn">TRUE</span>, <span class="st">"Home"</span><span class="op">)</span>, <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">br</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="../reference/NavLink.html">NavLink</a></span><span class="op">(</span>to <span class="op">=</span> <span class="st">"/"</span>,      reloadDocument <span class="op">=</span> <span class="cn">TRUE</span>, <span class="st">"Home"</span><span class="op">)</span>, <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">br</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  <span class="fu"><a href="../reference/NavLink.html">NavLink</a></span><span class="op">(</span>to <span class="op">=</span> <span class="st">"/other"</span>, reloadDocument <span class="op">=</span> <span class="cn">TRUE</span>, <span class="st">"Other"</span><span class="op">)</span>,</span>
 <span>  <span class="fu"><a href="../reference/Routes.html">Routes</a></span><span class="op">(</span></span>
 <span>    <span class="fu"><a href="../reference/Route.html">Route</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"/"</span>,      element <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/htmlOutput.html" class="external-link">uiOutput</a></span><span class="op">(</span><span class="st">"uiHome"</span><span class="op">)</span><span class="op">)</span>,</span>
@@ -376,39 +368,6 @@ existing app incrementally).</p>
 <span><span class="op">}</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre></div>
-<hr>
-</div>
-<div class="section level2">
-<h2 id="browserrouter-not-recommended-in-r">
-<code>BrowserRouter()</code> — not recommended in R<a class="anchor" aria-label="anchor" href="#browserrouter-not-recommended-in-r"></a>
-</h2>
-<p><code>BrowserRouter</code> uses the HTML5 History API
-(<code>pushState</code>) for clean URLs (e.g. <code>/about</code>
-instead of <code>/#/about</code>). It is the standard router in full
-React web applications, but it is <strong>not well-suited for use with
-this R package</strong>:</p>
-<ul>
-<li>
-<strong>Static files (<code>file://</code>):</strong> On opening,
-the URL path is a file system path
-(e.g. <code>/C:/Users/.../file.html</code>), not <code>/</code>. No
-route matches, so the app immediately shows a 404.</li>
-<li>
-<strong>Shiny apps:</strong> Clean URLs like <code>/about</code>
-require the server to rewrite all paths back to <code>/</code>. Shiny
-does not do this by default. Additionally, client-side navigation with
-<code>reloadDocument = FALSE</code> means the Shiny server has no way to
-know the current route without extra JavaScript workarounds.</li>
-<li>
-<strong>Refreshing on a sub-route:</strong> Even when served from a
-proper HTTP server, refreshing the browser on <code>/about</code> will
-404 unless the server is configured to rewrite all routes to
-<code>index.html</code>.</li>
-</ul>
-<p><code>BrowserRouter</code> only works correctly in a full web
-application deployment (e.g. React served by Node.js, Express, or Nginx
-with URL rewriting). That scenario is outside the scope of this R
-package.</p>
 <hr>
 </div>
 <div class="section level2">
@@ -430,9 +389,9 @@ the page. This is the correct behavior for:</p>
 server to re-initialize. Client-side navigation provides smooth, instant
 route switching.</li>
 <li>
-<strong><code>createMemoryRouter</code> and
-<code>MemoryRouter</code></strong> — a full page reload would reset the
-in-memory routing state back to <code>/</code>, breaking navigation
+<strong><code><a href="../reference/createMemoryRouter.html">createMemoryRouter()</a></code> and
+<code><a href="../reference/MemoryRouter.html">MemoryRouter()</a></code></strong> — a full page reload would reset
+the in-memory routing state back to <code>/</code>, breaking navigation
 entirely.</li>
 <li>
 <strong>Data router loaders and actions</strong> —
@@ -459,12 +418,12 @@ the Shiny session was started with the old route.</li>
 <p>Set <code>reloadDocument = TRUE</code> whenever your routes contain
 server-rendered output (<code>uiOutput</code>, <code>plotOutput</code>,
 etc.):</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/NavLink.html">NavLink</a></span><span class="op">(</span>to <span class="op">=</span> <span class="st">"/about"</span>, reloadDocument <span class="op">=</span> <span class="cn">TRUE</span>, <span class="st">"About"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/Link.html">Link</a></span><span class="op">(</span>to <span class="op">=</span> <span class="st">"/"</span>,         reloadDocument <span class="op">=</span> <span class="cn">TRUE</span>, <span class="st">"Home"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="quick-reference-1">Quick reference<a class="anchor" aria-label="anchor" href="#quick-reference-1"></a>
+<h3 id="quick-reference">Quick reference<a class="anchor" aria-label="anchor" href="#quick-reference"></a>
 </h3>
 <table class="table">
 <colgroup>
@@ -486,7 +445,7 @@ etc.):</p>
 </tr>
 <tr class="even">
 <td>
-<code>createMemoryRouter</code> / <code>MemoryRouter</code>
+<code><a href="../reference/createMemoryRouter.html">createMemoryRouter()</a></code> / <code><a href="../reference/MemoryRouter.html">MemoryRouter()</a></code>
 </td>
 <td>
 <code>FALSE</code> (default)</td>

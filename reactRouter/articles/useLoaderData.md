@@ -39,33 +39,56 @@ Full example with dynamic route parameters:
 library(reactRouter)
 library(htmltools)
 library(dplyr)
+#> 
+#> Attaching package: 'dplyr'
+#> The following objects are masked from 'package:stats':
+#> 
+#>     filter, lag
+#> The following objects are masked from 'package:base':
+#> 
+#>     intersect, setdiff, setequal, union
 
-people_json <- dplyr::starwars |>
-  mutate(id = dplyr::row_number()) |>
-  jsonlite::toJSON(dataframe = "rows", auto_unbox = TRUE)
+people_json <- jsonlite::toJSON(dplyr::starwars, dataframe = "rows", auto_unbox = TRUE)
 
 RouterProvider(
-  Route(
-    path = "/",
-    element = div(Outlet()),
+  router = createHashRouter(
     Route(
-      path = "people/:id",
-      loader = JS(sprintf(
-        "({ params }) => {
-          const db = %s;
-          const person = db.find(row => row.id == params.id);
-          if (!person) throw new Response('Not found', { status: 404 });
-          return person;
-        }",
-        people_json
-      )),
-      element = div(
-        useLoaderData(tags$h3(), selector = "name"),
-        useLoaderData(tags$span(), selector = "gender")
+      path = "/",
+      element = tags$div(
+        NavLink(to = "/", "Home"), " | ",
+        NavLink(to = "/people/1", "Luke"), " | ",
+        NavLink(to = "/people/2", "C-3PO"), " | ",
+        NavLink(to = "/people/3", "R2-D2"),
+        tags$hr(),
+        Outlet()
+      ),
+      Route(index = TRUE, element = p("Select a person.")),
+      Route(
+        path = "people/:id",
+        loader = JS(sprintf(
+          "({ params }) => {
+            const db = %s;
+            const person = db[params.id - 1];
+            if (!person) throw new Response('Not found', { status: 404 });
+            return person;
+          }",
+          people_json
+        )),
+        element = div(
+          useLoaderData(into = tags$h3(), selector = "name"),
+          useLoaderData(into = tags$p(),  selector = "gender")
+        ),
+        errorElement = div(tags$p("Not found."), NavLink(to = "/", "Back"))
       )
     )
   )
 )
+#> Warning: The `reloadDocument` argument of `NavLink()` default is now FALSE as of
+#> reactRouter 0.2.0.
+#> ℹ The default of `reloadDocument` was TRUE in version 0.1.1. It is now FALSE.
+#> This warning is displayed once per session.
+#> Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+#> generated.
 ```
 
 ## Injecting structured data into shiny.react components
@@ -92,19 +115,21 @@ loader <- JS("async () => {
 }")
 
 RouterProvider(
-  Route(
-    path = "/",
-    loader = loader,
-    element = div(
-      style = "height: 400px;",
-      useLoaderData(
-        muiDataGrid::DataGrid(
-          columns = JS("[
-            { field: 'name',   headerName: 'Name',   flex: 1 },
-            { field: 'height', headerName: 'Height', width: 100 }
-          ]")
-        ),
-        as = "rows"
+  router = createHashRouter(
+    Route(
+      path = "/",
+      loader = loader,
+      element = div(
+        style = "height: 400px;",
+        useLoaderData(
+          muiDataGrid::DataGrid(
+            columns = list(
+              list(field = "name", headerName = "Name", flex = 1),
+              list(field = "height", headerName = "Height", width = 100)
+            )
+          ),
+          as = "rows"
+        )
       )
     )
   )
@@ -116,38 +141,59 @@ to extract the relevant one:
 
 ``` r
 
-loader <- JS("async () => {
-  const res = await fetch('https://swapi.info/api/people');
-  const data = await res.json();
-  return {
-    names: data.map(p => p.name).sort(),
-    people: data.map((p, i) => ({ id: i, name: p.name, height: p.height }))
-  };
-}")
+# -- JS loader: fetches Star Wars characters from SWAPI, filters by ?name= param ----
+loader_people <- JS(
+  "
+  async ({ request }) => {
+    const filter = new URL(request.url).searchParams.getAll('name');
+    const data = await fetch('https://swapi.info/api/people').then(r => r.json());
+    return {
+      names: data.map(p => p.name).sort(),
+      people: filter.length ? data.filter(p => filter.includes(p.name)) : data
+    };
+  }
+"
+)
 
+# -- UI --------------------------------------------------------------------
 RouterProvider(
-  Route(
-    path = "/",
-    loader = loader,
-    element = div(
-      useLoaderData(
-        muiMaterial::Autocomplete(
-          renderInput = JS(
-            "(params) => React.createElement(window.jsmodule['@mui/material'].TextField, {...params, label: 'Name'})"
-          ),
-          multiple = TRUE
+  router = createHashRouter(
+    Route(
+      path = "/",
+      loader = loader_people,
+      element = div(
+        h2("Star Wars Characters"),
+        p(
+          "Select characters to filter the table, or clear the selection to show all."
         ),
-        as = "options",
-        selector = "names"
-      ),
-      div(
-        style = "height: 400px;",
         useLoaderData(
-          muiDataGrid::DataGrid(
-            columns = JS("[
-              { field: 'name',   headerName: 'Name',   flex: 1 },
-              { field: 'height', headerName: 'Height', width: 100 }
-            ]")
+          into = muiMaterial::Autocomplete(
+            onChange = JS(
+              "(event, value) => { window.location.hash = value.length ? '/?' + value.map(v => 'name=' + encodeURIComponent(v)).join('&') : '/'; }"
+            ),
+            renderInput = JS(
+              "(params) => React.createElement(window.jsmodule['@mui/material'].TextField, {...params, label: 'Name'})"
+            ),
+            multiple = TRUE,
+            sx = list(width = 300, marginBottom = 2)
+          ),
+          as = "options",
+          selector = "names"
+        ),
+        useLoaderData(
+          into = muiDataGrid::DataGrid(
+            columns = list(
+              list(field = 'name', headerName = 'Name', flex = 1),
+              list(field = 'height', headerName = 'Height', width = 100),
+              list(field = 'mass', headerName = 'Mass', width = 100),
+              list(field = 'gender', headerName = 'Gender', width = 120),
+              list(field = 'birth_year', headerName = 'Birth Year', width = 120)
+            ),
+            getRowId = JS("function(row) { return(row.name) }"),
+            initialState = list(
+              pagination = list(paginationModel = list(pageSize = 5))
+            ),
+            showToolbar = TRUE
           ),
           as = "rows",
           selector = "people"
@@ -164,38 +210,51 @@ The React Router community recommends that each loader returns **exactly
 the shape the consuming component needs**. This avoids the need for
 `selector`:
 
+When a single route renders multiple components with different data
+needs, consider splitting into nested routes — each with its own loader:
+
 ``` r
 
-# Loader returns the array directly — no selector needed
-loader <- JS("async () => {
+library(reactRouter)
+library(muiDataGrid)
+library(htmltools)
+
+stats_loader <- JS("async () => {
+  const res = await fetch('https://swapi.info/api/people');
+  const people = await res.json();
+  return { summary: people.length + ' characters found' };
+}")
+
+people_loader <- JS("async () => {
   const res = await fetch('https://swapi.info/api/people');
   return (await res.json()).map((p, i) => ({
     id: i, name: p.name, height: p.height
   }));
 }")
 
-useLoaderData(muiDataGrid::DataGrid(columns = columns), as = "rows")
-```
-
-When a single route renders multiple components with different data
-needs, consider splitting into nested routes — each with its own loader:
-
-``` r
-
 RouterProvider(
-  Route(
-    path = "/",
-    loader = stats_loader,
-    element = div(
-      useLoaderData(tags$h2(), selector = "summary"),
-      Outlet()
-    ),
+  router = createHashRouter(
     Route(
-      index = TRUE,
-      loader = people_loader,
+      path = "/",
+      loader = stats_loader,
       element = div(
-        style = "height: 400px;",
-        useLoaderData(muiDataGrid::DataGrid(columns = columns), as = "rows")
+        useLoaderData(tags$h2(), selector = "summary"),
+        Outlet()
+      ),
+      Route(
+        index = TRUE,
+        loader = people_loader,
+        element = div(
+          style = "height: 400px;",
+          useLoaderData(
+            into = muiDataGrid::DataGrid(
+              columns = list(
+                list(field = "name", "headerName" = "Name", flex = 1),
+                list(field = "height", "headerName" = "Height", width = 100)
+              )
+            ), 
+          as = "rows")
+        )
       )
     )
   )
@@ -208,13 +267,11 @@ RouterProvider(
 works with any component built on `shiny.react` — it simply injects a
 prop value via `React.cloneElement()`. Examples of compatible packages:
 
-- [`muiDataGrid`](https://github.com/lgnbhl/muiDataGrid) — MUI X Data
-  Grid
 - [`muiMaterial`](https://github.com/lgnbhl/muiMaterial) — MUI Material
-  components
-- [`muiCharts`](https://github.com/lgnbhl/muiCharts) — MUI X Charts
-- [`muiTreeView`](https://github.com/lgnbhl/muiTreeView) — MUI X Tree
-  View
+  UI components
+- [`muiDataGrid`](https://github.com/lgnbhl/muiDataGrid) — MUI Data Grid
+- [`muiCharts`](https://github.com/lgnbhl/muiCharts) — MUI Charts
+- [`muiTreeView`](https://github.com/lgnbhl/muiTreeView) — MUI Tree View
 - [`shiny.fluent`](https://appsilon.github.io/shiny.fluent/) — Microsoft
   Fluent UI components
 - [`shiny.blueprint`](https://appsilon.github.io/shiny.blueprint/) —
@@ -242,19 +299,21 @@ loader <- JS("async () => {
 }")
 
 RouterProvider(
-  Route(
-    path = "/",
-    loader = loader,
-    element = useLoaderData(
-      muiCharts::BarChart(
-        series = list(
-          list(dataKey = "height", label = "Height (cm)"),
-          list(dataKey = "mass",   label = "Mass (kg)")
+  router = createHashRouter(
+    Route(
+      path = "/",
+      loader = loader,
+      element = useLoaderData(
+        muiCharts::BarChart(
+          series = list(
+            list(dataKey = "height", label = "Height (cm)"),
+            list(dataKey = "mass",   label = "Mass (kg)")
+          ),
+          xAxis = list(list(scaleType = "band", dataKey = "name")),
+          height = 400
         ),
-        xAxis = list(list(scaleType = "band", dataKey = "name")),
-        height = 400
-      ),
-      as = "dataset"
+        as = "dataset"
+      )
     )
   )
 )
@@ -286,19 +345,21 @@ loader <- JS("async () => {
 }")
 
 RouterProvider(
-  Route(
-    path = "/",
-    loader = loader,
-    element = div(
-      style = "height: 400px;",
-      useLoaderData(
+  router = createHashRouter(
+    Route(
+      path = "/",
+      loader = loader,
+      element = div(
+        style = "height: 400px;",
         useLoaderData(
-          muiDataGrid::DataGrid(),
-          as = "rows",
-          selector = "people"
-        ),
-        as = "columns",
-        selector = "columnDefs"
+          useLoaderData(
+            muiDataGrid::DataGrid(),
+            as = "rows",
+            selector = "people"
+          ),
+          as = "columns",
+          selector = "columnDefs"
+        )
       )
     )
   )

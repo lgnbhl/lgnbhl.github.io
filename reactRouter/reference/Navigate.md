@@ -1,6 +1,6 @@
 # Navigate
 
-<https://reactrouter.com/6.30.0/components/navigate>
+<https://api.reactrouter.com/v7/functions/react-router.Navigate.html>
 
 ## Usage
 

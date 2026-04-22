@@ -1,6 +1,6 @@
 # Route
 
-<https://reactrouter.com/6.30.0/components/route>
+<https://api.reactrouter.com/v7/functions/react-router.Route.html>
 
 ## Usage
 

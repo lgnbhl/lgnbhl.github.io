@@ -1,6 +1,6 @@
 # HashRouter
 
-<https://reactrouter.com/6.30.0/router-components/hash-router>
+<https://api.reactrouter.com/v7/functions/react-router.HashRouter.html>
 
 ## Usage
 

@@ -24,19 +24,21 @@ library(reactRouter)
 library(htmltools)
 
 RouterProvider(
-  Route(
-    path = "/",
-    element = htmltools::tags$div(
-      NavLink(to = "/", "Main"),
-      NavLink(to = "/analysis", "Analysis"),
-      Outlet()
-    ),
-    Route(index = TRUE, element = "Main content"),
-    Route(path = "analysis", element = "Analysis content")
+  router = createHashRouter(
+    Route(
+      path = "/",
+      element = div(
+        NavLink(to = "/", "Main"), " | ",
+        NavLink(to = "/analysis", "Analysis"), hr(),
+        Outlet()
+      ),
+      Route(index = TRUE, element = "Main content"),
+      Route(path = "analysis", element = "Analysis content")
+    )
   )
 )
-#> Warning: The `reloadDocument` argument of `Link()` default is now FALSE as of
-#> reactRouter 0.1.2.
+#> Warning: The `reloadDocument` argument of `NavLink()` default is now FALSE as of
+#> reactRouter 0.2.0.
 #> ℹ The default of `reloadDocument` was TRUE in version 0.1.1. It is now FALSE.
 #> This warning is displayed once per session.
 #> Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
@@ -53,16 +55,18 @@ library(shiny)
 library(reactRouter)
 
 ui <- RouterProvider(
-  Route(
-    path = "/",
-    element = div(
-      NavLink(to = "/", "Main"),
-      shiny::br(),
-      NavLink(to = "/other", "Other"),
-      Outlet()
-    ),
-    Route(index = TRUE, element = uiOutput(outputId = "uiMain")),
-    Route(path = "other", element = uiOutput(outputId = "uiOther"))
+  router = createHashRouter(
+    Route(
+      path = "/",
+      element = div(
+        NavLink(to = "/", "Main"),
+        shiny::br(),
+        NavLink(to = "/other", "Other"),
+        Outlet()
+      ),
+      Route(index = TRUE, element = uiOutput(outputId = "uiMain")),
+      Route(path = "other", element = uiOutput(outputId = "uiOther"))
+    )
   )
 )
 
@@ -90,36 +94,38 @@ library(bslib)
 library(htmltools)
 
 RouterProvider(
-  reactRouter::Route(
-    path = "/",
-    element = bslib::page_navbar(
-      title = "reactRouter with bslib",
-      nav_item(
-        reactRouter::NavLink(
-          "Home",
-          to = "/"
+  router = createHashRouter(
+    reactRouter::Route(
+      path = "/",
+      element = bslib::page_navbar(
+        title = "reactRouter with bslib",
+        nav_item(
+          reactRouter::NavLink(
+            "Home",
+            to = "/"
+          )
+        ),
+        nav_item(
+          reactRouter::NavLink(
+            "Analysis",
+            to = "/analysis"
+          )
+        ),
+        reactRouter::Outlet()
+      ),
+      reactRouter::Route(
+        index = TRUE,
+        element = div(
+          tags$h3("Home page"),
+          p("A basic example of reactRouter with bslib.")
         )
       ),
-      nav_item(
-        reactRouter::NavLink(
-          "Analysis",
-          to = "/analysis"
-        )
+      reactRouter::Route(
+        path = "analysis",
+        element = "Content analysis"
       ),
-      reactRouter::Outlet()
-    ),
-    reactRouter::Route(
-      index = TRUE,
-      element = div(
-        tags$h3("Home page"),
-        p("A basic example of reactRouter with bslib.")
-      )
-    ),
-    reactRouter::Route(
-      path = "analysis",
-      element = "Content analysis"
-    ),
-    reactRouter::Route(path = "*", element = "Custom error 404")
+      reactRouter::Route(path = "*", element = "Custom error 404")
+    )
   )
 )
 #> Warning: Navigation containers expect a collection of
@@ -127,8 +133,6 @@ RouterProvider(
 #> `bslib::nav_menu()`/`shiny::navbarMenu()`s. Consider using `header` or `footer`
 #> if you wish to place content above (or below) every panel's contents.
 ```
-
-![](https://raw.githubusercontent.com/lgnbhl/reactRouter/master/man/figures/reactRouter-with-bslib.png)
 
 ### Usage with muiMaterial
 
@@ -145,47 +149,50 @@ library(muiMaterial)
 #>     Link
 
 muiMaterialPage(
+  CssBaseline(),
   RouterProvider(
-    Route(
-      path = "/",
-      element = Box(
-        sx = list(flexGrow = 1),
-        AppBar(
-          position = "static",
-          Toolbar(
-            Typography(
-              variant = "h6",
-              component = "div",
-              sx = list(mr = 1),
-              "muiMaterial"
-            ),
-            NavLink(
-              to = "/",
-              Button(
-                color = "inherit",
-                "Home"
-              )
-            ),
-            NavLink(
-              to = "analysis",
-              Button(
-                color = "inherit",
-                "Analysis"
+    router = createHashRouter(
+      Route(
+        path = "/",
+        element = Box(
+          sx = list(flexGrow = 1),
+          AppBar(
+            position = "static",
+            Toolbar(
+              Typography(
+                variant = "h6",
+                component = "div",
+                sx = list(mr = 1),
+                "muiMaterial"
+              ),
+              NavLink(
+                to = "/",
+                Button(
+                  color = "inherit",
+                  "Home"
+                )
+              ),
+              NavLink(
+                to = "analysis",
+                Button(
+                  color = "inherit",
+                  "Analysis"
+                )
               )
             )
-          )
+          ),
+          Box(Outlet())
         ),
-        Box(Outlet())
-      ),
-      reactRouter::Route(
-        index = TRUE,
-        element = Box("Home page", sx = list(p = 1))
-      ),
-      reactRouter::Route(
-        path = "analysis",
-        element = Box("Content analysis", sx = list(p = 1))
-      ),
-      reactRouter::Route(path = "*", element = "Error 404")
+        reactRouter::Route(
+          index = TRUE,
+          element = Box("Home page", sx = list(p = 1))
+        ),
+        reactRouter::Route(
+          path = "analysis",
+          element = Box("Content analysis", sx = list(p = 1))
+        ),
+        reactRouter::Route(path = "*", element = "Error 404")
+      )
     )
   )
 )
@@ -227,16 +234,18 @@ server_module <- function(id, clicks, power = 1) {
 
 # Create output for our router in main UI of Shiny app.
 ui <- RouterProvider(
-  Route(
-    path = "/",
-    element = div(
-      NavLink(to = "/", "Main"), br(),
-      NavLink(to = "/other", "Other"),
-      actionButton("clicks", "Click me!"),
-      Outlet()
-    ),
-    Route(index = TRUE, element = div(root_page)),
-    Route(path = "other", element = div(second_page))
+  router = createHashRouter(
+    Route(
+      path = "/",
+      element = div(
+        NavLink(to = "/", "Main"), br(),
+        NavLink(to = "/other", "Other"),
+        actionButton("clicks", "Click me!"),
+        Outlet()
+      ),
+      Route(index = TRUE, element = div(root_page)),
+      Route(path = "other", element = div(second_page))
+    )
   )
 )
 
@@ -296,34 +305,43 @@ Layout <- div(
   # the child routes we defined above.
   reactRouter::Outlet()
 )
+#> Warning: The `reloadDocument` argument of `Link()` default is now FALSE as of
+#> reactRouter 0.2.0.
+#> ℹ The default of `reloadDocument` was TRUE in version 0.1.1. It is now FALSE.
+#> This warning is displayed once per session.
+#> Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+#> generated.
 
 RouterProvider(
-  Route(
-    path = "/",
-    element = Layout,
+  router = createHashRouter(
     Route(
-      index = TRUE,
-      element = div(
-        tags$h2("Home"),
-        tags$p("Home content")
-      )
-    ),
-    Route(
-      path = "dashboard",
-      element = div(
-        tags$h2("Dashboard"),
-        tags$p("Dashboard here")
-      )
-    ),
-    # Using path="*"" means "match anything", so this route
-    # acts like a catch-all for URLs that we don't have explicit
-    # routes for.
-    Route(
-      path = "*",
-      element = div(
-        tags$h2("Nothing to see here!"),
-        tags$p(
-          Link(to = "/", "Go to the home page")
+      path = "/",
+      element = Layout,
+      Route(
+        index = TRUE,
+        element = div(
+          tags$h2("Home"),
+          tags$p("Home content")
+        )
+      ),
+      Route(
+        path = "dashboard",
+        element = div(
+          tags$h2("Dashboard"),
+          tags$p("Dashboard here")
+        )
+      ),
+      # Using path="*"" means "match anything", so this route
+      # acts like a catch-all for URLs that we don't have explicit
+      # routes for.
+      Route(
+        path = "*",
+        element = div(
+          tags$h2("Nothing to see here!"),
+          tags$p(
+            # reactRouter::Link() conflicts with muiMaterial::Link()
+            reactRouter::Link(to = "/", "Go to the home page")
+          )
         )
       )
     )
@@ -347,41 +365,43 @@ library(reactRouter)
 library(htmltools)
 
 ui <- RouterProvider(
-  Route(
-    path = "/",
-    element = div(
-      Link(
-        to = "/",
-        h3("reactRouter with dynamic routes", class = "m-3"),
-        style = "text-decoration: none; color: black"
-      ),
-      Outlet()
-    ),
+  router = createHashRouter(
     Route(
-      index = TRUE,
+      path = "/",
       element = div(
-        NavLink(
-          to = "project/1/overview",
-          # if default FALSE session$clientData$url_hash not visible
-          reloadDocument = TRUE,
-          "Project 1"
+        Link(
+          to = "/",
+          h3("reactRouter with dynamic routes", class = "m-3"),
+          style = "text-decoration: none; color: black"
         ),
-        tags$br(),
-        NavLink(
-          to = "project/2/overview",
-          # if default FALSE session$clientData$url_hash not visible
-          reloadDocument = TRUE,
-          "Project 2"
+        Outlet()
+      ),
+      Route(
+        index = TRUE,
+        element = div(
+          NavLink(
+            to = "project/1/overview",
+            # if default FALSE session$clientData$url_hash not visible
+            reloadDocument = TRUE,
+            "Project 1"
+          ),
+          tags$br(),
+          NavLink(
+            to = "project/2/overview",
+            # if default FALSE session$clientData$url_hash not visible
+            reloadDocument = TRUE,
+            "Project 2"
+          )
         )
+      ),
+      Route(
+        path = "project/:id/overview",
+        element = uiOutput("uiOverview")
+      ),
+      Route(
+        path = "project/:id/analysis",
+        element = uiOutput("uiAnalysis")
       )
-    ),
-    Route(
-      path = "project/:id/overview",
-      element = uiOutput("uiOverview")
-    ),
-    Route(
-      path = "project/:id/analysis",
-      element = uiOutput("uiAnalysis")
     )
   )
 )

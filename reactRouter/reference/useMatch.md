@@ -1,11 +1,18 @@
 # useMatch
 
-<https://reactrouter.com/6.30.0/hooks/use-match>
+<https://api.reactrouter.com/v7/functions/react-router.useMatch.html>
 
 ## Usage
 
 ``` r
-useMatch(into, as = "children", selector = NULL, pattern, ...)
+useMatch(
+  into = NULL,
+  as = "children",
+  selector = NULL,
+  render = NULL,
+  pattern,
+  ...
+)
 ```
 
 ## Arguments
@@ -24,7 +31,16 @@ useMatch(into, as = "children", selector = NULL, pattern, ...)
 - selector:
 
   Character. Optional key to extract from the hook data object. If
-  `NULL` (the default), the entire data is passed.
+  `NULL` (the default), the entire data is passed. Dotted paths like
+  `"summary.title"` navigate nested objects.
+
+- render:
+
+  Optional
+  [`JS`](https://appsilon.github.io/shiny.react/reference/JS.html)
+  function `(value) => ReactNode` used in place of `into`/`as`. Mirrors
+  the native React Router pattern for cases where a single prop is not
+  expressive enough (e.g. `` JS("v => `${v.first} ${v.last}`") ``).
 
 - pattern:
 

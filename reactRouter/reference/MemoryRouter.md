@@ -1,6 +1,6 @@
 # MemoryRouter
 
-<https://reactrouter.com/6.30.0/router-components/memory-router>
+<https://api.reactrouter.com/v7/functions/react-router.MemoryRouter.html>
 
 ## Usage
 

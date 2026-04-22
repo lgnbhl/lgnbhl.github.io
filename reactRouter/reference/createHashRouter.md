@@ -1,6 +1,6 @@
 # createHashRouter
 
-<https://reactrouter.com/6.30.0/routers/create-hash-router>
+<https://api.reactrouter.com/v7/functions/react-router.createHashRouter.html>
 
 ## Usage
 
@@ -13,8 +13,9 @@ createHashRouter(...)
 - ...:
 
   [`Route`](https://felixluginbuhl.com/reactRouter/reference/Route.md)
-  elements, typically wrapped in
-  [`createRoutesFromElements`](https://felixluginbuhl.com/reactRouter/reference/createRoutesFromElements.md).
+  elements. Pass directly, or (optionally) wrapped in
+  [`createRoutesFromElements`](https://felixluginbuhl.com/reactRouter/reference/createRoutesFromElements.md)
+  to mirror the official React Router v7 API.
 
 ## Value
 

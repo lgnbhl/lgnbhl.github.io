@@ -1,0 +1,450 @@
+# Using Form, useFetcher, useFetchers, and useRevalidator
+
+## Overview
+
+React Router v7 provides hooks and components for managing data fetching
+and navigation state:
+
+| Function | Role |
+|----|----|
+| [`Form()`](https://felixluginbuhl.com/reactRouter/reference/Form.md) | A `<form>` that triggers a route loader (GET) or action (POST) |
+| [`useFetcher()`](https://felixluginbuhl.com/reactRouter/reference/useFetcher.md) | Read a fetcher’s `state` and `data` |
+| [`useFetchers()`](https://felixluginbuhl.com/reactRouter/reference/useFetchers.md) | Read the states of all active fetchers |
+| [`useRevalidator()`](https://felixluginbuhl.com/reactRouter/reference/useRevalidator.md) | Re-run the current route’s loader; read revalidation `state` |
+
+These only work inside a data router
+([`RouterProvider()`](https://felixluginbuhl.com/reactRouter/reference/RouterProvider.md),
+[`createHashRouter()`](https://felixluginbuhl.com/reactRouter/reference/createHashRouter.md),
+or
+[`createMemoryRouter()`](https://felixluginbuhl.com/reactRouter/reference/createMemoryRouter.md)).
+
+------------------------------------------------------------------------
+
+## `Form()` with GET — search and `useLoaderData`
+
+A GET
+[`Form()`](https://felixluginbuhl.com/reactRouter/reference/Form.md)
+updates the URL’s search params and triggers the route’s loader. Combine
+it with
+[`useLoaderData()`](https://felixluginbuhl.com/reactRouter/reference/useLoaderData.md)
+to display results and
+[`useSearchParams()`](https://felixluginbuhl.com/reactRouter/reference/useSearchParams.md)
+to reflect the current query.
+
+``` r
+
+library(reactRouter)
+library(htmltools)
+
+RouterProvider(
+  router = createHashRouter(
+    Route(
+      path = "/",
+      element = div(
+        tags$h2("Search Example"),
+        Form(
+          method = "get",
+          action = "/search",
+          tags$input(type = "search", name = "q", placeholder = "Search..."),
+          tags$button(type = "submit", "Search")
+        ),
+        Outlet()
+      ),
+      Route(index = TRUE, element = div(tags$p("Enter a query above."))),
+      Route(
+        path = "search",
+        loader = JS("({ request }) => {
+          const q = new URL(request.url).searchParams.get('q') || '';
+          const db = ['Alice', 'Bob', 'Charlie', 'David', 'Eve'];
+          const hits = db.filter(n => n.toLowerCase().includes(q.toLowerCase()));
+          return { count: hits.length, results: hits.join(', '), query: q };
+        }"),
+        element = div(
+          tags$p("Query: ",   useSearchParams(tags$strong(), param = "q")),
+          tags$p("Results: ", useLoaderData(tags$strong(),   selector = "count")),
+          tags$pre(           useLoaderData(tags$span(),     selector = "results"))
+        )
+      )
+    )
+  )
+)
+```
+
+### Navigation state while loading
+
+Use
+[`useNavigation()`](https://felixluginbuhl.com/reactRouter/reference/useNavigation.md)
+in the parent layout to show `"idle"` / `"loading"` / `"submitting"`
+feedback while the loader runs. The snippet below extends the search
+example above by adding a status line to the root layout:
+
+``` r
+
+RouterProvider(
+  router = createHashRouter(
+    Route(
+      path = "/",
+      element = div(
+        tags$h2("Search with Navigation State"),
+        tags$p("Status: ", useNavigation(tags$strong(), selector = "state")),
+        Form(
+          method = "get",
+          action = "/search",
+          tags$input(type = "search", name = "q", placeholder = "Search..."),
+          tags$button(type = "submit", "Search")
+        ),
+        Outlet()
+      ),
+      Route(index = TRUE, element = div(tags$p("Enter a query above."))),
+      Route(
+        path = "search",
+        loader = JS("async ({ request }) => {
+          await new Promise(r => setTimeout(r, 800));
+          const q = new URL(request.url).searchParams.get('q') || '';
+          const db = ['Alice', 'Bob', 'Charlie', 'David', 'Eve'];
+          const hits = db.filter(n => n.toLowerCase().includes(q.toLowerCase()));
+          return { count: hits.length, results: hits.join(', ') };
+        }"),
+        element = div(
+          tags$p("Query: ",   useSearchParams(tags$strong(), param = "q")),
+          tags$p("Results: ", useLoaderData(tags$strong(),   selector = "count")),
+          tags$pre(           useLoaderData(tags$span(),     selector = "results"))
+        )
+      )
+    )
+  )
+)
+```
+
+------------------------------------------------------------------------
+
+## `Form()` with POST — action and `useActionData`
+
+A POST
+[`Form()`](https://felixluginbuhl.com/reactRouter/reference/Form.md)
+triggers the route’s `action`. The action result is available via
+[`useActionData()`](https://felixluginbuhl.com/reactRouter/reference/useActionData.md).
+
+``` r
+
+RouterProvider(
+  router = createHashRouter(
+    Route(
+      path = "/",
+      action = JS("async ({ request }) => {
+        const fd     = await request.formData();
+        const metric = fd.get('metric');
+        const from   = fd.get('from');
+        const to     = fd.get('to');
+        return { metric, period: from + ' to ' + to };
+      }"),
+      element = div(
+        tags$h2("Report Generator"),
+        Form(
+          method = "post",
+          tags$select(name = "metric",
+            tags$option(value = "Revenue",    "Revenue"),
+            tags$option(value = "Page Views", "Page Views")
+          ),
+          tags$input(type = "date", name = "from"),
+          tags$input(type = "date", name = "to"),
+          tags$button(type = "submit", "Generate")
+        ),
+        tags$p("Metric: ", useActionData(into = tags$span(), selector = "metric")),
+        tags$p("Period: ", useActionData(into = tags$span(), selector = "period"))
+      )
+    )
+  )
+)
+```
+
+------------------------------------------------------------------------
+
+## `useFetcher()`
+
+[`useFetcher()`](https://felixluginbuhl.com/reactRouter/reference/useFetcher.md)
+reads the state of a fetcher instance. It is useful when you need to
+observe the loading or submission state independently — e.g. to show a
+spinner next to an inline element without affecting the global
+navigation state.
+
+Use `Form(navigate = FALSE, fetcherKey = "...")` to submit data without
+a page-level navigation. Then use
+[`useFetcher()`](https://felixluginbuhl.com/reactRouter/reference/useFetcher.md)
+with the same key to read that fetcher’s state and data.
+
+### Arguments
+
+| Argument     | Required | Description                                          |
+|--------------|----------|------------------------------------------------------|
+| `into`       | yes\*    | Component that receives the value                    |
+| `as`         | no       | Prop to inject into. Defaults to `"children"`        |
+| `selector`   | no       | Field from the fetcher object. Defaults to `"state"` |
+| `fetcherKey` | no       | Key to identify a specific fetcher instance          |
+
+\* `into` is required unless `render` is supplied.
+
+The fetcher object fields available via `selector`:
+
+| Selector         | Value                                   |
+|------------------|-----------------------------------------|
+| `"state"`        | `"idle"` / `"loading"` / `"submitting"` |
+| `"data"`         | Full response from the loader or action |
+| `"data.myField"` | Nested field from the response          |
+
+### Full example: inline search without navigation
+
+``` r
+
+library(reactRouter)
+library(htmltools)
+library(jsonlite)
+
+people_json <- jsonlite::toJSON(
+  data.frame(name = c("Alice", "Bob", "Charlie", "David", "Eve")),
+  dataframe = "rows",
+  auto_unbox = TRUE
+)
+
+RouterProvider(
+  router = createHashRouter(
+    Route(
+      path = "/",
+      element = div(
+        tags$h2("useFetcher Example — Inline Search"),
+        tags$p(
+          "Type a name and click Search. The URL does not change.",
+          style = "color: #555;"
+        ),
+        Form(
+          navigate  = FALSE,
+          fetcherKey = "search",
+          method    = "get",
+          action    = "/search",
+          style     = "display: flex; gap: 8px; margin-bottom: 16px;",
+          tags$input(
+            type = "search", name = "q", placeholder = "Search names...",
+            style = "padding: 6px; font-size: 14px;"
+          ),
+          tags$button(type = "submit", "Search", style = "padding: 6px 12px; cursor: pointer;")
+        ),
+        tags$p(
+          tags$strong("Fetcher state: "),
+          useFetcher(tags$span(), fetcherKey = "search", selector = "state")
+        ),
+        tags$p(
+          tags$strong("Matches found: "),
+          useFetcher(tags$span(), fetcherKey = "search", selector = "data.count")
+        ),
+        tags$details(
+          tags$summary("Raw results (JSON)"),
+          tags$pre(useFetcher(tags$span(), fetcherKey = "search", selector = "data.results"))
+        ),
+        tags$hr(),
+        Outlet()
+      ),
+      Route(index = TRUE, element = div(tags$p("Enter a name above and click Search."))),
+      Route(
+        path = "search",
+        loader = JS(sprintf(
+          "async ({ request }) => {
+            await new Promise(resolve => setTimeout(resolve, 800));
+            const q = new URL(request.url).searchParams.get('q') || '';
+            const db = %s;
+            const hits = db.filter(r => r.name.toLowerCase().includes(q.toLowerCase()));
+            return { count: hits.length, results: hits };
+          }",
+          people_json
+        )),
+        element = div()
+      )
+    )
+  )
+)
+```
+
+------------------------------------------------------------------------
+
+## `useFetchers()`
+
+[`useFetchers()`](https://felixluginbuhl.com/reactRouter/reference/useFetchers.md)
+returns all currently active fetchers. This is useful for a **global
+loading indicator** that shows whenever any background fetch is in
+progress, regardless of which component started it.
+
+### Arguments
+
+| Argument | Required | Description |
+|----|----|----|
+| `into` | yes\* | Component that receives the value |
+| `as` | no | Prop to inject into. Defaults to `"children"` |
+| `selector` | no | Field to extract from **each** fetcher. If `NULL` (default), returns the full array as JSON |
+
+### Full example: monitor all active fetchers
+
+``` r
+
+library(reactRouter)
+library(htmltools)
+library(jsonlite)
+
+people_json <- jsonlite::toJSON(
+  data.frame(name = c("Alice", "Bob", "Charlie", "David", "Eve")),
+  dataframe = "rows",
+  auto_unbox = TRUE
+)
+
+loader_js <- JS(sprintf(
+  "async ({ request }) => {
+    await new Promise(r => setTimeout(r, 1000));
+    const q = new URL(request.url).searchParams.get('q') || '';
+    const db = %s;
+    return db.filter(r => r.name.toLowerCase().includes(q.toLowerCase()));
+  }",
+  people_json
+))
+
+RouterProvider(
+  router = createHashRouter(
+    Route(
+      path = "/",
+      element = div(
+        tags$h2("useFetchers Example — Global Loading Indicator"),
+        tags$p(
+          "Submit one or more search forms. Each uses a different fetcher key.",
+          style = "color: #555;"
+        ),
+        tags$p(
+          tags$strong("All fetcher states: "),
+          useFetchers(tags$code(), selector = "state")
+        ),
+        tags$hr(),
+
+        tags$h3("Search A"),
+        Form(
+          navigate = FALSE, fetcherKey = "search-a",
+          method = "get", action = "/search",
+          style = "display: flex; gap: 8px; margin-bottom: 8px;",
+          tags$input(type = "search", name = "q", placeholder = "Name...", style = "padding: 4px;"),
+          tags$button(type = "submit", "Search A", style = "cursor: pointer;")
+        ),
+        tags$p("State A: ",   useFetcher(tags$code(), fetcherKey = "search-a", selector = "state")),
+        tags$p("Results A: ", useFetcher(tags$span(), fetcherKey = "search-a", selector = "data")),
+
+        tags$h3("Search B"),
+        Form(
+          navigate = FALSE, fetcherKey = "search-b",
+          method = "get", action = "/search",
+          style = "display: flex; gap: 8px; margin-bottom: 8px;",
+          tags$input(type = "search", name = "q", placeholder = "Name...", style = "padding: 4px;"),
+          tags$button(type = "submit", "Search B", style = "cursor: pointer;")
+        ),
+        tags$p("State B: ",   useFetcher(tags$code(), fetcherKey = "search-b", selector = "state")),
+        tags$p("Results B: ", useFetcher(tags$span(), fetcherKey = "search-b", selector = "data")),
+
+        tags$hr(),
+        Outlet()
+      ),
+      Route(index = TRUE, element = div()),
+      Route(path = "search", loader = loader_js, element = div())
+    )
+  )
+)
+```
+
+When no fetchers are active, `useFetchers(selector = "state")` renders
+`"[]"`.
+
+------------------------------------------------------------------------
+
+## `useRevalidator()` — re-run the loader
+
+Revalidation re-runs the current route’s loader **without a page-level
+navigation**. This is distinct from navigation (which changes the URL)
+and from fetchers (which load a different route in the background).
+
+To trigger revalidation from a button, inject the hook’s `revalidate`
+function as the `onClick` handler using `as = "onClick"` and
+`selector = "revalidate"`:
+
+``` r
+
+useRevalidator(
+  tags$button("Refresh", style = "padding: 6px 14px; cursor: pointer;"),
+  as       = "onClick",
+  selector = "revalidate"
+)
+```
+
+### `useRevalidator()` arguments
+
+| Argument | Required | Description |
+|----|----|----|
+| `into` | yes\* | Component that receives the value |
+| `as` | no | Prop to inject into. Defaults to `"children"` (shows state string) |
+| `selector` | no | Field from the revalidator. Defaults to `"state"` |
+
+\* `into` is required unless `render` is supplied.
+
+Use `selector = "state"` to read `"idle"` / `"loading"`, and
+`selector = "revalidate"` to get the function that triggers
+revalidation.
+
+### Full example: manual refresh button
+
+``` r
+
+library(reactRouter)
+library(htmltools)
+
+RouterProvider(
+  router = createHashRouter(
+    Route(
+      path = "/",
+      loader = JS(
+        "async () => {
+          await new Promise(r => setTimeout(r, 1000));
+          return { time: new Date().toLocaleTimeString() };
+        }"
+      ),
+      element = div(
+        tags$h2("useRevalidator Example"),
+        tags$p(
+          "Click the button to re-run the loader and refresh the timestamp.",
+          style = "color: #555;"
+        ),
+        tags$p(
+          tags$strong("Loaded at: "),
+          useLoaderData(tags$span(), selector = "time")
+        ),
+        tags$p(
+          tags$strong("Revalidation state: "),
+          useRevalidator(tags$span(), selector = "state")
+        ),
+        useRevalidator(
+          tags$button(
+            "Refresh (revalidate loader)",
+            style = "padding: 6px 14px; cursor: pointer;"
+          ),
+          as       = "onClick",
+          selector = "revalidate"
+        ),
+        tags$hr(),
+        Outlet()
+      ),
+      Route(index = TRUE, element = div(tags$p("Home page.")))
+    )
+  )
+)
+```
+
+------------------------------------------------------------------------
+
+## Comparison
+
+| Hook / Component | Triggers | State visible via | URL changes? |
+|----|----|----|----|
+| [`Form()`](https://felixluginbuhl.com/reactRouter/reference/Form.md) GET + [`useLoaderData()`](https://felixluginbuhl.com/reactRouter/reference/useLoaderData.md) | page navigation | `useNavigation(selector = "state")` | Yes |
+| [`Form()`](https://felixluginbuhl.com/reactRouter/reference/Form.md) POST + [`useActionData()`](https://felixluginbuhl.com/reactRouter/reference/useActionData.md) | page navigation | `useNavigation(selector = "state")` | No |
+| `Form(navigate = FALSE)` + [`useFetcher()`](https://felixluginbuhl.com/reactRouter/reference/useFetcher.md) | background fetch | `useFetcher(selector = "state")` | No |
+| [`useRevalidator()`](https://felixluginbuhl.com/reactRouter/reference/useRevalidator.md) | loader re-run | `useRevalidator(selector = "state")` | No |

@@ -1,6 +1,6 @@
 # Form
 
-<https://reactrouter.com/6.30.0/components/form>
+<https://api.reactrouter.com/v7/variables/react-router.Form.html>
 
 ## Usage
 

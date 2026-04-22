@@ -1,9 +1,11 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
 <url><loc>https://felixluginbuhl.com/reactRouter/404.html</loc></url>
+<url><loc>https://felixluginbuhl.com/reactRouter/articles/advanced-hooks.html</loc></url>
 <url><loc>https://felixluginbuhl.com/reactRouter/articles/index.html</loc></url>
 <url><loc>https://felixluginbuhl.com/reactRouter/articles/introduction.html</loc></url>
 <url><loc>https://felixluginbuhl.com/reactRouter/articles/routers.html</loc></url>
 <url><loc>https://felixluginbuhl.com/reactRouter/articles/shiny.fluent.html</loc></url>
+<url><loc>https://felixluginbuhl.com/reactRouter/articles/useFetcher.html</loc></url>
 <url><loc>https://felixluginbuhl.com/reactRouter/articles/useLoaderData.html</loc></url>
 <url><loc>https://felixluginbuhl.com/reactRouter/authors.html</loc></url>
 <url><loc>https://felixluginbuhl.com/reactRouter/index.html</loc></url>
@@ -34,6 +36,9 @@
 <url><loc>https://felixluginbuhl.com/reactRouter/reference/Routes.html</loc></url>
 <url><loc>https://felixluginbuhl.com/reactRouter/reference/ScrollRestoration.html</loc></url>
 <url><loc>https://felixluginbuhl.com/reactRouter/reference/useActionData.html</loc></url>
+<url><loc>https://felixluginbuhl.com/reactRouter/reference/useBlocker.html</loc></url>
+<url><loc>https://felixluginbuhl.com/reactRouter/reference/useFetcher.html</loc></url>
+<url><loc>https://felixluginbuhl.com/reactRouter/reference/useFetchers.html</loc></url>
 <url><loc>https://felixluginbuhl.com/reactRouter/reference/useHref.html</loc></url>
 <url><loc>https://felixluginbuhl.com/reactRouter/reference/useLoaderData.html</loc></url>
 <url><loc>https://felixluginbuhl.com/reactRouter/reference/useLocation.html</loc></url>
@@ -41,8 +46,10 @@
 <url><loc>https://felixluginbuhl.com/reactRouter/reference/useMatches.html</loc></url>
 <url><loc>https://felixluginbuhl.com/reactRouter/reference/useNavigation.html</loc></url>
 <url><loc>https://felixluginbuhl.com/reactRouter/reference/useNavigationType.html</loc></url>
+<url><loc>https://felixluginbuhl.com/reactRouter/reference/useOutletContext.html</loc></url>
 <url><loc>https://felixluginbuhl.com/reactRouter/reference/useParams.html</loc></url>
 <url><loc>https://felixluginbuhl.com/reactRouter/reference/useResolvedPath.html</loc></url>
+<url><loc>https://felixluginbuhl.com/reactRouter/reference/useRevalidator.html</loc></url>
 <url><loc>https://felixluginbuhl.com/reactRouter/reference/useRouteError.html</loc></url>
 <url><loc>https://felixluginbuhl.com/reactRouter/reference/useRouteLoaderData.html</loc></url>
 <url><loc>https://felixluginbuhl.com/reactRouter/reference/useSearchParams.html</loc></url>

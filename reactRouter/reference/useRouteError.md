@@ -1,11 +1,17 @@
 # useRouteError
 
-<https://reactrouter.com/6.30.0/hooks/use-route-error>
+<https://api.reactrouter.com/v7/functions/react-router.useRouteError.html>
 
 ## Usage
 
 ``` r
-useRouteError(into, as = "children", selector = NULL, ...)
+useRouteError(
+  into = NULL,
+  as = "children",
+  selector = NULL,
+  render = NULL,
+  ...
+)
 ```
 
 ## Arguments
@@ -24,7 +30,16 @@ useRouteError(into, as = "children", selector = NULL, ...)
 - selector:
 
   Character. Optional key to extract from the hook data object. If
-  `NULL` (the default), the entire data is passed.
+  `NULL` (the default), the entire data is passed. Dotted paths like
+  `"summary.title"` navigate nested objects.
+
+- render:
+
+  Optional
+  [`JS`](https://appsilon.github.io/shiny.react/reference/JS.html)
+  function `(value) => ReactNode` used in place of `into`/`as`. Mirrors
+  the native React Router pattern for cases where a single prop is not
+  expressive enough (e.g. `` JS("v => `${v.first} ${v.last}`") ``).
 
 - ...:
 

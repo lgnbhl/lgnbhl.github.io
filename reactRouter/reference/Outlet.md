@@ -1,6 +1,6 @@
 # Outlet
 
-<https://reactrouter.com/6.30.0/components/outlet>
+<https://api.reactrouter.com/v7/functions/react-router.Outlet.html>
 
 ## Usage
 

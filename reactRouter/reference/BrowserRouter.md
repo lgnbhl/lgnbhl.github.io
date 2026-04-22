@@ -1,6 +1,6 @@
 # BrowserRouter
 
-<https://reactrouter.com/6.30.0/router-components/browser-router>
+<https://api.reactrouter.com/v7/functions/react-router.BrowserRouter.html>
 
 ## Usage
 

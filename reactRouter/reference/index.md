@@ -48,6 +48,12 @@
   : ScrollRestoration
 - [`useActionData()`](https://felixluginbuhl.com/reactRouter/reference/useActionData.md)
   : useActionData
+- [`useBlocker()`](https://felixluginbuhl.com/reactRouter/reference/useBlocker.md)
+  : useBlocker
+- [`useFetcher()`](https://felixluginbuhl.com/reactRouter/reference/useFetcher.md)
+  : useFetcher
+- [`useFetchers()`](https://felixluginbuhl.com/reactRouter/reference/useFetchers.md)
+  : useFetchers
 - [`useHref()`](https://felixluginbuhl.com/reactRouter/reference/useHref.md)
   : useHref
 - [`useLoaderData()`](https://felixluginbuhl.com/reactRouter/reference/useLoaderData.md)
@@ -62,10 +68,14 @@
   : useNavigation
 - [`useNavigationType()`](https://felixluginbuhl.com/reactRouter/reference/useNavigationType.md)
   : useNavigationType
+- [`useOutletContext()`](https://felixluginbuhl.com/reactRouter/reference/useOutletContext.md)
+  : useOutletContext
 - [`useParams()`](https://felixluginbuhl.com/reactRouter/reference/useParams.md)
   : useParams
 - [`useResolvedPath()`](https://felixluginbuhl.com/reactRouter/reference/useResolvedPath.md)
   : useResolvedPath
+- [`useRevalidator()`](https://felixluginbuhl.com/reactRouter/reference/useRevalidator.md)
+  : useRevalidator
 - [`useRouteError()`](https://felixluginbuhl.com/reactRouter/reference/useRouteError.md)
   : useRouteError
 - [`useRouteLoaderData()`](https://felixluginbuhl.com/reactRouter/reference/useRouteLoaderData.md)
