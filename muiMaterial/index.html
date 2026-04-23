@@ -103,77 +103,44 @@
 <div class="section level2">
 <h2 id="why-muimaterial">Why muiMaterial?<a class="anchor" aria-label="anchor" href="#why-muimaterial"></a>
 </h2>
-<div class="section level3">
-<h3 id="go-beyond-bootstrap">Go beyond Bootstrap<a class="anchor" aria-label="anchor" href="#go-beyond-bootstrap"></a>
-</h3>
-<p>If Shiny apps look all the same, it is because most use Bootstrap. <code>muiMaterial</code> replaces it with Material UI’s vast library of components, giving you fully customized dashboards and websites in R.</p>
-<p>Launch a basic dashboard (live <a href="https://lgnbhl-muimaterial-simple-dashboard.share.connect.posit.cloud" class="external-link">here</a>):</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">muiMaterial</span><span class="fu">::</span><span class="fu"><a href="reference/muiMaterialExample.html">muiMaterialExample</a></span><span class="op">(</span><span class="st">"dashboard-simple"</span><span class="op">)</span></span></code></pre></div>
-<p>Or the R replica of the official MUI dashboard template (live <a href="https://lgnbhl-muimaterial-mui-template-dashboard.share.connect.posit.cloud/" class="external-link">here</a>):</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">muiMaterial</span><span class="fu">::</span><span class="fu"><a href="reference/muiMaterialExample.html">muiMaterialExample</a></span><span class="op">(</span><span class="st">"mui-template-dashboard"</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="built-for-ai">Built for AI<a class="anchor" aria-label="anchor" href="#built-for-ai"></a>
-</h3>
-<p>AI tools like Claude, ChatGPT, or GitHub Copilot have been trained on enormous amounts of MUI code. Each MUI component maps directly to an R function: React’s <code>&lt;Button variant="contained" /&gt;</code> becomes <code>Button(variant = "contained")</code> in R. Just ask an AI to generate MUI code and adapt it to R. No React or CSS knowledge needed.</p>
-<p>Learn more in the <a href="https://felixluginbuhl.com/muiMaterial/articles/ai-assisted-development.html">AI-Assisted Development</a> vignette.</p>
-</div>
-<div class="section level3">
-<h3 id="works-with-quarto">Works with Quarto<a class="anchor" aria-label="anchor" href="#works-with-quarto"></a>
-</h3>
-<p><code>muiMaterial</code> is not limited to Shiny. You can also use Material UI components in <a href="https://quarto.org/" class="external-link">Quarto</a> documents for rich, interactive reports and presentations.</p>
-</div>
-<div class="section level3">
-<h3 id="flexible-navigation">Flexible navigation<a class="anchor" aria-label="anchor" href="#flexible-navigation"></a>
-</h3>
-<p>Unlike Bootstrap-based packages (<code>bslib</code>, <code>bs4Dash</code>) that lock you into predefined layouts, <code>muiMaterial</code> lets you structure your app however you want. Combine it with <a href="https://felixluginbuhl.com/reactRouter/" class="external-link">reactRouter</a> to build multi-page websites with <a href="https://felixluginbuhl.com/muiMaterial/articles/routing.html">client-side routing</a>.</p>
-</div>
-<div class="section level3">
-<h3 id="rich-ecosystem">Rich ecosystem<a class="anchor" aria-label="anchor" href="#rich-ecosystem"></a>
-</h3>
-<p>Extend functionality with companion R packages:</p>
+<p>Most Shiny apps follow the same template: a sidebar on the left, tabs on top, content in the middle. <code>muiMaterial</code> lets you go further. It gives you access to Material UI’s rich component library, so you can build apps and reports that look and feel truly unique.</p>
 <ul>
 <li>
-<a href="https://felixluginbuhl.com/muiDataGrid/" class="external-link">muiDataGrid</a> - Professional data tables with filtering, sorting, and inline editing</li>
+<strong>Works with Shiny and Quarto</strong> — use Material UI components in both Shiny apps and <a href="https://quarto.org/" class="external-link">Quarto</a> documents.</li>
 <li>
-<a href="https://felixluginbuhl.com/muiCharts/" class="external-link">muiCharts</a> - Beautiful, responsive charts</li>
+<strong>Built for AI</strong> — AI tools like Claude, ChatGPT, or Copilot know MUI well. Ask an AI to generate MUI code, adapt it to R, and you’re done. No React or CSS knowledge needed. See the <a href="https://felixluginbuhl.com/muiMaterial/articles/ai-assisted-development.html">AI-Assisted Development</a> vignette.</li>
 <li>
-<a href="https://felixluginbuhl.com/muiTreeView/" class="external-link">muiTreeView</a> - Interactive tree navigation</li>
-<li>muiDateTimePickers (COMING SOON) - UI components for selecting dates, times, and ranges</li>
+<strong>Multi-page apps</strong> — pair with <a href="https://felixluginbuhl.com/reactRouter/" class="external-link">reactRouter</a> to build apps where each page has its own shareable URL, deployable to GitHub Pages, Netlify, or Posit Connect.</li>
+<li>
+<strong>Rich ecosystem</strong> — extend with <a href="https://felixluginbuhl.com/muiDataGrid/" class="external-link">muiDataGrid</a> (data tables), <a href="https://felixluginbuhl.com/muiCharts/" class="external-link">muiCharts</a> (charts) and <a href="https://felixluginbuhl.com/muiTreeView/" class="external-link">muiTreeView</a> (tree navigation).</li>
 </ul>
-</div>
+<p>See a live example: <a href="https://lgnbhl-muimaterial-mui-template-dashboard.share.connect.posit.cloud/" class="external-link">MUI template dashboard</a>.</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">muiMaterial</span><span class="fu">::</span><span class="fu"><a href="reference/muiMaterialExample.html">muiMaterialExample</a></span><span class="op">(</span><span class="st">"mui-template-dashboard"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="quick-start">Quick start<a class="anchor" aria-label="anchor" href="#quick-start"></a>
 </h2>
-<p>Install the stable version from CRAN:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"lgnbhl/muiMaterial"</span><span class="op">)</span> <span class="co"># v0.2.0 (SOON ON CRAN)</span></span></code></pre></div>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"muiMaterial"</span><span class="op">)</span></span></code></pre></div>
-<p>Or install the development version from GitHub:</p>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"muiMaterial"</span><span class="op">)</span> <span class="co"># v0.1.3</span></span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"lgnbhl/muiMaterial"</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/muiMaterial/">muiMaterial</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/muiMaterialPage.html">muiMaterialPage</a></span><span class="op">(</span></span>
-<span>  <span class="fu"><a href="reference/CssBaseline.html">CssBaseline</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="reference/Box.html">Box</a></span><span class="op">(</span></span>
-<span>      sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="reference/Typography.html">Typography</a></span><span class="op">(</span><span class="st">"Hello Material UI!"</span>, variant <span class="op">=</span> <span class="st">"h4"</span><span class="op">)</span></span>
-<span>    <span class="op">)</span></span>
+<span>  <span class="fu"><a href="reference/Box.html">Box</a></span><span class="op">(</span></span>
+<span>    sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="reference/Typography.html">Typography</a></span><span class="op">(</span><span class="st">"Hello Material UI!"</span>, variant <span class="op">=</span> <span class="st">"h4"</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span><span class="op">}</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre></div>
-<p>Use <code><a href="reference/muiMaterialPage.html">muiMaterialPage()</a></code> instead of <code><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html" class="external-link">fluidPage()</a></code> and wrap your UI in <code><a href="reference/CssBaseline.html">CssBaseline()</a></code>. Material UI uses its own design system and conflicts with Bootstrap.</p>
-<p>For Shiny inputs, server-side rendering, tabs, and styling details, see the <a href="https://felixluginbuhl.com/muiMaterial/articles/getting-started.html">Getting Started</a> vignette.</p>
-<p>Run the showcase to see some Shiny inputs in action:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<p>Explore the <a href="https://felixluginbuhl.com/muiMaterial/articles/getting-started.html">Getting Started</a> vignette, or run the showcase:</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">muiMaterial</span><span class="fu">::</span><span class="fu"><a href="reference/muiMaterialExample.html">muiMaterialExample</a></span><span class="op">(</span><span class="st">"showcase"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
@@ -181,10 +148,14 @@
 </h2>
 <ul>
 <li><a href="https://felixluginbuhl.com/muiMaterial/">Package documentation</a></li>
-<li><a href="https://felixluginbuhl.com/muiMaterial/articles/getting-started.html">Getting Started vignette</a></li>
 <li><a href="https://github.com/lgnbhl/muiMaterial/tree/main/inst/examples" class="external-link">All R examples</a></li>
 <li><a href="https://mui.com/material-ui/getting-started/" class="external-link">Official Material UI docs</a></li>
 </ul>
+<div class="section level3">
+<h3 id="acknowledgements">Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements"></a>
+</h3>
+<p><code>muiMaterial</code> is built on top of <a href="https://github.com/Appsilon/shiny.react" class="external-link">shiny.react</a>, the R package by <a href="https://appsilon.com" class="external-link">Appsilon</a> that makes it possible to use React components in Shiny and Quarto.</p>
+</div>
 </div>
 <div class="section level2">
 <h2 id="contributing">Contributing<a class="anchor" aria-label="anchor" href="#contributing"></a>
@@ -229,6 +200,7 @@
 <ul class="list-unstyled">
 <li>
 <a href="https://felixluginbuhl.com" class="external-link">Felix Luginbuhl</a> <br><small class="roles"> Author, maintainer, copyright holder </small> <a href="https://orcid.org/0009-0008-6625-2899" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
+<li><a href="authors.html">More about authors...</a></li>
 </ul>
 </div>
 
@@ -237,8 +209,8 @@
 <ul class="list-unstyled">
 <li><a href="https://CRAN.R-project.org/package=muiMaterial" class="external-link"><img src="https://www.r-pkg.org/badges/version/muiMaterial" alt="CRAN status"></a></li>
 <li><a href="https://github.com/lgnbhl/muiMaterial/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/lgnbhl/muiMaterial/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://mui.com/material-ui/getting-started/" class="external-link"><img src="https://img.shields.io/badge/@mui/material-9.0.0-blue.svg"></a></li>
-<li><a href="https://mui.com/material-ui/getting-started/" class="external-link"><img src="https://img.shields.io/badge/react-18.3.1-blue.svg"></a></li>
+<li><a href="https://mui.com/material-ui/getting-started/" class="external-link"><img src="https://img.shields.io/badge/@mui/lab-9.0.0--beta.2-blue.svg"></a></li>
+<li><a href="https://mui.com/material-ui/about-the-lab/" class="external-link"><img src="https://img.shields.io/badge/@mui/material-9.0.0-blue.svg"></a></li>
 <li><a href="https://www.linkedin.com/in/FelixLuginbuhl" class="external-link"><img src="https://img.shields.io/badge/LinkedIn-Follow-E4405F?style=social&amp;logo=linkedin" alt="LinkedIn"></a></li>
 </ul>
 </div>

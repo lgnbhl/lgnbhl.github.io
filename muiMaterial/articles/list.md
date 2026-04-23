@@ -320,7 +320,7 @@ muiMaterialPage(
     )
   )
 )
-#> Warning: The `reloadDocument` argument of `Link()` default is now FALSE as of
+#> Warning: The `reloadDocument` argument of `NavLink()` default is now FALSE as of
 #> reactRouter 0.2.0.
 #> ℹ The default of `reloadDocument` was TRUE in version 0.1.1. It is now FALSE.
 #> This warning is displayed once per session.
