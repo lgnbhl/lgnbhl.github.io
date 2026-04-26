@@ -2,12 +2,27 @@
 
 <https://mui.com/material-ui/api/autocomplete/>
 
+MUI's `Autocomplete` requires a `renderInput` function prop, which R
+cannot express directly. The R wrapper resolves the input in this order:
+
+1.  `renderInput` — pass an explicit
+    [`JS()`](https://appsilon.github.io/shiny.react/reference/JS.html)
+    callback for full control.
+
+2.  A child element (e.g. `TextField(...)`, `OutlinedInput(...)`) — it
+    is cloned and receives the `params` from MUI automatically. This is
+    the recommended path: it stays close to the MUI API and survives
+    upstream changes without touching R user code.
+
+3.  `inputProps` — a named list of props forwarded to a default
+    `TextField`. Kept for backward compatibility with older examples.
+
 ## Usage
 
 ``` r
 Autocomplete(...)
 
-Autocomplete.shinyInput(inputId, ..., value = defaultValue)
+Autocomplete.shinyInput(inputId, ..., value = NULL)
 
 updateAutocomplete.shinyInput(
   session = shiny::getDefaultReactiveDomain(),

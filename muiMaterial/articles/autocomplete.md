@@ -5,9 +5,7 @@ for single or multiple selection.
 
 ## Basic Usage
 
-Use
-[`Autocomplete.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Autocomplete.md)
-to create a searchable dropdown with suggestions.
+The recommended pattern is to pass a `TextField` as a child.
 
 ``` r
 
@@ -15,16 +13,15 @@ library(shiny)
 library(muiMaterial)
 
 ui <- muiMaterialPage(
-  CssBaseline(
-    Box(
-      sx = list(p = 2),
-      Autocomplete.shinyInput(
-        inputId = "animal",
-        placeholder = "Select an animal",
-        options = c("dog", "cat", "fish", "bird", "rabbit")
-      ),
-      verbatimTextOutput("selected")
-    )
+  CssBaseline(),
+  Box(
+    sx = list(p = 2),
+    Autocomplete.shinyInput(
+      inputId = "animal",
+      options = c("dog", "cat", "fish", "bird", "rabbit"),
+      TextField(label = "Select animal", placeholder = "Single select")
+    ),
+    verbatimTextOutput("selected")
   )
 )
 
@@ -46,8 +43,8 @@ Set `multiple = TRUE` to allow selecting multiple values.
 ui <- Autocomplete.shinyInput(
   inputId = "animals",
   multiple = TRUE,
-  placeholder = "Select multiple animals",
-  options = c("dog", "cat", "fish", "bird", "rabbit")
+  options = c("dog", "cat", "fish", "bird", "rabbit"),
+  TextField(label = "Animals", placeholder = "Select multiple animals")
 )
 
 server <- function(input, output, session) {}
@@ -66,8 +63,8 @@ ui <- Autocomplete.shinyInput(
   inputId = "animals",
   multiple = TRUE,
   limitTags = 2,
-  placeholder = "Select multiple animals",
-  options = c("dog", "cat", "fish", "bird", "rabbit")
+  options = c("dog", "cat", "fish", "bird", "rabbit"),
+  TextField(label = "Animals", placeholder = "Select multiple animals")
 )
 
 server <- function(input, output, session) {}
@@ -77,17 +74,16 @@ shinyApp(ui, server)
 
 ## Styling
 
-Use the `sx` argument for custom styling and `inputProps` for label
-configuration.
+Use the `sx` argument for custom styling on the Autocomplete itself, and
+configure the input via the child `TextField`.
 
 ``` r
 
 ui <- Autocomplete.shinyInput(
   sx = list(m = 1, minWidth = 120, width = 300),
   inputId = "animal",
-  placeholder = "Select an animal",
-  inputProps = list(label = "Choose your pet"),
-  options = c("dog", "cat", "fish")
+  options = c("dog", "cat", "fish"),
+  TextField(label = "Choose your pet", placeholder = "Select an animal")
 )
 
 server <- function(input, output, session) {}
@@ -109,8 +105,8 @@ ui <- FormControl(
     inputId = "pet",
     multiple = TRUE,
     limitTags = 2,
-    inputProps = list(placeholder = "Select multiple pets"),
-    options = c("dog", "cat", "fish", "bird")
+    options = c("dog", "cat", "fish", "bird"),
+    TextField(placeholder = "Select multiple pets")
   ),
   FormHelperText("You can select multiple pets.")
 )
@@ -118,6 +114,22 @@ ui <- FormControl(
 server <- function(input, output, session) {}
 
 shinyApp(ui, server)
+```
+
+## default `TextField` with `inputProps`
+
+`inputProps` forwards props to a default `TextField` when no child is
+supplied.
+
+``` r
+
+Autocomplete.shinyInput(
+  inputId = "pet",
+  multiple = TRUE,
+  limitTags = 2,
+  inputProps = list(placeholder = "Select multiple pets"),
+  options = c("dog", "cat", "fish", "bird")
+)
 ```
 
 ## Grouped Options
@@ -143,18 +155,17 @@ df <- data.frame(
 )
 
 ui <- muiMaterialPage(
-  CssBaseline(
-    Box(
-      sx = list(p = 2),
-      Autocomplete.shinyInput(
-        inputId = "grouped",
-        placeholder = "Select by category",
-        options = df,
-        groupBy = JS("function(option) { return option.category; }"),
-        getOptionLabel = JS("function(option) { return option.animal; }")
-      ),
-      tableOutput("result")
-    )
+  CssBaseline(),
+  Box(
+    sx = list(p = 2),
+    Autocomplete.shinyInput(
+      inputId = "grouped",
+      options = df,
+      groupBy = JS("function(option) { return option.category; }"),
+      getOptionLabel = JS("function(option) { return option.animal; }"),
+      TextField(label = "Animal", placeholder = "Select by category")
+    ),
+    tableOutput("result")
   )
 )
 
@@ -163,6 +174,31 @@ server <- function(input, output) {
     as.data.frame(input$grouped)
   })
 }
+
+shinyApp(ui, server)
+```
+
+## Full Control with `renderInput`
+
+For full control over the input, pass `renderInput` as a
+[`JS()`](https://appsilon.github.io/shiny.react/reference/JS.html)
+callback. This takes precedence over both child elements and
+`inputProps`.
+
+``` r
+
+ui <- Autocomplete.shinyInput(
+  inputId = "animal",
+  options = c("dog", "cat", "fish"),
+  renderInput = JS(
+    "(params) => React.createElement(
+       window.jsmodule['@mui/material'].TextField,
+       { ...params, label: 'Animal', size: 'small' }
+     )"
+  )
+)
+
+server <- function(input, output) {}
 
 shinyApp(ui, server)
 ```
@@ -195,28 +231,27 @@ df <- data.frame(
 )
 
 ui <- muiMaterialPage(
-  CssBaseline(
-    Box(
-      sx = list(p = 2),
-      Autocomplete.shinyInput(
-        sx = list(minWidth = 300, width = 400),
-        inputId = "pet",
-        placeholder = "Choose a pet",
-        options = df,
-        getOptionLabel = JS("function(option) { return option.label || ''; }"),
-        renderOption = JS("function(props, option) {
-          return React.createElement('li', props,
-            React.createElement('div', null,
-              React.createElement('div', null, option.label),
-              React.createElement('div', {
-                style: { fontSize: '0.8em', color: '#888' }
-              }, option.description)
-            )
-          );
-        }")
-      ),
-      verbatimTextOutput("selected")
-    )
+  CssBaseline(),
+  Box(
+    sx = list(p = 2),
+    Autocomplete.shinyInput(
+      sx = list(minWidth = 300, width = 400),
+      inputId = "pet",
+      options = df,
+      getOptionLabel = JS("function(option) { return option.label || ''; }"),
+      renderOption = JS("function(props, option) {
+        return React.createElement('li', props,
+          React.createElement('div', null,
+            React.createElement('div', null, option.label),
+            React.createElement('div', {
+              style: { fontSize: '0.8em', color: '#888' }
+            }, option.description)
+          )
+        );
+      }"),
+      TextField(label = "Pet", placeholder = "Choose a pet")
+    ),
+    verbatimTextOutput("selected")
   )
 )
 
@@ -235,119 +270,60 @@ Set `disableClearable = TRUE` to prevent clearing the selection.
 
 ``` r
 
-Autocomplete.shinyInput(
+ui <- Autocomplete.shinyInput(
   inputId = "animal",
-  placeholder = "Select an animal",
+  value = "cat",
   disableClearable = TRUE,
-  options = c("dog", "cat", "fish")
+  options = c("dog", "cat", "fish"),
+  TextField(label = "Animal")
 )
+
+server <- function(input, output) {}
+
+shinyApp(ui, server)
 ```
 
 ## Default Value
 
-Set an initial value using the `value` argument.
+Set an initial value using the `value` argument. The default is `NULL`
+for single selection and `[]` (an empty list) for `multiple = TRUE`.
 
 ``` r
 
 # Simple value
-Autocomplete.shinyInput(
+ui <- Autocomplete.shinyInput(
   inputId = "animal",
-  value = "dog",
-  options = c("dog", "cat", "fish")
+  value = "fish",
+  options = c("dog", "cat", "fish"),
+  TextField(label = "Animal")
 )
 
-# For grouped options with data frames
-# Use list structure instead of JS() for default values
+server <- function(input, output) {}
+
+shinyApp(ui, server)
+```
+
+The default should be in a [`list()`](https://rdrr.io/r/base/list.html)
+for `multiple = TRUE`.
+
+``` r
+
 df <- data.frame(
   animal = c("dog", "cat", "fish"),
   owner = c("person1", "person1", "person2"),
   stringsAsFactors = FALSE
 )
 
-Autocomplete.shinyInput(
+ui <- Autocomplete.shinyInput(
   inputId = "grouped",
   value = list(animal = "dog", owner = "person1"),
   options = df,
   groupBy = JS("function(option) { return option.owner; }"),
-  getOptionLabel = JS("function(option) { return option.animal; }")
-)
-```
-
-## Complete Example
-
-``` r
-
-library(shiny)
-library(muiMaterial)
-library(shiny.react)
-
-df <- data.frame(
-  animal = c("dog", "cat", "fish"),
-  owner = c("person1", "person1", "person2"),
-  stringsAsFactors = FALSE
+  getOptionLabel = JS("function(option) { return option.animal; }"),
+  TextField(label = "Animal")
 )
 
-ui <- muiMaterialPage(
-  CssBaseline(
-    Box(
-      sx = list(p = 2),
-      # Single selection
-      Autocomplete.shinyInput(
-        sx = list(m = 1, minWidth = 120, width = 300),
-        inputId = "single",
-        placeholder = "Single select",
-        inputProps = list(label = "Select animal"),
-        options = c("dog", "cat", "fish")
-      ),
-      verbatimTextOutput("singleValue"),
-      
-      # Multiple selection with limitTags
-      FormControl(
-        sx = list(m = 1, minWidth = 120, width = 300),
-        FormLabel("Multiple selection"),
-        Autocomplete.shinyInput(
-          inputId = "multiple",
-          multiple = TRUE,
-          limitTags = 2,
-          inputProps = list(placeholder = "Select multiple animals"),
-          options = df$animal
-        ),
-        FormHelperText("Autocomplete with limitTags of 2.")
-      ),
-      verbatimTextOutput("multipleValue"),
-      
-      # Grouped selection
-      FormControl(
-        sx = list(m = 1, minWidth = 120, width = 300),
-        FormLabel("Group selection"),
-        Autocomplete.shinyInput(
-          inputId = "grouped",
-          placeholder = "Select by group",
-          disableClearable = TRUE,
-          options = df,
-          value = list(animal = "dog", owner = "person1"),
-          groupBy = JS("function(option) { return option.owner; }"),
-          getOptionLabel = JS("function(option) { return option.animal; }")
-        )
-      ),
-      tableOutput("groupedValue")
-    )
-  )
-)
-
-server <- function(input, output) {
-  output$singleValue <- renderText({
-    paste("Selected:", input$single)
-  })
-  
-  output$multipleValue <- renderText({
-    paste("Selected:", paste(input$multiple, collapse = ", "))
-  })
-  
-  output$groupedValue <- renderTable({
-    as.data.frame(input$grouped)
-  })
-}
+server <- function(input, output) {}
 
 shinyApp(ui, server)
 ```

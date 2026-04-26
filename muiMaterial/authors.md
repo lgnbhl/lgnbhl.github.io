@@ -5,9 +5,6 @@
 - **[Felix Luginbuhl](https://felixluginbuhl.com)**. Author, maintainer,
   copyright holder. [](https://orcid.org/0009-0008-6625-2899)
 
-- **MUI SAS**. Copyright holder.\
-  Material UI library, https://mui.com/
-
 ## Citation
 
 Source:

@@ -109,23 +109,22 @@ options for single or multiple selection.</p>
 <div class="section level2">
 <h2 id="basic-usage">Basic Usage<a class="anchor" aria-label="anchor" href="#basic-usage"></a>
 </h2>
-<p>Use <code><a href="../reference/Autocomplete.html">Autocomplete.shinyInput()</a></code> to create a searchable
-dropdown with suggestions.</p>
+<p>The recommended pattern is to pass a <code>TextField</code> as a
+child.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/muiMaterial/">muiMaterial</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/muiMaterialPage.html">muiMaterialPage</a></span><span class="op">(</span></span>
-<span>  <span class="fu"><a href="../reference/CssBaseline.html">CssBaseline</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="../reference/Box.html">Box</a></span><span class="op">(</span></span>
-<span>      sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="../reference/Autocomplete.html">Autocomplete.shinyInput</a></span><span class="op">(</span></span>
-<span>        inputId <span class="op">=</span> <span class="st">"animal"</span>,</span>
-<span>        placeholder <span class="op">=</span> <span class="st">"Select an animal"</span>,</span>
-<span>        options <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"dog"</span>, <span class="st">"cat"</span>, <span class="st">"fish"</span>, <span class="st">"bird"</span>, <span class="st">"rabbit"</span><span class="op">)</span></span>
-<span>      <span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textOutput.html" class="external-link">verbatimTextOutput</a></span><span class="op">(</span><span class="st">"selected"</span><span class="op">)</span></span>
-<span>    <span class="op">)</span></span>
+<span>  <span class="fu"><a href="../reference/CssBaseline.html">CssBaseline</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="../reference/Box.html">Box</a></span><span class="op">(</span></span>
+<span>    sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="../reference/Autocomplete.html">Autocomplete.shinyInput</a></span><span class="op">(</span></span>
+<span>      inputId <span class="op">=</span> <span class="st">"animal"</span>,</span>
+<span>      options <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"dog"</span>, <span class="st">"cat"</span>, <span class="st">"fish"</span>, <span class="st">"bird"</span>, <span class="st">"rabbit"</span><span class="op">)</span>,</span>
+<span>      <span class="fu"><a href="../reference/TextField.html">TextField</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">"Select animal"</span>, placeholder <span class="op">=</span> <span class="st">"Single select"</span><span class="op">)</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textOutput.html" class="external-link">verbatimTextOutput</a></span><span class="op">(</span><span class="st">"selected"</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
@@ -146,8 +145,8 @@ values.</p>
 <code class="sourceCode R"><span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Autocomplete.html">Autocomplete.shinyInput</a></span><span class="op">(</span></span>
 <span>  inputId <span class="op">=</span> <span class="st">"animals"</span>,</span>
 <span>  multiple <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>  placeholder <span class="op">=</span> <span class="st">"Select multiple animals"</span>,</span>
-<span>  options <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"dog"</span>, <span class="st">"cat"</span>, <span class="st">"fish"</span>, <span class="st">"bird"</span>, <span class="st">"rabbit"</span><span class="op">)</span></span>
+<span>  options <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"dog"</span>, <span class="st">"cat"</span>, <span class="st">"fish"</span>, <span class="st">"bird"</span>, <span class="st">"rabbit"</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="../reference/TextField.html">TextField</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">"Animals"</span>, placeholder <span class="op">=</span> <span class="st">"Select multiple animals"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span><span class="op">}</span></span>
@@ -163,8 +162,8 @@ displayed before showing a count.</p>
 <span>  inputId <span class="op">=</span> <span class="st">"animals"</span>,</span>
 <span>  multiple <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  limitTags <span class="op">=</span> <span class="fl">2</span>,</span>
-<span>  placeholder <span class="op">=</span> <span class="st">"Select multiple animals"</span>,</span>
-<span>  options <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"dog"</span>, <span class="st">"cat"</span>, <span class="st">"fish"</span>, <span class="st">"bird"</span>, <span class="st">"rabbit"</span><span class="op">)</span></span>
+<span>  options <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"dog"</span>, <span class="st">"cat"</span>, <span class="st">"fish"</span>, <span class="st">"bird"</span>, <span class="st">"rabbit"</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="../reference/TextField.html">TextField</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">"Animals"</span>, placeholder <span class="op">=</span> <span class="st">"Select multiple animals"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span><span class="op">}</span></span>
@@ -175,15 +174,15 @@ displayed before showing a count.</p>
 <div class="section level2">
 <h2 id="styling">Styling<a class="anchor" aria-label="anchor" href="#styling"></a>
 </h2>
-<p>Use the <code>sx</code> argument for custom styling and
-<code>inputProps</code> for label configuration.</p>
+<p>Use the <code>sx</code> argument for custom styling on the
+Autocomplete itself, and configure the input via the child
+<code>TextField</code>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Autocomplete.html">Autocomplete.shinyInput</a></span><span class="op">(</span></span>
 <span>  sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>m <span class="op">=</span> <span class="fl">1</span>, minWidth <span class="op">=</span> <span class="fl">120</span>, width <span class="op">=</span> <span class="fl">300</span><span class="op">)</span>,</span>
 <span>  inputId <span class="op">=</span> <span class="st">"animal"</span>,</span>
-<span>  placeholder <span class="op">=</span> <span class="st">"Select an animal"</span>,</span>
-<span>  inputProps <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">"Choose your pet"</span><span class="op">)</span>,</span>
-<span>  options <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"dog"</span>, <span class="st">"cat"</span>, <span class="st">"fish"</span><span class="op">)</span></span>
+<span>  options <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"dog"</span>, <span class="st">"cat"</span>, <span class="st">"fish"</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="../reference/TextField.html">TextField</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">"Choose your pet"</span>, placeholder <span class="op">=</span> <span class="st">"Select an animal"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span><span class="op">}</span></span>
@@ -203,8 +202,8 @@ displayed before showing a count.</p>
 <span>    inputId <span class="op">=</span> <span class="st">"pet"</span>,</span>
 <span>    multiple <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>    limitTags <span class="op">=</span> <span class="fl">2</span>,</span>
-<span>    inputProps <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>placeholder <span class="op">=</span> <span class="st">"Select multiple pets"</span><span class="op">)</span>,</span>
-<span>    options <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"dog"</span>, <span class="st">"cat"</span>, <span class="st">"fish"</span>, <span class="st">"bird"</span><span class="op">)</span></span>
+<span>    options <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"dog"</span>, <span class="st">"cat"</span>, <span class="st">"fish"</span>, <span class="st">"bird"</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="../reference/TextField.html">TextField</a></span><span class="op">(</span>placeholder <span class="op">=</span> <span class="st">"Select multiple pets"</span><span class="op">)</span></span>
 <span>  <span class="op">)</span>,</span>
 <span>  <span class="fu"><a href="../reference/FormHelperText.html">FormHelperText</a></span><span class="op">(</span><span class="st">"You can select multiple pets."</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
@@ -212,6 +211,20 @@ displayed before showing a count.</p>
 <span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span><span class="op">}</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="default-textfield-with-inputprops">default <code>TextField</code> with <code>inputProps</code><a class="anchor" aria-label="anchor" href="#default-textfield-with-inputprops"></a>
+</h2>
+<p><code>inputProps</code> forwards props to a default
+<code>TextField</code> when no child is supplied.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/Autocomplete.html">Autocomplete.shinyInput</a></span><span class="op">(</span></span>
+<span>  inputId <span class="op">=</span> <span class="st">"pet"</span>,</span>
+<span>  multiple <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  limitTags <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>  inputProps <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>placeholder <span class="op">=</span> <span class="st">"Select multiple pets"</span><span class="op">)</span>,</span>
+<span>  options <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"dog"</span>, <span class="st">"cat"</span>, <span class="st">"fish"</span>, <span class="st">"bird"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="grouped-options">Grouped Options<a class="anchor" aria-label="anchor" href="#grouped-options"></a>
@@ -222,7 +235,7 @@ displayed before showing a count.</p>
 <code>getOptionLabel</code>, define these as static JavaScript functions
 to avoid injection vulnerabilities. Never pass user input directly into
 <code><a href="https://appsilon.github.io/shiny.react/reference/JS.html" class="external-link">JS()</a></code>.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/muiMaterial/">muiMaterial</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://appsilon.github.io/shiny.react/" class="external-link">shiny.react</a></span><span class="op">)</span></span>
@@ -234,18 +247,17 @@ to avoid injection vulnerabilities. Never pass user input directly into
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/muiMaterialPage.html">muiMaterialPage</a></span><span class="op">(</span></span>
-<span>  <span class="fu"><a href="../reference/CssBaseline.html">CssBaseline</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="../reference/Box.html">Box</a></span><span class="op">(</span></span>
-<span>      sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="../reference/Autocomplete.html">Autocomplete.shinyInput</a></span><span class="op">(</span></span>
-<span>        inputId <span class="op">=</span> <span class="st">"grouped"</span>,</span>
-<span>        placeholder <span class="op">=</span> <span class="st">"Select by category"</span>,</span>
-<span>        options <span class="op">=</span> <span class="va">df</span>,</span>
-<span>        groupBy <span class="op">=</span> <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/JS.html" class="external-link">JS</a></span><span class="op">(</span><span class="st">"function(option) { return option.category; }"</span><span class="op">)</span>,</span>
-<span>        getOptionLabel <span class="op">=</span> <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/JS.html" class="external-link">JS</a></span><span class="op">(</span><span class="st">"function(option) { return option.animal; }"</span><span class="op">)</span></span>
-<span>      <span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderTable.html" class="external-link">tableOutput</a></span><span class="op">(</span><span class="st">"result"</span><span class="op">)</span></span>
-<span>    <span class="op">)</span></span>
+<span>  <span class="fu"><a href="../reference/CssBaseline.html">CssBaseline</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="../reference/Box.html">Box</a></span><span class="op">(</span></span>
+<span>    sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="../reference/Autocomplete.html">Autocomplete.shinyInput</a></span><span class="op">(</span></span>
+<span>      inputId <span class="op">=</span> <span class="st">"grouped"</span>,</span>
+<span>      options <span class="op">=</span> <span class="va">df</span>,</span>
+<span>      groupBy <span class="op">=</span> <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/JS.html" class="external-link">JS</a></span><span class="op">(</span><span class="st">"function(option) { return option.category; }"</span><span class="op">)</span>,</span>
+<span>      getOptionLabel <span class="op">=</span> <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/JS.html" class="external-link">JS</a></span><span class="op">(</span><span class="st">"function(option) { return option.animal; }"</span><span class="op">)</span>,</span>
+<span>      <span class="fu"><a href="../reference/TextField.html">TextField</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">"Animal"</span>, placeholder <span class="op">=</span> <span class="st">"Select by category"</span><span class="op">)</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderTable.html" class="external-link">tableOutput</a></span><span class="op">(</span><span class="st">"result"</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
@@ -258,6 +270,28 @@ to avoid injection vulnerabilities. Never pass user input directly into
 <span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
+<h2 id="full-control-with-renderinput">Full Control with <code>renderInput</code><a class="anchor" aria-label="anchor" href="#full-control-with-renderinput"></a>
+</h2>
+<p>For full control over the input, pass <code>renderInput</code> as a
+<code><a href="https://appsilon.github.io/shiny.react/reference/JS.html" class="external-link">JS()</a></code> callback. This takes precedence over both child
+elements and <code>inputProps</code>.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Autocomplete.html">Autocomplete.shinyInput</a></span><span class="op">(</span></span>
+<span>  inputId <span class="op">=</span> <span class="st">"animal"</span>,</span>
+<span>  options <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"dog"</span>, <span class="st">"cat"</span>, <span class="st">"fish"</span><span class="op">)</span>,</span>
+<span>  renderInput <span class="op">=</span> <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/JS.html" class="external-link">JS</a></span><span class="op">(</span></span>
+<span>    <span class="st">"(params) =&gt; React.createElement(</span></span>
+<span><span class="st">       window.jsmodule['@mui/material'].TextField,</span></span>
+<span><span class="st">       { ...params, label: 'Animal', size: 'small' }</span></span>
+<span><span class="st">     )"</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span><span class="op">}</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
 <h2 id="custom-option-with-secondary-text">Custom Option with Secondary Text<a class="anchor" aria-label="anchor" href="#custom-option-with-secondary-text"></a>
 </h2>
 <p>Use <code>renderOption</code> with a data frame to display additional
@@ -266,7 +300,7 @@ information below each option label.</p>
 <code>getOptionLabel</code>, define <code>renderOption</code> as a
 static JavaScript function. Never pass user input directly into
 <code><a href="https://appsilon.github.io/shiny.react/reference/JS.html" class="external-link">JS()</a></code>.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/muiMaterial/">muiMaterial</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://appsilon.github.io/shiny.react/" class="external-link">shiny.react</a></span><span class="op">)</span></span>
@@ -284,28 +318,27 @@ static JavaScript function. Never pass user input directly into
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/muiMaterialPage.html">muiMaterialPage</a></span><span class="op">(</span></span>
-<span>  <span class="fu"><a href="../reference/CssBaseline.html">CssBaseline</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="../reference/Box.html">Box</a></span><span class="op">(</span></span>
-<span>      sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="../reference/Autocomplete.html">Autocomplete.shinyInput</a></span><span class="op">(</span></span>
-<span>        sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>minWidth <span class="op">=</span> <span class="fl">300</span>, width <span class="op">=</span> <span class="fl">400</span><span class="op">)</span>,</span>
-<span>        inputId <span class="op">=</span> <span class="st">"pet"</span>,</span>
-<span>        placeholder <span class="op">=</span> <span class="st">"Choose a pet"</span>,</span>
-<span>        options <span class="op">=</span> <span class="va">df</span>,</span>
-<span>        getOptionLabel <span class="op">=</span> <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/JS.html" class="external-link">JS</a></span><span class="op">(</span><span class="st">"function(option) { return option.label || ''; }"</span><span class="op">)</span>,</span>
-<span>        renderOption <span class="op">=</span> <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/JS.html" class="external-link">JS</a></span><span class="op">(</span><span class="st">"function(props, option) {</span></span>
-<span><span class="st">          return React.createElement('li', props,</span></span>
-<span><span class="st">            React.createElement('div', null,</span></span>
-<span><span class="st">              React.createElement('div', null, option.label),</span></span>
-<span><span class="st">              React.createElement('div', {</span></span>
-<span><span class="st">                style: { fontSize: '0.8em', color: '#888' }</span></span>
-<span><span class="st">              }, option.description)</span></span>
-<span><span class="st">            )</span></span>
-<span><span class="st">          );</span></span>
-<span><span class="st">        }"</span><span class="op">)</span></span>
-<span>      <span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textOutput.html" class="external-link">verbatimTextOutput</a></span><span class="op">(</span><span class="st">"selected"</span><span class="op">)</span></span>
-<span>    <span class="op">)</span></span>
+<span>  <span class="fu"><a href="../reference/CssBaseline.html">CssBaseline</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="../reference/Box.html">Box</a></span><span class="op">(</span></span>
+<span>    sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="../reference/Autocomplete.html">Autocomplete.shinyInput</a></span><span class="op">(</span></span>
+<span>      sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>minWidth <span class="op">=</span> <span class="fl">300</span>, width <span class="op">=</span> <span class="fl">400</span><span class="op">)</span>,</span>
+<span>      inputId <span class="op">=</span> <span class="st">"pet"</span>,</span>
+<span>      options <span class="op">=</span> <span class="va">df</span>,</span>
+<span>      getOptionLabel <span class="op">=</span> <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/JS.html" class="external-link">JS</a></span><span class="op">(</span><span class="st">"function(option) { return option.label || ''; }"</span><span class="op">)</span>,</span>
+<span>      renderOption <span class="op">=</span> <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/JS.html" class="external-link">JS</a></span><span class="op">(</span><span class="st">"function(props, option) {</span></span>
+<span><span class="st">        return React.createElement('li', props,</span></span>
+<span><span class="st">          React.createElement('div', null,</span></span>
+<span><span class="st">            React.createElement('div', null, option.label),</span></span>
+<span><span class="st">            React.createElement('div', {</span></span>
+<span><span class="st">              style: { fontSize: '0.8em', color: '#888' }</span></span>
+<span><span class="st">            }, option.description)</span></span>
+<span><span class="st">          )</span></span>
+<span><span class="st">        );</span></span>
+<span><span class="st">      }"</span><span class="op">)</span>,</span>
+<span>      <span class="fu"><a href="../reference/TextField.html">TextField</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">"Pet"</span>, placeholder <span class="op">=</span> <span class="st">"Choose a pet"</span><span class="op">)</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textOutput.html" class="external-link">verbatimTextOutput</a></span><span class="op">(</span><span class="st">"selected"</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
@@ -322,117 +355,56 @@ static JavaScript function. Never pass user input directly into
 </h2>
 <p>Set <code>disableClearable = TRUE</code> to prevent clearing the
 selection.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/Autocomplete.html">Autocomplete.shinyInput</a></span><span class="op">(</span></span>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Autocomplete.html">Autocomplete.shinyInput</a></span><span class="op">(</span></span>
 <span>  inputId <span class="op">=</span> <span class="st">"animal"</span>,</span>
-<span>  placeholder <span class="op">=</span> <span class="st">"Select an animal"</span>,</span>
+<span>  value <span class="op">=</span> <span class="st">"cat"</span>,</span>
 <span>  disableClearable <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>  options <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"dog"</span>, <span class="st">"cat"</span>, <span class="st">"fish"</span><span class="op">)</span></span>
-<span><span class="op">)</span></span></code></pre></div>
+<span>  options <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"dog"</span>, <span class="st">"cat"</span>, <span class="st">"fish"</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="../reference/TextField.html">TextField</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">"Animal"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span><span class="op">}</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="default-value">Default Value<a class="anchor" aria-label="anchor" href="#default-value"></a>
 </h2>
-<p>Set an initial value using the <code>value</code> argument.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<p>Set an initial value using the <code>value</code> argument. The
+default is <code>NULL</code> for single selection and <code>[]</code>
+(an empty list) for <code>multiple = TRUE</code>.</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Simple value</span></span>
-<span><span class="fu"><a href="../reference/Autocomplete.html">Autocomplete.shinyInput</a></span><span class="op">(</span></span>
+<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Autocomplete.html">Autocomplete.shinyInput</a></span><span class="op">(</span></span>
 <span>  inputId <span class="op">=</span> <span class="st">"animal"</span>,</span>
-<span>  value <span class="op">=</span> <span class="st">"dog"</span>,</span>
-<span>  options <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"dog"</span>, <span class="st">"cat"</span>, <span class="st">"fish"</span><span class="op">)</span></span>
+<span>  value <span class="op">=</span> <span class="st">"fish"</span>,</span>
+<span>  options <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"dog"</span>, <span class="st">"cat"</span>, <span class="st">"fish"</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="../reference/TextField.html">TextField</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">"Animal"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># For grouped options with data frames</span></span>
-<span><span class="co"># Use list structure instead of JS() for default values</span></span>
-<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
+<span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span><span class="op">}</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre></div>
+<p>The default should be in a <code><a href="https://rdrr.io/r/base/list.html" class="external-link">list()</a></code> for
+<code>multiple = TRUE</code>.</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
 <span>  animal <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"dog"</span>, <span class="st">"cat"</span>, <span class="st">"fish"</span><span class="op">)</span>,</span>
 <span>  owner <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"person1"</span>, <span class="st">"person1"</span>, <span class="st">"person2"</span><span class="op">)</span>,</span>
 <span>  stringsAsFactors <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="../reference/Autocomplete.html">Autocomplete.shinyInput</a></span><span class="op">(</span></span>
+<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Autocomplete.html">Autocomplete.shinyInput</a></span><span class="op">(</span></span>
 <span>  inputId <span class="op">=</span> <span class="st">"grouped"</span>,</span>
 <span>  value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>animal <span class="op">=</span> <span class="st">"dog"</span>, owner <span class="op">=</span> <span class="st">"person1"</span><span class="op">)</span>,</span>
 <span>  options <span class="op">=</span> <span class="va">df</span>,</span>
 <span>  groupBy <span class="op">=</span> <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/JS.html" class="external-link">JS</a></span><span class="op">(</span><span class="st">"function(option) { return option.owner; }"</span><span class="op">)</span>,</span>
-<span>  getOptionLabel <span class="op">=</span> <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/JS.html" class="external-link">JS</a></span><span class="op">(</span><span class="st">"function(option) { return option.animal; }"</span><span class="op">)</span></span>
-<span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level2">
-<h2 id="complete-example">Complete Example<a class="anchor" aria-label="anchor" href="#complete-example"></a>
-</h2>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/muiMaterial/">muiMaterial</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://appsilon.github.io/shiny.react/" class="external-link">shiny.react</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
-<span>  animal <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"dog"</span>, <span class="st">"cat"</span>, <span class="st">"fish"</span><span class="op">)</span>,</span>
-<span>  owner <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"person1"</span>, <span class="st">"person1"</span>, <span class="st">"person2"</span><span class="op">)</span>,</span>
-<span>  stringsAsFactors <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span>  getOptionLabel <span class="op">=</span> <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/JS.html" class="external-link">JS</a></span><span class="op">(</span><span class="st">"function(option) { return option.animal; }"</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="../reference/TextField.html">TextField</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">"Animal"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/muiMaterialPage.html">muiMaterialPage</a></span><span class="op">(</span></span>
-<span>  <span class="fu"><a href="../reference/CssBaseline.html">CssBaseline</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="../reference/Box.html">Box</a></span><span class="op">(</span></span>
-<span>      sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
-<span>      <span class="co"># Single selection</span></span>
-<span>      <span class="fu"><a href="../reference/Autocomplete.html">Autocomplete.shinyInput</a></span><span class="op">(</span></span>
-<span>        sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>m <span class="op">=</span> <span class="fl">1</span>, minWidth <span class="op">=</span> <span class="fl">120</span>, width <span class="op">=</span> <span class="fl">300</span><span class="op">)</span>,</span>
-<span>        inputId <span class="op">=</span> <span class="st">"single"</span>,</span>
-<span>        placeholder <span class="op">=</span> <span class="st">"Single select"</span>,</span>
-<span>        inputProps <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">"Select animal"</span><span class="op">)</span>,</span>
-<span>        options <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"dog"</span>, <span class="st">"cat"</span>, <span class="st">"fish"</span><span class="op">)</span></span>
-<span>      <span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textOutput.html" class="external-link">verbatimTextOutput</a></span><span class="op">(</span><span class="st">"singleValue"</span><span class="op">)</span>,</span>
-<span>      </span>
-<span>      <span class="co"># Multiple selection with limitTags</span></span>
-<span>      <span class="fu"><a href="../reference/FormControl.html">FormControl</a></span><span class="op">(</span></span>
-<span>        sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>m <span class="op">=</span> <span class="fl">1</span>, minWidth <span class="op">=</span> <span class="fl">120</span>, width <span class="op">=</span> <span class="fl">300</span><span class="op">)</span>,</span>
-<span>        <span class="fu"><a href="../reference/FormLabel.html">FormLabel</a></span><span class="op">(</span><span class="st">"Multiple selection"</span><span class="op">)</span>,</span>
-<span>        <span class="fu"><a href="../reference/Autocomplete.html">Autocomplete.shinyInput</a></span><span class="op">(</span></span>
-<span>          inputId <span class="op">=</span> <span class="st">"multiple"</span>,</span>
-<span>          multiple <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>          limitTags <span class="op">=</span> <span class="fl">2</span>,</span>
-<span>          inputProps <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>placeholder <span class="op">=</span> <span class="st">"Select multiple animals"</span><span class="op">)</span>,</span>
-<span>          options <span class="op">=</span> <span class="va">df</span><span class="op">$</span><span class="va">animal</span></span>
-<span>        <span class="op">)</span>,</span>
-<span>        <span class="fu"><a href="../reference/FormHelperText.html">FormHelperText</a></span><span class="op">(</span><span class="st">"Autocomplete with limitTags of 2."</span><span class="op">)</span></span>
-<span>      <span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textOutput.html" class="external-link">verbatimTextOutput</a></span><span class="op">(</span><span class="st">"multipleValue"</span><span class="op">)</span>,</span>
-<span>      </span>
-<span>      <span class="co"># Grouped selection</span></span>
-<span>      <span class="fu"><a href="../reference/FormControl.html">FormControl</a></span><span class="op">(</span></span>
-<span>        sx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>m <span class="op">=</span> <span class="fl">1</span>, minWidth <span class="op">=</span> <span class="fl">120</span>, width <span class="op">=</span> <span class="fl">300</span><span class="op">)</span>,</span>
-<span>        <span class="fu"><a href="../reference/FormLabel.html">FormLabel</a></span><span class="op">(</span><span class="st">"Group selection"</span><span class="op">)</span>,</span>
-<span>        <span class="fu"><a href="../reference/Autocomplete.html">Autocomplete.shinyInput</a></span><span class="op">(</span></span>
-<span>          inputId <span class="op">=</span> <span class="st">"grouped"</span>,</span>
-<span>          placeholder <span class="op">=</span> <span class="st">"Select by group"</span>,</span>
-<span>          disableClearable <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>          options <span class="op">=</span> <span class="va">df</span>,</span>
-<span>          value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>animal <span class="op">=</span> <span class="st">"dog"</span>, owner <span class="op">=</span> <span class="st">"person1"</span><span class="op">)</span>,</span>
-<span>          groupBy <span class="op">=</span> <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/JS.html" class="external-link">JS</a></span><span class="op">(</span><span class="st">"function(option) { return option.owner; }"</span><span class="op">)</span>,</span>
-<span>          getOptionLabel <span class="op">=</span> <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/JS.html" class="external-link">JS</a></span><span class="op">(</span><span class="st">"function(option) { return option.animal; }"</span><span class="op">)</span></span>
-<span>        <span class="op">)</span></span>
-<span>      <span class="op">)</span>,</span>
-<span>      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderTable.html" class="external-link">tableOutput</a></span><span class="op">(</span><span class="st">"groupedValue"</span><span class="op">)</span></span>
-<span>    <span class="op">)</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="va">output</span><span class="op">$</span><span class="va">singleValue</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html" class="external-link">renderText</a></span><span class="op">(</span><span class="op">{</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"Selected:"</span>, <span class="va">input</span><span class="op">$</span><span class="va">single</span><span class="op">)</span></span>
-<span>  <span class="op">}</span><span class="op">)</span></span>
-<span>  </span>
-<span>  <span class="va">output</span><span class="op">$</span><span class="va">multipleValue</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html" class="external-link">renderText</a></span><span class="op">(</span><span class="op">{</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"Selected:"</span>, <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">multiple</span>, collapse <span class="op">=</span> <span class="st">", "</span><span class="op">)</span><span class="op">)</span></span>
-<span>  <span class="op">}</span><span class="op">)</span></span>
-<span>  </span>
-<span>  <span class="va">output</span><span class="op">$</span><span class="va">groupedValue</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderTable.html" class="external-link">renderTable</a></span><span class="op">(</span><span class="op">{</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">grouped</span><span class="op">)</span></span>
-<span>  <span class="op">}</span><span class="op">)</span></span>
-<span><span class="op">}</span></span>
+<span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span><span class="op">}</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre></div>
 </div>
