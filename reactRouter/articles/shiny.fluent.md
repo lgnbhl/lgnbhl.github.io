@@ -2,6 +2,18 @@
 
 ## Introduction
 
+> **Note.** This tutorial uses the legacy component-based router
+> ([`HashRouter()`](https://felixluginbuhl.com/reactRouter/reference/HashRouter.md) +
+> [`Routes()`](https://felixluginbuhl.com/reactRouter/reference/Routes.md))
+> for compatibility with `rhino`’s `box` module loading. For new
+> projects, prefer the data router API
+> ([`RouterProvider()`](https://felixluginbuhl.com/reactRouter/reference/RouterProvider.md) +
+> [`createHashRouter()`](https://felixluginbuhl.com/reactRouter/reference/createHashRouter.md))
+> shown in
+> [`vignette("routers", package = "reactRouter")`](https://felixluginbuhl.com/reactRouter/articles/routers.md),
+> which unlocks `loader`, `action`, `errorElement`, and the full hook
+> surface.
+
 This tutorial demonstrates how to build a dynamic Shiny application
 using `reactRouter` for routing and `shiny.fluent` for modern UI
 components, all within the `rhino` framework. We’ll use [Dota

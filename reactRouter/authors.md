@@ -2,20 +2,10 @@
 
 ## Authors
 
-- **[Felix Luginbuhl](https://felixluginbuhl.com)**. Author, maintainer.
-  [](https://orcid.org/0009-0008-6625-2899)
+- **[Felix Luginbuhl](https://felixluginbuhl.com)**. Author, maintainer,
+  copyright holder. [](https://orcid.org/0009-0008-6625-2899)
 
 - **Andryas Waurzenczak**. Contributor.
-
-- **React Training LLC**. Copyright holder.\
-  react-router-dom, Copyright (c) React Training LLC 2015-2019
-  \<<https://reactrouter.com/>\>
-
-- **Remix Software Inc.**. Copyright holder.\
-  react-router-dom, Copyright (c) Remix Software Inc. 2020-2021
-
-- **Shopify Inc.**. Copyright holder.\
-  react-router-dom, Copyright (c) Shopify Inc. 2022-2023
 
 ## Citation
 

@@ -25,6 +25,7 @@ Use `reactRouter::reactRouterExample("basic")` to run a showcase app.'><meta pro
     <li><a class="dropdown-item" href="../articles/useLoaderData.html">Using Data Loaders</a></li>
     <li><a class="dropdown-item" href="../articles/useFetcher.html">Using Form and Fetchers</a></li>
     <li><a class="dropdown-item" href="../articles/advanced-hooks.html">Advanced Hooks</a></li>
+    <li><a class="dropdown-item" href="../articles/security.html">Security considerations</a></li>
   </ul></li>
 <li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">News</a></li>
@@ -59,7 +60,8 @@ Use `reactRouter::reactRouterExample("basic")` to run a showcase app.</p>
 
 
 <dl><dt id="arg-example">example<a class="anchor" aria-label="anchor" href="#arg-example"></a></dt>
-<dd><p>The name of the example to run, or `NULL` to retrieve the list of examples.</p></dd>
+<dd><p>The name of the example to run, or `NULL` to print and
+invisibly return the list of available examples.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
@@ -68,12 +70,15 @@ Use `reactRouter::reactRouterExample("basic")` to run a showcase app.</p>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>This function normally does not return;
-interrupt R to stop the application (usually by pressing Ctrl+C or Esc).</p>
+    <p>When `example` is `NULL`, invisibly returns a character vector of
+  example names (also printed via `message()`). Otherwise this function
+  normally does not return; interrupt R to stop the application
+  (usually by pressing Ctrl+C or Esc).</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p>[shiny.blueprint::runExample()] which this function is an adaptation.</p></div>
+    <div class="dont-index"><p><code><a href="https://rdrr.io/pkg/shiny.blueprint/man/runExample.html" class="external-link">shiny.blueprint::runExample()</a></code>, which this function is
+  adapted from.</p></div>
     </div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

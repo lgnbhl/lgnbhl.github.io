@@ -23,6 +23,7 @@
     <li><a class="dropdown-item" href="../articles/useLoaderData.html">Using Data Loaders</a></li>
     <li><a class="dropdown-item" href="../articles/useFetcher.html">Using Form and Fetchers</a></li>
     <li><a class="dropdown-item" href="../articles/advanced-hooks.html">Advanced Hooks</a></li>
+    <li><a class="dropdown-item" href="../articles/security.html">Security considerations</a></li>
   </ul></li>
 <li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">News</a></li>
@@ -87,10 +88,12 @@ pattern for cases where a single prop is not expressive enough (e.g.
 
 
 <dt id="arg-shouldblock">shouldBlock<a class="anchor" aria-label="anchor" href="#arg-shouldblock"></a></dt>
-<dd><p>A <code><a href="https://appsilon.github.io/shiny.react/reference/JS.html" class="external-link">JS</a></code> function receiving
+<dd><p>Either <code>FALSE</code> (the default, disables blocking)
+or a <code><a href="https://appsilon.github.io/shiny.react/reference/JS.html" class="external-link">JS</a></code> function receiving
 <code>{ currentLocation, nextLocation, historyAction }</code> and returning
 <code>true</code> to block navigation or <code>false</code> to allow it.
-Pass <code>FALSE</code> to disable blocking entirely (the default).</p></dd>
+<strong>Must be a JS() expression</strong>, not an R function – R functions
+cannot be invoked from inside React Router's blocker callback.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
@@ -101,7 +104,7 @@ Pass <code>FALSE</code> to disable blocking entirely (the default).</p></dd>
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>Calls the <code>useBlocker()</code> hook and injects the blocker's <code>state</code>
 (or another <code>selector</code> field) <code>as</code> a prop of the <code>into</code>
-component. Use to intercept navigation — e.g. warn the user about unsaved
+component. Use to intercept navigation – e.g. warn the user about unsaved
 changes before they leave a route.</p>
 <p>The blocker <code>state</code> is one of <code>"unblocked"</code> (default),
 <code>"blocked"</code> (navigation intercepted), or <code>"proceeding"</code>

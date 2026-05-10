@@ -1,0 +1,187 @@
+# Security considerations
+
+This vignette walks through the few things to keep in mind when shipping
+a Shiny app that uses `reactRouter`. You don’t need a security
+background to follow it — the goal is to flag the handful of patterns
+that matter and the mistakes that are easy to avoid.
+
+## The one idea to remember
+
+`reactRouter` is a wrapper around React Router, and **all of its routing
+logic runs in the user’s browser, not on the Shiny server**. Routes,
+`loader = JS(...)`, `action = JS(...)`, and any other
+[`JS()`](https://appsilon.github.io/shiny.react/reference/JS.html)
+snippet are part of the page that ships to every visitor. They can read
+it, edit it in the browser’s developer tools, and call any URL it calls.
+
+Almost every recommendation below follows from that single fact.
+
+## 1. Don’t put secrets in `JS()`
+
+Anything you put inside a
+[`JS()`](https://appsilon.github.io/shiny.react/reference/JS.html)
+string is visible to anyone who opens the page. That includes API keys,
+tokens, and database credentials.
+
+``` r
+
+library(reactRouter)
+
+# NOT OK — the API key is shipped to every visitor
+Route(
+  path = "/private",
+  loader = JS("async () => {
+    const r = await fetch('https://api.example.com/data', {
+      headers: { Authorization: 'Bearer sk-LIVE-1234...' }
+    });
+    return r.json();
+  }"),
+  element = useLoaderData(tags$pre())
+)
+```
+
+If a loader needs authenticated data, fetch it from your own Shiny
+server (or an API you control) and let the server attach the credential.
+
+## 2. Authentication belongs to Shiny, not the router
+
+A loader like `if (!isLoggedIn()) return redirect("/login")` is
+convenient, but it isn’t a real lock — a curious user can just delete
+the check from their browser and reach the route.
+
+For real protection, do the check where the user can’t tamper with it:
+
+- **In front of Shiny** — Posit Connect, Shinyapps.io, ShinyProxy, or a
+  reverse proxy that requires a login before the app loads.
+- **Inside the Shiny server** — packages like
+  [shinymanager](https://datastorm-open.github.io/shinymanager/), or
+  your own checks against `session$user`.
+
+`reactRouter` is a good fit for *showing* a login screen or a “you’re
+not allowed to see this” page, but the decision about whether the user
+is allowed to see the data should be made on the server.
+
+A useful test: if you removed every
+[`JS()`](https://appsilon.github.io/shiny.react/reference/JS.html) check
+from your app, would the user see anything they shouldn’t? If yes, the
+check is in the wrong place.
+
+## 3. React escapes text — keep it that way
+
+When you display loader or action data with
+[`useLoaderData()`](https://felixluginbuhl.com/reactRouter/reference/useLoaderData.md)
+/
+[`useActionData()`](https://felixluginbuhl.com/reactRouter/reference/useActionData.md),
+React renders it as plain text. Even if a value contains HTML or
+`<script>` tags, it shows up as literal characters, not as code. You get
+this protection for free.
+
+``` r
+
+# Safe: this renders as the literal text "<img src=x onerror=alert(1)>"
+Route(
+  path = "/profile",
+  loader = JS("async () => ({ bio: '<img src=x onerror=alert(1)>' })"),
+  element = useLoaderData(tags$div(), selector = "bio")
+)
+```
+
+The only way to lose this protection is to opt out of it explicitly with
+`dangerouslySetInnerHTML` in custom JavaScript. Don’t, unless you’ve
+sanitised the input first (e.g. with
+[DOMPurify](https://github.com/cure53/DOMPurify)).
+
+## 4. Encode URL parameters in `fetch()` calls
+
+If a loader takes a path parameter (like `:id`) and pastes it into a
+URL, wrap it in `encodeURIComponent()`. Otherwise a crafted link can
+append extra query parameters or path segments to the upstream request.
+
+``` r
+
+# Vulnerable
+loader_bad <- JS("async ({ params }) => {
+  const r = await fetch(`https://api.example.com/films/${params.id}`);
+  return r.json();
+}")
+
+# Safe
+loader_good <- JS("async ({ params }) => {
+  const id = encodeURIComponent(params.id);
+  const r  = await fetch(`https://api.example.com/films/${id}`);
+  return r.json();
+}")
+```
+
+The same applies to values read from
+[`useSearchParams()`](https://felixluginbuhl.com/reactRouter/reference/useSearchParams.md)
+before they go into a URL.
+
+## 5. Validate redirect targets
+
+[`redirect()`](https://felixluginbuhl.com/reactRouter/reference/redirect.md)
+blocks dangerous URL schemes such as `javascript:` and `data:`, and
+protocol-relative targets like `//evil.example.com/path` (which the
+browser would otherwise interpret as an absolute URL on another origin):
+
+``` r
+
+redirect("javascript:alert(1)")
+#> Error: redirect(): refusing unsafe URL scheme in `to` = "javascript:alert(1)".
+redirect("//evil.example.com/path")
+#> Error: redirect(): refusing protocol-relative URL in `to` = "//evil.example.com/path". ...
+```
+
+If you genuinely need a cross-origin redirect, spell out the full
+`https://...` URL. And if `to` ever comes from user input, still don’t
+rely on the built-in checks alone – match it against an allowlist.
+
+But if you build a redirect target from user input (for example a
+`?next=` parameter after a sign-in), it’s safer to compare against a
+list of allowed paths than to try to filter the string yourself:
+
+``` r
+
+nextParam  <- "/dashboard"   # in real code, from useSearchParams()
+allowedNext <- c("/", "/dashboard", "/profile", "/reports")
+
+target <- if (nextParam %in% allowedNext) nextParam else "/"
+Route(path = "/post-login", loader = redirect(target), element = NULL)
+```
+
+## 6. A note on `Form` and `action`
+
+`reactRouter` exposes a `Form` component and route `action`s for
+completeness, but they also run in the browser. If you use them to save
+data, the actual write needs to happen on a server endpoint you control
+— that’s where authentication, validation, and storage belong. For most
+Shiny apps, sticking to regular Shiny inputs and
+[`observeEvent()`](https://rdrr.io/pkg/shiny/man/observeEvent.html) on
+the server is simpler and safer.
+
+## 7. Content-Security-Policy (optional, but a good idea)
+
+If you’re hosting your app yourself and want an extra layer of defence,
+add a `Content-Security-Policy` header. Among other things, it lets you
+list exactly which external APIs your app is allowed to talk to, so a
+bug elsewhere in your code can’t quietly send data to a third party. A
+starting point for a Shiny app:
+
+    Content-Security-Policy:
+      default-src 'self';
+      script-src  'self' 'unsafe-inline';
+      style-src   'self' 'unsafe-inline';
+      connect-src 'self' https://api.example.com;
+      img-src     'self' data: https:;
+      frame-ancestors 'none';
+
+`'unsafe-inline'` for scripts is currently needed by **Shiny** itself
+(its client uses inline scripts to bootstrap the session); `reactRouter`
+does not require it. If a future Shiny release tightens this, the policy
+above can drop `'unsafe-inline'`.
+
+## Reporting an issue
+
+If you find a security problem in `reactRouter`, please email the
+maintainer of this R package rather than opening a public issue, so a
+fix can be released before the details are widely shared.

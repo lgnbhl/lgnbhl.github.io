@@ -205,6 +205,29 @@ only works correctly in a full web application deployment (e.g. React
 served by Node.js, Express, or Nginx with URL rewriting). That scenario
 is outside the scope of this R package.
 
+If you nevertheless decide to use
+[`createBrowserRouter()`](https://felixluginbuhl.com/reactRouter/reference/createBrowserRouter.md)
+and your Shiny app is mounted under a sub-path (e.g. on Posit Connect at
+`/content/abc/` or behind a reverse proxy), set `basename` so the router
+knows where the app starts. Otherwise every route 404s because the
+router compares the full path (`/content/abc/about`) against patterns
+rooted at `/`.
+
+``` r
+
+RouterProvider(
+  router = createBrowserRouter(
+    Route(path = "/", element = ...),
+    basename = "/content/abc"   # match your deployment prefix
+  )
+)
+```
+
+[`createHashRouter()`](https://felixluginbuhl.com/reactRouter/reference/createHashRouter.md)
+and
+[`createMemoryRouter()`](https://felixluginbuhl.com/reactRouter/reference/createMemoryRouter.md)
+do not need `basename` — neither uses the URL path.
+
 ------------------------------------------------------------------------
 
 ## Legacy: `HashRouter()` and `MemoryRouter()` — component API
@@ -237,30 +260,37 @@ or
 only if you have a specific reason to stay with the component API
 (e.g. migrating an existing app incrementally).
 
-``` r
+### Legacy router caveat: re-rendering parent UI remounts route elements
 
-# Legacy: component API — still works, but RouterProvider() is preferred
-library(shiny)
-library(reactRouter)
+[`Route()`](https://felixluginbuhl.com/reactRouter/reference/Route.md)
+attaches a fresh random React `key` to its `element` on every R-side
+call. The data router
+([`createHashRouter()`](https://felixluginbuhl.com/reactRouter/reference/createHashRouter.md)
+/
+[`RouterProvider()`](https://felixluginbuhl.com/reactRouter/reference/RouterProvider.md))
+builds the route tree once on mount and is unaffected. The component-API
+routers
+([`HashRouter()`](https://felixluginbuhl.com/reactRouter/reference/HashRouter.md)
+/
+[`MemoryRouter()`](https://felixluginbuhl.com/reactRouter/reference/MemoryRouter.md) +
+[`Routes()`](https://felixluginbuhl.com/reactRouter/reference/Routes.md) +
+[`Route()`](https://felixluginbuhl.com/reactRouter/reference/Route.md))
+are different: if the host UI is re-rendered — typically via
+[`shiny::renderUI()`](https://rdrr.io/pkg/shiny/man/renderUI.html) /
+[`shiny::uiOutput()`](https://rdrr.io/pkg/shiny/man/htmlOutput.html) —
+[`Route()`](https://felixluginbuhl.com/reactRouter/reference/Route.md)
+is re-evaluated, every route element gets a new key, and React unmounts
+and remounts the matched element on every parent render even when the
+URL has not changed. Any client-side state inside the route element
+(form input, scroll position, third-party widget state) is reset.
 
-ui <- HashRouter(
-  NavLink(to = "/",      reloadDocument = TRUE, "Home"), br(),
-  NavLink(to = "/other", reloadDocument = TRUE, "Other"),
-  Routes(
-    Route(path = "/",      element = uiOutput("uiHome")),
-    Route(path = "/other", element = uiOutput("uiOther"))
-  )
-)
+Workarounds:
 
-server <- function(input, output, session) {
-  url_hash <- reactive(session$clientData$url_hash)
-
-  output$uiHome  <- renderUI({ p("Home — hash: ",  url_hash()) })
-  output$uiOther <- renderUI({ p("Other — hash: ", url_hash()) })
-}
-
-shinyApp(ui, server)
-```
+- **Preferred:** switch to
+  `RouterProvider(router = createHashRouter(...))`. The data router
+  builds the route tree once and is immune.
+- If you must keep the legacy component API, render the router at the
+  top level of your `ui` (not inside `renderUI`) so it is built once.
 
 ------------------------------------------------------------------------
 
@@ -268,54 +298,63 @@ shinyApp(ui, server)
 
 [`Link()`](https://felixluginbuhl.com/reactRouter/reference/Link.md) and
 [`NavLink()`](https://felixluginbuhl.com/reactRouter/reference/NavLink.md)
-accept a `reloadDocument` prop that controls how navigation works. The
-default is `FALSE`, matching React Router’s own default.
+accept a `reloadDocument` prop. The default is `FALSE`, matching React
+Router’s own default, and that default is correct for almost every use
+of this package — including Shiny apps with server-rendered output.
 
-### `reloadDocument = FALSE` (default)
+### `reloadDocument = FALSE` (default, recommended)
 
-React Router handles navigation **entirely on the client side** — it
-swaps the displayed route component without reloading the page. This is
-the correct behavior for:
+React Router intercepts the click and updates the route **entirely on
+the client side**, without reloading the page. This is the right
+behavior for:
 
 - **Static sites and Quarto documents** — there is no server to
-  re-initialize. Client-side navigation provides smooth, instant route
-  switching.
+  re-initialize.
 - **[`createMemoryRouter()`](https://felixluginbuhl.com/reactRouter/reference/createMemoryRouter.md)
-  and
+  /
   [`MemoryRouter()`](https://felixluginbuhl.com/reactRouter/reference/MemoryRouter.md)**
   — a full page reload would reset the in-memory routing state back to
-  `/`, breaking navigation entirely.
-- **Data router loaders and actions** — `loader` and `action` functions
-  only execute during client-side navigations. A full page reload
-  bypasses React Router and loaders will not run.
+  `/`.
+- **Data router `loader` / `action`** — these only run during
+  client-side navigations; a full reload bypasses them.
+- **Shiny apps with `uiOutput`, `renderUI`, `plotOutput`, or
+  htmlwidgets.** Shiny output bindings re-attach automatically when
+  React Router mounts the new route’s element, and reactives that depend
+  on the URL —
+  [`useLocation()`](https://felixluginbuhl.com/reactRouter/reference/useLocation.md),
+  [`useParams()`](https://felixluginbuhl.com/reactRouter/reference/useParams.md),
+  [`useSearchParams()`](https://felixluginbuhl.com/reactRouter/reference/useSearchParams.md),
+  or Shiny’s own reactive `session$clientData$url_hash` — update without
+  any reload. The bundled `shiny.fluent` example
+  (`reactRouterExample("shiny.fluent")`) navigates between routes
+  containing live `echarts4rOutput()` and
+  [`uiOutput()`](https://rdrr.io/pkg/shiny/man/htmlOutput.html) and uses
+  the default `reloadDocument = FALSE` throughout.
 
-### `reloadDocument = TRUE`
+A full reload would actually be *worse* for Shiny: it tears down the
+session, drops shared reactives (e.g. a `hero_selected` reactive used
+across routes), and re-runs every initialization step on every click.
 
-Clicking a link triggers a **full page reload**, as if the user clicked
-a regular `<a href>`. This is necessary in **Shiny apps with
-server-rendered content** because:
+### `reloadDocument = TRUE` (rare)
 
-- Shiny’s server needs to re-initialize to read the new URL hash and
-  render the correct
-  [`uiOutput()`](https://rdrr.io/pkg/shiny/man/htmlOutput.html)/[`renderUI()`](https://rdrr.io/pkg/shiny/man/renderUI.html)
-  content.
-- Without a reload, server-rendered UI will not update properly since
-  the Shiny session was started with the old route.
+Setting `reloadDocument = TRUE` skips React Router’s client-side
+navigation and lets the browser handle the `<a>` click natively. What
+this actually does depends on the router:
 
-Set `reloadDocument = TRUE` whenever your routes contain server-rendered
-output (`uiOutput`, `plotOutput`, etc.):
+| Router | Rendered href | Effect of `reloadDocument = TRUE` |
+|----|----|----|
+| [`createHashRouter()`](https://felixluginbuhl.com/reactRouter/reference/createHashRouter.md) / [`HashRouter()`](https://felixluginbuhl.com/reactRouter/reference/HashRouter.md) | `#/path` | Effectively a no-op — browsers don’t reload on hash-only changes. The URL hash updates and React Router still picks it up via `hashchange`. |
+| [`createMemoryRouter()`](https://felixluginbuhl.com/reactRouter/reference/createMemoryRouter.md) / [`MemoryRouter()`](https://felixluginbuhl.com/reactRouter/reference/MemoryRouter.md) | (none — no real `<a href>`) | No effect; memory routers don’t use real URLs. |
+| [`createBrowserRouter()`](https://felixluginbuhl.com/reactRouter/reference/createBrowserRouter.md) | `/path` | Triggers a full HTTP request to `/path`. Requires the server to serve the app on every route, which Shiny does not do by default — the request will 404. |
 
-``` r
-
-NavLink(to = "/about", reloadDocument = TRUE, "About")
-Link(to = "/",         reloadDocument = TRUE, "Home")
-```
+In practice this means `reloadDocument = TRUE` is rarely the right
+choice in this package. Leave it at the default.
 
 ### Quick reference
 
-| Context | `reloadDocument` | Why |
-|----|----|----|
-| Static site / Quarto / R Markdown | `FALSE` (default) | No server; client-side navigation is smooth |
-| [`createMemoryRouter()`](https://felixluginbuhl.com/reactRouter/reference/createMemoryRouter.md) / [`MemoryRouter()`](https://felixluginbuhl.com/reactRouter/reference/MemoryRouter.md) | `FALSE` (default) | Reload resets in-memory state to `/` |
-| Data router with `loader`/`action` | `FALSE` (default) | Loaders only run on client-side navigations |
-| Shiny app with `uiOutput`/`renderUI` | `TRUE` | Server must re-initialize to render new content |
+| Context | `reloadDocument` |
+|----|----|
+| Static site / Quarto / R Markdown | `FALSE` (default) |
+| [`createMemoryRouter()`](https://felixluginbuhl.com/reactRouter/reference/createMemoryRouter.md) / [`MemoryRouter()`](https://felixluginbuhl.com/reactRouter/reference/MemoryRouter.md) | `FALSE` (default) |
+| Data router with `loader` / `action` | `FALSE` (default) |
+| Shiny app with `uiOutput` / `renderUI` / `plotOutput` | `FALSE` (default) |

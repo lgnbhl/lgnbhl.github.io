@@ -23,6 +23,7 @@
     <li><a class="dropdown-item" href="../articles/useLoaderData.html">Using Data Loaders</a></li>
     <li><a class="dropdown-item" href="../articles/useFetcher.html">Using Form and Fetchers</a></li>
     <li><a class="dropdown-item" href="../articles/advanced-hooks.html">Advanced Hooks</a></li>
+    <li><a class="dropdown-item" href="../articles/security.html">Security considerations</a></li>
   </ul></li>
 <li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">News</a></li>
@@ -57,20 +58,17 @@
 
 <dl><dt id="arg-into">into<a class="anchor" aria-label="anchor" href="#arg-into"></a></dt>
 <dd><p>A component (HTML tag or <span class="pkg">shiny.react</span>-based element)
-that will receive the hook data as the specified prop.</p></dd>
+that will receive the hook value as the specified prop.</p></dd>
 
 
 <dt id="arg-as">as<a class="anchor" aria-label="anchor" href="#arg-as"></a></dt>
 <dd><p>Character. The name of the component's prop to inject the hook
-data into (by default <code>"children"</code> for text display, <code>"rows"</code> for
-a data grid, <code>"value"</code> for an input).</p></dd>
+value into. Defaults to <code>"children"</code>.</p></dd>
 
 
 <dt id="arg-render">render<a class="anchor" aria-label="anchor" href="#arg-render"></a></dt>
 <dd><p>Optional <code><a href="https://appsilon.github.io/shiny.react/reference/JS.html" class="external-link">JS</a></code> function <code>(value) =&gt; ReactNode</code>
-used in place of <code>into</code>/<code>as</code>. Mirrors the native React Router
-pattern for cases where a single prop is not expressive enough (e.g.
-<code>JS("v =&gt; `${v.first} ${v.last}`")</code>).</p></dd>
+used in place of <code>into</code>/<code>as</code>.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>

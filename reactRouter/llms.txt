@@ -17,6 +17,10 @@ its own. It extends whatever you are already building with new features:
 - **Static hosting** — the output is plain HTML/JS, deployable to GitHub
   Pages, Netlify, Posit Connect, or any static file host (if you don’t
   use it with Shiny).
+- **AI-friendly** — React Router is one of the most widely used
+  JavaScript libraries, so AI tools like Claude, ChatGPT, or Copilot
+  know it well. Ask an AI to generate React Router code, adapt it to R,
+  and you’re done — no React knowledge needed.
 
 Used alone, `reactRouter` brings the best of both worlds: the
 **reactivity of Shiny** (data that updates as users interact) and the
@@ -90,18 +94,10 @@ htmltools::browsable(ui)
 
 ### Install
 
-For current version 0.2.0 (coming soon on CRAN):
-
-``` r
-
-remotes::install_github("lgnbhl/reactRouter") # development version
-```
-
-For older version 0.1.1 (older version on CRAN):
-
 ``` r
 
 install.packages("reactRouter")
+# remotes::install_github("lgnbhl/reactRouter") # development version
 ```
 
 ### Resources
@@ -137,8 +133,12 @@ Learn more about how to use data loaders with these R packages
 
 ### Contribute
 
-Would you like to contribute to the package? Have a look at the current
-[roadmap](https://github.com/users/lgnbhl/projects/2/views/1).
+Found a bug or have a feature request? [Open an
+issue](https://github.com/lgnbhl/reactRouter/issues). Pull requests are
+welcome.
+
+Follow [Felix Luginbuhl](https://linkedin.com/in/FelixLuginbuhl) on
+LinkedIn for updates.
 
 # Package index
 
@@ -156,10 +156,14 @@ Would you like to contribute to the package? Have a look at the current
   : createMemoryRouter
 - [`createRoutesFromElements()`](https://felixluginbuhl.com/reactRouter/reference/createRoutesFromElements.md)
   : createRoutesFromElements
+- [`dataResponse()`](https://felixluginbuhl.com/reactRouter/reference/dataResponse.md)
+  : dataResponse (loader/action helper)
 - [`Form()`](https://felixluginbuhl.com/reactRouter/reference/Form.md) :
   Form
 - [`HashRouter()`](https://felixluginbuhl.com/reactRouter/reference/HashRouter.md)
   : HashRouter
+- [`isRouteErrorResponse()`](https://felixluginbuhl.com/reactRouter/reference/isRouteErrorResponse.md)
+  : isRouteErrorResponse
 - [`Link()`](https://felixluginbuhl.com/reactRouter/reference/Link.md)
   [`Link.shinyInput()`](https://felixluginbuhl.com/reactRouter/reference/Link.md)
   [`updateLink.shinyInput()`](https://felixluginbuhl.com/reactRouter/reference/Link.md)
@@ -180,6 +184,12 @@ Would you like to contribute to the package? Have a look at the current
   : react-router-dom JS dependency
 - [`reactRouterExample()`](https://felixluginbuhl.com/reactRouter/reference/reactRouterExample.md)
   : Run reactRouterExample example
+- [`redirect()`](https://felixluginbuhl.com/reactRouter/reference/redirect.md)
+  : redirect (loader/action helper)
+- [`redirectDocument()`](https://felixluginbuhl.com/reactRouter/reference/redirectDocument.md)
+  : redirectDocument (loader/action helper)
+- [`replaceResponse()`](https://felixluginbuhl.com/reactRouter/reference/replaceResponse.md)
+  : replaceResponse (loader/action helper)
 - [`Route()`](https://felixluginbuhl.com/reactRouter/reference/Route.md)
   : Route
 - [`RouterProvider()`](https://felixluginbuhl.com/reactRouter/reference/RouterProvider.md)
@@ -190,6 +200,10 @@ Would you like to contribute to the package? Have a look at the current
   : ScrollRestoration
 - [`useActionData()`](https://felixluginbuhl.com/reactRouter/reference/useActionData.md)
   : useActionData
+- [`useAsyncError()`](https://felixluginbuhl.com/reactRouter/reference/useAsyncError.md)
+  : useAsyncError
+- [`useAsyncValue()`](https://felixluginbuhl.com/reactRouter/reference/useAsyncValue.md)
+  : useAsyncValue
 - [`useBlocker()`](https://felixluginbuhl.com/reactRouter/reference/useBlocker.md)
   : useBlocker
 - [`useFetcher()`](https://felixluginbuhl.com/reactRouter/reference/useFetcher.md)
@@ -198,6 +212,10 @@ Would you like to contribute to the package? Have a look at the current
   : useFetchers
 - [`useHref()`](https://felixluginbuhl.com/reactRouter/reference/useHref.md)
   : useHref
+- [`useInRouterContext()`](https://felixluginbuhl.com/reactRouter/reference/useInRouterContext.md)
+  : useInRouterContext
+- [`useLinkClickHandler()`](https://felixluginbuhl.com/reactRouter/reference/useLinkClickHandler.md)
+  : useLinkClickHandler
 - [`useLoaderData()`](https://felixluginbuhl.com/reactRouter/reference/useLoaderData.md)
   : useLoaderData
 - [`useLocation()`](https://felixluginbuhl.com/reactRouter/reference/useLocation.md)
@@ -206,10 +224,14 @@ Would you like to contribute to the package? Have a look at the current
   : useMatch
 - [`useMatches()`](https://felixluginbuhl.com/reactRouter/reference/useMatches.md)
   : useMatches
+- [`useNavigate()`](https://felixluginbuhl.com/reactRouter/reference/useNavigate.md)
+  : useNavigate
 - [`useNavigation()`](https://felixluginbuhl.com/reactRouter/reference/useNavigation.md)
   : useNavigation
 - [`useNavigationType()`](https://felixluginbuhl.com/reactRouter/reference/useNavigationType.md)
   : useNavigationType
+- [`useOutlet()`](https://felixluginbuhl.com/reactRouter/reference/useOutlet.md)
+  : useOutlet
 - [`useOutletContext()`](https://felixluginbuhl.com/reactRouter/reference/useOutletContext.md)
   : useOutletContext
 - [`useParams()`](https://felixluginbuhl.com/reactRouter/reference/useParams.md)
@@ -222,8 +244,14 @@ Would you like to contribute to the package? Have a look at the current
   : useRouteError
 - [`useRouteLoaderData()`](https://felixluginbuhl.com/reactRouter/reference/useRouteLoaderData.md)
   : useRouteLoaderData
+- [`useRoutes()`](https://felixluginbuhl.com/reactRouter/reference/useRoutes.md)
+  : useRoutes
 - [`useSearchParams()`](https://felixluginbuhl.com/reactRouter/reference/useSearchParams.md)
   : useSearchParams
+- [`useSubmit()`](https://felixluginbuhl.com/reactRouter/reference/useSubmit.md)
+  : useSubmit
+- [`useViewTransitionState()`](https://felixluginbuhl.com/reactRouter/reference/useViewTransitionState.md)
+  : useViewTransitionState
 
 # Articles
 
@@ -235,6 +263,8 @@ Would you like to contribute to the package? Have a look at the current
   reactRouter](https://felixluginbuhl.com/reactRouter/articles/introduction.md):
 - [Choosing a
   router](https://felixluginbuhl.com/reactRouter/articles/routers.md):
+- [Security
+  considerations](https://felixluginbuhl.com/reactRouter/articles/security.md):
 - [Tutorial: Using reactRouter with rhino and
   shiny.fluent](https://felixluginbuhl.com/reactRouter/articles/shiny.fluent.md):
 - [Using Form, useFetcher, useFetchers, and

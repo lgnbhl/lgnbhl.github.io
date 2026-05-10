@@ -4,7 +4,7 @@
 
 [`useLoaderData()`](https://felixluginbuhl.com/reactRouter/reference/useLoaderData.md)
 connects React Router’s
-[`useLoaderData()`](https://reactrouter.com/6.30.0/hooks/use-loader-data)
+[`useLoaderData()`](https://api.reactrouter.com/v7/functions/react-router.useLoaderData.html)
 hook to your UI. It calls the hook and injects the result into a
 component — either as text content inside a plain HTML element, or as a
 structured JavaScript value into any prop of a `shiny.react`-based
@@ -83,12 +83,6 @@ RouterProvider(
     )
   )
 )
-#> Warning: The `reloadDocument` argument of `NavLink()` default is now FALSE as of
-#> reactRouter 0.2.0.
-#> ℹ The default of `reloadDocument` was TRUE in version 0.1.1. It is now FALSE.
-#> This warning is displayed once per session.
-#> Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-#> generated.
 ```
 
 ## Injecting structured data into shiny.react components

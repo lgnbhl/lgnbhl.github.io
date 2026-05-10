@@ -70,5 +70,5 @@ resolved value (or a `selector` from it) `as` a prop. Use inside a
 [`Route`](https://felixluginbuhl.com/reactRouter/reference/Route.md)
 whose `loader` returns an object containing a promise (written via
 [`JS`](https://appsilon.github.io/shiny.react/reference/JS.html)). In
-React Router v7, simply return the object directly — no `defer()`
+React Router v7, simply return the object directly – no `defer()`
 wrapper is needed.

@@ -23,6 +23,7 @@
     <li><a class="dropdown-item" href="../articles/useLoaderData.html">Using Data Loaders</a></li>
     <li><a class="dropdown-item" href="../articles/useFetcher.html">Using Form and Fetchers</a></li>
     <li><a class="dropdown-item" href="../articles/advanced-hooks.html">Advanced Hooks</a></li>
+    <li><a class="dropdown-item" href="../articles/security.html">Security considerations</a></li>
   </ul></li>
 <li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">News</a></li>
@@ -67,7 +68,16 @@ a data grid, <code>"value"</code> for an input).</p></dd>
 
 
 <dt id="arg-param">param<a class="anchor" aria-label="anchor" href="#arg-param"></a></dt>
-<dd><p>argument to extract a single query parameter by name.</p></dd>
+<dd><p>Character. Name of a single query parameter to extract.
+  Returns a character vector of all values for that key (length 0 if
+  absent, length 1+ otherwise). When <code>NULL</code>, returns a named list
+  mapping each key to its vector of values.</p>
+<p><strong>Empty vs. missing.</strong> A missing key produces a length-0 vector,
+  which renders as an empty string when injected with the default
+  <code>as = "children"</code>. If you need to distinguish "absent" from
+  "present-but-empty" (e.g. show a placeholder), use the <code>render</code>
+  form and branch on <code>Array.isArray(v) &amp;&amp; v.length === 0</code>, e.g.
+  <code>render = JS("v =&gt; v.length ? v.join(', ') : &lt;em&gt;none&lt;/em&gt;")</code>.</p></dd>
 
 
 <dt id="arg-render">render<a class="anchor" aria-label="anchor" href="#arg-render"></a></dt>
@@ -85,8 +95,21 @@ pattern for cases where a single prop is not expressive enough (e.g.
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>Calls the <code>useSearchParams()</code> hook and injects the result
 <code>as</code> a prop of the <code>into</code> component. Use the <code>param</code>
-argument to extract a single query parameter by name.</p>
-    </div>
+argument to extract a query parameter by name.</p>
+<p>Values are always returned as character vectors so that repeated keys
+(e.g. <code>"?tag=a&amp;tag=b"</code>) are preserved. When injected as
+<code>"children"</code>, vectors are joined with <code>", "</code>; for custom
+formatting, use <code>render</code>.</p>
+<p><strong>Reading vs. writing.</strong> The upstream JS hook returns a tuple
+<code>[searchParams, setSearchParams]</code>. This wrapper splits the two paths:</p><ul><li><p><code>into</code> / <code>as</code> — <em>read-only</em>. Receives the parsed
+    params (or one <code>param</code>) and ignores the setter.</p></li>
+<li><p><code>render</code> — receives both as <code>(params, setSearchParams)</code>,
+    so use this form when you need to update the URL programmatically:</p><div class="sourceCode"><pre><code><span></span>
+<span>  <span class="fu"><a href="../reference/useSearchParams.html">useSearchParams</a></span><span class="op">(</span>render <span class="op">=</span> <span class="fu"><a href="https://appsilon.github.io/shiny.react/reference/JS.html" class="external-link">JS</a></span><span class="op">(</span></span>
+<span>    <span class="st">"(p, set) =&gt; &lt;button onClick={() =&gt; set({tag:'b'})}&gt;Filter&lt;/button&gt;"</span></span>
+<span>  <span class="op">)</span><span class="op">)</span></span>
+<span>    </span></code></pre></div></li>
+</ul></div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>

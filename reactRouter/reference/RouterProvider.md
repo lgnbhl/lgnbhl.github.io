@@ -35,3 +35,11 @@ pass a router built with
 or
 [`createMemoryRouter`](https://felixluginbuhl.com/reactRouter/reference/createMemoryRouter.md)
 to the `router` argument.
+
+The underlying router is created once on mount and is not rebuilt when
+[`Route()`](https://felixluginbuhl.com/reactRouter/reference/Route.md)
+children change at runtime — React Router data routers own their own
+navigation state and must be stable. To swap the route tree dynamically
+(e.g. based on Shiny inputs), remount `RouterProvider` itself, for
+instance by toggling its parent via
+[`shiny::renderUI`](https://rdrr.io/pkg/shiny/man/renderUI.html).

@@ -14,10 +14,14 @@
   : createMemoryRouter
 - [`createRoutesFromElements()`](https://felixluginbuhl.com/reactRouter/reference/createRoutesFromElements.md)
   : createRoutesFromElements
+- [`dataResponse()`](https://felixluginbuhl.com/reactRouter/reference/dataResponse.md)
+  : dataResponse (loader/action helper)
 - [`Form()`](https://felixluginbuhl.com/reactRouter/reference/Form.md) :
   Form
 - [`HashRouter()`](https://felixluginbuhl.com/reactRouter/reference/HashRouter.md)
   : HashRouter
+- [`isRouteErrorResponse()`](https://felixluginbuhl.com/reactRouter/reference/isRouteErrorResponse.md)
+  : isRouteErrorResponse
 - [`Link()`](https://felixluginbuhl.com/reactRouter/reference/Link.md)
   [`Link.shinyInput()`](https://felixluginbuhl.com/reactRouter/reference/Link.md)
   [`updateLink.shinyInput()`](https://felixluginbuhl.com/reactRouter/reference/Link.md)
@@ -38,6 +42,12 @@
   : react-router-dom JS dependency
 - [`reactRouterExample()`](https://felixluginbuhl.com/reactRouter/reference/reactRouterExample.md)
   : Run reactRouterExample example
+- [`redirect()`](https://felixluginbuhl.com/reactRouter/reference/redirect.md)
+  : redirect (loader/action helper)
+- [`redirectDocument()`](https://felixluginbuhl.com/reactRouter/reference/redirectDocument.md)
+  : redirectDocument (loader/action helper)
+- [`replaceResponse()`](https://felixluginbuhl.com/reactRouter/reference/replaceResponse.md)
+  : replaceResponse (loader/action helper)
 - [`Route()`](https://felixluginbuhl.com/reactRouter/reference/Route.md)
   : Route
 - [`RouterProvider()`](https://felixluginbuhl.com/reactRouter/reference/RouterProvider.md)
@@ -48,6 +58,10 @@
   : ScrollRestoration
 - [`useActionData()`](https://felixluginbuhl.com/reactRouter/reference/useActionData.md)
   : useActionData
+- [`useAsyncError()`](https://felixluginbuhl.com/reactRouter/reference/useAsyncError.md)
+  : useAsyncError
+- [`useAsyncValue()`](https://felixluginbuhl.com/reactRouter/reference/useAsyncValue.md)
+  : useAsyncValue
 - [`useBlocker()`](https://felixluginbuhl.com/reactRouter/reference/useBlocker.md)
   : useBlocker
 - [`useFetcher()`](https://felixluginbuhl.com/reactRouter/reference/useFetcher.md)
@@ -56,6 +70,10 @@
   : useFetchers
 - [`useHref()`](https://felixluginbuhl.com/reactRouter/reference/useHref.md)
   : useHref
+- [`useInRouterContext()`](https://felixluginbuhl.com/reactRouter/reference/useInRouterContext.md)
+  : useInRouterContext
+- [`useLinkClickHandler()`](https://felixluginbuhl.com/reactRouter/reference/useLinkClickHandler.md)
+  : useLinkClickHandler
 - [`useLoaderData()`](https://felixluginbuhl.com/reactRouter/reference/useLoaderData.md)
   : useLoaderData
 - [`useLocation()`](https://felixluginbuhl.com/reactRouter/reference/useLocation.md)
@@ -64,10 +82,14 @@
   : useMatch
 - [`useMatches()`](https://felixluginbuhl.com/reactRouter/reference/useMatches.md)
   : useMatches
+- [`useNavigate()`](https://felixluginbuhl.com/reactRouter/reference/useNavigate.md)
+  : useNavigate
 - [`useNavigation()`](https://felixluginbuhl.com/reactRouter/reference/useNavigation.md)
   : useNavigation
 - [`useNavigationType()`](https://felixluginbuhl.com/reactRouter/reference/useNavigationType.md)
   : useNavigationType
+- [`useOutlet()`](https://felixluginbuhl.com/reactRouter/reference/useOutlet.md)
+  : useOutlet
 - [`useOutletContext()`](https://felixluginbuhl.com/reactRouter/reference/useOutletContext.md)
   : useOutletContext
 - [`useParams()`](https://felixluginbuhl.com/reactRouter/reference/useParams.md)
@@ -80,5 +102,11 @@
   : useRouteError
 - [`useRouteLoaderData()`](https://felixluginbuhl.com/reactRouter/reference/useRouteLoaderData.md)
   : useRouteLoaderData
+- [`useRoutes()`](https://felixluginbuhl.com/reactRouter/reference/useRoutes.md)
+  : useRoutes
 - [`useSearchParams()`](https://felixluginbuhl.com/reactRouter/reference/useSearchParams.md)
   : useSearchParams
+- [`useSubmit()`](https://felixluginbuhl.com/reactRouter/reference/useSubmit.md)
+  : useSubmit
+- [`useViewTransitionState()`](https://felixluginbuhl.com/reactRouter/reference/useViewTransitionState.md)
+  : useViewTransitionState

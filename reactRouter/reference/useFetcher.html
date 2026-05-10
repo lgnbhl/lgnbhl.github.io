@@ -23,6 +23,7 @@
     <li><a class="dropdown-item" href="../articles/useLoaderData.html">Using Data Loaders</a></li>
     <li><a class="dropdown-item" href="../articles/useFetcher.html">Using Form and Fetchers</a></li>
     <li><a class="dropdown-item" href="../articles/advanced-hooks.html">Advanced Hooks</a></li>
+    <li><a class="dropdown-item" href="../articles/security.html">Security considerations</a></li>
   </ul></li>
 <li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">News</a></li>
@@ -51,7 +52,7 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">useFetcher</span><span class="op">(</span></span>
 <span>  into <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  as <span class="op">=</span> <span class="st">"children"</span>,</span>
-<span>  selector <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  selector <span class="op">=</span> <span class="st">"state"</span>,</span>
 <span>  render <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  fetcherKey <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  <span class="va">...</span></span>
@@ -102,6 +103,14 @@ components (e.g. <code>"my-fetcher"</code>).</p></dd>
 Use to fetch data or submit forms without causing a navigation.
 The fetcher object has <code>state</code> (<code>"idle"</code>/<code>"loading"</code>/<code>"submitting"</code>) and
 <code>data</code> (the response from a loader or action).</p>
+
+<p><code>selector</code> defaults to <code>"state"</code> so the default <code>into</code>/
+<code>children</code> display shows a readable string (<code>"idle"</code> /
+<code>"loading"</code> / <code>"submitting"</code>). The full fetcher object contains
+methods (<code>submit</code>, <code>load</code>, <code>Form</code>) that would be silently
+dropped by JSON serialization if the whole object were rendered as
+children. To call those methods, use the <code>render = JS(...)</code> form,
+which receives the full fetcher: <code>render = JS("f =&gt; &lt;button onClick={() =&gt; f.load('/data')}&gt;Reload&lt;/button&gt;")</code>.</p>
     </div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

@@ -25,6 +25,7 @@ Otherwise, falls back to standard shiny.tag printing (raw HTML text)."><meta pro
     <li><a class="dropdown-item" href="../articles/useLoaderData.html">Using Data Loaders</a></li>
     <li><a class="dropdown-item" href="../articles/useFetcher.html">Using Form and Fetchers</a></li>
     <li><a class="dropdown-item" href="../articles/advanced-hooks.html">Advanced Hooks</a></li>
+    <li><a class="dropdown-item" href="../articles/security.html">Security considerations</a></li>
   </ul></li>
 <li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">News</a></li>
@@ -74,6 +75,19 @@ Otherwise, falls back to standard shiny.tag printing (raw HTML text).</p>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>Invisibly returns x.</p>
+    </div>
+    <div class="section level2">
+    <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
+    <p>Only the router-root constructors carry the <code>"reactRouter"</code> S3 class
+and therefore dispatch to this method:
+<code><a href="RouterProvider.html">RouterProvider</a></code>, <code><a href="createHashRouter.html">createHashRouter</a></code>,
+<code><a href="createBrowserRouter.html">createBrowserRouter</a></code>, <code><a href="createMemoryRouter.html">createMemoryRouter</a></code>,
+<code><a href="HashRouter.html">HashRouter</a></code>, <code><a href="BrowserRouter.html">BrowserRouter</a></code>, and
+<code><a href="MemoryRouter.html">MemoryRouter</a></code>. Inner pieces (<code><a href="Route.html">Route</a></code>,
+<code><a href="Link.html">Link</a></code>, <code><a href="Outlet.html">Outlet</a></code>, hooks, ...) are plain
+<code>shiny.tag</code> elements – printing one of those on its own is rarely
+useful (it has no router context to render against), so they intentionally
+fall through to the default <code>shiny.tag</code> print method.</p>
     </div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

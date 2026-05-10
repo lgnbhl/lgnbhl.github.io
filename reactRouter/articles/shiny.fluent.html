@@ -43,6 +43,7 @@
     <li><a class="dropdown-item" href="../articles/useLoaderData.html">Using Data Loaders</a></li>
     <li><a class="dropdown-item" href="../articles/useFetcher.html">Using Form and Fetchers</a></li>
     <li><a class="dropdown-item" href="../articles/advanced-hooks.html">Advanced Hooks</a></li>
+    <li><a class="dropdown-item" href="../articles/security.html">Security considerations</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
@@ -77,6 +78,16 @@
 <div class="section level2">
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
+<blockquote>
+<p><strong>Note.</strong> This tutorial uses the legacy component-based
+router (<code><a href="../reference/HashRouter.html">HashRouter()</a></code> + <code><a href="../reference/Routes.html">Routes()</a></code>) for
+compatibility with <code>rhino</code>’s <code>box</code> module loading.
+For new projects, prefer the data router API
+(<code><a href="../reference/RouterProvider.html">RouterProvider()</a></code> + <code><a href="../reference/createHashRouter.html">createHashRouter()</a></code>) shown
+in <code><a href="../articles/routers.html">vignette("routers", package = "reactRouter")</a></code>, which
+unlocks <code>loader</code>, <code>action</code>,
+<code>errorElement</code>, and the full hook surface.</p>
+</blockquote>
 <p>This tutorial demonstrates how to build a dynamic Shiny application
 using <code>reactRouter</code> for routing and <code>shiny.fluent</code>
 for modern UI components, all within the <code>rhino</code> framework.
@@ -102,7 +113,7 @@ following libraries to your <code>dependencies.R</code> file:</p>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://httr.r-lib.org/" class="external-link">httr</a></span><span class="op">)</span> <span class="co"># API requests</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://appsilon.github.io/shiny.fluent/" class="external-link">shiny.fluent</a></span><span class="op">)</span> <span class="co"># UI components</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/reactRouter/">reactRouter</a></span><span class="op">)</span> <span class="co"># Client-side routing</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://echarts4r.john-coene.com/" class="external-link">echarts4r</a></span><span class="op">)</span> <span class="co"># Charting</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://echarts4r.john-coene.com" class="external-link">echarts4r</a></span><span class="op">)</span> <span class="co"># Charting</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/markvanderloo/stringdist" class="external-link">stringdist</a></span><span class="op">)</span> <span class="co"># String matching</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/DavisVaughan/r-tree-sitter" class="external-link">treesitter</a></span><span class="op">)</span> <span class="co"># Optional: Syntax parsing</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/r-lib/tree-sitter-r" class="external-link">treesitter.r</a></span><span class="op">)</span> <span class="co"># Optional: R syntax support</span></span></code></pre></div>
@@ -165,7 +176,7 @@ components is in the <code>app.R</code> file.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># app / main.R</span></span>
 <span></span>
-<span><span class="fu">box</span><span class="fu">::</span><span class="fu"><a href="http://klmr.me/box/reference/use.html" class="external-link">use</a></span><span class="op">(</span></span>
+<span><span class="fu">box</span><span class="fu">::</span><span class="fu"><a href="https://klmr.me/box/reference/use.html" class="external-link">use</a></span><span class="op">(</span></span>
 <span>  <span class="va">app</span> <span class="op">/</span> <span class="va">view</span> <span class="op">/</span> <span class="va">home</span>,</span>
 <span>  <span class="va">app</span> <span class="op">/</span> <span class="va">view</span> <span class="op">/</span> <span class="va">menu</span>,</span>
 <span>  <span class="va">app</span> <span class="op">/</span> <span class="va">view</span> <span class="op">/</span> <span class="va">details</span>,</span>

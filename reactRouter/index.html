@@ -16,8 +16,8 @@
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="React Router for shiny Apps and Quarto">
-<meta name="description" content="Provides a wrapper around the react-router-dom React library for use in Shiny applications and Quarto documents. Enables client-side routing with hash, and memory history strategies, nested routes, dynamic segments, data loaders, actions, and navigation hooks.">
-<meta property="og:description" content="Provides a wrapper around the react-router-dom React library for use in Shiny applications and Quarto documents. Enables client-side routing with hash, and memory history strategies, nested routes, dynamic segments, data loaders, actions, and navigation hooks.">
+<meta name="description" content="Provides a wrapper around the react-router-dom React library for use in Shiny applications and Quarto documents. Enables client-side routing with hash, memory, and browser history strategies, nested routes, dynamic segments, data loaders, actions, and navigation hooks.">
+<meta property="og:description" content="Provides a wrapper around the react-router-dom React library for use in Shiny applications and Quarto documents. Enables client-side routing with hash, memory, and browser history strategies, nested routes, dynamic segments, data loaders, actions, and navigation hooks.">
 <meta property="og:image" content="https://felixluginbuhl.com/reactRouter/logo.png">
 </head>
 <body>
@@ -46,6 +46,7 @@
     <li><a class="dropdown-item" href="articles/useLoaderData.html">Using Data Loaders</a></li>
     <li><a class="dropdown-item" href="articles/useFetcher.html">Using Form and Fetchers</a></li>
     <li><a class="dropdown-item" href="articles/advanced-hooks.html">Advanced Hooks</a></li>
+    <li><a class="dropdown-item" href="articles/security.html">Security considerations</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
@@ -82,6 +83,8 @@
 <strong>Reactivity without a server</strong> — data loaders fetch and display data as users navigate, entirely in the browser, without requiring a running R server.</li>
 <li>
 <strong>Static hosting</strong> — the output is plain HTML/JS, deployable to GitHub Pages, Netlify, Posit Connect, or any static file host (if you don’t use it with Shiny).</li>
+<li>
+<strong>AI-friendly</strong> — React Router is one of the most widely used JavaScript libraries, so AI tools like Claude, ChatGPT, or Copilot know it well. Ask an AI to generate React Router code, adapt it to R, and you’re done — no React knowledge needed.</li>
 </ul>
 <p>Used alone, <code>reactRouter</code> brings the best of both worlds: the <strong>reactivity of Shiny</strong> (data that updates as users interact) and the <strong>simplicity of Quarto</strong> (multiple pages as static files, hostable anywhere, no server to maintain or pay for).</p>
 </div>
@@ -146,12 +149,9 @@
 <div class="section level3">
 <h3 id="install">Install<a class="anchor" aria-label="anchor" href="#install"></a>
 </h3>
-<p>For current version 0.2.0 (coming soon on CRAN):</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"lgnbhl/reactRouter"</span><span class="op">)</span> <span class="co"># development version</span></span></code></pre></div>
-<p>For older version 0.1.1 (older version on CRAN):</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"reactRouter"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"reactRouter"</span><span class="op">)</span></span>
+<span><span class="co"># remotes::install_github("lgnbhl/reactRouter") # development version</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="resources">Resources<a class="anchor" aria-label="anchor" href="#resources"></a>
@@ -182,7 +182,8 @@
 <div class="section level3">
 <h3 id="contribute">Contribute<a class="anchor" aria-label="anchor" href="#contribute"></a>
 </h3>
-<p>Would you like to contribute to the package? Have a look at the current <a href="https://github.com/users/lgnbhl/projects/2/views/1" class="external-link">roadmap</a>.</p>
+<p>Found a bug or have a feature request? <a href="https://github.com/lgnbhl/reactRouter/issues" class="external-link">Open an issue</a>. Pull requests are welcome.</p>
+<p>Follow <a href="https://linkedin.com/in/FelixLuginbuhl" class="external-link">Felix Luginbuhl</a> on LinkedIn for updates.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
@@ -214,7 +215,7 @@
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
 <li>
-<a href="https://felixluginbuhl.com" class="external-link">Felix Luginbuhl</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0009-0008-6625-2899" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
+<a href="https://felixluginbuhl.com" class="external-link">Felix Luginbuhl</a> <br><small class="roles"> Author, maintainer, copyright holder </small> <a href="https://orcid.org/0009-0008-6625-2899" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
 <li><a href="authors.html">More about authors...</a></li>
 </ul>
 </div>
@@ -225,7 +226,7 @@
 <li><a href="https://CRAN.R-project.org/package=reactRouter" class="external-link"><img src="https://www.r-pkg.org/badges/version/reactRouter" alt="CRAN status"></a></li>
 <li><a href="https://cran.r-project.org/package=reactRouter" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/grand-total/reactRouter" alt="Grand total"></a></li>
 <li><a href="https://github.com/lgnbhl/reactRouter/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/lgnbhl/reactRouter/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://reactrouter.com" class="external-link"><img src="https://img.shields.io/badge/react--router--dom-7.14.0-blue.svg"></a></li>
+<li><a href="https://reactrouter.com" class="external-link"><img src="https://img.shields.io/badge/react--router--dom-7.15.0-blue.svg"></a></li>
 <li><a href="https://www.linkedin.com/in/FelixLuginbuhl" class="external-link"><img src="https://img.shields.io/badge/LinkedIn-Follow-E4405F?style=social&amp;logo=linkedin" alt="LinkedIn"></a></li>
 </ul>
 </div>

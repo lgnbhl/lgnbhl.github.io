@@ -23,6 +23,7 @@
     <li><a class="dropdown-item" href="../articles/useLoaderData.html">Using Data Loaders</a></li>
     <li><a class="dropdown-item" href="../articles/useFetcher.html">Using Form and Fetchers</a></li>
     <li><a class="dropdown-item" href="../articles/advanced-hooks.html">Advanced Hooks</a></li>
+    <li><a class="dropdown-item" href="../articles/security.html">Security considerations</a></li>
   </ul></li>
 <li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="active nav-item"><a class="nav-link" href="../news/index.html">News</a></li>
@@ -43,12 +44,44 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.0" id="reactrouter-020">reactRouter 0.2.0<a class="anchor" aria-label="anchor" href="#reactrouter-020"></a></h2>
-<ul><li>CRAN submission</li>
-<li>update React Router to v.7</li>
-<li>added components from React Router v.7 as R functions, including hooks.</li>
-<li>BREAKING CHANGE: <code>RouterProvider</code> use “router” argument with <code>create*Router()</code> functions.</li>
-<li>warning message regarding BREAKING CHANGE <code>reloadDocument</code>: now FALSE by default</li>
+<p>CRAN submission. Major release upgrading the package to React Router v7 with the data router API (loaders, actions, fetchers, deferred data).</p>
+<div class="section level3">
+<h3 id="breaking-changes-0-2-0">Breaking changes<a class="anchor" aria-label="anchor" href="#breaking-changes-0-2-0"></a></h3>
+<ul><li>
+<code><a href="../reference/RouterProvider.html">RouterProvider()</a></code> now takes a <code>router</code> argument built with <code>create*Router()</code> instead of route children.</li>
+<li>
+<code><a href="https://rdrr.io/r/utils/data.html" class="external-link">data()</a></code> was renamed to <code><a href="../reference/dataResponse.html">dataResponse()</a></code> and <code><a href="https://rdrr.io/r/base/replace.html" class="external-link">replace()</a></code> was renamed to <code><a href="../reference/replaceResponse.html">replaceResponse()</a></code> to avoid masking base R functions.</li>
+<li>
+<code>reloadDocument</code> on <code><a href="../reference/Link.html">Link()</a></code> / <code><a href="../reference/NavLink.html">NavLink()</a></code> defaults to <code>FALSE</code>.</li>
 </ul></div>
+<div class="section level3">
+<h3 id="new-features-0-2-0">New features<a class="anchor" aria-label="anchor" href="#new-features-0-2-0"></a></h3>
+<ul><li>Updated to React Router v7 (<code>react-router-dom</code> 7.x).</li>
+<li>Data router API: <code><a href="../reference/createBrowserRouter.html">createBrowserRouter()</a></code>, <code><a href="../reference/createHashRouter.html">createHashRouter()</a></code>, <code><a href="../reference/createMemoryRouter.html">createMemoryRouter()</a></code> paired with <code>RouterProvider(router = ...)</code> — the recommended way to use loaders, actions, fetchers, and <code>Await</code>.</li>
+<li>New components: <code>Await</code>, <code>Form</code>, <code>ScrollRestoration</code>, <code>Outlet</code>, <code>Routes</code>, <code>Navigate</code>.</li>
+<li>New hooks: <code>useLoaderData</code>, <code>useActionData</code>, <code>useNavigation</code>, <code>useNavigate</code>, <code>useNavigationType</code>, <code>useMatch</code>, <code>useMatches</code>, <code>useSearchParams</code>, <code>useRouteError</code>, <code>useRouteLoaderData</code>, <code>useFetcher</code>, <code>useFetchers</code>, <code>useRevalidator</code>, <code>useBlocker</code>, <code>useSubmit</code>, and more.</li>
+<li>New loader/action helpers: <code><a href="../reference/redirect.html">redirect()</a></code>, <code><a href="../reference/replaceResponse.html">replaceResponse()</a></code>, <code><a href="../reference/redirectDocument.html">redirectDocument()</a></code>, <code><a href="../reference/dataResponse.html">dataResponse()</a></code>.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="security-0-2-0">Security<a class="anchor" aria-label="anchor" href="#security-0-2-0"></a></h3>
+<ul><li>
+<code><a href="../reference/redirect.html">redirect()</a></code>, <code><a href="../reference/replaceResponse.html">replaceResponse()</a></code>, and <code><a href="../reference/redirectDocument.html">redirectDocument()</a></code> reject unsafe URL schemes (<code>javascript:</code>, <code>data:</code>, <code>vbscript:</code>) and protocol-relative targets.</li>
+<li>
+<code><a href="../reference/reactRouterExample.html">reactRouterExample()</a></code> validates <code>example</code> against the list of bundled examples, closing a path-traversal vector in user-supplied input.</li>
+<li>New vignette: “Security considerations” — guidance on loaders/actions as client-side code, URL-encoding route params, redirect targets, CSP, and more.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="diagnostics--ergonomics-0-2-0">Diagnostics &amp; ergonomics<a class="anchor" aria-label="anchor" href="#diagnostics--ergonomics-0-2-0"></a></h3>
+<ul><li>
+<code><a href="../reference/Route.html">Route()</a></code> validates that <code>loader</code> and <code>action</code> inherit from <code>JS_EVAL</code> at call time, surfacing a common mistake before it becomes a browser-side error.</li>
+<li>
+<code><a href="../reference/dataResponse.html">dataResponse()</a></code>: <code>value</code> is now a required argument.</li>
+<li>
+<code><a href="../reference/useNavigate.html">useNavigate()</a></code>, <code><a href="../reference/useSubmit.html">useSubmit()</a></code>, and <code><a href="../reference/useLinkClickHandler.html">useLinkClickHandler()</a></code> refuse <code>into=</code> with <code>as = "children"</code> and point to <code>render = JS(...)</code> or <code>as = "onClick"</code> — these hooks return functions, not renderable children.</li>
+<li>
+<code>RouterProvider</code> logs a dev-mode warning when the route tree changes after mount; remount via a <code>key</code> prop to apply new routes.</li>
+</ul></div>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.2" id="reactrouter-012">reactRouter 0.1.2<a class="anchor" aria-label="anchor" href="#reactrouter-012"></a></h2>
 <ul><li>BREAKING CHANGE: <code>reloadDocument</code> is now FALSE by default (like in React Router 6.30.0)</li>

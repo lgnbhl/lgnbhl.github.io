@@ -13,21 +13,18 @@ useNavigationType(into = NULL, as = "children", render = NULL, ...)
 - into:
 
   A component (HTML tag or shiny.react-based element) that will receive
-  the hook data as the specified prop.
+  the hook value as the specified prop.
 
 - as:
 
-  Character. The name of the component's prop to inject the hook data
-  into (by default `"children"` for text display, `"rows"` for a data
-  grid, `"value"` for an input).
+  Character. The name of the component's prop to inject the hook value
+  into. Defaults to `"children"`.
 
 - render:
 
   Optional
   [`JS`](https://appsilon.github.io/shiny.react/reference/JS.html)
-  function `(value) => ReactNode` used in place of `into`/`as`. Mirrors
-  the native React Router pattern for cases where a single prop is not
-  expressive enough (e.g. `` JS("v => `${v.first} ${v.last}`") ``).
+  function `(value) => ReactNode` used in place of `into`/`as`.
 
 - ...:
 

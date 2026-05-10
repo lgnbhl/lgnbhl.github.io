@@ -18,6 +18,34 @@ with
 or
 [`createMemoryRouter()`](https://felixluginbuhl.com/reactRouter/reference/createMemoryRouter.md).
 
+## Why “hooks” are components in this package
+
+In React, a hook like
+[`useLocation()`](https://felixluginbuhl.com/reactRouter/reference/useLocation.md)
+is a function call inside another component. In R, you don’t write
+components — you compose Shiny tag trees. **reactRouter** therefore
+bridges every hook through a tiny JSX component on the JavaScript side:
+the R-level
+[`useLocation()`](https://felixluginbuhl.com/reactRouter/reference/useLocation.md)
+returns a React element that, when rendered, calls
+[`useLocation()`](https://felixluginbuhl.com/reactRouter/reference/useLocation.md)
+for you and either injects the value into the component you supplied
+(`into` + `as`) or hands it to a JavaScript `render` function.
+
+The practical consequence is that **every hook call must produce some
+UI**: either a target component that receives the value, or a
+`render = JS(...)` function that returns a React node. There is no “call
+the hook just to trigger a side effect” form, because the hook only runs
+when its element is mounted in the React tree. If you need to react to a
+hook value from the Shiny server, mount a
+[`Link.shinyInput()`](https://felixluginbuhl.com/reactRouter/reference/Link.md)
+/
+[`NavLink.shinyInput()`](https://felixluginbuhl.com/reactRouter/reference/NavLink.md)
+or read `session$clientData$url_hash` instead of trying to drive an
+`observeEvent()` from
+[`useLocation()`](https://felixluginbuhl.com/reactRouter/reference/useLocation.md)
+directly.
+
 ## Two ways to inject hook values
 
 Every hook wrapper in **reactRouter** offers two mutually exclusive ways
@@ -182,12 +210,6 @@ RouterProvider(
     )
   )
 )
-#> Warning: The `reloadDocument` argument of `NavLink()` default is now FALSE as of
-#> reactRouter 0.2.0.
-#> ℹ The default of `reloadDocument` was TRUE in version 0.1.1. It is now FALSE.
-#> This warning is displayed once per session.
-#> Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-#> generated.
 ```
 
 ### Conditional blocking

@@ -8,7 +8,7 @@
 useFetcher(
   into = NULL,
   as = "children",
-  selector = NULL,
+  selector = "state",
   render = NULL,
   fetcherKey = NULL,
   ...
@@ -58,3 +58,11 @@ from it) `as` a prop of the `into` component. Use to fetch data or
 submit forms without causing a navigation. The fetcher object has
 `state` (`"idle"`/`"loading"`/`"submitting"`) and `data` (the response
 from a loader or action).
+
+`selector` defaults to `"state"` so the default `into`/ `children`
+display shows a readable string (`"idle"` / `"loading"` /
+`"submitting"`). The full fetcher object contains methods (`submit`,
+`load`, `Form`) that would be silently dropped by JSON serialization if
+the whole object were rendered as children. To call those methods, use
+the `render = JS(...)` form, which receives the full fetcher:
+`render = JS("f => <button onClick={() => f.load('/data')}>Reload</button>")`.

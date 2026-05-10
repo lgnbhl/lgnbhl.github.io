@@ -17,6 +17,10 @@ its own. It extends whatever you are already building with new features:
 - **Static hosting** — the output is plain HTML/JS, deployable to GitHub
   Pages, Netlify, Posit Connect, or any static file host (if you don’t
   use it with Shiny).
+- **AI-friendly** — React Router is one of the most widely used
+  JavaScript libraries, so AI tools like Claude, ChatGPT, or Copilot
+  know it well. Ask an AI to generate React Router code, adapt it to R,
+  and you’re done — no React knowledge needed.
 
 Used alone, `reactRouter` brings the best of both worlds: the
 **reactivity of Shiny** (data that updates as users interact) and the
@@ -90,18 +94,10 @@ htmltools::browsable(ui)
 
 ### Install
 
-For current version 0.2.0 (coming soon on CRAN):
-
-``` r
-
-remotes::install_github("lgnbhl/reactRouter") # development version
-```
-
-For older version 0.1.1 (older version on CRAN):
-
 ``` r
 
 install.packages("reactRouter")
+# remotes::install_github("lgnbhl/reactRouter") # development version
 ```
 
 ### Resources
@@ -137,5 +133,9 @@ Learn more about how to use data loaders with these R packages
 
 ### Contribute
 
-Would you like to contribute to the package? Have a look at the current
-[roadmap](https://github.com/users/lgnbhl/projects/2/views/1).
+Found a bug or have a feature request? [Open an
+issue](https://github.com/lgnbhl/reactRouter/issues). Pull requests are
+welcome.
+
+Follow [Felix Luginbuhl](https://linkedin.com/in/FelixLuginbuhl) on
+LinkedIn for updates.

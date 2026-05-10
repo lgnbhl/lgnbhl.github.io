@@ -23,6 +23,7 @@
     <li><a class="dropdown-item" href="../articles/useLoaderData.html">Using Data Loaders</a></li>
     <li><a class="dropdown-item" href="../articles/useFetcher.html">Using Form and Fetchers</a></li>
     <li><a class="dropdown-item" href="../articles/advanced-hooks.html">Advanced Hooks</a></li>
+    <li><a class="dropdown-item" href="../articles/security.html">Security considerations</a></li>
   </ul></li>
 <li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">News</a></li>
@@ -75,6 +76,11 @@ resolving.</p></dd>
 pass a router built with <code><a href="createHashRouter.html">createHashRouter</a></code>,
 <code><a href="createBrowserRouter.html">createBrowserRouter</a></code>, or <code><a href="createMemoryRouter.html">createMemoryRouter</a></code> to
 the <code>router</code> argument.</p>
+<p>The underlying router is created once on mount and is not rebuilt when
+<code><a href="Route.html">Route()</a></code> children change at runtime — React Router data routers own
+their own navigation state and must be stable. To swap the route tree
+dynamically (e.g. based on Shiny inputs), remount <code>RouterProvider</code>
+itself, for instance by toggling its parent via <code><a href="https://rdrr.io/pkg/shiny/man/renderUI.html" class="external-link">shiny::renderUI</a></code>.</p>
     </div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

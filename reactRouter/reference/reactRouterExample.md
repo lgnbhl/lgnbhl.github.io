@@ -13,8 +13,8 @@ reactRouterExample(example = NULL, ...)
 
 - example:
 
-  The name of the example to run, or \`NULL\` to retrieve the list of
-  examples.
+  The name of the example to run, or \`NULL\` to print and invisibly
+  return the list of available examples.
 
 - ...:
 
@@ -22,9 +22,12 @@ reactRouterExample(example = NULL, ...)
 
 ## Value
 
-This function normally does not return; interrupt R to stop the
-application (usually by pressing Ctrl+C or Esc).
+When \`example\` is \`NULL\`, invisibly returns a character vector of
+example names (also printed via \`message()\`). Otherwise this function
+normally does not return; interrupt R to stop the application (usually
+by pressing Ctrl+C or Esc).
 
 ## See also
 
-\[shiny.blueprint::runExample()\] which this function is an adaptation.
+[`shiny.blueprint::runExample()`](https://rdrr.io/pkg/shiny.blueprint/man/runExample.html),
+which this function is adapted from.

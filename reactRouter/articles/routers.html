@@ -43,6 +43,7 @@
     <li><a class="dropdown-item" href="../articles/useLoaderData.html">Using Data Loaders</a></li>
     <li><a class="dropdown-item" href="../articles/useFetcher.html">Using Form and Fetchers</a></li>
     <li><a class="dropdown-item" href="../articles/advanced-hooks.html">Advanced Hooks</a></li>
+    <li><a class="dropdown-item" href="../articles/security.html">Security considerations</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
@@ -325,6 +326,22 @@ the server is configured to rewrite all routes to
 application deployment (e.g. React served by Node.js, Express, or Nginx
 with URL rewriting). That scenario is outside the scope of this R
 package.</p>
+<p>If you nevertheless decide to use <code><a href="../reference/createBrowserRouter.html">createBrowserRouter()</a></code>
+and your Shiny app is mounted under a sub-path (e.g. on Posit Connect at
+<code>/content/abc/</code> or behind a reverse proxy), set
+<code>basename</code> so the router knows where the app starts.
+Otherwise every route 404s because the router compares the full path
+(<code>/content/abc/about</code>) against patterns rooted at
+<code>/</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/RouterProvider.html">RouterProvider</a></span><span class="op">(</span></span>
+<span>  router <span class="op">=</span> <span class="fu"><a href="../reference/createBrowserRouter.html">createBrowserRouter</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="../reference/Route.html">Route</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"/"</span>, element <span class="op">=</span> <span class="va">...</span><span class="op">)</span>,</span>
+<span>    basename <span class="op">=</span> <span class="st">"/content/abc"</span>   <span class="co"># match your deployment prefix</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<p><code><a href="../reference/createHashRouter.html">createHashRouter()</a></code> and <code><a href="../reference/createMemoryRouter.html">createMemoryRouter()</a></code>
+do not need <code>basename</code> — neither uses the URL path.</p>
 <hr>
 </div>
 <div class="section level2">
@@ -346,85 +363,89 @@ preferred for new code</strong> because the component-based API:</p>
 <p>Use <code><a href="../reference/HashRouter.html">HashRouter()</a></code> or <code><a href="../reference/MemoryRouter.html">MemoryRouter()</a></code> only if
 you have a specific reason to stay with the component API
 (e.g. migrating an existing app incrementally).</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Legacy: component API — still works, but RouterProvider() is preferred</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/reactRouter/">reactRouter</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/HashRouter.html">HashRouter</a></span><span class="op">(</span></span>
-<span>  <span class="fu"><a href="../reference/NavLink.html">NavLink</a></span><span class="op">(</span>to <span class="op">=</span> <span class="st">"/"</span>,      reloadDocument <span class="op">=</span> <span class="cn">TRUE</span>, <span class="st">"Home"</span><span class="op">)</span>, <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">br</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>  <span class="fu"><a href="../reference/NavLink.html">NavLink</a></span><span class="op">(</span>to <span class="op">=</span> <span class="st">"/other"</span>, reloadDocument <span class="op">=</span> <span class="cn">TRUE</span>, <span class="st">"Other"</span><span class="op">)</span>,</span>
-<span>  <span class="fu"><a href="../reference/Routes.html">Routes</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="../reference/Route.html">Route</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"/"</span>,      element <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/htmlOutput.html" class="external-link">uiOutput</a></span><span class="op">(</span><span class="st">"uiHome"</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="../reference/Route.html">Route</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"/other"</span>, element <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/htmlOutput.html" class="external-link">uiOutput</a></span><span class="op">(</span><span class="st">"uiOther"</span><span class="op">)</span><span class="op">)</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="va">url_hash</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactive.html" class="external-link">reactive</a></span><span class="op">(</span><span class="va">session</span><span class="op">$</span><span class="va">clientData</span><span class="op">$</span><span class="va">url_hash</span><span class="op">)</span></span>
-<span></span>
-<span>  <span class="va">output</span><span class="op">$</span><span class="va">uiHome</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderUI.html" class="external-link">renderUI</a></span><span class="op">(</span><span class="op">{</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="st">"Home — hash: "</span>,  <span class="fu">url_hash</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">}</span><span class="op">)</span></span>
-<span>  <span class="va">output</span><span class="op">$</span><span class="va">uiOther</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderUI.html" class="external-link">renderUI</a></span><span class="op">(</span><span class="op">{</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="st">"Other — hash: "</span>, <span class="fu">url_hash</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">}</span><span class="op">)</span></span>
-<span><span class="op">}</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre></div>
+<div class="section level3">
+<h3 id="legacy-router-caveat-re-rendering-parent-ui-remounts-route-elements">Legacy router caveat: re-rendering parent UI remounts route
+elements<a class="anchor" aria-label="anchor" href="#legacy-router-caveat-re-rendering-parent-ui-remounts-route-elements"></a>
+</h3>
+<p><code><a href="../reference/Route.html">Route()</a></code> attaches a fresh random React <code>key</code>
+to its <code>element</code> on every R-side call. The data router
+(<code><a href="../reference/createHashRouter.html">createHashRouter()</a></code> / <code><a href="../reference/RouterProvider.html">RouterProvider()</a></code>) builds
+the route tree once on mount and is unaffected. The component-API
+routers (<code><a href="../reference/HashRouter.html">HashRouter()</a></code> / <code><a href="../reference/MemoryRouter.html">MemoryRouter()</a></code> +
+<code><a href="../reference/Routes.html">Routes()</a></code> + <code><a href="../reference/Route.html">Route()</a></code>) are different: if the host
+UI is re-rendered — typically via <code><a href="https://rdrr.io/pkg/shiny/man/renderUI.html" class="external-link">shiny::renderUI()</a></code> /
+<code><a href="https://rdrr.io/pkg/shiny/man/htmlOutput.html" class="external-link">shiny::uiOutput()</a></code> — <code><a href="../reference/Route.html">Route()</a></code> is re-evaluated,
+every route element gets a new key, and React unmounts and remounts the
+matched element on every parent render even when the URL has not
+changed. Any client-side state inside the route element (form input,
+scroll position, third-party widget state) is reset.</p>
+<p>Workarounds:</p>
+<ul>
+<li>
+<strong>Preferred:</strong> switch to
+<code>RouterProvider(router = createHashRouter(...))</code>. The data
+router builds the route tree once and is immune.</li>
+<li>If you must keep the legacy component API, render the router at the
+top level of your <code>ui</code> (not inside <code>renderUI</code>) so
+it is built once.</li>
+</ul>
 <hr>
+</div>
 </div>
 <div class="section level2">
 <h2 id="understanding-reloaddocument">Understanding <code>reloadDocument</code><a class="anchor" aria-label="anchor" href="#understanding-reloaddocument"></a>
 </h2>
 <p><code><a href="../reference/Link.html">Link()</a></code> and <code><a href="../reference/NavLink.html">NavLink()</a></code> accept a
-<code>reloadDocument</code> prop that controls how navigation works. The
-default is <code>FALSE</code>, matching React Router’s own default.</p>
+<code>reloadDocument</code> prop. The default is <code>FALSE</code>,
+matching React Router’s own default, and that default is correct for
+almost every use of this package — including Shiny apps with
+server-rendered output.</p>
 <div class="section level3">
-<h3 id="reloaddocument-false-default">
-<code>reloadDocument = FALSE</code> (default)<a class="anchor" aria-label="anchor" href="#reloaddocument-false-default"></a>
+<h3 id="reloaddocument-false-default-recommended">
+<code>reloadDocument = FALSE</code> (default, recommended)<a class="anchor" aria-label="anchor" href="#reloaddocument-false-default-recommended"></a>
 </h3>
-<p>React Router handles navigation <strong>entirely on the client
-side</strong> — it swaps the displayed route component without reloading
-the page. This is the correct behavior for:</p>
+<p>React Router intercepts the click and updates the route
+<strong>entirely on the client side</strong>, without reloading the
+page. This is the right behavior for:</p>
 <ul>
 <li>
 <strong>Static sites and Quarto documents</strong> — there is no
-server to re-initialize. Client-side navigation provides smooth, instant
-route switching.</li>
+server to re-initialize.</li>
 <li>
-<strong><code><a href="../reference/createMemoryRouter.html">createMemoryRouter()</a></code> and
+<strong><code><a href="../reference/createMemoryRouter.html">createMemoryRouter()</a></code> /
 <code><a href="../reference/MemoryRouter.html">MemoryRouter()</a></code></strong> — a full page reload would reset
-the in-memory routing state back to <code>/</code>, breaking navigation
-entirely.</li>
+the in-memory routing state back to <code>/</code>.</li>
 <li>
-<strong>Data router loaders and actions</strong> —
-<code>loader</code> and <code>action</code> functions only execute
-during client-side navigations. A full page reload bypasses React Router
-and loaders will not run.</li>
+<strong>Data router <code>loader</code> /
+<code>action</code></strong> — these only run during client-side
+navigations; a full reload bypasses them.</li>
+<li>
+<strong>Shiny apps with <code>uiOutput</code>,
+<code>renderUI</code>, <code>plotOutput</code>, or htmlwidgets.</strong>
+Shiny output bindings re-attach automatically when React Router mounts
+the new route’s element, and reactives that depend on the URL —
+<code><a href="../reference/useLocation.html">useLocation()</a></code>, <code><a href="../reference/useParams.html">useParams()</a></code>,
+<code><a href="../reference/useSearchParams.html">useSearchParams()</a></code>, or Shiny’s own reactive
+<code>session$clientData$url_hash</code> — update without any reload.
+The bundled <code>shiny.fluent</code> example
+(<code>reactRouterExample("shiny.fluent")</code>) navigates between
+routes containing live <code>echarts4rOutput()</code> and
+<code><a href="https://rdrr.io/pkg/shiny/man/htmlOutput.html" class="external-link">uiOutput()</a></code> and uses the default
+<code>reloadDocument = FALSE</code> throughout.</li>
 </ul>
+<p>A full reload would actually be <em>worse</em> for Shiny: it tears
+down the session, drops shared reactives (e.g. a
+<code>hero_selected</code> reactive used across routes), and re-runs
+every initialization step on every click.</p>
 </div>
 <div class="section level3">
-<h3 id="reloaddocument-true">
-<code>reloadDocument = TRUE</code><a class="anchor" aria-label="anchor" href="#reloaddocument-true"></a>
+<h3 id="reloaddocument-true-rare">
+<code>reloadDocument = TRUE</code> (rare)<a class="anchor" aria-label="anchor" href="#reloaddocument-true-rare"></a>
 </h3>
-<p>Clicking a link triggers a <strong>full page reload</strong>, as if
-the user clicked a regular <code>&lt;a href&gt;</code>. This is
-necessary in <strong>Shiny apps with server-rendered content</strong>
-because:</p>
-<ul>
-<li>Shiny’s server needs to re-initialize to read the new URL hash and
-render the correct <code><a href="https://rdrr.io/pkg/shiny/man/htmlOutput.html" class="external-link">uiOutput()</a></code>/<code><a href="https://rdrr.io/pkg/shiny/man/renderUI.html" class="external-link">renderUI()</a></code>
-content.</li>
-<li>Without a reload, server-rendered UI will not update properly since
-the Shiny session was started with the old route.</li>
-</ul>
-<p>Set <code>reloadDocument = TRUE</code> whenever your routes contain
-server-rendered output (<code>uiOutput</code>, <code>plotOutput</code>,
-etc.):</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/NavLink.html">NavLink</a></span><span class="op">(</span>to <span class="op">=</span> <span class="st">"/about"</span>, reloadDocument <span class="op">=</span> <span class="cn">TRUE</span>, <span class="st">"About"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/Link.html">Link</a></span><span class="op">(</span>to <span class="op">=</span> <span class="st">"/"</span>,         reloadDocument <span class="op">=</span> <span class="cn">TRUE</span>, <span class="st">"Home"</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="quick-reference">Quick reference<a class="anchor" aria-label="anchor" href="#quick-reference"></a>
-</h3>
+<p>Setting <code>reloadDocument = TRUE</code> skips React Router’s
+client-side navigation and lets the browser handle the
+<code>&lt;a&gt;</code> click natively. What this actually does depends
+on the router:</p>
 <table class="table">
 <colgroup>
 <col width="33%">
@@ -432,16 +453,57 @@ etc.):</p>
 <col width="33%">
 </colgroup>
 <thead><tr class="header">
+<th>Router</th>
+<th>Rendered href</th>
+<th>Effect of <code>reloadDocument = TRUE</code>
+</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>
+<code><a href="../reference/createHashRouter.html">createHashRouter()</a></code> / <code><a href="../reference/HashRouter.html">HashRouter()</a></code>
+</td>
+<td><code>#/path</code></td>
+<td>Effectively a no-op — browsers don’t reload on hash-only changes.
+The URL hash updates and React Router still picks it up via
+<code>hashchange</code>.</td>
+</tr>
+<tr class="even">
+<td>
+<code><a href="../reference/createMemoryRouter.html">createMemoryRouter()</a></code> / <code><a href="../reference/MemoryRouter.html">MemoryRouter()</a></code>
+</td>
+<td>(none — no real <code>&lt;a href&gt;</code>)</td>
+<td>No effect; memory routers don’t use real URLs.</td>
+</tr>
+<tr class="odd">
+<td><code><a href="../reference/createBrowserRouter.html">createBrowserRouter()</a></code></td>
+<td><code>/path</code></td>
+<td>Triggers a full HTTP request to <code>/path</code>. Requires the
+server to serve the app on every route, which Shiny does not do by
+default — the request will 404.</td>
+</tr>
+</tbody>
+</table>
+<p>In practice this means <code>reloadDocument = TRUE</code> is rarely
+the right choice in this package. Leave it at the default.</p>
+</div>
+<div class="section level3">
+<h3 id="quick-reference">Quick reference<a class="anchor" aria-label="anchor" href="#quick-reference"></a>
+</h3>
+<table class="table">
+<colgroup>
+<col width="50%">
+<col width="50%">
+</colgroup>
+<thead><tr class="header">
 <th>Context</th>
 <th><code>reloadDocument</code></th>
-<th>Why</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
 <td>Static site / Quarto / R Markdown</td>
 <td>
 <code>FALSE</code> (default)</td>
-<td>No server; client-side navigation is smooth</td>
 </tr>
 <tr class="even">
 <td>
@@ -449,21 +511,19 @@ etc.):</p>
 </td>
 <td>
 <code>FALSE</code> (default)</td>
-<td>Reload resets in-memory state to <code>/</code>
-</td>
 </tr>
 <tr class="odd">
-<td>Data router with <code>loader</code>/<code>action</code>
+<td>Data router with <code>loader</code> / <code>action</code>
 </td>
 <td>
 <code>FALSE</code> (default)</td>
-<td>Loaders only run on client-side navigations</td>
 </tr>
 <tr class="even">
-<td>Shiny app with <code>uiOutput</code>/<code>renderUI</code>
+<td>Shiny app with <code>uiOutput</code> / <code>renderUI</code> /
+<code>plotOutput</code>
 </td>
-<td><code>TRUE</code></td>
-<td>Server must re-initialize to render new content</td>
+<td>
+<code>FALSE</code> (default)</td>
 </tr>
 </tbody>
 </table>

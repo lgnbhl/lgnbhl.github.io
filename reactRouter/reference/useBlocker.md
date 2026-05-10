@@ -44,10 +44,12 @@ useBlocker(
 
 - shouldBlock:
 
-  A [`JS`](https://appsilon.github.io/shiny.react/reference/JS.html)
+  Either `FALSE` (the default, disables blocking) or a
+  [`JS`](https://appsilon.github.io/shiny.react/reference/JS.html)
   function receiving `{ currentLocation, nextLocation, historyAction }`
-  and returning `true` to block navigation or `false` to allow it. Pass
-  `FALSE` to disable blocking entirely (the default).
+  and returning `true` to block navigation or `false` to allow it.
+  **Must be a JS() expression**, not an R function – R functions cannot
+  be invoked from inside React Router's blocker callback.
 
 - ...:
 
@@ -57,7 +59,7 @@ useBlocker(
 
 Calls the `useBlocker()` hook and injects the blocker's `state` (or
 another `selector` field) `as` a prop of the `into` component. Use to
-intercept navigation — e.g. warn the user about unsaved changes before
+intercept navigation – e.g. warn the user about unsaved changes before
 they leave a route.
 
 The blocker `state` is one of `"unblocked"` (default), `"blocked"`

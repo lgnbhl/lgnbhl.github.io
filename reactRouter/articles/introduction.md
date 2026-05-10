@@ -1,5 +1,13 @@
 # Introduction to reactRouter
 
+For an overview of which router to choose
+([`createHashRouter()`](https://felixluginbuhl.com/reactRouter/reference/createHashRouter.md)
+vs.
+[`createMemoryRouter()`](https://felixluginbuhl.com/reactRouter/reference/createMemoryRouter.md)
+vs. [`createBrowserRouter()`](https://felixluginbuhl.com/reactRouter/reference/createBrowserRouter.md))
+and the role of the `reloadDocument` prop, see
+[`vignette("routers", package = "reactRouter")`](https://felixluginbuhl.com/reactRouter/articles/routers.md).
+
 ### Install
 
 ``` r
@@ -37,12 +45,6 @@ RouterProvider(
     )
   )
 )
-#> Warning: The `reloadDocument` argument of `NavLink()` default is now FALSE as of
-#> reactRouter 0.2.0.
-#> ℹ The default of `reloadDocument` was TRUE in version 0.1.1. It is now FALSE.
-#> This warning is displayed once per session.
-#> Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-#> generated.
 ```
 
 ### Usage with shiny
@@ -305,12 +307,6 @@ Layout <- div(
   # the child routes we defined above.
   reactRouter::Outlet()
 )
-#> Warning: The `reloadDocument` argument of `Link()` default is now FALSE as of
-#> reactRouter 0.2.0.
-#> ℹ The default of `reloadDocument` was TRUE in version 0.1.1. It is now FALSE.
-#> This warning is displayed once per session.
-#> Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-#> generated.
 
 RouterProvider(
   router = createHashRouter(
@@ -351,72 +347,49 @@ RouterProvider(
 
 ### Dynamic segments
 
-A minimal example using dynamic segments, i.e. using
-`Route(to = ":id/*")`.
-
-To allow R Shiny to update URL hashs, you have to add
-`reloadDocument = TRUE` (by default FALSE) in
-[`NavLink()`](https://felixluginbuhl.com/reactRouter/reference/NavLink.md).
+A minimal example using dynamic segments (`Route(path = ":id")`). The
+route parameter is read with
+[`useParams()`](https://felixluginbuhl.com/reactRouter/reference/useParams.md)
+— no full page reload needed and no dependency on
+`session$clientData$url_hash`:
 
 ``` r
 
-library(shiny)
 library(reactRouter)
 library(htmltools)
 
-ui <- RouterProvider(
+RouterProvider(
   router = createHashRouter(
     Route(
       path = "/",
       element = div(
-        Link(
-          to = "/",
-          h3("reactRouter with dynamic routes", class = "m-3"),
-          style = "text-decoration: none; color: black"
-        ),
+        h3("reactRouter with dynamic routes"),
+        NavLink(to = "/project/1", "Project 1"), " | ",
+        NavLink(to = "/project/2", "Project 2"),
+        tags$hr(),
         Outlet()
       ),
+      Route(index = TRUE, element = p("Select a project.")),
       Route(
-        index = TRUE,
+        path = "project/:id",
         element = div(
-          NavLink(
-            to = "project/1/overview",
-            # if default FALSE session$clientData$url_hash not visible
-            reloadDocument = TRUE,
-            "Project 1"
-          ),
-          tags$br(),
-          NavLink(
-            to = "project/2/overview",
-            # if default FALSE session$clientData$url_hash not visible
-            reloadDocument = TRUE,
-            "Project 2"
-          )
+          h4("Project: ", useParams(tags$strong(), selector = "id"))
         )
-      ),
-      Route(
-        path = "project/:id/overview",
-        element = uiOutput("uiOverview")
-      ),
-      Route(
-        path = "project/:id/analysis",
-        element = uiOutput("uiAnalysis")
       )
     )
   )
 )
-
-server <- function(input, output, session) {
-  output$uiOverview <- renderUI({
-    session$clientData$url_hash
-  })
-  output$uiAnalysis <- renderUI({
-    session$clientData$url_hash
-  })
-}
-
-shinyApp(ui, server)
 ```
+
+Server-rendered Shiny output
+([`uiOutput()`](https://rdrr.io/pkg/shiny/man/htmlOutput.html),
+[`renderUI()`](https://rdrr.io/pkg/shiny/man/renderUI.html),
+[`plotOutput()`](https://rdrr.io/pkg/shiny/man/plotOutput.html),
+htmlwidgets) works correctly with the default `reloadDocument = FALSE` —
+Shiny output bindings re-attach when React Router mounts the new route’s
+element. See
+[`vignette("routers", package = "reactRouter")`](https://felixluginbuhl.com/reactRouter/articles/routers.md)
+for the full reference.
 
 ### Alternatives
 
@@ -428,8 +401,8 @@ shinyApp(ui, server)
 
 ### More information
 
-**reactRouter** implements React Router
-[v.6.30.0](https://reactrouter.com/6.30.0).
+**reactRouter** wraps [React Router v7](https://reactrouter.com/) and
+exposes the data router API to R users.
 
 More info about how to use React Router can be found in the [official
-website](https://reactrouter.com/6.30.0).
+website](https://reactrouter.com/).
