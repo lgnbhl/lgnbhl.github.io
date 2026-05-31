@@ -52,7 +52,7 @@ muiMaterialPage(
 
 - suppressBootstrap:
 
-  Whether to suppress Bootstrap.
+  Whether to suppress Bootstrap. TRUE by default.
 
 - styleBody:
 
@@ -60,7 +60,7 @@ muiMaterialPage(
 
 - debugReact:
 
-  Whether to enable react debug mode. Default to FALSE.
+  Whether to enable react debug mode. FALSE by default.
 
 ## Value
 
@@ -70,6 +70,26 @@ app.
 ## Details
 
 The Bootstrap library is suppressed by default, as it doesn't work well
-with Material UI in general.
+with Material UI in general. The full set of available Material Icon
+names is at \<https://fonts.google.com/icons?icon.set=Material+Icons\>.
 
-<https://fonts.google.com/icons?icon.set=Material+Icons>
+## Examples
+
+``` r
+if (FALSE) { # interactive()
+library(shiny)
+library(muiMaterial)
+
+ui <- muiMaterialPage(
+  useFontRoboto = TRUE,
+  useMaterialIconsFilled = TRUE,
+  Box(
+    sx = list(p = 2),
+    Typography("Hello Material UI!", variant = "h4"),
+    Icon("home")
+  )
+)
+
+shinyApp(ui, function(input, output, session) {})
+}
+```

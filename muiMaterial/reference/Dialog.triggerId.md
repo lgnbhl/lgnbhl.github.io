@@ -20,9 +20,30 @@ Dialog.triggerId(triggerId, ...)
 
 - ...:
 
-  args to pass to element
+  Named arguments forwarded as React props, plus children to render
+  inside the component.
 
 ## Value
 
 Object with \`shiny.tag\` class suitable for use in the UI of a Shiny
 app.
+
+## Examples
+
+``` r
+if (FALSE) { # interactive()
+library(shiny)
+library(muiMaterial)
+
+ui <- muiMaterialPage(
+  Button(id = "openDialog", "Open dialog"),
+  Dialog.triggerId(
+    "openDialog",
+    DialogTitle("Hello"),
+    DialogContent("Open/close managed entirely client-side.")
+  )
+)
+
+shinyApp(ui, function(input, output, session) {})
+}
+```

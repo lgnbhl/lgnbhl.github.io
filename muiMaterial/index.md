@@ -87,8 +87,8 @@ muiMaterial::muiMaterialExample("showcase")
 
 `muiMaterial` is built on top of
 [shiny.react](https://github.com/Appsilon/shiny.react), the R package by
-[Appsilon](https://appsilon.com) that makes it possible to use React
-components in Shiny and Quarto.
+[Appsilon](https://www.appsilon.com/) that makes it possible to use
+React components in Shiny and Quarto.
 
 ### Contributing
 
@@ -102,4 +102,17 @@ LinkedIn for updates.
 ### License
 
 This package is released under the [MIT
-License](https://felixluginbuhl.com/muiMaterial/LICENSE).
+License](https://felixluginbuhl.com/muiMaterial/LICENSE). It bundles a
+pre-built copy of the [Material UI](https://mui.com/) JavaScript
+library; the third-party copyrights and license texts are summarised in
+[LICENSE.note](https://felixluginbuhl.com/muiMaterial/LICENSE.note) and
+preserved in `inst/www/muiMaterial/mui-material.js.LICENSE.txt`.
+
+### Trademark notice
+
+“MUI” and “Material UI” are trademarks of MUI Inc. `muiMaterial` is an
+independent, community-maintained R package and is **not affiliated
+with, sponsored by, or endorsed by MUI Inc.** The names are used solely
+to identify the underlying JavaScript library that this package wraps.
+See MUI’s [legal information](https://mui.com/legal/) for the canonical
+list of MUI’s published policies.
