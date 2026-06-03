@@ -231,10 +231,6 @@ Material UI components wired to Shiny’s `input` object via
   [`Switch.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Switch.md)
   [`updateSwitch.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Switch.md)
   : Switch
-- [`Tab()`](https://felixluginbuhl.com/muiMaterial/reference/Tab.md)
-  [`Tab.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Tab.md)
-  [`updateTab.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Tab.md)
-  : Tab
 - [`TabContext()`](https://felixluginbuhl.com/muiMaterial/reference/TabContext.md)
   [`TabContext.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/TabContext.md)
   [`updateTabContext.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/TabContext.md)
@@ -307,6 +303,8 @@ wiring).
   [`updateCheckbox.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Checkbox.md)
   : Checkbox
 - [`FilledInput()`](https://felixluginbuhl.com/muiMaterial/reference/FilledInput.md)
+  [`FilledInput.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/FilledInput.md)
+  [`updateFilledInput.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/FilledInput.md)
   : FilledInput
 - [`FormControl()`](https://felixluginbuhl.com/muiMaterial/reference/FormControl.md)
   : FormControl
@@ -335,6 +333,8 @@ wiring).
   [`updateLoadingButton.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/LoadingButton.md)
   : LoadingButton
 - [`NativeSelect()`](https://felixluginbuhl.com/muiMaterial/reference/NativeSelect.md)
+  [`NativeSelect.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/NativeSelect.md)
+  [`updateNativeSelect.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/NativeSelect.md)
   : NativeSelect
 - [`OutlinedInput()`](https://felixluginbuhl.com/muiMaterial/reference/OutlinedInput.md)
   [`OutlinedInput.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/OutlinedInput.md)
@@ -507,6 +507,8 @@ Container surfaces (cards, accordions, app bar, paper, …).
 Navigation, tabs, pagination, stepper.
 
 - [`BottomNavigation()`](https://felixluginbuhl.com/muiMaterial/reference/BottomNavigation.md)
+  [`BottomNavigation.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/BottomNavigation.md)
+  [`updateBottomNavigation.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/BottomNavigation.md)
   : BottomNavigation
 - [`BottomNavigationAction()`](https://felixluginbuhl.com/muiMaterial/reference/BottomNavigationAction.md)
   : BottomNavigationAction
@@ -562,10 +564,8 @@ Navigation, tabs, pagination, stepper.
   : StepLabel
 - [`Stepper()`](https://felixluginbuhl.com/muiMaterial/reference/Stepper.md)
   : Stepper
-- [`Tab()`](https://felixluginbuhl.com/muiMaterial/reference/Tab.md)
-  [`Tab.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Tab.md)
-  [`updateTab.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Tab.md)
-  : Tab
+- [`Tab()`](https://felixluginbuhl.com/muiMaterial/reference/Tab.md) :
+  Tab
 - [`TabScrollButton()`](https://felixluginbuhl.com/muiMaterial/reference/TabScrollButton.md)
   : TabScrollButton
 - [`Tabs()`](https://felixluginbuhl.com/muiMaterial/reference/Tabs.md)
@@ -583,8 +583,6 @@ Layout primitives — Box, Grid, Stack, Container, image lists, Masonry.
   : Container
 - [`Grid()`](https://felixluginbuhl.com/muiMaterial/reference/Grid.md) :
   Grid
-- [`GridLegacy()`](https://felixluginbuhl.com/muiMaterial/reference/GridLegacy.md)
-  : GridLegacy
 - [`ImageList()`](https://felixluginbuhl.com/muiMaterial/reference/ImageList.md)
   : ImageList
 - [`ImageListItem()`](https://felixluginbuhl.com/muiMaterial/reference/ImageListItem.md)
@@ -593,12 +591,6 @@ Layout primitives — Box, Grid, Stack, Container, image lists, Masonry.
   : ImageListItemBar
 - [`Masonry()`](https://felixluginbuhl.com/muiMaterial/reference/Masonry.md)
   : Masonry
-- [`PigmentContainer()`](https://felixluginbuhl.com/muiMaterial/reference/PigmentContainer.md)
-  : PigmentContainer
-- [`PigmentGrid()`](https://felixluginbuhl.com/muiMaterial/reference/PigmentGrid.md)
-  : PigmentGrid
-- [`PigmentStack()`](https://felixluginbuhl.com/muiMaterial/reference/PigmentStack.md)
-  : PigmentStack
 - [`Stack()`](https://felixluginbuhl.com/muiMaterial/reference/Stack.md)
   : Stack
 
@@ -692,6 +684,10 @@ Re-exported helpers from `shiny.react` and the package’s own React glue.
   [`Autocomplete.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Autocomplete.md)
   [`updateAutocomplete.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Autocomplete.md)
   : Autocomplete
+- [`BottomNavigation()`](https://felixluginbuhl.com/muiMaterial/reference/BottomNavigation.md)
+  [`BottomNavigation.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/BottomNavigation.md)
+  [`updateBottomNavigation.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/BottomNavigation.md)
+  : BottomNavigation
 - [`Button()`](https://felixluginbuhl.com/muiMaterial/reference/Button.md)
   [`Button.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Button.md)
   [`updateButton.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Button.md)
@@ -712,6 +708,10 @@ Re-exported helpers from `shiny.react` and the package’s own React glue.
   [`Fab.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Fab.md)
   [`updateFab.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Fab.md)
   : Fab
+- [`FilledInput()`](https://felixluginbuhl.com/muiMaterial/reference/FilledInput.md)
+  [`FilledInput.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/FilledInput.md)
+  [`updateFilledInput.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/FilledInput.md)
+  : FilledInput
 - [`FormControlLabel()`](https://felixluginbuhl.com/muiMaterial/reference/FormControlLabel.md)
   [`FormControlLabel.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/FormControlLabel.md)
   [`updateFormControlLabel.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/FormControlLabel.md)
@@ -740,6 +740,10 @@ Re-exported helpers from `shiny.react` and the package’s own React glue.
   [`Modal.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Modal.md)
   [`updateModal.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Modal.md)
   : Modal
+- [`NativeSelect()`](https://felixluginbuhl.com/muiMaterial/reference/NativeSelect.md)
+  [`NativeSelect.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/NativeSelect.md)
+  [`updateNativeSelect.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/NativeSelect.md)
+  : NativeSelect
 - [`OutlinedInput()`](https://felixluginbuhl.com/muiMaterial/reference/OutlinedInput.md)
   [`OutlinedInput.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/OutlinedInput.md)
   [`updateOutlinedInput.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/OutlinedInput.md)
@@ -780,10 +784,6 @@ Re-exported helpers from `shiny.react` and the package’s own React glue.
   [`Switch.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Switch.md)
   [`updateSwitch.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Switch.md)
   : Switch
-- [`Tab()`](https://felixluginbuhl.com/muiMaterial/reference/Tab.md)
-  [`Tab.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Tab.md)
-  [`updateTab.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Tab.md)
-  : Tab
 - [`TabContext()`](https://felixluginbuhl.com/muiMaterial/reference/TabContext.md)
   [`TabContext.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/TabContext.md)
   [`updateTabContext.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/TabContext.md)

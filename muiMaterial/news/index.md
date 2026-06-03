@@ -24,6 +24,17 @@
   the first tab (clicks fire but the wrapper no longer updates state)
   unless an `onChange` writes the value back.
 
+- removed the deprecated `GridLegacy()`, `PigmentContainer()`,
+  `PigmentGrid()` and `PigmentStack()` wrappers. These mapped to MUI
+  APIs that are no longer part of the supported `@mui/material` surface;
+  use
+  [`Grid()`](https://felixluginbuhl.com/muiMaterial/reference/Grid.md)
+  (and
+  [`Stack()`](https://felixluginbuhl.com/muiMaterial/reference/Stack.md)
+  /
+  [`Container()`](https://felixluginbuhl.com/muiMaterial/reference/Container.md))
+  instead.
+
 ### New features
 
 - [`TabContext.static()`](https://felixluginbuhl.com/muiMaterial/reference/TabContext.md)
@@ -46,13 +57,13 @@
   `defaultValue`.
 
 - new `*.shinyInput()` family of Shiny-wired input wrappers covering the
-  most commonly bound components (Autocomplete, Button, Checkbox,
-  Dialog, Drawer, IconButton, Input, Fab, FormControlLabel,
-  LoadingButton, Menu, MenuItem, Modal, OutlinedInput, Pagination,
-  Radio, RadioGroup, Rating, Select, Slider, Snackbar, StepButton,
-  Switch, Tab, TabContext, TabList, TabPanel, Tabs, TextField,
-  ToggleButton, ToggleButtonGroup) and matching `update*.shinyInput()`
-  helpers.
+  most commonly bound components (Autocomplete, BottomNavigation,
+  Button, Checkbox, Dialog, Drawer, IconButton, Input, FilledInput, Fab,
+  FormControlLabel, LoadingButton, Menu, MenuItem, Modal, NativeSelect,
+  OutlinedInput, Pagination, Radio, RadioGroup, Rating, Select, Slider,
+  Snackbar, StepButton, Switch, TabContext, TabList, TabPanel, Tabs,
+  TextField, ToggleButton, ToggleButtonGroup) and matching
+  `update*.shinyInput()` helpers.
 
 - new `*.triggerId()` family for binding overlay components to an
   existing DOM element by id, with no server logic required:

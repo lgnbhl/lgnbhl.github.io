@@ -123,6 +123,16 @@
 <li><p>TransitionProps <code>object</code> <br> Default is Props applied to the transition element. By default, the element is based on this Transition component.Deprecated use the slotProps.transition prop instead. This prop will be removed in a future major release. See Migrating from deprecated APIs for more details.</p></li>
 <li><p>variant <code>'menu'| 'selectedMenu'</code> <br> Default is 'selectedMenu' The variant to use. Use menu to prevent selected items from impacting the initial focus.</p></li>
 </ul></div>
+    <div class="section level2">
+    <h2 id="note">Note<a class="anchor" aria-label="anchor" href="#note"></a></h2>
+    <p>This is an overlay surface wired as a click-reporter: <code>input[[inputId]]</code>
+  holds a click count (it does not tell you <em>which</em> <code>MenuItem</code> was
+  clicked), and the wrapper does <strong>not</strong> manage the <code>open</code> state.
+  Render it with <code>open = TRUE/FALSE</code> and toggle visibility from the server
+  with <code>updateMenu.shinyInput(session, inputId, open = TRUE)</code>. For the common
+  "open on click of a button" pattern, <code><a href="Menu.triggerId.html">Menu.triggerId</a></code> is simpler
+  (open/close handled entirely client-side, no server logic).</p>
+    </div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>

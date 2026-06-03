@@ -98,6 +98,17 @@ The allowed props are listed below in the <b>Details</b> section.</p></dd>
     <p>Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 The update functions return nothing (called for side effects).</p>
     </div>
+    <div class="section level2">
+    <h2 id="reserved-props">Reserved props<a class="anchor" aria-label="anchor" href="#reserved-props"></a></h2>
+
+
+<p>`.shinyInput` wrappers own the component's `value` (or `checked`/`page`) and
+`onChange` props – that binding is how the value reaches `input[[inputId]]`.
+Do not pass your own `value`/`onChange` through `...`: a caller-supplied prop
+overrides the wrapper's and silently breaks input reporting. Set the starting
+value with the `value` argument and react to changes server-side via
+`input[[inputId]]` (or push new values with the matching `update*` function).</p>
+    </div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>

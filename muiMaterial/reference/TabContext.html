@@ -141,6 +141,13 @@ for Quarto documents and static HTML, where no external state is involved.</p></
     <p><code>TabContext</code> is part of <a href="https://mui.com/material-ui/about-the-lab/" class="external-link"><code>@mui/lab</code></a>,
   which is published on the MUI beta channel. Lab APIs may change in future minor
   releases.</p>
+<p>Pass an initial <code>value</code> matching one of the <code>TabPanel</code> values
+  to pre-select that panel; when omitted, the component mounts with no panel
+  selected (<code>value = ""</code>) rather than uncontrolled, so a later
+  server-driven update does not trigger MUI's controlled/uncontrolled warning.
+  <code>TabContext</code> itself has no change event, so <code>input[[inputId]]</code>
+  reports only this initial value. To react to tab clicks on the server, read
+  <code>input[[inputId]]</code> from the <code><a href="TabList.html">TabList.shinyInput</a></code> instead.</p>
     </div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

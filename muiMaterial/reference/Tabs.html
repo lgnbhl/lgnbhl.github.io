@@ -135,6 +135,13 @@
 <li><p>variant <code>'fullWidth'| 'scrollable'| 'standard'</code> <br> Default is 'standard' Determines additional display behavior of the tabs: scrollable will invoke scrolling properties and allow for horizontally scrolling (or swiping) of the tab bar. fullWidth will make the tabs grow to use all the available space, which should be used for small views, like on mobile. standard will render the default state.</p></li>
 <li><p>visibleScrollbar <code>bool</code> <br> Default is FALSE If true, the scrollbar is visible. It can be useful when displaying a long vertical list of tabs.</p></li>
 </ul></div>
+    <div class="section level2">
+    <h2 id="note">Note<a class="anchor" aria-label="anchor" href="#note"></a></h2>
+    <p>Pass an initial <code>value</code> matching one of the child <code>Tab</code> values
+  to pre-select that tab. When omitted, the component mounts with no tab selected
+  (<code>value = FALSE</code>) rather than uncontrolled, so a later server-driven update
+  does not trigger MUI's controlled/uncontrolled warning.</p>
+    </div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>

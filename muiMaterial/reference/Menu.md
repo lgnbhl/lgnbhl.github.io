@@ -103,3 +103,14 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 - variant `'menu'| 'selectedMenu'`  
   Default is 'selectedMenu' The variant to use. Use menu to prevent
   selected items from impacting the initial focus.
+
+## Note
+
+This is an overlay surface wired as a click-reporter: `input[[inputId]]`
+holds a click count (it does not tell you *which* `MenuItem` was
+clicked), and the wrapper does **not** manage the `open` state. Render
+it with `open = TRUE/FALSE` and toggle visibility from the server with
+`updateMenu.shinyInput(session, inputId, open = TRUE)`. For the common
+"open on click of a button" pattern,
+[`Menu.triggerId`](https://felixluginbuhl.com/muiMaterial/reference/Menu.triggerId.md)
+is simpler (open/close handled entirely client-side, no server logic).

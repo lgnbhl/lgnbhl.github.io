@@ -134,3 +134,12 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   element is based on this Transition component.Deprecated Use
   slotProps.transition instead. This prop will be removed in a future
   major release. See Migrating from deprecated APIs for more details.
+
+## Note
+
+This is an overlay surface wired as a click-reporter: `input[[inputId]]`
+holds a click count, and the wrapper does **not** manage the `open`
+state. Render it with `open = TRUE/FALSE` and toggle visibility from the
+server with `updateSnackbar.shinyInput(session, inputId, open = TRUE)`
+(e.g. open it in response to another event, then close it from the
+Snackbar's `autoHideDuration`/`onClose`).

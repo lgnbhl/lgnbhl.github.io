@@ -6,10 +6,6 @@
 
 ``` r
 Tab(...)
-
-Tab.shinyInput(inputId, ..., value = defaultValue)
-
-updateTab.shinyInput(session = shiny::getDefaultReactiveDomain(), inputId, ...)
 ```
 
 ## Arguments
@@ -17,18 +13,6 @@ updateTab.shinyInput(session = shiny::getDefaultReactiveDomain(), inputId, ...)
 - ...:
 
   Props to pass to the component.
-
-- inputId:
-
-  ID of the component.
-
-- value:
-
-  Starting value.
-
-- session:
-
-  Object passed as the \`session\` argument to Shiny server.
 
 ## Value
 

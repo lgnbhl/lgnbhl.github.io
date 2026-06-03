@@ -6,6 +6,14 @@
 
 ``` r
 NativeSelect(...)
+
+NativeSelect.shinyInput(inputId, ..., value = defaultValue)
+
+updateNativeSelect.shinyInput(
+  session = shiny::getDefaultReactiveDomain(),
+  inputId,
+  ...
+)
 ```
 
 ## Arguments
@@ -13,6 +21,18 @@ NativeSelect(...)
 - ...:
 
   Props to pass to the component.
+
+- inputId:
+
+  ID of the component.
+
+- value:
+
+  Starting value.
+
+- session:
+
+  Object passed as the \`session\` argument to Shiny server.
 
 ## Value
 

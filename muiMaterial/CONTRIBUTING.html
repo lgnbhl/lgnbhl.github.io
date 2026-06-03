@@ -105,9 +105,9 @@
 <div class="section level2">
 <h2 id="adding-a-new-component-wrapper">Adding a new component wrapper<a class="anchor" aria-label="anchor" href="#adding-a-new-component-wrapper"></a></h2>
 <p><code>muiMaterial</code> mirrors the upstream MUI API by design. To add a new component:</p>
-<ol style="list-style-type: decimal"><li>Add an entry to <code>inst/helpers/generate-components-docs-tests.R</code> (the canonical list).</li>
-<li>Re-run the helper script to regenerate <code>R/components.R</code>, <code>R/documentation.R</code> and the matching <code>tests/testthat/test-&lt;Name&gt;.R</code> stubs.</li>
+<ol style="list-style-type: decimal"><li>Add a <code>&lt;Name&gt; &lt;- component('&lt;Name&gt;')</code> entry to <code>R/components.R</code> (use <code>module = '@mui/lab'</code> for lab components), and a matching roxygen doc block in <code>R/documentation.R</code>.</li>
 <li>If the component is meant to be Shiny-wired, add a <code>&lt;Component&gt;.shinyInput()</code> and <code>update&lt;Component&gt;.shinyInput()</code> pair to <code>R/inputs.R</code>.</li>
+<li>Add a <code>tests/testthat/test-&lt;Name&gt;.R</code> test, and confirm the name is actually exported by the bundled MUI version (a wrapper pointing at a non-existent export renders to an “Element type is invalid” error).</li>
 <li>Run <code>devtools::document()</code> and <code>devtools::test()</code>.</li>
 </ol></div>
 <div class="section level2">

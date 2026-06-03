@@ -6,6 +6,14 @@
 
 ``` r
 FilledInput(...)
+
+FilledInput.shinyInput(inputId, ..., value = defaultValue)
+
+updateFilledInput.shinyInput(
+  session = shiny::getDefaultReactiveDomain(),
+  inputId,
+  ...
+)
 ```
 
 ## Arguments
@@ -13,6 +21,18 @@ FilledInput(...)
 - ...:
 
   Props to pass to the component.
+
+- inputId:
+
+  ID of the component.
+
+- value:
+
+  Starting value.
+
+- session:
+
+  Object passed as the \`session\` argument to Shiny server.
 
 ## Value
 

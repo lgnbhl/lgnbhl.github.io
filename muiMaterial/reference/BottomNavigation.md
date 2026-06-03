@@ -6,6 +6,14 @@
 
 ``` r
 BottomNavigation(...)
+
+BottomNavigation.shinyInput(inputId, ..., value = defaultValue)
+
+updateBottomNavigation.shinyInput(
+  session = shiny::getDefaultReactiveDomain(),
+  inputId,
+  ...
+)
 ```
 
 ## Arguments
@@ -13,6 +21,18 @@ BottomNavigation(...)
 - ...:
 
   Props to pass to the component.
+
+- inputId:
+
+  ID of the component.
+
+- value:
+
+  Starting value.
+
+- session:
+
+  Object passed as the \`session\` argument to Shiny server.
 
 ## Value
 
@@ -49,3 +69,10 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 - value `any`  
   Default is - The value of the currently selected
   BottomNavigationAction.
+
+## Note
+
+Give each child `BottomNavigationAction` a `value`; the selected
+action's `value` is reported to `input[[inputId]]`. Pass an initial
+`value` matching one of them to pre-select it; when omitted, the
+component mounts with nothing selected (`value = FALSE`).

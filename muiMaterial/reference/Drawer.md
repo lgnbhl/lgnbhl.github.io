@@ -97,3 +97,13 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 - variant `'permanent'| 'persistent'| 'temporary'`  
   Default is 'temporary' The variant to use.
+
+## Note
+
+This is an overlay surface wired as a click-reporter: `input[[inputId]]`
+holds a click count, and the wrapper does **not** manage the `open`
+state. Render it with `open = TRUE/FALSE` and toggle visibility from the
+server with `updateDrawer.shinyInput(session, inputId, open = TRUE)`.
+For the common "open on click of a button" pattern,
+[`Drawer.triggerId`](https://felixluginbuhl.com/muiMaterial/reference/Drawer.triggerId.md)
+is simpler (open/close handled entirely client-side, no server logic).
