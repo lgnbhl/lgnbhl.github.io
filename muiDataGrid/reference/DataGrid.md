@@ -12,13 +12,19 @@ DataGrid(rows = NULL, columns = NULL, ...)
 
 - rows:
 
-  A data.frame of rows. An `id` column is added automatically from row
-  names if not already present.
+  A data.frame of rows. An `id` column of 1-based row numbers is added
+  automatically if not already present.
 
 - columns:
 
-  Column definitions (list of lists). If `NULL`, auto-generated from
-  `names(rows)`.
+  Column definitions (list of lists, or a data.frame with one row per
+  column). If `NULL`, auto-generated from `names(rows)`. Any column
+  without an explicit `type` has one inferred from the matching `rows`
+  column: numeric columns get MUI's `number` type and logical columns
+  its `boolean` type; all other classes (including `Date`, `POSIXct`,
+  and factors) default to `string`. A `type` you set yourself is always
+  kept. To get MUI's date-picker filtering, set `type = "date"` together
+  with a `valueGetter` that returns a JS `Date` explicitly.
 
 - ...:
 

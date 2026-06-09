@@ -41,7 +41,9 @@ DataGridServer(
 - columns:
 
   Column definitions (list of lists). If NULL, auto-generated from
-  `names(rows)`.
+  `names(rows)`, with each column's `type` inferred from its R class
+  (see
+  [`DataGrid`](https://felixluginbuhl.com/muiDataGrid/reference/DataGrid.md)).
 
 - rowCount:
 
@@ -89,6 +91,31 @@ Pass the full dataset via `rows` — just like
 — and `DataGridServer()` handles pagination, sorting, and filtering
 automatically. For manual control (e.g. database queries), supply
 pre-sliced `rows` together with an explicit `rowCount`.
+
+## Lifecycle
+
+**Experimental.** `DataGridServer()` (together with
+[`processGridParams`](https://felixluginbuhl.com/muiDataGrid/reference/processGridParams.md))
+is *specific to this R package* and has no equivalent in MUI X Data
+Grid: MUI ships only the building blocks (`paginationMode = "server"`
+plus callbacks) and leaves the data layer to you. This wrapper supplies
+that layer in R, and in doing so encodes a number of opinionated
+decisions that may change in future releases. Pin the package version if
+you rely on the current behaviour. Decisions worth knowing about:
+
+- Mode is selected by the presence of `rowCount`: supply it to pass a
+  pre-sliced page (manual mode); omit it to let the full `rows` be
+  paginated automatically.
+
+- Changing the sort or any filter resets the grid to the first page.
+
+- Unrecognised filter operators pass all rows through with a warning
+  (see
+  [`processGridParams`](https://felixluginbuhl.com/muiDataGrid/reference/processGridParams.md)).
+
+- When `rows` has no `id` column, ids are generated positionally and are
+  *not* stable across sort/filter changes. Supply a stable, unique `id`
+  column if you use row selection.
 
 ## Examples
 

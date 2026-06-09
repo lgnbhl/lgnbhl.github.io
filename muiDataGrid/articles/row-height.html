@@ -7,8 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Row Height • muiDataGrid</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Row Height">
 </head>
@@ -68,13 +68,13 @@
 
 
 
-<script src="row-height_files/react-18.3.1/react.production.min.js"></script><script src="row-height_files/react-18.3.1/react-dom.production.min.js"></script><script src="row-height_files/shiny.react-0.1.0/shiny-react.js"></script><script src="row-height_files/muiMaterial-7.3.5/mui-material.js"></script><script src="row-height_files/muiDataGrid-0.1.0/x-data-grid.js"></script><div class="row">
+<script src="row-height_files/react-18.3.1/react.production.min.js"></script><script src="row-height_files/react-18.3.1/react-dom.production.min.js"></script><script src="row-height_files/shiny.react-0.1.0/shiny-react.js"></script><script src="row-height_files/muiMaterial-0.2.0/mui-material.js"></script><script src="row-height_files/muiDataGrid-0.1.2/x-data-grid.js"></script><div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Row Height</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/lgnbhl/muiDataGrid/blob/HEAD/vignettes/row-height.Rmd" class="external-link"><code>vignettes/row-height.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/lgnbhl/muiDataGrid/blob/main/vignettes/row-height.Rmd" class="external-link"><code>vignettes/row-height.Rmd</code></a></small>
       <div class="d-none name"><code>row-height.Rmd</code></div>
     </div>
 
@@ -101,7 +101,7 @@ from static heights to dynamic sizing based on content.</p>
 <span>  rowHeight <span class="op">=</span> <span class="fl">80</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="cvpeammhtuweaikfkbkz">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"id":1},{"name":"C-3PO","height":167,"mass":75,"id":2},{"name":"R2-D2","height":96,"mass":32,"id":3},{"name":"Darth Vader","height":202,"mass":136,"id":4},{"name":"Leia Organa","height":150,"mass":49,"id":5},{"name":"Owen Lars","height":178,"mass":120,"id":6}],"columns":[{"field":"name"},{"field":"height"},{"field":"mass"}],"rowHeight":80}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('cvpeammhtuweaikfkbkz')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"id":1},{"name":"C-3PO","height":167,"mass":75,"id":2},{"name":"R2-D2","height":96,"mass":32,"id":3},{"name":"Darth Vader","height":202,"mass":136,"id":4},{"name":"Leia Organa","height":150,"mass":49,"id":5},{"name":"Owen Lars","height":178,"mass":120,"id":6}],"columns":[{"field":"name","type":"string"},{"field":"height","type":"number"},{"field":"mass","type":"number"}],"rowHeight":80}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('cvpeammhtuweaikfkbkz')</script>
 </div>
 </div>
 <div class="section level4">
@@ -114,7 +114,7 @@ from static heights to dynamic sizing based on content.</p>
 <span>  <span class="co"># Default rowHeight = 52</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="hrtfztbnsrafhqmlsyef">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"id":1},{"name":"C-3PO","height":167,"mass":75,"id":2},{"name":"R2-D2","height":96,"mass":32,"id":3},{"name":"Darth Vader","height":202,"mass":136,"id":4},{"name":"Leia Organa","height":150,"mass":49,"id":5},{"name":"Owen Lars","height":178,"mass":120,"id":6}],"columns":[{"field":"name"},{"field":"height"},{"field":"mass"}]}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('hrtfztbnsrafhqmlsyef')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"id":1},{"name":"C-3PO","height":167,"mass":75,"id":2},{"name":"R2-D2","height":96,"mass":32,"id":3},{"name":"Darth Vader","height":202,"mass":136,"id":4},{"name":"Leia Organa","height":150,"mass":49,"id":5},{"name":"Owen Lars","height":178,"mass":120,"id":6}],"columns":[{"field":"name","type":"string"},{"field":"height","type":"number"},{"field":"mass","type":"number"}]}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('hrtfztbnsrafhqmlsyef')</script>
 </div>
 </div>
 </div>
@@ -129,7 +129,7 @@ from static heights to dynamic sizing based on content.</p>
 <span>  columnHeaderHeight <span class="op">=</span> <span class="fl">80</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="rmqrctuzzklienmufsbj">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"species":"Human","id":1},{"name":"C-3PO","height":167,"mass":75,"species":"Droid","id":2},{"name":"R2-D2","height":96,"mass":32,"species":"Droid","id":3},{"name":"Darth Vader","height":202,"mass":136,"species":"Human","id":4},{"name":"Leia Organa","height":150,"mass":49,"species":"Human","id":5},{"name":"Owen Lars","height":178,"mass":120,"species":"Human","id":6}],"columns":[{"field":"name"},{"field":"height"},{"field":"mass"},{"field":"species"}],"columnHeaderHeight":80}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('rmqrctuzzklienmufsbj')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"species":"Human","id":1},{"name":"C-3PO","height":167,"mass":75,"species":"Droid","id":2},{"name":"R2-D2","height":96,"mass":32,"species":"Droid","id":3},{"name":"Darth Vader","height":202,"mass":136,"species":"Human","id":4},{"name":"Leia Organa","height":150,"mass":49,"species":"Human","id":5},{"name":"Owen Lars","height":178,"mass":120,"species":"Human","id":6}],"columns":[{"field":"name","type":"string"},{"field":"height","type":"number"},{"field":"mass","type":"number"},{"field":"species","type":"string"}],"columnHeaderHeight":80}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('rmqrctuzzklienmufsbj')</script>
 </div>
 </div>
 <div class="section level3">
@@ -150,7 +150,7 @@ from static heights to dynamic sizing based on content.</p>
 <span><span class="st">  "</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="vhoipeyoohljamkajowk">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"object","value":{"rows":{"type":"raw","value":[{"name":"Luke Skywalker","height":172,"mass":77,"id":1},{"name":"C-3PO","height":167,"mass":75,"id":2},{"name":"R2-D2","height":96,"mass":32,"id":3},{"name":"Darth Vader","height":202,"mass":136,"id":4},{"name":"Leia Organa","height":150,"mass":49,"id":5},{"name":"Owen Lars","height":178,"mass":120,"id":6}]},"columns":{"type":"raw","value":[{"field":"name"},{"field":"height"},{"field":"mass"}]},"getRowHeight":{"type":"expr","value":"\n    function(params) {\n      // Make every third row taller\n      return params.id % 3 === 0 ? 80 : 52;\n    }\n  "}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('vhoipeyoohljamkajowk')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"object","value":{"rows":{"type":"raw","value":[{"name":"Luke Skywalker","height":172,"mass":77,"id":1},{"name":"C-3PO","height":167,"mass":75,"id":2},{"name":"R2-D2","height":96,"mass":32,"id":3},{"name":"Darth Vader","height":202,"mass":136,"id":4},{"name":"Leia Organa","height":150,"mass":49,"id":5},{"name":"Owen Lars","height":178,"mass":120,"id":6}]},"columns":{"type":"raw","value":[{"field":"name","type":"string"},{"field":"height","type":"number"},{"field":"mass","type":"number"}]},"getRowHeight":{"type":"expr","value":"\n    function(params) {\n      // Make every third row taller\n      return params.id % 3 === 0 ? 80 : 52;\n    }\n  "}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('vhoipeyoohljamkajowk')</script>
 </div>
 </div>
 </div>
@@ -207,7 +207,7 @@ from static heights to dynamic sizing based on content.</p>
 <span>  density <span class="op">=</span> <span class="st">"compact"</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="wogxwgkudferwyoprgbx">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"species":"Human","id":1},{"name":"C-3PO","height":167,"mass":75,"species":"Droid","id":2},{"name":"R2-D2","height":96,"mass":32,"species":"Droid","id":3},{"name":"Darth Vader","height":202,"mass":136,"species":"Human","id":4},{"name":"Leia Organa","height":150,"mass":49,"species":"Human","id":5},{"name":"Owen Lars","height":178,"mass":120,"species":"Human","id":6}],"columns":[{"field":"name"},{"field":"height"},{"field":"mass"},{"field":"species"}],"density":"compact"}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('wogxwgkudferwyoprgbx')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"species":"Human","id":1},{"name":"C-3PO","height":167,"mass":75,"species":"Droid","id":2},{"name":"R2-D2","height":96,"mass":32,"species":"Droid","id":3},{"name":"Darth Vader","height":202,"mass":136,"species":"Human","id":4},{"name":"Leia Organa","height":150,"mass":49,"species":"Human","id":5},{"name":"Owen Lars","height":178,"mass":120,"species":"Human","id":6}],"columns":[{"field":"name","type":"string"},{"field":"height","type":"number"},{"field":"mass","type":"number"},{"field":"species","type":"string"}],"density":"compact"}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('wogxwgkudferwyoprgbx')</script>
 </div>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Standard density (default)</span></span>
@@ -216,7 +216,7 @@ from static heights to dynamic sizing based on content.</p>
 <span>  density <span class="op">=</span> <span class="st">"standard"</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="bzpexapgxvsfsfliogmx">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"species":"Human","id":1},{"name":"C-3PO","height":167,"mass":75,"species":"Droid","id":2},{"name":"R2-D2","height":96,"mass":32,"species":"Droid","id":3},{"name":"Darth Vader","height":202,"mass":136,"species":"Human","id":4},{"name":"Leia Organa","height":150,"mass":49,"species":"Human","id":5},{"name":"Owen Lars","height":178,"mass":120,"species":"Human","id":6}],"columns":[{"field":"name"},{"field":"height"},{"field":"mass"},{"field":"species"}],"density":"standard"}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('bzpexapgxvsfsfliogmx')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"species":"Human","id":1},{"name":"C-3PO","height":167,"mass":75,"species":"Droid","id":2},{"name":"R2-D2","height":96,"mass":32,"species":"Droid","id":3},{"name":"Darth Vader","height":202,"mass":136,"species":"Human","id":4},{"name":"Leia Organa","height":150,"mass":49,"species":"Human","id":5},{"name":"Owen Lars","height":178,"mass":120,"species":"Human","id":6}],"columns":[{"field":"name","type":"string"},{"field":"height","type":"number"},{"field":"mass","type":"number"},{"field":"species","type":"string"}],"density":"standard"}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('bzpexapgxvsfsfliogmx')</script>
 </div>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Comfortable density</span></span>
@@ -225,7 +225,7 @@ from static heights to dynamic sizing based on content.</p>
 <span>  density <span class="op">=</span> <span class="st">"comfortable"</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="zvxpuzsfhswgayltrkjt">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"species":"Human","id":1},{"name":"C-3PO","height":167,"mass":75,"species":"Droid","id":2},{"name":"R2-D2","height":96,"mass":32,"species":"Droid","id":3},{"name":"Darth Vader","height":202,"mass":136,"species":"Human","id":4},{"name":"Leia Organa","height":150,"mass":49,"species":"Human","id":5},{"name":"Owen Lars","height":178,"mass":120,"species":"Human","id":6}],"columns":[{"field":"name"},{"field":"height"},{"field":"mass"},{"field":"species"}],"density":"comfortable"}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('zvxpuzsfhswgayltrkjt')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"species":"Human","id":1},{"name":"C-3PO","height":167,"mass":75,"species":"Droid","id":2},{"name":"R2-D2","height":96,"mass":32,"species":"Droid","id":3},{"name":"Darth Vader","height":202,"mass":136,"species":"Human","id":4},{"name":"Leia Organa","height":150,"mass":49,"species":"Human","id":5},{"name":"Owen Lars","height":178,"mass":120,"species":"Human","id":6}],"columns":[{"field":"name","type":"string"},{"field":"height","type":"number"},{"field":"mass","type":"number"},{"field":"species","type":"string"}],"density":"comfortable"}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('zvxpuzsfhswgayltrkjt')</script>
 </div>
 <p>Density values affect row height: - “compact”: ~36px - “standard”:
 ~52px (default) - “comfortable”: ~65px</p>
@@ -251,7 +251,7 @@ from static heights to dynamic sizing based on content.</p>
 <span><span class="st">  "</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="rcwcwcmgreyijxvcxujz">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"object","value":{"rows":{"type":"raw","value":[{"name":"Luke Skywalker","height":172,"mass":77,"species":"Human","id":1},{"name":"C-3PO","height":167,"mass":75,"species":"Droid","id":2},{"name":"R2-D2","height":96,"mass":32,"species":"Droid","id":3},{"name":"Darth Vader","height":202,"mass":136,"species":"Human","id":4},{"name":"Leia Organa","height":150,"mass":49,"species":"Human","id":5},{"name":"Owen Lars","height":178,"mass":120,"species":"Human","id":6}]},"columns":{"type":"raw","value":[{"field":"name"},{"field":"height"},{"field":"mass"},{"field":"species"}]},"getRowSpacing":{"type":"expr","value":"\n    function(params) {\n      return {\n        top: params.isFirstVisible ? 0 : 5,\n        bottom: params.isLastVisible ? 0 : 5\n      };\n    }\n  "}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('rcwcwcmgreyijxvcxujz')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"object","value":{"rows":{"type":"raw","value":[{"name":"Luke Skywalker","height":172,"mass":77,"species":"Human","id":1},{"name":"C-3PO","height":167,"mass":75,"species":"Droid","id":2},{"name":"R2-D2","height":96,"mass":32,"species":"Droid","id":3},{"name":"Darth Vader","height":202,"mass":136,"species":"Human","id":4},{"name":"Leia Organa","height":150,"mass":49,"species":"Human","id":5},{"name":"Owen Lars","height":178,"mass":120,"species":"Human","id":6}]},"columns":{"type":"raw","value":[{"field":"name","type":"string"},{"field":"height","type":"number"},{"field":"mass","type":"number"},{"field":"species","type":"string"}]},"getRowSpacing":{"type":"expr","value":"\n    function(params) {\n      return {\n        top: params.isFirstVisible ? 0 : 5,\n        bottom: params.isLastVisible ? 0 : 5\n      };\n    }\n  "}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('rcwcwcmgreyijxvcxujz')</script>
 </div>
 </div>
 </div>
@@ -272,7 +272,7 @@ from static heights to dynamic sizing based on content.</p>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="react-container" data-react-id="jyfadwffbyguhwhzptvt">
-<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"species":"Human","id":1},{"name":"C-3PO","height":167,"mass":75,"species":"Droid","id":2},{"name":"R2-D2","height":96,"mass":32,"species":"Droid","id":3},{"name":"Darth Vader","height":202,"mass":136,"species":"Human","id":4},{"name":"Leia Organa","height":150,"mass":49,"species":"Human","id":5},{"name":"Owen Lars","height":178,"mass":120,"species":"Human","id":6},{"name":"Beru Whitesun Lars","height":165,"mass":75,"species":"Human","id":7},{"name":"R5-D4","height":97,"mass":32,"species":"Droid","id":8},{"name":"Biggs Darklighter","height":183,"mass":84,"species":"Human","id":9},{"name":"Obi-Wan Kenobi","height":182,"mass":77,"species":"Human","id":10}],"columns":[{"field":"name"},{"field":"height"},{"field":"mass"},{"field":"species"}],"sx":{"& .MuiDataGrid-row":{"borderBottom":"2px solid #e0e0e0","marginBottom":"4px"}}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('jyfadwffbyguhwhzptvt')</script>
+<script class="react-data" type="application/json">{"type":"element","module":"@mui/x-data-grid","name":"DataGrid","props":{"type":"raw","value":{"rows":[{"name":"Luke Skywalker","height":172,"mass":77,"species":"Human","id":1},{"name":"C-3PO","height":167,"mass":75,"species":"Droid","id":2},{"name":"R2-D2","height":96,"mass":32,"species":"Droid","id":3},{"name":"Darth Vader","height":202,"mass":136,"species":"Human","id":4},{"name":"Leia Organa","height":150,"mass":49,"species":"Human","id":5},{"name":"Owen Lars","height":178,"mass":120,"species":"Human","id":6},{"name":"Beru Whitesun Lars","height":165,"mass":75,"species":"Human","id":7},{"name":"R5-D4","height":97,"mass":32,"species":"Droid","id":8},{"name":"Biggs Darklighter","height":183,"mass":84,"species":"Human","id":9},{"name":"Obi-Wan Kenobi","height":182,"mass":77,"species":"Human","id":10}],"columns":[{"field":"name","type":"string"},{"field":"height","type":"number"},{"field":"mass","type":"number"},{"field":"species","type":"string"}],"sx":{"& .MuiDataGrid-row":{"borderBottom":"2px solid #e0e0e0","marginBottom":"4px"}}}}}</script><script>jsmodule['@/shiny.react'].findAndRenderReactData('jyfadwffbyguhwhzptvt')</script>
 </div>
 </div>
 </div>

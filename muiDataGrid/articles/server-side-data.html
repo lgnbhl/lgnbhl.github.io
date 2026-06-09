@@ -7,8 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Server-Side Data • muiDataGrid</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Server-Side Data">
 </head>
@@ -75,7 +75,7 @@
       <h1>Server-Side Data</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/lgnbhl/muiDataGrid/blob/HEAD/vignettes/server-side-data.Rmd" class="external-link"><code>vignettes/server-side-data.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/lgnbhl/muiDataGrid/blob/main/vignettes/server-side-data.Rmd" class="external-link"><code>vignettes/server-side-data.Rmd</code></a></small>
       <div class="d-none name"><code>server-side-data.Rmd</code></div>
     </div>
 
@@ -84,6 +84,19 @@
 <div class="section level2">
 <h2 id="server-side-data">Server-Side Data<a class="anchor" aria-label="anchor" href="#server-side-data"></a>
 </h2>
+<blockquote>
+<p><strong>Experimental — specific to this package.</strong>
+<code><a href="../reference/DataGridServer.html">DataGridServer()</a></code> and <code><a href="../reference/processGridParams.html">processGridParams()</a></code> have
+<strong>no equivalent in MUI X Data Grid</strong>. MUI ships only the
+building blocks (<code>paginationMode = "server"</code> plus callbacks)
+and leaves the server-side data layer to the developer; this package
+supplies that layer in R. As a result these two functions are
+<strong>experimental</strong> and encode a number of opinionated
+decisions (described below) that may change in future releases. If you
+depend on the current behaviour, pin the package version. The
+client-side <code><a href="../reference/DataGrid.html">DataGrid()</a></code> is a thin wrapper over the real MUI
+component and is <strong>not</strong> experimental.</p>
+</blockquote>
 <div class="section level3">
 <h3 id="why-server-side-data">Why server-side data?<a class="anchor" aria-label="anchor" href="#why-server-side-data"></a>
 </h3>
@@ -382,16 +395,47 @@ operators:</p>
 </tr>
 </tbody>
 </table>
-<p>Unrecognized operators are ignored (all rows pass). If you need
-operators not listed here, use manual mode and handle filtering
-yourself.</p>
+<p>Unrecognized operators pass all rows through (no filtering)
+<strong>and emit a warning</strong>. If you need operators not listed
+here, use manual mode and handle filtering yourself.</p>
 <blockquote>
 <p><strong>Note:</strong> String operators (<code>contains</code>,
 <code>equals</code>, <code>startsWith</code>, <code>endsWith</code>,
 <code>not</code>) are case-insensitive. The <code>is</code> operator is
-case-sensitive, matching MUI’s default behavior.</p>
+case-sensitive, matching MUI’s default behavior. Because filtering is
+reimplemented in R, edge cases (locale, accents) can differ from MUI’s
+own client-side filter.</p>
 </blockquote>
 </div>
+</div>
+<div class="section level3">
+<h3 id="opinionated-behaviour-to-be-aware-of">Opinionated behaviour to be aware of<a class="anchor" aria-label="anchor" href="#opinionated-behaviour-to-be-aware-of"></a>
+</h3>
+<p>Because this server-side layer is bespoke (see the experimental note
+at the top), it makes a few decisions for you. Knowing them avoids
+surprises:</p>
+<ul>
+<li>
+<strong>Mode is chosen by <code>rowCount</code>.</strong> Supplying
+<code>rowCount</code> switches to manual mode and <code>rows</code> is
+treated as an already-sliced page — passing the <em>full</em> dataset
+with <code>rowCount</code> set will show everything on page one with no
+pagination. Omit <code>rowCount</code> for automatic mode. (As a guard,
+<code><a href="../reference/DataGridServer.html">DataGridServer()</a></code> warns if <code>nrow(rows)</code> exceeds
+<code>rowCount</code>.)</li>
+<li><strong>Sorting or filtering resets to the first page.</strong></li>
+<li>
+<strong>Missing values always sort last</strong>, regardless of sort
+direction.</li>
+<li>
+<strong>Row ids must be stable for selection.</strong> When
+<code>rows</code> has no <code>id</code> column, ids are generated
+positionally (1..n of the <em>current</em> filtered/sorted result), so
+the same record gets a different id after a sort or filter change. If
+you use <code>checkboxSelection</code> with server-side data, include a
+stable, unique <code>id</code> column in <code>rows</code> so selections
+survive sorting and filtering.</li>
+</ul>
 </div>
 <div class="section level3">
 <h3 id="custom-columns">Custom columns<a class="anchor" aria-label="anchor" href="#custom-columns"></a>
@@ -503,11 +547,11 @@ skip it and handle <code>input$&lt;inputId&gt;</code> directly:</p>
 <span>    <span class="va">page_size</span> <span class="op">&lt;-</span> <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html" class="external-link">is.null</a></span><span class="op">(</span><span class="va">params</span><span class="op">)</span><span class="op">)</span> <span class="va">params</span><span class="op">$</span><span class="va">pagination_model</span><span class="op">$</span><span class="va">pageSize</span>  <span class="kw">else</span> <span class="fl">25</span></span>
 <span></span>
 <span>    <span class="co"># Custom database query</span></span>
-<span>    <span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">DBI</span><span class="fu">::</span><span class="fu"><a href="https://dbi.r-dbi.org/reference/dbGetQuery.html" class="external-link">dbGetQuery</a></span><span class="op">(</span><span class="va">con</span>, <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span></span>
+<span>    <span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">DBI</span><span class="fu">::</span><span class="fu">dbGetQuery</span><span class="op">(</span><span class="va">con</span>, <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span></span>
 <span>      <span class="st">"SELECT * FROM my_table ORDER BY id LIMIT %d OFFSET %d"</span>,</span>
 <span>      <span class="va">page_size</span>, <span class="va">page</span> <span class="op">*</span> <span class="va">page_size</span></span>
 <span>    <span class="op">)</span><span class="op">)</span></span>
-<span>    <span class="va">total</span> <span class="op">&lt;-</span> <span class="fu">DBI</span><span class="fu">::</span><span class="fu"><a href="https://dbi.r-dbi.org/reference/dbGetQuery.html" class="external-link">dbGetQuery</a></span><span class="op">(</span><span class="va">con</span>, <span class="st">"SELECT COUNT(*) FROM my_table"</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span>
+<span>    <span class="va">total</span> <span class="op">&lt;-</span> <span class="fu">DBI</span><span class="fu">::</span><span class="fu">dbGetQuery</span><span class="op">(</span><span class="va">con</span>, <span class="st">"SELECT COUNT(*) FROM my_table"</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span>
 <span></span>
 <span>    <span class="fu"><a href="../reference/DataGridServer.html">DataGridServer</a></span><span class="op">(</span></span>
 <span>      inputId <span class="op">=</span> <span class="st">"grid_params"</span>,</span>
