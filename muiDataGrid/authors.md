@@ -2,7 +2,18 @@
 
 ## Authors
 
-- **[Felix Luginbuhl](https://felixluginbuhl.com)**. Author, maintainer.
+- **[Felix Luginbuhl](https://felixluginbuhl.com)**. Author, maintainer,
+  copyright holder. [](https://orcid.org/0009-0008-6625-2899)
+
+- **MUI**. Copyright holder.  
+  Copyright holder of the bundled '@mui/x-data-grid',
+  '@mui/x-virtualizer', '@mui/x-internals', '@mui/private-theming' and
+  '@mui/styled-engine' JavaScript libraries
+
+- **Meta Platforms, Inc. and affiliates**. Copyright holder.  
+  Copyright holder of the bundled 'react-is' JavaScript library; 'react'
+  and 'react-dom' are declared as peer dependencies and provided at
+  runtime by 'shiny.react'
 
 ## Citation
 

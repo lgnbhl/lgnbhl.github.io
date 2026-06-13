@@ -117,6 +117,13 @@ you rely on the current behaviour. Decisions worth knowing about:
   *not* stable across sort/filter changes. Supply a stable, unique `id`
   column if you use row selection.
 
+- `initialPageSize`, `initialState`, and any initial sort or filter seed
+  the grid *only on the first render*. The React component reads them
+  once when it mounts, so changing them reactively afterwards (e.g. from
+  a `selectInput`) has no effect on the already-mounted grid. To change
+  page size after mount, drive it from the grid's own controls rather
+  than re-rendering with a new `initialPageSize`.
+
 ## Examples
 
 ``` r

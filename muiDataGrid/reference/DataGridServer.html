@@ -28,6 +28,7 @@ The component sends pagination, sort, and filter state to R via a Shiny input.">
     <li><a class="dropdown-item" href="../articles/row-height.html">Row Height</a></li>
     <li><a class="dropdown-item" href="../articles/row-spanning.html">Row Spanning</a></li>
     <li><a class="dropdown-item" href="../articles/styling-basics.html">Styling basics</a></li>
+    <li><a class="dropdown-item" href="../articles/localization.html">Localization</a></li>
     <li><a class="dropdown-item" href="../articles/custom-react-js.html">Custom with React JS</a></li>
   </ul></li>
 <li class="nav-item dropdown">
@@ -165,6 +166,12 @@ knowing about:</p><ul><li><p>Mode is selected by the presence of <code>rowCount<
 <li><p>When <code>rows</code> has no <code>id</code> column, ids are generated
     positionally and are <em>not</em> stable across sort/filter changes.
     Supply a stable, unique <code>id</code> column if you use row selection.</p></li>
+<li><p><code>initialPageSize</code>, <code>initialState</code>, and any initial sort or
+    filter seed the grid <em>only on the first render</em>. The React component
+    reads them once when it mounts, so changing them reactively afterwards
+    (e.g. from a <code>selectInput</code>) has no effect on the already-mounted
+    grid. To change page size after mount, drive it from the grid's own
+    controls rather than re-rendering with a new <code>initialPageSize</code>.</p></li>
 </ul></div>
 
     <div class="section level2">
