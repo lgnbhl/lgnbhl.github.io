@@ -53,10 +53,23 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.1.0" id="muidatagrid-010">muiDataGrid 0.1.0<a class="anchor" aria-label="anchor" href="#muidatagrid-010"></a></h2>
-<ul><li>initial commit</li>
+<h2 class="pkg-version" data-toc-text="0.1.2" id="muidatagrid-012">muiDataGrid 0.1.2<a class="anchor" aria-label="anchor" href="#muidatagrid-012"></a></h2>
+<ul><li>
+<code><a href="../reference/DataGrid.html">DataGrid()</a></code> now infers MUI column types from R classes (numeric columns become <code>number</code>, logical columns <code>boolean</code>) and warns when a supplied <code>id</code> column contains duplicate values.</li>
+<li>Added server-side support via <code><a href="../reference/DataGridServer.html">DataGridServer()</a></code> and <code><a href="../reference/processGridParams.html">processGridParams()</a></code>, which apply pagination, sorting, and filtering in R and send only the current page to the browser. The sort/filter pass is memoized so paginating a large dataset no longer re-sorts every row on each page change.</li>
+<li>
+<code><a href="../reference/DataGridServer.html">DataGridServer()</a></code> hardened: validates <code>initialPageSize</code> against <code>pageSizeOptions</code>, rejects two live outputs sharing one <code>inputId</code>, warns when <code>nrow(rows)</code> exceeds a manual <code>rowCount</code>, and strips protected props (<code>paginationMode</code>, <code>sortingMode</code>, <code>filterMode</code>, <code>pagination</code>).</li>
+<li>Filter input in the server grid is now debounced independently of pagination and sorting changes.</li>
+<li>Bundled MUI X Data Grid locales for multi-language support.</li>
+<li>Require <code>muiMaterial</code> (&gt;= 0.2.0) and warn at attach if an incompatible version is installed, since the grid shares its bundled MUI runtime.</li>
+<li>Documented attribution and licensing for the bundled MUI X Data Grid JavaScript (see <code>LICENSE.note</code>).</li>
 </ul></div>
-  </main></div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.1.0" id="muidatagrid-010">muiDataGrid 0.1.0<a class="anchor" aria-label="anchor" href="#muidatagrid-010"></a></h2>
+<ul><li>Initial release.</li>
+</ul></div>
+  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
+    </nav></aside></div>
 
 
     <footer><div class="pkgdown-footer-left">

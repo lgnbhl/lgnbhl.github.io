@@ -29,3 +29,10 @@ DataGrid(rows = NULL, columns = NULL, ...)
 - ...:
 
   Additional props passed directly to the MUI DataGrid component.
+
+## Value
+
+A `shiny.react` element (also classed `muiDataGrid`) that renders the
+MUI X Data Grid. Use it directly in Shiny UI, inside
+[`renderReact()`](https://appsilon.github.io/shiny.react/reference/renderReact.html),
+or in a Quarto/R Markdown document.
