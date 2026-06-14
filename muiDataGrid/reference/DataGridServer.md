@@ -101,7 +101,7 @@ Grid: MUI ships only the building blocks (`paginationMode = "server"`
 plus callbacks) and leaves the data layer to you. This wrapper supplies
 that layer in R, and in doing so encodes a number of opinionated
 decisions that may change in future releases. Pin the package version if
-you rely on the current behaviour. Decisions worth knowing about:
+you rely on the current behavior. Decisions worth knowing about:
 
 - Mode is selected by the presence of `rowCount`: supply it to pass a
   pre-sliced page (manual mode); omit it to let the full `rows` be
@@ -109,7 +109,7 @@ you rely on the current behaviour. Decisions worth knowing about:
 
 - Changing the sort or any filter resets the grid to the first page.
 
-- Unrecognised filter operators pass all rows through with a warning
+- Unrecognized filter operators pass all rows through with a warning
   (see
   [`processGridParams`](https://felixluginbuhl.com/muiDataGrid/reference/processGridParams.md)).
 

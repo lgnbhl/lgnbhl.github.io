@@ -11,7 +11,7 @@
 > server-side data layer to the developer; this package supplies that
 > layer in R. As a result these two functions are **experimental** and
 > encode a number of opinionated decisions (described below) that may
-> change in future releases. If you depend on the current behaviour, pin
+> change in future releases. If you depend on the current behavior, pin
 > the package version. The client-side
 > [`DataGrid()`](https://felixluginbuhl.com/muiDataGrid/reference/DataGrid.md)
 > is a thin wrapper over the real MUI component and is **not**
@@ -183,7 +183,7 @@ handle filtering yourself.
 > reimplemented in R, edge cases (locale, accents) can differ from MUI’s
 > own client-side filter.
 
-### Opinionated behaviour to be aware of
+### Opinionated behavior to be aware of
 
 Because this server-side layer is bespoke (see the experimental note at
 the top), it makes a few decisions for you. Knowing them avoids

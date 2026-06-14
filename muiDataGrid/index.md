@@ -65,4 +65,4 @@ request, don’t hesitate to write me on
 <https://felixluginbuhl.com/muiDataGrid/>
 
 For updates follow [Felix
-Luginbuhl](https://linkedin.com/in/FelixLuginbuhl) on LinkedIn.
+Luginbuhl](https://www.linkedin.com/in/FelixLuginbuhl) on LinkedIn.
