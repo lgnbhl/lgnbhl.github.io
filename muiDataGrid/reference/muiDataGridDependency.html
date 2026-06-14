@@ -64,9 +64,48 @@
 
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>HTML dependency object.</p>
+    <p>A list of HTML dependency objects (<code><a href="https://rstudio.github.io/htmltools/reference/htmlDependency.html" class="external-link">htmltools::htmlDependency</a></code>)
+  that load the bundled MUI X Data Grid JavaScript and its shared MUI
+  Material runtime. Attach it to custom HTML when building a grid by hand.</p>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Inspect the dependencies attached to every DataGrid() element.</span></span></span>
+<span class="r-in"><span><span class="fu">muiDataGridDependency</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> List of 10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ name      : chr "muiMaterial"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ version   : chr "0.2.0"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ src       :List of 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ..$ file: chr "www/muiMaterial"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ meta      : NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ script    : chr "mui-material.js"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ stylesheet: NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ head      : NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ attachment: NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ package   : chr "muiMaterial"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ all_files : logi TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - attr(*, "class")= chr "html_dependency"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [[2]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> List of 10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ name      : chr "muiDataGrid"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ version   : chr "0.1.2"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ src       :List of 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ..$ file: chr "www/muiDataGrid"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ meta      : NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ script    : chr "x-data-grid.js"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ stylesheet: NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ head      : NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ attachment: NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ package   : chr "muiDataGrid"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ all_files : logi TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - attr(*, "class")= chr "html_dependency"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-in"><span></span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>
 
