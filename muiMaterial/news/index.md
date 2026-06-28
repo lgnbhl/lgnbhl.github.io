@@ -1,6 +1,22 @@
 # Changelog
 
-## muiMaterial 0.2.0 (unreleased)
+## muiMaterial 0.2.1
+
+### New features
+
+- expose the MUI theming/styling singletons (`@mui/private-theming`,
+  `@mui/styled-engine`) and the emotion cache (`@emotion/cache`) on
+  `window.jsmodule`. Companion packages (e.g. muiCharts, which bundles
+  `@mui/x-charts`) can now externalize against this single instance, so
+  a
+  [`ThemeProvider()`](https://felixluginbuhl.com/muiMaterial/reference/ThemeProvider.md)
+  rendered by muiMaterial reaches the bundled charts. Previously each
+  bundle carried its own `ThemeContext` and emotion cache, so theming
+  and `sx` styling were silently ignored across package boundaries.
+
+## muiMaterial 0.2.0
+
+CRAN release: 2026-06-04
 
 ### Breaking changes
 

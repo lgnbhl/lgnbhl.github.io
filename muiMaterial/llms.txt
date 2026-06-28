@@ -41,12 +41,12 @@ muiMaterial::muiMaterialExample("mui-template-dashboard")
 
 ``` r
 
-remotes::install_github("lgnbhl/muiMaterial") # v0.2.0 (SOON ON CRAN)
+remotes::install_github("lgnbhl/muiMaterial") # development version
 ```
 
 ``` r
 
-install.packages("muiMaterial") # v0.1.3
+install.packages("muiMaterial")
 ```
 
 ``` r
