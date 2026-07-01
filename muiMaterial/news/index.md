@@ -1,5 +1,16 @@
 # Changelog
 
+## muiMaterial 0.2.2
+
+### Dependencies
+
+- update the bundled ‘Material UI’ libraries to their latest releases:
+  `@mui/material` 9.0.0 -\> 9.1.2 and `@mui/lab` 9.0.0-beta.2 -\>
+  9.0.0-beta.5.
+- refresh development and CI tooling via Renovate: Babel 8, Node 24 in
+  CI, and the `actions/checkout`, `actions/setup-node`,
+  `actions/upload-artifact` and `codecov/codecov-action` GitHub Actions.
+
 ## muiMaterial 0.2.1
 
 CRAN release: 2026-06-28
