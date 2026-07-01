@@ -2,6 +2,8 @@
 
 ## muiMaterial 0.2.1
 
+CRAN release: 2026-06-28
+
 ### New features
 
 - expose the MUI theming/styling singletons (`@mui/private-theming`,

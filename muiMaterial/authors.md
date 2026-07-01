@@ -21,7 +21,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/lgnbhl/muiMaterial/blob/v0.2.1/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/lgnbhl/muiMaterial/blob/main/DESCRIPTION)
 
 Luginbuhl F (2026). *muiMaterial: 'Material UI' for 'shiny' Apps and
 'Quarto'*. R package version 0.2.1,
