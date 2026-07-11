@@ -12,6 +12,16 @@ Column definitions in the Data Grid specify how data is displayed,
 formatted, and interacted with. Each column has a unique field name and
 various properties that control its behavior.
 
+> **Free tier only.** `muiDataGrid` wraps the open-source **MUI X Data
+> Grid (Community)** component. Only Community-tier features are
+> available. Properties that belong to the commercial **Pro** or
+> **Premium** tiers — such as column pinning (`pinnable`), row grouping,
+> aggregation, the tree-data and master-detail layouts, and Excel export
+> — are not bundled and will have no effect if you pass them. See the
+> [MUI X feature
+> comparison](https://mui.com/x/introduction/licensing/#plan-features)
+> for which features belong to which plan.
+
 ### Core Properties
 
 #### field
@@ -110,6 +120,84 @@ DataGrid(
   )
 )
 ```
+
+#### Date and dateTime columns
+
+Dates need special handling. The Data Grid does not auto-detect a date
+`type` from your data, and — just as importantly — R `Date` and
+`POSIXct` values are **not** transmitted to the browser as readable date
+strings. When a data frame is serialized, each `Date` cell loses its
+class and is sent as a bare number (days since 1970-01-01), and
+`POSIXct` is sent as seconds since the epoch. A `date` column fed that
+number renders as `1/1/1970`, because the browser interprets it as
+milliseconds since the epoch.
+
+The reliable pattern is therefore to **convert your dates to ISO 8601
+character strings in R first**, then declare the column `type = "date"`
+(or `"dateTime"`) and add a `valueGetter` that turns the string back
+into a JavaScript `Date`:
+
+``` r
+
+events <- data.frame(
+  event = c("A New Hope", "The Empire Strikes Back", "Return of the Jedi"),
+  release = as.Date(c("1977-05-25", "1980-05-21", "1983-05-25")),
+  stringsAsFactors = FALSE
+)
+
+events$release <- format(events$release)  # ISO strings: "1977-05-25"
+
+DataGrid(
+  rows = events,
+  columns = list(
+    list(field = "event", headerName = "Film", width = 220),
+    list(
+      field = "release",
+      headerName = "Release Date",
+      type = "date",
+      width = 160,
+      valueGetter = JS("function(value) { return value ? new Date(value) : null; }")
+    )
+  )
+)
+```
+
+The `valueGetter` is what makes MUI’s date-picker filter operators
+(`after`, `before`, `onOrAfter`, …) and locale-aware `valueFormatter`
+formatting work.
+
+For timestamps, format to an ISO date-time string and use
+`type = "dateTime"`:
+
+``` r
+
+logs <- data.frame(
+  message = c("Started", "Finished"),
+  ts = as.POSIXct(c("2024-03-15 09:30:00", "2024-03-15 17:45:00"), tz = "UTC"),
+  stringsAsFactors = FALSE
+)
+
+logs$ts <- format(logs$ts, "%Y-%m-%dT%H:%M:%SZ")  # "2024-03-15T09:30:00Z"
+
+DataGrid(
+  rows = logs,
+  columns = list(
+    list(field = "message", headerName = "Event", width = 160),
+    list(
+      field = "ts",
+      headerName = "Timestamp",
+      type = "dateTime",
+      width = 200,
+      valueGetter = JS("function(value) { return value ? new Date(value) : null; }")
+    )
+  )
+)
+```
+
+If you only need dates displayed and sorted (no date-picker filter), the
+simplest option is to keep them as ISO character strings and leave the
+column as the default `"string"` type — ISO strings already sort
+chronologically.
 
 ### Display Properties
 
@@ -467,7 +555,6 @@ DataGrid(
       sortable = TRUE,
       filterable = TRUE,
       hideable = FALSE,
-      pinnable = TRUE,
       align = "left"
     ),
     list(

@@ -18,7 +18,11 @@ SwipeableDrawer.triggerId(triggerId, ...)
 
 - ...:
 
-  args to pass to element
+  Named arguments forwarded as React props, plus children to render
+  inside the component. Pass `closeOnLinkClick = FALSE` to keep the
+  Drawer open when any link inside it is clicked. The default (`TRUE`)
+  closes the Drawer on any `<a>` click, including external links with
+  `target = "_blank"`.
 
 ## Value
 

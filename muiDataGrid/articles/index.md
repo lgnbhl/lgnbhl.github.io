@@ -11,6 +11,7 @@
 - [Custom with React
   JS](https://felixluginbuhl.com/muiDataGrid/articles/custom-react-js.md):
 - [Layout](https://felixluginbuhl.com/muiDataGrid/articles/layout.md):
+- [Localization](https://felixluginbuhl.com/muiDataGrid/articles/localization.md):
 - [Row
   Definition](https://felixluginbuhl.com/muiDataGrid/articles/row-definition.md):
 - [Row

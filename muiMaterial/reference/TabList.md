@@ -42,5 +42,12 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 ## Details
 
-- children `node`\
+- children `node`  
   Default is NA A list of Tab / elements.
+
+## Note
+
+`TabList` is part of
+[`@mui/lab`](https://mui.com/material-ui/about-the-lab/), which is
+published on the MUI beta channel. Lab APIs may change in future minor
+releases.

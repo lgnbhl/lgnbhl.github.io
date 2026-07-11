@@ -19,7 +19,8 @@ Modal.triggerId(triggerId, ...)
 
 - ...:
 
-  args to pass to element
+  Named arguments forwarded as React props, plus children to render
+  inside the component.
 
 ## Value
 

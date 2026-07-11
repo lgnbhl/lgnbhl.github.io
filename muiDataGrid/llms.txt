@@ -2,8 +2,8 @@
 
 **muiDataGrid** gives access to [MUI X Data
 Grid](https://mui.com/x/react-data-grid/), a fast and extensible React
-data table and React data grid, with filtering, sorting, aggregation,
-and more.
+data table and React data grid, with filtering, sorting, pagination, and
+more.
 
 ## Install
 
@@ -41,10 +41,10 @@ library(dplyr)
 
 DataGrid(
   rows = starwars,
-  columns = data.frame(
-    field = c("name", "height", "mass"), # column names
-    headerName = c("Names", "Height (cm)", "Mass (kg)"),
-    description = c("Names of Starwars character", "Height in centimeter", "Mass in kilogram")
+  columns = list(
+    list(field = "name", headerName = "Names", description = "Names of Starwars character"),
+    list(field = "height", headerName = "Height (cm)", description = "Height in centimeter"),
+    list(field = "mass", headerName = "Mass (kg)", description = "Mass in kilogram")
   ),
   initialState = list(
     pagination = list(
@@ -65,7 +65,7 @@ request, don’t hesitate to write me on
 <https://felixluginbuhl.com/muiDataGrid/>
 
 For updates follow [Felix
-Luginbuhl](https://linkedin.com/in/FelixLuginbuhl) on LinkedIn.
+Luginbuhl](https://www.linkedin.com/in/FelixLuginbuhl) on LinkedIn.
 
 # Package index
 
@@ -95,6 +95,7 @@ Luginbuhl](https://linkedin.com/in/FelixLuginbuhl) on LinkedIn.
 - [Custom with React
   JS](https://felixluginbuhl.com/muiDataGrid/articles/custom-react-js.md):
 - [Layout](https://felixluginbuhl.com/muiDataGrid/articles/layout.md):
+- [Localization](https://felixluginbuhl.com/muiDataGrid/articles/localization.md):
 - [Row
   Definition](https://felixluginbuhl.com/muiDataGrid/articles/row-definition.md):
 - [Row

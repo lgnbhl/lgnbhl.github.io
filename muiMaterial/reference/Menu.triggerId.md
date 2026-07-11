@@ -18,7 +18,9 @@ Menu.triggerId(triggerId, ...)
 
 - ...:
 
-  args to pass to element
+  Named arguments forwarded as React props, plus children to render
+  inside the component. Pass \`closeOnItemClick = FALSE\` to keep the
+  menu open after a click.
 
 ## Value
 

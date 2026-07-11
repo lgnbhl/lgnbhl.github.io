@@ -166,7 +166,7 @@ shinyApp(ui, server)
 
 ### Pre-Selected Rows
 
-Initialise the grid with rows already selected by passing
+Initialize the grid with rows already selected by passing
 `rowSelectionModel`:
 
 ``` r
