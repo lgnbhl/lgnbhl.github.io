@@ -402,6 +402,8 @@ Components for displaying content.
 - [`ListItemAvatar()`](https://felixluginbuhl.com/muiMaterial/reference/ListItemAvatar.md)
   : ListItemAvatar
 - [`ListItemButton()`](https://felixluginbuhl.com/muiMaterial/reference/ListItemButton.md)
+  [`ListItemButton.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/ListItemButton.md)
+  [`updateListItemButton.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/ListItemButton.md)
   : ListItemButton
 - [`ListItemIcon()`](https://felixluginbuhl.com/muiMaterial/reference/ListItemIcon.md)
   : ListItemIcon
@@ -724,6 +726,10 @@ Re-exported helpers from `shiny.react` and the package’s own React glue.
   [`Input.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Input.md)
   [`updateInput.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Input.md)
   : Input
+- [`ListItemButton()`](https://felixluginbuhl.com/muiMaterial/reference/ListItemButton.md)
+  [`ListItemButton.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/ListItemButton.md)
+  [`updateListItemButton.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/ListItemButton.md)
+  : ListItemButton
 - [`LoadingButton()`](https://felixluginbuhl.com/muiMaterial/reference/LoadingButton.md)
   [`LoadingButton.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/LoadingButton.md)
   [`updateLoadingButton.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/LoadingButton.md)

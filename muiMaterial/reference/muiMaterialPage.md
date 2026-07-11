@@ -56,7 +56,8 @@ muiMaterialPage(
 
 - styleBody:
 
-  CSS style in body, using \`margin:0\` by default.
+  CSS declarations applied to the document body via a \`body ... \`
+  style rule, \`"margin:0"\` by default.
 
 - debugReact:
 
@@ -64,8 +65,11 @@ muiMaterialPage(
 
 ## Value
 
-html object with 'margin:0' which can be passed as the UI of a Shiny
-app.
+A browsable \`htmltools\` tag list which can be passed as the UI of a
+Shiny app or rendered standalone (e.g. with \`htmltools::save_html()\`).
+Head content (meta tags, font links, the body style rule) is emitted via
+\`htmltools::tags\$head()\` and hoisted into the document head at render
+time.
 
 ## Details
 

@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">muiMaterial</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.2.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -86,9 +86,15 @@
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
 <dd><p>Named arguments forwarded as React props, plus children to render inside the component.
-Pass <code>closeOnLinkClick = FALSE</code> to keep the Drawer open when any link inside it is
-clicked. The default (<code>TRUE</code>) closes the Drawer on any <code>&lt;a&gt;</code> click, including
-external links with <code>target = "_blank"</code>.</p></dd>
+  Pass <code>closeOnLinkClick = FALSE</code> to keep the Drawer open when any link inside it is
+  clicked. The default (<code>TRUE</code>) closes the Drawer on any <code>&lt;a&gt;</code> click, including
+  external links with <code>target = "_blank"</code>.</p>
+<p><code>sx</code> styles the Drawer root, as on any other component. Size the
+  drawer paper with <code>width</code> (280 by default) or style it via
+  <code>slotProps = list(paper = list(sx = list(...)))</code>. The <code>open</code>
+  prop is owned by the wrapper (that is the point of <code>.triggerId</code>);
+  a caller-supplied <code>onClose</code> is called after the wrapper closes
+  itself.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -120,7 +126,7 @@ external links with <code>target = "_blank"</code>.</p></dd>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer></div>

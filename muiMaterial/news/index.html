@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">muiMaterial</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.2.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,7 +67,56 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.2.2" id="muimaterial-022">muiMaterial 0.2.2<a class="anchor" aria-label="anchor" href="#muimaterial-022"></a></h2>
+<h2 class="pkg-version" data-toc-text="development version" id="muimaterial-development-version">muiMaterial (development version)<a class="anchor" aria-label="anchor" href="#muimaterial-development-version"></a></h2>
+<div class="section level3">
+<h3 id="new-features-development-version">New features<a class="anchor" aria-label="anchor" href="#new-features-development-version"></a></h3>
+<ul><li>new <code><a href="../reference/ListItemButton.html">ListItemButton.shinyInput()</a></code> / <code><a href="../reference/ListItemButton.html">updateListItemButton.shinyInput()</a></code>: clickable list rows now report a click counter to <code>input[[inputId]]</code>, like <code><a href="../reference/Button.html">Button.shinyInput()</a></code>. (The JS adapter existed but was not exposed in R.)</li>
+<li>
+<code>.shinyInput()</code> functions now warn when a reserved prop is supplied (<code>checked</code>/<code>onChange</code> on value inputs, <code>onClick</code> on action inputs): a caller-supplied reserved prop silently overrides the input wiring and <code>input[[inputId]]</code> stops updating. Deliberate overrides (an advanced pattern) can silence the warning with <code>options(muiMaterial.warnReservedProps = FALSE)</code>.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="breaking-changes-development-version">Breaking changes<a class="anchor" aria-label="anchor" href="#breaking-changes-development-version"></a></h3>
+<ul><li>
+<code><a href="../reference/Drawer.triggerId.html">Drawer.triggerId()</a></code> and <code><a href="../reference/SwipeableDrawer.triggerId.html">SwipeableDrawer.triggerId()</a></code>: the <code>sx</code> prop now styles the Drawer <strong>root</strong>, consistent with every other component (it was previously merged into the drawer paper). Size the paper with the <code>width</code> argument or style it via <code>slotProps = list(paper = list(sx = ...))</code>. Root-level patterns such as responsive <code>display</code> and <code>"&amp; .MuiDrawer-paper"</code> selectors now work as they do in the MUI docs.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="improvements-development-version">Improvements<a class="anchor" aria-label="anchor" href="#improvements-development-version"></a></h3>
+<ul><li>
+<code>.triggerId</code> wrappers now bind their trigger with a delegated document-level listener. Triggers rendered or replaced later by Shiny (<code><a href="https://rdrr.io/pkg/shiny/man/renderUI.html" class="external-link">renderUI()</a></code>/<code><a href="https://rdrr.io/pkg/shiny/man/htmlOutput.html" class="external-link">uiOutput()</a></code>) keep working; previously the binding was lost when the trigger element was re-rendered.</li>
+<li>the delegated trigger listener runs in the capture phase, so a trigger inside a component that calls <code>event.stopPropagation()</code> still opens its overlay.</li>
+<li>the bespoke JSX wrappers (<code>.triggerId</code> overlays, <code>.static</code> tabs, Autocomplete) are now covered by a JS test suite (<code>yarn --cwd js test</code>, vitest + Testing Library), run in CI alongside the bundle-drift check.</li>
+<li>the JS build now fails if <code>yarn.lock</code> resolves more than one copy of any of the shared singleton modules (<code>@mui/private-theming</code>, <code>@mui/styled-engine</code>, <code>@emotion/cache</code>, …). A duplicate copy inside the bundle would silently split the theme context — the failure mode the <code>window.jsmodule</code> runtime warning cannot detect.</li>
+<li>
+<code>.triggerId</code> wrappers compose caller-supplied callbacks (<code>onClose</code>, and <code>onClick</code>/<code>onOpen</code> where relevant) with their own state handling instead of letting them override it; the wrapper-owned <code>open</code>/<code>anchorEl</code> props can no longer be accidentally overridden from R.</li>
+<li>
+<code><a href="../reference/muiMaterialPage.html">muiMaterialPage()</a></code> returns a <code><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList()</a></code> with a hoisted <code>tags$head()</code> instead of nesting a full <code>&lt;html&gt;</code>/<code>&lt;body&gt;</code> document inside the Shiny page body (invalid HTML that relied on browser tag-merging). The body margin is now applied with a <code>body { ... }</code> CSS rule.</li>
+<li>
+<code><a href="../reference/muiMaterialDependency.html">muiMaterialDependency()</a></code> is now computed once per session instead of reading package metadata from disk for every element created.</li>
+<li>
+<code><a href="../reference/muiMaterialExample.html">muiMaterialExample()</a></code> errors with the list of available examples when asked for an unknown example name.</li>
+<li>the JS bundle warns at load time if the runtime React provided by shiny.react is not React 18 (the only supported major), and when it overwrites <code>window.jsmodule</code> registrations made by another package with a different copy of MUI/emotion.</li>
+<li>action <code>.shinyInput</code> docs now state that <code>onClick</code> is a reserved prop (a caller-supplied <code>onClick</code> replaces the click-counter wiring).</li>
+</ul></div>
+<div class="section level3">
+<h3 id="dependencies-development-version">Dependencies<a class="anchor" aria-label="anchor" href="#dependencies-development-version"></a></h3>
+<ul><li>declare and pin the directly-imported <code>@mui/system</code>, <code>@mui/utils</code>, <code>@mui/private-theming</code>, <code>@mui/styled-engine</code> and <code>@emotion/cache</code> in <code>js/package.json</code> (previously resolved implicitly through <code>@mui/material</code>’s dependency tree).</li>
+</ul></div>
+<div class="section level3">
+<h3 id="bug-fixes-development-version">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-development-version"></a></h3>
+<ul><li>
+<code><a href="../reference/Drawer.triggerId.html">Drawer.triggerId()</a></code> / <code><a href="../reference/SwipeableDrawer.triggerId.html">SwipeableDrawer.triggerId()</a></code>: a caller-supplied <code>slotProps = list(paper = list(sx = ...))</code> given as a <code><a href="https://appsilon.github.io/shiny.react/reference/JS.html" class="external-link">JS()</a></code> function (or an sx array) was silently dropped by the paper merge; sx values now compose via MUI’s array form. A caller-supplied <code>slotProps.paper.onClick</code> no longer replaces the close-on-link-click handler — the two are composed (wrapper first, then caller).</li>
+<li>
+<code>Autocomplete</code> / <code><a href="../reference/Autocomplete.html">Autocomplete.shinyInput()</a></code>: a <code>slotProps</code> on the child input element (e.g. <code>TextField(slotProps = list(input = list(startAdornment = ...)))</code>) was clobbered by the wiring MUI v9 passes through <code>renderInput</code> params; the two are now merged slot-by-slot (child wins per key, wiring preserved).</li>
+<li>
+<code>TransferList</code> example: use the MUI v9 Grid API (<code>size = list(xs = 5)</code>) instead of the removed v5 <code>item</code>/<code>xs</code> props, give <code><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply()</a></code>-generated rows a stable <code>key</code>, and stop passing the reserved <code>checked</code> prop to <code><a href="../reference/Checkbox.html">Checkbox.shinyInput()</a></code> (the rows now use a plain controlled <code>Checkbox</code>).</li>
+<li>
+<code>mui-template-dashboard</code> example: fix a malformed <code>sx</code> value in the mobile side menu (leftover JSX pasted inside an R string).</li>
+<li>
+<code>Checkbox</code> example: use the <code>value</code> argument instead of the reserved <code>checked</code> prop.</li>
+</ul></div>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.2.2" id="muimaterial-022">muiMaterial 0.2.2<a class="anchor" aria-label="anchor" href="#muimaterial-022"></a></h2><p class="text-muted">CRAN release: 2026-07-02</p>
 <div class="section level3">
 <h3 id="dependencies-0-2-2">Dependencies<a class="anchor" aria-label="anchor" href="#dependencies-0-2-2"></a></h3>
 <ul><li>update the bundled ‘Material UI’ libraries to their latest releases: <code>@mui/material</code> 9.0.0 -&gt; 9.1.2 and <code>@mui/lab</code> 9.0.0-beta.2 -&gt; 9.0.0-beta.5.</li>
@@ -169,7 +218,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer></div>

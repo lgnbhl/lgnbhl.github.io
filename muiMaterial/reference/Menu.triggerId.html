@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">muiMaterial</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.2.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -86,7 +86,10 @@
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
 <dd><p>Named arguments forwarded as React props, plus children to render inside the component.
-Pass `closeOnItemClick = FALSE` to keep the menu open after a click.</p></dd>
+Pass `closeOnItemClick = FALSE` to keep the menu open after a click.
+`anchorEl`/`open` are owned by the wrapper; caller-supplied `onClick`
+and `onClose` are composed with (called after) the wrapper's own
+handlers rather than replacing them.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -108,7 +111,7 @@ menu contains interactive children like checkboxes).</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer></div>
