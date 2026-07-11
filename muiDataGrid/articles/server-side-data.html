@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">muiDataGrid</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.2.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -394,8 +394,20 @@ operators:</p>
 <code>isEmpty</code>, <code>isNotEmpty</code>
 </td>
 </tr>
+<tr class="even">
+<td>Boolean</td>
+<td>
+<code>is</code> (accepts MUI’s <code>"true"</code> /
+<code>"false"</code> values)</td>
+</tr>
 </tbody>
 </table>
+<p>The toolbar <strong>quick filter</strong>
+(<code>showToolbar = TRUE</code>) is also supported: each search term
+must appear — as a case-insensitive substring — in at least one column
+other than <code>id</code>; terms combine per the model’s
+<code>quickFilterLogicOperator</code> (<code>"and"</code> by default),
+and the result is combined with the regular filter items using AND.</p>
 <p>Unrecognized operators pass all rows through (no filtering)
 <strong>and emit a warning</strong>. If you need operators not listed
 here, use manual mode and handle filtering yourself.</p>
@@ -403,9 +415,11 @@ here, use manual mode and handle filtering yourself.</p>
 <p><strong>Note:</strong> String operators (<code>contains</code>,
 <code>equals</code>, <code>startsWith</code>, <code>endsWith</code>,
 <code>not</code>) are case-insensitive. The <code>is</code> operator is
-case-sensitive, matching MUI’s default behavior. Because filtering is
-reimplemented in R, edge cases (locale, accents) can differ from MUI’s
-own client-side filter.</p>
+case-sensitive, matching MUI’s default behavior. Filter items with an
+empty value (cleared text input, all <code>isAnyOf</code> chips removed,
+boolean “any”) are ignored, matching MUI’s client-side behavior. Because
+filtering is reimplemented in R, edge cases (locale collation, accents)
+can differ from MUI’s own client-side filter.</p>
 </blockquote>
 </div>
 </div>
@@ -513,7 +527,10 @@ a list with three elements:</p>
 <li>
 <code>filter_model</code>: list with <code>items</code>, each
 containing <code>field</code>, <code>operator</code>, and
-<code>value</code>; and <code>logicOperator</code> (“and” or “or”)</li>
+<code>value</code>; <code>logicOperator</code> (“and” or “or”); and,
+when the toolbar quick filter is used,
+<code>quickFilterValues</code>
+</li>
 </ul>
 <p>You can use this to display diagnostics or trigger other reactive
 logic:</p>
@@ -576,7 +593,7 @@ skip it and handle <code>input$&lt;inputId&gt;</code> directly:</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer>

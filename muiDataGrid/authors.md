@@ -21,13 +21,13 @@ Source:
 [`DESCRIPTION`](https://github.com/lgnbhl/muiDataGrid/blob/main/DESCRIPTION)
 
 Luginbuhl F (2026). *muiDataGrid: 'MUI X Data Grid' for 'shiny' Apps and
-'Quarto'*. R package version 0.1.2,
+'Quarto'*. R package version 0.1.2.9000,
 <https://felixluginbuhl.com/muiDataGrid/>.
 
     @Manual{,
       title = {muiDataGrid: 'MUI X Data Grid' for 'shiny' Apps and 'Quarto'},
       author = {Felix Luginbuhl},
       year = {2026},
-      note = {R package version 0.1.2},
+      note = {R package version 0.1.2.9000},
       url = {https://felixluginbuhl.com/muiDataGrid/},
     }

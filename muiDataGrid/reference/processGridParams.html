@@ -11,7 +11,7 @@ input$&amp;lt;inputId&amp;gt; to get the current page of data."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">muiDataGrid</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.2.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -102,10 +102,26 @@ has no equivalent in MUI X Data Grid, which leaves the server-side data
 layer entirely to the developer. It reimplements MUI's server-mode
 filtering and sorting semantics in R, so its behavior may change between
 releases and can differ in edge cases from MUI's own client-side filtering.
-Decisions worth knowing about: string filters are case-insensitive (except
-<code>is</code>, which is case-sensitive), missing values always sort last, and
-unrecognized filter operators pass all rows through <em>with a warning</em>.</p>
-    </div>
+Decisions worth knowing about:</p><ul><li><p>String filters are case-insensitive (except <code>is</code>, which is
+    case-sensitive); missing values always sort last; unrecognized filter
+    operators pass all rows through <em>with a warning</em>.</p></li>
+<li><p>Filter items with an empty value (<code>NULL</code>, <code>""</code>, or an
+    empty <code>isAnyOf</code> set) are ignored, matching MUI's client-side
+    behavior of disabling such items.</p></li>
+<li><p>The toolbar quick filter is supported: each search term must appear
+    (case-insensitive substring) in at least one column other than
+    <code>id</code>; terms combine per the model's
+    <code>quickFilterLogicOperator</code> (<code>"and"</code> by default), and the
+    result is combined with the regular filter items using AND.</p></li>
+<li><p>Sorting and string comparison use R's locale collation, so the
+    ordering of accented or mixed-case values can differ from the
+    browser's ordering in the client-side <code><a href="DataGrid.html">DataGrid()</a></code>.</p></li>
+<li><p>Date <code>is</code>/<code>not</code> compare values as strings (ISO dates
+    work; <code>Date</code> columns stringify to ISO), while
+    <code>after</code>/<code>before</code>/<code>onOrAfter</code>/<code>onOrBefore</code> parse
+    dates — a character column holding non-ISO dates filters correctly
+    with the latter but not with <code>is</code>/<code>not</code>.</p></li>
+</ul></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
@@ -167,7 +183,7 @@ unrecognized filter operators pass all rows through <em>with a warning</em>.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer></div>

@@ -9,7 +9,7 @@ The component sends pagination, sort, and filter state to R via a Shiny input.">
 
     <a class="navbar-brand me-2" href="../index.html">muiDataGrid</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.2.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -84,7 +84,9 @@ The component sends pagination, sort, and filter state to R via a Shiny input.</
 filtering changes, the new state is available as <code>input$&lt;inputId&gt;</code>
 in the server. The value is a list with elements <code>pagination_model</code>
 (list with <code>page</code> and <code>pageSize</code>), <code>sort_model</code> (list of
-sort items), and <code>filter_model</code> (list with <code>items</code>).</p></dd>
+sort items), and <code>filter_model</code> (list with <code>items</code>,
+<code>logicOperator</code>, and — when the toolbar quick filter is used —
+<code>quickFilterValues</code>).</p></dd>
 
 
 <dt id="arg-rows">rows<a class="anchor" aria-label="anchor" href="#arg-rows"></a></dt>
@@ -116,7 +118,10 @@ automatically from the full <code>rows</code> dataset.</p></dd>
 <dd><p>Integer. Convenience for setting the initial page
 size. Builds MUI's <code>initialState</code> prop. If <code>NULL</code>, MUI defaults
 to 100. Also sets the page size for the first automatic render before the
-grid has sent state. Must be included in <code>pageSizeOptions</code>.</p></dd>
+grid has sent state. Must be included in <code>pageSizeOptions</code>. Ignored
+(with a warning) when you pass your own <code>initialState</code> via
+<code>...</code> — the <code>paginationModel</code> in your <code>initialState</code> then
+governs both the grid and the first automatic render.</p></dd>
 
 
 <dt id="arg-pagesizeoptions">pageSizeOptions<a class="anchor" aria-label="anchor" href="#arg-pagesizeoptions"></a></dt>
@@ -171,7 +176,13 @@ knowing about:</p><ul><li><p>Mode is selected by the presence of <code>rowCount<
     reads them once when it mounts, so changing them reactively afterwards
     (e.g. from a <code>selectInput</code>) has no effect on the already-mounted
     grid. To change page size after mount, drive it from the grid's own
-    controls rather than re-rendering with a new <code>initialPageSize</code>.</p></li>
+    controls rather than re-rendering with a new <code>initialPageSize</code>.
+    A <code>paginationModel</code> inside a user-supplied <code>initialState</code> is
+    honored by the first automatic render, so the served page matches what
+    the grid displays from the start.</p></li>
+<li><p>A running Shiny session is required: in a static document the grid
+    renders its first page but pagination, sorting, and filtering have
+    nothing to respond to them. Use <code><a href="DataGrid.html">DataGrid()</a></code> for static documents.</p></li>
 </ul></div>
 
     <div class="section level2">
@@ -209,7 +220,7 @@ knowing about:</p><ul><li><p>Mode is selected by the presence of <code>rowCount<
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer></div>

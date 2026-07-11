@@ -28,7 +28,8 @@ DataGridServer(
   changes, the new state is available as `input$<inputId>` in the
   server. The value is a list with elements `pagination_model` (list
   with `page` and `pageSize`), `sort_model` (list of sort items), and
-  `filter_model` (list with `items`).
+  `filter_model` (list with `items`, `logicOperator`, and — when the
+  toolbar quick filter is used — `quickFilterValues`).
 
 - rows:
 
@@ -62,7 +63,10 @@ DataGridServer(
   Integer. Convenience for setting the initial page size. Builds MUI's
   `initialState` prop. If `NULL`, MUI defaults to 100. Also sets the
   page size for the first automatic render before the grid has sent
-  state. Must be included in `pageSizeOptions`.
+  state. Must be included in `pageSizeOptions`. Ignored (with a warning)
+  when you pass your own `initialState` via `...` — the
+  `paginationModel` in your `initialState` then governs both the grid
+  and the first automatic render.
 
 - pageSizeOptions:
 
@@ -122,7 +126,16 @@ you rely on the current behavior. Decisions worth knowing about:
   once when it mounts, so changing them reactively afterwards (e.g. from
   a `selectInput`) has no effect on the already-mounted grid. To change
   page size after mount, drive it from the grid's own controls rather
-  than re-rendering with a new `initialPageSize`.
+  than re-rendering with a new `initialPageSize`. A `paginationModel`
+  inside a user-supplied `initialState` is honored by the first
+  automatic render, so the served page matches what the grid displays
+  from the start.
+
+- A running Shiny session is required: in a static document the grid
+  renders its first page but pagination, sorting, and filtering have
+  nothing to respond to them. Use
+  [`DataGrid()`](https://felixluginbuhl.com/muiDataGrid/reference/DataGrid.md)
+  for static documents.
 
 ## Examples
 
