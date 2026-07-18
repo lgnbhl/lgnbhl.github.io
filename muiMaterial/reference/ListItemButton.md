@@ -6,6 +6,14 @@
 
 ``` r
 ListItemButton(...)
+
+ListItemButton.shinyInput(inputId, ...)
+
+updateListItemButton.shinyInput(
+  session = shiny::getDefaultReactiveDomain(),
+  inputId,
+  ...
+)
 ```
 
 ## Arguments
@@ -13,6 +21,14 @@ ListItemButton(...)
 - ...:
 
   Props to pass to the component.
+
+- inputId:
+
+  ID of the component.
+
+- session:
+
+  Object passed as the \`session\` argument to Shiny server.
 
 ## Value
 
@@ -69,3 +85,38 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 - sx `Array func| object| bool | func| object`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.
+
+## Note
+
+`input[[inputId]]` is a click counter (like
+[`shiny::actionButton()`](https://rdrr.io/pkg/shiny/man/actionButton.html)),
+incremented each time the row is clicked. For lists generated
+dynamically with [`lapply()`](https://rdrr.io/r/base/lapply.html), an
+alternative to one input per row is a single custom event carrying the
+clicked row as payload:
+`onClick = JS("() => Shiny.setInputValue('rowClicked', 'row-1', {priority: 'event'})")`.
+
+## Examples
+
+``` r
+if (FALSE) { # interactive()
+library(shiny)
+library(muiMaterial)
+
+ui <- muiMaterialPage(
+  List(
+    ListItemButton.shinyInput(
+      inputId = "item1",
+      ListItemText(primary = "Click me")
+    )
+  ),
+  verbatimTextOutput("count")
+)
+
+server <- function(input, output, session) {
+  output$count <- renderPrint(input$item1)
+}
+
+shinyApp(ui, server)
+}
+```

@@ -24,6 +24,12 @@ Drawer.triggerId(triggerId, ...)
   closes the Drawer on any `<a>` click, including external links with
   `target = "_blank"`.
 
+  `sx` styles the Drawer root, as on any other component. Size the
+  drawer paper with `width` (280 by default) or style it via
+  `slotProps = list(paper = list(sx = list(...)))`. The `open` prop is
+  owned by the wrapper (that is the point of `.triggerId`); a
+  caller-supplied `onClose` is called after the wrapper closes itself.
+
 ## Value
 
 Object with \`shiny.tag\` class suitable for use in the UI of a Shiny

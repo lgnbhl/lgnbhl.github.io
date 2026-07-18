@@ -1,6 +1,119 @@
 # Changelog
 
+## muiMaterial (development version)
+
+### New features
+
+- new
+  [`ListItemButton.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/ListItemButton.md)
+  /
+  [`updateListItemButton.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/ListItemButton.md):
+  clickable list rows now report a click counter to `input[[inputId]]`,
+  like
+  [`Button.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Button.md).
+  (The JS adapter existed but was not exposed in R.)
+- `.shinyInput()` functions now warn when a reserved prop is supplied
+  (`checked`/`onChange` on value inputs, `onClick` on action inputs): a
+  caller-supplied reserved prop silently overrides the input wiring and
+  `input[[inputId]]` stops updating. Deliberate overrides (an advanced
+  pattern) can silence the warning with
+  `options(muiMaterial.warnReservedProps = FALSE)`.
+
+### Breaking changes
+
+- [`Drawer.triggerId()`](https://felixluginbuhl.com/muiMaterial/reference/Drawer.triggerId.md)
+  and
+  [`SwipeableDrawer.triggerId()`](https://felixluginbuhl.com/muiMaterial/reference/SwipeableDrawer.triggerId.md):
+  the `sx` prop now styles the Drawer **root**, consistent with every
+  other component (it was previously merged into the drawer paper). Size
+  the paper with the `width` argument or style it via
+  `slotProps = list(paper = list(sx = ...))`. Root-level patterns such
+  as responsive `display` and `"& .MuiDrawer-paper"` selectors now work
+  as they do in the MUI docs.
+
+### Improvements
+
+- `.triggerId` wrappers now bind their trigger with a delegated
+  document-level listener. Triggers rendered or replaced later by Shiny
+  ([`renderUI()`](https://rdrr.io/pkg/shiny/man/renderUI.html)/[`uiOutput()`](https://rdrr.io/pkg/shiny/man/htmlOutput.html))
+  keep working; previously the binding was lost when the trigger element
+  was re-rendered.
+- the delegated trigger listener runs in the capture phase, so a trigger
+  inside a component that calls `event.stopPropagation()` still opens
+  its overlay.
+- the bespoke JSX wrappers (`.triggerId` overlays, `.static` tabs,
+  Autocomplete) are now covered by a JS test suite
+  (`yarn --cwd js test`, vitest + Testing Library), run in CI alongside
+  the bundle-drift check.
+- the JS build now fails if `yarn.lock` resolves more than one copy of
+  any of the shared singleton modules (`@mui/private-theming`,
+  `@mui/styled-engine`, `@emotion/cache`, …). A duplicate copy inside
+  the bundle would silently split the theme context — the failure mode
+  the `window.jsmodule` runtime warning cannot detect.
+- `.triggerId` wrappers compose caller-supplied callbacks (`onClose`,
+  and `onClick`/`onOpen` where relevant) with their own state handling
+  instead of letting them override it; the wrapper-owned
+  `open`/`anchorEl` props can no longer be accidentally overridden from
+  R.
+- [`muiMaterialPage()`](https://felixluginbuhl.com/muiMaterial/reference/muiMaterialPage.md)
+  returns a
+  [`tagList()`](https://rstudio.github.io/htmltools/reference/tagList.html)
+  with a hoisted `tags$head()` instead of nesting a full
+  `<html>`/`<body>` document inside the Shiny page body (invalid HTML
+  that relied on browser tag-merging). The body margin is now applied
+  with a `body { ... }` CSS rule.
+- [`muiMaterialDependency()`](https://felixluginbuhl.com/muiMaterial/reference/muiMaterialDependency.md)
+  is now computed once per session instead of reading package metadata
+  from disk for every element created.
+- [`muiMaterialExample()`](https://felixluginbuhl.com/muiMaterial/reference/muiMaterialExample.md)
+  errors with the list of available examples when asked for an unknown
+  example name.
+- the JS bundle warns at load time if the runtime React provided by
+  shiny.react is not React 18 (the only supported major), and when it
+  overwrites `window.jsmodule` registrations made by another package
+  with a different copy of MUI/emotion.
+- action `.shinyInput` docs now state that `onClick` is a reserved prop
+  (a caller-supplied `onClick` replaces the click-counter wiring).
+
+### Dependencies
+
+- declare and pin the directly-imported `@mui/system`, `@mui/utils`,
+  `@mui/private-theming`, `@mui/styled-engine` and `@emotion/cache` in
+  `js/package.json` (previously resolved implicitly through
+  `@mui/material`’s dependency tree).
+
+### Bug fixes
+
+- [`Drawer.triggerId()`](https://felixluginbuhl.com/muiMaterial/reference/Drawer.triggerId.md)
+  /
+  [`SwipeableDrawer.triggerId()`](https://felixluginbuhl.com/muiMaterial/reference/SwipeableDrawer.triggerId.md):
+  a caller-supplied `slotProps = list(paper = list(sx = ...))` given as
+  a [`JS()`](https://appsilon.github.io/shiny.react/reference/JS.html)
+  function (or an sx array) was silently dropped by the paper merge; sx
+  values now compose via MUI’s array form. A caller-supplied
+  `slotProps.paper.onClick` no longer replaces the close-on-link-click
+  handler — the two are composed (wrapper first, then caller).
+- `Autocomplete` /
+  [`Autocomplete.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Autocomplete.md):
+  a `slotProps` on the child input element
+  (e.g. `TextField(slotProps = list(input = list(startAdornment = ...)))`)
+  was clobbered by the wiring MUI v9 passes through `renderInput`
+  params; the two are now merged slot-by-slot (child wins per key,
+  wiring preserved).
+- `TransferList` example: use the MUI v9 Grid API
+  (`size = list(xs = 5)`) instead of the removed v5 `item`/`xs` props,
+  give [`lapply()`](https://rdrr.io/r/base/lapply.html)-generated rows a
+  stable `key`, and stop passing the reserved `checked` prop to
+  [`Checkbox.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Checkbox.md)
+  (the rows now use a plain controlled `Checkbox`).
+- `mui-template-dashboard` example: fix a malformed `sx` value in the
+  mobile side menu (leftover JSX pasted inside an R string).
+- `Checkbox` example: use the `value` argument instead of the reserved
+  `checked` prop.
+
 ## muiMaterial 0.2.2
+
+CRAN release: 2026-07-02
 
 ### Dependencies
 

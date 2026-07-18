@@ -24,6 +24,12 @@ SwipeableDrawer.triggerId(triggerId, ...)
   closes the Drawer on any `<a>` click, including external links with
   `target = "_blank"`.
 
+  `sx` styles the SwipeableDrawer root, as on any other component. Size
+  the drawer paper with `width` (280 by default) or style it via
+  `slotProps = list(paper = list(sx = list(...)))`. The `open` prop is
+  owned by the wrapper; caller-supplied `onClose`/`onOpen` are called
+  after the wrapper updates its own state.
+
 ## Value
 
 Object with \`shiny.tag\` class suitable for use in the UI of a Shiny

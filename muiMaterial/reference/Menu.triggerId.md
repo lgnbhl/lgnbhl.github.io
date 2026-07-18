@@ -20,7 +20,9 @@ Menu.triggerId(triggerId, ...)
 
   Named arguments forwarded as React props, plus children to render
   inside the component. Pass \`closeOnItemClick = FALSE\` to keep the
-  menu open after a click.
+  menu open after a click. \`anchorEl\`/\`open\` are owned by the
+  wrapper; caller-supplied \`onClick\` and \`onClose\` are composed with
+  (called after) the wrapper's own handlers rather than replacing them.
 
 ## Value
 
