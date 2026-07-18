@@ -18,10 +18,6 @@
   : BarLabel
 - [`BarPlot()`](https://felixluginbuhl.com/muiCharts/reference/BarPlot.md)
   : BarPlot
-- [`ChartContainer()`](https://felixluginbuhl.com/muiCharts/reference/ChartContainer.md)
-  : ChartContainer
-- [`ChartDataProvider()`](https://felixluginbuhl.com/muiCharts/reference/ChartDataProvider.md)
-  : ChartDataProvider
 - [`ChartsAxis()`](https://felixluginbuhl.com/muiCharts/reference/ChartsAxis.md)
   : ChartsAxis
 - [`ChartsAxisHighlight()`](https://felixluginbuhl.com/muiCharts/reference/ChartsAxisHighlight.md)
@@ -30,6 +26,8 @@
   : ChartsAxisHighlightPath
 - [`ChartsAxisTooltipContent()`](https://felixluginbuhl.com/muiCharts/reference/ChartsAxisTooltipContent.md)
   : ChartsAxisTooltipContent
+- [`ChartsBrushOverlay()`](https://felixluginbuhl.com/muiCharts/reference/ChartsBrushOverlay.md)
+  : ChartsBrushOverlay
 - [`ChartsClipPath()`](https://felixluginbuhl.com/muiCharts/reference/ChartsClipPath.md)
   : ChartsClipPath
 - [`ChartsContainer()`](https://felixluginbuhl.com/muiCharts/reference/ChartsContainer.md)
@@ -44,6 +42,8 @@
   : ChartsLabel
 - [`ChartsLabelMark()`](https://felixluginbuhl.com/muiCharts/reference/ChartsLabelMark.md)
   : ChartsLabelMark
+- [`ChartsLayerContainer()`](https://felixluginbuhl.com/muiCharts/reference/ChartsLayerContainer.md)
+  : ChartsLayerContainer
 - [`ChartsLegend()`](https://felixluginbuhl.com/muiCharts/reference/ChartsLegend.md)
   : ChartsLegend
 - [`ChartsLocalizationProvider()`](https://felixluginbuhl.com/muiCharts/reference/ChartsLocalizationProvider.md)
@@ -52,8 +52,14 @@
   : ChartsReferenceLine
 - [`ChartsSurface()`](https://felixluginbuhl.com/muiCharts/reference/ChartsSurface.md)
   : ChartsSurface
+- [`ChartsSvgLayer()`](https://felixluginbuhl.com/muiCharts/reference/ChartsSvgLayer.md)
+  : ChartsSvgLayer
 - [`ChartsText()`](https://felixluginbuhl.com/muiCharts/reference/ChartsText.md)
   : ChartsText
+- [`ChartsToolbar()`](https://felixluginbuhl.com/muiCharts/reference/ChartsToolbar.md)
+  : ChartsToolbar
+- [`ChartsToolbarButton()`](https://felixluginbuhl.com/muiCharts/reference/ChartsToolbarButton.md)
+  : ChartsToolbarButton
 - [`ChartsTooltip()`](https://felixluginbuhl.com/muiCharts/reference/ChartsTooltip.md)
   : ChartsTooltip
 - [`ChartsTooltipCell()`](https://felixluginbuhl.com/muiCharts/reference/ChartsTooltipCell.md)
@@ -78,6 +84,8 @@
   : FocusedBar
 - [`FocusedLineMark()`](https://felixluginbuhl.com/muiCharts/reference/FocusedLineMark.md)
   : FocusedLineMark
+- [`FocusedPieArc()`](https://felixluginbuhl.com/muiCharts/reference/FocusedPieArc.md)
+  : FocusedPieArc
 - [`FocusedRadarMark()`](https://felixluginbuhl.com/muiCharts/reference/FocusedRadarMark.md)
   : FocusedRadarMark
 - [`FocusedScatterMark()`](https://felixluginbuhl.com/muiCharts/reference/FocusedScatterMark.md)

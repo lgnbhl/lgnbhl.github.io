@@ -164,14 +164,14 @@ ScatterChart(
 
 ## Legend in Composition
 
-When using composition, place `ChartsLegend` inside `ChartDataProvider`
+When using composition, place `ChartsLegend` inside `ChartsDataProvider`
 but **outside** `ChartsSurface` (the legend is HTML, not SVG):
 
 ``` r
 
 library(muiMaterial)
 
-ChartDataProvider(
+ChartsDataProvider(
   dataset = starwars_films |>
     mutate(
       Characters = lengths(characters),
@@ -200,7 +200,7 @@ series name. Use it in custom legend layouts:
 
 ``` r
 
-ChartDataProvider(
+ChartsDataProvider(
   dataset = starwars_films |>
     mutate(
       Characters = lengths(characters),

@@ -212,7 +212,7 @@ custom slot override:
 
 ``` r
 
-ChartDataProvider(
+ChartsDataProvider(
   dataset = starwars_species |>
     filter(!is.na(average_height)) |>
     head(4) |>

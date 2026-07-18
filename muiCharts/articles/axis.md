@@ -178,7 +178,7 @@ avg_chars <- starwars_films |>
   summarise(avg = round(mean(n))) |>
   pull(avg)
 
-ChartDataProvider(
+ChartsDataProvider(
   dataset = starwars_films |>
     mutate(Characters = lengths(characters)) |>
     arrange(episode_id),

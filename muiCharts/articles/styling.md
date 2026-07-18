@@ -240,50 +240,91 @@ both the theme and chart:
 
 library(muiMaterial)
 
+# Define theme colors once in R; both ThemeProvider and chart use the same values
+primaryColor <- "#9819d2"
+
 muiMaterialPage(
   CssBaseline(),
-  {
-    # Define theme colors once in R; both ThemeProvider and chart use the same values
-    primaryColor <- "#9819d2"
-    secondaryColor <- "#dc004e"
-
-    ThemeProvider(
-      theme = list(
-        palette = list(
-          primary = list(main = primaryColor),
-          secondary = list(main = secondaryColor)
-        )
-      ),
-      Box(
-        sx = list(p = 3, bgcolor = "background.paper"),
-        Typography("Star Wars Characters by Episode", variant = "h5", sx = list(mb = 2)),
-        Card(
-          CardContent(
-            BarChart(
-              dataset = starwars_films |>
-                mutate(Characters = lengths(characters)) |>
-                arrange(episode_id),
-              xAxis = list(
-                list(scaleType = "band", dataKey = "episode_id", label = "Episode")
-              ),
-              series = list(
-                list(dataKey = "Characters", label = "Characters", color = primaryColor)
-              ),
-              height = 300
-            )
+  ThemeProvider(
+    theme = list(
+      palette = list(
+        primary = list(main = primaryColor)
+      )
+    ),
+    Box(
+      sx = list(p = 3, bgcolor = "background.paper"),
+      Typography("Star Wars Characters by Episode", variant = "h5", sx = list(mb = 2)),
+      Card(
+        CardContent(
+          BarChart(
+            dataset = starwars_films |>
+              mutate(Characters = lengths(characters)) |>
+              arrange(episode_id),
+            xAxis = list(
+              list(scaleType = "band", dataKey = "episode_id", label = "Episode")
+            ),
+            series = list(
+              list(dataKey = "Characters", label = "Characters", color = primaryColor)
+            ),
+            height = 300
           )
         )
       )
     )
-  }
+  )
 )
 ```
 
-Define palette colors as R variables (e.g., `primaryColor`), then pass
-them to both `ThemeProvider`’s palette and the chart’s `color` prop.
-This keeps colors in sync—when you edit `primaryColor`, it updates
-everywhere automatically. The dashboard layout is built with muiMaterial
-components (`Box`, `Card`, `Typography`) for visual consistency.
+Charts share muiMaterial’s theme: a `ThemeProvider` rendered by
+muiMaterial flows into the chart, so chart text, axes, tooltips, and
+surfaces follow the active theme (including dark/light mode—see below).
+Series colors are the exception: MUI X Charts draws series from its own
+categorical palette rather than `theme.palette.primary`, so set a series
+`color` explicitly when you want it to match a theme color. Defining the
+value once as an R variable (e.g. `primaryColor`) and passing it to both
+the theme palette and the series `color` keeps the two in sync. The
+dashboard layout is built with muiMaterial components (`Box`, `Card`,
+`Typography`) for visual consistency.
+
+## Theme Inheritance and Dark Mode
+
+Because charts read from the same theme context as the rest of your
+muiMaterial UI, switching the theme’s `palette.mode` to `"dark"` is
+enough for a chart to adapt—its default color palette, text, and grid
+lines all follow the mode. No per-chart configuration is required:
+
+``` r
+
+library(muiMaterial)
+
+muiMaterialPage(
+  ThemeProvider(
+    theme = list(palette = list(mode = "dark")),
+    Box(
+      sx = list(p = 3, bgcolor = "background.default"),
+      LineChart(
+        dataset = starwars_films |>
+          mutate(
+            Characters = lengths(characters),
+            Planets    = lengths(planets)
+          ) |>
+          arrange(episode_id),
+        xAxis  = list(list(scaleType = "point", dataKey = "episode_id", label = "Star Wars Episode")),
+        series = list(
+          list(dataKey = "Characters", label = "Characters"),
+          list(dataKey = "Planets",    label = "Planets")
+        ),
+        height = 300
+      )
+    )
+  )
+)
+```
+
+The same chart wrapped in a `ThemeProvider` with `mode = "light"` (the
+default) renders with dark text on a light surface. This works because
+muiCharts and muiMaterial share a single MUI theme context at runtime:
+the chart does not bundle its own copy.
 
 ## Learn More
 

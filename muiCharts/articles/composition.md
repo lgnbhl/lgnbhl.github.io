@@ -30,14 +30,14 @@ composition API gives you:
 
 Three key components work together:
 
-1.  **`ChartDataProvider`** — wraps everything, provides data context
+1.  **`ChartsDataProvider`** — wraps everything, provides data context
 2.  **`ChartsSurface`** — renders the SVG element (plots, axes, grid)
 3.  **`ChartsLegend` / `ChartsTooltip`** — HTML components placed
     outside the SVG
 
 ``` r
 
-ChartDataProvider(
+ChartsDataProvider(
   dataset = starwars_films |>
     mutate(
       Characters = lengths(characters),
@@ -76,7 +76,7 @@ library(muiMaterial)
 Box(
   sx = list(width = "100%", display = "flex", flexDirection = "column", alignItems = "center"),
   Typography(variant = "h6", "Star Wars Film Elements by Episode"),
-  ChartDataProvider(
+  ChartsDataProvider(
     dataset = starwars_films |>
       mutate(
         Characters = lengths(characters),
@@ -108,7 +108,7 @@ counts, the line tracks planet counts:
 
 ``` r
 
-ChartDataProvider(
+ChartsDataProvider(
   dataset = starwars_films |>
     mutate(
       Characters = lengths(characters),
@@ -145,7 +145,7 @@ avg_chars <- starwars_films |>
   summarise(avg = round(mean(n))) |>
   pull(avg)
 
-ChartDataProvider(
+ChartsDataProvider(
   dataset = starwars_films |>
     mutate(Characters = lengths(characters)) |>
     arrange(episode_id),
@@ -177,7 +177,7 @@ for characters:
 Box(
   sx = list(width = "100%", display = "flex", flexDirection = "column", alignItems = "center"),
   Typography(variant = "h6", "Star Wars Characters: Height vs Mass"),
-  ChartDataProvider(
+  ChartsDataProvider(
     dataset = starwars_people |>
       filter(!is.na(height), !is.na(mass), mass < 200) |>
       mutate(id = row_number()),
@@ -207,7 +207,7 @@ Compose a line chart with area fill and interactive highlighting:
 
 ``` r
 
-ChartDataProvider(
+ChartsDataProvider(
   dataset = starwars_films |>
     mutate(
       Characters = lengths(characters),
@@ -318,11 +318,11 @@ ChartsContainer(
 ## Inline Labels
 
 `ChartsLabel` renders a styled HTML `<span>` element. Place it as a
-sibling of `ChartsSurface` inside `ChartDataProvider`:
+sibling of `ChartsSurface` inside `ChartsDataProvider`:
 
 ``` r
 
-ChartDataProvider(
+ChartsDataProvider(
   dataset = starwars_films |>
     mutate(Characters = lengths(characters)) |>
     arrange(episode_id),
@@ -345,7 +345,7 @@ for annotations directly on the chart:
 
 ``` r
 
-ChartDataProvider(
+ChartsDataProvider(
   dataset = starwars_films |>
     mutate(Characters = lengths(characters)) |>
     arrange(episode_id),

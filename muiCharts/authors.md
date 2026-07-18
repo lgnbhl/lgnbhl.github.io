@@ -2,7 +2,24 @@
 
 ## Authors
 
-- **[Felix Luginbuhl](https://felixluginbuhl.com)**. Author, maintainer.
+- **[Felix Luginbuhl](https://felixluginbuhl.com)**. Author, maintainer,
+  copyright holder. [](https://orcid.org/0009-0008-6625-2899)
+
+- **MUI**. Copyright holder.\
+  Copyright holder of the bundled '@mui/x-charts' JavaScript library and
+  its '@mui/x-charts-vendor', '@mui/x-internals',
+  '@mui/x-internal-gestures' and '@mui/system' (subpath imports)
+  helpers; see LICENSE.note
+
+- **Mike Bostock**. Copyright holder.\
+  Copyright holder of the bundled D3 modules and 'internmap' (ISC
+  license), vendored via '@mui/x-charts-vendor'; see LICENSE.note
+
+- **Meta Platforms, Inc. and affiliates**. Copyright holder.\
+  Copyright holder of the bundled 'react-is', 'prop-types' and
+  'use-sync-external-store' JavaScript libraries; 'react' and
+  'react-dom' are declared as peer dependencies and provided at runtime
+  by 'shiny.react'
 
 ## Citation
 

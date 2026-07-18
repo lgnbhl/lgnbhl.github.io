@@ -4,6 +4,7 @@
 <url><loc>https://felixluginbuhl.com/muiCharts/articles/axis.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiCharts/articles/bars.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiCharts/articles/composition.html</loc></url>
+<url><loc>https://felixluginbuhl.com/muiCharts/articles/custom-components.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiCharts/articles/gauge.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiCharts/articles/highlighting.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiCharts/articles/index.html</loc></url>
@@ -20,6 +21,7 @@
 <url><loc>https://felixluginbuhl.com/muiCharts/articles/tooltip.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiCharts/authors.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiCharts/index.html</loc></url>
+<url><loc>https://felixluginbuhl.com/muiCharts/LICENSE-text.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiCharts/reference/AnimatedArea.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiCharts/reference/AnimatedLine.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiCharts/reference/AreaElement.html</loc></url>
@@ -28,12 +30,11 @@
 <url><loc>https://felixluginbuhl.com/muiCharts/reference/BarElement.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiCharts/reference/BarLabel.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiCharts/reference/BarPlot.html</loc></url>
-<url><loc>https://felixluginbuhl.com/muiCharts/reference/ChartContainer.html</loc></url>
-<url><loc>https://felixluginbuhl.com/muiCharts/reference/ChartDataProvider.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiCharts/reference/ChartsAxis.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiCharts/reference/ChartsAxisHighlight.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiCharts/reference/ChartsAxisHighlightPath.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiCharts/reference/ChartsAxisTooltipContent.html</loc></url>
+<url><loc>https://felixluginbuhl.com/muiCharts/reference/ChartsBrushOverlay.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiCharts/reference/ChartsClipPath.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiCharts/reference/ChartsContainer.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiCharts/reference/ChartsDataProvider.html</loc></url>
@@ -41,11 +42,15 @@
 <url><loc>https://felixluginbuhl.com/muiCharts/reference/ChartsItemTooltipContent.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiCharts/reference/ChartsLabel.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiCharts/reference/ChartsLabelMark.html</loc></url>
+<url><loc>https://felixluginbuhl.com/muiCharts/reference/ChartsLayerContainer.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiCharts/reference/ChartsLegend.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiCharts/reference/ChartsLocalizationProvider.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiCharts/reference/ChartsReferenceLine.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiCharts/reference/ChartsSurface.html</loc></url>
+<url><loc>https://felixluginbuhl.com/muiCharts/reference/ChartsSvgLayer.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiCharts/reference/ChartsText.html</loc></url>
+<url><loc>https://felixluginbuhl.com/muiCharts/reference/ChartsToolbar.html</loc></url>
+<url><loc>https://felixluginbuhl.com/muiCharts/reference/ChartsToolbarButton.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiCharts/reference/ChartsTooltip.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiCharts/reference/ChartsTooltipCell.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiCharts/reference/ChartsTooltipContainer.html</loc></url>
@@ -58,6 +63,7 @@
 <url><loc>https://felixluginbuhl.com/muiCharts/reference/ContinuousColorLegend.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiCharts/reference/FocusedBar.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiCharts/reference/FocusedLineMark.html</loc></url>
+<url><loc>https://felixluginbuhl.com/muiCharts/reference/FocusedPieArc.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiCharts/reference/FocusedRadarMark.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiCharts/reference/FocusedScatterMark.html</loc></url>
 <url><loc>https://felixluginbuhl.com/muiCharts/reference/Gauge.html</loc></url>

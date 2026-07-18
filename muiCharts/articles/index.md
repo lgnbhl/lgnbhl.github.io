@@ -6,6 +6,8 @@
 - [Axis & Grid](https://felixluginbuhl.com/muiCharts/articles/axis.md):
 - [Bar Charts](https://felixluginbuhl.com/muiCharts/articles/bars.md):
 - [Composition](https://felixluginbuhl.com/muiCharts/articles/composition.md):
+- [Custom
+  Components](https://felixluginbuhl.com/muiCharts/articles/custom-components.md):
 - [Gauge
   Charts](https://felixluginbuhl.com/muiCharts/articles/gauge.md):
 - [Highlighting](https://felixluginbuhl.com/muiCharts/articles/highlighting.md):

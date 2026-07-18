@@ -169,7 +169,7 @@ in a composition chart:
 
 ``` r
 
-ChartDataProvider(
+ChartsDataProvider(
   dataset = starwars_films |>
     mutate(
       Characters = lengths(characters),
