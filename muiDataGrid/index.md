@@ -55,14 +55,34 @@ DataGrid(
 )
 ```
 
-**Read the full documentation with examples
-[here](https://felixluginbuhl.com/muiDataGrid/).**
+### Resources
 
-### Contribute
+- [Package documentation](https://felixluginbuhl.com/muiDataGrid/)
+- \[All R
+  examples\](<https://github.com/lgnbhl/muiDataGrid/tree/main/inst/examples>
+- [Official MUI X Data Grid docs](https://mui.com/x/react-data-grid/)
+
+### Acknowledgements
+
+`muiDataGrid` is built on top of
+[shiny.react](https://github.com/Appsilon/shiny.react), the R package by
+[Appsilon](https://www.appsilon.com/) that makes it possible to use
+React components in Shiny and Quarto.
+
+### Contributing
 
 If you have any issue, question or want to contribute with a pull
 request, don’t hesitate to write me on
-<https://felixluginbuhl.com/muiDataGrid/>
+<https://github.com/lgnbhl/muiDataGrid/>
 
-For updates follow [Felix
-Luginbuhl](https://www.linkedin.com/in/FelixLuginbuhl) on LinkedIn.
+Follow [Felix Luginbuhl](https://linkedin.com/in/FelixLuginbuhl) on
+LinkedIn for updates.
+
+### Trademark notice
+
+“MUI” and “MUI X Data Grid” are trademarks of MUI Inc. `muiDataGrid` is
+an independent, community-maintained R package and is **not affiliated
+with, sponsored by, or endorsed by MUI Inc.** The names are used solely
+to identify the underlying JavaScript library that this package wraps.
+See MUI’s [legal information](https://mui.com/legal/) for the canonical
+list of MUI’s published policies.

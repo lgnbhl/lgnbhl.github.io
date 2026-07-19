@@ -23,7 +23,7 @@ muiDataGridDependency()
 #> [[1]]
 #> List of 10
 #>  $ name      : chr "muiMaterial"
-#>  $ version   : chr "0.2.2"
+#>  $ version   : chr "0.2.2.9000"
 #>  $ src       :List of 1
 #>   ..$ file: chr "www/muiMaterial"
 #>  $ meta      : NULL
