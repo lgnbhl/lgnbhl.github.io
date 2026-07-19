@@ -50,7 +50,7 @@ BarChart(
 ## MUI ecosystem
 
 muiCharts integrates seamlessly with
-[muiMaterial](https://felixluginbuhl.com/muiMaterial) to create modern,
+[muiMaterial](https://felixluginbuhl.com/muiMaterial/) to create modern,
 fully-styled dashboards.
 
 ``` r

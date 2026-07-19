@@ -123,7 +123,7 @@ ScatterChart(
 ## Dashboard Example
 
 muiCharts integrates seamlessly with
-[muiMaterial](https://felixluginbuhl.com/muiMaterial) to create modern,
+[muiMaterial](https://felixluginbuhl.com/muiMaterial/) to create modern,
 fully-styled dashboards. muiMaterial’s `Card`, `Typography`, and `Stack`
 components make it easy to add titles, subtitles, and footers around
 charts. Combine `ThemeProvider` to customize colors across your entire

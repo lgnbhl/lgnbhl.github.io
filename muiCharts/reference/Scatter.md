@@ -30,5 +30,4 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   Default is NA Callback fired when clicking on a scatter
   item.Signature:function(event: MouseEvent, scatterItemIdentifier:
   ScatterItemIdentifier) =\> voidevent Mouse event recorded on the
-  ![](data:image/svg+xml;base64,PHN2Zz48L3N2Zz4=)
-  element.scatterItemIdentifier The scatter item identifier.
+  \<svg/\> element.scatterItemIdentifier The scatter item identifier.

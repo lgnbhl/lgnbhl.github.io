@@ -1,6 +1,7 @@
 # ChartsAxisHighlightPath
 
-<https://mui.com/x/api/charts/charts-axis-highlight-path/>
+Low-level composition component of MUI X Charts. See
+<https://mui.com/x/react-charts/composition/>.
 
 ## Usage
 

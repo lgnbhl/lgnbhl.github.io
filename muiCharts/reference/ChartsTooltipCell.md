@@ -1,6 +1,7 @@
 # ChartsTooltipCell
 
-<https://mui.com/x/api/charts/charts-tooltip-cell/>
+Low-level composition component of MUI X Charts. See
+<https://mui.com/x/react-charts/composition/>.
 
 ## Usage
 

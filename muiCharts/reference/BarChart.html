@@ -42,6 +42,7 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown-custom"><li><a class="dropdown-item" href="../articles/custom-components.html">Custom Components</a></li>
     <li><a class="dropdown-item" href="../articles/shiny.html">Shiny</a></li>
     <li><a class="dropdown-item" href="../articles/quarto.html">Quarto</a></li>
+    <li><a class="dropdown-item" href="../llms.txt">llms.txt</a></li>
   </ul></li>
 <li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">News</a></li>
@@ -103,9 +104,9 @@
 <li><p>loading <code>bool</code> <br> Default is FALSE If true, a loading overlay is displayed.</p></li>
 <li><p>localeText <code>object</code> <br> Default is - Localized text for chart components.</p></li>
 <li><p>margin <code>number,  bottom?: number, left?: number, right?: number, top?: number </code> <br> Default is - The margin between the SVG and the drawing area. It's used for leaving some space for extra information such as the x- and y-axis or legend.Accepts a number to be used on all sides or an object with the optional properties: top, bottom, left, and right.</p></li>
-<li><p>onAxisClick <code>func</code> <br> Default is - The function called for onClick events. The second argument contains information about all line/bar elements at the current mouse position.Signature:function(event: MouseEvent, data: null | ChartsAxisData) =&gt; voidevent The mouse event recorded on the <svg></svg> element.data The data about the clicked axis and items associated with it.</p></li>
+<li><p>onAxisClick <code>func</code> <br> Default is - The function called for onClick events. The second argument contains information about all line/bar elements at the current mouse position.Signature:function(event: MouseEvent, data: null | ChartsAxisData) =&gt; voidevent The mouse event recorded on the &lt;svg/&gt; element.data The data about the clicked axis and items associated with it.</p></li>
 <li><p>onHighlightChange <code>func</code> <br> Default is - The callback fired when the highlighted item changes.Signature:function(highlightedItem: HighlightItemData | null) =&gt; voidhighlightedItem The newly highlighted item.</p></li>
-<li><p>onHighlightedAxisChange <code>func</code> <br> Default is - The function called when the pointer position corresponds to a new axis data item. This update can either be caused by a pointer movement, or an axis update. In case of multiple axes, the function is called if at least one axis is updated. The argument contains the identifier for all axes with a data property.Signature:function(axisItems: Array<axisitemidentifier>) =&gt; voidaxisItems The array of axes item identifiers.</axisitemidentifier></p></li>
+<li><p>onHighlightedAxisChange <code>func</code> <br> Default is - The function called when the pointer position corresponds to a new axis data item. This update can either be caused by a pointer movement, or an axis update. In case of multiple axes, the function is called if at least one axis is updated. The argument contains the identifier for all axes with a data property.Signature:function(axisItems: Array&lt;AxisItemIdentifier&gt;) =&gt; voidaxisItems The array of axes item identifiers.</p></li>
 <li><p>onItemClick <code>func</code> <br> Default is - Callback fired when a bar item is clicked.Signature:function(event: React.MouseEvent&lt;SVGElement, MouseEvent&gt;, barItemIdentifier: BarItemIdentifier) =&gt; voidevent The event source of the callback.barItemIdentifier The bar item identifier.</p></li>
 <li><p>showToolbar <code>bool</code> <br> Default is FALSE If true, shows the default chart toolbar.</p></li>
 <li><p>skipAnimation <code>bool</code> <br> Default is - If true, animations are skipped. If unset or false, the animations respects the user's prefers-reduced-motion setting.</p></li>

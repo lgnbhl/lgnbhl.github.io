@@ -96,8 +96,8 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   argument contains information about all line/bar elements at the
   current mouse position.Signature:function(event: MouseEvent, data:
   null \| ChartsAxisData) =\> voidevent The mouse event recorded on the
-  ![](data:image/svg+xml;base64,PHN2Zz48L3N2Zz4=) element.data The data
-  about the clicked axis and items associated with it.
+  \<svg/\> element.data The data about the clicked axis and items
+  associated with it.
 
 - onHighlightChange `func`\
   Default is - The callback fired when the highlighted item
@@ -110,8 +110,8 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   movement, or an axis update. In case of multiple axes, the function is
   called if at least one axis is updated. The argument contains the
   identifier for all axes with a data
-  property.Signature:function(axisItems: Array) =\> voidaxisItems The
-  array of axes item identifiers.
+  property.Signature:function(axisItems: Array\<AxisItemIdentifier\>)
+  =\> voidaxisItems The array of axes item identifiers.
 
 - onLineClick `func`\
   Default is - Callback fired when a line element is clicked.

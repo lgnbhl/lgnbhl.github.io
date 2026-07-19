@@ -1,6 +1,7 @@
 # ChartsTooltipRow
 
-<https://mui.com/x/api/charts/charts-tooltip-row/>
+Low-level composition component of MUI X Charts. See
+<https://mui.com/x/react-charts/composition/>.
 
 ## Usage
 

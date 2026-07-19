@@ -1,6 +1,7 @@
 # FocusedScatterMark
 
-<https://mui.com/x/api/charts/focused-scatter-mark/>
+Low-level composition component of MUI X Charts. See
+<https://mui.com/x/react-charts/composition/>.
 
 ## Usage
 

@@ -87,8 +87,8 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   argument contains information about all line/bar elements at the
   current mouse position.Signature:function(event: MouseEvent, data:
   null \| ChartsAxisData) =\> voidevent The mouse event recorded on the
-  ![](data:image/svg+xml;base64,PHN2Zz48L3N2Zz4=) element.data The data
-  about the clicked axis and items associated with it.
+  \<svg/\> element.data The data about the clicked axis and items
+  associated with it.
 
 - onHighlightChange `func`\
   Default is - The callback fired when the highlighted item
@@ -99,16 +99,17 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   Default is - Callback fired when clicking on a scatter
   item.Signature:function(event: MouseEvent, scatterItemIdentifier:
   ScatterItemIdentifier) =\> voidevent The mouse event recorded on the
-  ![](data:image/svg+xml;base64,PHN2Zz48L3N2Zz4=) element if using
-  Voronoi cells. Or the Mouse event from the scatter element, when
-  disableVoronoi=true.scatterItemIdentifier The scatter item identifier.
+  \<svg/\> element if using Voronoi cells. Or the Mouse event from the
+  scatter element, when disableVoronoi=true.scatterItemIdentifier The
+  scatter item identifier.
 
 - renderer `'svg-batch', 'svg-single'`\
   Default is 'svg-single' The type of renderer to use for the scatter
-  plot. - svg-single: Renders every scatter item in a element. -
-  svg-batch: Batch renders scatter items in elements for better
-  performance with large datasets, at the cost of some limitations. Read
-  more: https://mui.com/x/react-charts/scatter/#performance
+  plot. - svg-single: Renders every scatter item in a \<circle /\>
+  element. - svg-batch: Batch renders scatter items in \<path /\>
+  elements for better performance with large datasets, at the cost of
+  some limitations. Read more:
+  https://mui.com/x/react-charts/scatter/#performance
 
 - showToolbar `bool`\
   Default is FALSE If true, shows the default chart toolbar.
