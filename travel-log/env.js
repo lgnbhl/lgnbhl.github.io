@@ -1,8 +1,18 @@
-// Copy this file to www/env.js and fill in your own project's values.
-// Find them in the Supabase dashboard: Project Settings -> API.
+// Copy this file to www/env.js and fill in your own Google OAuth client id.
 //
-// The anon/public key is designed to be exposed in the browser — row level
-// security (see schema.sql) is what actually protects the data. env.js is
-// gitignored anyway so each deployment can point at its own project.
-window.SUPABASE_URL = "https://haakjcnbklalkctdqidq.supabase.co";
-window.SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhhYWtqY25ia2xhbGtjdGRxaWRxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU0NzgzMjQsImV4cCI6MjEwMTA1NDMyNH0.Eub2ST6i_zPSjkoR0cq3J6Hspz02hdXdT6gzcNgvW8g";
+// Create one at console.cloud.google.com: enable the Google Drive API, configure
+// the OAuth consent screen (scopes: openid, email, profile and
+// .../auth/drive.file — all non-sensitive, so no verification review), PUBLISH
+// the app, then create an OAuth client id of type "Web application". See the
+// README for the full walkthrough.
+//
+// Authorized JavaScript origins must list every origin the page is served from,
+// e.g. https://felixluginbuhl.com and http://localhost:8000. Origins are
+// scheme + host + port, so the path (/travel-log/) is irrelevant. No redirect
+// URIs are needed — Google Identity Services uses a popup, not a redirect.
+//
+// The client id is designed to be public: it identifies the app, and the
+// authorized-origins allowlist is what stops anyone else using it. There is no
+// client secret in this flow, and there is no key here that could read anyone's
+// data — a user's travel log lives in their own Drive, not in any database.
+window.GOOGLE_CLIENT_ID = "896341356913-jn31u65eupak7ohneiih0iidbht51jai.apps.googleusercontent.com";
