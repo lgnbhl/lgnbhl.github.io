@@ -1,0 +1,133 @@
+<!doctype html>
+<!--
+  Static landing / about page for My Travel Log.
+
+  WHY THIS EXISTS. The app itself is a client-side SPA: fetched without
+  JavaScript, index.html contains zero visible characters. Google's OAuth brand
+  verification fetches the "Application home page" URL and reads it, so an empty
+  page fails two of its checks at once — it looks login-gated, and it explains
+  nothing about the app. This page is the answer: plain HTML, no JavaScript, no
+  sign-in, saying exactly what the app is and who publishes it.
+
+  Point the Branding "Application home page" field at THIS url.
+
+  Source of truth is www/about.html; app.R copies it to docs/ at build time.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>My Travel Log by FelixAnalytix — track the countries you have visited</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="My Travel Log by FelixAnalytix is a free travel-map app to track the countries you have visited and the trips you have taken. Your data stays in your browser, or syncs to your own Google Drive.">
+<style>
+  :root { color-scheme: light dark; --fg:#1a1c1e; --muted:#5f6368; --bg:#fff;
+          --card:#f8f9fa; --line:#e3e5e8; --accent:#0f766e; }
+  @media (prefers-color-scheme: dark) {
+    :root { --fg:#e8eaed; --muted:#9aa0a6; --bg:#131416; --card:#1e2022;
+            --line:#2e3134; --accent:#4db6ac; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; padding:2.5rem 1.25rem 4rem; background:var(--bg); color:var(--fg);
+         font:16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 46rem; margin: 0 auto; }
+  .mark { font-size:3rem; line-height:1; }
+  h1 { font-size:2rem; line-height:1.2; margin:.5rem 0 .25rem; }
+  .tagline { font-size:1.1rem; color:var(--muted); margin:0 0 1.75rem; }
+  h2 { font-size:1.15rem; margin:2.25rem 0 .5rem; }
+  a { color:var(--accent); }
+  .cta { display:inline-block; background:var(--accent); color:#fff;
+         text-decoration:none; padding:.7rem 1.4rem; border-radius:8px;
+         font-weight:600; margin:.25rem .5rem .25rem 0; }
+  .cta.secondary { background:transparent; color:var(--accent);
+                   border:1px solid var(--line); }
+  ul { padding-left:1.15rem; }
+  li { margin:.35rem 0; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:8px;
+          padding:1rem 1.25rem; margin:1.25rem 0; }
+  footer { margin-top:3rem; padding-top:1.25rem; border-top:1px solid var(--line);
+           color:var(--muted); font-size:.9rem; }
+</style>
+</head>
+<body>
+<main>
+
+  <div class="mark">🗺️</div>
+  <h1>My Travel Log</h1>
+  <p class="tagline">by FelixAnalytix</p>
+
+  <p>
+    <strong>My Travel Log is a free web app for keeping track of the countries
+    you have visited and the trips you have taken.</strong> You mark countries on
+    a world map, add trips with a city and dates, and the app shows you statistics
+    about your travels — how many countries and continents you have been to, how
+    many days you have spent travelling, and what share of the world you have seen.
+  </p>
+
+  <p>
+    <a class="cta" href="./">Open My Travel Log</a>
+    <a class="cta secondary" href="privacy.html">Privacy policy</a>
+  </p>
+
+  <h2>What you can do</h2>
+  <ul>
+    <li><strong>Map</strong> — tap any country on a world map to mark it visited.</li>
+    <li><strong>Trips</strong> — record a city, dates and how you travelled
+        (plane, train, car or boat), and see upcoming and past trips.</li>
+    <li><strong>Stats</strong> — countries, cities, continents, total days
+        travelled, and the percentage of the world's countries you have visited.</li>
+    <li><strong>Share</strong> — produce a public link showing only your
+        coloured world map, with no trips, cities or dates in it.</li>
+  </ul>
+
+  <h2>Where your data is stored</h2>
+  <div class="card">
+    <p style="margin-top:0">
+      <strong>No account is required and there is no sign-in wall.</strong> Open
+      the app and start using it immediately — everything you enter is saved in
+      your own browser.
+    </p>
+    <p style="margin-bottom:0">
+      If you would like your travel log to survive clearing your browser and to
+      follow you to other devices, you can optionally connect
+      <strong>your own Google Drive</strong>. The app then keeps a single file,
+      <code>travellog.json</code>, in your Drive. It uses Google's
+      <code>drive.file</code> permission, which grants access only to files the
+      app itself created — it cannot see anything else in your Drive. My Travel
+      Log has no server and no database, so your travel data is never sent to us
+      and we have no way to read it.
+    </p>
+  </div>
+  <p>
+    Full details are in the <a href="privacy.html">privacy policy</a>.
+  </p>
+
+  <h2>How it is built</h2>
+  <p>
+    My Travel Log is a client-side single-page application: it runs entirely in
+    your browser, with no server of its own. It is built in R with the
+    <a href="https://github.com/lgnbhl/reactLeaflet">reactLeaflet</a>,
+    <a href="https://felixluginbuhl.com/muiMaterial/">muiMaterial</a> and
+    <a href="https://felixluginbuhl.com/reactRouter/">reactRouter</a> packages —
+    all three of which are open source. The world map is drawn from country
+    outlines built into the page, so it needs no map-tile server.
+  </p>
+
+  <h2>Who publishes it</h2>
+  <p>
+    My Travel Log is published by <strong>FelixAnalytix</strong> (Félix
+    Luginbühl). It is free to use, contains no advertising, and collects no
+    analytics. To get in touch, see the contact details on
+    <a href="https://felixluginbuhl.com/about/">felixluginbuhl.com/about</a>.
+  </p>
+
+  <footer>
+    My Travel Log by FelixAnalytix ·
+    <a href="./">Open the app</a> ·
+    <a href="privacy.html">Privacy policy</a> ·
+    <a href="https://felixluginbuhl.com/about/">Contact</a> ·
+    <a href="https://felixluginbuhl.com">felixluginbuhl.com</a>
+  </footer>
+
+</main>
+</body>
+</html>

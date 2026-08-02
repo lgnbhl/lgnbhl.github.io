@@ -8,8 +8,18 @@
   only the app shell to anything that is not a browser running JS.
 
   Source of truth is www/privacy.html; app.R copies it to docs/ at build time.
-  KEEP IT TRUE. Every claim below is checkable against the code, and a privacy
-  policy that overstates is worse than none.
+
+  KEEP IT TRUE. A privacy policy that overstates is worse than none. In
+  particular this page deliberately does NOT claim the app is open source or
+  that its claims can be checked against public code — the repository is private
+  today. WHEN THE SOURCE IS PUBLISHED, add the link back here and in about.html
+  ("How it is built"): being checkable is the strongest thing a policy like this
+  can offer, but only once it is actually true.
+
+  There is also no email address anywhere on this page, on purpose: a mailto:
+  link in a public page is harvested for spam. Contact goes via
+  felixluginbuhl.com/about instead, and Google shows a support address on its own
+  consent screen, which is rendered by Google rather than scrapable from here.
 -->
 <html lang="en">
 <head>
@@ -65,10 +75,14 @@
 
 <h2>Who we are</h2>
 <p>
-  My Travel Log is a free, open-source travel-map application published by
-  FelixAnalytix (Félix Luginbühl). The source code is public, so every claim on
-  this page can be checked against it.
-  Contact: <a href="mailto:felix.luginbuhl@protonmail.ch">felix.luginbuhl@protonmail.ch</a>.
+  My Travel Log is a free travel-map application published by FelixAnalytix
+  (Félix Luginbühl).
+</p>
+<p>
+  To get in touch about this policy or your data, use the contact details on
+  <a href="https://felixluginbuhl.com/about/">felixluginbuhl.com/about</a>. If you
+  have connected Google Drive, a support address is also shown on Google's own
+  consent screen for this app.
 </p>
 
 <h2>What the app stores, and where</h2>
@@ -133,8 +147,8 @@
 <p>
   <strong>Nothing.</strong> We operate no server, no database, no logs and no
   analytics. We do not use Google Analytics or any equivalent. We cannot see how
-  many people use the app, who they are, or what they have entered. If you email
-  us, we will of course have your email — that is all.
+  many people use the app, who they are, or what they have entered. If you
+  contact us, we will of course have whatever you chose to send — that is all.
 </p>
 
 <h2>Third parties the app contacts</h2>
@@ -233,14 +247,14 @@
 
 <h2>Changes</h2>
 <p>
-  If this policy changes, the date at the top of this page changes with it. Since
-  the app is open source, the history of this file is public too.
+  If this policy changes, the date at the top of this page changes with it.
 </p>
 
 <footer>
   My Travel Log by FelixAnalytix ·
   <a href="./">Back to the app</a> ·
-  <a href="mailto:felix.luginbuhl@protonmail.ch">felix.luginbuhl@protonmail.ch</a>
+  <a href="about.html">About</a> ·
+  <a href="https://felixluginbuhl.com/about/">Contact</a>
 </footer>
 
 </main>
