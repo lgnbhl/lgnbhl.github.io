@@ -1,0 +1,248 @@
+<!doctype html>
+<!--
+  Privacy policy for My Travel Log.
+
+  Deliberately a PLAIN STATIC PAGE, not a route in the SPA. Google's OAuth
+  verification (and any privacy-conscious reader) must be able to fetch this URL
+  and see the text with no JavaScript. A hash route like #/privacy would return
+  only the app shell to anything that is not a browser running JS.
+
+  Source of truth is www/privacy.html; app.R copies it to docs/ at build time.
+  KEEP IT TRUE. Every claim below is checkable against the code, and a privacy
+  policy that overstates is worse than none.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Privacy Policy — My Travel Log</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="How My Travel Log handles your data: what is stored, where, and who can see it.">
+<style>
+  :root { color-scheme: light dark; --fg:#1a1c1e; --muted:#5f6368; --bg:#fff;
+          --card:#f8f9fa; --line:#e3e5e8; --accent:#0f766e; }
+  @media (prefers-color-scheme: dark) {
+    :root { --fg:#e8eaed; --muted:#9aa0a6; --bg:#131416; --card:#1e2022;
+            --line:#2e3134; --accent:#4db6ac; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; padding:2rem 1.25rem 4rem; background:var(--bg); color:var(--fg);
+         font:16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 46rem; margin: 0 auto; }
+  h1 { font-size:1.75rem; line-height:1.25; margin:.5rem 0 .25rem; }
+  h2 { font-size:1.15rem; margin:2.25rem 0 .5rem; }
+  h3 { font-size:1rem; margin:1.5rem 0 .35rem; }
+  p, li { color:var(--fg); }
+  .sub { color:var(--muted); margin-top:0; }
+  a { color:var(--accent); }
+  code { background:var(--card); padding:.1em .35em; border-radius:4px;
+         font-size:.9em; border:1px solid var(--line); }
+  table { border-collapse:collapse; width:100%; margin:1rem 0; font-size:.95rem;
+          display:block; overflow-x:auto; }
+  th, td { text-align:left; padding:.55rem .7rem; border-bottom:1px solid var(--line);
+           vertical-align:top; }
+  th { color:var(--muted); font-weight:600; white-space:nowrap; }
+  .callout { background:var(--card); border:1px solid var(--line);
+             border-left:3px solid var(--accent); border-radius:6px;
+             padding:.9rem 1.1rem; margin:1.25rem 0; }
+  footer { margin-top:3rem; padding-top:1.25rem; border-top:1px solid var(--line);
+           color:var(--muted); font-size:.9rem; }
+</style>
+</head>
+<body>
+<main>
+
+<p class="sub"><a href="./">&larr; My Travel Log</a></p>
+
+<h1>Privacy Policy</h1>
+<p class="sub">My Travel Log by FelixAnalytix — last updated 2 August 2026</p>
+
+<div class="callout">
+  <strong>The short version.</strong> My Travel Log has no server and no database.
+  Your travel data is stored in your own browser, and — only if you choose it — in
+  a single file inside your own Google Drive. It is never sent to us, and we have
+  no technical means of reading it. We run no analytics and no tracking.
+</div>
+
+<h2>Who we are</h2>
+<p>
+  My Travel Log is a free, open-source travel-map application published by
+  FelixAnalytix (Félix Luginbühl). The source code is public, so every claim on
+  this page can be checked against it.
+  Contact: <a href="mailto:felix.luginbuhl@protonmail.ch">felix.luginbuhl@protonmail.ch</a>.
+</p>
+
+<h2>What the app stores, and where</h2>
+<p>
+  My Travel Log is <strong>local-first</strong>. You can use it fully without an
+  account. Everything you enter is kept in your browser.
+</p>
+
+<h3>1. In your browser (always)</h3>
+<table>
+  <tr><th>What</th><th>Where</th><th>Why</th></tr>
+  <tr>
+    <td>Visited countries, trips (city, coordinates, dates, transport), display preferences</td>
+    <td>Cookies <code>travellog_countries</code>, <code>travellog_trips</code>,
+        <code>travellog_prefs</code>, with a <code>localStorage</code> fallback.
+        Expire after one year.</td>
+    <td>So the app works offline and your data survives a reload.</td>
+  </tr>
+  <tr>
+    <td>Small interface flags: your storage choice, whether you dismissed a prompt,
+        whether you have exported a backup</td>
+    <td><code>localStorage</code></td>
+    <td>So the app respects choices you already made and stops asking.</td>
+  </tr>
+</table>
+<p>
+  These are <strong>functional</strong>, not analytics. They are never transmitted
+  anywhere, and there are no advertising, profiling or third-party tracking
+  cookies of any kind.
+</p>
+
+<h3>2. In your Google Drive (only if you choose it)</h3>
+<p>
+  If you choose to sync, the app writes one file, <code>travellog.json</code>, to
+  <em>your</em> Google Drive. It contains exactly what you entered: your visited
+  countries, your trips, and your display preferences.
+</p>
+<p>
+  The app requests a single Google permission,
+  <code>https://www.googleapis.com/auth/drive.file</code>. This grants access
+  <strong>only to files the app itself created</strong>. My Travel Log cannot see,
+  open, list or modify any other file in your Google Drive — this is enforced by
+  Google, not merely promised by us.
+</p>
+<p>
+  Because the file is a normal, visible file in your Drive, you can open it, read
+  it, copy it or delete it yourself at any time. The Settings page links directly
+  to it.
+</p>
+
+<h3>3. Your email address</h3>
+<p>
+  When you are connected, the app asks Google for the email address of the Drive
+  account you connected, purely to display it in Settings so you can tell which
+  account is in use. It is held in memory for that browser session only. It is
+  <strong>not stored, not written to your Drive file, and not transmitted to us or
+  to anyone else.</strong> If Google does not provide it, the app simply shows
+  "Connected" instead.
+</p>
+
+<h2>What we collect</h2>
+<p>
+  <strong>Nothing.</strong> We operate no server, no database, no logs and no
+  analytics. We do not use Google Analytics or any equivalent. We cannot see how
+  many people use the app, who they are, or what they have entered. If you email
+  us, we will of course have your email — that is all.
+</p>
+
+<h2>Third parties the app contacts</h2>
+<p>
+  The app is a static web page. When it runs in your browser, it makes requests to
+  the following services. Each receives your IP address, as is unavoidable for any
+  web request.
+</p>
+<table>
+  <tr><th>Service</th><th>When</th><th>What it receives</th></tr>
+  <tr>
+    <td><strong>Google</strong> (accounts.google.com, googleapis.com)</td>
+    <td>Only if you choose to sync</td>
+    <td>Your sign-in, and the contents of your <code>travellog.json</code>, which
+        is stored in your own Google account. Governed by
+        <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</td>
+  </tr>
+  <tr>
+    <td><strong>Photon</strong> (photon.komoot.io), an open-source OpenStreetMap geocoder</td>
+    <td>As you type in the city search box</td>
+    <td>The text you type. This happens whether or not you sync, and it is the one
+        piece of what you type that leaves your device.</td>
+  </tr>
+  <tr>
+    <td><strong>flagcdn.com</strong></td>
+    <td>When flag images are displayed</td>
+    <td>Which flag images are requested — which indirectly indicates which
+        countries you have marked as visited.</td>
+  </tr>
+  <tr>
+    <td><strong>GitHub Pages</strong> / our host</td>
+    <td>When the page loads</td>
+    <td>A standard web request for the page itself.</td>
+  </tr>
+</table>
+<p>
+  The world map itself is drawn from country outlines built into the page, so no
+  map-tile server is contacted and your map view is not sent anywhere.
+</p>
+
+<h2>Sharing</h2>
+<p>
+  The Share button produces a public link containing <em>only</em> your visited
+  three-letter country codes and your chosen map colour — for example
+  <code>#/w?c=CHEFRAITA&amp;k=0f766e</code>. No trips, cities, dates, email or
+  account identifier is included. Anyone with the link sees only a coloured world
+  map. Such a link cannot be revoked, and it is a snapshot: countries you add
+  later will not appear in a link you already shared.
+</p>
+
+<h2>Google API Services — Limited Use</h2>
+<p>
+  My Travel Log's use and transfer of information received from Google APIs
+  adheres to the
+  <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>,
+  including the Limited Use requirements.
+</p>
+<p>
+  Concretely: data obtained through Google APIs is used solely to provide the
+  travel-log features you requested. It is never transferred to us or to third
+  parties, never used for advertising, never sold, and never read by humans.
+</p>
+
+<h2>Your control</h2>
+<ul>
+  <li><strong>Use the app without syncing at all.</strong> Choosing "This device
+      only" means nothing ever leaves your browser, and the app will not contact
+      Google.</li>
+  <li><strong>Export your data</strong> as a JSON file at any time from Settings.</li>
+  <li><strong>Delete the Drive copy</strong> from Settings ("Stop syncing and
+      delete from Drive"), or delete <code>travellog.json</code> yourself in
+      Google Drive.</li>
+  <li><strong>Delete the local copy</strong> with "Clear all travel data" in
+      Settings, or by clearing your browser data.</li>
+  <li><strong>Revoke our access entirely</strong>, at any time and without
+      involving us, at
+      <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</li>
+</ul>
+<p>
+  Because we hold no copy of your data, there is nothing for us to delete on your
+  behalf, and no request you need to send us to make deletion happen.
+</p>
+
+<h2>Data retention</h2>
+<p>
+  We retain no personal data, so there is no retention period. Your browser keeps
+  its copy until you clear it; your Google Drive keeps its copy until you delete
+  it.
+</p>
+
+<h2>Children</h2>
+<p>
+  The app is not directed at children under 13 and collects no personal data from
+  anyone.
+</p>
+
+<h2>Changes</h2>
+<p>
+  If this policy changes, the date at the top of this page changes with it. Since
+  the app is open source, the history of this file is public too.
+</p>
+
+<footer>
+  My Travel Log by FelixAnalytix ·
+  <a href="./">Back to the app</a> ·
+  <a href="mailto:felix.luginbuhl@protonmail.ch">felix.luginbuhl@protonmail.ch</a>
+</footer>
+
+</main>
+</body>
+</html>
