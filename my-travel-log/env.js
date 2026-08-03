@@ -1,8 +1,8 @@
 // Copy this file to www/env.js and fill in your own Google OAuth client id.
 //
 // Create one at console.cloud.google.com: enable the Google Drive API, configure
-// the OAuth consent screen (scopes: openid, email, profile and
-// .../auth/drive.file — all non-sensitive, so no verification review), PUBLISH
+// the OAuth consent screen (one scope only: .../auth/drive.file —
+// non-sensitive, so no verification review), PUBLISH
 // the app, then create an OAuth client id of type "Web application". See the
 // README for the full walkthrough.
 //

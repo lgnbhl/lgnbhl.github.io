@@ -95,10 +95,10 @@
 <table>
   <tr><th>What</th><th>Where</th><th>Why</th></tr>
   <tr>
-    <td>Visited countries, trips (city, coordinates, dates, transport), display preferences</td>
-    <td>Cookies <code>travellog_countries</code>, <code>travellog_trips</code>,
-        <code>travellog_prefs</code>, with a <code>localStorage</code> fallback.
-        Expire after one year.</td>
+    <td>Visited countries, trips (place, coordinates, dates, transport), display preferences</td>
+    <td><code>localStorage</code>, under the keys <code>travellog_countries</code>,
+        <code>travellog_trips</code> and <code>travellog_prefs</code>. Kept until
+        you clear your browser data or use “Delete all data” in Settings.</td>
     <td>So the app works offline and your data survives a reload.</td>
   </tr>
   <tr>
@@ -109,9 +109,10 @@
   </tr>
 </table>
 <p>
-  These are <strong>functional</strong>, not analytics. They are never transmitted
-  anywhere, and there are no advertising, profiling or third-party tracking
-  cookies of any kind.
+  These are <strong>functional</strong>, not analytics. <code>localStorage</code>
+  never leaves your browser — unlike a cookie, it is not attached to network
+  requests. The app sets <strong>no cookies at all</strong>, and there is no
+  advertising, profiling or third-party tracking of any kind.
 </p>
 
 <h3>2. In your Google Drive (only if you choose it)</h3>
@@ -168,15 +169,16 @@
   </tr>
   <tr>
     <td><strong>Photon</strong> (photon.komoot.io), an open-source OpenStreetMap geocoder</td>
-    <td>As you type in the city search box</td>
+    <td>As you type in the place search box (cities, monuments, parks and other landmarks)</td>
     <td>The text you type. This happens whether or not you sync, and it is the one
         piece of what you type that leaves your device.</td>
   </tr>
   <tr>
     <td><strong>flagcdn.com</strong></td>
-    <td>When flag images are displayed</td>
-    <td>Which flag images are requested — which indirectly indicates which
-        countries you have marked as visited.</td>
+    <td>When you open the Stats page, which lists a flag per visited country</td>
+    <td>One request per flag, so in practice <strong>your whole visited-country
+        list</strong>, not just one country at a time. This happens whether or not
+        you sync. If you would rather it did not, avoid the Stats page.</td>
   </tr>
   <tr>
     <td><strong>GitHub Pages</strong> / our host</td>
@@ -193,7 +195,7 @@
 <p>
   The Share button produces a public link containing <em>only</em> your visited
   three-letter country codes and your chosen map colour — for example
-  <code>#/w?c=CHEFRAITA&amp;k=0f766e</code>. No trips, cities, dates, email or
+  <code>#/w?c=CHEFRAITA&amp;k=0f766e</code>. No trips, places, dates, email or
   account identifier is included. Anyone with the link sees only a coloured world
   map. Such a link cannot be revoked, and it is a snapshot: countries you add
   later will not appear in a link you already shared.
