@@ -95,11 +95,12 @@
 <table>
   <tr><th>What</th><th>Where</th><th>Why</th></tr>
   <tr>
-    <td>Visited countries, trips (place, coordinates, dates, transport), display preferences</td>
-    <td><code>localStorage</code>, under the keys <code>travellog_countries</code>,
-        <code>travellog_trips</code> and <code>travellog_prefs</code>. Kept until
-        you clear your browser data or use “Delete all data” in Settings.</td>
-    <td>So the app works offline and your data survives a reload.</td>
+    <td>Visited countries, trips (place, coordinates, dates), display preferences</td>
+    <td><code>localStorage</code>, as a single GeoJSON document under the key
+        <code>travellog_doc</code>. Kept until you clear your browser data or use
+        “Delete all data” in Settings.</td>
+    <td>So your data is there instantly and survives a reload, with no round
+        trip to anyone. (The map tiles still need the network &mdash; see below.)</td>
   </tr>
   <tr>
     <td>Small interface flags: your storage choice, whether you dismissed a prompt,
@@ -117,7 +118,7 @@
 
 <h3>2. In your Google Drive (only if you choose it)</h3>
 <p>
-  If you choose to sync, the app writes one file, <code>travellog.json</code>, to
+  If you choose to sync, the app writes one file, <code>travellog.geojson</code>, to
   <em>your</em> Google Drive. It contains exactly what you entered: your visited
   countries, your trips, and your display preferences.
 </p>
@@ -163,7 +164,7 @@
   <tr>
     <td><strong>Google</strong> (accounts.google.com, googleapis.com)</td>
     <td>Only if you choose to sync</td>
-    <td>Your sign-in, and the contents of your <code>travellog.json</code>, which
+    <td>Your sign-in, and the contents of your <code>travellog.geojson</code>, which
         is stored in your own Google account. Governed by
         <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</td>
   </tr>
@@ -181,14 +182,32 @@
         you sync. If you would rather it did not, avoid the Stats page.</td>
   </tr>
   <tr>
+    <td><strong>CARTO</strong> (basemaps.cartocdn.com), map tiles built from
+        OpenStreetMap data</td>
+    <td><strong>Whenever the map is on screen, in every view.</strong> The tiles
+        are the map — there is no setting that turns them off.</td>
+    <td>One request per tile, continuously as you pan and zoom — which means
+        <strong>the part of the world you are looking at, and for how long</strong>.
+        This is the only thing the app does that causes requests as you simply
+        use the map, and it is unavoidable. CARTO receives no account
+        information and nothing about your visits; it sees the requesting IP
+        address and which tiles were asked for.</td>
+  </tr>
+  <tr>
     <td><strong>GitHub Pages</strong> / our host</td>
     <td>When the page loads</td>
     <td>A standard web request for the page itself.</td>
   </tr>
 </table>
 <p>
-  The world map itself is drawn from country outlines built into the page, so no
-  map-tile server is contacted and your map view is not sent anywhere.
+  <strong>The map needs the network.</strong> Earlier versions drew the world
+  from country outlines and city names built into the page and could run with no
+  tile server at all. That is no longer true: the map is a CARTO basemap, in
+  every view and at every zoom, and your visited countries are drawn as a
+  highlight over it. There is no offline mode and no switch to turn the tiles
+  off &mdash; if that matters to you, it is the thing to know before you use this
+  app. Your travel data is still stored and read locally, and is not affected.
+  See the CARTO row above.
 </p>
 
 <h2>Sharing</h2>
@@ -221,7 +240,7 @@
       Google.</li>
   <li><strong>Export your data</strong> as a JSON file at any time from Settings.</li>
   <li><strong>Delete the Drive copy</strong> from Settings ("Stop syncing and
-      delete from Drive"), or delete <code>travellog.json</code> yourself in
+      delete from Drive"), or delete <code>travellog.geojson</code> yourself in
       Google Drive.</li>
   <li><strong>Delete the local copy</strong> with "Clear all travel data" in
       Settings, or by clearing your browser data.</li>

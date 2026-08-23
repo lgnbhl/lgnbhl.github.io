@@ -58,9 +58,10 @@
   <p>
     <strong>My Travel Log is a free web app for keeping track of the countries
     you have visited and the trips you have taken.</strong> You mark countries on
-    a world map, add trips with a place and dates, and the app shows you statistics
-    about your travels — how many countries and continents you have been to, how
-    many days you have spent travelling, and what share of the world you have seen.
+    a world map, add visits with a place and dates, group them into trips, and the
+    app shows you statistics about your travels — how many countries and continents
+    you have been to, how many days you have spent travelling, and what share of the
+    world you have seen.
   </p>
 
   <p>
@@ -71,11 +72,10 @@
   <h2>What you can do</h2>
   <ul>
     <li><strong>Map</strong> — tap any country on a world map to mark it visited,
-        and record a place — a city, a monument, a mountain, a park — with dates
-        and how you travelled (plane, train, car or boat).</li>
+        and record a place — a city, a monument, a mountain, a park — with dates.</li>
     <li><strong>Stats</strong> — countries, places, continents, total days
         travelled, the percentage of the world's countries you have visited, and
-        your upcoming and past trips.</li>
+        your upcoming and past visits and the trips they are grouped into.</li>
     <li><strong>Share</strong> — produce a public link showing only your
         coloured world map, with no trips, places or dates in it.</li>
   </ul>
@@ -91,7 +91,7 @@
       If you would like your travel log to survive clearing your browser and to
       follow you to other devices, you can optionally connect
       <strong>your own Google Drive</strong>. The app then keeps a single file,
-      <code>travellog.json</code>, in your Drive. It uses Google's
+      <code>travellog.geojson</code>, in your Drive. It uses Google's
       <code>drive.file</code> permission, which grants access only to files the
       app itself created — it cannot see anything else in your Drive. My Travel
       Log has no server and no database, so your travel data is never sent to us
@@ -109,8 +109,9 @@
     <a href="https://github.com/lgnbhl/reactLeaflet">reactLeaflet</a>,
     <a href="https://felixluginbuhl.com/muiMaterial/">muiMaterial</a> and
     <a href="https://felixluginbuhl.com/reactRouter/">reactRouter</a> packages —
-    all three of which are open source. The world map is drawn from country
-    outlines built into the page, so it needs no map-tile server.
+    all three of which are open source. The map itself is drawn from country
+    outlines built into the page, with a CARTO/OpenStreetMap place-name layer
+    requested over it as you pan.
   </p>
 
   <h2>Who publishes it</h2>
