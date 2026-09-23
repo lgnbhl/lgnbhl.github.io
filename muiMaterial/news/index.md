@@ -1,6 +1,6 @@
 # Changelog
 
-## muiMaterial (development version)
+## muiMaterial 0.2.3
 
 ### New features
 
@@ -50,6 +50,11 @@
   `@mui/styled-engine`, `@emotion/cache`, …). A duplicate copy inside
   the bundle would silently split the theme context — the failure mode
   the `window.jsmodule` runtime warning cannot detect.
+- the JS build pins Babel’s `@babel/preset-react` to the production
+  automatic JSX runtime (`development: false`). Babel 8 otherwise emits
+  `jsxDEV` calls, which the production React served by shiny.react does
+  not provide (blank pages). This regression never reached a CRAN
+  release.
 - `.triggerId` wrappers compose caller-supplied callbacks (`onClose`,
   and `onClick`/`onOpen` where relevant) with their own state handling
   instead of letting them override it; the wrapper-owned
@@ -82,6 +87,11 @@
   `js/package.json` (previously resolved implicitly through
   `@mui/material`’s dependency tree).
 
+### Documentation
+
+- the pkgdown website navbar now links to the `llms.txt` file
+  (LLM-friendly documentation).
+
 ### Bug fixes
 
 - [`Drawer.triggerId()`](https://felixluginbuhl.com/muiMaterial/reference/Drawer.triggerId.md)
@@ -110,6 +120,8 @@
   mobile side menu (leftover JSX pasted inside an R string).
 - `Checkbox` example: use the `value` argument instead of the reserved
   `checked` prop.
+- `DrawerTriggerId` example: fix header and variable naming to match
+  [`Drawer.triggerId()`](https://felixluginbuhl.com/muiMaterial/reference/Drawer.triggerId.md).
 
 ## muiMaterial 0.2.2
 

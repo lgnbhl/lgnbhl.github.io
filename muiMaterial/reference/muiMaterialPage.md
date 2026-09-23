@@ -56,8 +56,8 @@ muiMaterialPage(
 
 - styleBody:
 
-  CSS declarations applied to the document body via a \`body ... \`
-  style rule, \`"margin:0"\` by default.
+  CSS declarations applied to the document body via a `body { ... }`
+  style rule, `"margin:0"` by default.
 
 - debugReact:
 
