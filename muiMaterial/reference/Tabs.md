@@ -153,3 +153,27 @@ pre-select that tab. When omitted, the component mounts with no tab
 selected (`value = FALSE`) rather than uncontrolled, so a later
 server-driven update does not trigger MUI's controlled/uncontrolled
 warning.
+
+## Examples
+
+``` r
+# Tabs report the selected value to the server; for client-side tabs,
+# see TabContext.static()
+Tabs(value = "one", Tab(label = "Item One", value = "one"), Tab(label = "Item Two", value = "two"))
+#> <div class="react-container" data-react-id="kpozirmwtcueimndnbsb">
+#>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"Tabs","props":{"type":"object","value":{"value":{"type":"raw","value":"one"},"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"Tab","props":{"type":"raw","value":{"label":"Item One","value":"one"}}},{"type":"element","module":"@mui/material","name":"Tab","props":{"type":"raw","value":{"label":"Item Two","value":"two"}}}]}}}}</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('kpozirmwtcueimndnbsb')</script>
+#> </div>
+if (FALSE) { # interactive()
+library(shiny)
+ui <- muiMaterialPage(
+  Tabs.shinyInput(
+    "tab", value = "one",
+    Tab(label = "One", value = "one"), Tab(label = "Two", value = "two")
+  ),
+  verbatimTextOutput("out")
+)
+server <- function(input, output, session) output$out <- renderPrint(input$tab)
+shinyApp(ui, server)
+}
+```

@@ -41,3 +41,14 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   Default is 'selectedMenu' The variant to use. Use menu to prevent
   selected items from impacting the initial focus and the vertical
   alignment relative to the anchor element.
+
+## Examples
+
+``` r
+# For a menu opened by a button, see Menu.triggerId()
+Paper(MenuList(MenuItem("Profile"), MenuItem("My account"), MenuItem("Logout")))
+#> <div class="react-container" data-react-id="zqxuxkjpfbhexmswajnb">
+#>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"Paper","props":{"type":"object","value":{"children":{"type":"element","module":"@mui/material","name":"MenuList","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"MenuItem","props":{"type":"raw","value":{"children":"Profile"}}},{"type":"element","module":"@mui/material","name":"MenuItem","props":{"type":"raw","value":{"children":"My account"}}},{"type":"element","module":"@mui/material","name":"MenuItem","props":{"type":"raw","value":{"children":"Logout"}}}]}}}}}}}</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('zqxuxkjpfbhexmswajnb')</script>
+#> </div>
+```

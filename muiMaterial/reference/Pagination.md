@@ -114,3 +114,23 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 - variant `'outlined'| 'text'| string`  
   Default is 'text' The variant to use.
+
+## Examples
+
+``` r
+Stack(
+  spacing = 2,
+  Pagination(count = 10),
+  Pagination(count = 10, color = "primary", variant = "outlined")
+)
+#> <div class="react-container" data-react-id="wmofpawncsqxhrqqpyeg">
+#>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"Stack","props":{"type":"object","value":{"spacing":{"type":"raw","value":2},"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"Pagination","props":{"type":"raw","value":{"count":10}}},{"type":"element","module":"@mui/material","name":"Pagination","props":{"type":"raw","value":{"count":10,"color":"primary","variant":"outlined"}}}]}}}}</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('wmofpawncsqxhrqqpyeg')</script>
+#> </div>
+if (FALSE) { # interactive()
+library(shiny)
+ui <- muiMaterialPage(Pagination.shinyInput("page", count = 10), verbatimTextOutput("out"))
+server <- function(input, output, session) output$out <- renderPrint(input$page)
+shinyApp(ui, server)
+}
+```

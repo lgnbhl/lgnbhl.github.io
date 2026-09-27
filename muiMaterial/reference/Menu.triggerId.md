@@ -33,3 +33,20 @@ app.
 
 Pass \`closeOnItemClick = FALSE\` to disable auto-close on click (useful
 when the menu contains interactive children like checkboxes).
+
+## Examples
+
+``` r
+htmltools::tagList(
+  Button(id = "open-menu", "Dashboard"),
+  Menu.triggerId("open-menu", MenuItem("Profile"), MenuItem("Logout"))
+)
+#> <div class="react-container" data-react-id="hjgikrymdxlumgeermos">
+#>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"Button","props":{"type":"raw","value":{"id":"open-menu","children":"Dashboard"}}}</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('hjgikrymdxlumgeermos')</script>
+#> </div>
+#> <div class="react-container" data-react-id="asdoussbluvfezpdhlvz">
+#>   <script class="react-data" type="application/json">{"type":"element","module":"@/muiMaterial","name":"MuiMenuTriggerId","props":{"type":"object","value":{"triggerId":{"type":"raw","value":"open-menu"},"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"MenuItem","props":{"type":"raw","value":{"children":"Profile"}}},{"type":"element","module":"@mui/material","name":"MenuItem","props":{"type":"raw","value":{"children":"Logout"}}}]}}}}</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('asdoussbluvfezpdhlvz')</script>
+#> </div>
+```

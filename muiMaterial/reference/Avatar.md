@@ -65,3 +65,16 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 - variant `'circular'| 'rounded'| 'square'| string`  
   Default is 'circular' The shape of the avatar.
+
+## Examples
+
+``` r
+Stack(
+  direction = "row", spacing = 2,
+  Avatar("H"), Avatar(sx = list(bgcolor = "secondary.main"), "N")
+)
+#> <div class="react-container" data-react-id="kdcrprizswzfrkbqpkwn">
+#>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"Stack","props":{"type":"object","value":{"direction":{"type":"raw","value":"row"},"spacing":{"type":"raw","value":2},"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"Avatar","props":{"type":"raw","value":{"children":"H"}}},{"type":"element","module":"@mui/material","name":"Avatar","props":{"type":"raw","value":{"sx":{"bgcolor":"secondary.main"},"children":"N"}}}]}}}}</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('kdcrprizswzfrkbqpkwn')</script>
+#> </div>
+```

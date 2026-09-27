@@ -70,3 +70,13 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   element types. For instance, subtitle1 to h6 . If you wish to change
   that mapping, you can provide your own. Alternatively, you can use the
   component prop.
+
+## Examples
+
+``` r
+Box(Typography(variant = "h1", "h1. Heading"), Typography(variant = "body1", "body1. Text"))
+#> <div class="react-container" data-react-id="cbvheusrdhnuqdjctrvl">
+#>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"Box","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"Typography","props":{"type":"raw","value":{"variant":"h1","children":"h1. Heading"}}},{"type":"element","module":"@mui/material","name":"Typography","props":{"type":"raw","value":{"variant":"body1","children":"body1. Text"}}}]}}}}</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('cbvheusrdhnuqdjctrvl')</script>
+#> </div>
+```

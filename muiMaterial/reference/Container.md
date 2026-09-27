@@ -45,3 +45,13 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 - sx `Array func| object| bool | func| object`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.
+
+## Examples
+
+``` r
+Container(maxWidth = "sm", Box(sx = list(bgcolor = "#cfe8fc", height = 200)))
+#> <div class="react-container" data-react-id="yjfsefvibadatyzkhmba">
+#>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"Container","props":{"type":"object","value":{"maxWidth":{"type":"raw","value":"sm"},"children":{"type":"element","module":"@mui/material","name":"Box","props":{"type":"raw","value":{"sx":{"bgcolor":"#cfe8fc","height":200}}}}}}}</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('yjfsefvibadatyzkhmba')</script>
+#> </div>
+```

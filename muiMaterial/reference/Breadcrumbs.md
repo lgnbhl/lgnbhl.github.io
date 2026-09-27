@@ -63,3 +63,16 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 - sx `Array func| object| bool | func| object`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.
+
+## Examples
+
+``` r
+Breadcrumbs(
+  Link(underline = "hover", color = "inherit", href = "#", "Home"),
+  Typography(sx = list(color = "text.primary"), "Current page")
+)
+#> <div class="react-container" data-react-id="lpeoxpvpukwticcujbzp">
+#>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"Breadcrumbs","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"Link","props":{"type":"raw","value":{"underline":"hover","color":"inherit","href":"#","children":"Home"}}},{"type":"element","module":"@mui/material","name":"Typography","props":{"type":"raw","value":{"sx":{"color":"text.primary"},"children":"Current page"}}}]}}}}</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('lpeoxpvpukwticcujbzp')</script>
+#> </div>
+```

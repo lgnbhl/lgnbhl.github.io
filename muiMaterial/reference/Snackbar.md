@@ -143,3 +143,27 @@ state. Render it with `open = TRUE/FALSE` and toggle visibility from the
 server with `updateSnackbar.shinyInput(session, inputId, open = TRUE)`
 (e.g. open it in response to another event, then close it from the
 Snackbar's `autoHideDuration`/`onClose`).
+
+## Examples
+
+``` r
+# Opened by the server with updateSnackbar.shinyInput()
+Snackbar(open = TRUE, message = "Note archived")
+#> <div class="react-container" data-react-id="bxfultjblocxacmenyrk">
+#>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"Snackbar","props":{"type":"raw","value":{"open":true,"message":"Note archived"}}}</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('bxfultjblocxacmenyrk')</script>
+#> </div>
+if (FALSE) { # interactive()
+library(shiny)
+ui <- muiMaterialPage(
+  Button.shinyInput("save", "Save"),
+  Snackbar.shinyInput("snackbar", open = FALSE, autoHideDuration = 3000,
+    message = "Saved!", onClose = triggerEvent("snackbar_close"))
+)
+server <- function(input, output, session) {
+  observeEvent(input$save, updateSnackbar.shinyInput(inputId = "snackbar", open = TRUE))
+  observeEvent(input$snackbar_close, updateSnackbar.shinyInput(inputId = "snackbar", open = FALSE))
+}
+shinyApp(ui, server)
+}
+```

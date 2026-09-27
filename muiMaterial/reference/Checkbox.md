@@ -115,3 +115,22 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 - value `any`  
   Default is - The value of the component. The DOM API casts this to a
   string. The browser uses "on" as the default value.
+
+## Examples
+
+``` r
+FormGroup(
+  FormControlLabel(control = Checkbox(defaultChecked = TRUE), label = "Label"),
+  FormControlLabel(control = Checkbox(), label = "Disabled", disabled = TRUE)
+)
+#> <div class="react-container" data-react-id="toqdyqnfzcburgxdqftw">
+#>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"FormGroup","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"FormControlLabel","props":{"type":"object","value":{"control":{"type":"element","module":"@mui/material","name":"Checkbox","props":{"type":"raw","value":{"defaultChecked":true}}},"label":{"type":"raw","value":"Label"}}}},{"type":"element","module":"@mui/material","name":"FormControlLabel","props":{"type":"object","value":{"control":{"type":"element","module":"@mui/material","name":"Checkbox","props":{"type":"raw","value":[]}},"label":{"type":"raw","value":"Disabled"},"disabled":{"type":"raw","value":true}}}}]}}}}</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('toqdyqnfzcburgxdqftw')</script>
+#> </div>
+if (FALSE) { # interactive()
+library(shiny)
+ui <- muiMaterialPage(Checkbox.shinyInput("agree", value = FALSE), verbatimTextOutput("out"))
+server <- function(input, output, session) output$out <- renderPrint(input$agree)
+shinyApp(ui, server)
+}
+```

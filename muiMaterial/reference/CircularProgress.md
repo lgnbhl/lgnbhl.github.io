@@ -53,3 +53,16 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 - variant `'determinate'| 'indeterminate'`  
   Default is 'indeterminate' The variant to use. Use indeterminate when
   there is no progress value.
+
+## Examples
+
+``` r
+Stack(
+  direction = "row", spacing = 2,
+  CircularProgress(), CircularProgress(variant = "determinate", value = 75)
+)
+#> <div class="react-container" data-react-id="qvjqlendqencnbvhgkqy">
+#>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"Stack","props":{"type":"object","value":{"direction":{"type":"raw","value":"row"},"spacing":{"type":"raw","value":2},"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"CircularProgress","props":{"type":"raw","value":[]}},{"type":"element","module":"@mui/material","name":"CircularProgress","props":{"type":"raw","value":{"variant":"determinate","value":75}}}]}}}}</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('qvjqlendqencnbvhgkqy')</script>
+#> </div>
+```

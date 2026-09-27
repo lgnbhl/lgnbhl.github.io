@@ -49,3 +49,17 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 - width `number| string`  
   Default is - Width of the skeleton. Useful when the skeleton is inside
   an inline element with no width of its own.
+
+## Examples
+
+``` r
+Stack(
+  spacing = 1,
+  Skeleton(variant = "text"),
+  Skeleton(variant = "rectangular", width = 210, height = 60)
+)
+#> <div class="react-container" data-react-id="auzjyrnouachllhxxnpr">
+#>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"Stack","props":{"type":"object","value":{"spacing":{"type":"raw","value":1},"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"Skeleton","props":{"type":"raw","value":{"variant":"text"}}},{"type":"element","module":"@mui/material","name":"Skeleton","props":{"type":"raw","value":{"variant":"rectangular","width":210,"height":60}}}]}}}}</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('auzjyrnouachllhxxnpr')</script>
+#> </div>
+```

@@ -45,3 +45,16 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 - sx `Array func| object| bool | func| object`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.
+
+## Examples
+
+``` r
+List(
+  ListItem(disablePadding = TRUE, ListItemButton(ListItemText(primary = "Inbox"))),
+  ListItem(disablePadding = TRUE, ListItemButton(ListItemText(primary = "Drafts")))
+)
+#> <div class="react-container" data-react-id="lcffbosfymsmvaoydsdv">
+#>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"List","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"ListItem","props":{"type":"object","value":{"disablePadding":{"type":"raw","value":true},"children":{"type":"element","module":"@mui/material","name":"ListItemButton","props":{"type":"object","value":{"children":{"type":"element","module":"@mui/material","name":"ListItemText","props":{"type":"raw","value":{"primary":"Inbox"}}}}}}}}},{"type":"element","module":"@mui/material","name":"ListItem","props":{"type":"object","value":{"disablePadding":{"type":"raw","value":true},"children":{"type":"element","module":"@mui/material","name":"ListItemButton","props":{"type":"object","value":{"children":{"type":"element","module":"@mui/material","name":"ListItemText","props":{"type":"raw","value":{"primary":"Drafts"}}}}}}}}}]}}}}</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('lcffbosfymsmvaoydsdv')</script>
+#> </div>
+```

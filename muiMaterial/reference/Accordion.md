@@ -74,3 +74,16 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   element is based on this Transition component.Deprecated Use
   slotProps.transition instead. This prop will be removed in a future
   major release. See Migrating from deprecated APIs for more details.
+
+## Examples
+
+``` r
+Accordion(
+  AccordionSummary("Accordion 1"),
+  AccordionDetails("Lorem ipsum dolor sit amet.")
+)
+#> <div class="react-container" data-react-id="rmqrctuzzklienmufsbj">
+#>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"Accordion","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"AccordionSummary","props":{"type":"raw","value":{"children":"Accordion 1"}}},{"type":"element","module":"@mui/material","name":"AccordionDetails","props":{"type":"raw","value":{"children":"Lorem ipsum dolor sit amet."}}}]}}}}</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('rmqrctuzzklienmufsbj')</script>
+#> </div>
+```

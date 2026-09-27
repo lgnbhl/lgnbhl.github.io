@@ -1,6 +1,44 @@
 # Changelog
 
+## muiMaterial (development version)
+
+### Bug fixes
+
+- [`muiMaterialPage()`](https://felixluginbuhl.com/muiMaterial/reference/muiMaterialPage.md):
+  the Google Fonts links requested with `useFontRoboto` and
+  `useMaterialIcons*` are now HTML dependencies instead of `tags$head()`
+  children. knitr drops `tags$head()` content, so the fonts (and
+  therefore
+  [`Icon()`](https://felixluginbuhl.com/muiMaterial/reference/Icon.md))
+  were missing from R Markdown and Quarto documents and from the pkgdown
+  website; they only worked in Shiny apps. The links are now also
+  de-duplicated when several pages request the same font.
+
+### Documentation
+
+- 45 new articles. 39 component pages are adapted from the MUI Material
+  UI documentation (v9.1.2): same sections, live demos in R, and the
+  original React code. Overlays (Dialog, Drawer, Snackbar, …) and other
+  stateful demos keep their state in the URL with reactRouter, so they
+  run in the static website. New guides: “Shiny inputs and server
+  updates”, “Overlays with .triggerId”, “Theming”, “Quarto and R
+  Markdown”, “Custom components” and “Examples gallery”.
+- the website navbar follows the MUI categories (Inputs, Data Display,
+  Feedback, Surfaces, Navigation, Layout, Utils).
+- examples for the help pages of the most used components and of the
+  `.triggerId()` wrappers that had none.
+- [`BottomNavigation.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/BottomNavigation.md),
+  [`FilledInput.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/FilledInput.md),
+  [`ListItemButton.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/ListItemButton.md)
+  and
+  [`NativeSelect.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/NativeSelect.md)
+  are listed in the reference index.
+- the `CustomComponentShinyInput` and `CustomComponentShinyInputStyled`
+  examples no longer use an undefined `defaultValue` as default `value`.
+
 ## muiMaterial 0.2.3
+
+CRAN release: 2026-09-23
 
 ### New features
 

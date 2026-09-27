@@ -107,3 +107,14 @@ server with `updateDrawer.shinyInput(session, inputId, open = TRUE)`.
 For the common "open on click of a button" pattern,
 [`Drawer.triggerId`](https://felixluginbuhl.com/muiMaterial/reference/Drawer.triggerId.md)
 is simpler (open/close handled entirely client-side, no server logic).
+
+## Examples
+
+``` r
+# A permanent drawer; for a drawer opened by a button, see Drawer.triggerId()
+Drawer(variant = "permanent", List(ListItemButton(ListItemText(primary = "Inbox"))))
+#> <div class="react-container" data-react-id="zmmcxdgdkcgpitsotygh">
+#>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"Drawer","props":{"type":"object","value":{"variant":{"type":"raw","value":"permanent"},"children":{"type":"element","module":"@mui/material","name":"List","props":{"type":"object","value":{"children":{"type":"element","module":"@mui/material","name":"ListItemButton","props":{"type":"object","value":{"children":{"type":"element","module":"@mui/material","name":"ListItemText","props":{"type":"raw","value":{"primary":"Inbox"}}}}}}}}}}}}</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('zmmcxdgdkcgpitsotygh')</script>
+#> </div>
+```

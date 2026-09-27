@@ -82,3 +82,13 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 - variant `'dot'| 'standard'| string`  
   Default is 'standard' The variant to use.
+
+## Examples
+
+``` r
+Badge(badgeContent = 4, color = "primary", Button("Messages"))
+#> <div class="react-container" data-react-id="dyutnockerryfzkqvbnt">
+#>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"Badge","props":{"type":"object","value":{"badgeContent":{"type":"raw","value":4},"color":{"type":"raw","value":"primary"},"children":{"type":"element","module":"@mui/material","name":"Button","props":{"type":"raw","value":{"children":"Messages"}}}}}}</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('dyutnockerryfzkqvbnt')</script>
+#> </div>
+```

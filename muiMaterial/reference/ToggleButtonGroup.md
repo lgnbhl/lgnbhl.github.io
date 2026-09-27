@@ -88,3 +88,28 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   Default is - The currently selected value within the group or an array
   of selected values when exclusive is false.The value must have
   reference equality with the option in order to be selected.
+
+## Examples
+
+``` r
+ToggleButtonGroup(
+  value = "left",
+  exclusive = TRUE,
+  ToggleButton(value = "left", "Left"),
+  ToggleButton(value = "center", "Center")
+)
+#> <div class="react-container" data-react-id="jemgdqvjvebcpywlgodk">
+#>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"ToggleButtonGroup","props":{"type":"object","value":{"value":{"type":"raw","value":"left"},"exclusive":{"type":"raw","value":true},"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"ToggleButton","props":{"type":"raw","value":{"value":"left","children":"Left"}}},{"type":"element","module":"@mui/material","name":"ToggleButton","props":{"type":"raw","value":{"value":"center","children":"Center"}}}]}}}}</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('jemgdqvjvebcpywlgodk')</script>
+#> </div>
+if (FALSE) { # interactive()
+library(shiny)
+ui <- muiMaterialPage(
+  ToggleButtonGroup.shinyInput("align", value = "left", exclusive = TRUE,
+    ToggleButton(value = "left", "Left"), ToggleButton(value = "center", "Center")),
+  verbatimTextOutput("out")
+)
+server <- function(input, output, session) output$out <- renderPrint(input$align)
+shinyApp(ui, server)
+}
+```

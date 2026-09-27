@@ -150,3 +150,13 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   slotProps.transition prop instead. This prop will be removed in a
   future major release. See Migrating from deprecated APIs for more
   details.
+
+## Examples
+
+``` r
+Tooltip(title = "Delete", Button("Hover me"))
+#> <div class="react-container" data-react-id="igfztrtstkhlcdghurnn">
+#>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"Tooltip","props":{"type":"object","value":{"title":{"type":"raw","value":"Delete"},"children":{"type":"element","module":"@mui/material","name":"Button","props":{"type":"raw","value":{"children":"Hover me"}}}}}}</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('igfztrtstkhlcdghurnn')</script>
+#> </div>
+```

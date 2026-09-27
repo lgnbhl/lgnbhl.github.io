@@ -2,28 +2,73 @@ pandoc: 3.8.3
 pkgdown: 2.2.1
 pkgdown_sha: ~
 articles:
+  accordion: accordion.html
   ai-assisted-development: ai-assisted-development.html
+  alert: alert.html
+  app-bar: app-bar.html
   autocomplete: autocomplete.html
   avatar: avatar.html
+  backdrop: backdrop.html
   badge: badge.html
   bootstrap: bootstrap.html
+  bottom-navigation: bottom-navigation.html
+  box: box.html
+  breadcrumbs: breadcrumbs.html
+  button-group: button-group.html
   button: button.html
+  card: card.html
   checkbox: checkbox.html
   chip: chip.html
+  click-away-listener: click-away-listener.html
+  container: container.html
+  css-baseline: css-baseline.html
+  custom-components: custom-components.html
   dashboard-basic: dashboard-basic.html
+  dialog: dialog.html
   divider: divider.html
+  drawer: drawer.html
+  examples: examples.html
   floating-action-button: floating-action-button.html
   getting-started: getting-started.html
+  grid: grid.html
+  icons: icons.html
+  image-list: image-list.html
+  link: link.html
   list: list.html
+  masonry: masonry.html
+  menu: menu.html
+  modal: modal.html
+  pagination: pagination.html
+  paper: paper.html
+  popover: popover.html
+  popper: popper.html
+  progress: progress.html
+  quarto: quarto.html
+  radio: radio.html
   rating: rating.html
   routing: routing.html
   select: select.html
+  shiny-inputs: shiny-inputs.html
+  skeleton: skeleton.html
   slider: slider.html
+  snackbar: snackbar.html
+  speed-dial: speed-dial.html
+  stack: stack.html
+  stepper: stepper.html
   switch: switch.html
+  table: table.html
   tabs: tabs.html
+  textarea-autosize: textarea-autosize.html
   textfield: textfield.html
+  theming: theming.html
+  timeline: timeline.html
   toggle-button-group: toggle-button-group.html
-last_built: 2026-09-23T16:18Z
+  tooltip: tooltip.html
+  transfer-list: transfer-list.html
+  transitions: transitions.html
+  triggerid: triggerid.html
+  typography: typography.html
+last_built: 2026-09-27T08:04Z
 urls:
   reference: https://felixluginbuhl.com/muiMaterial/reference
   article: https://felixluginbuhl.com/muiMaterial/articles

@@ -68,3 +68,13 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 - variant `'contained'| 'outlined'| 'text'| string`  
   Default is 'outlined' The variant to use.
+
+## Examples
+
+``` r
+ButtonGroup(variant = "contained", Button("One"), Button("Two"), Button("Three"))
+#> <div class="react-container" data-react-id="dcjmumcysnngszrubxvs">
+#>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"ButtonGroup","props":{"type":"object","value":{"variant":{"type":"raw","value":"contained"},"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"Button","props":{"type":"raw","value":{"children":"One"}}},{"type":"element","module":"@mui/material","name":"Button","props":{"type":"raw","value":{"children":"Two"}}},{"type":"element","module":"@mui/material","name":"Button","props":{"type":"raw","value":{"children":"Three"}}}]}}}}</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('dcjmumcysnngszrubxvs')</script>
+#> </div>
+```

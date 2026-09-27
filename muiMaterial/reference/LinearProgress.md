@@ -44,3 +44,13 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 - variant `'buffer'| 'determinate'| 'indeterminate'| 'query'`  
   Default is 'indeterminate' The variant to use. Use indeterminate or
   query when there is no progress value.
+
+## Examples
+
+``` r
+Box(sx = list(width = "100%"), LinearProgress(variant = "determinate", value = 40))
+#> <div class="react-container" data-react-id="fwlhqgkqomtyhsdbsdte">
+#>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"Box","props":{"type":"object","value":{"sx":{"type":"raw","value":{"width":"100%"}},"children":{"type":"element","module":"@mui/material","name":"LinearProgress","props":{"type":"raw","value":{"variant":"determinate","value":40}}}}}}</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('fwlhqgkqomtyhsdbsdte')</script>
+#> </div>
+```

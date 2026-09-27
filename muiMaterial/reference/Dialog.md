@@ -138,3 +138,33 @@ the wrapper does **not** manage the `open` state. Render it with
 "open on click of a button" pattern,
 [`Dialog.triggerId`](https://felixluginbuhl.com/muiMaterial/reference/Dialog.triggerId.md)
 is simpler (open/close handled entirely client-side, no server logic).
+
+## Examples
+
+``` r
+# Opened by the server with updateDialog.shinyInput(); see also Dialog.triggerId()
+Dialog(open = TRUE, DialogTitle("Title"), DialogContent(DialogContentText("Content")))
+#> <div class="react-container" data-react-id="clthcbjorrjccudkytqi">
+#>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"Dialog","props":{"type":"object","value":{"open":{"type":"raw","value":true},"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"DialogTitle","props":{"type":"raw","value":{"children":"Title"}}},{"type":"element","module":"@mui/material","name":"DialogContent","props":{"type":"object","value":{"children":{"type":"element","module":"@mui/material","name":"DialogContentText","props":{"type":"raw","value":{"children":"Content"}}}}}}]}}}}</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('clthcbjorrjccudkytqi')</script>
+#> </div>
+if (FALSE) { # interactive()
+library(shiny)
+ui <- muiMaterialPage(
+  Button.shinyInput("open", "Open dialog"),
+  Dialog.shinyInput(
+    inputId = "dialog",
+    open = FALSE,
+    onClose = triggerEvent("close"),
+    DialogTitle("Hello"),
+    DialogActions(Button.shinyInput("ok", "OK"))
+  )
+)
+server <- function(input, output, session) {
+  observeEvent(input$open, updateDialog.shinyInput(inputId = "dialog", open = TRUE))
+  observeEvent(input$close, updateDialog.shinyInput(inputId = "dialog", open = FALSE))
+  observeEvent(input$ok, updateDialog.shinyInput(inputId = "dialog", open = FALSE))
+}
+shinyApp(ui, server)
+}
+```

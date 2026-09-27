@@ -117,3 +117,19 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 - value `any`  
   Default is - The value of the component. The DOM API casts this to a
   string. The browser uses "on" as the default value.
+
+## Examples
+
+``` r
+FormControlLabel(control = Switch(defaultChecked = TRUE), label = "Label")
+#> <div class="react-container" data-react-id="gejetmwcdhvkxpgjdcqv">
+#>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"FormControlLabel","props":{"type":"object","value":{"control":{"type":"element","module":"@mui/material","name":"Switch","props":{"type":"raw","value":{"defaultChecked":true}}},"label":{"type":"raw","value":"Label"}}}}</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('gejetmwcdhvkxpgjdcqv')</script>
+#> </div>
+if (FALSE) { # interactive()
+library(shiny)
+ui <- muiMaterialPage(Switch.shinyInput("dark", value = FALSE), verbatimTextOutput("out"))
+server <- function(input, output, session) output$out <- renderPrint(input$dark)
+shinyApp(ui, server)
+}
+```

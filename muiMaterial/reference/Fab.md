@@ -72,3 +72,13 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 - variant `'circular'| 'extended'| string`  
   Default is 'circular' The variant to use.
+
+## Examples
+
+``` r
+Fab(color = "primary", `aria-label` = "add", "+")
+#> <div class="react-container" data-react-id="fdenzxqipufpocjyylga">
+#>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"Fab","props":{"type":"raw","value":{"color":"primary","aria-label":"add","children":"+"}}}</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('fdenzxqipufpocjyylga')</script>
+#> </div>
+```

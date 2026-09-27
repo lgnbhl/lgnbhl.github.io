@@ -53,3 +53,18 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 - sx `Array func| object| bool | func| object`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.
+
+## Examples
+
+``` r
+Stepper(
+  activeStep = 1,
+  Step(StepLabel("Select settings")),
+  Step(StepLabel("Create a group")),
+  Step(StepLabel("Create an ad"))
+)
+#> <div class="react-container" data-react-id="xufqzttongqknhpszcef">
+#>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"Stepper","props":{"type":"object","value":{"activeStep":{"type":"raw","value":1},"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"Step","props":{"type":"object","value":{"children":{"type":"element","module":"@mui/material","name":"StepLabel","props":{"type":"raw","value":{"children":"Select settings"}}}}}},{"type":"element","module":"@mui/material","name":"Step","props":{"type":"object","value":{"children":{"type":"element","module":"@mui/material","name":"StepLabel","props":{"type":"raw","value":{"children":"Create a group"}}}}}},{"type":"element","module":"@mui/material","name":"Step","props":{"type":"object","value":{"children":{"type":"element","module":"@mui/material","name":"StepLabel","props":{"type":"raw","value":{"children":"Create an ad"}}}}}}]}}}}</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('xufqzttongqknhpszcef')</script>
+#> </div>
+```

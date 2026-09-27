@@ -50,3 +50,15 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 - sx `Array func| object| bool | func| object`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.
+
+## Examples
+
+``` r
+# Needs the Material Icons font: muiMaterialPage(useMaterialIconsFilled = TRUE)
+muiMaterialPage(useMaterialIconsFilled = TRUE, Icon("home"), Icon("star", color = "primary"))
+
+  {"type":"element","module":"@mui/material","name":"Icon","props":{"type":"raw","value":{"children":"home"}}}jsmodule['@/shiny.react'].findAndRenderReactData('cfaybdimebljxafrtqcp')
+
+
+  {"type":"element","module":"@mui/material","name":"Icon","props":{"type":"raw","value":{"color":"primary","children":"star"}}}jsmodule['@/shiny.react'].findAndRenderReactData('wtcvwstdfidwmmuiiivh')
+```

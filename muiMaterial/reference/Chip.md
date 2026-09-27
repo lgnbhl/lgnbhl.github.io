@@ -79,3 +79,16 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 - variant `'filled'| 'outlined'| string`  
   Default is 'filled' The variant to use.
+
+## Examples
+
+``` r
+Stack(
+  direction = "row", spacing = 1,
+  Chip(label = "Filled"), Chip(label = "Outlined", variant = "outlined")
+)
+#> <div class="react-container" data-react-id="hslrsbygynyljmzhhwfv">
+#>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"Stack","props":{"type":"object","value":{"direction":{"type":"raw","value":"row"},"spacing":{"type":"raw","value":1},"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"Chip","props":{"type":"raw","value":{"label":"Filled"}}},{"type":"element","module":"@mui/material","name":"Chip","props":{"type":"raw","value":{"label":"Outlined","variant":"outlined"}}}]}}}}</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('hslrsbygynyljmzhhwfv')</script>
+#> </div>
+```

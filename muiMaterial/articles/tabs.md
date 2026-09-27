@@ -337,3 +337,49 @@ connection.
 | Server can change selected tab | No | Yes (`updateTabContext.shinyInput`) |
 | Requires observer | No | Yes |
 | Requires `inputId` | No | Yes |
+
+## Simple tabs with `Tabs.shinyInput()`
+
+When the server renders the content of the active tab, the plain
+[`Tabs()`](https://felixluginbuhl.com/muiMaterial/reference/Tabs.md)
+component is enough:
+[`Tabs.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Tabs.md)
+sends the `value` of the selected
+[`Tab()`](https://felixluginbuhl.com/muiMaterial/reference/Tab.md) to
+`input[[inputId]]`, and a single
+[`uiOutput()`](https://rdrr.io/pkg/shiny/man/htmlOutput.html) shows the
+matching content. No `TabContext` or `TabPanel` is needed:
+
+``` r
+
+library(shiny)
+library(muiMaterial)
+
+ui <- muiMaterialPage(
+  CssBaseline(),
+  Box(
+    sx = list(borderBottom = 1, borderColor = "divider"),
+    Tabs.shinyInput(
+      inputId = "tab",
+      value = "summary",
+      Tab(label = "Summary", value = "summary"),
+      Tab(label = "Data", value = "data")
+    )
+  ),
+  Box(sx = list(p = 2), uiOutput("content"))
+)
+
+server <- function(input, output, session) {
+  output$content <- renderUI({
+    switch(input$tab,
+      summary = Typography(paste(nrow(mtcars), "cars")),
+      data = tags$pre(paste(capture.output(head(mtcars)), collapse = "\n"))
+    )
+  })
+}
+
+shinyApp(ui, server)
+```
+
+[`updateTabs.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Tabs.md)
+changes the selected tab from the server.

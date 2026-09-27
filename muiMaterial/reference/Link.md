@@ -48,3 +48,13 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 - variant
   `'body1'| 'body2'| 'button'| 'caption'| 'h1'| 'h2'| 'h3'| 'h4'| 'h5'| 'h6'| 'inherit'| 'overline'| 'subtitle1'| 'subtitle2'| string`  
   Default is 'inherit' Applies the theme typography styles.
+
+## Examples
+
+``` r
+Link(href = "https://mui.com", underline = "hover", "MUI")
+#> <div class="react-container" data-react-id="cyworcufleefjeorrazq">
+#>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"Link","props":{"type":"raw","value":{"href":"https://mui.com","underline":"hover","children":"MUI"}}}</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('cyworcufleefjeorrazq')</script>
+#> </div>
+```

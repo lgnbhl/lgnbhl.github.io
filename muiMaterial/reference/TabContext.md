@@ -86,3 +86,22 @@ reports only this initial value. To react to tab clicks on the server,
 read `input[[inputId]]` from the
 [`TabList.shinyInput`](https://felixluginbuhl.com/muiMaterial/reference/TabList.md)
 instead.
+
+## Examples
+
+``` r
+# Client-side tabs: no Shiny server needed
+TabContext.static(
+  defaultValue = "one",
+  Box(
+    sx = list(borderBottom = 1, borderColor = "divider"),
+    TabList.static(Tab(label = "Item One", value = "one"), Tab(label = "Item Two", value = "two"))
+  ),
+  TabPanel(value = "one", "Content 1"),
+  TabPanel(value = "two", "Content 2")
+)
+#> <div class="react-container" data-react-id="slwneuteigdrpflfbmzc">
+#>   <script class="react-data" type="application/json">{"type":"element","module":"@/muiMaterial","name":"MuiStaticTabContext","props":{"type":"object","value":{"defaultValue":{"type":"raw","value":"one"},"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"Box","props":{"type":"object","value":{"sx":{"type":"raw","value":{"borderBottom":1,"borderColor":"divider"}},"children":{"type":"element","module":"@/muiMaterial","name":"MuiStaticTabList","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"Tab","props":{"type":"raw","value":{"label":"Item One","value":"one"}}},{"type":"element","module":"@mui/material","name":"Tab","props":{"type":"raw","value":{"label":"Item Two","value":"two"}}}]}}}}}}},{"type":"element","module":"@mui/lab","name":"TabPanel","props":{"type":"raw","value":{"value":"one","children":"Content 1"}}},{"type":"element","module":"@mui/lab","name":"TabPanel","props":{"type":"raw","value":{"value":"two","children":"Content 2"}}}]}}}}</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('slwneuteigdrpflfbmzc')</script>
+#> </div>
+```

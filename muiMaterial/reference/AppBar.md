@@ -44,3 +44,19 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 - sx `Array func| object| bool | func| object`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.
+
+## Examples
+
+``` r
+AppBar(
+  position = "static",
+  Toolbar(
+    Typography(variant = "h6", sx = list(flexGrow = 1), "News"),
+    Button(color = "inherit", "Login")
+  )
+)
+#> <div class="react-container" data-react-id="zvxpuzsfhswgayltrkjt">
+#>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"AppBar","props":{"type":"object","value":{"position":{"type":"raw","value":"static"},"children":{"type":"element","module":"@mui/material","name":"Toolbar","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"Typography","props":{"type":"raw","value":{"variant":"h6","sx":{"flexGrow":1},"children":"News"}}},{"type":"element","module":"@mui/material","name":"Button","props":{"type":"raw","value":{"color":"inherit","children":"Login"}}}]}}}}}}}</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('zvxpuzsfhswgayltrkjt')</script>
+#> </div>
+```

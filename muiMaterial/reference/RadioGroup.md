@@ -62,3 +62,32 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 - value `any`  
   Default is NA Value of the selected radio button. The DOM API casts
   this to a string.
+
+## Examples
+
+``` r
+RadioGroup(
+  defaultValue = "female",
+  name = "gender",
+  FormControlLabel(value = "female", control = Radio(), label = "Female"),
+  FormControlLabel(value = "male", control = Radio(), label = "Male")
+)
+#> <div class="react-container" data-react-id="jpkftlcucajioogbybjh">
+#>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"RadioGroup","props":{"type":"object","value":{"defaultValue":{"type":"raw","value":"female"},"name":{"type":"raw","value":"gender"},"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"FormControlLabel","props":{"type":"object","value":{"value":{"type":"raw","value":"female"},"control":{"type":"element","module":"@mui/material","name":"Radio","props":{"type":"raw","value":[]}},"label":{"type":"raw","value":"Female"}}}},{"type":"element","module":"@mui/material","name":"FormControlLabel","props":{"type":"object","value":{"value":{"type":"raw","value":"male"},"control":{"type":"element","module":"@mui/material","name":"Radio","props":{"type":"raw","value":[]}},"label":{"type":"raw","value":"Male"}}}}]}}}}</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('jpkftlcucajioogbybjh')</script>
+#> </div>
+if (FALSE) { # interactive()
+library(shiny)
+ui <- muiMaterialPage(
+  RadioGroup.shinyInput(
+    inputId = "gender",
+    value = "female",
+    FormControlLabel(value = "female", control = Radio(), label = "Female"),
+    FormControlLabel(value = "male", control = Radio(), label = "Male")
+  ),
+  verbatimTextOutput("out")
+)
+server <- function(input, output, session) output$out <- renderPrint(input$gender)
+shinyApp(ui, server)
+}
+```

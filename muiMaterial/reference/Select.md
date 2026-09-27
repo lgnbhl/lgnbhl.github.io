@@ -151,3 +151,34 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 - variant `'filled'| 'outlined'| 'standard'`  
   Default is 'outlined' The variant to use.
+
+## Examples
+
+``` r
+FormControl(
+  sx = list(minWidth = 120),
+  InputLabel(id = "age-label", "Age"),
+  Select(
+    labelId = "age-label", label = "Age", defaultValue = 10,
+    MenuItem(value = 10, "Ten"), MenuItem(value = 20, "Twenty")
+  )
+)
+#> <div class="react-container" data-react-id="xfirwrogcvclaqmitcie">
+#>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"FormControl","props":{"type":"object","value":{"sx":{"type":"raw","value":{"minWidth":120}},"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"InputLabel","props":{"type":"raw","value":{"id":"age-label","children":"Age"}}},{"type":"element","module":"@mui/material","name":"Select","props":{"type":"object","value":{"labelId":{"type":"raw","value":"age-label"},"label":{"type":"raw","value":"Age"},"defaultValue":{"type":"raw","value":10},"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"MenuItem","props":{"type":"raw","value":{"value":10,"children":"Ten"}}},{"type":"element","module":"@mui/material","name":"MenuItem","props":{"type":"raw","value":{"value":20,"children":"Twenty"}}}]}}}}]}}}}</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('xfirwrogcvclaqmitcie')</script>
+#> </div>
+if (FALSE) { # interactive()
+library(shiny)
+ui <- muiMaterialPage(
+  FormControl(
+    sx = list(m = 2, minWidth = 120),
+    InputLabel(id = "age-label", "Age"),
+    Select.shinyInput("age", labelId = "age-label", label = "Age", value = 10,
+      MenuItem(value = 10, "Ten"), MenuItem(value = 20, "Twenty"))
+  ),
+  verbatimTextOutput("out")
+)
+server <- function(input, output, session) output$out <- renderPrint(input$age)
+shinyApp(ui, server)
+}
+```

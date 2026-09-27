@@ -58,7 +58,13 @@ wrappers. For example, use
 [`Button.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Button.md)
 instead of
 [`Button()`](https://felixluginbuhl.com/muiMaterial/reference/Button.md)
-to capture user interactions in Shiny.
+to capture user interactions in Shiny. Update them from the server with
+the matching `update*.shinyInput()` function. See [Shiny inputs and
+server
+updates](https://felixluginbuhl.com/muiMaterial/articles/shiny-inputs.md)
+for the value of each input, the reserved props, and the
+[`triggerEvent()`](https://appsilon.github.io/shiny.react/reference/triggerEvent.html)/[`setInput()`](https://appsilon.github.io/shiny.react/reference/setInput.html)
+helpers.
 
 Explore available Shiny inputs with the showcase app (live
 [here](https://lgnbhl-muimaterial-showcase.share.connect.posit.cloud/)):
@@ -116,9 +122,14 @@ Box(
 )
 ```
 
-It is more powerful and maintainable than traditional CSS. See the [MUI
-sx documentation](https://mui.com/system/getting-started/the-sx-prop/)
-for all available properties.
+It is more powerful and maintainable than traditional CSS. See [The `sx`
+prop in
+R](https://felixluginbuhl.com/muiMaterial/articles/box.html#the-sx-prop-in-r)
+for how to write `sx` values in R, and the [MUI sx
+documentation](https://mui.com/system/getting-started/the-sx-prop/) for
+all available properties. To change the colors, fonts and default styles
+of all components at once, use a theme: see
+[Theming](https://felixluginbuhl.com/muiMaterial/articles/theming.md).
 
 ### Naming conventions
 
@@ -159,7 +170,23 @@ behavior:
 Both `.triggerId` and `.static` variants keep state in the browser and
 never communicate with the Shiny server. The difference is that
 `.triggerId` components require a reference to an external trigger
-element, while `.static` components are self-contained.
+element, while `.static` components are self-contained. See [Overlays
+with
+`.triggerId`](https://felixluginbuhl.com/muiMaterial/articles/triggerid.md).
+
+### Where to go next
+
+- The component pages (menus **Inputs** to **Utils**) are adaptations of
+  the MUI documentation, with live demos and the original React code.
+- [Quarto and R
+  Markdown](https://felixluginbuhl.com/muiMaterial/articles/quarto.md)
+  explains what works in documents without a Shiny server.
+- [Custom
+  components](https://felixluginbuhl.com/muiMaterial/articles/custom-components.md)
+  shows how to build your own components and Shiny inputs.
+- [Examples
+  gallery](https://felixluginbuhl.com/muiMaterial/articles/examples.md)
+  lists the complete apps bundled with the package.
 
 ### CSS conflicts with Bootstrap
 

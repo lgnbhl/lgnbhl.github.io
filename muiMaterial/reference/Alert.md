@@ -93,3 +93,13 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 - variant `'filled'| 'outlined'| 'standard'| string`  
   Default is 'standard' The variant to use.
+
+## Examples
+
+``` r
+Alert(severity = "warning", AlertTitle("Warning"), "This is a warning Alert.")
+#> <div class="react-container" data-react-id="npghmxkfrbzdnvsgovam">
+#>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"Alert","props":{"type":"object","value":{"severity":{"type":"raw","value":"warning"},"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"AlertTitle","props":{"type":"raw","value":{"children":"Warning"}}},{"type":"raw","value":"This is a warning Alert."}]}}}}</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('npghmxkfrbzdnvsgovam')</script>
+#> </div>
+```

@@ -126,3 +126,19 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 - value `number`  
   Default is - The rating value.
+
+## Examples
+
+``` r
+Rating(defaultValue = 3)
+#> <div class="react-container" data-react-id="clvftvxayelncrxmanjc">
+#>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"Rating","props":{"type":"raw","value":{"defaultValue":3}}}</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('clvftvxayelncrxmanjc')</script>
+#> </div>
+if (FALSE) { # interactive()
+library(shiny)
+ui <- muiMaterialPage(Rating.shinyInput("stars", value = 3), verbatimTextOutput("out"))
+server <- function(input, output, session) output$out <- renderPrint(input$stars)
+shinyApp(ui, server)
+}
+```

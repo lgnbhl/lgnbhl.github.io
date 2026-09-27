@@ -24,6 +24,10 @@ Material UI components wired to Shiny’s `input` object via
   [`Autocomplete.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Autocomplete.md)
   [`updateAutocomplete.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Autocomplete.md)
   : Autocomplete
+- [`BottomNavigation()`](https://felixluginbuhl.com/muiMaterial/reference/BottomNavigation.md)
+  [`BottomNavigation.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/BottomNavigation.md)
+  [`updateBottomNavigation.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/BottomNavigation.md)
+  : BottomNavigation
 - [`Button()`](https://felixluginbuhl.com/muiMaterial/reference/Button.md)
   [`Button.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Button.md)
   [`updateButton.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Button.md)
@@ -44,6 +48,10 @@ Material UI components wired to Shiny’s `input` object via
   [`Fab.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Fab.md)
   [`updateFab.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Fab.md)
   : Fab
+- [`FilledInput()`](https://felixluginbuhl.com/muiMaterial/reference/FilledInput.md)
+  [`FilledInput.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/FilledInput.md)
+  [`updateFilledInput.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/FilledInput.md)
+  : FilledInput
 - [`FormControlLabel()`](https://felixluginbuhl.com/muiMaterial/reference/FormControlLabel.md)
   [`FormControlLabel.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/FormControlLabel.md)
   [`updateFormControlLabel.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/FormControlLabel.md)
@@ -60,6 +68,10 @@ Material UI components wired to Shiny’s `input` object via
   [`LoadingButton.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/LoadingButton.md)
   [`updateLoadingButton.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/LoadingButton.md)
   : LoadingButton
+- [`ListItemButton()`](https://felixluginbuhl.com/muiMaterial/reference/ListItemButton.md)
+  [`ListItemButton.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/ListItemButton.md)
+  [`updateListItemButton.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/ListItemButton.md)
+  : ListItemButton
 - [`Menu()`](https://felixluginbuhl.com/muiMaterial/reference/Menu.md)
   [`Menu.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Menu.md)
   [`updateMenu.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Menu.md)
@@ -72,6 +84,10 @@ Material UI components wired to Shiny’s `input` object via
   [`Modal.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Modal.md)
   [`updateModal.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/Modal.md)
   : Modal
+- [`NativeSelect()`](https://felixluginbuhl.com/muiMaterial/reference/NativeSelect.md)
+  [`NativeSelect.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/NativeSelect.md)
+  [`updateNativeSelect.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/NativeSelect.md)
+  : NativeSelect
 - [`OutlinedInput()`](https://felixluginbuhl.com/muiMaterial/reference/OutlinedInput.md)
   [`OutlinedInput.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/OutlinedInput.md)
   [`updateOutlinedInput.shinyInput()`](https://felixluginbuhl.com/muiMaterial/reference/OutlinedInput.md)

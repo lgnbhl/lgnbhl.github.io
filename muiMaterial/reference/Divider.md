@@ -57,3 +57,17 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 - variant `'fullWidth'| 'inset'| 'middle'| string`  
   Default is 'fullWidth' The variant to use.
+
+## Examples
+
+``` r
+List(
+  ListItem(ListItemText(primary = "Inbox")),
+  Divider(),
+  ListItem(ListItemText(primary = "Drafts"))
+)
+#> <div class="react-container" data-react-id="gktspmpgchmototfvkww">
+#>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"List","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"ListItem","props":{"type":"object","value":{"children":{"type":"element","module":"@mui/material","name":"ListItemText","props":{"type":"raw","value":{"primary":"Inbox"}}}}}},{"type":"element","module":"@mui/material","name":"Divider","props":{"type":"raw","value":[]}},{"type":"element","module":"@mui/material","name":"ListItem","props":{"type":"object","value":{"children":{"type":"element","module":"@mui/material","name":"ListItemText","props":{"type":"raw","value":{"primary":"Drafts"}}}}}}]}}}}</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('gktspmpgchmototfvkww')</script>
+#> </div>
+```

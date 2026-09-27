@@ -86,3 +86,13 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 - sx `Array func| object| bool | func| object`  
   Default is - The system prop that allows defining system overrides as
   well as additional CSS styles.See the `sx` page for more details.
+
+## Examples
+
+``` r
+IconButton(`aria-label` = "delete", shiny::icon("trash"))
+#> <div class="react-container" data-react-id="lkdreypivxdodqbhidue">
+#>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"IconButton","props":{"type":"object","value":{"aria-label":{"type":"raw","value":"delete"},"children":{"type":"element","name":"i","props":{"type":"raw","value":{"class":"fas fa-trash","role":"presentation","aria-label":"trash icon"}}}}}}</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('lkdreypivxdodqbhidue')</script>
+#> </div>
+```

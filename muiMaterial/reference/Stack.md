@@ -49,3 +49,14 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
   checking https://caniuse.com/?search=flex%20gap before using this
   flag.To enable this flag globally, follow the theme's default props
   configuration.
+
+## Examples
+
+``` r
+Stack(direction = "row", spacing = 2, divider = Divider(orientation = "vertical", flexItem = TRUE),
+  Paper("Item 1"), Paper("Item 2"), Paper("Item 3"))
+#> <div class="react-container" data-react-id="aploypbcygfijhqhhjjv">
+#>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"Stack","props":{"type":"object","value":{"direction":{"type":"raw","value":"row"},"spacing":{"type":"raw","value":2},"divider":{"type":"element","module":"@mui/material","name":"Divider","props":{"type":"raw","value":{"orientation":"vertical","flexItem":true}}},"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"Paper","props":{"type":"raw","value":{"children":"Item 1"}}},{"type":"element","module":"@mui/material","name":"Paper","props":{"type":"raw","value":{"children":"Item 2"}}},{"type":"element","module":"@mui/material","name":"Paper","props":{"type":"raw","value":{"children":"Item 3"}}}]}}}}</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('aploypbcygfijhqhhjjv')</script>
+#> </div>
+```
