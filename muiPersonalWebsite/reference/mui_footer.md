@@ -22,6 +22,11 @@ A `muiMaterial` component.
 
 ## Details
 
+It opens the same way as the footer of the pkgdown sites of the
+packages: the package stickers in a row, then the wordmark signed with
+the hero's role. The stickers are the items of the section that fills
+the honeycomb, so the two cannot list different packages.
+
 Its rule, its width and its type all come from the theme rather than
 from the stylesheet: `divider` is the same hairline the app bar and the
 first band use, and `Container` is the same `lg` cap the bands sit in,
