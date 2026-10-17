@@ -57,8 +57,8 @@ Other home:
 ``` r
 mui_card(list(title = "aniview", description = "Animate on scroll.",
                primary = list(label = "Docs", href = "/aniview/")))
-#> <div class="react-container" data-react-id="uvkfkrnrnvswaxznjupq">
+#> <div class="react-container" data-react-id="dcntmfkrmmucfgsbbmen">
 #>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"Card","props":{"type":"object","value":{"key":{"type":"raw","value":"aniview"},"children":{"type":"array","value":[{"type":"raw","value":null},{"type":"element","module":"@mui/material","name":"CardContent","props":{"type":"object","value":{"sx":{"type":"raw","value":{"p":2.25,"pb":1,"flexGrow":1}},"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"Typography","props":{"type":"raw","value":{"variant":"h5","component":"h3","sx":{"mb":0.75},"children":"aniview"}}},{"type":"element","module":"@mui/material","name":"Typography","props":{"type":"raw","value":{"variant":"body2","color":"text.secondary","sx":{"lineHeight":1.55},"children":"Animate on scroll."}}}]}}}},{"type":"element","module":"@mui/material","name":"CardActions","props":{"type":"object","value":{"sx":{"type":"raw","value":{"px":2.25,"pb":2,"pt":0,"gap":1}},"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"Button","props":{"type":"raw","value":{"href":"/aniview/","variant":"contained","size":"small","children":"Docs"}}}]}}}}]}}}}</script>
-#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('uvkfkrnrnvswaxznjupq')</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('dcntmfkrmmucfgsbbmen')</script>
 #> </div>
 ```

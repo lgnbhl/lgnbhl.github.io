@@ -41,8 +41,8 @@ Other home:
 
 ``` r
 mui_prose(list(list(body = "Some **markdown**.")))
-#> <div class="react-container" data-react-id="zarjxrrtognksqkyhbof">
+#> <div class="react-container" data-react-id="dumtkqruvpetbuucvlwy">
 #>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"Box","props":{"type":"object","value":{"sx":{"type":"raw","value":{"maxWidth":680,"mx":"auto"}},"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"Box","props":{"type":"object","value":{"key":{"type":"raw","value":"Some **markdown**."},"children":{"type":"array","value":[{"type":"raw","value":null},{"type":"element","name":"div","props":{"type":"object","value":{"class":{"type":"raw","value":"prose"},"children":{"type":"html","value":"<p>Some <strong>markdown<\/strong>.<\/p>\n"}}}}]}}}}]}}}}</script>
-#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('zarjxrrtognksqkyhbof')</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('dumtkqruvpetbuucvlwy')</script>
 #> </div>
 ```

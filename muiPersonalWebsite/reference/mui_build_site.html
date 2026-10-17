@@ -83,7 +83,8 @@ against <code>input</code> rather than against the caller's working directory.</
 page otherwise leaves the old URL live and serving stale content, and nothing would
 report it. Only the HTML named in the previous build's manifest is considered, so an
 artefact the build does not own - a pre-rendered slide deck, a <code>copy_dirs</code> tree - is
-never touched.</p></dd>
+never touched. Nor is <code>assets/</code>: a file deleted from the assets directory stays in
+<code>out_dir</code> until you delete it there too, or build into an empty directory.</p></dd>
 
 
 <dt id="arg-quiet">quiet<a class="anchor" aria-label="anchor" href="#arg-quiet"></a></dt>
@@ -108,10 +109,20 @@ by name, unless <code>quiet</code>.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
-<span class="r-in"><span><span class="fu">mui_build_site</span><span class="op">(</span><span class="st">"dist"</span><span class="op">)</span>  <span class="co"># a scratch build</span></span></span>
-<span class="r-in"><span><span class="fu">mui_build_site</span><span class="op">(</span><span class="st">"docs"</span><span class="op">)</span>  <span class="co"># the tree GitHub Pages serves</span></span></span>
-<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="va">site</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"example-site"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="mui_create_site.html">mui_create_site</a></span><span class="op">(</span><span class="va">site</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> site created in /tmp/Rtmp2YXZoc/example-site</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   1. edit mui.config.yml and content/*.yml</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   2. Rscript build.R docs</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   3. push, then switch on GitHub Pages for the main branch and /docs</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   `url` in mui.config.yml is where the site is served: a custom domain, or</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   https://&lt;user&gt;.github.io/&lt;repo&gt; for a project site.</span>
+<span class="r-in"><span><span class="fu">mui_build_site</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">site</span>, <span class="st">"docs"</span><span class="op">)</span>, input <span class="op">=</span> <span class="va">site</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">list.files</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">site</span>, <span class="st">"docs"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "404.html"    "_mui"        "assets"      "index.html"  "robots.txt" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [6] "sitemap.xml"</span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

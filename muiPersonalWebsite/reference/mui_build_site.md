@@ -44,7 +44,9 @@ mui_build_site(
   content, and nothing would report it. Only the HTML named in the
   previous build's manifest is considered, so an artefact the build does
   not own - a pre-rendered slide deck, a `copy_dirs` tree - is never
-  touched.
+  touched. Nor is `assets/`: a file deleted from the assets directory
+  stays in `out_dir` until you delete it there too, or build into an
+  empty directory.
 
 - quiet:
 
@@ -74,8 +76,18 @@ Build only sites whose files you trust.
 ## Examples
 
 ``` r
-if (FALSE) { # \dontrun{
-mui_build_site("dist")  # a scratch build
-mui_build_site("docs")  # the tree GitHub Pages serves
-} # }
+# \donttest{
+site <- file.path(tempdir(), "example-site")
+mui_create_site(site)
+#> site created in /tmp/Rtmp2YXZoc/example-site
+#>   1. edit mui.config.yml and content/*.yml
+#>   2. Rscript build.R docs
+#>   3. push, then switch on GitHub Pages for the main branch and /docs
+#>   `url` in mui.config.yml is where the site is served: a custom domain, or
+#>   https://<user>.github.io/<repo> for a project site.
+mui_build_site(file.path(site, "docs"), input = site, quiet = TRUE)
+list.files(file.path(site, "docs"))
+#> [1] "404.html"    "_mui"        "assets"      "index.html"  "robots.txt" 
+#> [6] "sitemap.xml"
+# }
 ```

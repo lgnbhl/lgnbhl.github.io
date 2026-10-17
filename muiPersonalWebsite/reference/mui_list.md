@@ -50,8 +50,8 @@ Other home:
 
 ``` r
 mui_list(list(list(title = "A paper", description = "In a journal.")))
-#> <div class="react-container" data-react-id="jyfadwffbyguhwhzptvt">
+#> <div class="react-container" data-react-id="bctexyoyxdrpqibpfcrl">
 #>   <script class="react-data" type="application/json">{"type":"element","module":"@mui/material","name":"Box","props":{"type":"object","value":{"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"Box","props":{"type":"object","value":{"key":{"type":"raw","value":"A paper"},"sx":{"type":"raw","value":{"borderBottom":"1px solid","borderColor":"divider","pt":3,"&:first-of-type":{"pt":0}}},"children":{"type":"element","module":"@mui/material","name":"Box","props":{"type":"object","value":{"sx":{"type":"raw","value":{"minWidth":0,"flexGrow":1,"pb":3}},"children":{"type":"array","value":[{"type":"element","module":"@mui/material","name":"Typography","props":{"type":"raw","value":{"variant":"h5","component":"h3","children":"A paper"}}},{"type":"raw","value":null},{"type":"element","module":"@mui/material","name":"Typography","props":{"type":"raw","value":{"variant":"body1","color":"text.secondary","sx":{"mt":0.75,"maxWidth":640},"children":"In a journal."}}},{"type":"raw","value":null},{"type":"raw","value":null}]}}}}}}}]}}}}</script>
-#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('jyfadwffbyguhwhzptvt')</script>
+#>   <script>jsmodule['@/shiny.react'].findAndRenderReactData('bctexyoyxdrpqibpfcrl')</script>
 #> </div>
 ```
