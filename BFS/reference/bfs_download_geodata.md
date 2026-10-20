@@ -1,13 +1,14 @@
-# Download a geographic file from the Swiss geo-portal
+# Download geodata from the Swiss geo-portal
 
-Download assets from the STAC API on the geodata catalog of the Swiss
-Confederation (<https://data.geo.admin.ch/api/stac/v0.9/>).
+Download the files of a geodata collection from the STAC API of the
+Swiss geo-portal (<https://data.geo.admin.ch/api/stac/v0.9/>). Requires
+the rstac package.
 
 ## Usage
 
 ``` r
 bfs_download_geodata(
-  collection_id = collection_id,
+  collection_id,
   output_dir = tempdir(),
   overwrite = FALSE,
   create_json = FALSE,
@@ -22,42 +23,54 @@ bfs_download_geodata(
 
 - collection_id:
 
-  collection_id
+  The collection id, i.e. the `collection_id` column of
+  [`bfs_get_catalog_geodata()`](https://felixluginbuhl.com/BFS/reference/bfs_get_catalog_geodata.md),
+  e.g. `"ch.bfs.generalisierte-grenzen_agglomerationen_g1"`.
 
 - output_dir:
 
-  output_dir
+  Folder of the downloaded files, a temporary folder by default.
 
 - overwrite:
 
-  overwrite
+  If `TRUE`, overwrite existing files.
 
 - create_json:
 
-  create_json
+  If `TRUE`, also save the STAC items as a JSON file.
 
-- bbox:
+- bbox, datetime, feature_id:
 
-  bbox
+  Optional filters of the items: bounding box, date-time or interval,
+  and item id. See
+  [`rstac::items()`](https://brazil-data-cube.github.io/rstac/reference/items.html).
 
 - asset_names:
 
-  asset_names
-
-- datetime:
-
-  datetime
-
-- feature_id:
-
-  feature_id
+  Optional names of the assets to download. See
+  [`rstac::assets_download()`](https://brazil-data-cube.github.io/rstac/reference/assets_functions.html).
 
 ## Value
 
-Returns the file path where the file has been downloaded. Returns NULL
-if no connection.
+The paths of the downloaded files. Zip files are not extracted. Returns
+`NULL` if there is no internet connection.
 
 ## Details
 
-The use of the data and services is free but subject to the provisions
-on fair use (see <https://www.geo.admin.ch/terms-of-use>).
+The use of the data is free but subject to the terms of use of the Swiss
+geo-portal (<https://www.geo.admin.ch/terms-of-use>).
+
+## See also
+
+[`bfs_get_catalog_geodata()`](https://felixluginbuhl.com/BFS/reference/bfs_get_catalog_geodata.md)
+
+## Examples
+
+``` r
+if (FALSE) { # interactive()
+files <- bfs_download_geodata(
+  collection_id = "ch.bfs.generalisierte-grenzen_agglomerationen_g1"
+)
+files
+}
+```

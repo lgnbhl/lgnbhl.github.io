@@ -1,7 +1,10 @@
-# Get the BFS data or table catalog
+# Get the BFS data or tables catalog (deprecated)
 
-This function scraps a given RSS Feed of the Swiss Federal Statistical
-Office.
+Deprecated since BFS 0.5.6: use
+[`bfs_get_catalog_data()`](https://felixluginbuhl.com/BFS/reference/bfs_get_catalog_data.md)
+or
+[`bfs_get_catalog_tables()`](https://felixluginbuhl.com/BFS/reference/bfs_get_catalog_tables.md)
+instead.
 
 ## Usage
 
@@ -13,16 +16,15 @@ bfs_get_catalog(language = "de", type = "data")
 
 - language:
 
-  character The language of a BFS catalog.
+  Language of the catalog: `"de"` (default), `"fr"`, `"it"` or `"en"`.
 
 - type:
 
-  character A BFS catalog
+  `"data"` (default) or `"tables"`.
 
 ## Value
 
-A data frame. Returns NULL if no connection.
-
-## See also
-
-[`bfs_get_data`](https://felixluginbuhl.com/BFS/reference/bfs_get_data.md)
+The result of
+[`bfs_get_catalog_data()`](https://felixluginbuhl.com/BFS/reference/bfs_get_catalog_data.md)
+or
+[`bfs_get_catalog_tables()`](https://felixluginbuhl.com/BFS/reference/bfs_get_catalog_tables.md).

@@ -1,9 +1,11 @@
-# Swiss official commune register GDE
+# Swiss official commune register: communes
 
-The official commune register is structured according to cantons and
-districts or comparable administrative entities. Various federal,
-cantonal and communal governments and private businesses use this
-register when identifying and referring to communes.
+The communes of Switzerland on 1 January 2023, with their district and
+canton. The BFS assigns a number to each commune and publishes the Swiss
+official commune register, used by the federal, cantonal and communal
+administrations to identify communes. See
+[register_dic](https://felixluginbuhl.com/BFS/reference/register_dic.md)
+for the variables in German, French and Italian.
 
 ## Usage
 
@@ -13,45 +15,49 @@ register_gde
 
 ## Format
 
-\## \`register_gde\` A data frame with 2,136 rows and 8 columns:
+A data frame with 2,136 rows and 8 columns:
 
 - GDEKT:
 
-  Kantonskuerzel
+  Canton abbreviation, e.g. "ZH".
 
 - GDEBZNR:
 
-  Bezirksnummer
+  District number.
 
 - GDENR:
 
-  BFS-Gemeindenummer
+  BFS commune number.
 
 - GDENAME:
 
-  Amtlicher Gemeindename
+  Official commune name.
 
 - GDENAMK:
 
-  Gemeindename, kurz
+  Short commune name.
 
 - GDEBZNA:
 
-  Bezirksname
+  District name.
 
 - GDEKTNA:
 
-  Kantonsname
+  Canton name.
 
 - GDEMUTDAT:
 
-  Datum der letzten Anderung
+  Date of the last change, as "dd.mm.yyyy".
 
 ## Source
 
-\<https://www.bfs.admin.ch/bfs/fr/home/bases-statistiques/repertoire-officiel-communes-suisse.html\>
+<https://www.bfs.admin.ch/bfs/en/home/basics/swiss-official-commune-register.html>
 
-## Details
+## See also
 
-The Federal Statistical Office assigns a number to each commune and
-creates, administers and publishes the Swiss official commune register.
+Other commune register:
+[`register_bzn`](https://felixluginbuhl.com/BFS/reference/register_bzn.md),
+[`register_dic`](https://felixluginbuhl.com/BFS/reference/register_dic.md),
+[`register_gde_other`](https://felixluginbuhl.com/BFS/reference/register_gde_other.md),
+[`register_kt`](https://felixluginbuhl.com/BFS/reference/register_kt.md),
+[`register_kt_seeanteile`](https://felixluginbuhl.com/BFS/reference/register_kt_seeanteile.md)

@@ -1,0 +1,244 @@
+# Data catalog and PXWeb datasets
+
+The datasets of the [BFS
+catalog](https://www.bfs.admin.ch/bfs/en/home/statistics/catalogue.html)
+(article type “Data”) are in the PXWeb API. Each dataset has a BFS
+number, for example `px-x-1502040100_131`.
+
+In this article, we search the catalog and download the number of
+university students.
+
+The PXWeb API is the API of STAT-TAB. The BFS is replacing STAT-TAB with
+the [Swiss Stats
+Explorer](https://felixluginbuhl.com/BFS/articles/swiss-stats-explorer.md).
+First, check if your statistic is on
+[stats.swiss](https://stats.swiss/). See [Get
+started](https://felixluginbuhl.com/BFS/articles/introduction.html#from-stat-tab-to-the-swiss-stats-explorer).
+
+``` r
+
+library(BFS)
+library(dplyr)
+```
+
+## Search the catalog
+
+``` r
+
+catalog <- bfs_get_catalog_data(language = "en", extended_search = "student")
+catalog
+#> # A tibble: 4 × 6
+#>   title                 language number_bfs number_asset publication_date url_px
+#>   <chr>                 <chr>    <chr>      <chr>        <date>           <chr> 
+#> 1 University of applie… en       px-x-1502… 36454608     2026-03-24       https…
+#> 2 University of applie… en       px-x-1502… 36454606     2026-03-24       https…
+#> 3 University students … en       px-x-1502… 36454426     2026-03-24       https…
+#> 4 University students … en       px-x-1502… 36454424     2026-03-24       https…
+```
+
+`title` searches only in the titles. `extended_search` also searches in
+the summaries. You can also filter the catalog with:
+
+- `spatial_division`: `"Switzerland"`, `"Cantons"`, `"Districts"`,
+  `"Communes"`, `"Other spatial divisions"` or `"International"`.
+- `prodima`: the theme (see below).
+- `publishing_year_start` and `publishing_year_end`.
+- `inquiry`, `institution` or `order_nr` (the BFS number).
+
+The English and Italian catalogs have fewer datasets than the German and
+French catalogs.
+
+### Themes
+
+| Theme | `prodima` |
+|----|----|
+| 00 Statistical basis and overviews | 900001 |
+| 01 Population | 900010 |
+| 02 Territory and environment | 900035 |
+| 03 Work and income | 900051 |
+| 04 National economy | 900075 |
+| 05 Prices | 900084 |
+| 06 Industry and services | 900092 |
+| 07 Agriculture and forestry | 900104 |
+| 08 Energy | 900127 |
+| 09 Construction and housing | 900140 |
+| 10 Tourism | 900160 |
+| 11 Mobility and transport | 900169 |
+| 12 Money, banks and insurance | 900191 |
+| 13 Social security | 900198 |
+| 14 Health | 900210 |
+| 15 Education and science | 900212 |
+| 16 Culture, media, information society, sports | 900214 |
+| 17 Politics | 900226 |
+| 18 General government and finance | 900239 |
+| 19 Crime and criminal justice | 900257 |
+| 20 Economic and social situation of the population | 900269 |
+| 21 Sustainable development, regional and international disparities | 900276 |
+
+``` r
+
+bfs_get_catalog_data(language = "en", prodima = 900212) # Education and science
+#> # A tibble: 5 × 6
+#>   title                 language number_bfs number_asset publication_date url_px
+#>   <chr>                 <chr>    <chr>      <chr>        <date>           <chr> 
+#> 1 University of applie… en       px-x-1502… 36454608     2026-03-24       https…
+#> 2 University of applie… en       px-x-1502… 36454606     2026-03-24       https…
+#> 3 University students … en       px-x-1502… 36454426     2026-03-24       https…
+#> 4 University students … en       px-x-1502… 36454424     2026-03-24       https…
+#> 5 Compulsory education… en       px-x-1502… 36429912     2026-02-26       https…
+```
+
+### The whole catalog
+
+One request gives at most `limit` results (1000 by default). To get the
+whole catalog, make one request for each theme. Do this only when you
+need it, and save the result. This way, you don’t overload the API:
+
+``` r
+
+themes_prodima <- c(
+  900001, 900010, 900035, 900051, 900075, 900084, 900092, 900104, 900127,
+  900140, 900160, 900169, 900191, 900198, 900210, 900212, 900214, 900226,
+  900239, 900257, 900269, 900276
+)
+
+catalog_all <- themes_prodima |>
+  purrr::map(function(x) bfs_get_catalog_data(language = "de", prodima = x)) |>
+  purrr::list_rbind() |>
+  distinct()
+
+readr::write_csv(catalog_all, "catalog_all.csv")
+```
+
+### All the metadata
+
+With `return_raw = TRUE`, you get the catalog exactly as the API returns
+it, with all the metadata in nested data frames:
+
+``` r
+
+catalog_raw <- bfs_get_catalog_data(language = "en", extended_search = "student", return_raw = TRUE)
+
+as_tibble(catalog_raw$description)
+#> # A tibble: 4 × 9
+#>   titles$main           categorization$colle…¹ bibliography$period abstractShort
+#>   <chr>                 <list>                 <chr>               <chr>        
+#> 1 University of applie… <df [2 × 4]>           1997-2025           This dataset…
+#> 2 University of applie… <df [2 × 4]>           1997-2025           This dataset…
+#> 3 University students … <df [2 × 4]>           1990-2025           This dataset…
+#> 4 University students … <df [2 × 4]>           1980-2025           This dataset…
+#> # ℹ abbreviated name: ¹​categorization$collection
+#> # ℹ 17 more variables: categorization$prodima <list>, $inquiry <list>,
+#> #   $spatialdivision <list>, $classification <list>, $institution <list>,
+#> #   $publisher <list>, $tags <list>, $dataSource <list>, $copyrights <list>,
+#> #   $termsOfUse <list>, $serie <list>, $periodicity <list>,
+#> #   shortSummary <df[,2]>, language <chr>, highlight <lgl>, discontinued <lgl>,
+#> #   downloadable <lgl>
+```
+
+## Download a dataset
+
+``` r
+
+bfs_get_data(number_bfs = "px-x-1502040100_131", language = "en")
+#> # A tibble: 19,320 × 5
+#>    Year    `ISCED Field`     Sex    `Level of study`       `University students`
+#>    <chr>   <chr>             <chr>  <chr>                                  <dbl>
+#>  1 1980/81 Education science Male   First university degr…                   545
+#>  2 1980/81 Education science Male   Bachelor                                   0
+#>  3 1980/81 Education science Male   Master                                     0
+#>  4 1980/81 Education science Male   Doctorate                                 93
+#>  5 1980/81 Education science Male   Further education, ad…                    13
+#>  6 1980/81 Education science Female First university degr…                   946
+#>  7 1980/81 Education science Female Bachelor                                   0
+#>  8 1980/81 Education science Female Master                                     0
+#>  9 1980/81 Education science Female Doctorate                                 70
+#> 10 1980/81 Education science Female Further education, ad…                    52
+#> # ℹ 19,310 more rows
+```
+
+[`bfs_get_data_comments()`](https://felixluginbuhl.com/BFS/reference/bfs_get_data_comments.md)
+gives the comments (footnotes) of the dataset.
+
+## Download only part of a dataset
+
+A large dataset can be too big for the API. Then choose only the data
+you need with `query`. First, get the variables of the dataset and their
+values:
+
+``` r
+
+metadata <- bfs_get_metadata(number_bfs = "px-x-1502040100_131", language = "en")
+
+metadata_values <- metadata |>
+  tidyr::unnest_longer(c(values, valueTexts)) |>
+  select(code, text, values, valueTexts)
+metadata_values
+#> # A tibble: 95 × 4
+#>    code  text  values valueTexts
+#>    <chr> <chr> <chr>  <chr>     
+#>  1 Jahr  Year  0      1980/81   
+#>  2 Jahr  Year  1      1981/82   
+#>  3 Jahr  Year  2      1982/83   
+#>  4 Jahr  Year  3      1983/84   
+#>  5 Jahr  Year  4      1984/85   
+#>  6 Jahr  Year  5      1985/86   
+#>  7 Jahr  Year  6      1986/87   
+#>  8 Jahr  Year  7      1987/88   
+#>  9 Jahr  Year  8      1988/89   
+#> 10 Jahr  Year  9      1989/90   
+#> # ℹ 85 more rows
+```
+
+The query is a named list. The names are the variable codes (`code`),
+and the values are the codes of the values you want (`values`). `"*"`
+selects all the values of a variable.
+
+``` r
+
+filter(metadata_values, text == "Year", valueTexts %in% c("2020/21", "2021/22"))
+#> # A tibble: 2 × 4
+#>   code  text  values valueTexts
+#>   <chr> <chr> <chr>  <chr>     
+#> 1 Jahr  Year  40     2020/21   
+#> 2 Jahr  Year  41     2021/22
+filter(metadata_values, text == "Level of study")
+#> # A tibble: 5 × 4
+#>   code         text           values valueTexts                                 
+#>   <chr>        <chr>          <chr>  <chr>                                      
+#> 1 Studienstufe Level of study 0      First university degree or diploma         
+#> 2 Studienstufe Level of study 1      Bachelor                                   
+#> 3 Studienstufe Level of study 2      Master                                     
+#> 4 Studienstufe Level of study 3      Doctorate                                  
+#> 5 Studienstufe Level of study 4      Further education, advanced studies and ot…
+
+bfs_get_data(
+  number_bfs = "px-x-1502040100_131",
+  language = "en",
+  query = list(
+    Jahr = c("40", "41"),       # 2020/21 and 2021/22
+    Studienstufe = c("2", "3"), # Master and Doctorate
+    "ISCED Fach" = "0",         # Education science
+    Geschlecht = "*"            # all sexes
+  )
+)
+#> # A tibble: 8 × 5
+#>   Year    `ISCED Field`     Sex    `Level of study` `University students`
+#>   <chr>   <chr>             <chr>  <chr>                            <dbl>
+#> 1 2020/21 Education science Male   Master                             151
+#> 2 2020/21 Education science Male   Doctorate                          121
+#> 3 2020/21 Education science Female Master                             555
+#> 4 2020/21 Education science Female Doctorate                          306
+#> 5 2021/22 Education science Male   Master                             143
+#> 6 2021/22 Education science Male   Doctorate                          115
+#> 7 2021/22 Education science Female Master                             599
+#> 8 2021/22 Education science Female Doctorate                          318
+```
+
+If a variable is not in the query, it is not in the result: the data is
+summed over this variable, if the dataset allows it.
+
+For a very large dataset, you can also download the whole PX file with
+[`bfs_download_asset()`](https://felixluginbuhl.com/BFS/reference/bfs_download_asset.md),
+and read it with the pxR package. See [Tables and
+files](https://felixluginbuhl.com/BFS/articles/tables-and-files.md).

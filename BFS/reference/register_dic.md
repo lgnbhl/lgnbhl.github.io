@@ -1,9 +1,7 @@
-# Swiss official commune register Dictionary
+# Swiss official commune register: dictionary
 
-The official commune register is structured according to cantons and
-districts or comparable administrative entities. Various federal,
-cantonal and communal governments and private businesses use this
-register when identifying and referring to communes.
+The variables of the commune register datasets, in German, French and
+Italian.
 
 ## Usage
 
@@ -13,33 +11,37 @@ register_dic
 
 ## Format
 
-\## \`register_dic\` A data frame with 27 rows and 5 columns:
+A data frame with 27 rows and 5 columns:
 
 - language:
 
-  Language
+  Language: "de", "fr" or "it".
 
 - abbreviation:
 
-  Abbreviation
+  Variable name, e.g. "GDENR".
 
 - title:
 
-  Title
+  Variable label.
 
 - spec:
 
-  Specifications
+  Specifications.
 
 - notes:
 
-  General notes
+  General notes.
 
 ## Source
 
-\<https://www.bfs.admin.ch/bfs/fr/home/bases-statistiques/repertoire-officiel-communes-suisse.html\>
+<https://www.bfs.admin.ch/bfs/en/home/basics/swiss-official-commune-register.html>
 
-## Details
+## See also
 
-The Federal Statistical Office assigns a number to each commune and
-creates, administers and publishes the Swiss official commune register.
+Other commune register:
+[`register_bzn`](https://felixluginbuhl.com/BFS/reference/register_bzn.md),
+[`register_gde`](https://felixluginbuhl.com/BFS/reference/register_gde.md),
+[`register_gde_other`](https://felixluginbuhl.com/BFS/reference/register_gde_other.md),
+[`register_kt`](https://felixluginbuhl.com/BFS/reference/register_kt.md),
+[`register_kt_seeanteile`](https://felixluginbuhl.com/BFS/reference/register_kt_seeanteile.md)

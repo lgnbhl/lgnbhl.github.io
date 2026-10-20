@@ -1,9 +1,9 @@
 # Get the geodata catalog of the Swiss Confederation
 
-Display geo-information catalog of the Swiss Confederation
-(<https://data.geo.admin.ch/>), including some geographic datasets
-provided by the Swiss Federal Statistical Office. Note that this geodata
-catalog is not hosted by the Swiss Federal Statistical Office.
+List the geodata collections of the STAC API of the Swiss geo-portal
+(<https://data.geo.admin.ch/>), from the BFS and other federal offices.
+Download a collection with
+[`bfs_download_geodata()`](https://felixluginbuhl.com/BFS/reference/bfs_download_geodata.md).
 
 ## Usage
 
@@ -15,13 +15,30 @@ bfs_get_catalog_geodata(include_metadata = TRUE)
 
 - include_metadata:
 
-  boolean TRUE to loop on each geodata to add metadata.
+  If `TRUE` (default), add the metadata of each collection (title,
+  description, dates, license, ...). This sends one request per
+  collection (several hundred), so it takes a few minutes: save the
+  result rather than calling it often. If `FALSE`, return only the
+  collection ids and URLs.
 
 ## Value
 
-A tbl_df (a type of data frame; see tibble or dplyr packages). Returns
-NULL if no connection.
+A tibble with one row per collection: `collection_id`, `type` and
+`href`, and with `include_metadata = TRUE`, `title`, `description`,
+`created`, `updated`, `crs`, `license`, `provider_name`, `bbox` and
+`inverval`. Returns `NULL` if there is no internet connection.
 
-## Details
+## See also
 
-For now only Stac API datasets are accessible.
+[`bfs_download_geodata()`](https://felixluginbuhl.com/BFS/reference/bfs_download_geodata.md)
+
+## Examples
+
+``` r
+if (FALSE) { # interactive()
+catalog_geodata <- bfs_get_catalog_geodata()
+
+# the collections of the BFS
+catalog_geodata[grepl("^ch.bfs", catalog_geodata$collection_id), ]
+}
+```

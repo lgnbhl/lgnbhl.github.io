@@ -1,7 +1,10 @@
-# Get the BFS tables catalog
+# Search the BFS tables catalog
 
-Get the list of the tables available in the official DAM-API of the
-Swiss Federal Statistical Office asset catalog.
+Search the tables of the BFS catalog
+(<https://www.bfs.admin.ch/bfs/en/home/statistics/catalogue.html>,
+article type "Tables"). Tables are mostly Excel or CSV files, not
+available in the PXWeb API: download them with
+[`bfs_download_asset()`](https://felixluginbuhl.com/BFS/reference/bfs_download_asset.md).
 
 ## Usage
 
@@ -28,103 +31,107 @@ bfs_get_catalog_tables(
 
 - language:
 
-  character The language of a BFS catalog, i.e. "de", "fr", "it" or
-  "en".
+  Language of the catalog: `"de"` (default), `"fr"`, `"it"` or `"en"`.
 
 - title:
 
-  character String to search in (sub/super)title
+  Text to search in the titles.
 
 - extended_search:
 
-  character String for an extended search in (sub/super)title, orderNr,
-  summary, shortSummary, shortTextGNP
+  Text to search in the titles, BFS number and summaries.
 
 - spatial_division:
 
-  BFS datasets by spatial division, choose between "Switzerland",
-  "Cantons", "Districts", "Communes", "Other spatial divisions" or
-  "International"
+  Spatial division of the datasets: `"Switzerland"`, `"Cantons"`,
+  `"Districts"`, `"Communes"`, `"Other spatial divisions"` or
+  `"International"`.
 
 - prodima:
 
-  numeric Get only specific BFS themes using one or multiple prodima
-  numbers
+  Theme number(s) of the BFS, e.g. `900212` for "Education and science".
+  See the "Data catalog and PXWeb datasets" article for the list.
 
 - inquiry:
 
-  character BFS datasets for an inquiry
+  Inquiry (survey) id.
 
 - institution:
 
-  character BFS datasets for an institution
+  Institution id.
 
-- publishing_year_start:
+- publishing_year_start, publishing_year_end:
 
-  character BFS datasets for a publishing year start
-
-- publishing_year_end:
-
-  character BFS datasets for a publishing year end
+  First and last publishing year.
 
 - order_nr:
 
-  character Filter by BFS Number (FSO number)
+  BFS number, e.g. `"px-x-1502040100_131"`.
 
 - limit:
 
-  integer limit of query results (1000 by default)
+  Maximum number of results (1000 by default). A message tells you when
+  the catalog has as many results as `limit`.
 
-- article_model:
+- article_model, article_model_group:
 
-  integer articleModel parameter query
-
-- article_model_group:
-
-  integer articleModel parameter query
+  Article type ids of the DAM API. The defaults select the "Data" (or
+  "Tables") article type; you don't need to change them.
 
 - return_raw:
 
-  boolean Return raw data from json structure as a tibble data.frame
+  If `TRUE`, return the catalog as returned by the API, with all its
+  metadata in nested data frames.
 
 ## Value
 
-A data frame. Returns NULL if no connection.
-
-A tbl_df (a type of data frame; see tibble or dplyr packages). Returns
-NULL if no connection.
-
-## See also
-
-[`bfs_get_data`](https://felixluginbuhl.com/BFS/reference/bfs_get_data.md)
+A tibble with the columns:
 
 - title:
 
-  A character column with the title of the BFS dataset
+  Title of the table.
 
 - language:
 
-  A character column with the language of the BFS dataset
-
-- publication_date:
-
-  The published date of the BFS dataset in the data catalog
+  Language of the catalog.
 
 - number_asset:
 
-  The BFS asset number
+  Asset number, to use in
+  [`bfs_download_asset()`](https://felixluginbuhl.com/BFS/reference/bfs_download_asset.md).
+
+- publication_date:
+
+  Publication date.
+
+- order_nr:
+
+  BFS number.
+
+Returns `NULL` if there is no internet connection.
+
+## Details
+
+The English and Italian catalogs have fewer tables than the German and
+French ones. Arguments accept several values, e.g.
+`prodima = c(900210, 900212)`.
+
+## See also
+
+[`bfs_download_asset()`](https://felixluginbuhl.com/BFS/reference/bfs_download_asset.md),
+[`bfs_get_catalog_data()`](https://felixluginbuhl.com/BFS/reference/bfs_get_catalog_data.md)
 
 ## Examples
 
 ``` r
-# \donttest{
-bfs_get_catalog_data(language = "en", title = "students", prodima = c(900212))
-#> # A tibble: 4 × 6
-#>   title                 language number_bfs number_asset publication_date url_px
-#>   <chr>                 <chr>    <chr>      <chr>        <date>           <chr> 
-#> 1 University of applie… en       px-x-1502… 34248852     2025-03-27       https…
-#> 2 University of applie… en       px-x-1502… 34248849     2025-03-27       https…
-#> 3 University students … en       px-x-1502… 34248664     2025-03-27       https…
-#> 4 University students … en       px-x-1502… 34248666     2025-03-27       https…
-# }
+if (FALSE) { # interactive()
+tables <- bfs_get_catalog_tables(language = "en", extended_search = "students")
+tables
+
+# download the first table
+bfs_download_asset(
+  number_asset = tables$number_asset[1],
+  destfile = file.path(tempdir(), "table.xlsx")
+)
+}
 ```

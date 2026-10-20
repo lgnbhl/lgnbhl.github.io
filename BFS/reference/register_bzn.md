@@ -1,9 +1,7 @@
-# Swiss official commune register BZN
+# Swiss official commune register: districts
 
-The official commune register is structured according to cantons and
-districts or comparable administrative entities. Various federal,
-cantonal and communal governments and private businesses use this
-register when identifying and referring to communes.
+The districts of Switzerland (or comparable administrative entities) on
+1 January 2023.
 
 ## Usage
 
@@ -13,25 +11,29 @@ register_bzn
 
 ## Format
 
-\## \`register_bzn\` A data frame with 143 rows and 3 columns:
+A data frame with 143 rows and 3 columns:
 
 - GDEKT:
 
-  Kantonskuerzel
+  Canton abbreviation, e.g. "ZH".
 
 - GDEBZNR:
 
-  Bezirksnummer
+  District number.
 
 - GDEBZNA:
 
-  Bezirksname
+  District name.
 
 ## Source
 
-\<https://www.bfs.admin.ch/bfs/fr/home/bases-statistiques/repertoire-officiel-communes-suisse.html\>
+<https://www.bfs.admin.ch/bfs/en/home/basics/swiss-official-commune-register.html>
 
-## Details
+## See also
 
-The Federal Statistical Office assigns a number to each commune and
-creates, administers and publishes the Swiss official commune register.
+Other commune register:
+[`register_dic`](https://felixluginbuhl.com/BFS/reference/register_dic.md),
+[`register_gde`](https://felixluginbuhl.com/BFS/reference/register_gde.md),
+[`register_gde_other`](https://felixluginbuhl.com/BFS/reference/register_gde_other.md),
+[`register_kt`](https://felixluginbuhl.com/BFS/reference/register_kt.md),
+[`register_kt_seeanteile`](https://felixluginbuhl.com/BFS/reference/register_kt_seeanteile.md)

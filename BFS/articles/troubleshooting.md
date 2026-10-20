@@ -1,0 +1,89 @@
+# API errors and rate limits
+
+## The BFS API is not available
+
+Sometimes an API does not answer. For example, you sent too many
+requests (HTTP 429), the API is too slow (timeout), or the server has a
+problem. Then the functions give an error that starts with “The BFS API
+is not available.”:
+
+    Error:
+    ! The BFS API is not available.
+    ℹ HTTP 429 Too Many Requests.
+    Caused by error in `httr2::req_perform()`:
+    ! HTTP 429 Too Many Requests.
+
+If you have no internet connection, the functions give the message “No
+internet connection” and return `NULL`.
+
+## Too many requests
+
+The PXWeb API accepts only a limited number of requests from each IP
+address in a given time (see its
+[configuration](https://www.pxweb.bfs.admin.ch/api/v1/de/?config)).
+[`bfs_get_data()`](https://felixluginbuhl.com/BFS/reference/bfs_get_data.md)
+sends two requests: one for the variables of the dataset, and one for
+the data. If you use it in a loop:
+
+- Wait between the calls, for example with `delay = 10` (seconds) or
+  [`Sys.sleep()`](https://rdrr.io/r/base/Sys.sleep.html).
+- Save the results. Don’t download the same data again.
+
+If you still get the error, the dataset may be too big for the API. Then
+download only a part of it with `query` (see [Data catalog and PXWeb
+datasets](https://felixluginbuhl.com/BFS/articles/pxweb.md)), or the
+whole PX file with
+[`bfs_download_asset()`](https://felixluginbuhl.com/BFS/reference/bfs_download_asset.md)
+(see [Tables and
+files](https://felixluginbuhl.com/BFS/articles/tables-and-files.md)).
+
+## Handle the errors in your code
+
+These errors have the class `bfs_http_error`. So you can handle them in
+your code, for example to try again later or to skip a dataset:
+
+``` r
+
+data <- tryCatch(
+  bfs_get_data(number_bfs = "px-x-1502040100_131", language = "en"),
+  bfs_http_error = function(e) {
+    message("Skipped: ", conditionMessage(e))
+    NULL
+  }
+)
+```
+
+The error also keeps its original classes and fields. For example, you
+can use `httr2_http_429` with the response in `e$resp`, or `http_429`
+for the errors of the pxweb package:
+
+``` r
+
+tryCatch(
+  bfs_sse_dimensions("DF_LWZ_1"),
+  httr2_http_429 = function(e) httr2::resp_retry_after(e$resp)
+)
+```
+
+You also find the original error in `e$parent`.
+
+## Caches
+
+The package keeps some data, so it does not download it again (a cache):
+
+- The base maps of
+  [`bfs_get_base_maps()`](https://felixluginbuhl.com/BFS/reference/bfs_get_base_maps.md)
+  are saved on your disk.
+- The list of the Swiss Stats Explorer datasets of
+  [`bfs_get_sse_data()`](https://felixluginbuhl.com/BFS/reference/bfs_get_sse_data.md)
+  and
+  [`bfs_get_sse_metadata()`](https://felixluginbuhl.com/BFS/reference/bfs_get_sse_metadata.md)
+  is kept during your R session.
+  [`bfs_sse_datasets()`](https://felixluginbuhl.com/BFS/reference/bfs_sse_datasets.md),
+  [`bfs_sse_dimensions()`](https://felixluginbuhl.com/BFS/reference/bfs_sse_dimensions.md)
+  and
+  [`bfs_sse_data()`](https://felixluginbuhl.com/BFS/reference/bfs_sse_data.md)
+  keep nothing: they always get the latest data.
+
+If a base map or a new dataset is missing, clear the cache with
+[`bfs_clear_cache()`](https://felixluginbuhl.com/BFS/reference/bfs_clear_cache.md).

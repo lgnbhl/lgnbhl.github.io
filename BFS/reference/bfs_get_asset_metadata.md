@@ -1,9 +1,9 @@
-# Get asset metadata in a given language
+# Get the metadata of a BFS file
 
-This function uses the DAM API
-<https://dam-api.bfs.admin.ch/hub/swagger-ui/index.html> to get the
-metadata of a BFS file by asset number or BFS number in a given
-language.
+Get the metadata of a BFS file from the DAM API
+(<https://dam-api.bfs.admin.ch/hub/swagger-ui/index.html>) with its
+asset number or its BFS number: title, description, publication date,
+contact, links, ...
 
 ## Usage
 
@@ -19,22 +19,37 @@ bfs_get_asset_metadata(
 
 - number_asset:
 
-  The asset number of a dataset
+  The asset number of the file, e.g. `"24025646"`. It is the
+  `number_asset` column of
+  [`bfs_get_catalog_tables()`](https://felixluginbuhl.com/BFS/reference/bfs_get_catalog_tables.md)
+  and
+  [`bfs_get_catalog_data()`](https://felixluginbuhl.com/BFS/reference/bfs_get_catalog_data.md),
+  and the number at the end of the "assetdetail" URLs of the BFS
+  website.
 
 - number_bfs:
 
-  The BFS number of a dataset.
+  The BFS number of the file, e.g. `"px-x-1502040100_131"`. Use either
+  `number_asset` or `number_bfs`.
 
 - language:
 
-  character The language of a BFS catalog, i.e. "de", "fr", "it" or
-  "en".
+  Language of the metadata: `"de"` (default), `"fr"`, `"it"` or `"en"`.
 
 ## Value
 
-list Returns a list containing asset metadata information. Returns NULL
-if no connection.
+A nested list with the metadata. Returns `NULL` if there is no internet
+connection.
 
 ## See also
 
-\[bfs_download_asset()\]
+[`bfs_download_asset()`](https://felixluginbuhl.com/BFS/reference/bfs_download_asset.md)
+
+## Examples
+
+``` r
+if (FALSE) { # interactive()
+metadata <- bfs_get_asset_metadata(number_bfs = "px-x-1502040100_131", language = "en")
+metadata$description$titles$main
+}
+```

@@ -18,15 +18,15 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/lgnbhl/BFS/blob/HEAD/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/lgnbhl/BFS/blob/master/DESCRIPTION)
 
 Luginbuhl F (2026). *BFS: Get Data from the Swiss Federal Statistical
-Office*. R package version 0.7.0, <https://felixluginbuhl.com/BFS/>.
+Office*. R package version 0.8.0, <https://felixluginbuhl.com/BFS/>.
 
     @Manual{,
       title = {BFS: Get Data from the Swiss Federal Statistical Office},
       author = {Felix Luginbuhl},
       year = {2026},
-      note = {R package version 0.7.0},
+      note = {R package version 0.8.0},
       url = {https://felixluginbuhl.com/BFS/},
     }

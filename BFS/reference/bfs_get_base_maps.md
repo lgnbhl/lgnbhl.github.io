@@ -1,11 +1,10 @@
-# Get Switzerland base maps data
+# Get the Swiss base maps
 
-This functions helps to get base maps data from the ThemaKart project as
-an sf object. The geom names and the general structure of the files can
-be found in the offical BFS documentation, see
-<https://www.bfs.admin.ch/bfs/en/home/statistics/regional-statistics/base-maps/cartographic-bases.html>.
-When using this data, please read the condition of use and copyright
-mentions.
+Get the cartographic base maps of the BFS ThemaKart project: the borders
+of Switzerland, cantons, districts and communes, lakes, rivers, ... The
+names of the geometries and files are in the BFS documentation
+(<https://www.bfs.admin.ch/bfs/en/home/statistics/regional-statistics/base-maps/cartographic-bases.html>).
+Please read its terms of use and copyright notices.
 
 ## Usage
 
@@ -26,49 +25,76 @@ bfs_get_base_maps(
 
 - geom:
 
-  Geometry such as "suis", "kant", "bezk", "polg", "voge", etc.
+  Geometry, e.g. `"suis"` (Switzerland), `"kant"` (cantons), `"bezk"`
+  (districts), `"polg"` (communes), `"seen"` (lakes) or `"flus"`
+  (rivers).
 
 - category:
 
-  Category such as 'total_area' ("gf" for "Gesamtflaeche") or
-  'vegetation_area' ("vf" for "Vegetationsflaeche").
+  Category: `"gf"` or `"total_area"` (total area, default), `"vf"` or
+  `"vegetation_area"` (vegetation area), or another part of the file
+  name, e.g. `"11"` for the lakes.
 
 - type:
 
-  The type of data, i.e. "Poly" or "Pnts".
+  `"Poly"` (polygons, default) or `"Pnts"` (points). Use `""` for files
+  without type, e.g. the rivers.
 
 - date:
 
-  Date (yyyymmdd) of reference / validity. If not specified, the
-  \`most_recent\` argument is used.
+  Optional date of validity, as `"yyyymmdd"`, e.g. `"20230101"`.
 
 - most_recent:
 
-  Get the most recent by sorting the files in decreasing order, if FALSE
-  then read the first file available.
+  If `TRUE` (default) and `date` is `NULL`, get the most recent file. If
+  `FALSE`, get the first file found.
 
 - format:
 
-  Format of the file, by default SHP format.
+  File format, `"shp"` (shapefile) by default.
 
 - asset_number:
 
-  Asset number of the base maps zip file.
+  Asset number of the ThemaKart zip file. The default is the 2024
+  edition; e.g. `"11927607"` is the 2020 edition.
 
 - return_sf:
 
-  if TRUE, read file path and return sf object. If FALSE, return file
-  path
+  If `TRUE` (default), return an sf object (requires the sf package). If
+  `FALSE`, return the path of the file. With `date = ""`, return the
+  paths of all the matching files: use it, with `""` for the other
+  arguments, to list the available files.
 
 ## Value
 
-sf object with geometries. Returns NULL if no connection.
+An sf object, or with `return_sf = FALSE` the file path(s). Returns
+`NULL` if there is no internet connection and the base maps are not
+cached yet.
 
 ## Details
 
-If you want to get ThemaKart data from previous years, you can change
-the \`asset_number\` for the related zip file. For example, for the map
-set of year 2020, the asset number is "11927607".
+The base maps are a zip file of several hundred files, downloaded once
+and cached in `tools::R_user_dir("BFS")`. Use
+[`bfs_clear_cache()`](https://felixluginbuhl.com/BFS/reference/bfs_clear_cache.md)
+to delete it. Each file name combines the arguments, e.g.
+`K4kant20220101gf_ch2007Poly.shp`: geometry `kant`, date `20220101`,
+category `gf`, type `Poly`, format `shp`.
 
-This function is caching the base map data using
-\`tools::R_user_dir(package = "BFS")\`.
+## See also
+
+[`bfs_clear_cache()`](https://felixluginbuhl.com/BFS/reference/bfs_clear_cache.md)
+
+## Examples
+
+``` r
+if (FALSE) { # interactive()
+cantons <- bfs_get_base_maps(geom = "kant")
+plot(sf::st_geometry(cantons))
+
+lakes <- bfs_get_base_maps(geom = "seen", category = "11")
+rivers <- bfs_get_base_maps(geom = "flus", category = "22", type = "")
+
+# list all river files
+bfs_get_base_maps(geom = "flus", category = "", type = "", date = "", return_sf = FALSE)
+}
+```

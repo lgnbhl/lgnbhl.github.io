@@ -1,9 +1,7 @@
-# Swiss official commune register GDE Other
+# Swiss official commune register: areas without a commune
 
-The official commune register is structured according to cantons and
-districts or comparable administrative entities. Various federal,
-cantonal and communal governments and private businesses use this
-register when identifying and referring to communes.
+The areas of Switzerland that belong to no commune (e.g. the Staatswald
+Galm), on 1 January 2023.
 
 ## Usage
 
@@ -13,29 +11,33 @@ register_gde_other
 
 ## Format
 
-\## \`register_gde_other\` A data frame with 3 rows and 4 columns:
+A data frame with 3 rows and 4 columns:
 
 - GDENR:
 
-  BFS-Gemeindenummer
+  BFS number of the area.
 
 - GDENAME:
 
-  Amtlicher Gemeindename
+  Name of the area.
 
 - KTNR:
 
-  Kantonsnummer
+  Canton number.
 
 - GDEBZNR:
 
-  Bezirksnummer
+  District number.
 
 ## Source
 
-\<https://www.bfs.admin.ch/bfs/fr/home/bases-statistiques/repertoire-officiel-communes-suisse.html\>
+<https://www.bfs.admin.ch/bfs/en/home/basics/swiss-official-commune-register.html>
 
-## Details
+## See also
 
-The Federal Statistical Office assigns a number to each commune and
-creates, administers and publishes the Swiss official commune register.
+Other commune register:
+[`register_bzn`](https://felixluginbuhl.com/BFS/reference/register_bzn.md),
+[`register_dic`](https://felixluginbuhl.com/BFS/reference/register_dic.md),
+[`register_gde`](https://felixluginbuhl.com/BFS/reference/register_gde.md),
+[`register_kt`](https://felixluginbuhl.com/BFS/reference/register_kt.md),
+[`register_kt_seeanteile`](https://felixluginbuhl.com/BFS/reference/register_kt_seeanteile.md)

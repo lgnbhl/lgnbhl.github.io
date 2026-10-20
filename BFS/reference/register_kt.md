@@ -1,9 +1,6 @@
-# Swiss official commune register KT
+# Swiss official commune register: cantons
 
-The official commune register is structured according to cantons and
-districts or comparable administrative entities. Various federal,
-cantonal and communal governments and private businesses use this
-register when identifying and referring to communes.
+The 26 cantons of Switzerland.
 
 ## Usage
 
@@ -13,25 +10,29 @@ register_kt
 
 ## Format
 
-\## \`register_kt\` A data frame with 26 rows and 3 columns:
+A data frame with 26 rows and 3 columns:
 
 - KTNR:
 
-  Kantonsnummer
+  Canton number.
 
 - GDEKT:
 
-  Kantonskuerzel
+  Canton abbreviation, e.g. "ZH".
 
 - GDEKTNA:
 
-  Kantonsname
+  Canton name.
 
 ## Source
 
-\<https://www.bfs.admin.ch/bfs/fr/home/bases-statistiques/repertoire-officiel-communes-suisse.html\>
+<https://www.bfs.admin.ch/bfs/en/home/basics/swiss-official-commune-register.html>
 
-## Details
+## See also
 
-The Federal Statistical Office assigns a number to each commune and
-creates, administers and publishes the Swiss official commune register.
+Other commune register:
+[`register_bzn`](https://felixluginbuhl.com/BFS/reference/register_bzn.md),
+[`register_dic`](https://felixluginbuhl.com/BFS/reference/register_dic.md),
+[`register_gde`](https://felixluginbuhl.com/BFS/reference/register_gde.md),
+[`register_gde_other`](https://felixluginbuhl.com/BFS/reference/register_gde_other.md),
+[`register_kt_seeanteile`](https://felixluginbuhl.com/BFS/reference/register_kt_seeanteile.md)
