@@ -1,7 +1,11 @@
 # Build the site
 
 Renders the site into `out_dir`: the landing page, the 404 page, the
-assets tree, and the sitemap and robots files.
+assets tree, the sitemap and robots files, and `stickers.json` - the
+footer's row of the `hero: true` section as data, for sites served next
+to this one (a pkgdown reference at `/<pkg>/`) to show the same row. Its
+`img` and `href` are root-relative for the site's own files, so they
+resolve only on this site's origin. With no such section it is `[]`.
 
 ## Usage
 
@@ -79,7 +83,7 @@ Build only sites whose files you trust.
 # \donttest{
 site <- file.path(tempdir(), "example-site")
 mui_create_site(site)
-#> site created in /tmp/Rtmp2YXZoc/example-site
+#> site created in /tmp/RtmphnP3co/example-site
 #>   1. edit mui.config.yml and content/*.yml
 #>   2. Rscript build.R docs
 #>   3. push, then switch on GitHub Pages for the main branch and /docs
@@ -87,7 +91,7 @@ mui_create_site(site)
 #>   https://<user>.github.io/<repo> for a project site.
 mui_build_site(file.path(site, "docs"), input = site, quiet = TRUE)
 list.files(file.path(site, "docs"))
-#> [1] "404.html"    "_mui"        "assets"      "index.html"  "robots.txt" 
-#> [6] "sitemap.xml"
+#> [1] "404.html"      "_mui"          "assets"        "index.html"   
+#> [5] "robots.txt"    "sitemap.xml"   "stickers.json"
 # }
 ```
