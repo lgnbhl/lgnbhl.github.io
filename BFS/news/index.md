@@ -2,6 +2,8 @@
 
 ## BFS 0.8.0
 
+CRAN release: 2026-10-20
+
 The main change: new functions for the Swiss Stats Explorer (SSE), which
 replaces STAT-TAB. The old SSE functions are deprecated, but they still
 work. Please read “Breaking changes” before you update.

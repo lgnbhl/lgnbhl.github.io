@@ -119,9 +119,9 @@ bfs_sse_data(
 #>  5 ZH        Zurich          _T          Total             _T          
 #>  6 ZH        Zurich          _T          Total             _T          
 #>  7 ZH        Zurich          _T          Total             _T          
-#>  8 GE        Geneva          _T          Total             _T          
-#>  9 GE        Geneva          _T          Total             _T          
-#> 10 GE        Geneva          _T          Total             _T          
+#>  8 BE        Bern            _T          Total             _T          
+#>  9 BE        Bern            _T          Total             _T          
+#> 10 BE        Bern            _T          Total             _T          
 #> # ℹ 11 more rows
 #> # ℹ 7 more variables: LEERWOHN_TYP_label <chr>, MEASURE_DIMENSION <chr>,
 #> #   MEASURE_DIMENSION_label <chr>, FREQ <chr>, FREQ_label <chr>,

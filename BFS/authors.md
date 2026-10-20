@@ -18,7 +18,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/lgnbhl/BFS/blob/master/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/lgnbhl/BFS/blob/v0.8.0/DESCRIPTION)
 
 Luginbuhl F (2026). *BFS: Get Data from the Swiss Federal Statistical
 Office*. R package version 0.8.0, <https://felixluginbuhl.com/BFS/>.
