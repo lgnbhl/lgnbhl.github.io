@@ -2,6 +2,8 @@
 
 ## muiTreeView 0.2.0
 
+CRAN release: 2026-10-12
+
 - Upgrade to MUI X Tree View v9 (`@mui/x-tree-view` 9.0.2), matching the
   MUI v9 runtime shipped by muiMaterial.
 - The tree view now shares muiMaterial’s MUI Material, system and

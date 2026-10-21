@@ -6,19 +6,31 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>MUI X Tree View for shiny Apps and Quarto • muiTreeView</title>
-<script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- favicons --><link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="”image/svg+xml”" href="favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" sizes="any" href="favicon.ico">
+<link rel="manifest" href="site.webmanifest">
+<script src="lightswitch.js"></script><script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="deps/DM_Sans-0.4.10/font.css" rel="stylesheet">
+<link href="deps/Fira_Code-0.4.10/font.css" rel="stylesheet">
+<link href="deps/Space_Grotesk-0.4.10/font.css" rel="stylesheet">
+<link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="MUI X Tree View for shiny Apps and Quarto">
+<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><link href="extra.css" rel="stylesheet">
+<script src="extra.js"></script><meta property="og:title" content="MUI X Tree View for shiny Apps and Quarto">
 <meta name="description" content="Wraps the MUI X Tree View React components &lt;https://mui.com/x/react-tree-view/&gt; for use in shiny applications and quarto documents, letting users navigate hierarchical data with nested levels that can be expanded and collapsed. Bundles the MIT-licensed community edition of the @mui/x-tree-view JavaScript library (the commercial Pro tier is not included).">
 <meta property="og:description" content="Wraps the MUI X Tree View React components &lt;https://mui.com/x/react-tree-view/&gt; for use in shiny applications and quarto documents, letting users navigate hierarchical data with nested levels that can be expanded and collapsed. Bundles the MIT-licensed community edition of the @mui/x-tree-view JavaScript library (the commercial Pro tier is not included).">
+<meta property="og:image" content="https://felixluginbuhl.com/muiTreeView/reference/figures/card.png">
+<meta property="og:image:alt" content="muiTreeView: MUI X Tree View for Shiny and Quarto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
-    <nav class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" aria-label="Site navigation"><div class="container">
+    <nav class="navbar navbar-expand-lg fixed-top " aria-label="Site navigation"><div class="container">
 
     <a class="navbar-brand me-2" href="index.html">muiTreeView</a>
 
@@ -77,10 +89,19 @@
 <li class="nav-item"><a class="nav-link" href="news/index.html">News</a></li>
       </ul>
 <ul class="navbar-nav">
-<li class="nav-item"><a class="external-link nav-link" href="https://www.linkedin.com/in/felixluginbuhl" aria-label="LinkedIn"><span class="fa fa-linkedin"></span></a></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://twitter.com/FelixLuginbuhl" aria-label="Twitter"><span class="fa fa-twitter"></span></a></li>
+<li class="nav-item"><form class="form-inline" role="search">
+ <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="search.json">
+</form></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-lightswitch" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" aria-label="Light switch"><span class="fa fa-sun"></span></button>
+  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-lightswitch">
+<li><button class="dropdown-item" data-bs-theme-value="light"><span class="fa fa-sun"></span> Light</button></li>
+    <li><button class="dropdown-item" data-bs-theme-value="dark"><span class="fa fa-moon"></span> Dark</button></li>
+    <li><button class="dropdown-item" data-bs-theme-value="auto"><span class="fa fa-adjust"></span> Auto</button></li>
+  </ul>
+</li>
 <li class="nav-item"><a class="external-link nav-link" href="https://github.com/lgnbhl/muiTreeView" aria-label="GitHub"><span class="fa fa-github"></span></a></li>
-<li class="nav-item"><a class="external-link nav-link" href="http://felixluginbuhl.com" aria-label="Felix Luginbuhl's website"><span class="fa fa-home"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://felixluginbuhl.com" aria-label="Felix Luginbuhl's website"><span class="fa fa-home"></span></a></li>
       </ul>
 </div>
 
@@ -89,8 +110,10 @@
 </nav><div class="container template-home">
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
-<div class="page-header"><h1 id="muitreeview">muiTreeView<a class="anchor" aria-label="anchor" href="#muitreeview"></a>
-</h1></div>
+<div class="page-header">
+<img src="logo.png" class="logo" alt=""><h1 id="muitreeview-">muiTreeView <a class="anchor" aria-label="anchor" href="#muitreeview-"></a>
+</h1>
+</div>
 <!-- badges: start -->
 
 <p><strong>muiTreeView</strong> gives access to <a href="https://mui.com/x/react-tree-view/" class="external-link">MUI X Tree View</a> React components, which lets users navigate hierarchical lists of data with nested levels that can be expanded and collapsed.</p>
@@ -174,8 +197,8 @@
 <ul class="list-unstyled">
 <li><a href="https://CRAN.R-project.org/package=muiTreeView" class="external-link"><img src="https://www.r-pkg.org/badges/version/muiTreeView" alt="CRAN status"></a></li>
 <li><a href="https://github.com/lgnbhl/muiTreeView/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/lgnbhl/muiTreeView/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://mui.com/x/react-tree-view/" class="external-link"><img src="https://img.shields.io/badge/@mui/x--tree--view-8.25.0-blue.svg"></a></li>
-<li><a href="https://mui.com/x/react-tree-view/" class="external-link"><img src="https://img.shields.io/badge/react-18.3.1-blue.svg"></a></li>
+<li><a href="https://mui.com/x/react-tree-view/" class="external-link"><img src="https://img.shields.io/badge/@mui/x--tree--view-9.0.2-blue.svg" alt="@mui/x-tree-view 9.0.2"></a></li>
+<li><a href="https://react.dev/" class="external-link"><img src="https://img.shields.io/badge/react-18.3.1-blue.svg" alt="react 18.3.1"></a></li>
 <li><a href="https://www.linkedin.com/in/FelixLuginbuhl" class="external-link"><img src="https://img.shields.io/badge/LinkedIn-Follow-E4405F?style=social&amp;logo=linkedin" alt="LinkedIn"></a></li>
 </ul>
 </div>
@@ -185,7 +208,8 @@
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by <a href="https://felixluginbuhl.com" class="external-link">Felix Luginbuhl</a>.</p>
+  <nav class="hexfamily" aria-label="More R packages"><a href="https://felixluginbuhl.com/#packages" class="external-link">More R packages</a>
+</nav><p>Developed by <a href="https://felixluginbuhl.com" class="external-link">Felix Luginbuhl</a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">
