@@ -20,5 +20,5 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 ## Details
 
-- localeText `object`\
+- localeText `object`  
   Default is NA Localized text for chart components.

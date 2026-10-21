@@ -20,10 +20,11 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 ## Details
 
-- id `string`\
+- id `string`  
   Default is NA The id of the clip path.
 
-- offset `bottom?: number, left?: number, right?: number, top?: number`\
+- offset
+  `bottom?: number, left?: number, right?: number, top?: number`  
   Default is NA Offset, in pixels, of the clip path rectangle from the
   drawing area.A positive value will move the rectangle outside the
   drawing area.

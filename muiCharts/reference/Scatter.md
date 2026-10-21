@@ -20,13 +20,13 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 ## Details
 
-- colorGetter `func`\
+- colorGetter `func`  
   Default is NA Function to get the color of a scatter item given its
   data index. The data index argument is optional. If not provided, the
   color for the entire series is returned. If provided, the color for
   the specific scatter item is returned.
 
-- onItemClick `func`\
+- onItemClick `func`  
   Default is NA Callback fired when clicking on a scatter
   item.Signature:function(event: MouseEvent, scatterItemIdentifier:
   ScatterItemIdentifier) =\> voidevent Mouse event recorded on the

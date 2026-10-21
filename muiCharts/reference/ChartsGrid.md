@@ -20,12 +20,12 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 ## Details
 
-- classes `object`\
+- classes `object`  
   Default is NA Override or extend the styles applied to the
   component.See CSS classes API below for more details.
 
-- horizontal `bool`\
+- horizontal `bool`  
   Default is NA Displays horizontal grid.
 
-- vertical `bool`\
+- vertical `bool`  
   Default is NA Displays vertical grid.

@@ -1,11 +1,17 @@
 # muiCharts
 
-**muiCharts** gives access to *MUI X Charts* React chart components for
-data visualization from R.
+**muiCharts** gives access to [MUI X
+Charts](https://mui.com/x/react-charts/) React chart components for data
+visualization from R.
 
 ## Install
 
-You can install the development version of **muiCharts** like so:
+``` r
+
+install.packages("muiCharts")
+```
+
+You can install the development version of muiCharts like so:
 
 ``` r
 
@@ -34,7 +40,7 @@ BarChart(
 ```
 
 ![BarChart
-example](https://raw.githubusercontent.com/lgnbhl/muiCharts/refs/heads/master/man/Figures/BarChart.png)
+example](https://raw.githubusercontent.com/lgnbhl/muiCharts/refs/heads/master/man/figures/BarChart.png)
 
 ### Resources
 
@@ -182,8 +188,6 @@ list of MUI’s published policies.
   : MarkElement
 - [`MarkPlot()`](https://felixluginbuhl.com/muiCharts/reference/MarkPlot.md)
   : MarkPlot
-- [`muiChartsDependency()`](https://felixluginbuhl.com/muiCharts/reference/muiChartsDependency.md)
-  : Mui Charts UI JS dependency
 - [`PieArc()`](https://felixluginbuhl.com/muiCharts/reference/PieArc.md)
   : PieArc
 - [`PieArcLabel()`](https://felixluginbuhl.com/muiCharts/reference/PieArcLabel.md)
@@ -192,14 +196,12 @@ list of MUI’s published policies.
   : PieArcLabelPlot
 - [`PieArcPlot()`](https://felixluginbuhl.com/muiCharts/reference/PieArcPlot.md)
   : PieArcPlot
-- [`PiecewiseColorLegend()`](https://felixluginbuhl.com/muiCharts/reference/PiecewiseColorLegend.md)
-  : PiecewiseColorLegend
 - [`PieChart()`](https://felixluginbuhl.com/muiCharts/reference/PieChart.md)
   : PieChart
 - [`PiePlot()`](https://felixluginbuhl.com/muiCharts/reference/PiePlot.md)
   : PiePlot
-- [`print(`*`<muiCharts>`*`)`](https://felixluginbuhl.com/muiCharts/reference/print.muiCharts.md)
-  : Print muiCharts components
+- [`PiecewiseColorLegend()`](https://felixluginbuhl.com/muiCharts/reference/PiecewiseColorLegend.md)
+  : PiecewiseColorLegend
 - [`RadarAxis()`](https://felixluginbuhl.com/muiCharts/reference/RadarAxis.md)
   : RadarAxis
 - [`RadarAxisHighlight()`](https://felixluginbuhl.com/muiCharts/reference/RadarAxisHighlight.md)
@@ -228,6 +230,10 @@ list of MUI’s published policies.
   : ScatterPlot
 - [`SparkLineChart()`](https://felixluginbuhl.com/muiCharts/reference/SparkLineChart.md)
   : SparkLineChart
+- [`muiChartsDependency()`](https://felixluginbuhl.com/muiCharts/reference/muiChartsDependency.md)
+  : Mui Charts UI JS dependency
+- [`print(`*`<muiCharts>`*`)`](https://felixluginbuhl.com/muiCharts/reference/print.muiCharts.md)
+  : Print muiCharts components
 - [`starwars_films`](https://felixluginbuhl.com/muiCharts/reference/starwars_films.md)
   : Star Wars Films
 - [`starwars_people`](https://felixluginbuhl.com/muiCharts/reference/starwars_people.md)

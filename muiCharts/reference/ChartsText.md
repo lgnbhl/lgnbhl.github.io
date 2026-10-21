@@ -20,14 +20,14 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 ## Details
 
-- text `string`\
+- text `string`  
   Default is - Text displayed.
 
-- lineHeight `number`\
+- lineHeight `number`  
   Default is - Height of a text line (in em).
 
-- needsComputation `bool`\
+- needsComputation `bool`  
   Default is FALSE If true, the line width is computed.
 
-- style `object`\
+- style `object`  
   Default is - Style applied to text elements.

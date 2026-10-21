@@ -114,8 +114,6 @@
   : MarkElement
 - [`MarkPlot()`](https://felixluginbuhl.com/muiCharts/reference/MarkPlot.md)
   : MarkPlot
-- [`muiChartsDependency()`](https://felixluginbuhl.com/muiCharts/reference/muiChartsDependency.md)
-  : Mui Charts UI JS dependency
 - [`PieArc()`](https://felixluginbuhl.com/muiCharts/reference/PieArc.md)
   : PieArc
 - [`PieArcLabel()`](https://felixluginbuhl.com/muiCharts/reference/PieArcLabel.md)
@@ -124,14 +122,12 @@
   : PieArcLabelPlot
 - [`PieArcPlot()`](https://felixluginbuhl.com/muiCharts/reference/PieArcPlot.md)
   : PieArcPlot
-- [`PiecewiseColorLegend()`](https://felixluginbuhl.com/muiCharts/reference/PiecewiseColorLegend.md)
-  : PiecewiseColorLegend
 - [`PieChart()`](https://felixluginbuhl.com/muiCharts/reference/PieChart.md)
   : PieChart
 - [`PiePlot()`](https://felixluginbuhl.com/muiCharts/reference/PiePlot.md)
   : PiePlot
-- [`print(`*`<muiCharts>`*`)`](https://felixluginbuhl.com/muiCharts/reference/print.muiCharts.md)
-  : Print muiCharts components
+- [`PiecewiseColorLegend()`](https://felixluginbuhl.com/muiCharts/reference/PiecewiseColorLegend.md)
+  : PiecewiseColorLegend
 - [`RadarAxis()`](https://felixluginbuhl.com/muiCharts/reference/RadarAxis.md)
   : RadarAxis
 - [`RadarAxisHighlight()`](https://felixluginbuhl.com/muiCharts/reference/RadarAxisHighlight.md)
@@ -160,6 +156,10 @@
   : ScatterPlot
 - [`SparkLineChart()`](https://felixluginbuhl.com/muiCharts/reference/SparkLineChart.md)
   : SparkLineChart
+- [`muiChartsDependency()`](https://felixluginbuhl.com/muiCharts/reference/muiChartsDependency.md)
+  : Mui Charts UI JS dependency
+- [`print(`*`<muiCharts>`*`)`](https://felixluginbuhl.com/muiCharts/reference/print.muiCharts.md)
+  : Print muiCharts components
 - [`starwars_films`](https://felixluginbuhl.com/muiCharts/reference/starwars_films.md)
   : Star Wars Films
 - [`starwars_people`](https://felixluginbuhl.com/muiCharts/reference/starwars_people.md)

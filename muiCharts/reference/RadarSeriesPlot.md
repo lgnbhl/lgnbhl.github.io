@@ -20,24 +20,24 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 ## Details
 
-- classes `object`\
+- classes `object`  
   Default is NA Override or extend the styles applied to the
   component.See CSS classes API below for more details.
 
-- onAreaClick `func`\
+- onAreaClick `func`  
   Default is NA Callback fired when an area is
   clicked.Signature:function(event: React.MouseEvent\<SVGPathElement,
   MouseEvent\>, radarItemIdentifier: RadarItemIdentifier) =\> voidevent
   The event source of the callback.radarItemIdentifier The radar item
   identifier.
 
-- onMarkClick `func`\
+- onMarkClick `func`  
   Default is NA Callback fired when a mark is
   clicked.Signature:function(event: React.MouseEvent\<SVGPathElement,
   MouseEvent\>, radarItemIdentifier: RadarItemIdentifier) =\> voidevent
   The event source of the callback.radarItemIdentifier The radar item
   identifier.
 
-- seriesId `string`\
+- seriesId `string`  
   Default is NA The id of the series to display. If undefined all series
   are displayed.

@@ -20,10 +20,10 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 ## Details
 
-- skipAnimation `bool`\
+- skipAnimation `bool`  
   Default is NA If true, the animation is disabled.
 
-- skipInteraction `bool`\
+- skipInteraction `bool`  
   Default is NA If true, the default event handlers are disabled. Those
   are used, for example, to display a tooltip or highlight the arc on
   hover.

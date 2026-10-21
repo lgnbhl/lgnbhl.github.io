@@ -20,5 +20,5 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 ## Details
 
-- skipAnimation `bool`\
+- skipAnimation `bool`  
   Default is FALSE If true, animations are skipped.

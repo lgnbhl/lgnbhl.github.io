@@ -5,17 +5,17 @@
 - **[Felix Luginbuhl](https://felixluginbuhl.com)**. Author, maintainer,
   copyright holder. [](https://orcid.org/0009-0008-6625-2899)
 
-- **MUI**. Copyright holder.\
+- **MUI**. Copyright holder.  
   Copyright holder of the bundled '@mui/x-charts' JavaScript library and
   its '@mui/x-charts-vendor', '@mui/x-internals',
   '@mui/x-internal-gestures' and '@mui/system' (subpath imports)
   helpers; see LICENSE.note
 
-- **Mike Bostock**. Copyright holder.\
+- **Mike Bostock**. Copyright holder.  
   Copyright holder of the bundled D3 modules and 'internmap' (ISC
   license), vendored via '@mui/x-charts-vendor'; see LICENSE.note
 
-- **Meta Platforms, Inc. and affiliates**. Copyright holder.\
+- **Meta Platforms, Inc. and affiliates**. Copyright holder.  
   Copyright holder of the bundled 'react-is', 'prop-types' and
   'use-sync-external-store' JavaScript libraries; 'react' and
   'react-dom' are declared as peer dependencies and provided at runtime
@@ -24,7 +24,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/lgnbhl/muiCharts/blob/HEAD/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/lgnbhl/muiCharts/blob/master/DESCRIPTION)
 
 Luginbuhl F (2026). *muiCharts: 'MUI X Charts' for 'shiny' Apps and
 'Quarto'*. R package version 0.1.0,

@@ -1,11 +1,17 @@
 # muiCharts
 
-**muiCharts** gives access to *MUI X Charts* React chart components for
-data visualization from R.
+**muiCharts** gives access to [MUI X
+Charts](https://mui.com/x/react-charts/) React chart components for data
+visualization from R.
 
 ## Install
 
-You can install the development version of **muiCharts** like so:
+``` r
+
+install.packages("muiCharts")
+```
+
+You can install the development version of muiCharts like so:
 
 ``` r
 
@@ -34,7 +40,7 @@ BarChart(
 ```
 
 ![BarChart
-example](https://raw.githubusercontent.com/lgnbhl/muiCharts/refs/heads/master/man/Figures/BarChart.png)
+example](https://raw.githubusercontent.com/lgnbhl/muiCharts/refs/heads/master/man/figures/BarChart.png)
 
 ### Resources
 

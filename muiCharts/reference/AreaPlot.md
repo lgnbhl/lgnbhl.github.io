@@ -20,19 +20,19 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 ## Details
 
-- onItemClick `func`\
+- onItemClick `func`  
   Default is - Callback fired when a line area item is
   clicked.Signature:function(event: React.MouseEvent\<SVGPathElement,
   MouseEvent\>, lineItemIdentifier: LineItemIdentifier) =\> voidevent
   The event source of the callback.lineItemIdentifier The line item
   identifier.
 
-- skipAnimation `bool`\
+- skipAnimation `bool`  
   Default is FALSE If true, animations are skipped.
 
-- slotProps `object`\
+- slotProps `object`  
   Default is The props used for each component slot.
 
-- slots `object`\
+- slots `object`  
   Default is Overridable component slots.See Slots API below for more
   details.

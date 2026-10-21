@@ -20,18 +20,18 @@ Object with `shiny.tag` class suitable for use in the UI of a Shiny app.
 
 ## Details
 
-- dataIndex `number`\
+- dataIndex `number`  
   Default is - The index to the element in the series' data array.
 
 - shape
-  `'circle', 'cross', 'diamond', 'square', 'star', 'triangle', 'wye'`\
+  `'circle', 'cross', 'diamond', 'square', 'star', 'triangle', 'wye'`  
   Default is - The shape of the marker.
 
-- isFaded `bool`\
+- isFaded `bool`  
   Default is FALSE If true, the marker is faded.
 
-- isHighlighted `bool`\
+- isHighlighted `bool`  
   Default is FALSE If true, the marker is highlighted.
 
-- skipAnimation `bool`\
+- skipAnimation `bool`  
   Default is - If true, animations are skipped.
