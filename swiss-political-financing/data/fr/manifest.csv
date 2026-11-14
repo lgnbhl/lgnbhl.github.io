@@ -46,9 +46,9 @@ export;fr;votes;31;TRUE;https://politikfinanzierung.efk.admin.ch/api/frontend/la
 export;fr;votes;31;FALSE;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/fr/downloads/financings/31?with_budget=false;1f519c876298eaa0117e0622e62109dea787e88b1f8cf9977abc17ad0058b6d0;7557;;
 export;fr;votes;32;TRUE;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/fr/downloads/financings/32?with_budget=true;1377989ab9ac229875d2521de2be67f040994d78c81c1e7b277f2fc1568eae5b;9561;;
 export;fr;votes;32;FALSE;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/fr/downloads/financings/32?with_budget=false;a7f90e4e1454bdf89cf123a9f9dca3718c76b828b7054d10ae3c758a00193943;7880;;
-export;fr;votes;33;TRUE;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/fr/downloads/financings/33?with_budget=true;73734cb44e608efe77d0d5734b521f972e78f8f711fc4d00b28ced1ecba743c1;9669;;
+export;fr;votes;33;TRUE;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/fr/downloads/financings/33?with_budget=true;993deedcaec318fd458b6f7f65454161cb8cdd1c4a962dd818e1c18f4a1c7d30;9792;;
 export;fr;votes;34;TRUE;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/fr/downloads/financings/34?with_budget=true;f0ff7e681302369ab0aa7905ee1f25b4b4bf3eec7626c5865be21ce95b125b26;8135;;
-export;fr;votes;35;TRUE;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/fr/downloads/financings/35?with_budget=true;62aba5f806327d6bc5f60871aade894d34337eeba078b6fa5ffdb49ba06992ad;7981;;
+export;fr;votes;35;TRUE;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/fr/downloads/financings/35?with_budget=true;81ef58448c52522864a6d7c82adc896c87c653a09c9340e9ed3706d0936c28bc;8258;;
 export;fr;votes;36;TRUE;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/fr/downloads/financings/36?with_budget=true;68f2e55111eefd48ea98b8feed6c9822775fbaefc7ce33a81c8429b809cc73b6;8847;;
 export;fr;votes;4;TRUE;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/fr/downloads/financings/4?with_budget=true;49d3926a36ab63b0375faad3863dc86d2eb76474d35e8ba21973c0897acdeb3f;7331;;
 export;fr;votes;4;FALSE;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/fr/downloads/financings/4?with_budget=false;9d8357fae79eb98572a4a8d28015a4924ae9d7d98073e14040057567fa290046;7284;;
@@ -1396,6 +1396,9 @@ form;fr;;;;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/fr/downl
 form;fr;;;;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/fr/downloads/campaigns/621/forms/131;391b34020d3bd934bfc275496b5f04799e1fe13ceace5acdab80908773c02d94;5500;621;131
 form;fr;;;;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/fr/downloads/campaigns/622/forms/119;5d3a05029f7117dff83377372d282727277bc043626d4ebd96404a71bf79345c;5521;622;119
 form;fr;;;;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/fr/downloads/campaigns/623/forms/119;07d620ccd28aad1cef919946e49036824ff5f0380f3e8e1a7e939bb283417db6;5512;623;119
+form;fr;;;;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/fr/downloads/campaigns/624/forms/127;cfe6f18b50d69638fa8aa7588d0ce9481f6afcb55f87e09107389271d6995092;5533;624;127
+form;fr;;;;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/fr/downloads/campaigns/624/forms/128;cd77e6fcb4b2ca84cdf7966e023ceafad533f70ebf4f6b1e849236b7bc289cd1;9141;624;128
+form;fr;;;;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/fr/downloads/campaigns/625/forms/119;c842e123a940c1736762408314851a4e3184eea577d40399a33eb6b0813ed4fd;5540;625;119
 form;fr;;;;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/fr/downloads/campaigns/63/forms/1;ab56c711af627fd04baa4cdabee29828e9c9ad92963bd58ed37e0f9a02039b6f;5646;63;1
 form;fr;;;;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/fr/downloads/campaigns/63/forms/2;2702f1f25d7b2c242555b6f986ac62f78e643746b768be8c8fb5da04bad3788e;9336;63;2
 form;fr;;;;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/fr/downloads/campaigns/63/forms/5;9a9ee43d83a3674ffa2d356bbf5c9d0b47b8cd405d078ecc9ab05cc9e994ca54;5657;63;5
