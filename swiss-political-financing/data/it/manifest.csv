@@ -43,13 +43,13 @@ export;it;votes;29;FALSE;https://politikfinanzierung.efk.admin.ch/api/frontend/l
 export;it;votes;3;TRUE;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/it/downloads/financings/3?with_budget=true;6007f095121d9239c7fd3ddf9e9396525ca387ab90bfe5dca42a0a496dcada27;9370;;
 export;it;votes;3;FALSE;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/it/downloads/financings/3?with_budget=false;2725631fd4951b8f39718fb6b87ceef2e5cf61b38f9fd410b3be65f64bd69b1b;9639;;
 export;it;votes;31;TRUE;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/it/downloads/financings/31?with_budget=true;bbc4abb9b3cf2d0d1016d32b68466b417445683e4d33a1052a9858687c03c4f6;9173;;
-export;it;votes;31;FALSE;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/it/downloads/financings/31?with_budget=false;ecff9215e745d1fab87de972678d6cb410ace9aa9dce0f26a53e9bd540d8291b;7643;;
+export;it;votes;31;FALSE;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/it/downloads/financings/31?with_budget=false;10c40aacbeb52fbf54206eeaa35aba61e13c2d89c26186d3bb0d6a2a3f03c287;7774;;
 export;it;votes;32;TRUE;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/it/downloads/financings/32?with_budget=true;847cfdab461be5da62771b22a233be9ce92a23545d0d46d0978ed26b077b60fc;9512;;
 export;it;votes;32;FALSE;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/it/downloads/financings/32?with_budget=false;0c4d75122b0b4ae854e4397324883d3528ff03501d6a9091080829a9e821c301;7813;;
 export;it;votes;33;TRUE;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/it/downloads/financings/33?with_budget=true;73046fa1bb43a730890dd70642acc2278cd19f01597f5bb112805ff64074859c;9736;;
 export;it;votes;34;TRUE;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/it/downloads/financings/34?with_budget=true;b25c68715f8a68885fa8768c5240f41820e50a4136b8d42d0de85e48cf5f945a;8114;;
 export;it;votes;35;TRUE;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/it/downloads/financings/35?with_budget=true;ebc5e5ccfa8708c813ed65b9233fe7f2c0b68d31508e248feb19aa682109b8d0;8167;;
-export;it;votes;36;TRUE;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/it/downloads/financings/36?with_budget=true;93216b798b334aafc3780fc7648e17cf7673582af754f494c98750f5d595f311;8903;;
+export;it;votes;36;TRUE;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/it/downloads/financings/36?with_budget=true;604af077fef5a276c8e1928c4f39cb4fb19b4f821e38170684cc89128458b7ef;9015;;
 export;it;votes;4;TRUE;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/it/downloads/financings/4?with_budget=true;689b9f2e58a31e0ac0cc9491efb4f13905bbf0462ade838b027763ea7167154a;7298;;
 export;it;votes;4;FALSE;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/it/downloads/financings/4?with_budget=false;845773065b31a7cac7ecc0fa04482183ad79262c7ba4b51238a3e0ec47aaa42d;7245;;
 export;it;votes;5;TRUE;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/it/downloads/financings/5?with_budget=true;df813113f07c48b857943e5260b1ef22cba6c0667302b9adb4f17f166ba53500;6751;;
@@ -1358,6 +1358,7 @@ form;it;;;;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/it/downl
 form;it;;;;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/it/downloads/campaigns/602/forms/111;fb8b3b36d99256b9315f7629e5d060646bc564459222170a524f1d2f0ff5dfd4;5478;602;111
 form;it;;;;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/it/downloads/campaigns/602/forms/112;c1c3c0b7eb5c02de939789e56da7921e4932b18328662d7904686734a0f4be05;9359;602;112
 form;it;;;;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/it/downloads/campaigns/603/forms/111;6f674242bbc663a306c2a034c2b2978745196bb849b01faba99c31e65de0fc43;5484;603;111
+form;it;;;;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/it/downloads/campaigns/603/forms/117;93a7e7ee2bd40ced5abc4d4e4373cd2f53372adea00d746ad673e1c651ff9d2c;5496;603;117
 form;it;;;;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/it/downloads/campaigns/604/forms/113;4a20831b2b0c60ede1eeea3259dcdbb480f033dab16693aabc7db873dca83683;5557;604;113
 form;it;;;;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/it/downloads/campaigns/604/forms/114;5f0656caae30dc01056da085d15fc8089449913ce442c39798e832bca5035f16;9207;604;114
 form;it;;;;https://politikfinanzierung.efk.admin.ch/api/frontend/latest/it/downloads/campaigns/604/forms/115;7fe5dbdc53fd29a6b151b30fa405d4f93b9ec9f6f131d16f0deac9f2e421e70a;5560;604;115
